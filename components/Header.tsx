@@ -114,10 +114,18 @@ export default function Header() {
             href='/'
             className='flex flex-col items-center leading-none text-gray-900 dark:text-white'
             onClick={handleLogoClick}>
-            <span className='text-2xl md:text-3xl font-extrabold tracking-tight'>SIDIKOFF</span>
-            <span className='text-xs md:text-sm font-medium tracking-widest text-gray-600 dark:text-muted-foreground '>
-              DIGITAL
-            </span>
+            <Image
+              src='/logo-sidikoff.svg'
+              alt='Logo'
+              width={200}
+              height={100}
+              priority
+              className='w-auto max-w-48 h-10 md:h-14 dark:invert'
+              style={{
+                width: 'auto',
+                height: 'auto',
+              }}
+            />
           </a>
         </div>
         {/* Mobile: language, theme, burger */}

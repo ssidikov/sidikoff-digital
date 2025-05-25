@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Breadcrumbs from '@/components/Breadcrumbs'
 import { projects } from '@/data/portfolio-data'
 import { useLanguage } from '@/context/LanguageContext'
 import { useSmoothScroll } from '@/hooks/useSmoothScroll'
@@ -59,12 +60,11 @@ export default function ProjectPage({
         ? project.longDescription[language] || project.longDescription.en
         : project.longDescription,
   }
-
   return (
     <div className='min-h-screen text-foreground transition-colors duration-300 bg-gradient-light dark:bg-gradient-dark'>
       <Header />
       <main className='container mx-auto px-4 pt-24 md:pt-32 min-h-screen'>
-        {' '}
+        <Breadcrumbs />
         <div className='float-right'>
           <button
             onClick={handleBackClick}

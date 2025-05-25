@@ -23,7 +23,9 @@ const translations: Record<Language, TranslationMap> = {
     'nav.portfolio': 'Réalisations',
     'nav.about': 'À propos',
     'nav.prices': 'Services',
+    'nav.services': 'Services',
     'nav.contact': 'Contact',
+    'nav.projects': 'Projets',
 
     // Hero
     'hero.title1': 'Création de sites web et applications web',
@@ -50,14 +52,39 @@ const translations: Record<Language, TranslationMap> = {
     'expertise.item4.title': 'Intégration API',
     'expertise.item4.description':
       'Connexion fluide entre l’interface utilisateur et vos services backend.',
-
     // About
     'about.title': 'À propos',
     'about.subtitle': 'Notre agence',
-    'about.p1':
-      "SIDIKOFF DIGITAL est une agence web basée à Paris. Nous accompagnons les entreprises, PME et associations dans la création de sites internet performants, évolutifs et centrés sur l'utilisateur. Notre approche est basée sur l'écoute, la qualité du code et la réussite de vos projets.",
-    'about.p2':
-      'Notre équipe allie expertise technique, créativité et sens du détail pour livrer des expériences digitales sur mesure.',
+    'about.sectionTitle': 'À Propos de SIDIKOFF DIGITAL',
+    'about.sectionSubtitle':
+      'Votre agence web parisienne spécialisée en création de sites internet et applications web modernes',
+    'about.mission.title': 'Notre Mission',
+    'about.mission.p1':
+      "SIDIKOFF DIGITAL est une agence web basée à Paris, dédiée à accompagner les entreprises, PME et associations dans leur transformation digitale. Nous créons des sites internet performants, évolutifs et centrés sur l'utilisateur.",
+    'about.mission.p2':
+      "Notre approche est basée sur l'écoute, la qualité du code et la réussite de vos projets. Nous allions expertise technique, créativité et sens du détail pour livrer des expériences digitales sur mesure.",
+    'about.expertise.title': 'Notre Expertise',
+    'about.expertise.item1': 'Développement web moderne (React, Next.js, TypeScript)',
+    'about.expertise.item2': 'Design UX/UI responsive et accessible',
+    'about.expertise.item3': 'Optimisation SEO et performances',
+    'about.expertise.item4': 'E-commerce et applications web',
+    'about.expertise.item5': 'Maintenance et support technique',
+    'about.expertise.item6': 'Stratégie digitale et conseil',
+    'about.whyChoose.title': 'Pourquoi Choisir SIDIKOFF DIGITAL ?',
+    'about.whyChoose.advantage1.title': 'Approche Personnalisée',
+    'about.whyChoose.advantage1.description':
+      'Chaque projet est unique et mérite une solution sur mesure',
+    'about.whyChoose.advantage2.title': 'Performance Optimale',
+    'about.whyChoose.advantage2.description':
+      'Sites rapides, sécurisés et optimisés pour le référencement',
+    'about.whyChoose.advantage3.title': 'Accompagnement Complet',
+    'about.whyChoose.advantage3.description':
+      'De la conception à la maintenance, nous restons à vos côtés',
+    'about.location.title': 'Basés à Paris, Rayonnement National',
+    'about.location.description':
+      'Implantés au cœur de Paris, nous intervenons partout en France pour accompagner votre croissance digitale. Rencontrons-nous pour discuter de votre projet !',
+    'about.location.cta1': 'Parlons de votre projet',
+    'about.location.cta2': 'Voir nos réalisations',
 
     // Technologies
     'tech.title': 'Technologies',
@@ -120,6 +147,48 @@ const translations: Record<Language, TranslationMap> = {
       'Vous avez un besoin spécifique ? Contactez-nous pour une solution personnalisée.',
     'prices.quote': 'Demander un devis',
 
+    // Services
+    'services.title': 'Services & Tarifs',
+    'services.subtitle': 'Des solutions web accessibles et sur mesure pour votre entreprise',
+    'services.showcase.title': 'Sites Vitrine',
+    'services.showcase.description':
+      'Sites élégants et professionnels pour présenter votre activité et attirer de nouveaux clients.',
+    'services.showcase.feature1': 'Design responsive',
+    'services.showcase.feature2': 'Optimisation SEO',
+    'services.showcase.feature3': 'Formulaire de contact',
+    'services.showcase.feature4': 'Hébergement inclus',
+    'services.ecommerce.title': 'E-commerce',
+    'services.ecommerce.description':
+      'Boutiques en ligne performantes pour vendre vos produits et développer votre activité.',
+    'services.ecommerce.feature1': 'Gestion des commandes',
+    'services.ecommerce.feature2': 'Paiement sécurisé',
+    'services.ecommerce.feature3': 'Gestion des stocks',
+    'services.ecommerce.feature4': 'Analytics avancées',
+    'services.webapp.title': 'Applications Web',
+    'services.webapp.description':
+      'Applications web sur mesure pour automatiser vos processus et améliorer votre productivité.',
+    'services.webapp.feature1': 'Développement sur mesure',
+    'services.webapp.feature2': 'Interface intuitive',
+    'services.webapp.feature3': 'Base de données',
+    'services.webapp.feature4': 'API & intégrations',
+    'services.features': 'Fonctionnalités',
+    'services.learnMore': 'En savoir plus',
+
+    // FAQ
+    'faq.title': 'Questions Fréquentes',
+    'faq.question1': "Combien coûte la création d'un site web ?",
+    'faq.answer1':
+      'Nos tarifs commencent à 500€ pour un site vitrine simple. Le prix varie selon vos besoins spécifiques : nombre de pages, fonctionnalités, design personnalisé, etc. Nous proposons un devis gratuit et personnalisé.',
+    'faq.question2': 'Combien de temps faut-il pour créer un site web ?',
+    'faq.answer2':
+      'Un site vitrine simple prend généralement 2-3 semaines. Pour un site plus complexe avec fonctionnalités avancées, comptez 4-8 semaines. Nous définissons ensemble un planning précis dès le début du projet.',
+    'faq.question3': 'Proposez-vous la maintenance de sites web ?',
+    'faq.answer3':
+      'Oui, nous proposons des contrats de maintenance pour assurer la sécurité, les mises à jour et les sauvegardes de votre site. Nous offrons également un support technique et des conseils pour optimiser votre présence en ligne.',
+    'faq.question4': 'Mes sites sont-ils optimisés pour le référencement SEO ?',
+    'faq.answer4':
+      'Absolument ! Tous nos sites sont conçus avec les bonnes pratiques SEO : structure optimisée, balises méta, vitesse de chargement, responsive design, contenu structuré. Nous proposons également des prestations SEO avancées.',
+
     // Contact
     'contact.title': 'Contactez-nous',
     'contact.subtitle': 'Discutons de votre projet',
@@ -166,7 +235,9 @@ const translations: Record<Language, TranslationMap> = {
     'nav.portfolio': 'Portfolio',
     'nav.about': 'About',
     'nav.prices': 'Services',
+    'nav.services': 'Services',
     'nav.contact': 'Contact',
+    'nav.projects': 'Projects',
     'hero.title1': 'Website & Web App Development',
     'hero.title2': ' for your business growth',
     'hero.description':
@@ -188,10 +259,34 @@ const translations: Record<Language, TranslationMap> = {
       'Seamless connection between user interface and your backend services.',
     'about.title': 'About',
     'about.subtitle': 'Our Agency',
-    'about.p1':
-      "SIDIKOFF DIGITAL is a web agency based in Paris. We help businesses, SMEs, and associations build high-performance, scalable, and user-centric websites. Our approach is based on listening, code quality, and your project's success.",
-    'about.p2':
-      'Our team combines technical expertise, creativity, and attention to detail to deliver impactful and tailor-made digital experiences.',
+    'about.sectionTitle': 'About SIDIKOFF DIGITAL',
+    'about.sectionSubtitle':
+      'Your Paris-based web agency specializing in modern website and web application development',
+    'about.mission.title': 'Our Mission',
+    'about.mission.p1':
+      'SIDIKOFF DIGITAL is a web agency based in Paris, dedicated to helping businesses, SMEs, and associations in their digital transformation. We create high-performance, scalable, and user-centered websites.',
+    'about.mission.p2':
+      "Our approach is based on listening, code quality, and your project's success. We combine technical expertise, creativity, and attention to detail to deliver custom digital experiences.",
+    'about.expertise.title': 'Our Expertise',
+    'about.expertise.item1': 'Modern web development (React, Next.js, TypeScript)',
+    'about.expertise.item2': 'Responsive and accessible UX/UI design',
+    'about.expertise.item3': 'SEO optimization and performance',
+    'about.expertise.item4': 'E-commerce and web applications',
+    'about.expertise.item5': 'Maintenance and technical support',
+    'about.expertise.item6': 'Digital strategy and consulting',
+    'about.whyChoose.title': 'Why Choose SIDIKOFF DIGITAL?',
+    'about.whyChoose.advantage1.title': 'Personalized Approach',
+    'about.whyChoose.advantage1.description':
+      'Each project is unique and deserves a tailor-made solution',
+    'about.whyChoose.advantage2.title': 'Optimal Performance',
+    'about.whyChoose.advantage2.description': 'Fast, secure websites optimized for search engines',
+    'about.whyChoose.advantage3.title': 'Complete Support',
+    'about.whyChoose.advantage3.description': 'From design to maintenance, we stay by your side',
+    'about.location.title': 'Based in Paris, National Coverage',
+    'about.location.description':
+      "Located in the heart of Paris, we operate throughout France to support your digital growth. Let's meet to discuss your project!",
+    'about.location.cta1': "Let's talk about your project",
+    'about.location.cta2': 'View our work',
     'tech.title': 'Technologies',
     'tech.suffix': 'We use to build modern, high-performance websites',
     'portfolio.title': 'Recent Projects',
@@ -274,12 +369,52 @@ const translations: Record<Language, TranslationMap> = {
     'validation.phone.invalid': 'Please enter a valid phone number',
     'validation.tariff.required': 'Please select a service',
     'validation.message.required': 'Message is required',
-    'validation.message.minLength': 'Message must be at least 10 characters',
-
-    // Success popup messages
+    'validation.message.minLength': 'Message must be at least 10 characters', // Success popup messages
     'popup.success.title': 'Successfully Sent!',
     'popup.success.message':
       'Your message has been sent successfully. We will get back to you soon!',
+
+    // Services
+    'services.title': 'Services & Pricing',
+    'services.subtitle': 'Accessible and tailored web solutions for your business',
+    'services.showcase.title': 'Showcase Websites',
+    'services.showcase.description':
+      'Elegant and professional websites to present your business and attract new clients.',
+    'services.showcase.feature1': 'Responsive design',
+    'services.showcase.feature2': 'SEO optimization',
+    'services.showcase.feature3': 'Contact form',
+    'services.showcase.feature4': 'Hosting included',
+    'services.ecommerce.title': 'E-commerce',
+    'services.ecommerce.description':
+      'High-performance online stores to sell your products and grow your business.',
+    'services.ecommerce.feature1': 'Order management',
+    'services.ecommerce.feature2': 'Secure payment',
+    'services.ecommerce.feature3': 'Inventory management',
+    'services.ecommerce.feature4': 'Advanced analytics',
+    'services.webapp.title': 'Web Applications',
+    'services.webapp.description':
+      'Custom web applications to automate your processes and improve your productivity.',
+    'services.webapp.feature1': 'Custom development',
+    'services.webapp.feature2': 'Intuitive interface',
+    'services.webapp.feature3': 'Database',
+    'services.webapp.feature4': 'API & integrations',
+    'services.features': 'Features',
+    'services.learnMore': 'Learn more',
+
+    // FAQ
+    'faq.title': 'Frequently Asked Questions',
+    'faq.question1': 'How much does it cost to create a website?',
+    'faq.answer1':
+      'Our rates start at €500 for a simple showcase website. The price varies according to your specific needs: number of pages, features, custom design, etc. We offer a free and personalized quote.',
+    'faq.question2': 'How long does it take to create a website?',
+    'faq.answer2':
+      'A simple showcase website generally takes 2-3 weeks. For a more complex site with advanced features, count 4-8 weeks. We define a precise schedule together from the start of the project.',
+    'faq.question3': 'Do you offer website maintenance?',
+    'faq.answer3':
+      'Yes, we offer maintenance contracts to ensure the security, updates and backups of your site. We also offer technical support and advice to optimize your online presence.',
+    'faq.question4': 'Are my sites optimized for SEO?',
+    'faq.answer4':
+      'Absolutely! All our sites are designed with SEO best practices: optimized structure, meta tags, loading speed, responsive design, structured content. We also offer advanced SEO services.',
 
     'footer.rights': 'SIDIKOFF DIGITAL — Web Agency in Paris. Custom website development.',
   },
@@ -288,7 +423,9 @@ const translations: Record<Language, TranslationMap> = {
     'nav.portfolio': 'Портфолио',
     'nav.about': 'О нас',
     'nav.prices': 'Услуги',
+    'nav.services': 'Услуги',
     'nav.contact': 'Контакты',
+    'nav.projects': 'Проекты',
     'hero.title1': 'Создание веб-сайтов и веб-приложений',
     'hero.title2': ' для роста вашего бизнеса',
     'hero.description':
@@ -310,10 +447,36 @@ const translations: Record<Language, TranslationMap> = {
     'expertise.item4.description': 'Бесшовная интеграция интерфейса с вашими сервисами и API.',
     'about.title': 'О нас',
     'about.subtitle': 'Наше агентство',
-    'about.p1':
-      'SIDIKOFF DIGITAL — веб-агентство из Парижа. Мы помогаем компаниям, малому бизнесу и ассоциациям создавать эффективные, масштабируемые и ориентированные на пользователя сайты. Наш подход — это внимание, качество кода и успех вашего проекта.',
-    'about.p2':
-      'Наша команда сочетает техническую экспертизу, креативность и внимание к деталям для создания ярких digital-решений.',
+    'about.sectionTitle': 'О SIDIKOFF DIGITAL',
+    'about.sectionSubtitle':
+      'Ваше парижское веб-агентство, специализирующееся на создании современных сайтов и веб-приложений',
+    'about.mission.title': 'Наша миссия',
+    'about.mission.p1':
+      'SIDIKOFF DIGITAL — веб-агентство из Парижа, посвященное помощи компаниям, малому и среднему бизнесу, а также ассоциациям в их цифровой трансформации. Мы создаем высокопроизводительные, масштабируемые и ориентированные на пользователя веб-сайты.',
+    'about.mission.p2':
+      'Наш подход основан на внимании к клиенту, качестве кода и успехе ваших проектов. Мы сочетаем техническую экспертизу, креативность и внимание к деталям для создания индивидуальных цифровых решений.',
+    'about.expertise.title': 'Наша экспертиза',
+    'about.expertise.item1': 'Современная веб-разработка (React, Next.js, TypeScript)',
+    'about.expertise.item2': 'Адаптивный и доступный UX/UI дизайн',
+    'about.expertise.item3': 'SEO-оптимизация и производительность',
+    'about.expertise.item4': 'Электронная коммерция и веб-приложения',
+    'about.expertise.item5': 'Техническая поддержка и обслуживание',
+    'about.expertise.item6': 'Цифровая стратегия и консалтинг',
+    'about.whyChoose.title': 'Почему выбрать SIDIKOFF DIGITAL?',
+    'about.whyChoose.advantage1.title': 'Индивидуальный подход',
+    'about.whyChoose.advantage1.description':
+      'Каждый проект уникален и заслуживает индивидуального решения',
+    'about.whyChoose.advantage2.title': 'Оптимальная производительность',
+    'about.whyChoose.advantage2.description':
+      'Быстрые, безопасные сайты, оптимизированные для поисковых систем',
+    'about.whyChoose.advantage3.title': 'Полная поддержка',
+    'about.whyChoose.advantage3.description':
+      'От дизайна до обслуживания — мы остаемся рядом с вами',
+    'about.location.title': 'Базируемся в Париже, работаем по всей стране',
+    'about.location.description':
+      'Расположенные в самом сердце Парижа, мы работаем по всей Франции, поддерживая ваш цифровой рост. Давайте встретимся и обсудим ваш проект!',
+    'about.location.cta1': 'Обсудим ваш проект',
+    'about.location.cta2': 'Посмотреть наши работы',
     'tech.title': 'Технологии',
     'tech.suffix': 'Мы используем для создания современных и эффективных сайтов',
     'portfolio.title': 'Недавние проекты',
@@ -395,11 +558,51 @@ const translations: Record<Language, TranslationMap> = {
     'validation.phone.invalid': 'Пожалуйста, введите корректный номер телефона',
     'validation.tariff.required': 'Пожалуйста, выберите услугу',
     'validation.message.required': 'Сообщение обязательно для заполнения',
-    'validation.message.minLength': 'Сообщение должно содержать минимум 10 символов',
-
-    // Success popup messages
+    'validation.message.minLength': 'Сообщение должно содержать минимум 10 символов', // Success popup messages
     'popup.success.title': 'Успешно отправлено!',
     'popup.success.message': 'Ваше сообщение было успешно отправлено. Мы скоро свяжемся с вами!',
+
+    // Services
+    'services.title': 'Услуги и Цены',
+    'services.subtitle': 'Доступные и индивидуальные веб-решения для вашего бизнеса',
+    'services.showcase.title': 'Сайты-визитки',
+    'services.showcase.description':
+      'Элегантные и профессиональные сайты для презентации вашего бизнеса и привлечения новых клиентов.',
+    'services.showcase.feature1': 'Адаптивный дизайн',
+    'services.showcase.feature2': 'SEO-оптимизация',
+    'services.showcase.feature3': 'Форма обратной связи',
+    'services.showcase.feature4': 'Хостинг включён',
+    'services.ecommerce.title': 'Интернет-магазины',
+    'services.ecommerce.description':
+      'Высокопроизводительные онлайн-магазины для продажи ваших товаров и развития бизнеса.',
+    'services.ecommerce.feature1': 'Управление заказами',
+    'services.ecommerce.feature2': 'Безопасная оплата',
+    'services.ecommerce.feature3': 'Управление товарами',
+    'services.ecommerce.feature4': 'Продвинутая аналитика',
+    'services.webapp.title': 'Веб-приложения',
+    'services.webapp.description':
+      'Индивидуальные веб-приложения для автоматизации процессов и повышения продуктивности.',
+    'services.webapp.feature1': 'Разработка под заказ',
+    'services.webapp.feature2': 'Интуитивный интерфейс',
+    'services.webapp.feature3': 'База данных',
+    'services.webapp.feature4': 'API и интеграции',
+    'services.features': 'Возможности',
+    'services.learnMore': 'Узнать больше',
+
+    // FAQ
+    'faq.title': 'Часто задаваемые вопросы',
+    'faq.question1': 'Сколько стоит создание сайта?',
+    'faq.answer1':
+      'Наши цены начинаются от 500€ за простой сайт-визитку. Стоимость варьируется в зависимости от ваших потребностей: количество страниц, функции, индивидуальный дизайн и т.д. Мы предлагаем бесплатную персональную консультацию.',
+    'faq.question2': 'Сколько времени нужно для создания сайта?',
+    'faq.answer2':
+      'Простой сайт-визитка обычно занимает 2-3 недели. Для более сложного сайта с дополнительными функциями рассчитывайте на 4-8 недель. Мы определим точный график в начале проекта.',
+    'faq.question3': 'Предлагаете ли вы обслуживание сайтов?',
+    'faq.answer3':
+      'Да, мы предлагаем договоры на обслуживание для обеспечения безопасности, обновлений и резервного копирования вашего сайта. Мы также предлагаем техническую поддержку и советы по оптимизации вашего онлайн-присутствия.',
+    'faq.question4': 'Оптимизированы ли мои сайты для SEO?',
+    'faq.answer4':
+      'Конечно! Все наши сайты создаются с учётом лучших SEO-практик: оптимизированная структура, мета-теги, скорость загрузки, адаптивный дизайн, структурированный контент. Мы также предлагаем расширенные SEO-услуги.',
 
     'footer.rights': 'SIDIKOFF DIGITAL — Веб-агентство в Париже. Разработка сайтов под ключ.',
   },

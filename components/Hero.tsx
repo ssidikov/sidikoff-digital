@@ -28,7 +28,7 @@ export default function Hero() {
         <div className='md:hidden relative flex items-center justify-center w-full h-auto'>
           <div className='relative w-full max-w-[320px] aspect-square mx-auto'>
             <Image
-              src='/sidikoff_logo.svg'
+              src='/logo-sidikoff.svg'
               alt='SIDIKOFF DIGITAL - Web Agency'
               width={320}
               height={320}
@@ -65,7 +65,7 @@ export default function Hero() {
       <AnimatedSection className='hidden md:w-full md:flex md:justify-center md:items-center'>
         <div className='relative w-full max-w-[420px] aspect-square mx-auto'>
           <Image
-            src='/sidikoff_logo.svg'
+            src='/logo-sidikoff.svg'
             alt='SIDIKOFF DIGITAL - Votre Agence Web de Confiance'
             width={420}
             height={420}
