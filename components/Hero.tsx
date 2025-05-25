@@ -18,7 +18,7 @@ export default function Hero() {
   return (
     <section
       id='home'
-      className='py-20 pt-32 md:pb-0 container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center'>
+      className='py-20 pt-20 md:pt-32 md:pb-0 container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center'>
       {/* Left part - text and CTA*/}
       <AnimatedSection className='space-y-8'>
         <h1 className='text-4xl xl:text-6xl font-extrabold leading-tight tracking-tight'>
