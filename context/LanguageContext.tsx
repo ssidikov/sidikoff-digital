@@ -79,12 +79,11 @@ const translations: Record<Language, TranslationMap> = {
       'Sites rapides, sécurisés et optimisés pour le référencement',
     'about.whyChoose.advantage3.title': 'Accompagnement Complet',
     'about.whyChoose.advantage3.description':
-      'De la conception à la maintenance, nous restons à vos côtés',
-    'about.location.title': 'Basés à Paris, Rayonnement National',
+      'De la conception à la maintenance, nous restons à vos côtés',    'about.location.title': 'Prêt à Transformer Votre Vision en Réalité ?',
     'about.location.description':
-      'Implantés au cœur de Paris, nous intervenons partout en France pour accompagner votre croissance digitale. Rencontrons-nous pour discuter de votre projet !',
-    'about.location.cta1': 'Parlons de votre projet',
-    'about.location.cta2': 'Voir nos réalisations',
+      'Nous accompagnons votre croissance digitale avec des solutions innovantes et sur mesure. Découvrez comment nous pouvons propulser votre projet vers le succès !',
+    'about.location.cta1': 'Démarrer votre projet',
+    'about.location.cta2': 'Découvrir nos réalisations',
 
     // Technologies
     'tech.title': 'Technologies',
@@ -281,12 +280,11 @@ const translations: Record<Language, TranslationMap> = {
     'about.whyChoose.advantage2.title': 'Optimal Performance',
     'about.whyChoose.advantage2.description': 'Fast, secure websites optimized for search engines',
     'about.whyChoose.advantage3.title': 'Complete Support',
-    'about.whyChoose.advantage3.description': 'From design to maintenance, we stay by your side',
-    'about.location.title': 'Based in Paris, National Coverage',
+    'about.whyChoose.advantage3.description': 'From design to maintenance, we stay by your side',    'about.location.title': 'Ready to Transform Your Vision into Reality?',
     'about.location.description':
-      "Located in the heart of Paris, we operate throughout France to support your digital growth. Let's meet to discuss your project!",
-    'about.location.cta1': "Let's talk about your project",
-    'about.location.cta2': 'View our work',
+      'We support your digital growth with innovative and tailored solutions. Discover how we can propel your project to success!',
+    'about.location.cta1': 'Start your project',
+    'about.location.cta2': 'Discover our work',
     'tech.title': 'Technologies',
     'tech.suffix': 'We use to build modern, high-performance websites',
     'portfolio.title': 'Recent Projects',
@@ -471,12 +469,11 @@ const translations: Record<Language, TranslationMap> = {
       'Быстрые, безопасные сайты, оптимизированные для поисковых систем',
     'about.whyChoose.advantage3.title': 'Полная поддержка',
     'about.whyChoose.advantage3.description':
-      'От дизайна до обслуживания — мы остаемся рядом с вами',
-    'about.location.title': 'Базируемся в Париже, работаем по всей стране',
+      'От дизайна до обслуживания — мы остаемся рядом с вами',    'about.location.title': 'Готовы Воплотить Вашу Идею в Реальность?',
     'about.location.description':
-      'Расположенные в самом сердце Парижа, мы работаем по всей Франции, поддерживая ваш цифровой рост. Давайте встретимся и обсудим ваш проект!',
-    'about.location.cta1': 'Обсудим ваш проект',
-    'about.location.cta2': 'Посмотреть наши работы',
+      'Мы поддерживаем ваш цифровой рост с помощью инновационных и индивидуальных решений. Узнайте, как мы можем вывести ваш проект на новый уровень успеха!',
+    'about.location.cta1': 'Начать ваш проект',
+    'about.location.cta2': 'Изучить наши работы',
     'tech.title': 'Технологии',
     'tech.suffix': 'Мы используем для создания современных и эффективных сайтов',
     'portfolio.title': 'Недавние проекты',
