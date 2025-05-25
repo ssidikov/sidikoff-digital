@@ -99,6 +99,7 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 ## 📧 Contact
 
 **SIDIKOFF Digital**
+
 - Website: [sidikoff.digital](https://sidikoff.digital)
 - Email: contact@sidikoff.digital
 - Location: Moscow, Russia
