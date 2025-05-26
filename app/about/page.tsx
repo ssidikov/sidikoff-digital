@@ -10,12 +10,12 @@ export const metadata: Metadata = generateSEOMetadata(pagesSEO.about.fr)
 const aboutSchema = {
   '@context': 'https://schema.org',
   '@type': 'AboutPage',
-  '@id': 'https://sidikoff-digital.fr/about#aboutpage',
-  url: 'https://sidikoff-digital.fr/about',
+  '@id': 'https://sidikoff.com/about#aboutpage',
+  url: 'https://sidikoff.com/about',
   name: 'À Propos de SIDIKOFF DIGITAL',
   description: 'Découvrez SIDIKOFF DIGITAL, votre agence web parisienne',
   mainEntity: {
-    '@id': 'https://sidikoff-digital.fr/#organization',
+    '@id': 'https://sidikoff.com/#organization',
   },
 }
 

@@ -28,7 +28,7 @@ const defaultSEOConfig = {
     'e-commerce',
     'développeur paris',
   ],
-  baseUrl: 'https://sidikoff-digital.fr',
+  baseUrl: 'https://sidikoff.com',
   social: {
     twitter: '@sidikoffdigital',
     linkedin: 'sidikoff-digital',
@@ -36,8 +36,8 @@ const defaultSEOConfig = {
   business: {
     name: 'SIDIKOFF DIGITAL',
     address: 'Paris, France',
-    phone: '+33 1 XX XX XX XX',
-    email: 'contact@sidikoff-digital.fr',
+    phone: '+33 6 26 93 27 34',
+    email: 'contact@sidikoff.com',
   },
 }
 
@@ -132,21 +132,21 @@ export const pagesSEO = {
         'développement web',
         'agence digitale',
       ],
-      canonical: 'https://sidikoff-digital.fr/',
+      canonical: 'https://sidikoff.com/',
     },
     en: {
       title: 'SIDIKOFF DIGITAL - Web Agency in Paris | Website & App Development',
       description:
         'Parisian web agency specialized in website creation, web applications and digital strategy. Modern development, UX/UI design, SEO optimization. Free quote.',
       keywords: ['web agency paris', 'website creation', 'web development', 'digital agency'],
-      canonical: 'https://sidikoff-digital.fr/en',
+      canonical: 'https://sidikoff.com/en',
     },
     ru: {
       title: 'SIDIKOFF DIGITAL - Веб-агентство в Париже | Создание Сайтов и Приложений',
       description:
         'Парижское веб-агентство, специализирующееся на создании сайтов, веб-приложений и цифровой стратегии. Современная разработка, UX/UI дизайн, SEO оптимизация.',
       keywords: ['веб агентство париж', 'создание сайтов', 'веб разработка', 'цифровое агентство'],
-      canonical: 'https://sidikoff-digital.fr/ru',
+      canonical: 'https://sidikoff.com/ru',
     },
   },
 
@@ -156,21 +156,21 @@ export const pagesSEO = {
       description:
         'Découvrez SIDIKOFF DIGITAL, votre agence web parisienne. Notre équipe experte vous accompagne dans vos projets de développement web et transformation digitale.',
       keywords: ['agence web paris', 'équipe développement', 'expertise web'],
-      canonical: 'https://sidikoff-digital.fr/about',
+      canonical: 'https://sidikoff.com/about',
     },
     en: {
       title: 'About Us | SIDIKOFF DIGITAL - Web Agency Paris',
       description:
         'Discover SIDIKOFF DIGITAL, your Parisian web agency. Our expert team supports you in your web development and digital transformation projects.',
       keywords: ['web agency paris', 'development team', 'web expertise'],
-      canonical: 'https://sidikoff-digital.fr/en/about',
+      canonical: 'https://sidikoff.com/en/about',
     },
     ru: {
       title: 'О Нас | SIDIKOFF DIGITAL - Веб-агентство Париж',
       description:
         'Познакомьтесь с SIDIKOFF DIGITAL, вашим парижским веб-агентством. Наша команда экспертов поддержит вас в проектах веб-разработки и цифровой трансформации.',
       keywords: ['веб агентство париж', 'команда разработки', 'веб экспертиза'],
-      canonical: 'https://sidikoff-digital.fr/ru/about',
+      canonical: 'https://sidikoff.com/ru/about',
     },
   },
 
@@ -185,21 +185,21 @@ export const pagesSEO = {
         'devis site internet',
         'prix développement web',
       ],
-      canonical: 'https://sidikoff-digital.fr/services',
+      canonical: 'https://sidikoff.com/services',
     },
     en: {
       title: 'Services & Pricing | SIDIKOFF DIGITAL - Web Agency Paris',
       description:
         'Discover our web services: website creation, applications, e-commerce, SEO optimization. Transparent pricing and free quote. Web agency in Paris.',
       keywords: ['web agency pricing', 'web services paris', 'website quote', 'development costs'],
-      canonical: 'https://sidikoff-digital.fr/en/services',
+      canonical: 'https://sidikoff.com/en/services',
     },
     ru: {
       title: 'Услуги и Цены | SIDIKOFF DIGITAL - Веб-агентство Париж',
       description:
         'Откройте для себя наши веб-услуги: создание сайтов, приложений, e-commerce, SEO оптимизация. Прозрачные цены и бесплатная смета.',
       keywords: ['цены веб агентство', 'веб услуги париж', 'смета сайта', 'стоимость разработки'],
-      canonical: 'https://sidikoff-digital.fr/ru/services',
+      canonical: 'https://sidikoff.com/ru/services',
     },
   },
 
@@ -214,7 +214,7 @@ export const pagesSEO = {
         'exemples sites internet',
         'références clients',
       ],
-      canonical: 'https://sidikoff-digital.fr/portfolio',
+      canonical: 'https://sidikoff.com/portfolio',
     },
     en: {
       title: 'Portfolio | SIDIKOFF DIGITAL - Our Web Projects',
@@ -226,7 +226,7 @@ export const pagesSEO = {
         'website examples',
         'client references',
       ],
-      canonical: 'https://sidikoff-digital.fr/en/portfolio',
+      canonical: 'https://sidikoff.com/en/portfolio',
     },
     ru: {
       title: 'Портфолио | SIDIKOFF DIGITAL - Наши Веб-проекты',
@@ -238,7 +238,7 @@ export const pagesSEO = {
         'примеры сайтов',
         'клиентские референсы',
       ],
-      canonical: 'https://sidikoff-digital.fr/ru/portfolio',
+      canonical: 'https://sidikoff.com/ru/portfolio',
     },
   },
 }
@@ -248,7 +248,7 @@ export function generateLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': 'https://sidikoff-digital.fr/#business',
+    '@id': 'https://sidikoff.com/#business',
     name: defaultSEOConfig.business.name,
     alternateName: 'SIDIKOFF DIGITAL',
     description:
@@ -299,18 +299,18 @@ export function generateWebsiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    '@id': 'https://sidikoff-digital.fr/#website',
+    '@id': 'https://sidikoff.com/#website',
     url: defaultSEOConfig.baseUrl,
     name: defaultSEOConfig.siteName,
     description: defaultSEOConfig.defaultDescription,
     publisher: {
-      '@id': 'https://sidikoff-digital.fr/#business',
+      '@id': 'https://sidikoff.com/#business',
     },
     potentialAction: {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: 'https://sidikoff-digital.fr/search?q={search_term_string}',
+        urlTemplate: 'https://sidikoff.com/search?q={search_term_string}',
       },
       'query-input': 'required name=search_term_string',
     },
@@ -323,10 +323,10 @@ export function generateOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    '@id': 'https://sidikoff-digital.fr/#organization',
+    '@id': 'https://sidikoff.com/#organization',
     name: defaultSEOConfig.business.name,
     url: defaultSEOConfig.baseUrl,
-    logo: 'https://sidikoff-digital.fr/logo.png',
+    logo: 'https://sidikoff.com/logo.png',
     description:
       'Agence web parisienne spécialisée en développement de sites internet et applications web modernes',
     address: {

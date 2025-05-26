@@ -35,9 +35,9 @@ export const metadata: Metadata = generateSEOMetadata({
   ],
   locale: 'fr-FR',
   alternateLanguages: {
-    fr: 'https://sidikoff-digital.fr/',
-    en: 'https://sidikoff-digital.fr/en',
-    ru: 'https://sidikoff-digital.fr/ru',
+    fr: 'https://sidikoff.com/',
+    en: 'https://sidikoff.com/en',
+    ru: 'https://sidikoff.com/ru',
   },
 })
 

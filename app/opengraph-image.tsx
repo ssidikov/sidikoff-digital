@@ -96,7 +96,7 @@ export default async function Image() {
             justifyContent: 'center',
             fontSize: '18px',
           }}>
-          📍 Paris, France • sidikoff-digital.fr
+          📍 Paris, France • sidikoff.com
         </div>
       </div>
     ),

@@ -70,7 +70,7 @@ export default function Analytics({
             name: 'SIDIKOFF DIGITAL',
             description:
               'Agence web parisienne spécialisée en création de sites internet et applications web modernes',
-            url: 'https://sidikoff-digital.fr',
+            url: 'https://sidikoff.com',
             address: {
               '@type': 'PostalAddress',
               addressLocality: 'Paris',

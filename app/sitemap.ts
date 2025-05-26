@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://sidikoff-digital.fr'
+  const baseUrl = 'https://sidikoff.com'
   const currentDate = new Date().toISOString()
 
   // Static pages with multilingual support

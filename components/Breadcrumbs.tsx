@@ -45,7 +45,7 @@ export default function Breadcrumbs() {
       '@type': 'ListItem',
       position: index + 1,
       name: breadcrumb.label,
-      item: `https://sidikoff-digital.fr${breadcrumb.href}`,
+      item: `https://sidikoff.com${breadcrumb.href}`,
     })),
   }
 
