@@ -232,11 +232,7 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}>
               <div className='px-8 py-4 border-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 dark:border-indigo-400 rounded-xl font-semibold text-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all duration-300 flex items-center gap-2'>
                 {t('hero.viewWork')}
-                <motion.span
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}>
-                  →
-                </motion.span>
+                <motion.span animate={{ x: [0, 4, 0] }}>→</motion.span>
               </div>
             </motion.a>
           </motion.div>

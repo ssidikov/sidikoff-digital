@@ -14,8 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           fr: baseUrl,
-          en: `${baseUrl}/en`,
-          ru: `${baseUrl}/ru`,
+          en: `${baseUrl}`,
+          ru: `${baseUrl}`,
         },
       },
     },
@@ -26,9 +26,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
       alternates: {
         languages: {
-          fr: `${baseUrl}/about`,
-          en: `${baseUrl}/en/about`,
-          ru: `${baseUrl}/ru/about`,
+          fr: `${baseUrl}/#about`,
+          en: `${baseUrl}/#about`,
+          ru: `${baseUrl}/#about`,
         },
       },
     },
@@ -39,21 +39,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
       alternates: {
         languages: {
-          fr: `${baseUrl}/services`,
-          en: `${baseUrl}/en/services`,
-          ru: `${baseUrl}/ru/services`,
+          fr: `${baseUrl}/#services`,
+          en: `${baseUrl}/#services`,
+          ru: `${baseUrl}/#services`,
         },
       },
-    },    {
+    },
+    {
       url: `${baseUrl}/portfolio`,
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 0.8,
       alternates: {
         languages: {
-          fr: `${baseUrl}/portfolio`,
-          en: `${baseUrl}/en/portfolio`,
-          ru: `${baseUrl}/ru/portfolio`,
+          fr: `${baseUrl}/#portfolio`,
+          en: `${baseUrl}/#portfolio`,
+          ru: `${baseUrl}/#portfolio`,
         },
       },
     },
@@ -65,8 +66,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           fr: `${baseUrl}/mentions-legales`,
-          en: `${baseUrl}/en/legal-notices`,
-          ru: `${baseUrl}/ru/legal-notices`,
+          en: `${baseUrl}/mentions-legales`,
+          ru: `${baseUrl}/mentions-legales`,
         },
       },
     },
@@ -98,8 +99,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: {
       languages: {
         fr: `${baseUrl}/projects/${slug}`,
-        en: `${baseUrl}/en/projects/${slug}`,
-        ru: `${baseUrl}/ru/projects/${slug}`,
+        en: `${baseUrl}/projects/${slug}`,
+        ru: `${baseUrl}/projects/${slug}`,
       },
     },
   }))

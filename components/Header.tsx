@@ -306,6 +306,7 @@ export default function Header() {
               initial='hidden'
               animate='visible'
               exit='hidden'>
+              {' '}
               {[
                 { href: '/#home', key: 'nav.home', section: 'home' },
                 { href: '/#portfolio', key: 'nav.portfolio', section: 'portfolio' },
@@ -335,7 +336,6 @@ export default function Header() {
                   </motion.a>
                 </motion.div>
               ))}
-
               <motion.div
                 variants={itemVariants}
                 className='w-full mt-4 pt-4 border-t border-border'>

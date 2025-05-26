@@ -17,7 +17,7 @@ type TranslationMap = {
 
 const translations: Record<Language, TranslationMap> = {
   fr: {
-    // Header
+    // Header    'nav.home': 'Accueil',
     'nav.home': 'Accueil',
     'nav.portfolio': 'Réalisations',
     'nav.about': 'À propos',
@@ -235,10 +235,8 @@ const translations: Record<Language, TranslationMap> = {
     'popup.success.message':
       'Votre message a été envoyé avec succès. Nous vous répondrons bientôt !', // Footer
     'footer.rights':
-      'SIDIKOFF DIGITAL — Agence Web à Paris. Création de sites internet sur mesure.',
-
-    // Legal Mentions
-    'legal.title': 'Mentions Légales',
+      'SIDIKOFF DIGITAL — Agence Web à Paris. Création de sites internet sur mesure.', // Legal Mentions
+    'legal.title': 'Politique de confidentialité',
     'legal.company.title': "Informations sur l'entreprise",
     'legal.company.name': 'Nom commercial',
     'legal.company.nameValue': 'SIDIKOFF DIGITAL',
@@ -469,10 +467,8 @@ const translations: Record<Language, TranslationMap> = {
     'faq.answer4':
       'Absolutely! All our sites are designed with SEO best practices: optimized structure, meta tags, loading speed, responsive design, structured content. We also offer advanced SEO services.',
 
-    'footer.rights': 'SIDIKOFF DIGITAL — Web Agency in Paris. Custom website development.',
-
-    // Legal Mentions
-    'legal.title': 'Legal Notices',
+    'footer.rights': 'SIDIKOFF DIGITAL — Web Agency in Paris. Custom website development.', // Legal Mentions
+    'legal.title': 'Privacy Policy',
     'legal.company.title': 'Company Information',
     'legal.company.name': 'Company Name',
     'legal.company.nameValue': 'SIDIKOFF DIGITAL',
@@ -703,10 +699,8 @@ const translations: Record<Language, TranslationMap> = {
     'faq.answer4':
       'Конечно! Все наши сайты создаются с учётом лучших SEO-практик: оптимизированная структура, мета-теги, скорость загрузки, адаптивный дизайн, структурированный контент. Мы также предлагаем расширенные SEO-услуги.',
 
-    'footer.rights': 'SIDIKOFF DIGITAL — Веб-агентство в Париже. Разработка сайтов под ключ.',
-
-    // Legal Mentions
-    'legal.title': 'Правовые упоминания',
+    'footer.rights': 'SIDIKOFF DIGITAL — Веб-агентство в Париже. Разработка сайтов под ключ.', // Legal Mentions
+    'legal.title': 'Политика конфиденциальности',
     'legal.company.title': 'Информация о компании',
     'legal.company.name': 'Название компании',
     'legal.company.nameValue': 'SIDIKOFF DIGITAL',

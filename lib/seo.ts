@@ -120,10 +120,9 @@ export function generateMetadata(seoData: SEOData): Metadata {
 }
 
 // Pages SEO configurations
-export const pagesSEO = {
-  home: {
+export const pagesSEO = {  home: {
     fr: {
-      title: 'SIDIKOFF DIGITAL - Agence Web à Paris | Création Sites & Apps',
+      title: 'SIDIKOFF DIGITAL - Agence Web à Paris | Création Sites & Applications Web',
       description:
         'Agence web parisienne spécialisée en création de sites internet, applications web et stratégie digitale. Développement moderne, design UX/UI, référencement SEO. Devis gratuit.',
       keywords: [
@@ -135,45 +134,19 @@ export const pagesSEO = {
       canonical: 'https://sidikoff.com/',
     },
     en: {
-      title: 'SIDIKOFF DIGITAL - Web Agency in Paris | Website & App Development',
+      title: 'SIDIKOFF DIGITAL - Web Agency in Paris | Website & Web Application Development',
       description:
-        'Parisian web agency specialized in website creation, web applications and digital strategy. Modern development, UX/UI design, SEO optimization. Free quote.',
+        'Web agency specialized in website creation, web applications and digital strategy. Modern development, UX/UI design, SEO optimization. Free quote.',
       keywords: ['web agency paris', 'website creation', 'web development', 'digital agency'],
-      canonical: 'https://sidikoff.com/en',
+      canonical: 'https://sidikoff.com/',
     },
     ru: {
-      title: 'SIDIKOFF DIGITAL - Веб-агентство в Париже | Создание Сайтов и Приложений',
+      title: 'SIDIKOFF DIGITAL - Веб-агентство | Создание Сайтов и Веб-Приложений',
       description:
-        'Парижское веб-агентство, специализирующееся на создании сайтов, веб-приложений и цифровой стратегии. Современная разработка, UX/UI дизайн, SEO оптимизация.',
+        'Веб-агентство, специализирующееся на создании сайтов, веб-приложений и цифровой стратегии. Современная разработка, UX/UI дизайн, SEO оптимизация.',
       keywords: ['веб агентство париж', 'создание сайтов', 'веб разработка', 'цифровое агентство'],
-      canonical: 'https://sidikoff.com/ru',
-    },
+      canonical: 'https://sidikoff.com/',    },
   },
-
-  about: {
-    fr: {
-      title: 'À Propos | SIDIKOFF DIGITAL - Agence Web Paris',
-      description:
-        'Découvrez SIDIKOFF DIGITAL, votre agence web parisienne. Notre équipe experte vous accompagne dans vos projets de développement web et transformation digitale.',
-      keywords: ['agence web paris', 'équipe développement', 'expertise web'],
-      canonical: 'https://sidikoff.com/about',
-    },
-    en: {
-      title: 'About Us | SIDIKOFF DIGITAL - Web Agency Paris',
-      description:
-        'Discover SIDIKOFF DIGITAL, your Parisian web agency. Our expert team supports you in your web development and digital transformation projects.',
-      keywords: ['web agency paris', 'development team', 'web expertise'],
-      canonical: 'https://sidikoff.com/en/about',
-    },
-    ru: {
-      title: 'О Нас | SIDIKOFF DIGITAL - Веб-агентство Париж',
-      description:
-        'Познакомьтесь с SIDIKOFF DIGITAL, вашим парижским веб-агентством. Наша команда экспертов поддержит вас в проектах веб-разработки и цифровой трансформации.',
-      keywords: ['веб агентство париж', 'команда разработки', 'веб экспертиза'],
-      canonical: 'https://sidikoff.com/ru/about',
-    },
-  },
-
   services: {
     fr: {
       title: 'Services & Tarifs | SIDIKOFF DIGITAL - Agence Web Paris',
@@ -188,45 +161,44 @@ export const pagesSEO = {
       canonical: 'https://sidikoff.com/services',
     },
     en: {
-      title: 'Services & Pricing | SIDIKOFF DIGITAL - Web Agency Paris',
+      title: 'Services & Pricing | SIDIKOFF DIGITAL - Web Agency',
       description:
-        'Discover our web services: website creation, applications, e-commerce, SEO optimization. Transparent pricing and free quote. Web agency in Paris.',
+        'Discover our web services: website creation, applications, e-commerce, SEO optimization. Transparent pricing and free quote. Web agency in France.',
       keywords: ['web agency pricing', 'web services paris', 'website quote', 'development costs'],
-      canonical: 'https://sidikoff.com/en/services',
+      canonical: 'https://sidikoff.com/services',
     },
     ru: {
-      title: 'Услуги и Цены | SIDIKOFF DIGITAL - Веб-агентство Париж',
+      title: 'Услуги и Цены | SIDIKOFF DIGITAL - Веб-агентство',
       description:
         'Откройте для себя наши веб-услуги: создание сайтов, приложений, e-commerce, SEO оптимизация. Прозрачные цены и бесплатная смета.',
       keywords: ['цены веб агентство', 'веб услуги париж', 'смета сайта', 'стоимость разработки'],
-      canonical: 'https://sidikoff.com/ru/services',
+      canonical: 'https://sidikoff.com/services',
     },
   },
-
-  portfolio: {
+  Projects: {
     fr: {
-      title: 'Portfolio | SIDIKOFF DIGITAL - Nos Réalisations Web',
+      title: 'Projects | SIDIKOFF DIGITAL - Nos Réalisations Web',
       description:
-        'Découvrez nos projets web : sites vitrine, e-commerce, applications. Portfolio de SIDIKOFF DIGITAL, agence web à Paris. Exemples et références clients.',
+        'Découvrez nos projets web : sites vitrine, e-commerce, applications. Projects de SIDIKOFF DIGITAL, agence web à Paris. Exemples et références clients.',
       keywords: [
-        'portfolio agence web',
+        'Projects agence web',
         'réalisations web paris',
         'exemples sites internet',
         'références clients',
       ],
-      canonical: 'https://sidikoff.com/portfolio',
+      canonical: 'https://sidikoff.com/projects',
     },
     en: {
-      title: 'Portfolio | SIDIKOFF DIGITAL - Our Web Projects',
+      title: 'Projects | SIDIKOFF DIGITAL - Our Web Projects',
       description:
-        'Discover our web projects: showcase websites, e-commerce, applications. Portfolio of SIDIKOFF DIGITAL, web agency in Paris. Examples and client references.',
+        'Discover our web projects: showcase websites, e-commerce, applications. Projects of SIDIKOFF DIGITAL, web agency in Paris. Examples and client references.',
       keywords: [
-        'web agency portfolio',
+        'web agency Projects',
         'web projects paris',
         'website examples',
         'client references',
       ],
-      canonical: 'https://sidikoff.com/en/portfolio',
+      canonical: 'https://sidikoff.com/projects',
     },
     ru: {
       title: 'Портфолио | SIDIKOFF DIGITAL - Наши Веб-проекты',
@@ -237,46 +209,40 @@ export const pagesSEO = {
         'веб проекты париж',
         'примеры сайтов',
         'клиентские референсы',
-      ],      canonical: 'https://sidikoff.com/ru/portfolio',
+      ],
+      canonical: 'https://sidikoff.com/projects',
     },
-  },
-
-  legal: {
+  },  legal: {
     fr: {
-      title: 'Mentions Légales | SIDIKOFF DIGITAL - Agence Web Paris',
+      title: 'Politique de confidentialité | SIDIKOFF DIGITAL - Agence Web Paris',
       description:
-        'Mentions légales de SIDIKOFF DIGITAL, agence web parisienne. Informations légales, protection des données personnelles et conditions d\'utilisation.',
+        'Politique de confidentialité de SIDIKOFF DIGITAL, agence web parisienne. Protection des données personnelles, cookies et conditions d\'utilisation.',
       keywords: [
-        'mentions légales',
-        'informations légales',
+        'politique de confidentialité',
         'protection données personnelles',
+        'cookies',
         'conditions utilisation',
       ],
       canonical: 'https://sidikoff.com/mentions-legales',
     },
     en: {
-      title: 'Legal Notices | SIDIKOFF DIGITAL - Web Agency Paris',
+      title: 'Privacy Policy | SIDIKOFF DIGITAL - Web Agency Paris',
       description:
-        'Legal notices of SIDIKOFF DIGITAL, Parisian web agency. Legal information, personal data protection and terms of use.',
-      keywords: [
-        'legal notices',
-        'legal information',
-        'data protection',
-        'terms of use',
-      ],
-      canonical: 'https://sidikoff.com/en/legal-notices',
+        'Privacy policy of SIDIKOFF DIGITAL, Parisian web agency. Personal data protection, cookies and terms of use.',
+      keywords: ['privacy policy', 'data protection', 'cookies', 'terms of use'],
+      canonical: 'https://sidikoff.com/mentions-legales',
     },
     ru: {
-      title: 'Правовая Информация | SIDIKOFF DIGITAL - Веб-агентство Париж',
+      title: 'Политика конфиденциальности | SIDIKOFF DIGITAL - Веб-агентство Париж',
       description:
-        'Правовая информация SIDIKOFF DIGITAL, парижского веб-агентства. Юридическая информация, защита персональных данных и условия использования.',
+        'Политика конфиденциальности SIDIKOFF DIGITAL, парижского веб-агентства. Защита персональных данных, куки и условия использования.',
       keywords: [
-        'правовая информация',
-        'юридическая информация',
+        'политика конфиденциальности',
         'защита данных',
+        'куки',
         'условия использования',
       ],
-      canonical: 'https://sidikoff.com/ru/legal-notices',
+      canonical: 'https://sidikoff.com/mentions-legales',
     },
   },
 }
@@ -439,7 +405,7 @@ export function generateServiceSchema(service: {
   }
 }
 
-// Portfolio/Work Schema
+// Projects/Work Schema
 export function generateCreativeWorkSchema(work: {
   name: string
   description: string
