@@ -244,8 +244,8 @@ export default function Header() {
         <nav className='hidden md:flex items-center gap-8'>
           {[
             { href: '/#home', key: 'nav.home', section: 'home' },
-            { href: '/#portfolio', key: 'nav.portfolio', section: 'portfolio' },
             { href: '/#about', key: 'nav.about', section: 'about' },
+            { href: '/#portfolio', key: 'nav.portfolio', section: 'portfolio' },
             { href: '/#prices', key: 'nav.prices', section: 'prices' },
           ].map(({ href, key, section }) => (
             <motion.div key={section} className='relative'>
