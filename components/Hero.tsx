@@ -54,7 +54,6 @@ export default function Hero() {
       },
     },
   }
-
   const logoVariants = {
     hidden: { opacity: 0, scale: 0.8, rotate: -10 },
     visible: {
@@ -68,6 +67,7 @@ export default function Hero() {
       },
     },
   }
+
   const floatingVariants = {
     animate: {
       y: [-10, 10, -10],
@@ -82,18 +82,18 @@ export default function Hero() {
   return (
     <motion.section
       id='home'
-      className='relative min-h-screen flex items-center justify-center overflow-hidden'
+      className='relative min-h-screen flex items-center justify-center overflow-hidden pt-16 pb-8 sm:pt-20 sm:pb-12 lg:pt-0 lg:pb-0'
       initial='hidden'
       animate='visible'
       variants={containerVariants}>
       {' '}
       {/* Background Elements */}
       <div className='absolute'>
+        {' '}
         {/* Gradient Background */}
         <div className='absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20' />
-
         {/* Animated Particles */}
-        <div className='absolute inset-0'>
+        <div className='absolute inset-0 hidden sm:block'>
           {[...Array(6)].map((_, i) => (
             <motion.div
               key={i}
@@ -116,25 +116,26 @@ export default function Hero() {
             />
           ))}
         </div>
-
         {/* Grid Pattern */}
         <div className='absolute inset-0 bg-grid-pattern opacity-[0.02] dark:opacity-[0.05]' />
       </div>{' '}
       {/* Main Content */}
-      <div className='container mx-auto  px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center relative z-10'>
+      <div className='container mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10 py-8 sm:py-12 lg:py-0'>
+        {' '}
         {/* Left Column - Content */}
-        <motion.div className='space-y-8 text-center lg:text-left' variants={itemVariants}>
+        <motion.div
+          className='space-y-6 sm:space-y-8 text-center lg:text-left'
+          variants={itemVariants}>
           {/* Badge */}
           <motion.div
             className='inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-sm font-medium border border-indigo-200 dark:border-indigo-800'
             whileTap={{ scale: 0.95 }}>
             <SparklesIcon className='w-4 h-4' />
             {t('hero.badge') || 'Agence Web Premium'}
-          </motion.div>
-
+          </motion.div>{' '}
           {/* Main Title */}
           <motion.h1
-            className='text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight'
+            className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight'
             variants={itemVariants}>
             <motion.span
               className='bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent'
@@ -154,30 +155,30 @@ export default function Hero() {
               }}>
               {t('hero.title2')}
             </motion.span>
-          </motion.h1>
-
+          </motion.h1>{' '}
           {/* Description */}
-          <motion.div className='space-y-4 max-w-2xl mx-auto lg:mx-0' variants={itemVariants}>
-            <p className='text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed'>
+          <motion.div
+            className='space-y-3 sm:space-y-4 max-w-2xl mx-auto lg:mx-0'
+            variants={itemVariants}>
+            <p className='text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed px-2 sm:px-0'>
               {t('hero.description')}
             </p>
-            <p className='text-base sm:text-lg text-indigo-600 dark:text-indigo-400 font-medium'>
+            <p className='text-sm sm:text-base md:text-lg text-indigo-600 dark:text-indigo-400 font-medium px-2 sm:px-0'>
               {t('hero.slogan')}
             </p>
-          </motion.div>
-
+          </motion.div>{' '}
           {/* Mobile Logo */}
           <motion.div
-            className='lg:hidden relative flex items-center justify-center py-8'
+            className='lg:hidden relative flex items-center justify-center py-4 sm:py-6'
             variants={logoVariants}>
             <motion.div
-              className='relative w-64 h-64 mx-auto'
+              className='relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto'
               variants={floatingVariants}
               animate='animate'
-              whileHover={{ scale: 1.1, rotate: 5 }}
+              whileHover={{ scale: 1.05 }}
               style={{
-                transform: `translateX(${mousePosition.x * 0.5}px) translateY(${
-                  mousePosition.y * 0.5
+                transform: `translateX(${mousePosition.x * 0.3}px) translateY(${
+                  mousePosition.y * 0.3
                 }px)`,
               }}>
               <div className='absolute inset-0 bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-full blur-2xl opacity-20 animate-pulse' />
@@ -190,22 +191,22 @@ export default function Hero() {
                 priority
               />
             </motion.div>
-          </motion.div>
-
+          </motion.div>{' '}
           {/* CTA Buttons */}
           <motion.div
-            className='flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center'
+            className='flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-stretch sm:items-center px-4 sm:px-0'
             variants={itemVariants}>
+            {' '}
             <motion.a
               href='/#contact'
               onClick={(e) => handleNavClick(e, 'contact')}
-              className='group relative overflow-hidden'
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className='group relative overflow-hidden w-full sm:w-auto'
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               onHoverStart={() => setIsHovered(true)}
               onHoverEnd={() => setIsHovered(false)}>
               <div className='absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl' />
-              <div className='relative px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2'>
+              <div className='relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 min-h-[48px]'>
                 <RocketLaunchIcon className='w-5 h-5' />
                 {t('hero.contact')}
                 <motion.div
@@ -215,24 +216,22 @@ export default function Hero() {
                   transition={{ duration: 0.3 }}
                 />
               </div>
-            </motion.a>
-
+            </motion.a>{' '}
             <motion.a
               href='/#portfolio'
               onClick={(e) => handleNavClick(e, 'portfolio')}
-              className='group'
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}>
-              <div className='px-8 py-4 border-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 dark:border-indigo-400 rounded-xl font-semibold text-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all duration-300 flex items-center gap-2'>
+              className='group w-full sm:w-auto'
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}>
+              <div className='px-6 sm:px-8 py-3 sm:py-4 border-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 dark:border-indigo-400 rounded-xl font-semibold text-base sm:text-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all duration-300 flex items-center justify-center gap-2 min-h-[48px]'>
                 {t('hero.viewWork')}
                 <motion.span animate={{ x: [0, 4, 0] }}>→</motion.span>
               </div>
             </motion.a>
-          </motion.div>
-
+          </motion.div>{' '}
           {/* Stats or Features */}
           <motion.div
-            className='grid grid-cols-3 gap-6 pt-8 border-t border-gray-200 dark:border-gray-700'
+            className='grid grid-cols-3 gap-3 sm:gap-6 pt-6 sm:pt-8 border-t border-gray-200 dark:border-gray-700 mx-4 sm:mx-0'
             variants={itemVariants}>
             {[
               { number: '50+', label: t('hero.stat1') || 'Projets' },
@@ -240,15 +239,16 @@ export default function Hero() {
               { number: '24/7', label: t('hero.stat3') || 'Support' },
             ].map((stat, index) => (
               <motion.div key={index} className='text-center'>
-                <div className='text-2xl font-bold text-indigo-600 dark:text-indigo-400'>
+                <div className='text-xl sm:text-2xl font-bold text-indigo-600 dark:text-indigo-400'>
                   {stat.number}
                 </div>
-                <div className='text-sm text-gray-600 dark:text-gray-400'>{stat.label}</div>
+                <div className='text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-tight'>
+                  {stat.label}
+                </div>
               </motion.div>
             ))}
           </motion.div>
         </motion.div>
-
         {/* Right Column - Logo/Visual */}
         <motion.div
           className='hidden lg:flex items-center justify-center relative'
