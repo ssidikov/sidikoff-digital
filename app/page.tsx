@@ -21,16 +21,17 @@ const homepageSchema = {
   '@id': 'https://sidikoff-digital.fr/#webpage',
   url: 'https://sidikoff-digital.fr/',
   name: 'SIDIKOFF DIGITAL - Agence Web à Paris',
-  description: 'Agence web parisienne spécialisée en création de sites internet, applications web et stratégie digitale',
+  description:
+    'Agence web parisienne spécialisée en création de sites internet, applications web et stratégie digitale',
   isPartOf: {
-    '@id': 'https://sidikoff-digital.fr/#website'
+    '@id': 'https://sidikoff-digital.fr/#website',
   },
   about: {
-    '@id': 'https://sidikoff-digital.fr/#organization'
+    '@id': 'https://sidikoff-digital.fr/#organization',
   },
   mainEntity: {
-    '@id': 'https://sidikoff-digital.fr/#business'
-  }
+    '@id': 'https://sidikoff-digital.fr/#business',
+  },
 }
 
 // Services structured data
@@ -94,7 +95,7 @@ export default function Page() {
         <StructuredData key={index} customData={schema} />
       ))}
       <StructuredData customData={faqSchema} />
-      
+
       <div className='scroll-smooth min-h-screen bg-background text-foreground transition-colors duration-300 bg-gradient-light dark:bg-gradient-dark'>
         <Header />
         <main>

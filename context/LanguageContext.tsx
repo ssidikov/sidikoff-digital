@@ -55,7 +55,8 @@ const translations: Record<Language, TranslationMap> = {
       'Identité visuelle forte et cohérente pour valoriser votre marque.',
     'expertise.item4.title': 'Intégration API',
     'expertise.item4.description':
-      'Connexion fluide entre l’interface utilisateur et vos services backend.',    'expertise.cta': 'Démarrer votre projet',
+      'Connexion fluide entre l’interface utilisateur et vos services backend.',
+    'expertise.cta': 'Démarrer votre projet',
     'expertise.stats.projects': 'Projets réalisés',
     'expertise.stats.satisfaction': 'Satisfaction client',
     'expertise.stats.support': 'Support technique',
@@ -712,7 +713,8 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   }
 
   // Показываем детей сразу, но с fallback языком до инициализации
-  return (    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   )

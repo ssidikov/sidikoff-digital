@@ -7,10 +7,11 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     '*.{js,ts,jsx,tsx,mdx}',
-  ],  theme: {
+  ],
+  theme: {
     extend: {
       screens: {
-        'xs': '475px',
+        xs: '475px',
       },
       colors: {
         background: 'hsl(var(--background))',

@@ -1,10 +1,10 @@
 'use client'
 
 import Script from 'next/script'
-import { 
-  generateLocalBusinessSchema, 
-  generateWebsiteSchema, 
-  generateOrganizationSchema 
+import {
+  generateLocalBusinessSchema,
+  generateWebsiteSchema,
+  generateOrganizationSchema,
 } from '@/lib/seo'
 
 interface StructuredDataProps {
@@ -36,9 +36,9 @@ export default function StructuredData({ type = 'all', customData }: StructuredD
         <Script
           key={index}
           id={`structured-data-${index}`}
-          type="application/ld+json"
+          type='application/ld+json'
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(schema)
+            __html: JSON.stringify(schema),
           }}
         />
       ))}

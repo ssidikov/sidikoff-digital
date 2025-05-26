@@ -20,7 +20,7 @@ export function reportWebVitals(metric: any) {
       value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
       metric_id: metric.id,
       metric_value: metric.value,
-      metric_delta: metric.delta
+      metric_delta: metric.delta,
     })
   }
 
@@ -35,7 +35,7 @@ function sendToAnalytics(metric: any) {
     id: metric.id,
     delta: metric.delta,
     url: window.location.href,
-    timestamp: Date.now()
+    timestamp: Date.now(),
   })
 
   // Use navigator.sendBeacon if available
@@ -47,9 +47,9 @@ function sendToAnalytics(metric: any) {
       method: 'POST',
       body,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      keepalive: true
+      keepalive: true,
     }).catch(console.error)
   }
 }
@@ -60,7 +60,7 @@ export const PERFORMANCE_THRESHOLDS = {
   LCP: { good: 2500, poor: 4000 }, // ms
   FID: { good: 100, poor: 300 }, // ms
   CLS: { good: 0.1, poor: 0.25 }, // ratio
-  TTFB: { good: 800, poor: 1800 } // ms
+  TTFB: { good: 800, poor: 1800 }, // ms
 }
 
 export function getPerformanceScore(metrics: PerformanceMetrics): number {
@@ -69,7 +69,8 @@ export function getPerformanceScore(metrics: PerformanceMetrics): number {
 
   Object.entries(metrics).forEach(([key, value]) => {
     if (value !== undefined) {
-      const thresholds = PERFORMANCE_THRESHOLDS[key.toUpperCase() as keyof typeof PERFORMANCE_THRESHOLDS]
+      const thresholds =
+        PERFORMANCE_THRESHOLDS[key.toUpperCase() as keyof typeof PERFORMANCE_THRESHOLDS]
       if (thresholds) {
         if (value <= thresholds.good) {
           score += 100
@@ -87,17 +88,20 @@ export function getPerformanceScore(metrics: PerformanceMetrics): number {
 }
 
 // Image optimization helpers
-export function generateImageSrcSet(src: string, sizes: number[] = [640, 768, 1024, 1280, 1536]): string {
-  return sizes
-    .map(size => `${src}?w=${size}&q=75 ${size}w`)
-    .join(', ')
+export function generateImageSrcSet(
+  src: string,
+  sizes: number[] = [640, 768, 1024, 1280, 1536]
+): string {
+  return sizes.map((size) => `${src}?w=${size}&q=75 ${size}w`).join(', ')
 }
 
-export function generateImageSizes(breakpoints: { [key: string]: string } = {
-  sm: '100vw',
-  md: '50vw',
-  lg: '33vw'
-}): string {
+export function generateImageSizes(
+  breakpoints: { [key: string]: string } = {
+    sm: '100vw',
+    md: '50vw',
+    lg: '33vw',
+  }
+): string {
   return Object.entries(breakpoints)
     .map(([breakpoint, size]) => `(min-width: ${getBreakpointValue(breakpoint)}px) ${size}`)
     .join(', ')
@@ -109,7 +113,7 @@ function getBreakpointValue(breakpoint: string): number {
     md: 768,
     lg: 1024,
     xl: 1280,
-    '2xl': 1536
+    '2xl': 1536,
   }
   return breakpoints[breakpoint] || 640
 }
@@ -121,13 +125,19 @@ export function generateResourceHints() {
     { rel: 'dns-prefetch', href: '//fonts.googleapis.com' },
     { rel: 'dns-prefetch', href: '//fonts.gstatic.com' },
     { rel: 'dns-prefetch', href: '//www.google-analytics.com' },
-    
+
     // Preconnect to critical external domains
     { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
     { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
-    
+
     // Preload critical resources
-    { rel: 'preload', href: '/fonts/inter-var.woff2', as: 'font', type: 'font/woff2', crossOrigin: 'anonymous' }
+    {
+      rel: 'preload',
+      href: '/fonts/inter-var.woff2',
+      as: 'font',
+      type: 'font/woff2',
+      crossOrigin: 'anonymous',
+    },
   ]
 }
 
@@ -143,7 +153,7 @@ export function createLazyLoadObserver(callback: (entry: IntersectionObserverEnt
     },
     {
       rootMargin: '50px 0px',
-      threshold: 0.01
+      threshold: 0.01,
     }
   )
 }
@@ -154,7 +164,7 @@ export function detectCriticalCSS() {
 
   const criticalHeight = window.innerHeight
   const criticalElements = document.elementsFromPoint(window.innerWidth / 2, criticalHeight / 2)
-  
+
   // Log critical elements for CSS optimization
   console.log('Critical elements:', criticalElements)
 }
@@ -169,12 +179,13 @@ export function usePerformanceMonitoring(componentName: string) {
     measureRender: () => {
       const endTime = performance.now()
       const duration = endTime - startTime
-      
-      if (duration > 16) { // Warn if render takes more than one frame
+
+      if (duration > 16) {
+        // Warn if render takes more than one frame
         console.warn(`Slow render detected in ${componentName}: ${duration.toFixed(2)}ms`)
       }
-      
+
       return duration
-    }
+    },
   }
 }
