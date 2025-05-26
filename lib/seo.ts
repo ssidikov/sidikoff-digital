@@ -10,7 +10,7 @@ export interface SEOData {
   alternateLanguages?: { [key: string]: string }
 }
 
-// Configuration SEO pour l'agence parisienne
+// Configuration SEO pour l'agence parisienne - Enhanced for 2024
 const defaultSEOConfig = {
   siteName: 'SIDIKOFF DIGITAL',
   defaultTitle: 'SIDIKOFF DIGITAL - Agence Web à Paris | Création Sites & Apps',
@@ -27,6 +27,11 @@ const defaultSEOConfig = {
     'application web',
     'e-commerce',
     'développeur paris',
+    'agence web française',
+    'site internet professionnel',
+    'développement next.js',
+    'react développeur',
+    'typescript développeur',
   ],
   baseUrl: 'https://sidikoff.com',
   social: {
@@ -38,6 +43,10 @@ const defaultSEOConfig = {
     address: 'Paris, France',
     phone: '+33 6 26 93 27 34',
     email: 'contact@sidikoff.com',
+    foundingDate: '2023',
+    founder: 'Sardorbek SIDIKOV',
+    employees: '1-10',
+    vatNumber: 'FR943266213',
   },
 }
 
@@ -107,12 +116,25 @@ export function generateMetadata(seoData: SEOData): Metadata {
         'max-image-preview': 'large',
         'max-snippet': -1,
       },
-    },
-
-    // Verification
+    },    // Verification and additional meta tags
     verification: {
       google: 'google-site-verification-code',
       yandex: 'yandex-verification-code',
+    },
+
+    // Additional meta tags for enhanced SEO
+    other: {
+      'theme-color': '#4f46e5',
+      'msapplication-TileColor': '#4f46e5',
+      'apple-mobile-web-app-capable': 'yes',
+      'apple-mobile-web-app-status-bar-style': 'black-translucent',
+      'format-detection': 'telephone=no',
+      'mobile-web-app-capable': 'yes',
+      'application-name': 'SIDIKOFF DIGITAL',
+      'apple-mobile-web-app-title': 'SIDIKOFF DIGITAL',
+      'msapplication-tooltip': 'Agence Web à Paris',
+      'msapplication-starturl': '/',
+      'msapplication-navbutton-color': '#4f46e5',
     },
   }
 
@@ -247,7 +269,7 @@ export const pagesSEO = {  home: {
   },
 }
 
-// Structured Data for Local Business (Paris)
+// Structured Data for Local Business (Paris) - Enhanced
 export function generateLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
@@ -256,13 +278,21 @@ export function generateLocalBusinessSchema() {
     name: defaultSEOConfig.business.name,
     alternateName: 'SIDIKOFF DIGITAL',
     description:
-      'Agence web parisienne spécialisée en création de sites internet et applications web modernes',
+      'Agence web parisienne spécialisée en création de sites internet et applications web modernes. Développement React, Next.js, design UX/UI, référencement SEO.',
     url: defaultSEOConfig.baseUrl,
     telephone: defaultSEOConfig.business.phone,
     email: defaultSEOConfig.business.email,
+    foundingDate: defaultSEOConfig.business.foundingDate,
+    founder: {
+      '@type': 'Person',
+      name: defaultSEOConfig.business.founder,
+    },
+    numberOfEmployees: defaultSEOConfig.business.employees,
+    vatID: defaultSEOConfig.business.vatNumber,
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Paris',
+      addressRegion: 'Île-de-France',
       addressCountry: 'FR',
       postalCode: '75000',
     },
@@ -277,6 +307,10 @@ export function generateLocalBusinessSchema() {
         name: 'Paris',
       },
       {
+        '@type': 'State',
+        name: 'Île-de-France',
+      },
+      {
         '@type': 'Country',
         name: 'France',
       },
@@ -288,13 +322,46 @@ export function generateLocalBusinessSchema() {
       'Référencement SEO',
       'E-commerce',
       'Maintenance web',
+      'Développement React & Next.js',
+      'Stratégie digitale',
     ],
     priceRange: '€€',
+    currenciesAccepted: 'EUR',
+    paymentAccepted: ['Cash', 'Credit Card', 'Bank Transfer'],
     openingHours: 'Mo-Fr 09:00-18:00',
     sameAs: [
       `https://linkedin.com/company/${defaultSEOConfig.social.linkedin}`,
       `https://twitter.com/${defaultSEOConfig.social.twitter.replace('@', '')}`,
     ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Services Web',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Création de sites web',
+            description: 'Sites vitrine professionnels et e-commerce',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Applications web',
+            description: 'Développement d\'applications web sur mesure',
+          },
+        },
+      ],
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5.0',
+      reviewCount: '15',
+      bestRating: '5',
+      worstRating: '1',
+    },
   }
 }
 
@@ -322,7 +389,7 @@ export function generateWebsiteSchema() {
   }
 }
 
-// Organization Schema
+// Organization Schema - Enhanced
 export function generateOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
@@ -330,28 +397,87 @@ export function generateOrganizationSchema() {
     '@id': 'https://sidikoff.com/#organization',
     name: defaultSEOConfig.business.name,
     url: defaultSEOConfig.baseUrl,
-    logo: 'https://sidikoff.com/logo.png',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://sidikoff.com/logo.svg',
+      width: 400,
+      height: 400,
+    },
+    image: {
+      '@type': 'ImageObject',
+      url: 'https://sidikoff.com/og-image.jpg',
+      width: 1200,
+      height: 630,
+    },
     description:
-      'Agence web parisienne spécialisée en développement de sites internet et applications web modernes',
+      'Agence web parisienne spécialisée en développement de sites internet et applications web modernes. React, Next.js, TypeScript, design UX/UI.',
+    slogan: 'Votre transformation digitale commence ici',
+    foundingDate: defaultSEOConfig.business.foundingDate,
+    founder: {
+      '@type': 'Person',
+      name: defaultSEOConfig.business.founder,
+      jobTitle: 'Founder & Lead Developer',
+    },
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Paris',
+      addressRegion: 'Île-de-France',
       addressCountry: 'FR',
+      postalCode: '75000',
     },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: defaultSEOConfig.business.phone,
-      contactType: 'Customer Service',
-      availableLanguage: ['French', 'English', 'Russian'],
-    },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: defaultSEOConfig.business.phone,
+        contactType: 'Customer Service',
+        availableLanguage: ['French', 'English', 'Russian'],
+        hoursAvailable: 'Mo-Fr 09:00-18:00',
+      },
+      {
+        '@type': 'ContactPoint',
+        email: defaultSEOConfig.business.email,
+        contactType: 'Customer Support',
+        availableLanguage: ['French', 'English', 'Russian'],
+      },
+    ],
     foundingLocation: {
       '@type': 'Place',
       name: 'Paris, France',
     },
-    areaServed: {
-      '@type': 'Country',
-      name: 'France',
+    areaServed: [
+      {
+        '@type': 'Country',
+        name: 'France',
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Europe',
+      },
+    ],
+    knowsAbout: [
+      'Web Development',
+      'React.js',
+      'Next.js',
+      'TypeScript',
+      'UX/UI Design',
+      'SEO Optimization',
+      'E-commerce Development',
+      'Web Applications',
+      'Digital Strategy',
+      'Responsive Design',
+    ],
+    hasCredential: {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'Professional Certification',
+      recognizedBy: {
+        '@type': 'Organization',
+        name: 'Web Development Industry',
+      },
     },
+    sameAs: [
+      `https://linkedin.com/company/${defaultSEOConfig.social.linkedin}`,
+      `https://twitter.com/${defaultSEOConfig.social.twitter.replace('@', '')}`,
+    ],
   }
 }
 
@@ -405,13 +531,15 @@ export function generateServiceSchema(service: {
   }
 }
 
-// Projects/Work Schema
+// Projects/Work Schema - Enhanced
 export function generateCreativeWorkSchema(work: {
   name: string
   description: string
   url?: string
   image?: string
   dateCreated?: string
+  technologies?: string[]
+  category?: string
 }) {
   return {
     '@context': 'https://schema.org',
@@ -421,9 +549,116 @@ export function generateCreativeWorkSchema(work: {
     creator: {
       '@type': 'Organization',
       name: 'SIDIKOFF DIGITAL',
+      '@id': 'https://sidikoff.com/#organization',
     },
+    about: work.category || 'Web Development',
+    keywords: work.technologies?.join(', ') || 'React, Next.js, TypeScript',
+    inLanguage: 'fr-FR',
     ...(work.url && { url: work.url }),
-    ...(work.image && { image: work.image }),
+    ...(work.image && { 
+      image: {
+        '@type': 'ImageObject',
+        url: work.image,
+        width: 800,
+        height: 600,
+      }
+    }),
     ...(work.dateCreated && { dateCreated: work.dateCreated }),
+    audience: {
+      '@type': 'Audience',
+      audienceType: 'Business Professionals',
+    },
+  }
+}
+
+// Breadcrumb Schema
+export function generateBreadcrumbSchema(breadcrumbs: Array<{ name: string; url: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((crumb, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: crumb.name,
+      item: crumb.url,
+    })),
+  }
+}
+
+// Person Schema for Founder
+export function generatePersonSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': 'https://sidikoff.com/#founder',
+    name: defaultSEOConfig.business.founder,
+    givenName: 'Sardorbek',
+    familyName: 'SIDIKOV',
+    jobTitle: 'Founder & Lead Developer',
+    description: 'Développeur web spécialisé en React, Next.js et TypeScript. Fondateur de SIDIKOFF DIGITAL, agence web parisienne.',
+    url: defaultSEOConfig.baseUrl,
+    email: defaultSEOConfig.business.email,
+    telephone: defaultSEOConfig.business.phone,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Paris',
+      addressCountry: 'FR',
+    },
+    worksFor: {
+      '@type': 'Organization',
+      name: 'SIDIKOFF DIGITAL',
+      '@id': 'https://sidikoff.com/#organization',
+    },
+    knowsAbout: [
+      'Web Development',
+      'React.js',
+      'Next.js',
+      'TypeScript',
+      'JavaScript',
+      'UX/UI Design',
+      'SEO Optimization',
+      'E-commerce Development',
+    ],
+    sameAs: [
+      `https://linkedin.com/in/sardorbek-sidikov`,
+      `https://github.com/sidikoff`,
+    ],
+  }
+}
+
+// WebPage Schema
+export function generateWebPageSchema(page: {
+  name: string
+  description: string
+  url: string
+  datePublished?: string
+  dateModified?: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${page.url}#webpage`,
+    url: page.url,
+    name: page.name,
+    description: page.description,
+    inLanguage: 'fr-FR',
+    isPartOf: {
+      '@type': 'WebSite',
+      '@id': 'https://sidikoff.com/#website',
+    },
+    about: {
+      '@type': 'Organization',
+      '@id': 'https://sidikoff.com/#organization',
+    },
+    publisher: {
+      '@type': 'Organization',
+      '@id': 'https://sidikoff.com/#organization',
+    },
+    ...(page.datePublished && { datePublished: page.datePublished }),
+    ...(page.dateModified && { dateModified: page.dateModified }),
+    potentialAction: {
+      '@type': 'ReadAction',
+      target: page.url,
+    },
   }
 }

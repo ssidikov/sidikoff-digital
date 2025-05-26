@@ -3,7 +3,6 @@ import { Metadata } from 'next'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import Expertise from '@/components/Expertise'
-import About from '@/components/About'
 import Technologies from '@/components/Technologies'
 import Portfolio from '@/components/Portfolio'
 import Services from '@/components/Services'
@@ -97,11 +96,10 @@ export default function Page() {
       <StructuredData customData={faqSchema} />
 
       <div className='scroll-smooth min-h-screen bg-background text-foreground transition-colors duration-300 bg-gradient-light dark:bg-gradient-dark'>
-        <Header />
+        <Header />{' '}
         <main>
           <Hero />
           <Expertise />
-          <About />
           <Technologies />
           <Portfolio />
           <Services />

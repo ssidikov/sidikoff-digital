@@ -32,6 +32,11 @@ export const metadata: Metadata = generateSEOMetadata({
     'application web',
     'e-commerce',
     'développeur paris',
+    'react développeur',
+    'next.js agence',
+    'typescript développement',
+    'agence web française',
+    'site internet professionnel',
   ],
   locale: 'fr-FR',
   alternateLanguages: {
@@ -39,19 +44,48 @@ export const metadata: Metadata = generateSEOMetadata({
     en: 'https://sidikoff.com/en',
     ru: 'https://sidikoff.com/ru',
   },
+  ogImage: 'https://sidikoff.com/images/contact.png',
+  canonical: 'https://sidikoff.com/',
 })
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='fr' suppressHydrationWarning>
       <head>
-        {/* Preconnect to external domains for performance */}
+        {/* DNS Prefetch and Preconnect for performance */}
+        <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+        <link rel='dns-prefetch' href='//www.googletagmanager.com' />
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
-
+        
         {/* Favicon and app icons */}
         <link rel='icon' href='/favicon.png' />
         <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+        <link rel='manifest' href='/manifest.json' />
+        
+        {/* Additional meta tags for better SEO */}
+        <meta name='author' content='SIDIKOFF DIGITAL' />
+        <meta name='generator' content='Next.js' />
+        <meta name='coverage' content='Worldwide' />
+        <meta name='distribution' content='Global' />
+        <meta name='rating' content='General' />
+        <meta name='revisit-after' content='7 days' />
+        <meta name='HandheldFriendly' content='True' />
+        <meta name='MobileOptimized' content='320' />
+        
+        {/* Language and region meta tags */}
+        <meta name='geo.region' content='FR-75' />
+        <meta name='geo.placename' content='Paris' />
+        <meta name='geo.position' content='48.8566;2.3522' />
+        <meta name='ICBM' content='48.8566, 2.3522' />
+        
+        {/* Business information */}
+        <meta name='contact' content='contact@sidikoff.com' />
+        <meta name='copyright' content='SIDIKOFF DIGITAL' />
+        
+        {/* Performance hints */}
+        <link rel='dns-prefetch' href='//vercel.com' />
+        <link rel='preload' href='/logo.svg' as='image' type='image/svg+xml' />
         <Script
           strategy='afterInteractive'
           src='https://www.googletagmanager.com/gtag/js?id=G-KFKPR6DVQ1'
@@ -95,9 +129,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               width='0'
               style={{ display: 'none', visibility: 'hidden' }}></iframe>
           </noscript>
-        )}
-
-        <ThemeProvider
+        )}        <ThemeProvider
           attribute='class'
           defaultTheme='system'
           enableSystem

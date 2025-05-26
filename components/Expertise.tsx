@@ -294,6 +294,87 @@ export default function Expertise() {
             </motion.a>
           </motion.div>
         </motion.div>
+
+        {/* About/Mission Section */}
+        <motion.div
+          className='container mx-auto px-4 sm:px-6 lg:px-8 mt-20 lg:mt-32'
+          variants={containerVariants}
+          initial='hidden'
+          animate={isInView ? 'visible' : 'hidden'}>
+
+          {/* Mission Section */}
+          <motion.div className='max-w-4xl mx-auto text-center mb-16' variants={headerVariants}>
+            <motion.h3 className='text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6'>
+              {t('about.mission.title')}
+            </motion.h3>
+            <motion.p className='text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6'>
+              {t('about.mission.p1')}
+            </motion.p>
+            <motion.p className='text-lg text-gray-600 dark:text-gray-300 leading-relaxed'>
+              {t('about.mission.p2')}
+            </motion.p>
+          </motion.div>
+
+          {/* Why Choose Us Section */}
+          <motion.div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto' variants={containerVariants}>
+            {/*
+              { key: 'advantage1', icon: '🎯', color: 'from-blue-500 to-cyan-500' },
+              { key: 'advantage2', icon: '⚡', color: 'from-yellow-500 to-orange-500' },
+              { key: 'advantage3', icon: '🤝', color: 'from-green-500 to-emerald-500' },
+            */}
+            {['advantage1', 'advantage2', 'advantage3'].map((key, index) => (
+              <motion.div
+                key={key}
+                className='text-center p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300'
+                variants={headerVariants}
+                whileHover={{ y: -5, scale: 1.02 }}>
+                <motion.div
+                  className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${key === 'advantage1' ? 'from-blue-500 to-cyan-500' : key === 'advantage2' ? 'from-yellow-500 to-orange-500' : 'from-green-500 to-emerald-500'} text-white text-2xl mb-4`}
+                  whileHover={{ rotate: 5 }}>
+                  {key === 'advantage1' && '🎯'}
+                  {key === 'advantage2' && '⚡'}
+                  {key === 'advantage3' && '🤝'}
+                </motion.div>
+                <motion.h4 className='text-xl font-bold text-gray-900 dark:text-white mb-3'>
+                  {t(`about.whyChoose.${key}.title`)}
+                </motion.h4>
+                <motion.p className='text-gray-600 dark:text-gray-300'>
+                  {t(`about.whyChoose.${key}.description`)}
+                </motion.p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Call to Action */}
+          <motion.div
+            className='text-center mt-16 p-8 rounded-3xl bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-gray-800/50 dark:to-gray-700/50'
+            variants={headerVariants}>
+            <motion.h3 className='text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4'>
+              {t('about.location.title')}
+            </motion.h3>
+            <motion.p className='text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto'>
+              {t('about.location.description')}
+            </motion.p>
+            <motion.div className='flex flex-col sm:flex-row gap-4 justify-center'>
+              <motion.a
+                href='#contact'
+                className='inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300'
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}>
+                <RocketLaunchIcon className='w-5 h-5 mr-2' />
+                {t('about.location.cta1')}
+              </motion.a>
+              <motion.a
+                href='#portfolio'
+                className='inline-flex items-center justify-center px-8 py-3 border-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 rounded-xl font-semibold hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all duration-300'
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}>
+                <ArrowTopRightOnSquareIcon className='w-5 h-5 mr-2' />
+                {t('about.location.cta2')}
+              </motion.a>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )

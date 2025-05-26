@@ -3,7 +3,6 @@ import { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://sidikoff.com'
   const currentDate = new Date().toISOString()
-
   // Static pages with multilingual support
   const staticPages = [
     {
@@ -16,19 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
           fr: baseUrl,
           en: `${baseUrl}`,
           ru: `${baseUrl}`,
-        },
-      },
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-      alternates: {
-        languages: {
-          fr: `${baseUrl}/#about`,
-          en: `${baseUrl}/#about`,
-          ru: `${baseUrl}/#about`,
         },
       },
     },

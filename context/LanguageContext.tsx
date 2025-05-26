@@ -20,7 +20,7 @@ const translations: Record<Language, TranslationMap> = {
     // Header    'nav.home': 'Accueil',
     'nav.home': 'Accueil',
     'nav.portfolio': 'Réalisations',
-    'nav.about': 'À propos',
+    'nav.expertise': 'À propos',
     'nav.prices': 'Services',
     'nav.services': 'Services',
     'nav.contact': 'Contact',
@@ -60,25 +60,12 @@ const translations: Record<Language, TranslationMap> = {
     'expertise.stats.projects': 'Projets réalisés',
     'expertise.stats.satisfaction': 'Satisfaction client',
     'expertise.stats.support': 'Support technique',
-    'expertise.learnMore': 'En savoir plus',
-    // About
-    'about.title': 'À propos',
-    'about.subtitle': 'Notre agence',
-    'about.sectionTitle': 'À Propos de SIDIKOFF DIGITAL',
-    'about.sectionSubtitle':
-      'Votre agence web parisienne spécialisée en création de sites internet et applications web modernes',
+    'expertise.learnMore': 'En savoir plus', // About (used in Expertise component)
     'about.mission.title': 'Notre Mission',
     'about.mission.p1':
       "SIDIKOFF DIGITAL est une agence web basée à Paris, dédiée à accompagner les entreprises, PME et associations dans leur transformation digitale. Nous créons des sites internet performants, évolutifs et centrés sur l'utilisateur.",
     'about.mission.p2':
       "Notre approche est basée sur l'écoute, la qualité du code et la réussite de vos projets. Nous allions expertise technique, créativité et sens du détail pour livrer des expériences digitales sur mesure.",
-    'about.expertise.title': 'Notre Expertise',
-    'about.expertise.item1': 'Développement web moderne (React, Next.js, TypeScript)',
-    'about.expertise.item2': 'Design UX/UI responsive et accessible',
-    'about.expertise.item3': 'Optimisation SEO et performances',
-    'about.expertise.item4': 'E-commerce et applications web',
-    'about.expertise.item5': 'Maintenance et support technique',
-    'about.expertise.item6': 'Stratégie digitale et conseil',
     'about.whyChoose.title': 'Pourquoi Choisir SIDIKOFF DIGITAL ?',
     'about.whyChoose.advantage1.title': 'Approche Personnalisée',
     'about.whyChoose.advantage1.description':
@@ -272,7 +259,7 @@ const translations: Record<Language, TranslationMap> = {
   en: {
     'nav.home': 'Home',
     'nav.portfolio': 'Portfolio',
-    'nav.about': 'About',
+    'nav.expertise': 'About',
     'nav.prices': 'Services',
     'nav.services': 'Services',
     'nav.contact': 'Contact',
@@ -307,24 +294,12 @@ const translations: Record<Language, TranslationMap> = {
     'expertise.item3.description': 'Strong and consistent visual identity to enhance your brand.',
     'expertise.item4.title': 'API Integration',
     'expertise.item4.description':
-      'Seamless connection between user interface and your backend services.',
-    'about.title': 'About',
-    'about.subtitle': 'Our Agency',
-    'about.sectionTitle': 'About SIDIKOFF DIGITAL',
-    'about.sectionSubtitle':
-      'Your Paris-based web agency specializing in modern website and web application development',
+      'Seamless connection between user interface and your backend services.', // About (used in Expertise component)
     'about.mission.title': 'Our Mission',
     'about.mission.p1':
       'SIDIKOFF DIGITAL is a web agency based in Paris, dedicated to helping businesses, SMEs, and associations in their digital transformation. We create high-performance, scalable, and user-centered websites.',
     'about.mission.p2':
       "Our approach is based on listening, code quality, and your project's success. We combine technical expertise, creativity, and attention to detail to deliver custom digital experiences.",
-    'about.expertise.title': 'Our Expertise',
-    'about.expertise.item1': 'Modern web development (React, Next.js, TypeScript)',
-    'about.expertise.item2': 'Responsive and accessible UX/UI design',
-    'about.expertise.item3': 'SEO optimization and performance',
-    'about.expertise.item4': 'E-commerce and web applications',
-    'about.expertise.item5': 'Maintenance and technical support',
-    'about.expertise.item6': 'Digital strategy and consulting',
     'about.whyChoose.title': 'Why Choose SIDIKOFF DIGITAL?',
     'about.whyChoose.advantage1.title': 'Personalized Approach',
     'about.whyChoose.advantage1.description':
@@ -504,7 +479,7 @@ const translations: Record<Language, TranslationMap> = {
   ru: {
     'nav.home': 'Главная',
     'nav.portfolio': 'Портфолио',
-    'nav.about': 'О нас',
+    'nav.expertise': 'О нас',
     'nav.prices': 'Услуги',
     'nav.services': 'Услуги',
     'nav.contact': 'Контакты',
@@ -541,22 +516,12 @@ const translations: Record<Language, TranslationMap> = {
     'expertise.item4.title': 'Интеграция API',
     'expertise.item4.description': 'Бесшовная интеграция интерфейса с вашими сервисами и API.',
     'about.title': 'О нас',
-    'about.subtitle': 'Наше агентство',
-    'about.sectionTitle': 'О SIDIKOFF DIGITAL',
-    'about.sectionSubtitle':
-      'Ваше парижское веб-агентство, специализирующееся на создании современных сайтов и веб-приложений',
+    'about.subtitle': 'Наше агентство', // About (used in Expertise component)
     'about.mission.title': 'Наша миссия',
     'about.mission.p1':
       'SIDIKOFF DIGITAL — веб-агентство из Парижа, посвященное помощи компаниям, малому и среднему бизнесу, а также ассоциациям в их цифровой трансформации. Мы создаем высокопроизводительные, масштабируемые и ориентированные на пользователя веб-сайты.',
     'about.mission.p2':
       'Наш подход основан на внимании к клиенту, качестве кода и успехе ваших проектов. Мы сочетаем техническую экспертизу, креативность и внимание к деталям для создания индивидуальных цифровых решений.',
-    'about.expertise.title': 'Наша экспертиза',
-    'about.expertise.item1': 'Современная веб-разработка (React, Next.js, TypeScript)',
-    'about.expertise.item2': 'Адаптивный и доступный UX/UI дизайн',
-    'about.expertise.item3': 'SEO-оптимизация и производительность',
-    'about.expertise.item4': 'Электронная коммерция и веб-приложения',
-    'about.expertise.item5': 'Техническая поддержка и обслуживание',
-    'about.expertise.item6': 'Цифровая стратегия и консалтинг',
     'about.whyChoose.title': 'Почему выбрать SIDIKOFF DIGITAL?',
     'about.whyChoose.advantage1.title': 'Индивидуальный подход',
     'about.whyChoose.advantage1.description':
@@ -737,7 +702,12 @@ const translations: Record<Language, TranslationMap> = {
 
 // Функция для определения языка браузера и сопоставления с доступными языками
 const detectBrowserLanguage = (): Language => {
-  if (typeof window !== 'undefined' && navigator) {
+  // Проверяем, что мы на клиенте
+  if (typeof window === 'undefined') {
+    return 'fr' // Дефолтный язык для SSR
+  }
+
+  if (navigator) {
     // Получаем язык браузера (например: 'fr', 'en-US', 'ru-RU')
     const browserLang = navigator.language.toLowerCase().split('-')[0]
 
@@ -760,7 +730,7 @@ const detectBrowserLanguage = (): Language => {
     return 'en'
   }
 
-  // Fallback для SSR (серверный рендеринг)
+  // Fallback для случаев без navigator
   return 'fr'
 }
 
@@ -781,6 +751,9 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   const [isInitialized, setIsInitialized] = useState(false)
 
   useEffect(() => {
+    // Проверяем, что мы на клиенте
+    if (typeof window === 'undefined') return
+
     // Сначала проверяем сохраненный язык в localStorage
     const savedLanguage = localStorage.getItem('language') as Language
 
@@ -799,14 +772,25 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
 
   const handleSetLanguage = (newLanguage: Language) => {
     setLanguage(newLanguage)
-    localStorage.setItem('language', newLanguage)
+    // Проверяем, что мы на клиенте перед использованием localStorage
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('language', newLanguage)
+    }
   }
 
   const t = (key: string): string => {
     return translations[language]?.[key] || key
   }
 
-  // Показываем детей сразу, но с fallback языком до инициализации
+  // Если не инициализирован, показываем с дефолтным языком
+  if (!isInitialized) {
+    return (
+      <LanguageContext.Provider value={{ language: 'fr', setLanguage: handleSetLanguage, t }}>
+        {children}
+      </LanguageContext.Provider>
+    )
+  }
+
   return (
     <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
       {children}

@@ -205,7 +205,7 @@ export default function Header() {
         <nav className='hidden md:flex items-center gap-8'>
           {[
             { href: '/#home', key: 'nav.home', section: 'home' },
-            { href: '/#about', key: 'nav.about', section: 'about' },
+            { href: '/#expertise', key: 'nav.expertise', section: 'expertise' },
             { href: '/#portfolio', key: 'nav.portfolio', section: 'portfolio' },
             { href: '/#prices', key: 'nav.prices', section: 'prices' },
           ].map(({ href, key, section }) => (
@@ -275,7 +275,7 @@ export default function Header() {
               {[
                 { href: '/#home', key: 'nav.home', section: 'home' },
                 { href: '/#portfolio', key: 'nav.portfolio', section: 'portfolio' },
-                { href: '/#about', key: 'nav.about', section: 'about' },
+                { href: '/#about', key: 'nav.expertise', section: 'about' },
                 { href: '/#prices', key: 'nav.prices', section: 'prices' },
               ].map(({ href, key, section }) => (
                 <motion.div key={section} variants={itemVariants}>

@@ -28,4 +28,3 @@ export function ThemeProvider({
     </NextThemesProvider>
   )
 }
-

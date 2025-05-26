@@ -24,9 +24,9 @@ export default function Breadcrumbs() {
 
   let currentPath = ''
   pathSegments.forEach((segment, index) => {
-    currentPath += `/${segment}`    // Map path segments to labels
+    currentPath += `/${segment}` // Map path segments to labels
     const labels: { [key: string]: string } = {
-      about: t('nav.about'),
+      about: t('nav.expertise'),
       services: t('nav.services'),
       portfolio: t('nav.portfolio'),
       contact: t('nav.contact'),
