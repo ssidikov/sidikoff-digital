@@ -306,7 +306,7 @@ export default function Hero() {
         transition={{ duration: 2, repeat: Infinity }}>
         <motion.button
           onClick={() => scrollToSection('expertise')}
-          className='flex flex-col items-center gap-1 sm:gap-2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors p-2 sm:p-3 rounded-full hover:bg-white/50 dark:hover:bg-gray-800/50 backdrop-blur-sm'
+          className='flex flex-col items-center gap-1 sm:gap-2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors p-2 sm:p-3 rounded-full'
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}>
           <span className='text-xs sm:text-sm font-medium hidden sm:block'>
