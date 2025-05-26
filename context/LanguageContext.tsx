@@ -84,11 +84,12 @@ const translations: Record<Language, TranslationMap> = {
 
     // Technologies
     'tech.title': 'Technologies',
-    'tech.suffix': 'Nous utilisons pour créer des sites web modernes et performants',
-
-    // Portfolio
+    'tech.suffix': 'Nous utilisons pour créer des sites web modernes et performants', // Portfolio
     'portfolio.title': 'Projets récents',
     'portfolio.subtitle': 'Nos réalisations',
+    'portfolio.description':
+      'Explorez nos derniers projets mettant en valeur des techniques de développement web modernes et des solutions innovantes.',
+    'portfolio.filter': 'Filtrer',
     'portfolio.viewAll': 'Voir tout',
     'portfolio.viewDetails': 'Détails du projet',
     'portfolio.showMore': 'Afficher plus',
@@ -141,7 +142,11 @@ const translations: Record<Language, TranslationMap> = {
     'prices.tier3.cta': 'Obtenir un devis',
     'prices.custom':
       'Vous avez un besoin spécifique ? Contactez-nous pour une solution personnalisée.',
+    'prices.customDescription': 'Solutions sur mesure pour votre entreprise',
     'prices.quote': 'Demander un devis',
+    'prices.features.enterpriseSecurity': 'Sécurité Entreprise',
+    'prices.features.prioritySupport': 'Support Prioritaire',
+    'prices.features.customFeatures': 'Fonctionnalités Personnalisées',
 
     // Services
     'services.title': 'Services & Tarifs',
@@ -317,6 +322,9 @@ const translations: Record<Language, TranslationMap> = {
     'tech.suffix': 'We use to build modern, high-performance websites',
     'portfolio.title': 'Recent Projects',
     'portfolio.subtitle': 'Our Work',
+    'portfolio.description':
+      'Explore our latest projects showcasing modern web development techniques and innovative solutions.',
+    'portfolio.filter': 'Filter',
     'portfolio.viewAll': 'View All',
     'portfolio.viewDetails': 'Project Details',
     'portfolio.showMore': 'Show More',
@@ -365,7 +373,11 @@ const translations: Record<Language, TranslationMap> = {
     'prices.tier3.feature10': 'Full installation on your domain',
     'prices.tier3.cta': 'Request a quote',
     'prices.custom': 'Need something specific? Contact us for a custom solution.',
+    'prices.customDescription': 'Tailored solutions for your business',
     'prices.quote': 'Request a quote',
+    'prices.features.enterpriseSecurity': 'Enterprise Security',
+    'prices.features.prioritySupport': 'Priority Support',
+    'prices.features.customFeatures': 'Custom Features',
     'contact.title': 'Contact Us',
     'contact.subtitle': 'Let’s discuss your project',
     'contact.description':
@@ -541,6 +553,9 @@ const translations: Record<Language, TranslationMap> = {
     'tech.suffix': 'Мы используем для создания современных и эффективных сайтов',
     'portfolio.title': 'Недавние проекты',
     'portfolio.subtitle': 'Наши работы',
+    'portfolio.description':
+      'Изучите наши последние проекты, демонстрирующие современные техники веб-разработки и инновационные решения.',
+    'portfolio.filter': 'Фильтр',
     'portfolio.viewAll': 'Смотреть все',
     'portfolio.viewDetails': 'Подробнее о проекте',
     'portfolio.showMore': 'Показать ещё',
@@ -588,7 +603,11 @@ const translations: Record<Language, TranslationMap> = {
     'prices.tier3.feature10': 'Полная установка на ваш домен',
     'prices.tier3.cta': 'Запросить предложение',
     'prices.custom': 'Нужен индивидуальный проект? Свяжитесь с нами для обсуждения.',
+    'prices.customDescription': 'Индивидуальные решения для вашего бизнеса',
     'prices.quote': 'Запросить расчёт',
+    'prices.features.enterpriseSecurity': 'Корпоративная безопасность',
+    'prices.features.prioritySupport': 'Приоритетная поддержка',
+    'prices.features.customFeatures': 'Индивидуальные функции',
     'contact.title': 'Связаться с нами',
     'contact.subtitle': 'Обсудим ваш проект',
     'contact.description':
