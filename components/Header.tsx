@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { useRouter, usePathname } from 'next/navigation'
 import { useTheme } from 'next-themes'
 import { DarkModeToggle } from './ui/DarkModeToggle'
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import LanguageSelector from './LanguageSelector'
 import { useLanguage } from '@/context/LanguageContext'
 import { useSmoothScroll } from '@/hooks/useSmoothScroll'
@@ -21,25 +21,16 @@ export default function Header() {
   const { theme, resolvedTheme } = useTheme()
   const router = useRouter()
   const pathname = usePathname()
-  const { scrollY } = useScroll()
 
   // Ensure theme is mounted before using it
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  // Track scroll position for header background effect
-  useEffect(() => {
-    const unsubscribe = scrollY.onChange((latest) => {
-      setIsScrolled(latest > 50)
-    })
-    return () => unsubscribe()
-  }, [scrollY])
-
   // Track active section for navigation indicators
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'portfolio', 'about', 'prices', 'contact']
+      const sections = ['home', 'portfolio', 'prices', 'about', 'contact']
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -60,24 +51,7 @@ export default function Header() {
     }
     return () => window.removeEventListener('scroll', handleScroll)
   }, [pathname])
-  const headerBackground = useTransform(
-    scrollY,
-    [0, 50],
-    mounted && resolvedTheme === 'dark'
-      ? ['rgba(9, 9, 11, 0)', 'rgba(9, 9, 11, 0.8)'] // Dark theme - more transparent
-      : ['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 0.8)'] // Light theme - more transparent
-  )
 
-  const headerBorder = useTransform(
-    scrollY,
-    [0, 50],
-    mounted && resolvedTheme === 'dark'
-      ? ['rgba(39, 39, 42, 0)', 'rgba(39, 39, 42, 0.3)'] // Dark theme border - more subtle
-      : ['rgba(229, 231, 235, 0)', 'rgba(229, 231, 235, 0.3)'] // Light theme border - more subtle
-  )
-
-  const logoScale = useTransform(scrollY, [0, 100], [1, 0.9])
-  const logoPadding = useTransform(scrollY, [0, 100], [8, 4])
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
     if (href.startsWith('/#')) {
@@ -165,18 +139,9 @@ export default function Header() {
       },
     },
   }
-
   return (
-    <motion.header
-      className='fixed top-0 left-0 right-0 z-50 backdrop-blur-xl transition-all duration-300'
-      style={{
-        backgroundColor: headerBackground,
-        borderBottomColor: headerBorder,
-        borderBottomWidth: 1,
-      }}>
-      <motion.div
-        className='container mx-auto px-4 flex items-center justify-between transition-all duration-300'
-        style={{ paddingTop: logoPadding, paddingBottom: logoPadding }}>
+    <motion.header className='fixed top-0 left-0 right-0 z-50 backdrop-blur-xl transition-all duration-300 border-b border-gray-200/30 dark:border-gray-700/30'>
+      <motion.div className='container mx-auto px-4 py-4 flex items-center justify-between transition-all duration-300'>
         {/* Logo */}
         <div className='z-50'>
           <motion.a
@@ -189,7 +154,7 @@ export default function Header() {
               width={200}
               height={100}
               priority
-              className='w-auto max-w-40 md:max-w-48 h-10 md:h-14 dark:invert'
+              className='w-auto max-w-40 md:max-w-48 h-8 md:h-14 dark:invert'
               style={{
                 width: 'auto',
                 height: 'auto',

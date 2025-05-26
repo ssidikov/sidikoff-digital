@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { ChevronDownIcon, SparklesIcon, RocketLaunchIcon } from '@heroicons/react/24/outline'
 import { useLanguage } from '@/context/LanguageContext'
@@ -11,13 +11,8 @@ import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 export default function Hero() {
   const { t } = useLanguage()
   const { scrollToSection } = useSmoothScroll()
-  const { scrollY } = useScroll()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovered, setIsHovered] = useState(false)
-
-  // Parallax effects
-  const y = useTransform(scrollY, [0, 500], [0, 150])
-  const opacity = useTransform(scrollY, [0, 300], [1, 0])
 
   // Mouse tracking for interactive effects
   useEffect(() => {
@@ -73,7 +68,6 @@ export default function Hero() {
       },
     },
   }
-
   const floatingVariants = {
     animate: {
       y: [-10, 10, -10],
@@ -89,12 +83,12 @@ export default function Hero() {
     <motion.section
       id='home'
       className='relative min-h-screen flex items-center justify-center overflow-hidden'
-      style={{ y, opacity }}
       initial='hidden'
       animate='visible'
       variants={containerVariants}>
+      {' '}
       {/* Background Elements */}
-      <div className='absolute inset-0 -z-10'>
+      <div className='absolute'>
         {/* Gradient Background */}
         <div className='absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20' />
 
@@ -125,8 +119,7 @@ export default function Hero() {
 
         {/* Grid Pattern */}
         <div className='absolute inset-0 bg-grid-pattern opacity-[0.02] dark:opacity-[0.05]' />
-      </div>
-
+      </div>{' '}
       {/* Main Content */}
       <div className='container mx-auto  px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center relative z-10'>
         {/* Left Column - Content */}
@@ -270,7 +263,6 @@ export default function Hero() {
             }}>
             {/* Glowing background */}
             <div className='absolute inset-0 bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 rounded-full blur-3xl opacity-20 animate-pulse' />
-
             {/* Logo */}
             <div className='relative z-10 w-full h-full flex items-center justify-center'>
               <Image
@@ -282,7 +274,6 @@ export default function Hero() {
                 priority
               />
             </div>
-
             {/* Floating Elements */}
             {[...Array(3)].map((_, i) => (
               <motion.div
@@ -304,23 +295,24 @@ export default function Hero() {
                   delay: i * 0.7,
                 }}
               />
-            ))}
-          </motion.div>
+            ))}{' '}
+          </motion.div>{' '}
         </motion.div>
-      </div>
-
+      </div>{' '}
       {/* Scroll Indicator */}
       <motion.div
-        className='absolute bottom-8 left-1/2 transform -translate-x-1/2'
+        className='absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20'
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}>
         <motion.button
-          onClick={() => scrollToSection('about')}
-          className='flex flex-col items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors'
+          onClick={() => scrollToSection('expertise')}
+          className='flex flex-col items-center gap-1 sm:gap-2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors p-2 sm:p-3 rounded-full hover:bg-white/50 dark:hover:bg-gray-800/50 backdrop-blur-sm'
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}>
-          <span className='text-sm font-medium'>{t('hero.scroll') || 'Découvrir'}</span>
-          <ChevronDownIcon className='w-5 h-5' />
+          <span className='text-xs sm:text-sm font-medium hidden sm:block'>
+            {t('hero.scroll') || 'Découvrir'}
+          </span>
+          <ChevronDownIcon className='w-4 h-4 sm:w-5 sm:h-5' />
         </motion.button>
       </motion.div>
     </motion.section>
