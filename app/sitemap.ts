@@ -44,8 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
           ru: `${baseUrl}/ru/services`,
         },
       },
-    },
-    {
+    },    {
       url: `${baseUrl}/portfolio`,
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
@@ -55,6 +54,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
           fr: `${baseUrl}/portfolio`,
           en: `${baseUrl}/en/portfolio`,
           ru: `${baseUrl}/ru/portfolio`,
+        },
+      },
+    },
+    {
+      url: `${baseUrl}/mentions-legales`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
+      alternates: {
+        languages: {
+          fr: `${baseUrl}/mentions-legales`,
+          en: `${baseUrl}/en/legal-notices`,
+          ru: `${baseUrl}/ru/legal-notices`,
         },
       },
     },

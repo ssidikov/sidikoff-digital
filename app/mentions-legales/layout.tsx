@@ -1,0 +1,34 @@
+import { Metadata } from 'next'
+import { generateMetadata as generateSEOMetadata, pagesSEO } from '@/lib/seo'
+
+export const metadata: Metadata = generateSEOMetadata(pagesSEO.legal.fr)
+
+const legalSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': 'https://sidikoff.com/mentions-legales#webpage',
+  url: 'https://sidikoff.com/mentions-legales',
+  name: 'Mentions Légales - SIDIKOFF DIGITAL',
+  description: 'Mentions légales de SIDIKOFF DIGITAL, agence web parisienne',
+  isPartOf: {
+    '@id': 'https://sidikoff.com/#website',
+  },
+  about: {
+    '@id': 'https://sidikoff.com/#business',
+  },
+  inLanguage: 'fr-FR',
+}
+
+export default function LegalMentionsLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      {children}
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(legalSchema),
+        }}
+      />
+    </>
+  )
+}

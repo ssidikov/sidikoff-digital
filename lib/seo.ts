@@ -237,8 +237,46 @@ export const pagesSEO = {
         'веб проекты париж',
         'примеры сайтов',
         'клиентские референсы',
+      ],      canonical: 'https://sidikoff.com/ru/portfolio',
+    },
+  },
+
+  legal: {
+    fr: {
+      title: 'Mentions Légales | SIDIKOFF DIGITAL - Agence Web Paris',
+      description:
+        'Mentions légales de SIDIKOFF DIGITAL, agence web parisienne. Informations légales, protection des données personnelles et conditions d\'utilisation.',
+      keywords: [
+        'mentions légales',
+        'informations légales',
+        'protection données personnelles',
+        'conditions utilisation',
       ],
-      canonical: 'https://sidikoff.com/ru/portfolio',
+      canonical: 'https://sidikoff.com/mentions-legales',
+    },
+    en: {
+      title: 'Legal Notices | SIDIKOFF DIGITAL - Web Agency Paris',
+      description:
+        'Legal notices of SIDIKOFF DIGITAL, Parisian web agency. Legal information, personal data protection and terms of use.',
+      keywords: [
+        'legal notices',
+        'legal information',
+        'data protection',
+        'terms of use',
+      ],
+      canonical: 'https://sidikoff.com/en/legal-notices',
+    },
+    ru: {
+      title: 'Правовая Информация | SIDIKOFF DIGITAL - Веб-агентство Париж',
+      description:
+        'Правовая информация SIDIKOFF DIGITAL, парижского веб-агентства. Юридическая информация, защита персональных данных и условия использования.',
+      keywords: [
+        'правовая информация',
+        'юридическая информация',
+        'защита данных',
+        'условия использования',
+      ],
+      canonical: 'https://sidikoff.com/ru/legal-notices',
     },
   },
 }

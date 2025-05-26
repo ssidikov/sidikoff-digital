@@ -30,9 +30,14 @@ export default function Footer() {
                 }}
               />
             </a>
-          </div>
-          <div className='hidden md:flex items-center text-sm text-muted-foreground order-3 md:order-2 min-w-80'>
-            © {currentYear} {t('footer.rights')}
+          </div>          <div className='hidden md:flex flex-col items-center text-sm text-muted-foreground order-3 md:order-2 min-w-80'>
+            <div>© {currentYear} {t('footer.rights')}</div>
+            <Link 
+              href='/mentions-legales' 
+              className='text-xs text-muted-foreground hover:text-primary transition-colors mt-1'
+            >
+              {t('legal.title')}
+            </Link>
           </div>
           <div className='flex items-center gap-4 order-2 md:order-3'>
             <Link
@@ -46,9 +51,14 @@ export default function Footer() {
               <Linkedin className='w-5 h-5' />
             </Link>
           </div>
-        </div>
-        <div className='md:hidden text-center mt-5 text-sm text-muted-foreground'>
-          © {currentYear} {t('footer.rights')}
+        </div>        <div className='md:hidden text-center mt-5 text-sm text-muted-foreground'>
+          <div>© {currentYear} {t('footer.rights')}</div>
+          <Link 
+            href='/mentions-legales' 
+            className='text-xs text-muted-foreground hover:text-primary transition-colors mt-1 block'
+          >
+            {t('legal.title')}
+          </Link>
         </div>
       </div>
     </footer>

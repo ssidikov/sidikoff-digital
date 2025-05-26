@@ -24,13 +24,14 @@ export default function Breadcrumbs() {
 
   let currentPath = ''
   pathSegments.forEach((segment, index) => {
-    currentPath += `/${segment}` // Map path segments to labels
+    currentPath += `/${segment}`    // Map path segments to labels
     const labels: { [key: string]: string } = {
       about: t('nav.about'),
       services: t('nav.services'),
       portfolio: t('nav.portfolio'),
       contact: t('nav.contact'),
       projects: t('nav.projects'),
+      'mentions-legales': t('legal.title'),
     }
 
     const label = labels[segment] || segment.charAt(0).toUpperCase() + segment.slice(1)

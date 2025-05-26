@@ -39,7 +39,7 @@ const translations: Record<Language, TranslationMap> = {
     'hero.scroll': 'Découvrir',
     'hero.stat1': 'Projets',
     'hero.stat2': 'Satisfaction',
-    'hero.stat3': 'Support',    // Expertise
+    'hero.stat3': 'Support', // Expertise
     'expertise.title': 'Notre Expertise',
     'expertise.subtitle': 'Ce que nous proposons',
     'expertise.description':
@@ -233,11 +233,43 @@ const translations: Record<Language, TranslationMap> = {
     // Success popup messages
     'popup.success.title': 'Envoyé avec succès !',
     'popup.success.message':
-      'Votre message a été envoyé avec succès. Nous vous répondrons bientôt !',
-
-    // Footer
+      'Votre message a été envoyé avec succès. Nous vous répondrons bientôt !', // Footer
     'footer.rights':
       'SIDIKOFF DIGITAL — Agence Web à Paris. Création de sites internet sur mesure.',
+
+    // Legal Mentions
+    'legal.title': 'Mentions Légales',
+    'legal.company.title': "Informations sur l'entreprise",
+    'legal.company.name': 'Nom commercial',
+    'legal.company.nameValue': 'SIDIKOFF DIGITAL',
+    'legal.company.form': 'Forme juridique',
+    'legal.company.formValue': 'Micro-entreprise',
+    'legal.company.SIREN': 'Numéro SIREN',
+    'legal.company.SIRENValue': '943 266 213',
+    'legal.company.address': 'Adresse du siège social',
+    'legal.company.addressValue': 'Paris, France',
+    'legal.company.phone': 'Téléphone',
+    'legal.company.phoneValue': '+33 6 26 93 27 34',
+    'legal.company.email': 'Email',
+    'legal.company.emailValue': 'contact@sidikoff.com',
+    'legal.director.title': 'Directeur de la publication',
+    'legal.director.name': 'Sardorbek SIDIKOV',
+    'legal.hosting.title': 'Hébergement',
+    'legal.hosting.provider': 'Hébergeur',
+    'legal.hosting.providerValue': 'Vercel Inc.',
+    'legal.hosting.address': 'Adresse',
+    'legal.hosting.addressValue': '340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis',
+    'legal.hosting.website': 'Site web',
+    'legal.hosting.websiteValue': 'https://vercel.com',
+    'legal.property.title': 'Propriété intellectuelle',
+    'legal.property.content':
+      "Ce site web et tous ses éléments (textes, images, logos, etc.) sont protégés par le droit d'auteur. Toute reproduction, même partielle, est interdite sans autorisation préalable.",
+    'legal.data.title': 'Protection des données personnelles',
+    'legal.data.content':
+      "Conformément au RGPD, vous disposez de droits sur vos données personnelles. Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes et ne sont pas transmises à des tiers. Vous pouvez exercer vos droits concernant vos données personnelles en contactant à l'adresse e-mail : contact@sidikoff.com.",
+    'legal.cookies.title': 'Cookies',
+    'legal.cookies.content':
+      'Ce site utilise des cookies essentiels au fonctionnement du site. En continuant à naviguer sur ce site, vous acceptez leur utilisation.',
   },
   en: {
     'nav.home': 'Home',
@@ -438,6 +470,40 @@ const translations: Record<Language, TranslationMap> = {
       'Absolutely! All our sites are designed with SEO best practices: optimized structure, meta tags, loading speed, responsive design, structured content. We also offer advanced SEO services.',
 
     'footer.rights': 'SIDIKOFF DIGITAL — Web Agency in Paris. Custom website development.',
+
+    // Legal Mentions
+    'legal.title': 'Legal Notices',
+    'legal.company.title': 'Company Information',
+    'legal.company.name': 'Company Name',
+    'legal.company.nameValue': 'SIDIKOFF DIGITAL',
+    'legal.company.form': 'Legal Form',
+    'legal.company.formValue': 'Sole Proprietorship',
+    'legal.company.SIREN': 'SIREN Number',
+    'legal.company.SIRENValue': '943 266 213',
+    'legal.company.address': 'Registered Address',
+    'legal.company.addressValue': 'Paris, France',
+    'legal.company.phone': 'Phone',
+    'legal.company.phoneValue': '+33 6 26 93 27 34',
+    'legal.company.email': 'Email',
+    'legal.company.emailValue': 'contact@sidikoff.com',
+    'legal.director.title': 'Publication Director',
+    'legal.director.name': 'Sardorbek SIDIKOV',
+    'legal.hosting.title': 'Web Hosting',
+    'legal.hosting.provider': 'Host Provider',
+    'legal.hosting.providerValue': 'Vercel Inc.',
+    'legal.hosting.address': 'Address',
+    'legal.hosting.addressValue': '340 S Lemon Ave #4133, Walnut, CA 91789, United States',
+    'legal.hosting.website': 'Website',
+    'legal.hosting.websiteValue': 'https://vercel.com',
+    'legal.property.title': 'Intellectual Property',
+    'legal.property.content':
+      'This website and all its elements (texts, images, logos, etc.) are protected by copyright. Any reproduction, even partial, is prohibited without prior authorization.',
+    'legal.data.title': 'Personal Data Protection',
+    'legal.data.content':
+      'In accordance with GDPR, you have rights over your personal data. Data collected via the contact form is used only to respond to your requests and is not transmitted to third parties. You can exercise your rights regarding your personal data by contacting us at the email address: contact@sidikoff.com.',
+    'legal.cookies.title': 'Cookies',
+    'legal.cookies.content':
+      'This site uses essential cookies for the functioning of the site. By continuing to browse this site, you accept their use.',
   },
   ru: {
     'nav.home': 'Главная',
@@ -638,6 +704,40 @@ const translations: Record<Language, TranslationMap> = {
       'Конечно! Все наши сайты создаются с учётом лучших SEO-практик: оптимизированная структура, мета-теги, скорость загрузки, адаптивный дизайн, структурированный контент. Мы также предлагаем расширенные SEO-услуги.',
 
     'footer.rights': 'SIDIKOFF DIGITAL — Веб-агентство в Париже. Разработка сайтов под ключ.',
+
+    // Legal Mentions
+    'legal.title': 'Правовые упоминания',
+    'legal.company.title': 'Информация о компании',
+    'legal.company.name': 'Название компании',
+    'legal.company.nameValue': 'SIDIKOFF DIGITAL',
+    'legal.company.form': 'Правовая форма',
+    'legal.company.formValue': 'Индивидуальное предприятие',
+    'legal.company.SIREN': 'Номер SIREN',
+    'legal.company.SIRENValue': '943 266 213',
+    'legal.company.address': 'Юридический адрес',
+    'legal.company.addressValue': 'Париж, Франция',
+    'legal.company.phone': 'Телефон',
+    'legal.company.phoneValue': '+33 6 26 93 27 34',
+    'legal.company.email': 'Email',
+    'legal.company.emailValue': 'contact@sidikoff.com',
+    'legal.director.title': 'Директор публикации',
+    'legal.director.name': 'Сардорбек СИДИКОВ',
+    'legal.hosting.title': 'Веб-хостинг',
+    'legal.hosting.provider': 'Хостинг-провайдер',
+    'legal.hosting.providerValue': 'Vercel Inc.',
+    'legal.hosting.address': 'Адрес',
+    'legal.hosting.addressValue': '340 S Lemon Ave #4133, Walnut, CA 91789, США',
+    'legal.hosting.website': 'Веб-сайт',
+    'legal.hosting.websiteValue': 'https://vercel.com',
+    'legal.property.title': 'Интеллектуальная собственность',
+    'legal.property.content':
+      'Этот веб-сайт и все его элементы (тексты, изображения, логотипы и т.д.) защищены авторским правом. Любое воспроизведение, даже частичное, запрещено без предварительного разрешения.',
+    'legal.data.title': 'Защита персональных данных',
+    'legal.data.content':
+      'В соответствии с GDPR, у вас есть права на ваши персональные данные. Данные, собранные через контактную форму, используются только для ответа на ваши запросы и не передаются третьим лицам. Вы можете осуществить свои права касательно ваших персональных данных, связавшись с нами по электронной почте: contact@sidikoff.com.',
+    'legal.cookies.title': 'Куки',
+    'legal.cookies.content':
+      'Этот сайт использует основные куки, необходимые для функционирования сайта. Продолжая навигацию по этому сайту, вы принимаете их использование.',
   },
 }
 
