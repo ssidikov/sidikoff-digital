@@ -1,7 +1,6 @@
 'use client'
 
-import type React from 'react'
-import { createContext, useContext, useState, useEffect } from 'react'
+import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react'
 
 type Language = 'fr' | 'en' | 'ru'
 
@@ -28,7 +27,8 @@ const translations: Record<Language, TranslationMap> = {
     'nav.projects': 'Projets',
 
     // Hero
-    'hero.title1': 'Création de sites web et applications web',
+    'hero.badge': 'Agence Web Premium',
+    'hero.title1': 'Création de sites web',
     'hero.title2': ' pour la croissance de votre entreprise',
     'hero.description':
       'Nous aidons les entreprises à attirer des clients grâce à des sites performants, des applications modernes et des stratégies digitales efficaces.',
@@ -36,6 +36,10 @@ const translations: Record<Language, TranslationMap> = {
     'hero.contact': 'Nous contacter',
     'hero.download': '',
     'hero.viewWork': 'Voir nos projets',
+    'hero.scroll': 'Découvrir',
+    'hero.stat1': 'Projets',
+    'hero.stat2': 'Satisfaction',
+    'hero.stat3': 'Support',
 
     // Expertise
     'expertise.title': 'Notre Expertise',
@@ -51,7 +55,11 @@ const translations: Record<Language, TranslationMap> = {
       'Identité visuelle forte et cohérente pour valoriser votre marque.',
     'expertise.item4.title': 'Intégration API',
     'expertise.item4.description':
-      'Connexion fluide entre l’interface utilisateur et vos services backend.',
+      'Connexion fluide entre l’interface utilisateur et vos services backend.',    'expertise.cta': 'Démarrer votre projet',
+    'expertise.stats.projects': 'Projets réalisés',
+    'expertise.stats.satisfaction': 'Satisfaction client',
+    'expertise.stats.support': 'Support technique',
+    'expertise.learnMore': 'En savoir plus',
     // About
     'about.title': 'À propos',
     'about.subtitle': 'Notre agence',
@@ -79,7 +87,8 @@ const translations: Record<Language, TranslationMap> = {
       'Sites rapides, sécurisés et optimisés pour le référencement',
     'about.whyChoose.advantage3.title': 'Accompagnement Complet',
     'about.whyChoose.advantage3.description':
-      'De la conception à la maintenance, nous restons à vos côtés',    'about.location.title': 'Prêt à Transformer Votre Vision en Réalité ?',
+      'De la conception à la maintenance, nous restons à vos côtés',
+    'about.location.title': 'Prêt à Transformer Votre Vision en Réalité ?',
     'about.location.description':
       'Nous accompagnons votre croissance digitale avec des solutions innovantes et sur mesure. Découvrez comment nous pouvons propulser votre projet vers le succès !',
     'about.location.cta1': 'Démarrer votre projet',
@@ -237,15 +246,27 @@ const translations: Record<Language, TranslationMap> = {
     'nav.services': 'Services',
     'nav.contact': 'Contact',
     'nav.projects': 'Projects',
-    'hero.title1': 'Website & Web App Development',
+    'hero.badge': 'Premium Web Agency',
+    'hero.title1': 'Website Development',
     'hero.title2': ' for your business growth',
     'hero.description':
       'We help businesses attract clients with effective websites, modern web apps, and comprehensive digital strategies.',
     'hero.slogan': 'Your digital transformation starts here.',
     'hero.contact': 'Contact Us',
     'hero.viewWork': 'View Our Projects',
+    'hero.scroll': 'Discover',
+    'hero.stat1': 'Projects',
+    'hero.stat2': 'Satisfaction',
+    'hero.stat3': 'Support', // Expertise
     'expertise.title': 'Our Expertise',
     'expertise.subtitle': 'What we offer',
+    'expertise.description':
+      'We master the most advanced technologies to create exceptional digital experiences that grow your business.',
+    'expertise.learnMore': 'Learn more',
+    'expertise.cta': 'Start your project',
+    'expertise.stats.projects': 'Completed Projects',
+    'expertise.stats.satisfaction': 'Client Satisfaction',
+    'expertise.stats.support': 'Technical Support',
     'expertise.item1.title': 'Web Development',
     'expertise.item1.description':
       'High-performance, adaptive websites built with cutting-edge technologies.',
@@ -280,7 +301,8 @@ const translations: Record<Language, TranslationMap> = {
     'about.whyChoose.advantage2.title': 'Optimal Performance',
     'about.whyChoose.advantage2.description': 'Fast, secure websites optimized for search engines',
     'about.whyChoose.advantage3.title': 'Complete Support',
-    'about.whyChoose.advantage3.description': 'From design to maintenance, we stay by your side',    'about.location.title': 'Ready to Transform Your Vision into Reality?',
+    'about.whyChoose.advantage3.description': 'From design to maintenance, we stay by your side',
+    'about.location.title': 'Ready to Transform Your Vision into Reality?',
     'about.location.description':
       'We support your digital growth with innovative and tailored solutions. Discover how we can propel your project to success!',
     'about.location.cta1': 'Start your project',
@@ -424,15 +446,27 @@ const translations: Record<Language, TranslationMap> = {
     'nav.services': 'Услуги',
     'nav.contact': 'Контакты',
     'nav.projects': 'Проекты',
-    'hero.title1': 'Создание веб-сайтов и веб-приложений',
+    'hero.badge': 'Премиум Веб-Агентство',
+    'hero.title1': 'Создание сайтов',
     'hero.title2': ' для роста вашего бизнеса',
     'hero.description':
       'Помогаем бизнесу привлекать клиентов с помощью эффективных сайтов, современных веб-приложений и комплексных digital-стратегий.',
     'hero.slogan': 'Ваша цифровая трансформация начинается здесь.',
     'hero.contact': 'Связаться с нами',
     'hero.viewWork': 'Наши проекты',
+    'hero.scroll': 'Узнать больше',
+    'hero.stat1': 'Проектов',
+    'hero.stat2': 'Довольных клиентов',
+    'hero.stat3': 'Поддержка', // Expertise
     'expertise.title': 'Наша экспертиза',
     'expertise.subtitle': 'Что мы предлагаем',
+    'expertise.description':
+      'Мы владеем самыми передовыми технологиями для создания исключительных цифровых решений, которые способствуют росту вашего бизнеса.',
+    'expertise.learnMore': 'Узнать больше',
+    'expertise.cta': 'Начать ваш проект',
+    'expertise.stats.projects': 'Выполненных проектов',
+    'expertise.stats.satisfaction': 'Довольных клиентов',
+    'expertise.stats.support': 'Техническая поддержка',
     'expertise.item1.title': 'Веб-разработка',
     'expertise.item1.description':
       'Современные, быстрые и масштабируемые сайты на передовых технологиях.',
@@ -469,7 +503,8 @@ const translations: Record<Language, TranslationMap> = {
       'Быстрые, безопасные сайты, оптимизированные для поисковых систем',
     'about.whyChoose.advantage3.title': 'Полная поддержка',
     'about.whyChoose.advantage3.description':
-      'От дизайна до обслуживания — мы остаемся рядом с вами',    'about.location.title': 'Готовы Воплотить Вашу Идею в Реальность?',
+      'От дизайна до обслуживания — мы остаемся рядом с вами',
+    'about.location.title': 'Готовы Воплотить Вашу Идею в Реальность?',
     'about.location.description':
       'Мы поддерживаем ваш цифровой рост с помощью инновационных и индивидуальных решений. Узнайте, как мы можем вывести ваш проект на новый уровень успеха!',
     'about.location.cta1': 'Начать ваш проект',
@@ -677,8 +712,7 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   }
 
   // Показываем детей сразу, но с fallback языком до инициализации
-  return (
-    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
+  return (    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   )

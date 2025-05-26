@@ -37,6 +37,7 @@ export default function Expertise() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [scrollY])
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -72,10 +73,11 @@ export default function Expertise() {
       },
     },
   }
+
   const statsData = [
-    { value: '50+', label: t('expertise.stats.projects') },
-    { value: '100%', label: t('expertise.stats.satisfaction') },
-    { value: '24/7', label: t('expertise.stats.support') },
+    { value: '50+', label: 'Projets réalisés' },
+    { value: '98%', label: 'Satisfaction client' },
+    { value: '24/7', label: 'Support technique' },
   ]
 
   return (
@@ -179,19 +181,22 @@ export default function Expertise() {
               <LightBulbIcon className='w-4 h-4' />
             </motion.div>
           </motion.div>
+
           {/* Enhanced Main Title with gradient text */}
           <motion.h2
             className='text-3xl sm:text-4xl lg:text-6xl font-bold bg-gradient-to-r from-gray-900 via-indigo-600 to-purple-600 dark:from-white dark:via-indigo-400 dark:to-purple-400 bg-clip-text text-transparent mb-8 leading-tight'
             variants={headerVariants}>
             {t('expertise.subtitle')}
           </motion.h2>
+
           {/* Enhanced Description with better typography */}
           <motion.p
             className='text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8 font-light'
             variants={headerVariants}>
             {t('expertise.description') ||
               'Nous maîtrisons les technologies les plus avancées pour créer des expériences digitales exceptionnelles qui font grandir votre entreprise.'}
-          </motion.p>{' '}
+          </motion.p>
+
           {/* New stats section */}
           <motion.div className='flex justify-center gap-8 mb-8' variants={headerVariants}>
             {statsData.map((stat, index) => (
@@ -352,11 +357,11 @@ function Card({
       y: 0,
     },
     hover: {
-      scale: 1.1,
-      rotate: 5,
-      y: -2,
+      scale: 1.15,
+      rotate: 10,
+      y: -4,
       transition: {
-        duration: 0.3,
+        duration: 0.4,
         ease: [0.25, 0.1, 0.25, 1],
       },
     },
@@ -367,105 +372,226 @@ function Card({
     hover: {
       x: '100%',
       transition: {
-        duration: 0.6,
+        duration: 0.8,
         ease: 'easeInOut',
       },
     },
   }
 
+  const connectionVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.3 },
+    },
+  }
+
   return (
     <motion.div
-      className='group relative flex flex-col h-full'
+      className='group relative flex flex-col h-full z-10'
       variants={cardVariants}
       onMouseMove={handleMouseMove}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
+      onHoverStart={() => {
+        setIsHovered(true)
+        onHover(true)
+      }}
+      onHoverEnd={() => {
+        setIsHovered(false)
+        onHover(false)
+      }}
       whileHover={{
-        y: -8,
-        transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] },
-      }}>
-      {/* Card Background */}
-      <div className='relative h-full rounded-2xl border border-gray-200/50 dark:border-gray-700/50 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm overflow-hidden'>
-        {/* Hover Background Effect */}
+        y: -12,
+        transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
+      }}
+      animate={isConnected ? 'visible' : 'hidden'}
+      variants={connectionVariants}>
+      {/* Enhanced Card Background */}
+      <div className='relative h-full rounded-3xl border border-gray-200/50 dark:border-gray-700/50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md overflow-hidden shadow-lg group-hover:shadow-2xl transition-shadow duration-500'>
+        {/* Enhanced Hover Background Effect */}
         <motion.div
           className='pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100'
           style={{ background }}
-          transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
         />
 
-        {/* Shimmer Effect */}
+        {/* Enhanced Shimmer Effect */}
         <div className='absolute inset-0 overflow-hidden'>
           <motion.div
-            className='absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12'
+            className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 opacity-0 group-hover:opacity-100'
             variants={shimmerVariants}
             initial='rest'
             animate={isHovered ? 'hover' : 'rest'}
           />
         </div>
 
+        {/* Floating particles effect */}
+        <div className='absolute inset-0 overflow-hidden'>
+          {[...Array(3)].map((_, i) => (
+            <motion.div
+              key={i}
+              className='absolute w-1 h-1 bg-indigo-400 rounded-full opacity-0 group-hover:opacity-60'
+              style={{
+                left: `${20 + i * 30}%`,
+                top: `${30 + i * 20}%`,
+              }}
+              animate={
+                isHovered
+                  ? {
+                      y: [-20, -40, -20],
+                      opacity: [0, 0.6, 0],
+                      scale: [0, 1, 0],
+                    }
+                  : {}
+              }
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                delay: i * 0.2,
+                ease: 'easeInOut',
+              }}
+            />
+          ))}
+        </div>
+
         {/* Card Content */}
-        <div className='relative z-10 p-6 lg:p-8 h-full flex flex-col'>
-          {/* Icon Container */}
+        <div className='relative z-10 p-8 lg:p-10 h-full flex flex-col'>
+          {/* Enhanced Icon Container */}
           <motion.div
-            className='relative mb-6'
+            className='relative mb-8'
             variants={iconVariants}
             initial='rest'
             animate={isHovered ? 'hover' : 'rest'}>
             <div className='relative'>
-              {/* Icon Background Glow */}
-              <div className='absolute inset-0 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-300' />
+              {/* Enhanced Icon Background Glow */}
+              <motion.div
+                className='absolute inset-0 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 rounded-2xl blur-xl opacity-20 group-hover:opacity-50 transition-opacity duration-500'
+                animate={
+                  isHovered
+                    ? {
+                        scale: [1, 1.2, 1],
+                        rotate: [0, 180, 360],
+                      }
+                    : {}
+                }
+                transition={{
+                  duration: 3,
+                  repeat: isHovered ? Infinity : 0,
+                  ease: 'linear',
+                }}
+              />
 
-              {/* Icon Background */}
-              <div className='relative w-16 h-16 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-xl flex items-center justify-center border border-indigo-100 dark:border-indigo-800 group-hover:border-indigo-300 dark:group-hover:border-indigo-600 transition-colors duration-300'>
+              {/* Enhanced Icon Background */}
+              <motion.div
+                className='relative w-20 h-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-indigo-900/40 dark:via-purple-900/40 dark:to-pink-900/40 rounded-2xl flex items-center justify-center border-2 border-indigo-100 dark:border-indigo-800 group-hover:border-indigo-300 dark:group-hover:border-indigo-600 transition-colors duration-500'
+                whileHover={{
+                  borderColor: ['#6366f1', '#8b5cf6', '#ec4899', '#6366f1'],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: 'linear',
+                }}>
                 <Image
                   src={item.icon}
                   alt={t(item.titleKey)}
                   priority
-                  sizes='(max-width: 768px) 32px, 32px'
-                  width={32}
-                  height={32}
-                  className='object-contain w-8 h-8 dark:invert group-hover:scale-110 transition-transform duration-300'
+                  sizes='(max-width: 768px) 40px, 40px'
+                  width={40}
+                  height={40}
+                  className='object-contain w-10 h-10 dark:invert group-hover:scale-110 transition-transform duration-500'
                 />
-              </div>
+              </motion.div>
             </div>
           </motion.div>
 
-          {/* Title */}
+          {/* Enhanced Title */}
           <motion.h4
-            className='font-bold text-xl text-gray-900 dark:text-white mb-4 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300'
+            className='font-bold text-xl lg:text-2xl text-gray-900 dark:text-white mb-6 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-500 leading-tight'
             initial={{ opacity: 0.8 }}
-            whileHover={{ opacity: 1 }}>
+            whileHover={{
+              opacity: 1,
+              scale: 1.02,
+              transition: { duration: 0.3 },
+            }}>
             {t(item.titleKey)}
           </motion.h4>
 
-          {/* Description */}
+          {/* Enhanced Description */}
           <motion.p
-            className='text-gray-600 dark:text-gray-300 leading-relaxed flex-grow'
+            className='text-gray-600 dark:text-gray-300 leading-relaxed flex-grow text-base lg:text-lg font-light'
             initial={{ opacity: 0.7 }}
             whileHover={{ opacity: 1 }}>
             {t(item.descriptionKey)}
           </motion.p>
 
-          {/* Learn More Link */}
+          {/* Enhanced Learn More Link */}
           <motion.div
-            className='mt-6 flex items-center text-indigo-600 dark:text-indigo-400 font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300'
-            initial={{ x: -10 }}
-            whileHover={{ x: 0 }}>
+            className='mt-8 flex items-center text-indigo-600 dark:text-indigo-400 font-semibold text-base opacity-0 group-hover:opacity-100 transition-all duration-500'
+            initial={{ x: -20, opacity: 0 }}
+            whileHover={{ x: 0, opacity: 1 }}
+            animate={isHovered ? { x: 0, opacity: 1 } : { x: -20, opacity: 0 }}>
             <span>{t('expertise.learnMore') || 'En savoir plus'}</span>
-            <ChevronRightIcon className='w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300' />
+            <motion.div
+              animate={
+                isHovered
+                  ? {
+                      x: [0, 5, 0],
+                    }
+                  : {}
+              }
+              transition={{
+                duration: 1.5,
+                repeat: isHovered ? Infinity : 0,
+                ease: 'easeInOut',
+              }}>
+              <ChevronRightIcon className='w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300' />
+            </motion.div>
           </motion.div>
         </div>
 
-        {/* Border Gradient */}
-        <div
-          className='absolute inset-0 rounded-2xl bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none'
-          style={{ padding: '1px' }}>
-          <div className='h-full w-full rounded-2xl bg-white dark:bg-gray-800' />
-        </div>
+        {/* Enhanced Border Gradient */}
+        <motion.div
+          className='absolute inset-0 rounded-3xl bg-gradient-to-r from-indigo-500/30 via-purple-500/30 to-cyan-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none'
+          style={{ padding: '2px' }}
+          animate={
+            isHovered
+              ? {
+                  background: [
+                    'linear-gradient(45deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3), rgba(236, 72, 153, 0.3))',
+                    'linear-gradient(90deg, rgba(139, 92, 246, 0.3), rgba(236, 72, 153, 0.3), rgba(99, 102, 241, 0.3))',
+                    'linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3))',
+                    'linear-gradient(45deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3), rgba(236, 72, 153, 0.3))',
+                  ],
+                }
+              : {}
+          }
+          transition={{
+            duration: 3,
+            repeat: isHovered ? Infinity : 0,
+            ease: 'linear',
+          }}>
+          <div className='h-full w-full rounded-3xl bg-white dark:bg-gray-800' />
+        </motion.div>
       </div>
 
-      {/* Card Shadow */}
-      <div className='absolute inset-0 rounded-2xl bg-gradient-to-r from-indigo-600/10 via-purple-600/10 to-cyan-600/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10' />
+      {/* Enhanced Card Shadow */}
+      <motion.div
+        className='absolute inset-0 rounded-3xl bg-gradient-to-r from-indigo-600/20 via-purple-600/20 to-cyan-600/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10'
+        animate={
+          isHovered
+            ? {
+                scale: [1, 1.1, 1],
+                opacity: [0, 0.3, 0.1],
+              }
+            : {}
+        }
+        transition={{
+          duration: 2,
+          repeat: isHovered ? Infinity : 0,
+          ease: 'easeInOut',
+        }}
+      />
     </motion.div>
   )
 }
