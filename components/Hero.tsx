@@ -134,7 +134,6 @@ export default function Hero() {
           {/* Badge */}
           <motion.div
             className='inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-sm font-medium border border-indigo-200 dark:border-indigo-800'
-            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}>
             <SparklesIcon className='w-4 h-4' />
             {t('hero.badge') || 'Agence Web Premium'}
@@ -251,7 +250,7 @@ export default function Hero() {
               { number: '100%', label: t('hero.stat2') || 'Satisfaction' },
               { number: '24/7', label: t('hero.stat3') || 'Support' },
             ].map((stat, index) => (
-              <motion.div key={index} className='text-center' whileHover={{ scale: 1.05 }}>
+              <motion.div key={index} className='text-center'>
                 <div className='text-2xl font-bold text-indigo-600 dark:text-indigo-400'>
                   {stat.number}
                 </div>

@@ -39,11 +39,11 @@ const translations: Record<Language, TranslationMap> = {
     'hero.scroll': 'Découvrir',
     'hero.stat1': 'Projets',
     'hero.stat2': 'Satisfaction',
-    'hero.stat3': 'Support',
-
-    // Expertise
+    'hero.stat3': 'Support',    // Expertise
     'expertise.title': 'Notre Expertise',
     'expertise.subtitle': 'Ce que nous proposons',
+    'expertise.description':
+      'Nous maîtrisons les technologies les plus avancées pour créer des expériences digitales exceptionnelles qui font grandir votre entreprise.',
     'expertise.item1.title': 'Développement web',
     'expertise.item1.description':
       'Sites web performants, adaptatifs et construits avec des technologies de pointe.',

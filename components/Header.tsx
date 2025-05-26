@@ -182,11 +182,7 @@ export default function Header() {
           <motion.a
             href='/'
             className='flex flex-col items-center leading-none text-gray-900 dark:text-white'
-            onClick={handleLogoClick}
-            style={{ scale: logoScale }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}>
+            onClick={handleLogoClick}>
             <Image
               src='/logo-sidikoff.svg'
               alt='Logo'
