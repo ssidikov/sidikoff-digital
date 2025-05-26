@@ -1,21 +1,83 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter, usePathname } from 'next/navigation'
+import { useTheme } from 'next-themes'
 import { DarkModeToggle } from './ui/DarkModeToggle'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import LanguageSelector from './LanguageSelector'
 import { useLanguage } from '@/context/LanguageContext'
 import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('home')
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const { t } = useLanguage()
   const { scrollToSection, scrollToTop } = useSmoothScroll()
+  const { theme, resolvedTheme } = useTheme()
   const router = useRouter()
   const pathname = usePathname()
+  const { scrollY } = useScroll()
+
+  // Ensure theme is mounted before using it
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Track scroll position for header background effect
+  useEffect(() => {
+    const unsubscribe = scrollY.onChange((latest) => {
+      setIsScrolled(latest > 50)
+    })
+    return () => unsubscribe()
+  }, [scrollY])
+
+  // Track active section for navigation indicators
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'portfolio', 'about', 'prices', 'contact']
+      const scrollPosition = window.scrollY + 100
+
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element) {
+          const { offsetTop, offsetHeight } = element
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section)
+            break
+          }
+        }
+      }
+    }
+
+    if (pathname === '/') {
+      window.addEventListener('scroll', handleScroll)
+      handleScroll() // Initial check
+    }
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [pathname])
+  const headerBackground = useTransform(
+    scrollY,
+    [0, 50],
+    mounted && resolvedTheme === 'dark'
+      ? ['rgba(9, 9, 11, 0)', 'rgba(9, 9, 11, 0.8)'] // Dark theme - more transparent
+      : ['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 0.8)'] // Light theme - more transparent
+  )
+
+  const headerBorder = useTransform(
+    scrollY,
+    [0, 50],
+    mounted && resolvedTheme === 'dark'
+      ? ['rgba(39, 39, 42, 0)', 'rgba(39, 39, 42, 0.3)'] // Dark theme border - more subtle
+      : ['rgba(229, 231, 235, 0)', 'rgba(229, 231, 235, 0.3)'] // Light theme border - more subtle
+  )
+
+  const logoScale = useTransform(scrollY, [0, 100], [1, 0.9])
+  const logoPadding = useTransform(scrollY, [0, 100], [8, 4])
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
     if (href.startsWith('/#')) {
@@ -105,41 +167,54 @@ export default function Header() {
   }
 
   return (
-    <header className='fixed top-0 left-0 right-0 z-50 bg-[hsl(var(--background)/0.0)] backdrop-blur-xl md:backdrop-blur-md border-b border-[hsl(var(--border))]'>
-      <div className='container mx-auto px-4 py-2 flex items-center justify-between'>
-        {' '}
+    <motion.header
+      className='fixed top-0 left-0 right-0 z-50 backdrop-blur-xl transition-all duration-300'
+      style={{
+        backgroundColor: headerBackground,
+        borderBottomColor: headerBorder,
+        borderBottomWidth: 1,
+      }}>
+      <motion.div
+        className='container mx-auto px-4 flex items-center justify-between transition-all duration-300'
+        style={{ paddingTop: logoPadding, paddingBottom: logoPadding }}>
         {/* Logo */}
         <div className='z-50'>
-          <a
+          <motion.a
             href='/'
             className='flex flex-col items-center leading-none text-gray-900 dark:text-white'
-            onClick={handleLogoClick}>
+            onClick={handleLogoClick}
+            style={{ scale: logoScale }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}>
             <Image
               src='/logo-sidikoff.svg'
               alt='Logo'
               width={200}
               height={100}
               priority
-              className='w-auto max-w-48 h-10 md:h-14 dark:invert'
+              className='w-auto max-w-40 md:max-w-48 h-10 md:h-14 dark:invert'
               style={{
                 width: 'auto',
                 height: 'auto',
               }}
             />
-          </a>
-        </div>
+          </motion.a>
+        </div>{' '}
         {/* Mobile: language, theme, burger */}
-        <div className='flex items-center md:hidden'>
+        <div className='flex items-center gap-2 md:hidden'>
           <LanguageSelector />
-          <span className='w-2' />
           <DarkModeToggle />
-          <button
+          <motion.button
             onClick={() => setMenuOpen(!menuOpen)}
-            className={`flex items-center justify-center w-10 h-10 rounded-md focus:outline-none focus:ring-2 transition-colors bg-[hsl(var(--background)/0.7)] backdrop-blur-md border border-[hsl(var(--border))] ${
-              menuOpen ? 'opacity-50' : 'opacity-50 hover:opacity-100'
+            className={`flex items-center justify-center w-10 h-10 rounded-lg focus:outline-none transition-all duration-200 ${
+              menuOpen
+                ? 'bg-primary/10 text-primary'
+                : 'bg-background/80 hover:bg-background/90 border border-border'
             }`}
-            aria-label='Toggle menu'>
-            {' '}
+            aria-label='Toggle menu'
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}>
             <motion.svg
               className='w-6 h-6'
               fill='none'
@@ -163,112 +238,127 @@ export default function Header() {
                 transition={{ duration: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
               />
             </motion.svg>
-          </button>
+          </motion.button>
         </div>{' '}
         {/* Desktop nav */}
-        <nav className='hidden md:flex items-center gap-6'>
-          <a
-            href='/#home'
-            onClick={(e) => handleNavClick(e, '/#home')}
-            className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500 cursor-pointer'>
-            {t('nav.home')}
-          </a>
-          <a
-            href='/#portfolio'
-            onClick={(e) => handleNavClick(e, '/#portfolio')}
-            className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500 cursor-pointer'>
-            {t('nav.portfolio')}
-          </a>
-          <a
-            href='/#about'
-            onClick={(e) => handleNavClick(e, '/#about')}
-            className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500 cursor-pointer'>
-            {t('nav.about')}
-          </a>
-          <a
-            href='/#prices'
-            onClick={(e) => handleNavClick(e, '/#prices')}
-            className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500 cursor-pointer'>
-            {t('nav.prices')}
-          </a>
+        <nav className='hidden md:flex items-center gap-8'>
+          {[
+            { href: '/#home', key: 'nav.home', section: 'home' },
+            { href: '/#portfolio', key: 'nav.portfolio', section: 'portfolio' },
+            { href: '/#about', key: 'nav.about', section: 'about' },
+            { href: '/#prices', key: 'nav.prices', section: 'prices' },
+          ].map(({ href, key, section }) => (
+            <motion.div key={section} className='relative'>
+              <motion.a
+                href={href}
+                onClick={(e) => handleNavClick(e, href)}
+                className={`text-sm font-medium transition-all duration-200 cursor-pointer relative px-3 py-2 rounded-lg backdrop-blur-sm ${
+                  activeSection === section
+                    ? 'text-primary bg-primary/10 shadow-sm ring-1 ring-primary/20'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-accent/50 hover:shadow-sm'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}>
+                {t(key)}{' '}
+                {activeSection === section && (
+                  <motion.div
+                    className='absolute -bottom-1 left-1/2 w-4 h-0.5 bg-gradient-to-r from-primary/60 via-primary to-primary/60 rounded-full shadow-sm'
+                    layoutId='activeIndicator'
+                    initial={{ opacity: 0, scale: 0, width: 0 }}
+                    animate={{ opacity: 1, scale: 1, width: 16 }}
+                    transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                    style={{ translateX: '-50%' }}
+                  />
+                )}
+              </motion.a>
+            </motion.div>
+          ))}
         </nav>{' '}
         {/* Desktop CTA */}
-        <div className='hidden md:flex items-center gap-4'>
-          <a href='/#contact' onClick={(e) => handleNavClick(e, '/#contact')}>
-            <button className='px-4 py-2 text-sm border rounded-md bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'>
+        <div className='hidden md:flex items-center gap-3'>
+          <motion.a
+            href='/#contact'
+            onClick={(e) => handleNavClick(e, '/#contact')}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}>
+            {' '}
+            <button className='px-6 py-2.5 text-sm font-medium border border-border rounded-lg bg-background/90 hover:bg-accent/80 transition-all duration-200 backdrop-blur-sm shadow-sm hover:shadow-md hover:border-primary/30 dark:hover:border-primary/50'>
               {t('nav.contact')}
             </button>
-          </a>
+          </motion.a>
+          <div className='w-px h-6 bg-border' />
           <LanguageSelector />
           <DarkModeToggle />
         </div>
-      </div>
-      {/* Mobile menu */}{' '}
+      </motion.div>{' '}
+      {/* Mobile menu */}
       <AnimatePresence mode='wait'>
         {menuOpen && (
           <motion.div
-            className='md:hidden w-full backdrop-blur-3xl border-b border-[hsl(var(--border))]'
-            initial={{ opacity: 0, y: -10, height: 0 }}
+            className='md:hidden w-full backdrop-blur-xl bg-background/98 border-b border-border shadow-xl dark:bg-background/95 dark:shadow-2xl'
+            initial={{ opacity: 0, y: -20, height: 0 }}
             animate={{ opacity: 1, y: 0, height: 'auto' }}
-            exit={{ opacity: 0, y: -10, height: 0 }}
+            exit={{ opacity: 0, y: -20, height: 0 }}
             transition={{
-              duration: 0.2,
+              duration: 0.3,
               ease: [0.25, 0.1, 0.25, 1],
-              height: { duration: 0.2, ease: [0.25, 0.1, 0.25, 1] },
+              height: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] },
             }}>
             <motion.nav
-              className='flex flex-col items-start gap-4 py-6 px-4 w-full'
+              className='flex flex-col gap-2 py-6 px-4 w-full'
               variants={menuVariants}
               initial='hidden'
               animate='visible'
               exit='hidden'>
-              {' '}
-              <motion.div variants={itemVariants}>
-                <a
-                  href='/#home'
-                  onClick={(e) => handleMobileNavClick(e, '/#home')}
-                  className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500 cursor-pointer'>
-                  {t('nav.home')}
-                </a>
-              </motion.div>
-              <motion.div variants={itemVariants}>
-                <a
-                  href='/#portfolio'
-                  onClick={(e) => handleMobileNavClick(e, '/#portfolio')}
-                  className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500 cursor-pointer'>
-                  {t('nav.portfolio')}
-                </a>
-              </motion.div>
-              <motion.div variants={itemVariants}>
-                <a
-                  href='/#about'
-                  onClick={(e) => handleMobileNavClick(e, '/#about')}
-                  className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500 cursor-pointer'>
-                  {t('nav.about')}
-                </a>
-              </motion.div>
-              <motion.div variants={itemVariants}>
-                <a
-                  href='/#prices'
-                  onClick={(e) => handleMobileNavClick(e, '/#prices')}
-                  className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500 cursor-pointer'>
-                  {t('nav.prices')}
-                </a>
-              </motion.div>
-              <motion.div variants={itemVariants} className='w-full'>
-                <a
+              {[
+                { href: '/#home', key: 'nav.home', section: 'home' },
+                { href: '/#portfolio', key: 'nav.portfolio', section: 'portfolio' },
+                { href: '/#about', key: 'nav.about', section: 'about' },
+                { href: '/#prices', key: 'nav.prices', section: 'prices' },
+              ].map(({ href, key, section }) => (
+                <motion.div key={section} variants={itemVariants}>
+                  <motion.a
+                    href={href}
+                    onClick={(e) => handleMobileNavClick(e, href)}
+                    className={`flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200 cursor-pointer backdrop-blur-sm ${
+                      activeSection === section
+                        ? 'bg-primary/15 text-primary border border-primary/30 shadow-sm dark:bg-primary/10 dark:border-primary/20'
+                        : 'hover:bg-accent/60 text-muted-foreground hover:text-foreground hover:shadow-sm dark:hover:bg-accent/40'
+                    }`}
+                    whileHover={{ scale: 1.02, x: 4 }}
+                    whileTap={{ scale: 0.98 }}>
+                    <span className='font-medium'>{t(key)}</span>{' '}
+                    {activeSection === section && (
+                      <motion.div
+                        className='w-2 h-2 bg-primary rounded-full shadow-sm dark:shadow-primary/50'
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.2 }}
+                      />
+                    )}
+                  </motion.a>
+                </motion.div>
+              ))}
+
+              <motion.div
+                variants={itemVariants}
+                className='w-full mt-4 pt-4 border-t border-border'>
+                <motion.a
                   href='/#contact'
-                  className='w-full'
-                  onClick={(e) => handleMobileNavClick(e, '/#contact')}>
-                  <button className='w-full px-4 py-2 text-sm font-medium bg-transparent border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>
+                  className='w-full block'
+                  onClick={(e) => handleMobileNavClick(e, '/#contact')}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}>
+                  {' '}
+                  <button className='w-full px-4 py-3 text-sm font-medium bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg dark:shadow-primary/25 dark:hover:shadow-primary/30'>
                     {t('nav.contact')}
                   </button>
-                </a>
+                </motion.a>
               </motion.div>
             </motion.nav>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   )
 }
