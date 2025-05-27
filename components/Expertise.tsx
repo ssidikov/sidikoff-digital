@@ -190,28 +190,17 @@ export default function Expertise() {
             variants={headerVariants}>
             {t('expertise.description') ||
               'Nous maîtrisons les technologies les plus avancées pour créer des expériences digitales exceptionnelles qui font grandir votre entreprise.'}
-          </motion.p>{' '}
-          {/* New stats section */}
+          </motion.p>{' '}          {/* Stats section without animations */}
           <motion.div className='flex justify-center gap-8 mb-8' variants={headerVariants}>
             {statsData.map((stat, index) => (
-              <motion.div key={index} className='text-center' whileHover={{ scale: 1.1 }}>
-                <motion.div
-                  className='text-2xl lg:text-3xl font-bold text-indigo-600 dark:text-indigo-400'
-                  animate={{
-                    scale: [1, 1.05, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: index * 0.5,
-                    ease: 'easeInOut',
-                  }}>
+              <div key={index} className='text-center'>
+                <div className='text-2xl lg:text-3xl font-bold text-indigo-600 dark:text-indigo-400'>
                   {stat.value}
-                </motion.div>
+                </div>
                 <div className='text-sm text-gray-600 dark:text-gray-400 font-medium'>
                   {stat.label}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </motion.div>
         </motion.div>
@@ -313,37 +302,26 @@ export default function Expertise() {
             <motion.p className='text-lg text-gray-600 dark:text-gray-300 leading-relaxed'>
               {t('about.mission.p2')}
             </motion.p>
-          </motion.div>
-
-          {/* Why Choose Us Section */}
-          <motion.div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto' variants={containerVariants}>
-            {/*
-              { key: 'advantage1', icon: '🎯', color: 'from-blue-500 to-cyan-500' },
-              { key: 'advantage2', icon: '⚡', color: 'from-yellow-500 to-orange-500' },
-              { key: 'advantage3', icon: '🤝', color: 'from-green-500 to-emerald-500' },
-            */}
+          </motion.div>          {/* Why Choose Us Section */}
+          <div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
             {['advantage1', 'advantage2', 'advantage3'].map((key, index) => (
-              <motion.div
+              <div
                 key={key}
-                className='text-center p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300'
-                variants={headerVariants}
-                whileHover={{ y: -5, scale: 1.02 }}>
-                <motion.div
-                  className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${key === 'advantage1' ? 'from-blue-500 to-cyan-500' : key === 'advantage2' ? 'from-yellow-500 to-orange-500' : 'from-green-500 to-emerald-500'} text-white text-2xl mb-4`}
-                  whileHover={{ rotate: 5 }}>
+                className='text-center p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700'>
+                <div
+                  className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${key === 'advantage1' ? 'from-blue-500 to-cyan-500' : key === 'advantage2' ? 'from-yellow-500 to-orange-500' : 'from-green-500 to-emerald-500'} text-white text-2xl mb-4`}>
                   {key === 'advantage1' && '🎯'}
                   {key === 'advantage2' && '⚡'}
                   {key === 'advantage3' && '🤝'}
-                </motion.div>
-                <motion.h4 className='text-xl font-bold text-gray-900 dark:text-white mb-3'>
+                </div>
+                <h4 className='text-xl font-bold text-gray-900 dark:text-white mb-3'>
                   {t(`about.whyChoose.${key}.title`)}
-                </motion.h4>
-                <motion.p className='text-gray-600 dark:text-gray-300'>
+                </h4>                <p className='text-gray-600 dark:text-gray-300'>
                   {t(`about.whyChoose.${key}.description`)}
-                </motion.p>
-              </motion.div>
+                </p>
+              </div>
             ))}
-          </motion.div>
+          </div>
 
           {/* Call to Action */}
           <motion.div
@@ -453,17 +431,12 @@ function Card({
     },
   }
 
-  return (
-    <motion.div
+  return (    <motion.div
       className='group relative flex flex-col h-full'
       variants={cardVariants}
       onMouseMove={handleMouseMove}
       onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-      whileHover={{
-        y: -8,
-        transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] },
-      }}>
+      onHoverEnd={() => setIsHovered(false)}>
       {/* Card Background */}
       <div className='relative h-full rounded-2xl border border-gray-200/50 dark:border-gray-700/50 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm overflow-hidden'>
         {/* Hover Background Effect */}
@@ -481,42 +454,43 @@ function Card({
             initial='rest'
             animate={isHovered ? 'hover' : 'rest'}
           />
-        </div>
-
-        {/* Card Content */}
+        </div>        {/* Card Content */}
         <div className='relative z-10 p-6 lg:p-8 h-full flex flex-col'>
-          {/* Icon Container */}
-          <motion.div
-            className='relative mb-6'
-            variants={iconVariants}
-            initial='rest'
-            animate={isHovered ? 'hover' : 'rest'}>
-            <div className='relative'>
-              {/* Icon Background Glow */}
-              <div className='absolute inset-0 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-300' />
+          {/* Icon and Title Container */}
+          <div className='flex items-center gap-4 mb-6'>
+            {/* Icon Container */}
+            <motion.div
+              className='relative'
+              variants={iconVariants}
+              initial='rest'
+              animate={isHovered ? 'hover' : 'rest'}>
+              <div className='relative'>
+                {/* Icon Background Glow */}
+                <div className='absolute inset-0 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-300' />
 
-              {/* Icon Background */}
-              <div className='relative w-16 h-16 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-xl flex items-center justify-center border border-indigo-100 dark:border-indigo-800 group-hover:border-indigo-300 dark:group-hover:border-indigo-600 transition-colors duration-300'>
-                <Image
-                  src={item.icon}
-                  alt={t(item.titleKey)}
-                  priority
-                  sizes='(max-width: 768px) 32px, 32px'
-                  width={32}
-                  height={32}
-                  className='object-contain w-8 h-8 dark:invert group-hover:scale-110 transition-transform duration-300'
-                />
+                {/* Icon Background */}
+                <div className='relative w-16 h-16 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-xl flex items-center justify-center border border-indigo-100 dark:border-indigo-800 group-hover:border-indigo-300 dark:group-hover:border-indigo-600 transition-colors duration-300'>
+                  <Image
+                    src={item.icon}
+                    alt={t(item.titleKey)}
+                    priority
+                    sizes='(max-width: 768px) 32px, 32px'
+                    width={32}
+                    height={32}
+                    className='object-contain w-8 h-8 dark:invert group-hover:scale-110 transition-transform duration-300'
+                  />
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
 
-          {/* Title */}
-          <motion.h4
-            className='font-bold text-xl text-gray-900 dark:text-white mb-4 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300'
-            initial={{ opacity: 0.8 }}
-            whileHover={{ opacity: 1 }}>
-            {t(item.titleKey)}
-          </motion.h4>
+            {/* Title */}
+            <motion.h4
+              className='font-bold text-xl text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300 flex-1'
+              initial={{ opacity: 0.8 }}
+              whileHover={{ opacity: 1 }}>
+              {t(item.titleKey)}
+            </motion.h4>
+          </div>
 
           {/* Description */}
           <motion.p
