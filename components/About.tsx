@@ -93,45 +93,99 @@ const About: React.FC = () => {
             </p>
           </motion.div>          {/* Founder intro card */}
           <motion.div
-            className='max-w-2xl mx-auto bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 dark:border-white/10'
-            variants={itemVariants}>
-            <div className='flex items-center justify-center gap-6 mb-6'>
-              <div className='w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center'>
-                <span className='text-white text-xl font-bold'>SS</span>
-              </div>
-              <div className='text-left'>
-                <h3 className='text-xl font-bold text-gray-900 dark:text-white'>
+            className='max-w-3xl mx-auto bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 lg:p-10 border border-gray-200/50 dark:border-white/10 shadow-2xl shadow-indigo-500/10'
+            variants={itemVariants}
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}>
+            
+            {/* Header Section */}
+            <div className='flex flex-col lg:flex-row items-center lg:items-start gap-6 mb-8'>
+              {/* Avatar */}
+              <motion.div 
+                className='relative'
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}>
+                <div className='w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 flex items-center justify-center shadow-lg shadow-indigo-500/25'>
+                  <span className='text-white text-2xl lg:text-3xl font-bold'>SS</span>
+                </div>
+                {/* Status dot */}
+                <div className='absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-4 border-white dark:border-gray-800 flex items-center justify-center'>
+                  <div className='w-2 h-2 bg-white rounded-full animate-pulse'></div>
+                </div>
+              </motion.div>
+              
+              {/* Name and Title */}
+              <div className='text-center lg:text-left flex-1'>
+                <h3 className='text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2'>
                   {t('about.founder.name')}
                 </h3>
-                <p className='text-indigo-600 dark:text-indigo-400 font-semibold'>
+                <div className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full text-sm font-semibold mb-4'>
+                  <svg className='w-4 h-4 mr-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' />
+                  </svg>
                   {t('about.founder.title')}
-                </p>
+                </div>
               </div>
             </div>
-              {/* Experience and Education */}
-            <div className='space-y-3'>
-              <div className='flex items-center gap-3'>
-                <div className='w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center'>
-                  <svg className='w-4 h-4 text-indigo-600 dark:text-indigo-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+            
+            {/* Description */}
+            <div className='mb-8'>
+              <p className='text-gray-600 dark:text-gray-300 leading-relaxed text-center lg:text-left'>
+                {t('about.founder.description')}
+              </p>
+            </div>
+            
+            {/* Experience and Education Grid */}
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
+              {/* Experience */}
+              <motion.div 
+                className='flex items-center gap-4 p-4 bg-gradient-to-r from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20 rounded-2xl border border-indigo-200/50 dark:border-indigo-700/30'
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}>
+                <div className='w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-lg'>
+                  <svg className='w-6 h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                     <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M13 10V3L4 14h7v7l9-11h-7z' />
                   </svg>
+                </div>                <div>
+                  <p className='text-sm text-indigo-600 dark:text-indigo-400 font-medium mb-1'>{t('about.founder.experienceLabel')}</p>
+                  <p className='text-gray-900 dark:text-white font-semibold'>
+                    {t('about.founder.experienceYears')}
+                  </p>
                 </div>
-                <p className='text-gray-700 dark:text-gray-300 text-sm font-medium'>
-                  {t('about.founder.experienceYears')}
-                </p>
-              </div>
+              </motion.div>
               
-              <div className='flex items-center gap-3'>
-                <div className='w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center'>
-                  <svg className='w-4 h-4 text-purple-600 dark:text-purple-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+              {/* Education */}
+              <motion.div 
+                className='flex items-center gap-4 p-4 bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-2xl border border-purple-200/50 dark:border-purple-700/30'
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}>
+                <div className='w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg'>
+                  <svg className='w-6 h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                     <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 14l9-5-9-5-9 5 9 5z' />
                     <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z' />
                   </svg>
                 </div>
-                <p className='text-gray-700 dark:text-gray-300 text-sm font-medium'>
-                  {t('about.founder.educationDegrees')}
-                </p>
-              </div>
+                <div>
+                  <p className='text-sm text-purple-600 dark:text-purple-400 font-medium mb-1'>{t('about.founder.educationLabel')}</p>
+                  <p className='text-gray-900 dark:text-white font-semibold'>
+                    {t('about.founder.educationDegrees')}
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+            
+            {/* Contact CTA */}
+            <div className='mt-8 text-center'>
+              <motion.a
+                href='#contact'
+                className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-gray-700 dark:text-gray-200 rounded-xl font-medium hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-600'
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}>
+                <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                  <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z' />
+                </svg>
+                {t('about.founder.contactCta')}
+              </motion.a>
             </div>
           </motion.div>
         </motion.div>

@@ -116,7 +116,7 @@ export default function Contact() {
       return
     }
     try {
-      const response = await fetch('https://formspree.io/f/xjkknzdd', {
+      const response = await fetch('https://formspree.io/f/xnndeppp', {
         method: 'POST',
         body: formData,
         headers: {
