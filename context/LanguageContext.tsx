@@ -21,7 +21,7 @@ const translations: Record<Language, TranslationMap> = {
     'nav.home': 'Accueil',
     'nav.portfolio': 'Réalisations',
     'nav.expertise': 'À propos',
-    'nav.prices': 'Services',
+    'nav.prices': 'Tarifs',
     'nav.services': 'Services',
     'nav.contact': 'Contact',
     'nav.projects': 'Projets',
@@ -96,8 +96,35 @@ const translations: Record<Language, TranslationMap> = {
     'portfolio.viewProject': 'Accéder au site',
     'project.notFound': 'Projet non trouvé',
 
+    // Services
+    'services.title': 'Services',
+    'services.subtitle': 'Des solutions web accessibles et sur mesure pour votre entreprise',
+    'services.showcase.title': 'Sites Vitrine',
+    'services.showcase.description':
+      'Sites élégants et professionnels pour présenter votre activité et attirer de nouveaux clients.',
+    'services.showcase.feature1': 'Design responsive',
+    'services.showcase.feature2': 'Optimisation SEO',
+    'services.showcase.feature3': 'Formulaire de contact',
+    'services.showcase.feature4': 'Hébergement inclus',
+    'services.ecommerce.title': 'E-commerce',
+    'services.ecommerce.description':
+      'Boutiques en ligne performantes pour vendre vos produits et développer votre activité.',
+    'services.ecommerce.feature1': 'Gestion des commandes',
+    'services.ecommerce.feature2': 'Paiement sécurisé',
+    'services.ecommerce.feature3': 'Gestion des stocks',
+    'services.ecommerce.feature4': 'Analytics avancées',
+    'services.webapp.title': 'Applications Web',
+    'services.webapp.description':
+      'Applications web sur mesure pour automatiser vos processus et améliorer votre productivité.',
+    'services.webapp.feature1': 'Développement sur mesure',
+    'services.webapp.feature2': 'Interface intuitive',
+    'services.webapp.feature3': 'Base de données',
+    'services.webapp.feature4': 'API & intégrations',
+    'services.features': 'Fonctionnalités',
+    'services.learnMore': 'En savoir plus',
+
     // Tarifs
-    'prices.title': 'Services',
+    'prices.title': 'Tarifs',
     'prices.subtitle': 'Des solutions accessibles et sur mesure',
     'prices.description':
       'Des sites modernes et efficaces pour lancer, développer ou digitaliser votre activité.',
@@ -147,33 +174,6 @@ const translations: Record<Language, TranslationMap> = {
     'prices.features.enterpriseSecurity': 'Sécurité Entreprise',
     'prices.features.prioritySupport': 'Support Prioritaire',
     'prices.features.customFeatures': 'Fonctionnalités Personnalisées',
-
-    // Services
-    'services.title': 'Services & Tarifs',
-    'services.subtitle': 'Des solutions web accessibles et sur mesure pour votre entreprise',
-    'services.showcase.title': 'Sites Vitrine',
-    'services.showcase.description':
-      'Sites élégants et professionnels pour présenter votre activité et attirer de nouveaux clients.',
-    'services.showcase.feature1': 'Design responsive',
-    'services.showcase.feature2': 'Optimisation SEO',
-    'services.showcase.feature3': 'Formulaire de contact',
-    'services.showcase.feature4': 'Hébergement inclus',
-    'services.ecommerce.title': 'E-commerce',
-    'services.ecommerce.description':
-      'Boutiques en ligne performantes pour vendre vos produits et développer votre activité.',
-    'services.ecommerce.feature1': 'Gestion des commandes',
-    'services.ecommerce.feature2': 'Paiement sécurisé',
-    'services.ecommerce.feature3': 'Gestion des stocks',
-    'services.ecommerce.feature4': 'Analytics avancées',
-    'services.webapp.title': 'Applications Web',
-    'services.webapp.description':
-      'Applications web sur mesure pour automatiser vos processus et améliorer votre productivité.',
-    'services.webapp.feature1': 'Développement sur mesure',
-    'services.webapp.feature2': 'Interface intuitive',
-    'services.webapp.feature3': 'Base de données',
-    'services.webapp.feature4': 'API & intégrations',
-    'services.features': 'Fonctionnalités',
-    'services.learnMore': 'En savoir plus',
 
     // FAQ
     'faq.title': 'Questions Fréquentes',
@@ -265,7 +265,7 @@ const translations: Record<Language, TranslationMap> = {
     'nav.home': 'Home',
     'nav.portfolio': 'Portfolio',
     'nav.expertise': 'About',
-    'nav.prices': 'Services',
+    'nav.prices': 'Tariffs',
     'nav.services': 'Services',
     'nav.contact': 'Contact',
     'nav.projects': 'Projects',
@@ -330,7 +330,36 @@ const translations: Record<Language, TranslationMap> = {
     'portfolio.showMore': 'Show More',
     'portfolio.viewProject': 'Visit Site',
     'project.notFound': 'Project not found',
-    'prices.title': 'Services',
+
+    // Services
+    'services.title': 'Services',
+    'services.subtitle': 'Accessible and tailored web solutions for your business',
+    'services.showcase.title': 'Showcase Websites',
+    'services.showcase.description':
+      'Elegant and professional websites to present your business and attract new clients.',
+    'services.showcase.feature1': 'Responsive design',
+    'services.showcase.feature2': 'SEO optimization',
+    'services.showcase.feature3': 'Contact form',
+    'services.showcase.feature4': 'Hosting included',
+    'services.ecommerce.title': 'E-commerce',
+    'services.ecommerce.description':
+      'High-performance online stores to sell your products and grow your business.',
+    'services.ecommerce.feature1': 'Order management',
+    'services.ecommerce.feature2': 'Secure payment',
+    'services.ecommerce.feature3': 'Inventory management',
+    'services.ecommerce.feature4': 'Advanced analytics',
+    'services.webapp.title': 'Web Applications',
+    'services.webapp.description':
+      'Custom web applications to automate your processes and improve your productivity.',
+    'services.webapp.feature1': 'Custom development',
+    'services.webapp.feature2': 'Intuitive interface',
+    'services.webapp.feature3': 'Database',
+    'services.webapp.feature4': 'API & integrations',
+    'services.features': 'Features',
+    'services.learnMore': 'Learn more',
+
+    // Prices
+    'prices.title': 'Tariffs',
     'prices.subtitle': 'Accessible and tailored solutions',
     'prices.description':
       'Modern and efficient websites to launch, grow, or digitize your business.',
@@ -412,33 +441,6 @@ const translations: Record<Language, TranslationMap> = {
     'popup.success.message':
       'Your message has been sent successfully. We will get back to you soon!',
 
-    // Services
-    'services.title': 'Services & Pricing',
-    'services.subtitle': 'Accessible and tailored web solutions for your business',
-    'services.showcase.title': 'Showcase Websites',
-    'services.showcase.description':
-      'Elegant and professional websites to present your business and attract new clients.',
-    'services.showcase.feature1': 'Responsive design',
-    'services.showcase.feature2': 'SEO optimization',
-    'services.showcase.feature3': 'Contact form',
-    'services.showcase.feature4': 'Hosting included',
-    'services.ecommerce.title': 'E-commerce',
-    'services.ecommerce.description':
-      'High-performance online stores to sell your products and grow your business.',
-    'services.ecommerce.feature1': 'Order management',
-    'services.ecommerce.feature2': 'Secure payment',
-    'services.ecommerce.feature3': 'Inventory management',
-    'services.ecommerce.feature4': 'Advanced analytics',
-    'services.webapp.title': 'Web Applications',
-    'services.webapp.description':
-      'Custom web applications to automate your processes and improve your productivity.',
-    'services.webapp.feature1': 'Custom development',
-    'services.webapp.feature2': 'Intuitive interface',
-    'services.webapp.feature3': 'Database',
-    'services.webapp.feature4': 'API & integrations',
-    'services.features': 'Features',
-    'services.learnMore': 'Learn more',
-
     // FAQ
     'faq.title': 'Frequently Asked Questions',
     'faq.question1': 'How much does it cost to create a website?',
@@ -492,7 +494,7 @@ const translations: Record<Language, TranslationMap> = {
     'nav.home': 'Главная',
     'nav.portfolio': 'Портфолио',
     'nav.expertise': 'О нас',
-    'nav.prices': 'Услуги',
+    'nav.prices': 'Тарифы',
     'nav.services': 'Услуги',
     'nav.contact': 'Контакты',
     'nav.projects': 'Проекты',
@@ -561,7 +563,36 @@ const translations: Record<Language, TranslationMap> = {
     'portfolio.showMore': 'Показать ещё',
     'portfolio.viewProject': 'Перейти на сайт',
     'project.notFound': 'Проект не найден',
-    'prices.title': 'Услуги',
+
+    // Services
+    'services.title': 'Услуги',
+    'services.subtitle': 'Доступные и индивидуальные веб-решения для вашего бизнеса',
+    'services.showcase.title': 'Сайты-визитки',
+    'services.showcase.description':
+      'Элегантные и профессиональные сайты для презентации вашего бизнеса и привлечения новых клиентов.',
+    'services.showcase.feature1': 'Адаптивный дизайн',
+    'services.showcase.feature2': 'SEO-оптимизация',
+    'services.showcase.feature3': 'Форма обратной связи',
+    'services.showcase.feature4': 'Хостинг включён',
+    'services.ecommerce.title': 'Интернет-магазины',
+    'services.ecommerce.description':
+      'Высокопроизводительные онлайн-магазины для продажи ваших товаров и развития бизнеса.',
+    'services.ecommerce.feature1': 'Управление заказами',
+    'services.ecommerce.feature2': 'Безопасная оплата',
+    'services.ecommerce.feature3': 'Управление товарами',
+    'services.ecommerce.feature4': 'Продвинутая аналитика',
+    'services.webapp.title': 'Веб-приложения',
+    'services.webapp.description':
+      'Индивидуальные веб-приложения для автоматизации процессов и повышения продуктивности.',
+    'services.webapp.feature1': 'Разработка под заказ',
+    'services.webapp.feature2': 'Интуитивный интерфейс',
+    'services.webapp.feature3': 'База данных',
+    'services.webapp.feature4': 'API и интеграции',
+    'services.features': 'Возможности',
+    'services.learnMore': 'Узнать больше',
+
+    // Pricing
+    'prices.title': 'Цены',
     'prices.subtitle': 'Доступные и индивидуальные решения',
     'prices.description': 'Современные сайты для запуска, развития и цифровизации вашего бизнеса.',
     'prices.tier1.name': 'Сайт-визитка',
@@ -640,33 +671,6 @@ const translations: Record<Language, TranslationMap> = {
     'validation.message.minLength': 'Сообщение должно содержать минимум 10 символов', // Success popup messages
     'popup.success.title': 'Успешно отправлено!',
     'popup.success.message': 'Ваше сообщение было успешно отправлено. Мы скоро свяжемся с вами!',
-
-    // Services
-    'services.title': 'Услуги и Цены',
-    'services.subtitle': 'Доступные и индивидуальные веб-решения для вашего бизнеса',
-    'services.showcase.title': 'Сайты-визитки',
-    'services.showcase.description':
-      'Элегантные и профессиональные сайты для презентации вашего бизнеса и привлечения новых клиентов.',
-    'services.showcase.feature1': 'Адаптивный дизайн',
-    'services.showcase.feature2': 'SEO-оптимизация',
-    'services.showcase.feature3': 'Форма обратной связи',
-    'services.showcase.feature4': 'Хостинг включён',
-    'services.ecommerce.title': 'Интернет-магазины',
-    'services.ecommerce.description':
-      'Высокопроизводительные онлайн-магазины для продажи ваших товаров и развития бизнеса.',
-    'services.ecommerce.feature1': 'Управление заказами',
-    'services.ecommerce.feature2': 'Безопасная оплата',
-    'services.ecommerce.feature3': 'Управление товарами',
-    'services.ecommerce.feature4': 'Продвинутая аналитика',
-    'services.webapp.title': 'Веб-приложения',
-    'services.webapp.description':
-      'Индивидуальные веб-приложения для автоматизации процессов и повышения продуктивности.',
-    'services.webapp.feature1': 'Разработка под заказ',
-    'services.webapp.feature2': 'Интуитивный интерфейс',
-    'services.webapp.feature3': 'База данных',
-    'services.webapp.feature4': 'API и интеграции',
-    'services.features': 'Возможности',
-    'services.learnMore': 'Узнать больше',
 
     // FAQ
     'faq.title': 'Часто задаваемые вопросы',

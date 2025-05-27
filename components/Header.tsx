@@ -30,7 +30,7 @@ export default function Header() {
   // Track active section for navigation indicators
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'portfolio', 'prices', 'about', 'contact']
+      const sections = ['home', 'about', 'portfolio', 'services', 'prices', 'contact']
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -207,6 +207,7 @@ export default function Header() {
             { href: '/#home', key: 'nav.home', section: 'home' },
             { href: '/#expertise', key: 'nav.expertise', section: 'expertise' },
             { href: '/#portfolio', key: 'nav.portfolio', section: 'portfolio' },
+            { href: '/#services', key: 'nav.services', section: 'services' },
             { href: '/#prices', key: 'nav.prices', section: 'prices' },
           ].map(({ href, key, section }) => (
             <motion.div key={section} className='relative'>
