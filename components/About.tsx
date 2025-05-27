@@ -91,13 +91,11 @@ const About: React.FC = () => {
             <p className='text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
               {t('about.intro.description')}
             </p>
-          </motion.div>
-
-          {/* Founder intro card */}
+          </motion.div>          {/* Founder intro card */}
           <motion.div
             className='max-w-2xl mx-auto bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 dark:border-white/10'
             variants={itemVariants}>
-            <div className='flex items-center justify-center gap-6 mb-4'>
+            <div className='flex items-center justify-center gap-6 mb-6'>
               <div className='w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center'>
                 <span className='text-white text-xl font-bold'>SS</span>
               </div>
@@ -110,11 +108,31 @@ const About: React.FC = () => {
                 </p>
               </div>
             </div>
-            <p className='text-gray-600 dark:text-gray-300 text-sm'>
-              10+ ans d'expérience IT
-              <br />
-              Diplômes Master en développement web et développement d'applications web
-            </p>
+              {/* Experience and Education */}
+            <div className='space-y-3'>
+              <div className='flex items-center gap-3'>
+                <div className='w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center'>
+                  <svg className='w-4 h-4 text-indigo-600 dark:text-indigo-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M13 10V3L4 14h7v7l9-11h-7z' />
+                  </svg>
+                </div>
+                <p className='text-gray-700 dark:text-gray-300 text-sm font-medium'>
+                  {t('about.founder.experienceYears')}
+                </p>
+              </div>
+              
+              <div className='flex items-center gap-3'>
+                <div className='w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center'>
+                  <svg className='w-4 h-4 text-purple-600 dark:text-purple-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 14l9-5-9-5-9 5 9 5z' />
+                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z' />
+                  </svg>
+                </div>
+                <p className='text-gray-700 dark:text-gray-300 text-sm font-medium'>
+                  {t('about.founder.educationDegrees')}
+                </p>
+              </div>
+            </div>
           </motion.div>
         </motion.div>
 

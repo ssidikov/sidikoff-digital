@@ -7,17 +7,18 @@ import AnimatedSection from './AnimatedSection'
 import { EyeIcon, ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline'
 
 export default function Services() {
-  const { t } = useLanguage()
+  const { t } = useLanguage();
+  
   const services = [
     {
       emoji: '🌐',
       titleKey: 'services.showcase.title',
       descriptionKey: 'services.showcase.description',
       features: [
-        'Design responsive',
-        'Optimisation SEO',
-        'Formulaire de contact',
-        'Hébergement inclus',
+        'services.showcase.feature1',
+        'services.showcase.feature2',
+        'services.showcase.feature3',
+        'services.showcase.feature4',
       ],
     },
     {
@@ -25,10 +26,10 @@ export default function Services() {
       titleKey: 'services.ecommerce.title',
       descriptionKey: 'services.ecommerce.description',
       features: [
-        'Gestion des commandes',
-        'Paiement sécurisé',
-        'Gestion des stocks',
-        'Analytics avancées',
+        'services.ecommerce.feature1',
+        'services.ecommerce.feature2',
+        'services.ecommerce.feature3',
+        'services.ecommerce.feature4',
       ],
     },
     {
@@ -36,10 +37,10 @@ export default function Services() {
       titleKey: 'services.webapp.title',
       descriptionKey: 'services.webapp.description',
       features: [
-        'Développement sur mesure',
-        'Interface intuitive',
-        'Base de données',
-        'API & intégrations',
+        'services.webapp.feature1',
+        'services.webapp.feature2',
+        'services.webapp.feature3',
+        'services.webapp.feature4',
       ],
     },
   ]
@@ -124,17 +125,16 @@ function ServiceCard({
         {/* Description */}
         <p className='text-gray-600 dark:text-gray-300 mb-6 leading-relaxed flex-grow'>
           {t(service.descriptionKey)}
-        </p>
-        {/* Features list */}
+        </p>        {/* Features list */}
         <div className='space-y-3'>
           <h4 className='text-sm font-semibold text-gray-800 dark:text-gray-200 uppercase tracking-wide'>
-            Fonctionnalités
+            {t('services.features')}
           </h4>
           <ul className='space-y-2'>
-            {service.features.map((feature, index) => (
+            {service.features.map((featureKey, index) => (
               <li key={index} className='flex items-start text-sm text-gray-600 dark:text-gray-300'>
                 <span className='flex-shrink-0 w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 mt-2 mr-3' />
-                <span className='leading-relaxed'>{feature}</span>
+                <span className='leading-relaxed'>{t(featureKey)}</span>
               </li>
             ))}
           </ul>
@@ -148,11 +148,9 @@ function ServiceCard({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}>
             {/* Animated background effect */}
-            <div className='absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
-
-            <div className='relative flex items-center gap-2'>
+            <div className='absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />            <div className='relative flex items-center gap-2'>
               <EyeIcon className='w-4 h-4 group-hover:scale-110 transition-transform duration-200' />
-              <span>Découvrir les tarifs</span>
+              <span>{t('services.cta.pricing')}</span>
               <motion.svg
                 className='w-4 h-4'
                 fill='none'
@@ -173,16 +171,14 @@ function ServiceCard({
                 />
               </motion.svg>
             </div>
-          </motion.a>
-
-          {/* Secondary CTA - Demander un devis */}
+          </motion.a>          {/* Secondary CTA - Request quote */}
           <motion.a
             href='#contact'
             className='group w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/20 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-semibold backdrop-blur-sm'
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}>
             <ChatBubbleLeftRightIcon className='w-4 h-4 group-hover:scale-110 transition-transform duration-200' />
-            <span>Demander un devis</span>
+            <span>{t('services.cta.quote')}</span>
             <motion.div
               className='w-2 h-2 bg-green-500 rounded-full opacity-0 group-hover:opacity-100'
               animate={{ scale: [1, 1.2, 1] }}

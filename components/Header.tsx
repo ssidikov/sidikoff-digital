@@ -25,11 +25,10 @@ export default function Header() {
   // Ensure theme is mounted before using it
   useEffect(() => {
     setMounted(true)
-  }, [])
-  // Track active section for navigation indicators
+  }, [])  // Track active section for navigation indicators
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'services', 'portfolio', 'expertise', 'prices', 'contact']
+      const sections = ['home', 'services', 'portfolio', 'about', 'prices', 'contact']
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -197,13 +196,12 @@ export default function Header() {
               />
             </motion.svg>
           </motion.button>
-        </div>{' '}        {/* Desktop nav */}
-        <nav className='hidden md:flex items-center gap-6'>
+        </div>{' '}        {/* Desktop nav */}        <nav className='hidden md:flex items-center gap-6'>
           {[
             { href: '/#home', key: 'nav.home', section: 'home' },
             { href: '/#services', key: 'nav.services', section: 'services' },
             { href: '/#portfolio', key: 'nav.portfolio', section: 'portfolio' },
-            { href: '/#expertise', key: 'nav.expertise', section: 'expertise' },
+            { href: '/#about', key: 'nav.expertise', section: 'about' },
             { href: '/#prices', key: 'nav.prices', section: 'prices' },
           ].map(({ href, key, section }) => (
             <motion.div key={section} className='relative'>
@@ -266,12 +264,11 @@ export default function Header() {
               variants={menuVariants}
               initial='hidden'
               animate='visible'
-              exit='hidden'>              {' '}
-              {[
+              exit='hidden'>              {' '}              {[
                 { href: '/#home', key: 'nav.home', section: 'home' },
                 { href: '/#services', key: 'nav.services', section: 'services' },
                 { href: '/#portfolio', key: 'nav.portfolio', section: 'portfolio' },
-                { href: '/#expertise', key: 'nav.expertise', section: 'expertise' },
+                { href: '/#about', key: 'nav.expertise', section: 'about' },
                 { href: '/#prices', key: 'nav.prices', section: 'prices' },
               ].map(({ href, key, section }) => (
                 <motion.div key={section} variants={itemVariants}>

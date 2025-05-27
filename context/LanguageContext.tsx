@@ -83,13 +83,14 @@ const translations: Record<Language, TranslationMap> = {
     'about.stats.satisfaction': '100%',
     'about.stats.satisfactionLabel': 'de clients satisfaits',
     'about.stats.experience': '10+',
-    'about.stats.experienceLabel': 'ans d\'expérience IT',
-        // Founder section
+    'about.stats.experienceLabel': 'ans d\'expérience IT',    // Founder section
     'about.founder.name': 'Sardorbek SIDIKOV',
     'about.founder.title': 'Fondateur & Directeur technique',
-    'about.founder.description': 'Passionné par les nouvelles technologies et l\'innovation numérique, je crée des solutions web sur mesure qui allient performance technique et excellence visuelle. Mon approche combine créativité et expertise technique pour donner vie à vos projets les plus ambitieux.',
+    'about.founder.description': 'Passionné par les nouvelles technologies et l\'innovation numérique, je crée des solutions web sur mesure qui allient performance technique et excellence visuelle. Mon approche combine créativité et expertise technique pour donner vie à vos projets les plus ambitieux.',    
     'about.founder.education': 'Diplômes Master en développement web et développement d\'applications web',
-    'about.founder.experience': '10+ ans d\'expérience IT',    // CTA section
+    'about.founder.experience': '10+ ans d\'expérience IT\nDiplômes Master en développement web et développement d\'applications web',
+    'about.founder.experienceYears': '10+ ans d\'expérience IT',
+    'about.founder.educationDegrees': 'Diplômes Master en développement web',// CTA section
     'about.cta.title': 'Transformons ensemble vos idées en réalité numérique',
     'about.cta.description': 'Nous accompagnons votre croissance digitale avec des solutions innovantes et sur mesure. Contactez-nous pour une consultation gratuite et découvrez comment nous pouvons booster votre présence en ligne.',
     'about.cta.button': 'Démarrer votre projet',
@@ -128,9 +129,10 @@ const translations: Record<Language, TranslationMap> = {
       'Applications web sur mesure pour automatiser vos processus et améliorer votre productivité.',
     'services.webapp.feature1': 'Développement sur mesure',
     'services.webapp.feature2': 'Interface intuitive',
-    'services.webapp.feature3': 'Base de données',
-    'services.webapp.feature4': 'API & intégrations',
+    'services.webapp.feature3': 'Base de données',    'services.webapp.feature4': 'API & intégrations',
     'services.features': 'Fonctionnalités',
+    'services.cta.pricing': 'Découvrir les tarifs',
+    'services.cta.quote': 'Demander un devis',
     'services.learnMore': 'En savoir plus',
 
     // Tarifs
@@ -334,12 +336,13 @@ const translations: Record<Language, TranslationMap> = {
     'about.stats.satisfactionLabel': 'satisfied clients',
     'about.stats.experience': '10+',
     'about.stats.experienceLabel': 'years of IT experience',
-      
-    // Founder section
+        // Founder section
     'about.founder.name': 'Sardorbek SIDIKOV',
-    'about.founder.title': 'Founder & Technical Director',
+    'about.founder.title': 'Founder & Technical Director',    
     'about.founder.education': 'Master\'s degrees in web development and web application development',
-    'about.founder.experience': '10+ years of IT experience',
+    'about.founder.experience': '10+ years of IT experience\nMaster\'s degrees in web development and web application development',
+    'about.founder.experienceYears': '10+ years of IT experience',
+    'about.founder.educationDegrees': 'Master\'s degrees in web development',
     'about.founder.description': 'Passionate about new technologies and digital innovation, I create custom web solutions that combine technical performance and visual excellence. My approach combines creativity and technical expertise to bring your most ambitious projects to life.',
     
     // Founder personal stats
@@ -386,9 +389,10 @@ const translations: Record<Language, TranslationMap> = {
       'Custom web applications to automate your processes and improve your productivity.',
     'services.webapp.feature1': 'Custom development',
     'services.webapp.feature2': 'Intuitive interface',
-    'services.webapp.feature3': 'Database',
-    'services.webapp.feature4': 'API & integrations',
+    'services.webapp.feature3': 'Database',    'services.webapp.feature4': 'API & integrations',
     'services.features': 'Features',
+    'services.cta.pricing': 'Discover pricing',
+    'services.cta.quote': 'Request a quote',
     'services.learnMore': 'Learn more',
 
     // Prices
@@ -585,12 +589,13 @@ const translations: Record<Language, TranslationMap> = {
     'about.stats.satisfactionLabel': 'довольных клиентов',
     'about.stats.experience': '10+',
     'about.stats.experienceLabel': 'лет в IT',
-      
-    // Founder section
+        // Founder section
     'about.founder.name': 'Sardorbek SIDIKOV',
-    'about.founder.title': 'Founder & CEO',
+    'about.founder.title': 'Founder & CEO',    
     'about.founder.education': 'Магистр веб-разработки и разработки веб-приложений',
-    'about.founder.experience': '10+ лет опыта в IT',
+    'about.founder.experience': '10+ лет опыта в IT\nМагистр веб-разработки и разработки веб-приложений',
+    'about.founder.experienceYears': '10+ лет опыта в IT',
+    'about.founder.educationDegrees': 'Магистр веб-разработки',
     'about.founder.description': 'Увлеченный новыми технологиями и цифровыми инновациями, я создаю индивидуальные веб-решения, сочетающие техническую производительность и визуальное совершенство. Мой подход объединяет креативность и техническую экспертизу для воплощения ваших самых амбициозных проектов.',
     
     // Founder personal stats
@@ -637,9 +642,10 @@ const translations: Record<Language, TranslationMap> = {
       'Индивидуальные веб-приложения для автоматизации процессов и повышения продуктивности.',
     'services.webapp.feature1': 'Разработка под заказ',
     'services.webapp.feature2': 'Интуитивный интерфейс',
-    'services.webapp.feature3': 'База данных',
-    'services.webapp.feature4': 'API и интеграции',
+    'services.webapp.feature3': 'База данных',    'services.webapp.feature4': 'API и интеграции',
     'services.features': 'Возможности',
+    'services.cta.pricing': 'Узнать цены',
+    'services.cta.quote': 'Запросить предложение',
     'services.learnMore': 'Узнать больше',
 
     // Pricing
