@@ -285,19 +285,5 @@ export const expertiseItems = [
   {
     titleKey: 'expertise.item4.title',
     descriptionKey: 'expertise.item4.description',
-    icon: '/logo/api.svg',
-  },
-]
-
-export const technologies = [
-  { name: 'React', icon: '/logo/react.svg' },
-  { name: 'Next.js', icon: '/logo/nextjs.svg' },
-  { name: 'TypeScript', icon: '/logo/typescript.svg' },
-  { name: 'JavaScript', icon: '/logo/javascript.svg' },
-  { name: 'Tailwind', icon: '/logo/tailwindcss.svg' },
-  { name: 'Redux', icon: '/logo/redux.svg' },
-  { name: 'Vite', icon: '/logo/vite.svg' },
-  { name: 'Git', icon: '/logo/git.svg' },
-  { name: 'npm', icon: '/logo/npm.svg' },
-  { name: 'Figma', icon: '/logo/figma.svg' },
+    icon: '/logo/api.svg',  },
 ]
