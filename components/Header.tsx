@@ -26,11 +26,10 @@ export default function Header() {
   useEffect(() => {
     setMounted(true)
   }, [])
-
   // Track active section for navigation indicators
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'portfolio', 'services', 'prices', 'contact']
+      const sections = ['home', 'services', 'portfolio', 'expertise', 'prices', 'contact']
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -139,22 +138,20 @@ export default function Header() {
       },
     },
   }
-  return (
-    <motion.header className='fixed top-0 left-0 right-0 z-50 backdrop-blur-xl transition-all duration-300 border-b border-gray-200/30 dark:border-gray-700/30'>
-      <motion.div className='container mx-auto px-4 py-4 flex items-center justify-between transition-all duration-300'>
+  return (    <motion.header className='fixed top-0 left-0 right-0 z-50 backdrop-blur-xl transition-all duration-300 border-b border-gray-200/30 dark:border-gray-700/30'>
+      <motion.div className='container mx-auto px-4 py-2 md:py-3 flex items-center justify-between transition-all duration-300'>
         {/* Logo */}
         <div className='z-50'>
           <motion.a
             href='/'
             className='flex flex-col items-center leading-none text-gray-900 dark:text-white'
             onClick={handleLogoClick}>
-            <Image
-              src='/logo-sidikoff.svg'
+            <Image              src='/logo-sidikoff.svg'
               alt='Logo'
               width={200}
               height={100}
               priority
-              className='w-auto max-w-40 md:max-w-48 h-8 md:h-14 dark:invert'
+              className='w-auto max-w-36 md:max-w-40 h-6 md:h-10 dark:invert'
               style={{
                 width: 'auto',
                 height: 'auto',
@@ -200,14 +197,13 @@ export default function Header() {
               />
             </motion.svg>
           </motion.button>
-        </div>{' '}
-        {/* Desktop nav */}
-        <nav className='hidden md:flex items-center gap-8'>
+        </div>{' '}        {/* Desktop nav */}
+        <nav className='hidden md:flex items-center gap-6'>
           {[
             { href: '/#home', key: 'nav.home', section: 'home' },
-            { href: '/#expertise', key: 'nav.expertise', section: 'expertise' },
-            { href: '/#portfolio', key: 'nav.portfolio', section: 'portfolio' },
             { href: '/#services', key: 'nav.services', section: 'services' },
+            { href: '/#portfolio', key: 'nav.portfolio', section: 'portfolio' },
+            { href: '/#expertise', key: 'nav.expertise', section: 'expertise' },
             { href: '/#prices', key: 'nav.prices', section: 'prices' },
           ].map(({ href, key, section }) => (
             <motion.div key={section} className='relative'>
@@ -235,20 +231,19 @@ export default function Header() {
               </motion.a>
             </motion.div>
           ))}
-        </nav>{' '}
-        {/* Desktop CTA */}
-        <div className='hidden md:flex items-center gap-3'>
+        </nav>{' '}        {/* Desktop CTA */}
+        <div className='hidden md:flex items-center gap-2'>
           <motion.a
             href='/#contact'
             onClick={(e) => handleNavClick(e, '/#contact')}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}>
             {' '}
-            <button className='px-6 py-2.5 text-sm font-medium border border-border rounded-lg bg-background/90 hover:bg-accent/80 transition-all duration-200 backdrop-blur-sm shadow-sm hover:shadow-md hover:border-primary/30 dark:hover:border-primary/50'>
+            <button className='px-4 py-2 text-sm font-medium border border-border rounded-lg bg-background/90 hover:bg-accent/80 transition-all duration-200 backdrop-blur-sm shadow-sm hover:shadow-md hover:border-primary/30 dark:hover:border-primary/50'>
               {t('nav.contact')}
             </button>
           </motion.a>
-          <div className='w-px h-6 bg-border' />
+          <div className='w-px h-5 bg-border' />
           <LanguageSelector />
           <DarkModeToggle />
         </div>
@@ -271,12 +266,12 @@ export default function Header() {
               variants={menuVariants}
               initial='hidden'
               animate='visible'
-              exit='hidden'>
-              {' '}
+              exit='hidden'>              {' '}
               {[
                 { href: '/#home', key: 'nav.home', section: 'home' },
+                { href: '/#services', key: 'nav.services', section: 'services' },
                 { href: '/#portfolio', key: 'nav.portfolio', section: 'portfolio' },
-                { href: '/#about', key: 'nav.expertise', section: 'about' },
+                { href: '/#expertise', key: 'nav.expertise', section: 'expertise' },
                 { href: '/#prices', key: 'nav.prices', section: 'prices' },
               ].map(({ href, key, section }) => (
                 <motion.div key={section} variants={itemVariants}>

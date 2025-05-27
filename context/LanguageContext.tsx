@@ -39,20 +39,19 @@ const translations: Record<Language, TranslationMap> = {
     'hero.scroll': 'Découvrir',
     'hero.stat1': 'Projets',
     'hero.stat2': 'Satisfaction',
-    'hero.stat3': 'Support', // Expertise
-    'expertise.title': 'Notre Expertise',
-    'expertise.subtitle': 'Ce que nous proposons',
+    'hero.stat3': 'Support', // Expertise    'expertise.title': 'À propos',
+    'expertise.subtitle': 'Ce qui nous rend unique',
     'expertise.description':
       'Nous maîtrisons les technologies les plus avancées pour créer des expériences digitales exceptionnelles qui font grandir votre entreprise.',
-    'expertise.item1.title': 'Développement web',
+    'expertise.item1.title': 'Technologies Modernes',
     'expertise.item1.description':
-      'Sites web performants, adaptatifs et construits avec des technologies de pointe.',
-    'expertise.item2.title': 'UI & UX Design',
+      'React, Next.js, TypeScript et les dernières innovations pour des sites performants.',
+    'expertise.item2.title': 'Design Centré Utilisateur',
     'expertise.item2.description':
-      'Designs intuitifs et esthétiques, pensés pour une expérience utilisateur optimale.',
-    'expertise.item3.title': 'Branding & Logo',
+      'Interfaces intuitives et expériences optimisées pour vos utilisateurs.',
+    'expertise.item3.title': 'Performance & SEO',
     'expertise.item3.description':
-      'Identité visuelle forte et cohérente pour valoriser votre marque.',
+      'Sites ultra-rapides et optimisés pour les moteurs de recherche.',
     'expertise.item4.title': 'Intégration API',
     'expertise.item4.description':
       'Connexion fluide entre l’interface utilisateur et vos services backend.',
@@ -60,26 +59,40 @@ const translations: Record<Language, TranslationMap> = {
     'expertise.stats.projects': 'Projets réalisés',
     'expertise.stats.satisfaction': 'Satisfaction client',
     'expertise.stats.support': 'Support technique',
-    'expertise.learnMore': 'En savoir plus', // About (used in Expertise component)
-    'about.mission.title': 'Notre Mission',
-    'about.mission.p1':
-      "SIDIKOFF DIGITAL est une agence web basée à Paris, dédiée à accompagner les entreprises, PME et associations dans leur transformation digitale. Nous créons des sites internet performants, évolutifs et centrés sur l'utilisateur.",
-    'about.mission.p2':
-      "Notre approche est basée sur l'écoute, la qualité du code et la réussite de vos projets. Nous allions expertise technique, créativité et sens du détail pour livrer des expériences digitales sur mesure.",
-    'about.whyChoose.title': 'Pourquoi Choisir SIDIKOFF DIGITAL ?',
-    'about.whyChoose.advantage1.title': 'Approche Personnalisée',
-    'about.whyChoose.advantage1.description':
-      'Chaque projet est unique et mérite une solution sur mesure',
-    'about.whyChoose.advantage2.title': 'Performance Optimale',
-    'about.whyChoose.advantage2.description':
-      'Sites rapides, sécurisés et optimisés pour le référencement',
-    'about.whyChoose.advantage3.title': 'Accompagnement Complet',
-    'about.whyChoose.advantage3.description':
-      'De la conception à la maintenance, nous restons à vos côtés',
-    'about.location.title': 'Prêt à Transformer Votre Vision en Réalité ?',
-    'about.location.description':
-      'Nous accompagnons votre croissance digitale avec des solutions innovantes et sur mesure. Découvrez comment nous pouvons propulser votre projet vers le succès !',    'about.location.cta1': 'Démarrer votre projet',
-    'about.location.cta2': 'Découvrir nos réalisations',
+    'expertise.learnMore': 'En savoir plus',    // About (used in About component)
+    'about.title': 'À propos',
+    'about.intro.title': 'SIDIKOFF DIGITAL est une agence web fondée en France, avec une vision internationale.',
+    'about.intro.description': 'SIDIKOFF DIGITAL est une agence web fondée en France, avec une vision internationale. Nous accompagnons les marques, freelancers, entrepreneurs et startups avec des solutions digitales sur mesure, percutantes et durables.',
+    
+    // Ce qui nous définit section
+    'about.defining.title': 'Ce qui nous définit',
+    
+    'about.creativity.title': '💡 Créativité audacieuse',
+    'about.creativity.description': 'Chaque projet est pensé comme une œuvre unique, portée par une vision forte et des choix assumés.',
+    
+    'about.approach.title': '🤝 Approche humaine',
+    'about.approach.description': 'Nous construisons une vraie relation avec chaque client — à l\'écoute, disponibles, engagés.',
+    
+    'about.expertise.title': '🧠 Expertise technique',
+    'about.expertise.description': 'Nous utilisons des technologies modernes et du code propre pour des performances durables.',
+    
+    // Quelques chiffres section
+    'about.stats.title': 'Quelques chiffres',
+    'about.stats.projects': '+50',
+    'about.stats.projectsLabel': 'projets réalisés',
+    'about.stats.satisfaction': '100%',
+    'about.stats.satisfactionLabel': 'de clients satisfaits',
+    'about.stats.experience': '10+',
+    'about.stats.experienceLabel': 'ans d\'expérience IT',
+        // Founder section
+    'about.founder.name': 'Sardorbek SIDIKOV',
+    'about.founder.title': 'Fondateur & Directeur technique',
+    'about.founder.description': 'Passionné par les nouvelles technologies et l\'innovation numérique, je crée des solutions web sur mesure qui allient performance technique et excellence visuelle. Mon approche combine créativité et expertise technique pour donner vie à vos projets les plus ambitieux.',
+    'about.founder.education': 'Diplômes Master en développement web et développement d\'applications web',
+    'about.founder.experience': '10+ ans d\'expérience IT',    // CTA section
+    'about.cta.title': 'Transformons ensemble vos idées en réalité numérique',
+    'about.cta.description': 'Nous accompagnons votre croissance digitale avec des solutions innovantes et sur mesure. Contactez-nous pour une consultation gratuite et découvrez comment nous pouvons booster votre présence en ligne.',
+    'about.cta.button': 'Démarrer votre projet',
 
     // Portfolio
     'portfolio.title': 'Projets récents',
@@ -296,25 +309,49 @@ const translations: Record<Language, TranslationMap> = {
     'expertise.item3.description': 'Strong and consistent visual identity to enhance your brand.',
     'expertise.item4.title': 'API Integration',
     'expertise.item4.description':
-      'Seamless connection between user interface and your backend services.', // About (used in Expertise component)
-    'about.mission.title': 'Our Mission',
-    'about.mission.p1':
-      'SIDIKOFF DIGITAL is a web agency based in Paris, dedicated to helping businesses, SMEs, and associations in their digital transformation. We create high-performance, scalable, and user-centered websites.',
-    'about.mission.p2':
-      "Our approach is based on listening, code quality, and your project's success. We combine technical expertise, creativity, and attention to detail to deliver custom digital experiences.",
-    'about.whyChoose.title': 'Why Choose SIDIKOFF DIGITAL?',
-    'about.whyChoose.advantage1.title': 'Personalized Approach',
-    'about.whyChoose.advantage1.description':
-      'Each project is unique and deserves a tailor-made solution',
-    'about.whyChoose.advantage2.title': 'Optimal Performance',
-    'about.whyChoose.advantage2.description': 'Fast, secure websites optimized for search engines',
-    'about.whyChoose.advantage3.title': 'Complete Support',
-    'about.whyChoose.advantage3.description': 'From design to maintenance, we stay by your side',
-    'about.location.title': 'Ready to Transform Your Vision into Reality?',
-    'about.location.description':
-      'We support your digital growth with innovative and tailored solutions. Discover how we can propel your project to success!',    'about.location.cta1': 'Start your project',
-    'about.location.cta2': 'Discover our work',
+      'Seamless connection between user interface and your backend services.',    // About (used in About component)
+    'about.title': 'About Us',
+    'about.intro.title': 'SIDIKOFF DIGITAL is a web agency founded in France with an international outlook.',
+    'about.intro.description': 'SIDIKOFF DIGITAL is a web agency founded in France with an international outlook. We support brands, freelancers, entrepreneurs, and startups with tailored digital solutions that are bold, effective, and built to last.',
     
+    // What defines us section
+    'about.defining.title': 'What defines us',
+    
+    'about.creativity.title': '💡 Bold creativity',
+    'about.creativity.description': 'Each project is crafted as a unique piece — driven by strong vision and deliberate design.',
+    
+    'about.approach.title': '🤝 Human-centered approach',
+    'about.approach.description': 'We build real relationships — listening, supporting, and staying close to our clients throughout the process.',
+    
+    'about.expertise.title': '🧠 Technical expertise',
+    'about.expertise.description': 'We use modern technologies and clean code to deliver fast, stable, and long-lasting results.',
+    
+    // Some key numbers section
+    'about.stats.title': 'Some key numbers',
+    'about.stats.projects': '50+',
+    'about.stats.projectsLabel': 'projects delivered',
+    'about.stats.satisfaction': '100%',
+    'about.stats.satisfactionLabel': 'satisfied clients',
+    'about.stats.experience': '10+',
+    'about.stats.experienceLabel': 'years of IT experience',
+      
+    // Founder section
+    'about.founder.name': 'Sardorbek SIDIKOV',
+    'about.founder.title': 'Founder & Technical Director',
+    'about.founder.education': 'Master\'s degrees in web development and web application development',
+    'about.founder.experience': '10+ years of IT experience',
+    'about.founder.description': 'Passionate about new technologies and digital innovation, I create custom web solutions that combine technical performance and visual excellence. My approach combines creativity and technical expertise to bring your most ambitious projects to life.',
+    
+    // Founder personal stats
+    'about.founderStats.projects': '50+',
+    'about.founderStats.projectsLabel': 'Projects completed',
+    'about.founderStats.satisfaction': '100%',
+    'about.founderStats.satisfactionLabel': 'Positive feedback',
+      // CTA section
+    'about.cta.title': 'Let\'s transform your ideas into digital reality together',
+    'about.cta.description': 'We support your digital growth with innovative and tailored solutions. Contact us for a free consultation and discover how we can boost your online presence.',
+    'about.cta.button': 'Start your project',
+
     // Portfolio
     'portfolio.title': 'Recent Projects',
     'portfolio.subtitle': 'Our Work',
@@ -523,30 +560,49 @@ const translations: Record<Language, TranslationMap> = {
       'Интуитивные и эстетичные интерфейсы для лучшего пользовательского опыта.',
     'expertise.item3.title': 'Брендинг и логотип',
     'expertise.item3.description': 'Сильный и узнаваемый визуальный стиль для вашего бренда.',
-    'expertise.item4.title': 'Интеграция API',
-    'expertise.item4.description': 'Бесшовная интеграция интерфейса с вашими сервисами и API.',
+    'expertise.item4.title': 'Интеграция API',    'expertise.item4.description': 'Бесшовная интеграция интерфейса с вашими сервисами и API.',    // About (used in About component)
     'about.title': 'О нас',
-    'about.subtitle': 'Наше агентство', // About (used in Expertise component)
-    'about.mission.title': 'Наша миссия',
-    'about.mission.p1':
-      'SIDIKOFF DIGITAL — веб-агентство из Парижа, посвященное помощи компаниям, малому и среднему бизнесу, а также ассоциациям в их цифровой трансформации. Мы создаем высокопроизводительные, масштабируемые и ориентированные на пользователя веб-сайты.',
-    'about.mission.p2':
-      'Наш подход основан на внимании к клиенту, качестве кода и успехе ваших проектов. Мы сочетаем техническую экспертизу, креативность и внимание к деталям для создания индивидуальных цифровых решений.',
-    'about.whyChoose.title': 'Почему выбрать SIDIKOFF DIGITAL?',
-    'about.whyChoose.advantage1.title': 'Индивидуальный подход',
-    'about.whyChoose.advantage1.description':
-      'Каждый проект уникален и заслуживает индивидуального решения',
-    'about.whyChoose.advantage2.title': 'Оптимальная производительность',
-    'about.whyChoose.advantage2.description':
-      'Быстрые, безопасные сайты, оптимизированные для поисковых систем',
-    'about.whyChoose.advantage3.title': 'Полная поддержка',
-    'about.whyChoose.advantage3.description':
-      'От дизайна до обслуживания — мы остаемся рядом с вами',
-    'about.location.title': 'Готовы Воплотить Вашу Идею в Реальность?',
-    'about.location.description':
-      'Мы поддерживаем ваш цифровой рост с помощью инновационных и индивидуальных решений. Узнайте, как мы можем вывести ваш проект на новый уровень успеха!',    'about.location.cta1': 'Начать ваш проект',
-    'about.location.cta2': 'Изучить наши работы',
+    'about.intro.title': 'SIDIKOFF DIGITAL — это веб-агентство, основанное во Франции с международным подходом.',
+    'about.intro.description': 'SIDIKOFF DIGITAL — это веб-агентство, основанное во Франции с международным подходом. Мы помогаем брендам, фрилансерам, предпринимателям и стартапам создавать эффективные цифровые решения, которые работают и запоминаются.',
     
+    // Наши принципы section
+    'about.defining.title': 'Наши принципы',
+    
+    'about.creativity.title': '💡 Смелый креатив',
+    'about.creativity.description': 'Каждый проект — это уникальная идея, реализованная с вниманием к деталям и концепции.',
+    
+    'about.approach.title': '🤝 Человечность и забота',
+    'about.approach.description': 'Мы работаем как партнёры, выстраиваем настоящие связи и всегда остаёмся на связи.',
+    
+    'about.expertise.title': '🧠 Техническая точность',
+    'about.expertise.description': 'Современные технологии, чистый код и ориентация на результат.',
+    
+    // В цифрах section
+    'about.stats.title': 'В цифрах',
+    'about.stats.projects': '50+',
+    'about.stats.projectsLabel': 'реализованных проектов',
+    'about.stats.satisfaction': '100%',
+    'about.stats.satisfactionLabel': 'довольных клиентов',
+    'about.stats.experience': '10+',
+    'about.stats.experienceLabel': 'лет в IT',
+      
+    // Founder section
+    'about.founder.name': 'Sardorbek SIDIKOV',
+    'about.founder.title': 'Founder & CEO',
+    'about.founder.education': 'Магистр веб-разработки и разработки веб-приложений',
+    'about.founder.experience': '10+ лет опыта в IT',
+    'about.founder.description': 'Увлеченный новыми технологиями и цифровыми инновациями, я создаю индивидуальные веб-решения, сочетающие техническую производительность и визуальное совершенство. Мой подход объединяет креативность и техническую экспертизу для воплощения ваших самых амбициозных проектов.',
+    
+    // Founder personal stats
+    'about.founderStats.projects': '50+',
+    'about.founderStats.projectsLabel': 'Реализованных проектов',
+    'about.founderStats.satisfaction': '100%',
+    'about.founderStats.satisfactionLabel': 'Положительных отзывов',
+      // CTA section
+    'about.cta.title': 'Давайте вместе превратим ваши идеи в цифровую реальность',
+    'about.cta.description': 'Мы поддерживаем ваш цифровой рост с помощью инновационных и индивидуальных решений. Свяжитесь с нами для бесплатной консультации и узнайте, как мы можем улучшить ваше присутствие в интернете.',
+    'about.cta.button': 'Начать ваш проект',
+
     // Portfolio
     'portfolio.title': 'Недавние проекты',
     'portfolio.subtitle': 'Наши работы',

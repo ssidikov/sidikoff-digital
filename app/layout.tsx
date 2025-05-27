@@ -57,12 +57,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel='dns-prefetch' href='//www.googletagmanager.com' />
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
-        
+
         {/* Favicon and app icons */}
         <link rel='icon' href='/favicon.png' />
         <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
         <link rel='manifest' href='/manifest.json' />
-        
+
         {/* Additional meta tags for better SEO */}
         <meta name='author' content='SIDIKOFF DIGITAL' />
         <meta name='generator' content='Next.js' />
@@ -72,17 +72,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name='revisit-after' content='7 days' />
         <meta name='HandheldFriendly' content='True' />
         <meta name='MobileOptimized' content='320' />
-        
+
         {/* Language and region meta tags */}
         <meta name='geo.region' content='FR-75' />
         <meta name='geo.placename' content='Paris' />
         <meta name='geo.position' content='48.8566;2.3522' />
         <meta name='ICBM' content='48.8566, 2.3522' />
-        
+
         {/* Business information */}
         <meta name='contact' content='contact@sidikoff.com' />
         <meta name='copyright' content='SIDIKOFF DIGITAL' />
-        
+
         {/* Performance hints */}
         <link rel='dns-prefetch' href='//vercel.com' />
         <link rel='preload' href='/logo.svg' as='image' type='image/svg+xml' />
@@ -129,7 +129,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               width='0'
               style={{ display: 'none', visibility: 'hidden' }}></iframe>
           </noscript>
-        )}        <ThemeProvider
+        )}{' '}
+        <ThemeProvider
           attribute='class'
           defaultTheme='system'
           enableSystem

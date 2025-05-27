@@ -28,7 +28,6 @@ interface PortfolioProps {
 
 export default function Portfolio({ title, subtitle, showAllProjects = false }: PortfolioProps) {
   const [visibleProjects, setVisibleProjects] = useState(4)
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null)
   const [filterTechnology, setFilterTechnology] = useState<string>('all')
   const [showFilters, setShowFilters] = useState(false)
   const { t, language } = useLanguage()
@@ -36,53 +35,28 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
   const router = useRouter()
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
-  // Animation variants
+  
+  // Simplified animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
       },
     },
   }
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 60, scale: 0.8 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: {
-        duration: 0.7,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        duration: 0.6,
       },
     },
-  }
-
-  const imageVariants = {
-    rest: { 
-      scale: 1,
-      filter: "brightness(0.9) saturate(0.9)"
-    },
-    hover: { 
-      scale: 1.05,
-      filter: "brightness(1.1) saturate(1.1)",
-      transition: { duration: 0.3, ease: "easeOut" }
-    }
-  }
-
-  const overlayVariants = {
-    rest: { 
-      opacity: 0,
-      backdropFilter: "blur(0px)"
-    },
-    hover: { 
-      opacity: 1,
-      backdropFilter: "blur(4px)",
-      transition: { duration: 0.3 }
-    }
   }
 
   const filterVariants = {
@@ -256,64 +230,46 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
           <AnimatePresence mode="wait">
             {filteredProjects
               .slice(0, showAllProjects ? filteredProjects.length : visibleProjects)
-              .map((project, index) => (
-                <motion.div
+              .map((project, index) => (                <motion.div
                   key={`${project.id}-${filterTechnology}`}
                   layout
                   variants={cardVariants}
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
-                  whileHover="hover"
-                  onHoverStart={() => setHoveredProject(project.id)}
-                  onHoverEnd={() => setHoveredProject(null)}
                   className='group cursor-pointer'
                 >
-                  <div className='card-modern overflow-hidden h-full flex flex-col'>
-                    {/* Project Image */}
+                  <div className='card-modern overflow-hidden h-full flex flex-col'>                    {/* Project Image */}
                     <div className='relative h-48 overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5'>
-                      <motion.div
-                        variants={imageVariants}
-                        className="absolute inset-0"
-                      >
+                      <div className="absolute inset-0">
                         <Image
                           src={project.image || '/placeholder.svg'}
                           alt={project.title}
                           fill
-                          className='object-cover object-top'
+                          className='object-cover object-top transition-transform duration-300 group-hover:scale-105'
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
-                      </motion.div>
-                      
-                      {/* Hover Overlay */}
-                      <motion.div
-                        variants={overlayVariants}
-                        className="absolute inset-0 bg-black/20 flex items-center justify-center"
-                      >
+                      </div>
+                        {/* Hover Overlay */}
+                      <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div className="flex gap-3">
                           <Link href={`/projects/${project.id}`}>
-                            <motion.button
-                              whileHover={{ scale: 1.1 }}
-                              whileTap={{ scale: 0.95 }}
-                              className="p-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-colors"
-                            >
+                            <button className="p-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-all duration-200 hover:scale-110">
                               <EyeIcon className="w-5 h-5 text-gray-800" />
-                            </motion.button>
+                            </button>
                           </Link>
                           {project.link && (
-                            <motion.a
+                            <a
                               href={project.link}
                               target="_blank"
                               rel="noopener noreferrer"
-                              whileHover={{ scale: 1.1 }}
-                              whileTap={{ scale: 0.95 }}
-                              className="p-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-colors"
+                              className="p-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-all duration-200 hover:scale-110"
                             >
                               <ArrowTopRightOnSquareIcon className="w-5 h-5 text-gray-800" />
-                            </motion.a>
+                            </a>
                           )}
                         </div>
-                      </motion.div>
+                      </div>
 
                       {/* Technology Badge */}
                       {project.technologies && project.technologies.length > 0 && (
@@ -355,27 +311,19 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                             </span>
                           )}
                         </div>
-                      )}
-
-                      {/* Action Button */}
+                      )}                      {/* Action Button */}
                       <Link href={`/projects/${project.id}`}>
-                        <motion.button 
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          className='w-full btn-secondary group/btn'
-                        >
+                        <button className='w-full btn-secondary group/btn'>
                           {t('portfolio.viewDetails')}
                           <ArrowRightIcon className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                        </motion.button>
+                        </button>
                       </Link>
                     </div>
                   </div>
                 </motion.div>
               ))}
           </AnimatePresence>
-        </motion.div>
-
-        {/* Load More Button */}
+        </motion.div>        {/* Load More Button */}
         {!showAllProjects && visibleProjects < filteredProjects.length && (
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -383,18 +331,16 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
             transition={{ delay: 0.5 }}
             className='mt-12 text-center'
           >
-            <motion.button
+            <button
               onClick={loadMoreProjects}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className='btn-primary group'
+              className='btn-primary group hover:scale-105 transition-transform duration-200'
             >
               <FolderOpenIcon className="w-5 h-5" />
               {t('portfolio.showMore')}
               <span className="ml-2 px-2 py-0.5 bg-white/20 rounded-full text-xs">
                 +{Math.min(4, filteredProjects.length - visibleProjects)}
               </span>
-            </motion.button>
+            </button>
           </motion.div>
         )}
 
