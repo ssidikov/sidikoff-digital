@@ -102,6 +102,7 @@ export default function Page() {
           <Portfolio />
           <About />
           <Prices />
+          {/* <FAQ /> */}
           <Contact />
         </main>
         <Footer />

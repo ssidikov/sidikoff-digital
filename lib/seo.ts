@@ -43,7 +43,7 @@ const defaultSEOConfig = {
     address: 'Paris, France',
     phone: '+33 6 26 93 27 34',
     email: 'contact@sidikoff.com',
-    foundingDate: '2023',
+    foundingDate: '2025',
     founder: 'Sardorbek SIDIKOV',
     employees: '1-10',
     vatNumber: 'FR943266213',
@@ -116,7 +116,7 @@ export function generateMetadata(seoData: SEOData): Metadata {
         'max-image-preview': 'large',
         'max-snippet': -1,
       },
-    },    // Verification and additional meta tags
+    }, // Verification and additional meta tags
     verification: {
       google: 'google-site-verification-code',
       yandex: 'yandex-verification-code',
@@ -142,7 +142,8 @@ export function generateMetadata(seoData: SEOData): Metadata {
 }
 
 // Pages SEO configurations
-export const pagesSEO = {  home: {
+export const pagesSEO = {
+  home: {
     fr: {
       title: 'SIDIKOFF DIGITAL - Agence Web à Paris | Création Sites & Applications Web',
       description:
@@ -167,7 +168,8 @@ export const pagesSEO = {  home: {
       description:
         'Веб-агентство, специализирующееся на создании сайтов, веб-приложений и цифровой стратегии. Современная разработка, UX/UI дизайн, SEO оптимизация.',
       keywords: ['веб агентство париж', 'создание сайтов', 'веб разработка', 'цифровое агентство'],
-      canonical: 'https://sidikoff.com/',    },
+      canonical: 'https://sidikoff.com/',
+    },
   },
   services: {
     fr: {
@@ -234,11 +236,12 @@ export const pagesSEO = {  home: {
       ],
       canonical: 'https://sidikoff.com/projects',
     },
-  },  legal: {
+  },
+  legal: {
     fr: {
       title: 'Politique de confidentialité | SIDIKOFF DIGITAL - Agence Web Paris',
       description:
-        'Politique de confidentialité de SIDIKOFF DIGITAL, agence web parisienne. Protection des données personnelles, cookies et conditions d\'utilisation.',
+        "Politique de confidentialité de SIDIKOFF DIGITAL, agence web parisienne. Protection des données personnelles, cookies et conditions d'utilisation.",
       keywords: [
         'politique de confidentialité',
         'protection données personnelles',
@@ -258,12 +261,7 @@ export const pagesSEO = {  home: {
       title: 'Политика конфиденциальности | SIDIKOFF DIGITAL - Веб-агентство Париж',
       description:
         'Политика конфиденциальности SIDIKOFF DIGITAL, парижского веб-агентства. Защита персональных данных, куки и условия использования.',
-      keywords: [
-        'политика конфиденциальности',
-        'защита данных',
-        'куки',
-        'условия использования',
-      ],
+      keywords: ['политика конфиденциальности', 'защита данных', 'куки', 'условия использования'],
       canonical: 'https://sidikoff.com/mentions-legales',
     },
   },
@@ -350,7 +348,7 @@ export function generateLocalBusinessSchema() {
           itemOffered: {
             '@type': 'Service',
             name: 'Applications web',
-            description: 'Développement d\'applications web sur mesure',
+            description: "Développement d'applications web sur mesure",
           },
         },
       ],
@@ -555,13 +553,13 @@ export function generateCreativeWorkSchema(work: {
     keywords: work.technologies?.join(', ') || 'React, Next.js, TypeScript',
     inLanguage: 'fr-FR',
     ...(work.url && { url: work.url }),
-    ...(work.image && { 
+    ...(work.image && {
       image: {
         '@type': 'ImageObject',
         url: work.image,
         width: 800,
         height: 600,
-      }
+      },
     }),
     ...(work.dateCreated && { dateCreated: work.dateCreated }),
     audience: {
@@ -595,7 +593,8 @@ export function generatePersonSchema() {
     givenName: 'Sardorbek',
     familyName: 'SIDIKOV',
     jobTitle: 'Founder & Lead Developer',
-    description: 'Développeur web spécialisé en React, Next.js et TypeScript. Fondateur de SIDIKOFF DIGITAL, agence web parisienne.',
+    description:
+      'Développeur web spécialisé en React, Next.js et TypeScript. Fondateur de SIDIKOFF DIGITAL, agence web parisienne.',
     url: defaultSEOConfig.baseUrl,
     email: defaultSEOConfig.business.email,
     telephone: defaultSEOConfig.business.phone,
@@ -619,10 +618,7 @@ export function generatePersonSchema() {
       'SEO Optimization',
       'E-commerce Development',
     ],
-    sameAs: [
-      `https://linkedin.com/in/sardorbek-sidikov`,
-      `https://github.com/sidikoff`,
-    ],
+    sameAs: [`https://linkedin.com/in/sardorbek-sidikov`, `https://github.com/sidikoff`],
   }
 }
 

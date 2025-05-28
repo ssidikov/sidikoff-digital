@@ -30,12 +30,14 @@ export default function Footer() {
                 }}
               />
             </a>
-          </div>          <div className='hidden md:flex flex-col items-center text-sm text-muted-foreground order-3 md:order-2 min-w-80'>
-            <div>© {currentYear} {t('footer.rights')}</div>
-            <Link 
-              href='/mentions-legales' 
-              className='text-xs text-muted-foreground hover:text-primary transition-colors mt-1'
-            >
+          </div>{' '}
+          <div className='hidden md:flex flex-col items-center text-sm text-muted-foreground order-3 md:order-2 min-w-80'>
+            <div>
+              © {currentYear} {t('footer.rights')}
+            </div>
+            <Link
+              href='/mentions-legales'
+              className='text-xs text-muted-foreground hover:text-primary transition-colors mt-1'>
               {t('legal.title')}
             </Link>
           </div>
@@ -46,17 +48,19 @@ export default function Footer() {
               <Github className='w-5 h-5' />
             </Link>
             <Link
-              href='https://www.linkedin.com/in/sardorbeksidikov'
+              href='https://www.linkedin.com/company/sidikoff-digital'
               className='text-muted-foreground hover:text-primary transition-colors'>
               <Linkedin className='w-5 h-5' />
             </Link>
           </div>
-        </div>        <div className='md:hidden text-center mt-5 text-sm text-muted-foreground'>
-          <div>© {currentYear} {t('footer.rights')}</div>
-          <Link 
-            href='/mentions-legales' 
-            className='text-xs text-muted-foreground hover:text-primary transition-colors mt-1 block'
-          >
+        </div>{' '}
+        <div className='md:hidden text-center mt-5 text-sm text-muted-foreground'>
+          <div>
+            © {currentYear} {t('footer.rights')}
+          </div>
+          <Link
+            href='/mentions-legales'
+            className='text-xs text-muted-foreground hover:text-primary transition-colors mt-1 block'>
             {t('legal.title')}
           </Link>
         </div>
