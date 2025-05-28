@@ -12,6 +12,7 @@ import {
   Lightbulb,
   Handshake,
   Brain,
+  ArrowRight,
 } from 'lucide-react'
 
 const About: React.FC = () => {
@@ -134,9 +135,7 @@ const About: React.FC = () => {
               <p className='text-gray-600 dark:text-gray-300 leading-relaxed text-center lg:text-left'>
                 {t('about.founder.description')}
               </p>
-            </div>
-
-            {/* Experience and Education Grid */}
+            </div>            {/* Experience and Education Grid */}
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
               {/* Experience */}{' '}
               <motion.div
@@ -147,9 +146,6 @@ const About: React.FC = () => {
                   <Zap className='w-6 h-6 text-white' />
                 </div>{' '}
                 <div>
-                  <p className='text-sm text-indigo-600 dark:text-indigo-400 font-medium mb-1'>
-                    {t('about.founder.experienceLabel')}
-                  </p>
                   <p className='text-gray-900 dark:text-white font-semibold'>
                     {t('about.founder.experienceYears')}
                   </p>
@@ -164,9 +160,6 @@ const About: React.FC = () => {
                   <GraduationCap className='w-6 h-6 text-white' />
                 </div>
                 <div>
-                  <p className='text-sm text-purple-600 dark:text-purple-400 font-medium mb-1'>
-                    {t('about.founder.educationLabel')}
-                  </p>
                   <p className='text-gray-900 dark:text-white font-semibold'>
                     {t('about.founder.educationDegrees')}
                   </p>
@@ -270,14 +263,36 @@ const About: React.FC = () => {
           </motion.h3>
           <motion.p className='text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto'>
             {t('about.cta.description')}
-          </motion.p>
-          <motion.div className='flex flex-col sm:flex-row gap-4 justify-center'>
-            {' '}
+          </motion.p>          <motion.div className='flex flex-col sm:flex-row gap-4 justify-center'>
             <motion.a
               href='#contact'
-              className='inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl font-bold text-xl hover:shadow-2xl hover:shadow-indigo-500/25 transition-all duration-300 group'
-              whileTap={{ scale: 0.95 }}>
-              {t('about.cta.button')}
+              className='group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl font-semibold text-lg shadow-lg shadow-indigo-500/25 hover:shadow-2xl hover:shadow-indigo-500/40 transition-all duration-300 overflow-hidden border border-transparent hover:border-white/20'
+              whileHover={{ 
+                scale: 1.05, 
+                y: -3,
+                transition: { duration: 0.2, ease: "easeOut" }
+              }}
+              whileTap={{ scale: 0.96 }}>
+              {/* Animated background overlay */}
+              <div className='absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+              
+              {/* Pulse effect on hover */}
+              <div className='absolute inset-0 rounded-2xl bg-white/10 opacity-0 group-hover:opacity-100 group-hover:animate-pulse' />
+              
+              {/* Button content */}
+              <span className='relative z-10 flex items-center gap-3'>
+                <MessageCircle className='w-5 h-5 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12' />
+                <span className='transition-all duration-300 group-hover:tracking-wide'>
+                  {t('about.cta.button')}
+                </span>
+                <ArrowRight className='w-5 h-5 transition-all duration-300 group-hover:translate-x-2 group-hover:scale-110' />
+              </span>
+              
+              {/* Enhanced shine effect */}
+              <div className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12' />
+              
+              {/* Glow effect */}
+              <div className='absolute -inset-1 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-70 blur transition-opacity duration-300 -z-10' />
             </motion.a>
           </motion.div>
         </motion.div>
