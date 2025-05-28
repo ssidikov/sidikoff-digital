@@ -91,19 +91,15 @@ const About: React.FC = () => {
             <p className='text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
               {t('about.intro.description')}
             </p>
-          </motion.div>{' '}
-          {/* Founder intro card */}
+          </motion.div>{' '}          {/* Founder intro card */}
           <motion.div
             className='max-w-3xl mx-auto bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 lg:p-10 border border-gray-200/50 dark:border-white/10 shadow-2xl shadow-indigo-500/10'
             variants={itemVariants}
-            whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}>
             {/* Header Section */}
             <div className='flex flex-col lg:flex-row items-center lg:items-start gap-6 mb-8'>
-              {/* Avatar */}
-              <motion.div
+              {/* Avatar */}              <motion.div
                 className='relative'
-                whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.3 }}>
                 <div className='w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 flex items-center justify-center shadow-lg shadow-indigo-500/25'>
                   <span className='text-white text-2xl lg:text-3xl font-bold'>SS</span>
@@ -146,10 +142,8 @@ const About: React.FC = () => {
 
             {/* Experience and Education Grid */}
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
-              {/* Experience */}
-              <motion.div
+              {/* Experience */}              <motion.div
                 className='flex items-center gap-4 p-4 bg-gradient-to-r from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20 rounded-2xl border border-indigo-200/50 dark:border-indigo-700/30'
-                whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}>
                 <div className='w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-lg'>
                   <svg
@@ -175,10 +169,8 @@ const About: React.FC = () => {
                 </div>
               </motion.div>
 
-              {/* Education */}
-              <motion.div
+              {/* Education */}              <motion.div
                 className='flex items-center gap-4 p-4 bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-2xl border border-purple-200/50 dark:border-purple-700/30'
-                whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}>
                 <div className='w-16 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg'>
                   <svg
@@ -212,11 +204,9 @@ const About: React.FC = () => {
             </div>
 
             {/* Contact CTA */}
-            <div className='mt-8 text-center'>
-              <motion.a
+            <div className='mt-8 text-center'>              <motion.a
                 href='#contact'
                 className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-gray-700 dark:text-gray-200 rounded-xl font-medium hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-600'
-                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}>
                 <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                   <path
@@ -245,15 +235,12 @@ const About: React.FC = () => {
           </motion.h3>
 
           <div className='grid md:grid-cols-3 gap-8'>
-            {principles.map((principle, index) => (
-              <motion.div
+            {principles.map((principle, index) => (              <motion.div
                 key={index}
                 className='group cursor-pointer'
                 variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}>
-                <div className='bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 dark:border-white/10 text-center h-full hover:shadow-xl transition-all duration-300'>
-                  <div className='text-5xl mb-6 group-hover:scale-110 transition-transform duration-300'>
+                transition={{ duration: 0.3 }}>                <div className='bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 dark:border-white/10 text-center h-full hover:shadow-xl transition-all duration-300'>
+                  <div className='text-5xl mb-6 transition-transform duration-300'>
                     {principle.emoji}
                   </div>
 
@@ -283,12 +270,10 @@ const About: React.FC = () => {
           </motion.h3>
 
           <div className='grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto'>
-            {stats.map((stat, index) => (
-              <motion.div
+            {stats.map((stat, index) => (              <motion.div
                 key={index}
                 className='text-center bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 dark:border-white/10'
                 variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}>
                 <div className='text-4xl lg:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3'>
                   {t(stat.valueKey)}
@@ -313,11 +298,9 @@ const About: React.FC = () => {
           <motion.p className='text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto'>
             {t('about.cta.description')}
           </motion.p>
-          <motion.div className='flex flex-col sm:flex-row gap-4 justify-center'>
-            <motion.a
+          <motion.div className='flex flex-col sm:flex-row gap-4 justify-center'>            <motion.a
               href='#contact'
               className='inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl font-bold text-xl hover:shadow-2xl hover:shadow-indigo-500/25 transition-all duration-300 group'
-              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}>
               {t('about.cta.button')}
             </motion.a>

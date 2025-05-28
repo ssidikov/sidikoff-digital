@@ -7,8 +7,8 @@ import AnimatedSection from './AnimatedSection'
 import { EyeIcon, ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline'
 
 export default function Services() {
-  const { t } = useLanguage();
-  
+  const { t } = useLanguage()
+
   const services = [
     {
       emoji: '🌐',
@@ -90,15 +90,9 @@ function ServiceCard({
   }
 
   const background = useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)`
-  return (
-    <motion.div
+  return (    <motion.div
       className='group relative flex flex-col h-full rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm p-8 min-h-[320px] cursor-pointer overflow-hidden'
       onMouseMove={handleMouseMove}
-      whileHover={{
-        y: -8,
-        scale: 1.02,
-        transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] },
-      }}
       whileTap={{ scale: 0.98 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -114,8 +108,9 @@ function ServiceCard({
 
       {/* Card content */}
       <div className='relative z-10 flex flex-col h-full'>
+        {' '}
         {/* Icon container */}
-        <div className='flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 mb-6 group-hover:scale-105 transition-transform duration-300'>
+        <div className='flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 mb-6 transition-transform duration-300'>
           <span className='text-3xl'>{service.emoji}</span>
         </div>
         {/* Title */}
@@ -125,7 +120,8 @@ function ServiceCard({
         {/* Description */}
         <p className='text-gray-600 dark:text-gray-300 mb-6 leading-relaxed flex-grow'>
           {t(service.descriptionKey)}
-        </p>        {/* Features list */}
+        </p>{' '}
+        {/* Features list */}
         <div className='space-y-3'>
           <h4 className='text-sm font-semibold text-gray-800 dark:text-gray-200 uppercase tracking-wide'>
             {t('services.features')}
@@ -141,15 +137,15 @@ function ServiceCard({
         </div>{' '}
         {/* CTA Buttons */}
         <div className='mt-6 pt-4 border-t border-gray-100 dark:border-gray-800 space-y-3'>
-          {/* Primary CTA - Découvrir */}
+          {/* Primary CTA - Découvrir */}{' '}
           <motion.a
             href='#prices'
             className='group relative w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-semibold shadow-lg hover:shadow-xl overflow-hidden'
-            whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}>
             {/* Animated background effect */}
-            <div className='absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />            <div className='relative flex items-center gap-2'>
-              <EyeIcon className='w-4 h-4 group-hover:scale-110 transition-transform duration-200' />
+            <div className='absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />{' '}
+            <div className='relative flex items-center gap-2'>
+              <EyeIcon className='w-4 h-4 transition-transform duration-200' />
               <span>{t('services.cta.pricing')}</span>
               <motion.svg
                 className='w-4 h-4'
@@ -171,13 +167,13 @@ function ServiceCard({
                 />
               </motion.svg>
             </div>
-          </motion.a>          {/* Secondary CTA - Request quote */}
+          </motion.a>{' '}
+          {/* Secondary CTA - Request quote */}{' '}
           <motion.a
             href='#contact'
             className='group w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/20 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-semibold backdrop-blur-sm'
-            whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}>
-            <ChatBubbleLeftRightIcon className='w-4 h-4 group-hover:scale-110 transition-transform duration-200' />
+            <ChatBubbleLeftRightIcon className='w-4 h-4 transition-transform duration-200' />
             <span>{t('services.cta.quote')}</span>
             <motion.div
               className='w-2 h-2 bg-green-500 rounded-full opacity-0 group-hover:opacity-100'
