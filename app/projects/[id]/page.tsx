@@ -9,6 +9,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import { projects } from '@/data/portfolio-data'
 import { useLanguage } from '@/context/LanguageContext'
 import { useSmoothScroll } from '@/hooks/useSmoothScroll'
+import { redirectToHomeWithRouter } from '@/lib/redirect'
 
 const getProjectById = (id: string) => {
   return projects.find((p) => p.id === id) || null
@@ -35,7 +36,6 @@ export default function ProjectPage({
     e.preventDefault()
     router.push('/projects')
   }
-
   const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     router.push('/')
@@ -45,7 +45,9 @@ export default function ProjectPage({
   }
 
   if (!project) {
-    return <div className='text-center py-12'>{t('project.notFound')}</div>
+    // Redirect to homepage instantly using utility
+    redirectToHomeWithRouter(router)
+    return null
   }
 
   // Get localized project data
