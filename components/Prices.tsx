@@ -160,7 +160,8 @@ export default function Prices() {
             className='text-lg md:text-xl text-gray-600 dark:text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed'>
             {t('prices.description')}
           </motion.p>
-        </motion.div>        {/* Pricing Cards Grid */}
+        </motion.div>{' '}
+        {/* Pricing Cards Grid */}
         <motion.div
           initial='hidden'
           animate={isInView ? 'visible' : 'hidden'}
@@ -191,18 +192,13 @@ export default function Prices() {
               <motion.div
                 key={index}
                 variants={cardVariants}
-                className='group relative cursor-pointer h-full'
+                className='group relative cursor-pointer h-full rounded-3xl'
                 onMouseEnter={() => setHoveredTier(index)}
                 onMouseLeave={() => setHoveredTier(null)}
                 onMouseMove={handleMouseMove}
                 style={{ background }}
                 whileTap={{ scale: 0.98 }}>
-                <div
-                  className={`relative rounded-3xl transition-all duration-500 h-full ${
-                    isPopular
-                      ? 'bg-card/90 border-2 border-primary/30 shadow-2xl shadow-primary/20'
-                      : 'bg-card/80 backdrop-blur-sm border border-border/50 hover:border-primary/20 shadow-lg hover:shadow-2xl'
-                  }`}>
+                <div className='relative rounded-3xl transition-all duration-500 h-full bg-card/90 backdrop-blur-sm border shadow-lg'>
                   {/* Gradient overlay */}
                   <motion.div
                     className='absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 rounded-3xl'
@@ -242,7 +238,7 @@ export default function Prices() {
                       </div>
 
                       {/* Name */}
-                      <h3 className='text-2xl font-bold text-gray-900 dark:text-foreground mb-2 group-hover:text-indigo-600 dark:group-hover:text-primary transition-colors duration-300'>
+                      <h3 className='text-2xl font-bold text-gray-900 dark:text-foreground mb-2'>
                         {tier.name}
                       </h3>
                       {/* Price */}
@@ -265,7 +261,8 @@ export default function Prices() {
                       <p className='text-gray-600 dark:text-muted-foreground leading-relaxed'>
                         {tier.description}
                       </p>
-                    </div>                    {/* Features */}
+                    </div>{' '}
+                    {/* Features */}
                     <div className='flex-grow mb-8'>
                       <ul className='space-y-4 min-h-[280px]'>
                         {tier.features.map((feature, featureIndex) => (
@@ -286,20 +283,19 @@ export default function Prices() {
                           </motion.li>
                         ))}
                       </ul>
-                    </div>
-
+                    </div>{' '}
                     {/* CTA Button */}
                     <motion.button
                       onClick={() => handleTariffSelect(tier.name)}
                       className={`group relative w-full px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-500 overflow-hidden ${
                         isPopular
-                          ? 'bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-primary dark:to-primary/80 text-white shadow-lg shadow-indigo-500/25 dark:shadow-primary/25 hover:shadow-xl hover:shadow-indigo-500/40 dark:hover:shadow-primary/40'
-                          : 'bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-primary/10 dark:to-primary/5 text-indigo-600 dark:text-primary border-2 border-indigo-200 dark:border-primary/20 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 dark:hover:from-primary dark:hover:to-primary/80 hover:text-white dark:hover:text-primary-foreground hover:border-indigo-600 dark:hover:border-primary'
+                          ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/40'
+                          : 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/40'
                       }`}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}>
                       {/* Background gradient overlay */}
-                      <div className='absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-purple-500/10 to-indigo-500/20 dark:from-primary/20 dark:via-primary/10 dark:to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+                      <div className='absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-purple-500/10 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
                       {/* Button content */}
                       <span className='relative z-10 flex items-center justify-center gap-3'>
                         <span className='transition-all duration-300 group-hover:tracking-wide'>
@@ -320,7 +316,6 @@ export default function Prices() {
             )
           })}
         </motion.div>
-
         {/* Custom Quote Section */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -345,7 +340,6 @@ export default function Prices() {
                   </p>
                 </div>
               </div>
-
               <div className='grid md:grid-cols-3 gap-4 mb-8'>
                 <div className='flex items-center gap-3'>
                   <Shield className='w-5 h-5 text-indigo-600 dark:text-primary' />
@@ -365,8 +359,7 @@ export default function Prices() {
                     {t('prices.features.customFeatures')}
                   </span>
                 </div>
-              </div>
-
+              </div>{' '}
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 onClick={() => handleTariffSelect('')}
@@ -380,7 +373,7 @@ export default function Prices() {
                   <ArrowRight className='w-5 h-5 transition-transform group-hover:translate-x-1' />
                 </span>
                 {/* Shine effect */}
-                <div className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12' />{' '}
+                <div className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12' />
               </motion.button>
             </div>
           </div>
