@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, MouseEvent as ReactMouseEvent } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { motion, useInView, AnimatePresence } from 'framer-motion'
+import { motion, useInView, AnimatePresence, useMotionTemplate, useMotionValue } from 'framer-motion'
 import { projects } from '@/data/portfolio-data'
 import AnimatedSection from './AnimatedSection'
 import { useLanguage } from '@/context/LanguageContext'
@@ -282,21 +282,52 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
           variants={containerVariants}
           className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8'
         >
-          <AnimatePresence mode="wait">
-            {filteredProjects
+          <AnimatePresence mode="wait">            {filteredProjects
               .slice(0, showAllProjects ? filteredProjects.length : visibleProjects)
-              .map((project, index) => (                <motion.div
-                  key={`${project.id}-${filterTechnology}`}
-                  layout
-                  variants={cardVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="hidden"
-                  className='group cursor-pointer'
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                >
-                  <div className='relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60 rounded-2xl overflow-hidden h-full flex flex-col shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-gray-300/80 dark:hover:border-gray-600/80'>                    {/* Enhanced Project Image */}
+              .map((project, index) => {
+                const mouseX = useMotionValue(0)
+                const mouseY = useMotionValue(0)
+                
+                const handleMouseMove = ({ currentTarget, clientX, clientY }: ReactMouseEvent<HTMLDivElement>) => {
+                  const { left, top } = currentTarget.getBoundingClientRect()
+                  mouseX.set(clientX - left)
+                  mouseY.set(clientY - top)
+                }
+
+                const background = useMotionTemplate`
+                  radial-gradient(320px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.1), transparent 80%)
+                `
+
+                return (
+                  <motion.div
+                    key={`${project.id}-${filterTechnology}`}
+                    layout
+                    variants={cardVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    className='group cursor-pointer'
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    onMouseMove={handleMouseMove}
+                    style={{ background }}
+                  >
+                    <div className='relative bg-card/80 backdrop-blur-sm border border-border rounded-2xl overflow-hidden h-full flex flex-col shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-primary/20'>
+                      {/* Gradient overlay */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10"
+                        style={{ background }}
+                      />
+                      
+                      {/* Border glow effect */}
+                      <motion.div
+                        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                        style={{
+                          background: useMotionTemplate`
+                            radial-gradient(300px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.15), transparent 70%)
+                          `,
+                        }}
+                      />{/* Enhanced Project Image */}
                     <div className='relative h-48 lg:h-52 overflow-hidden'>
                       <div className="absolute inset-0 bg-gradient-to-br from-gray-50/20 to-gray-100/20 dark:from-gray-800/20 dark:to-gray-900/20">
                         <Image
@@ -352,13 +383,13 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                           </motion.button>
                         </Link>
-                      </div>
-                    </div>
+                      </div>                    </div>
                   </div>
                 </motion.div>
-              ))}
+                )
+              })}
           </AnimatePresence>
-        </motion.div>        {/* Load More Button */}
+        </motion.div>{/* Load More Button */}
         {!showAllProjects && visibleProjects < filteredProjects.length && (
           <motion.div 
             initial={{ opacity: 0, y: 20 }}

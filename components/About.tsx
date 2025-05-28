@@ -1,7 +1,7 @@
 'use client'
 
-import React from 'react'
-import { motion, useInView } from 'framer-motion'
+import React, { MouseEvent as ReactMouseEvent } from 'react'
+import { motion, useInView, useMotionTemplate, useMotionValue } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
 import { useLanguage } from '@/context/LanguageContext'
@@ -201,31 +201,60 @@ text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
             className='text-3xl sm:text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white'
             variants={itemVariants}>
             {t('about.defining.title')}
-          </motion.h3>{' '}
-          <div className='grid md:grid-cols-3 gap-8'>
-            {principles.map((principle, index) => (
-              <motion.div key={index} className='group' variants={itemVariants}>
-                {' '}
-                <div className='group relative bg-white/90 dark:bg-card/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/60 dark:border-border/50 h-full shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10 dark:hover:shadow-primary/5 transition-all duration-500 hover:border-indigo-300/60 dark:hover:border-primary/30'>
-                  {/* Animated border glow */}
-                  <div className='absolute -inset-0.5 bg-gradient-to-r from-indigo-500/20 via-purple-500/10 to-indigo-500/20 dark:from-primary/20 dark:via-primary/10 dark:to-primary/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm' />
+          </motion.h3>{' '}          <div className='grid md:grid-cols-3 gap-8'>
+            {principles.map((principle, index) => {
+              const PrincipleCard = ({ principle, index }: { principle: any, index: number }) => {
+                const mouseX = useMotionValue(0)
+                const mouseY = useMotionValue(0)
 
-                  {/* Icon and Title Section */}
-                  <div className='relative z-10 flex items-center gap-4 mb-6'>
-                    <div className='w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 dark:from-primary dark:to-primary/80 flex items-center justify-center shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:shadow-indigo-500/25 dark:group-hover:shadow-primary/25'>
-                      <principle.icon className='w-6 h-6 text-white' />
-                    </div>
-                    <h4 className='text-xl font-bold text-gray-900 dark:text-foreground group-hover:text-indigo-600 dark:group-hover:text-primary transition-colors duration-300 flex-1'>
-                      {t(principle.titleKey)}
-                    </h4>
-                  </div>
-                  {/* Description */}
-                  <p className='relative z-10 text-gray-600 dark:text-muted-foreground leading-relaxed text-justify lg:text-left'>
-                    {t(principle.descriptionKey)}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+                function handleMouseMove({ currentTarget, clientX, clientY }: ReactMouseEvent<HTMLDivElement>) {
+                  const { left, top } = currentTarget.getBoundingClientRect()
+                  mouseX.set(clientX - left)
+                  mouseY.set(clientY - top)
+                }
+
+                const background = useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)`
+
+                return (
+                  <motion.div
+                    key={index}
+                    className='group'
+                    variants={itemVariants}
+                  >
+                    <motion.div
+                      className='group relative bg-white/90 dark:bg-card/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/60 dark:border-border/50 h-full shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10 dark:hover:shadow-primary/5 transition-all duration-500 hover:border-indigo-300/60 dark:hover:border-primary/30 overflow-hidden cursor-pointer'
+                      onMouseMove={handleMouseMove}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      {/* Gradient overlay */}
+                      <motion.div
+                        className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
+                        style={{ background }}
+                        transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                      />
+                      {/* Border glow effect */}
+                      <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+
+                      {/* Icon and Title Section */}
+                      <div className='relative z-10 flex items-center gap-4 mb-6'>
+                        <div className='w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 dark:from-primary dark:to-primary/80 flex items-center justify-center shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:shadow-indigo-500/25 dark:group-hover:shadow-primary/25'>
+                          <principle.icon className='w-6 h-6 text-white' />
+                        </div>
+                        <h4 className='text-xl font-bold text-gray-900 dark:text-foreground group-hover:text-indigo-600 dark:group-hover:text-primary transition-colors duration-300 flex-1'>
+                          {t(principle.titleKey)}
+                        </h4>
+                      </div>
+                      {/* Description */}
+                      <p className='relative z-10 text-gray-600 dark:text-muted-foreground leading-relaxed text-justify lg:text-left'>
+                        {t(principle.descriptionKey)}
+                      </p>
+                    </motion.div>
+                  </motion.div>
+                )
+              }
+
+              return <PrincipleCard key={index} principle={principle} index={index} />
+            })}
           </div>
         </motion.div>
 
@@ -239,26 +268,51 @@ text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
             className='text-3xl sm:text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white'
             variants={itemVariants}>
             {t('about.stats.title')}
-          </motion.h3>{' '}
-          <div className='grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto'>
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                className='group text-center bg-white/90 dark:bg-card/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/60 dark:border-border/50 shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10 dark:hover:shadow-primary/5 transition-all duration-500 hover:border-indigo-300/60 relative'
-                variants={itemVariants}>
-                {/* Animated border glow */}
-                <div className='absolute -inset-0.5 bg-gradient-to-r from-indigo-500/20 via-purple-500/10 to-indigo-500/20 dark:from-primary/20 dark:via-primary/10 dark:to-primary/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm' />
+          </motion.h3>{' '}          <div className='grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto'>
+            {stats.map((stat, index) => {
+              const StatsCard = ({ stat, index }: { stat: any, index: number }) => {
+                const mouseX = useMotionValue(0)
+                const mouseY = useMotionValue(0)
 
-                <div className='relative z-10'>
-                  <div className='text-4xl lg:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3 transition-transform duration-300'>
-                    {t(stat.valueKey)}
-                  </div>
-                  <div className='text-gray-600 dark:text-muted-foreground font-medium group-hover:text-gray-900 dark:group-hover:text-foreground transition-colors duration-300'>
-                    {t(stat.labelKey)}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                function handleMouseMove({ currentTarget, clientX, clientY }: ReactMouseEvent<HTMLDivElement>) {
+                  const { left, top } = currentTarget.getBoundingClientRect()
+                  mouseX.set(clientX - left)
+                  mouseY.set(clientY - top)
+                }
+
+                const background = useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)`
+
+                return (
+                  <motion.div
+                    key={index}
+                    className='group text-center bg-white/90 dark:bg-card/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/60 dark:border-border/50 shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10 dark:hover:shadow-primary/5 transition-all duration-500 hover:border-indigo-300/60 relative overflow-hidden cursor-pointer'
+                    variants={itemVariants}
+                    onMouseMove={handleMouseMove}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {/* Gradient overlay */}
+                    <motion.div
+                      className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
+                      style={{ background }}
+                      transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                    />
+                    {/* Border glow effect */}
+                    <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+
+                    <div className='relative z-10'>
+                      <div className='text-4xl lg:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3 transition-transform duration-300'>
+                        {t(stat.valueKey)}
+                      </div>
+                      <div className='text-gray-600 dark:text-muted-foreground font-medium group-hover:text-gray-900 dark:group-hover:text-foreground transition-colors duration-300'>
+                        {t(stat.labelKey)}
+                      </div>
+                    </div>
+                  </motion.div>
+                )
+              }
+
+              return <StatsCard key={index} stat={stat} index={index} />
+            })}
           </div>
         </motion.div>
 

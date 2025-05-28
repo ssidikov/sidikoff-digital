@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, MouseEvent as ReactMouseEvent } from 'react'
+import { motion, AnimatePresence, useMotionTemplate, useMotionValue } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 
@@ -50,52 +50,83 @@ export default function FAQ() {
           >
             {t('faq.title')}
           </motion.h2>
-          
-          <div className='max-w-3xl mx-auto space-y-4'>
-            {faqData.map((faq, index) => (
-              <motion.div
-                key={index}
-                className='group relative bg-white/90 dark:bg-card/80 backdrop-blur-sm border border-gray-200/60 dark:border-border/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10 dark:hover:shadow-primary/5 transition-all duration-500 hover:border-indigo-300/60 dark:hover:border-primary/30'
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                {/* Animated border glow */}
-                <div className='absolute -inset-0.5 bg-gradient-to-r from-indigo-500/20 via-purple-500/10 to-indigo-500/20 dark:from-primary/20 dark:via-primary/10 dark:to-primary/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm' />
-                
-                <div className='relative z-10 p-6'>
-                  <button
-                    onClick={() => toggleFAQ(index)}
-                    className='w-full text-left flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-foreground group-hover:text-indigo-600 dark:group-hover:text-primary transition-colors duration-300'
-                  >
-                    <span>{faq.question}</span>
+            <div className='max-w-3xl mx-auto space-y-4'>
+            {faqData.map((faq, index) => {
+              const mouseX = useMotionValue(0)
+              const mouseY = useMotionValue(0)
+              
+              const handleMouseMove = ({ currentTarget, clientX, clientY }: ReactMouseEvent<HTMLDivElement>) => {
+                const { left, top } = currentTarget.getBoundingClientRect()
+                mouseX.set(clientX - left)
+                mouseY.set(clientY - top)
+              }
+
+              const background = useMotionTemplate`
+                radial-gradient(320px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.1), transparent 80%)
+              `
+
+              return (
+                <motion.div
+                  key={index}
+                  className='group relative cursor-pointer'
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  onMouseMove={handleMouseMove}
+                  style={{ background }}
+                >
+                  <div className='relative bg-card/80 backdrop-blur-sm border border-border rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-primary/20'>
+                    {/* Gradient overlay */}
                     <motion.div
-                      animate={{ rotate: openIndex === index ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
-                      className='flex-shrink-0'
-                    >
-                      <ChevronDown className='w-5 h-5' />
-                    </motion.div>
-                  </button>
-                  
-                  <AnimatePresence>
-                    {openIndex === index && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: 'easeInOut' }}
-                        className='overflow-hidden'
+                      className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10"
+                      style={{ background }}
+                    />
+                    
+                    {/* Border glow effect */}
+                    <motion.div
+                      className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                      style={{
+                        background: useMotionTemplate`
+                          radial-gradient(300px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.15), transparent 70%)
+                        `,
+                      }}
+                    />
+                    
+                    <div className='relative z-20 p-6'>
+                      <button
+                        onClick={() => toggleFAQ(index)}
+                        className='w-full text-left flex items-center justify-between gap-4 font-semibold text-foreground group-hover:text-primary transition-colors duration-300'
                       >
-                        <div className='pt-4 text-gray-600 dark:text-muted-foreground leading-relaxed'>
-                          {faq.answer}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              </motion.div>
-            ))}
+                        <span>{faq.question}</span>
+                        <motion.div
+                          animate={{ rotate: openIndex === index ? 180 : 0 }}
+                          transition={{ duration: 0.3 }}
+                          className='flex-shrink-0'
+                        >
+                          <ChevronDown className='w-5 h-5' />
+                        </motion.div>
+                      </button>
+                      
+                      <AnimatePresence>
+                        {openIndex === index && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
+                            className='overflow-hidden'
+                          >
+                            <div className='pt-4 text-muted-foreground leading-relaxed'>
+                              {faq.answer}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </div>
+                </motion.div>
+              )
+            })}
           </div>
         </div>
       </div>

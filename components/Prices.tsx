@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useState, useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import React, { useState, useRef, MouseEvent as ReactMouseEvent } from 'react'
+import { motion, useInView, useMotionTemplate, useMotionValue } from 'framer-motion'
 import {
   Check,
   Star,
@@ -160,132 +160,161 @@ export default function Prices() {
             className='text-lg md:text-xl text-gray-600 dark:text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed'>
             {t('prices.description')}
           </motion.p>
-        </motion.div>
-
-        {/* Pricing Cards Grid */}
+        </motion.div>        {/* Pricing Cards Grid */}
         <motion.div
           initial='hidden'
           animate={isInView ? 'visible' : 'hidden'}
           variants={containerVariants}
           className='grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto'>
+          {' '}
           {pricingTiers.map((tier, index) => {
             const Icon = tier.icon
             const isPopular = tier.highlighted
+            const mouseX = useMotionValue(0)
+            const mouseY = useMotionValue(0)
+
+            const handleMouseMove = ({
+              currentTarget,
+              clientX,
+              clientY,
+            }: ReactMouseEvent<HTMLDivElement>) => {
+              const { left, top } = currentTarget.getBoundingClientRect()
+              mouseX.set(clientX - left)
+              mouseY.set(clientY - top)
+            }
+
+            const background = useMotionTemplate`
+              radial-gradient(320px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.1), transparent 80%)
+            `
 
             return (
               <motion.div
                 key={index}
                 variants={cardVariants}
-                className={`group relative rounded-3xl transition-all duration-500 ${
-                  isPopular
-                    ? 'bg-white dark:bg-gray-900 border-2 border-indigo-200 dark:border-primary/30 shadow-2xl shadow-indigo-500/15 dark:shadow-primary/20'
-                    : 'bg-white dark:bg-card/80 backdrop-blur-sm border border-gray-200 dark:border-border/50 hover:border-indigo-300 shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10'
-                }`}
+                className='group relative cursor-pointer h-full'
                 onMouseEnter={() => setHoveredTier(index)}
                 onMouseLeave={() => setHoveredTier(null)}
+                onMouseMove={handleMouseMove}
+                style={{ background }}
                 whileTap={{ scale: 0.98 }}>
-                {/* Animated border glow */}
-                <div className='absolute -inset-0.5 bg-gradient-to-r from-indigo-500/20 via-purple-500/10 to-indigo-500/20 dark:from-primary/20 dark:via-primary/10 dark:to-primary/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm' />
+                <div
+                  className={`relative rounded-3xl transition-all duration-500 h-full ${
+                    isPopular
+                      ? 'bg-card/90 border-2 border-primary/30 shadow-2xl shadow-primary/20'
+                      : 'bg-card/80 backdrop-blur-sm border border-border/50 hover:border-primary/20 shadow-lg hover:shadow-2xl'
+                  }`}>
+                  {/* Gradient overlay */}
+                  <motion.div
+                    className='absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 rounded-3xl'
+                    style={{ background }}
+                  />
 
-                {/* Popular badge */}
-                {isPopular && (
-                  <div className='absolute -top-4 left-1/2 transform -translate-x-1/2 z-20'>
-                    <div className='bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg flex items-center gap-2'>
-                      <Crown className='w-4 h-4' />
-                      {tier.badge}
-                    </div>
-                  </div>
-                )}
+                  {/* Border glow effect */}
+                  <motion.div
+                    className='absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none'
+                    style={{
+                      background: useMotionTemplate`
+                        radial-gradient(300px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.15), transparent 70%)
+                      `,
+                    }}
+                  />
 
-                {/* Card content */}
-                <div className='relative z-10 p-6 lg:p-8 h-full flex flex-col'>
-                  {/* Header */}
-                  <div className='text-center mb-8'>
-                    {/* Icon */}
-                    <div
-                      className={`inline-flex items-center justify-center w-16 h-16 bg-transparent`}>
-                      <div className='w-full h-full flex items-center justify-center'>
-                        <Icon className='w-8 h-8 text-indigo-600 dark:text-primary' />
+                  {/* Popular badge */}
+                  {isPopular && (
+                    <div className='absolute -top-4 left-1/2 transform -translate-x-1/2 z-20'>
+                      <div className='bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg flex items-center gap-2'>
+                        <Crown className='w-4 h-4' />
+                        {tier.badge}
                       </div>
                     </div>
+                  )}
 
-                    {/* Name */}
-                    <h3 className='text-2xl font-bold text-gray-900 dark:text-foreground mb-2 group-hover:text-indigo-600 dark:group-hover:text-primary transition-colors duration-300'>
-                      {tier.name}
-                    </h3>
-                    {/* Price */}
-                    <div className='mb-4'>
-                      <span className='text-4xl font-bold text-indigo-600 dark:text-primary'>
-                        {tier.price}
-                      </span>
-                      {tier.price !== 'Sur devis' &&
-                        tier.price !== 'Custom' &&
-                        tier.price !== 'On request' &&
-                        tier.price !== 'По запросу' &&
-                        tier.price !== 'По договорённости' && (
-                          <span className='text-gray-500 dark:text-muted-foreground ml-2'>
-                            {t('prices.perProject')}
-                          </span>
-                        )}
+                  {/* Card content */}
+                  <div className='relative z-10 p-6 lg:p-8 h-full flex flex-col'>
+                    {/* Header */}
+                    <div className='text-center mb-8'>
+                      {/* Icon */}
+                      <div
+                        className={`inline-flex items-center justify-center w-16 h-16 bg-transparent`}>
+                        <div className='w-full h-full flex items-center justify-center'>
+                          <Icon className='w-8 h-8 text-indigo-600 dark:text-primary' />
+                        </div>
+                      </div>
+
+                      {/* Name */}
+                      <h3 className='text-2xl font-bold text-gray-900 dark:text-foreground mb-2 group-hover:text-indigo-600 dark:group-hover:text-primary transition-colors duration-300'>
+                        {tier.name}
+                      </h3>
+                      {/* Price */}
+                      <div className='mb-4'>
+                        <span className='text-4xl font-bold text-indigo-600 dark:text-primary'>
+                          {tier.price}
+                        </span>
+                        {tier.price !== 'Sur devis' &&
+                          tier.price !== 'Custom' &&
+                          tier.price !== 'On request' &&
+                          tier.price !== 'По запросу' &&
+                          tier.price !== 'По договорённости' && (
+                            <span className='text-gray-500 dark:text-muted-foreground ml-2'>
+                              {t('prices.perProject')}
+                            </span>
+                          )}
+                      </div>
+
+                      {/* Description */}
+                      <p className='text-gray-600 dark:text-muted-foreground leading-relaxed'>
+                        {tier.description}
+                      </p>
+                    </div>                    {/* Features */}
+                    <div className='flex-grow mb-8'>
+                      <ul className='space-y-4 min-h-[280px]'>
+                        {tier.features.map((feature, featureIndex) => (
+                          <motion.li
+                            key={featureIndex}
+                            className='flex items-start gap-3'
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={
+                              hoveredTier === index ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }
+                            }
+                            transition={{ delay: featureIndex * 0.1 }}>
+                            <div className='flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center mt-0.5'>
+                              <Check className='w-3.5 h-3.5 text-white' />
+                            </div>
+                            <span className='text-gray-700 dark:text-foreground text-sm leading-relaxed'>
+                              {feature}
+                            </span>
+                          </motion.li>
+                        ))}
+                      </ul>
                     </div>
 
-                    {/* Description */}
-                    <p className='text-gray-600 dark:text-muted-foreground leading-relaxed'>
-                      {tier.description}
-                    </p>
+                    {/* CTA Button */}
+                    <motion.button
+                      onClick={() => handleTariffSelect(tier.name)}
+                      className={`group relative w-full px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-500 overflow-hidden ${
+                        isPopular
+                          ? 'bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-primary dark:to-primary/80 text-white shadow-lg shadow-indigo-500/25 dark:shadow-primary/25 hover:shadow-xl hover:shadow-indigo-500/40 dark:hover:shadow-primary/40'
+                          : 'bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-primary/10 dark:to-primary/5 text-indigo-600 dark:text-primary border-2 border-indigo-200 dark:border-primary/20 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 dark:hover:from-primary dark:hover:to-primary/80 hover:text-white dark:hover:text-primary-foreground hover:border-indigo-600 dark:hover:border-primary'
+                      }`}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}>
+                      {/* Background gradient overlay */}
+                      <div className='absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-purple-500/10 to-indigo-500/20 dark:from-primary/20 dark:via-primary/10 dark:to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+                      {/* Button content */}
+                      <span className='relative z-10 flex items-center justify-center gap-3'>
+                        <span className='transition-all duration-300 group-hover:tracking-wide'>
+                          {tier.cta}
+                        </span>
+                        <motion.div
+                          animate={{ x: [0, 4, 0] }}
+                          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}>
+                          <ArrowRight className='w-5 h-5 transition-transform group-hover:translate-x-1' />
+                        </motion.div>
+                      </span>{' '}
+                      {/* Shine effect */}
+                      <div className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12' />
+                    </motion.button>
                   </div>
-
-                  {/* Features */}
-                  <div className='flex-grow mb-8'>
-                    <ul className='space-y-4'>
-                      {tier.features.map((feature, featureIndex) => (
-                        <motion.li
-                          key={featureIndex}
-                          className='flex items-start gap-3'
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={
-                            hoveredTier === index ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }
-                          }
-                          transition={{ delay: featureIndex * 0.1 }}>
-                          <div className='flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center mt-0.5'>
-                            <Check className='w-3.5 h-3.5 text-white' />
-                          </div>
-                          <span className='text-gray-700 dark:text-foreground text-sm leading-relaxed'>
-                            {feature}
-                          </span>
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* CTA Button */}
-                  <motion.button
-                    onClick={() => handleTariffSelect(tier.name)}
-                    className={`group relative w-full px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-500 overflow-hidden ${
-                      isPopular
-                        ? 'bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-primary dark:to-primary/80 text-white shadow-lg shadow-indigo-500/25 dark:shadow-primary/25 hover:shadow-xl hover:shadow-indigo-500/40 dark:hover:shadow-primary/40'
-                        : 'bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-primary/10 dark:to-primary/5 text-indigo-600 dark:text-primary border-2 border-indigo-200 dark:border-primary/20 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 dark:hover:from-primary dark:hover:to-primary/80 hover:text-white dark:hover:text-primary-foreground hover:border-indigo-600 dark:hover:border-primary'
-                    }`}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}>
-                    {/* Background gradient overlay */}
-                    <div className='absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-purple-500/10 to-indigo-500/20 dark:from-primary/20 dark:via-primary/10 dark:to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
-
-                    {/* Button content */}
-                    <span className='relative z-10 flex items-center justify-center gap-3'>
-                      <span className='transition-all duration-300 group-hover:tracking-wide'>
-                        {tier.cta}
-                      </span>
-                      <motion.div
-                        animate={{ x: [0, 4, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}>
-                        <ArrowRight className='w-5 h-5 transition-transform group-hover:translate-x-1' />
-                      </motion.div>
-                    </span>
-
-                    {/* Shine effect */}
-                    <div className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12' />
-                  </motion.button>
                 </div>
               </motion.div>
             )
