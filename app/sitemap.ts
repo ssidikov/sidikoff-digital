@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { projects } from '@/data/portfolio-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.sidikoff.com'
@@ -57,36 +58,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       },
     },
-  ]
-
-  // Dynamic project pages
-  const projectSlugs = [
-    'booki',
-    'ohmyfood',
-    'game-on',
-    'fisheye',
-    'petits-plats',
-    'learn-home',
-    'kasa',
-    'sport-see',
-    'argent-bank',
-    'hrnet',
-    'burger-house',
-    'cookies',
-    'billed',
-    'euclid',
-  ]
-
-  const projectPages = projectSlugs.map((slug) => ({
-    url: `${baseUrl}/projects/${slug}`,
+  ]  // Dynamic project pages - using actual project IDs from data
+  const projectPages = projects.map((project) => ({
+    url: `${baseUrl}/projects/${project.id}`,
     lastModified: currentDate,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
     alternates: {
       languages: {
-        fr: `${baseUrl}/projects/${slug}`,
-        en: `${baseUrl}/projects/${slug}`,
-        ru: `${baseUrl}/projects/${slug}`,
+        fr: `${baseUrl}/projects/${project.id}`,
+        en: `${baseUrl}/projects/${project.id}`,
+        ru: `${baseUrl}/projects/${project.id}`,
       },
     },
   }))
