@@ -100,9 +100,7 @@ const translations: Record<Language, TranslationMap> = {
     'about.cta.title': 'Transformons ensemble vos idées en réalité numérique',
     'about.cta.description':
       'Nous accompagnons votre croissance digitale avec des solutions innovantes et sur mesure. Contactez-nous pour une consultation gratuite et découvrez comment nous pouvons booster votre présence en ligne.',
-    'about.cta.button': 'Démarrer votre projet',
-
-    // Portfolio
+    'about.cta.button': 'Démarrer votre projet',    // Portfolio
     'portfolio.title': 'Projets récents',
     'portfolio.subtitle': 'Nos réalisations',
     'portfolio.description':
@@ -112,6 +110,7 @@ const translations: Record<Language, TranslationMap> = {
     'portfolio.viewDetails': 'Détails du projet',
     'portfolio.showMore': 'Afficher plus',
     'portfolio.viewProject': 'Accéder au site',
+    'portfolio.technologies': 'Technologies',
     'project.notFound': 'Projet non trouvé',
 
     // Services
@@ -368,9 +367,7 @@ const translations: Record<Language, TranslationMap> = {
     'about.cta.title': "Let's transform your ideas into digital reality together",
     'about.cta.description':
       'We support your digital growth with innovative and tailored solutions. Contact us for a free consultation and discover how we can boost your online presence.',
-    'about.cta.button': 'Start your project',
-
-    // Portfolio
+    'about.cta.button': 'Start your project',    // Portfolio
     'portfolio.title': 'Recent Projects',
     'portfolio.subtitle': 'Our Work',
     'portfolio.description':
@@ -380,6 +377,7 @@ const translations: Record<Language, TranslationMap> = {
     'portfolio.viewDetails': 'Project Details',
     'portfolio.showMore': 'Show More',
     'portfolio.viewProject': 'Visit Site',
+    'portfolio.technologies': 'Technologies',
     'project.notFound': 'Project not found',
 
     // Services
@@ -629,9 +627,7 @@ const translations: Record<Language, TranslationMap> = {
     'about.cta.title': 'Давайте вместе превратим ваши идеи в цифровую реальность',
     'about.cta.description':
       'Мы поддерживаем ваш цифровой рост с помощью инновационных и индивидуальных решений. Свяжитесь с нами для бесплатной консультации и узнайте, как мы можем улучшить ваше присутствие в интернете.',
-    'about.cta.button': 'Начать ваш проект',
-
-    // Portfolio
+    'about.cta.button': 'Начать ваш проект',    // Portfolio
     'portfolio.title': 'Недавние проекты',
     'portfolio.subtitle': 'Наши работы',
     'portfolio.description':
@@ -641,6 +637,7 @@ const translations: Record<Language, TranslationMap> = {
     'portfolio.viewDetails': 'Подробнее о проекте',
     'portfolio.showMore': 'Показать ещё',
     'portfolio.viewProject': 'Перейти на сайт',
+    'portfolio.technologies': 'Технологии',
     'project.notFound': 'Проект не найден',
 
     // Services
