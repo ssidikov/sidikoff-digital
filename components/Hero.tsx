@@ -36,7 +36,7 @@ export default function Hero() {
       },
     },
   }
-  
+
   const logoVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
@@ -55,7 +55,8 @@ export default function Hero() {
       initial='hidden'
       animate='visible'
       variants={containerVariants}>
-      {' '}      {/* Background Elements */}
+      {' '}
+      {/* Background Elements */}
       <div className='absolute inset-0 -z-10'>
         {/* Simplified Gradient Background */}
         <div className='absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20' />
@@ -70,12 +71,14 @@ export default function Hero() {
         <motion.div
           className='space-y-6 sm:space-y-8 text-center lg:text-left'
           variants={itemVariants}>
-          {/* Badge */}          <motion.div
+          {/* Badge */}{' '}
+          <motion.div
             className='inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-sm font-medium border border-indigo-200 dark:border-indigo-800'
             whileTap={{ scale: 0.95 }}>
             <Sparkles className='w-4 h-4' />
             {t('hero.badge') || 'Agence Web Premium'}
-          </motion.div>{' '}          {/* Main Title */}
+          </motion.div>{' '}
+          {/* Main Title */}
           <motion.h1
             className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight'
             variants={itemVariants}>
@@ -83,9 +86,7 @@ export default function Hero() {
               {t('hero.title1')}
             </span>
             <br />
-            <span className='text-gray-900 dark:text-white'>
-              {t('hero.title2')}
-            </span>
+            <span className='text-gray-900 dark:text-white'>{t('hero.title2')}</span>
           </motion.h1>
           {/* Description */}
           <motion.div
@@ -97,7 +98,8 @@ export default function Hero() {
             <p className='text-sm sm:text-base md:text-lg text-indigo-600 dark:text-indigo-400 font-medium px-2 sm:px-0'>
               {t('hero.slogan')}
             </p>
-          </motion.div>{' '}          {/* Mobile Logo */}
+          </motion.div>{' '}
+          {/* Mobile Logo */}
           <motion.div
             className='lg:hidden relative flex items-center justify-center py-4 sm:py-6'
             variants={logoVariants}>
@@ -117,16 +119,20 @@ export default function Hero() {
           <motion.div
             className='flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-stretch sm:items-center px-4 sm:px-0'
             variants={itemVariants}>
-            {' '}            <motion.a
+            {' '}
+            <motion.a
               href='/#contact'
               onClick={(e) => handleNavClick(e, 'contact')}
               className='group relative overflow-hidden w-full sm:w-auto'
               whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}>              <div className='relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 min-h-[48px]'>
+              whileTap={{ scale: 0.98 }}>
+              {' '}
+              <div className='relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 min-h-[48px]'>
                 <Rocket className='w-5 h-5' />
                 {t('hero.contact')}
               </div>
-            </motion.a>            <motion.a
+            </motion.a>{' '}
+            <motion.a
               href='/#portfolio'
               onClick={(e) => handleNavClick(e, 'portfolio')}
               className='group w-full sm:w-auto'
@@ -134,7 +140,9 @@ export default function Hero() {
               whileTap={{ scale: 0.98 }}>
               <div className='px-6 sm:px-8 py-3 sm:py-4 border-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 dark:border-indigo-400 rounded-xl font-semibold text-base sm:text-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all duration-300 flex items-center justify-center gap-2 min-h-[48px]'>
                 {t('hero.viewWork')}
-                <span className='group-hover:translate-x-1 transition-transform duration-200'>→</span>
+                <span className='group-hover:translate-x-1 transition-transform duration-200'>
+                  →
+                </span>
               </div>
             </motion.a>
           </motion.div>{' '}
@@ -157,7 +165,8 @@ export default function Hero() {
               </motion.div>
             ))}
           </motion.div>
-        </motion.div>        {/* Right Column - Logo/Visual */}
+        </motion.div>{' '}
+        {/* Right Column - Logo/Visual */}
         <motion.div
           className='hidden lg:flex items-center justify-center relative'
           variants={logoVariants}>
@@ -184,10 +193,12 @@ export default function Hero() {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}>
         <motion.button
-          onClick={() => scrollToSection('expertise')}
+          onClick={() => scrollToSection('services')}
           className='flex flex-col items-center gap-1 sm:gap-2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors p-2 sm:p-3 rounded-full'
           whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}>          <span className='text-xs sm:text-sm font-medium hidden sm:block'>
+          whileTap={{ scale: 0.9 }}>
+          {' '}
+          <span className='text-xs sm:text-sm font-medium hidden sm:block'>
             {t('hero.scroll') || 'Découvrir'}
           </span>
           <ChevronDown className='w-4 h-4 sm:w-5 sm:h-5' />
