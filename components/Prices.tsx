@@ -240,21 +240,11 @@ export default function Prices() {
                       {/* Name */}
                       <h3 className='text-2xl font-bold text-gray-900 dark:text-foreground mb-2'>
                         {tier.name}
-                      </h3>
-                      {/* Price */}
+                      </h3>                      {/* Price */}
                       <div className='mb-4'>
                         <span className='text-4xl font-bold text-indigo-600 dark:text-primary'>
                           {tier.price}
                         </span>
-                        {tier.price !== 'Sur devis' &&
-                          tier.price !== 'Custom' &&
-                          tier.price !== 'On request' &&
-                          tier.price !== 'По запросу' &&
-                          tier.price !== 'По договорённости' && (
-                            <span className='text-gray-500 dark:text-muted-foreground ml-2'>
-                              {t('prices.perProject')}
-                            </span>
-                          )}
                       </div>
 
                       {/* Description */}
