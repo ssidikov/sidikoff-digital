@@ -201,29 +201,26 @@ text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
             className='text-3xl sm:text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white'
             variants={itemVariants}>
             {t('about.defining.title')}
-          </motion.h3>
-
+          </motion.h3>{' '}
           <div className='grid md:grid-cols-3 gap-8'>
             {principles.map((principle, index) => (
-              <motion.div
-                key={index}
-                className='group cursor-pointer'
-                variants={itemVariants}
-                transition={{ duration: 0.3 }}>
+              <motion.div key={index} className='group' variants={itemVariants}>
                 {' '}
-                <div className='bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 dark:border-white/10 h-full hover:shadow-xl transition-all duration-300'>
-                  {' '}
+                <div className='group relative bg-white/90 dark:bg-card/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/60 dark:border-border/50 h-full shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10 dark:hover:shadow-primary/5 transition-all duration-500 hover:border-indigo-300/60 dark:hover:border-primary/30'>
+                  {/* Animated border glow */}
+                  <div className='absolute -inset-0.5 bg-gradient-to-r from-indigo-500/20 via-purple-500/10 to-indigo-500/20 dark:from-primary/20 dark:via-primary/10 dark:to-primary/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm' />
+
                   {/* Icon and Title Section */}
-                  <div className='flex items-center gap-4 mb-6'>
-                    <div className='w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-lg transition-transform duration-300'>
+                  <div className='relative z-10 flex items-center gap-4 mb-6'>
+                    <div className='w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 dark:from-primary dark:to-primary/80 flex items-center justify-center shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:shadow-indigo-500/25 dark:group-hover:shadow-primary/25'>
                       <principle.icon className='w-6 h-6 text-white' />
                     </div>
-                    <h4 className='text-xl font-bold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300 flex-1'>
+                    <h4 className='text-xl font-bold text-gray-900 dark:text-foreground group-hover:text-indigo-600 dark:group-hover:text-primary transition-colors duration-300 flex-1'>
                       {t(principle.titleKey)}
                     </h4>
                   </div>
                   {/* Description */}
-                  <p className='text-gray-600 dark:text-gray-300 leading-relaxed text-justify lg:text-left'>
+                  <p className='relative z-10 text-gray-600 dark:text-muted-foreground leading-relaxed text-justify lg:text-left'>
                     {t(principle.descriptionKey)}
                   </p>
                 </div>
@@ -242,20 +239,23 @@ text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
             className='text-3xl sm:text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white'
             variants={itemVariants}>
             {t('about.stats.title')}
-          </motion.h3>
-
+          </motion.h3>{' '}
           <div className='grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto'>
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                className='text-center bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 dark:border-white/10'
-                variants={itemVariants}
-                transition={{ duration: 0.3 }}>
-                <div className='text-4xl lg:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3'>
-                  {t(stat.valueKey)}
-                </div>
-                <div className='text-gray-600 dark:text-gray-400 font-medium'>
-                  {t(stat.labelKey)}
+                className='group text-center bg-white/90 dark:bg-card/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/60 dark:border-border/50 shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10 dark:hover:shadow-primary/5 transition-all duration-500 hover:border-indigo-300/60 relative'
+                variants={itemVariants}>
+                {/* Animated border glow */}
+                <div className='absolute -inset-0.5 bg-gradient-to-r from-indigo-500/20 via-purple-500/10 to-indigo-500/20 dark:from-primary/20 dark:via-primary/10 dark:to-primary/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm' />
+
+                <div className='relative z-10'>
+                  <div className='text-4xl lg:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3 transition-transform duration-300'>
+                    {t(stat.valueKey)}
+                  </div>
+                  <div className='text-gray-600 dark:text-muted-foreground font-medium group-hover:text-gray-900 dark:group-hover:text-foreground transition-colors duration-300'>
+                    {t(stat.labelKey)}
+                  </div>
                 </div>
               </motion.div>
             ))}

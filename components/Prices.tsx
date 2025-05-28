@@ -1,18 +1,18 @@
 'use client'
 
-import { useState, useRef } from 'react'
-import { motion, useInView, AnimatePresence } from 'framer-motion'
-import { 
-  Check, 
-  Star, 
-  Crown, 
-  Zap, 
-  ArrowRight, 
+import React, { useState, useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
+import {
+  Check,
+  Star,
+  Crown,
+  Zap,
+  ArrowRight,
   Sparkles,
   TrendingUp,
   Shield,
   Clock,
-  Users
+  Users,
 } from 'lucide-react'
 import AnimatedSection from './AnimatedSection'
 import { useLanguage } from '@/context/LanguageContext'
@@ -22,9 +22,8 @@ export default function Prices() {
   const { t } = useLanguage()
   const { setSelectedTariff } = useTariff()
   const [hoveredTier, setHoveredTier] = useState<number | null>(null)
-  // Removed yearly option - only monthly pricing
   const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
+  const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
 
   // Animation variants
   const containerVariants = {
@@ -39,27 +38,27 @@ export default function Prices() {
   }
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 60, scale: 0.9 },
+    hidden: { opacity: 0, y: 40, scale: 0.95 },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.7,
+        duration: 0.6,
         ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   }
+
   const handleTariffSelect = (tariffName: string) => {
     setSelectedTariff(tariffName)
-    // Плавная прокрутка к секции контактов
     setTimeout(() => {
       const contactElement = document.getElementById('contact')
       if (contactElement) {
         contactElement.scrollIntoView({ behavior: 'smooth', block: 'center' })
       }
     }, 100)
-  };
+  }
 
   const pricingTiers = [
     {
@@ -123,143 +122,170 @@ export default function Prices() {
       badge: 'Enterprise',
     },
   ]
+
   return (
-    <section ref={sectionRef} id='prices' className='py-20 bg-gradient-to-br from-background via-background/95 to-secondary/10 relative overflow-hidden'>
+    <section
+      ref={sectionRef}
+      id='prices'
+      className='py-16 md:py-24 bg-gradient-to-br from-gray-50 via-white to-indigo-50/30 dark:from-background dark:via-background/95 dark:to-primary/5 relative overflow-hidden'>
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-[0.02] dark:opacity-[0.05]" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
-      
-      <div className="container mx-auto px-4 relative">
+      <div className='absolute inset-0 bg-grid-pattern opacity-[0.02] dark:opacity-[0.05]' />
+      <div className='absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-300/20 dark:bg-primary/5 rounded-full blur-3xl' />
+      <div className='absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-300/20 dark:bg-secondary/5 rounded-full blur-3xl' />
+
+      <div className='container mx-auto px-4 relative'>
         {/* Header Section */}
-        <motion.div 
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+        <motion.div
+          initial='hidden'
+          animate={isInView ? 'visible' : 'hidden'}
           variants={containerVariants}
-          className="text-center mb-16"
-        >
-          <motion.div 
+          className='text-center mb-16'>
+          <motion.div
             variants={cardVariants}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
-          >
-            <TrendingUp className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">
+            className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-100 dark:bg-primary/10 border border-indigo-200 dark:border-primary/20 mb-6 backdrop-blur-sm'>
+            <TrendingUp className='w-4 h-4 text-indigo-600 dark:text-primary animate-pulse' />
+            <span className='text-sm font-medium text-indigo-600 dark:text-primary'>
               {t('prices.title')}
             </span>
           </motion.div>
-          
-          <motion.h2 
+
+          <motion.h2
             variants={cardVariants}
-            className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-primary/80 bg-clip-text text-transparent"
-          >
+            className='text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-gray-900 via-indigo-600 to-purple-600 dark:from-white dark:via-indigo-400 dark:to-purple-400 bg-clip-text text-transparent mb-8 leading-tight'>
             {t('prices.subtitle')}
           </motion.h2>
-            <motion.p 
+
+          <motion.p
             variants={cardVariants}
-            className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12"
-          >
+            className='text-lg md:text-xl text-gray-600 dark:text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed'>
             {t('prices.description')}
           </motion.p>
         </motion.div>
 
-        {/* Pricing Cards */}
-        <motion.div 
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+        {/* Pricing Cards Grid */}
+        <motion.div
+          initial='hidden'
+          animate={isInView ? 'visible' : 'hidden'}
           variants={containerVariants}
-          className='grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto'
-        >
+          className='grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto'>
           {pricingTiers.map((tier, index) => {
-            const IconComponent = tier.icon
+            const Icon = tier.icon
+            const isPopular = tier.highlighted
+
             return (
               <motion.div
                 key={index}
                 variants={cardVariants}
-                whileHover={{ y: -10, scale: 1.02 }}
-                onHoverStart={() => setHoveredTier(index)}
-                onHoverEnd={() => setHoveredTier(null)}
-                className={`relative group cursor-pointer ${
-                  tier.highlighted ? 'lg:-mt-8' : ''
+                className={`group relative rounded-3xl transition-all duration-500 ${
+                  isPopular
+                    ? 'bg-white dark:bg-gray-900 border-2 border-indigo-200 dark:border-primary/30 shadow-2xl shadow-indigo-500/15 dark:shadow-primary/20'
+                    : 'bg-white dark:bg-card/80 backdrop-blur-sm border border-gray-200 dark:border-border/50 hover:border-indigo-300 shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10'
                 }`}
-              >
-                {/* Badge */}
-                {tier.badge && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                    <div className={`px-4 py-2 rounded-full text-sm font-medium text-white bg-gradient-to-r ${tier.color} shadow-lg`}>
-                      <Sparkles className="w-4 h-4 inline mr-2" />
+                onMouseEnter={() => setHoveredTier(index)}
+                onMouseLeave={() => setHoveredTier(null)}
+                whileTap={{ scale: 0.98 }}>
+                {/* Animated border glow */}
+                <div className='absolute -inset-0.5 bg-gradient-to-r from-indigo-500/20 via-purple-500/10 to-indigo-500/20 dark:from-primary/20 dark:via-primary/10 dark:to-primary/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm' />
+
+                {/* Popular badge */}
+                {isPopular && (
+                  <div className='absolute -top-4 left-1/2 transform -translate-x-1/2 z-20'>
+                    <div className='bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg flex items-center gap-2'>
+                      <Crown className='w-4 h-4' />
                       {tier.badge}
                     </div>
                   </div>
                 )}
 
-                <div
-                  className={`card-modern h-full flex flex-col relative overflow-hidden ${
-                    tier.highlighted
-                      ? 'border-primary/50 shadow-2xl shadow-primary/10'
-                      : 'border-border'
-                  } ${hoveredTier === index ? 'shadow-2xl' : ''}`}
-                >
-                  {/* Background gradient for highlighted */}
-                  {tier.highlighted && (
-                    <div className={`absolute inset-0 bg-gradient-to-br ${tier.color} opacity-5`} />
-                  )}
-
-                  <div className="p-8 relative z-10">
-                    {/* Icon and Title */}
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className={`p-3 rounded-2xl bg-gradient-to-r ${tier.color} shadow-lg`}>
-                        <IconComponent className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <h3 className='text-2xl font-bold text-card-foreground'>{tier.name}</h3>
-                        <p className='text-sm text-muted-foreground'>{tier.description}</p>
-                      </div>
-                    </div>                    {/* Price */}
-                    <div className="mb-8">
-                      <div className="flex items-baseline gap-2">
-                        <span className={`text-4xl font-bold bg-gradient-to-r ${tier.color} bg-clip-text text-transparent`}>
-                          {tier.price}
-                        </span>
+                {/* Card content */}
+                <div className='relative z-10 p-6 lg:p-8 h-full flex flex-col'>
+                  {/* Header */}
+                  <div className='text-center mb-8'>
+                    {/* Icon */}
+                    <div
+                      className={`inline-flex items-center justify-center w-16 h-16 bg-transparent`}>
+                      <div className='w-full h-full flex items-center justify-center'>
+                        <Icon className='w-8 h-8 text-indigo-600 dark:text-primary' />
                       </div>
                     </div>
 
-                    {/* Features */}
-                    <div className='mb-8 flex-grow'>
-                      <ul className='space-y-4'>
-                        {tier.features.map((feature, i) => (
-                          <motion.li 
-                            key={i} 
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: i * 0.1 }}
-                            className='flex items-start group/item'
-                          >
-                            <div className={`p-1 rounded-full bg-gradient-to-r ${tier.color} mr-3 mt-0.5`}>
-                              <Check className='h-3 w-3 text-white' />
-                            </div>
-                            <span className="text-sm leading-relaxed group-hover/item:text-foreground transition-colors">
-                              {feature}
-                            </span>
-                          </motion.li>
-                        ))}
-                      </ul>
+                    {/* Name */}
+                    <h3 className='text-2xl font-bold text-gray-900 dark:text-foreground mb-2 group-hover:text-indigo-600 dark:group-hover:text-primary transition-colors duration-300'>
+                      {tier.name}
+                    </h3>
+                    {/* Price */}
+                    <div className='mb-4'>
+                      <span className='text-4xl font-bold text-indigo-600 dark:text-primary'>
+                        {tier.price}
+                      </span>
+                      {tier.price !== 'Sur devis' &&
+                        tier.price !== 'Custom' &&
+                        tier.price !== 'On request' &&
+                        tier.price !== 'По запросу' &&
+                        tier.price !== 'По договорённости' && (
+                          <span className='text-gray-500 dark:text-muted-foreground ml-2'>
+                            {t('prices.perProject')}
+                          </span>
+                        )}
                     </div>
 
-                    {/* CTA Button */}
-                    <motion.button
-                      onClick={() => handleTariffSelect(tier.name)}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 group/btn ${
-                        tier.highlighted
-                          ? `bg-gradient-to-r ${tier.color} text-white shadow-lg hover:shadow-xl`
-                          : 'btn-secondary'
-                      }`}
-                    >
-                      {tier.cta}
-                      <ArrowRight className="w-4 h-4 inline ml-2 transition-transform group-hover/btn:translate-x-1" />
-                    </motion.button>
+                    {/* Description */}
+                    <p className='text-gray-600 dark:text-muted-foreground leading-relaxed'>
+                      {tier.description}
+                    </p>
                   </div>
+
+                  {/* Features */}
+                  <div className='flex-grow mb-8'>
+                    <ul className='space-y-4'>
+                      {tier.features.map((feature, featureIndex) => (
+                        <motion.li
+                          key={featureIndex}
+                          className='flex items-start gap-3'
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={
+                            hoveredTier === index ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }
+                          }
+                          transition={{ delay: featureIndex * 0.1 }}>
+                          <div className='flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center mt-0.5'>
+                            <Check className='w-3.5 h-3.5 text-white' />
+                          </div>
+                          <span className='text-gray-700 dark:text-foreground text-sm leading-relaxed'>
+                            {feature}
+                          </span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* CTA Button */}
+                  <motion.button
+                    onClick={() => handleTariffSelect(tier.name)}
+                    className={`group relative w-full px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-500 overflow-hidden ${
+                      isPopular
+                        ? 'bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-primary dark:to-primary/80 text-white shadow-lg shadow-indigo-500/25 dark:shadow-primary/25 hover:shadow-xl hover:shadow-indigo-500/40 dark:hover:shadow-primary/40'
+                        : 'bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-primary/10 dark:to-primary/5 text-indigo-600 dark:text-primary border-2 border-indigo-200 dark:border-primary/20 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 dark:hover:from-primary dark:hover:to-primary/80 hover:text-white dark:hover:text-primary-foreground hover:border-indigo-600 dark:hover:border-primary'
+                    }`}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}>
+                    {/* Background gradient overlay */}
+                    <div className='absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-purple-500/10 to-indigo-500/20 dark:from-primary/20 dark:via-primary/10 dark:to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+
+                    {/* Button content */}
+                    <span className='relative z-10 flex items-center justify-center gap-3'>
+                      <span className='transition-all duration-300 group-hover:tracking-wide'>
+                        {tier.cta}
+                      </span>
+                      <motion.div
+                        animate={{ x: [0, 4, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}>
+                        <ArrowRight className='w-5 h-5 transition-transform group-hover:translate-x-1' />
+                      </motion.div>
+                    </span>
+
+                    {/* Shine effect */}
+                    <div className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12' />
+                  </motion.button>
                 </div>
               </motion.div>
             )
@@ -267,45 +293,67 @@ export default function Prices() {
         </motion.div>
 
         {/* Custom Quote Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ delay: 0.8 }}
-          className='mt-20 text-center'
-        >
-          <div className="card-modern max-w-2xl mx-auto p-8">
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="p-3 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-500">
-                <Users className="w-6 h-6 text-white" />
-              </div>              <div className="text-left">
-                <h3 className="text-xl font-bold">{t('prices.custom')}</h3>
-                <p className="text-sm text-muted-foreground">{t('prices.customDescription')}</p>
-              </div>
-            </div>
-              <div className="grid md:grid-cols-3 gap-4 mb-8">
-              <div className="flex items-center gap-3">
-                <Shield className="w-5 h-5 text-primary" />
-                <span className="text-sm">{t('prices.features.enterpriseSecurity')}</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Clock className="w-5 h-5 text-primary" />
-                <span className="text-sm">{t('prices.features.prioritySupport')}</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Sparkles className="w-5 h-5 text-primary" />
-                <span className="text-sm">{t('prices.features.customFeatures')}</span>
-              </div>
-            </div>
+          className='mt-16 lg:mt-20 text-center'>
+          <div className='group relative max-w-2xl mx-auto p-8 bg-white dark:bg-card/80 backdrop-blur-sm border border-gray-200 dark:border-border/50 rounded-3xl hover:border-indigo-300 dark:hover:border-primary/30 shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10 dark:hover:shadow-primary/5 transition-all duration-500'>
+            {/* Animated border glow */}
+            <div className='absolute -inset-0.5 bg-gradient-to-r from-indigo-500/20 via-purple-500/10 to-indigo-500/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm' />
 
-            <motion.button
-              onClick={() => handleTariffSelect('')}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className='btn-primary group'
-            >
-              {t('prices.quote')}
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </motion.button>
+            <div className='relative z-10'>
+              <div className='flex items-center justify-center gap-4 mb-6'>
+                <div className='p-3 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-500'>
+                  <Users className='w-6 h-6 text-white' />
+                </div>
+                <div className='text-left'>
+                  <h3 className='text-xl font-bold text-gray-900 dark:text-white'>
+                    {t('prices.custom')}
+                  </h3>
+                  <p className='text-sm text-gray-600 dark:text-muted-foreground'>
+                    {t('prices.customDescription')}
+                  </p>
+                </div>
+              </div>
+
+              <div className='grid md:grid-cols-3 gap-4 mb-8'>
+                <div className='flex items-center gap-3'>
+                  <Shield className='w-5 h-5 text-indigo-600 dark:text-primary' />
+                  <span className='text-sm text-gray-700 dark:text-foreground'>
+                    {t('prices.features.enterpriseSecurity')}
+                  </span>
+                </div>
+                <div className='flex items-center gap-3'>
+                  <Clock className='w-5 h-5 text-indigo-600 dark:text-primary' />
+                  <span className='text-sm text-gray-700 dark:text-foreground'>
+                    {t('prices.features.prioritySupport')}
+                  </span>
+                </div>
+                <div className='flex items-center gap-3'>
+                  <Sparkles className='w-5 h-5 text-indigo-600 dark:text-primary' />
+                  <span className='text-sm text-gray-700 dark:text-foreground'>
+                    {t('prices.features.customFeatures')}
+                  </span>
+                </div>
+              </div>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                onClick={() => handleTariffSelect('')}
+                className='group relative px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl font-semibold text-lg transition-all duration-500 hover:shadow-xl overflow-hidden'
+                whileTap={{ scale: 0.98 }}>
+                {/* Background gradient overlay */}
+                <div className='absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-purple-500/10 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+                {/* Button content */}
+                <span className='relative z-10 flex items-center justify-center gap-3'>
+                  <span className='transition-all duration-300'>{t('prices.quote')}</span>
+                  <ArrowRight className='w-5 h-5 transition-transform group-hover:translate-x-1' />
+                </span>
+                {/* Shine effect */}
+                <div className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12' />{' '}
+              </motion.button>
+            </div>
           </div>
         </motion.div>
       </div>

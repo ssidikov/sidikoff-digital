@@ -90,7 +90,8 @@ function ServiceCard({
   }
 
   const background = useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)`
-  return (    <motion.div
+  return (
+    <motion.div
       className='group relative flex flex-col h-full rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm p-8 min-h-[320px] cursor-pointer overflow-hidden'
       onMouseMove={handleMouseMove}
       whileTap={{ scale: 0.98 }}
@@ -143,7 +144,8 @@ function ServiceCard({
             className='group relative w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-semibold shadow-lg hover:shadow-xl overflow-hidden'
             whileTap={{ scale: 0.98 }}>
             {/* Animated background effect */}
-            <div className='absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />{' '}            <div className='relative flex items-center gap-2'>
+            <div className='absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />{' '}
+            <div className='relative flex items-center gap-2'>
               <Eye className='w-4 h-4 transition-transform duration-200' />
               <span>{t('services.cta.pricing')}</span>
               <motion.svg
@@ -169,7 +171,8 @@ function ServiceCard({
           </motion.a>{' '}
           {/* Secondary CTA - Request quote */}{' '}
           <motion.a
-            href='#contact'            className='group w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/20 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-semibold backdrop-blur-sm'
+            href='#contact'
+            className='group w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/20 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-semibold backdrop-blur-sm'
             whileTap={{ scale: 0.98 }}>
             <MessageCircle className='w-4 h-4 transition-transform duration-200' />
             <span>{t('services.cta.quote')}</span>

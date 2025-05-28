@@ -279,8 +279,7 @@ export default function Header() {
                       activeSection === section
                         ? 'bg-primary/15 text-primary border border-primary/30 shadow-sm dark:bg-primary/10 dark:border-primary/20'
                         : 'hover:bg-accent/60 text-muted-foreground hover:text-foreground hover:shadow-sm dark:hover:bg-accent/40'
-                    }`}
-                    whileHover={{ scale: 1.02, x: 4 }}
+                    }`}                    whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}>
                     <span className='font-medium'>{t(key)}</span>{' '}
                     {activeSection === section && (
