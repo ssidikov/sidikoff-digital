@@ -3,6 +3,7 @@
 import React from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import Image from 'next/image'
 import { useLanguage } from '@/context/LanguageContext'
 import {
   CheckCircle,
@@ -97,7 +98,9 @@ const About: React.FC = () => {
           initial='hidden'
           animate={isInView ? 'visible' : 'hidden'}>
           <motion.div className='max-w-4xl mx-auto mb-12' variants={itemVariants}>
-            <p className='text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
+            <p
+              className='text-justify
+text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
               {t('about.intro.description')}
             </p>
           </motion.div>{' '}
@@ -110,8 +113,16 @@ const About: React.FC = () => {
             <div className='flex flex-col lg:flex-row items-center lg:items-start gap-6 mb-8'>
               {/* Avatar */}{' '}
               <motion.div className='relative' transition={{ duration: 0.3 }}>
-                <div className='w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 flex items-center justify-center shadow-lg shadow-indigo-500/25'>
-                  <span className='text-white text-2xl lg:text-3xl font-bold'>SS</span>
+                <div className='relative w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 shadow-lg shadow-indigo-500/25 overflow-hidden flex items-center justify-center'>
+                  <Image
+                    src='/founder.png'
+                    alt='Founder'
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className='rounded-full'
+                    sizes='(min-width: 1024px) 96px, 80px'
+                    priority
+                  />
                 </div>
                 {/* Status dot */}
                 <div className='absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-4 border-white dark:border-gray-800 flex items-center justify-center'>
@@ -129,13 +140,13 @@ const About: React.FC = () => {
                 </div>
               </div>
             </div>
-
             {/* Description */}
             <div className='mb-8'>
-              <p className='text-gray-600 dark:text-gray-300 leading-relaxed text-center lg:text-left'>
+              <p className='text-gray-600 dark:text-gray-300 leading-relaxed text-justify lg:text-left'>
                 {t('about.founder.description')}
               </p>
-            </div>            {/* Experience and Education Grid */}
+            </div>{' '}
+            {/* Experience and Education Grid */}
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
               {/* Experience */}{' '}
               <motion.div
@@ -143,10 +154,10 @@ const About: React.FC = () => {
                 transition={{ duration: 0.2 }}>
                 {' '}
                 <div className='w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-lg'>
-                  <Zap className='w-6 h-6 text-white' />
+                  <Zap className='w-7 h-7 text-white' />
                 </div>{' '}
                 <div>
-                  <p className='text-gray-900 dark:text-white font-semibold'>
+                  <p className='text-start text-gray-900 dark:text-white font-semibold'>
                     {t('about.founder.experienceYears')}
                   </p>
                 </div>
@@ -156,17 +167,16 @@ const About: React.FC = () => {
                 className='flex items-center gap-4 p-4 bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-2xl border border-purple-200/50 dark:border-purple-700/30'
                 transition={{ duration: 0.2 }}>
                 {' '}
-                <div className='w-16 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg'>
-                  <GraduationCap className='w-6 h-6 text-white' />
+                <div className='min-w-12 w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg'>
+                  <GraduationCap className='w-7 h-7 text-white' />
                 </div>
                 <div>
-                  <p className='text-gray-900 dark:text-white font-semibold'>
+                  <p className='text-start text-gray-900 dark:text-white font-semibold'>
                     {t('about.founder.educationDegrees')}
                   </p>
                 </div>
               </motion.div>
             </div>
-
             {/* Contact CTA */}
             <div className='mt-8 text-center'>
               {' '}
@@ -213,7 +223,7 @@ const About: React.FC = () => {
                     </h4>
                   </div>
                   {/* Description */}
-                  <p className='text-gray-600 dark:text-gray-300 leading-relaxed'>
+                  <p className='text-gray-600 dark:text-gray-300 leading-relaxed text-justify lg:text-left'>
                     {t(principle.descriptionKey)}
                   </p>
                 </div>
@@ -261,24 +271,25 @@ const About: React.FC = () => {
           <motion.h3 className='text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4'>
             {t('about.cta.title')}
           </motion.h3>
-          <motion.p className='text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto'>
+          <motion.p className='text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto text-justify'>
             {t('about.cta.description')}
-          </motion.p>          <motion.div className='flex flex-col sm:flex-row gap-4 justify-center'>
+          </motion.p>{' '}
+          <motion.div className='flex flex-col sm:flex-row gap-4 justify-center'>
             <motion.a
               href='#contact'
               className='group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl font-semibold text-lg shadow-lg shadow-indigo-500/25 hover:shadow-2xl hover:shadow-indigo-500/40 transition-all duration-300 overflow-hidden border border-transparent hover:border-white/20'
-              whileHover={{ 
-                scale: 1.05, 
+              whileHover={{
+                scale: 1.05,
                 y: -3,
-                transition: { duration: 0.2, ease: "easeOut" }
+                transition: { duration: 0.2, ease: 'easeOut' },
               }}
               whileTap={{ scale: 0.96 }}>
               {/* Animated background overlay */}
               <div className='absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
-              
+
               {/* Pulse effect on hover */}
               <div className='absolute inset-0 rounded-2xl bg-white/10 opacity-0 group-hover:opacity-100 group-hover:animate-pulse' />
-              
+
               {/* Button content */}
               <span className='relative z-10 flex items-center gap-3'>
                 <MessageCircle className='w-5 h-5 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12' />
@@ -287,10 +298,10 @@ const About: React.FC = () => {
                 </span>
                 <ArrowRight className='w-5 h-5 transition-all duration-300 group-hover:translate-x-2 group-hover:scale-110' />
               </span>
-              
+
               {/* Enhanced shine effect */}
               <div className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12' />
-              
+
               {/* Glow effect */}
               <div className='absolute -inset-1 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-70 blur transition-opacity duration-300 -z-10' />
             </motion.a>

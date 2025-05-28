@@ -92,16 +92,11 @@ const translations: Record<Language, TranslationMap> = {
     'about.founder.name': 'Sardorbek SIDIKOV',
     'about.founder.title': 'Fondateur & Directeur technique',
     'about.founder.description':
-      "Passionné par les nouvelles technologies et l'innovation numérique, je crée des solutions web sur mesure qui allient performance technique et excellence visuelle. Mon approche combine créativité et expertise technique pour donner vie à vos projets les plus ambitieux.",
-    'about.founder.education':
-      "Diplômes Master en développement web et développement d'applications web",
-    'about.founder.experience':
-      "10+ ans d'expérience IT\nDiplômes Master en développement web et développement d'applications web",
-    'about.founder.experienceYears': "10+ ans d'expérience IT",
+      "Passionné par les nouvelles technologies et l'innovation numérique, je crée des solutions web sur mesure qui allient performance technique et excellence visuelle. Mon approche combine créativité et expertise technique pour donner vie à vos projets les plus ambitieux.",    'about.founder.experienceYears': "10+ ans d'expérience IT",
     'about.founder.educationDegrees': 'Diplômes Master en développement web',
     'about.founder.experienceLabel': 'Expérience',
     'about.founder.educationLabel': 'Formation',
-    'about.founder.contactCta': 'Discutons de votre projet', // CTA section
+    'about.founder.contactCta': 'Discutons de votre projet',// CTA section
     'about.cta.title': 'Transformons ensemble vos idées en réalité numérique',
     'about.cta.description':
       'Nous accompagnons votre croissance digitale avec des solutions innovantes et sur mesure. Contactez-nous pour une consultation gratuite et découvrez comment nous pouvons booster votre présence en ligne.',
@@ -356,12 +351,7 @@ const translations: Record<Language, TranslationMap> = {
     'about.stats.experienceLabel': 'years of IT experience',
     // Founder section
     'about.founder.name': 'Sardorbek SIDIKOV',
-    'about.founder.title': 'Founder & Technical Director',
-    'about.founder.education':
-      "Master's degrees in web development and web application development",
-    'about.founder.experience':
-      "10+ years of IT experience\nMaster's degrees in web development and web application development",
-    'about.founder.experienceYears': '10+ years of IT experience',
+    'about.founder.title': 'Founder & Technical Director',    'about.founder.experienceYears': '10+ years of IT experience',
     'about.founder.educationDegrees': "Master's degrees in web development",
     'about.founder.experienceLabel': 'Experience',
     'about.founder.educationLabel': 'Education',
@@ -622,12 +612,8 @@ const translations: Record<Language, TranslationMap> = {
     'about.stats.experienceLabel': 'лет в IT',
     // Founder section
     'about.founder.name': 'Sardorbek SIDIKOV',
-    'about.founder.title': 'Founder & CEO',
-    'about.founder.education': 'Магистр веб-разработки и разработки веб-приложений',
-    'about.founder.experience':
-      '10+ лет опыта в IT\nМагистр веб-разработки и разработки веб-приложений',
-    'about.founder.experienceYears': '10+ лет опыта в IT',
-    'about.founder.educationDegrees': 'Магистр веб-разработки',
+    'about.founder.title': 'Founder & CEO',    'about.founder.experienceYears': '10+ лет опыта в IT',
+    'about.founder.educationDegrees': 'Степень магистра в области веб-разработки',
     'about.founder.experienceLabel': 'Опыт',
     'about.founder.educationLabel': 'Образование',
     'about.founder.contactCta': 'Обсудим ваш проект',
