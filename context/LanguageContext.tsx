@@ -59,23 +59,28 @@ const translations: Record<Language, TranslationMap> = {
     'expertise.stats.projects': 'Projets réalisés',
     'expertise.stats.satisfaction': 'Satisfaction client',
     'expertise.stats.support': 'Support technique',
-    'expertise.learnMore': 'En savoir plus',    // About (used in About component)
+    'expertise.learnMore': 'En savoir plus', // About (used in About component)
     'about.title': 'À propos',
-    'about.intro.title': 'SIDIKOFF DIGITAL est une agence web fondée en France, avec une vision internationale.',
-    'about.intro.description': 'SIDIKOFF DIGITAL est une agence web fondée en France, avec une vision internationale. Nous accompagnons les marques, freelancers, entrepreneurs et startups avec des solutions digitales sur mesure, percutantes et durables.',
-    
+    'about.intro.title':
+      'SIDIKOFF DIGITAL est une agence web fondée en France, avec une vision internationale.',
+    'about.intro.description':
+      'SIDIKOFF DIGITAL est une agence web fondée en France, avec une vision internationale. Nous accompagnons les marques, freelancers, entrepreneurs et startups avec des solutions digitales sur mesure, percutantes et durables.',
+
     // Ce qui nous définit section
     'about.defining.title': 'Ce qui nous définit',
-    
-    'about.creativity.title': '💡 Créativité audacieuse',
-    'about.creativity.description': 'Chaque projet est pensé comme une œuvre unique, portée par une vision forte et des choix assumés.',
-    
-    'about.approach.title': '🤝 Approche humaine',
-    'about.approach.description': 'Nous construisons une vraie relation avec chaque client — à l\'écoute, disponibles, engagés.',
-    
-    'about.expertise.title': '🧠 Expertise technique',
-    'about.expertise.description': 'Nous utilisons des technologies modernes et du code propre pour des performances durables.',
-    
+
+    'about.creativity.title': 'Créativité audacieuse',
+    'about.creativity.description':
+      'Chaque projet est pensé comme une œuvre unique, portée par une vision forte et des choix assumés.',
+
+    'about.approach.title': 'Approche humaine',
+    'about.approach.description':
+      "Nous construisons une vraie relation avec chaque client — à l'écoute, disponibles, engagés.",
+
+    'about.expertise.title': 'Expertise technique',
+    'about.expertise.description':
+      'Nous utilisons des technologies modernes et du code propre pour des performances durables.',
+
     // Quelques chiffres section
     'about.stats.title': 'Quelques chiffres',
     'about.stats.projects': '+50',
@@ -83,18 +88,23 @@ const translations: Record<Language, TranslationMap> = {
     'about.stats.satisfaction': '100%',
     'about.stats.satisfactionLabel': 'de clients satisfaits',
     'about.stats.experience': '10+',
-    'about.stats.experienceLabel': 'ans d\'expérience IT',    // Founder section
+    'about.stats.experienceLabel': "ans d'expérience IT", // Founder section
     'about.founder.name': 'Sardorbek SIDIKOV',
     'about.founder.title': 'Fondateur & Directeur technique',
-    'about.founder.description': 'Passionné par les nouvelles technologies et l\'innovation numérique, je crée des solutions web sur mesure qui allient performance technique et excellence visuelle. Mon approche combine créativité et expertise technique pour donner vie à vos projets les plus ambitieux.',    
-    'about.founder.education': 'Diplômes Master en développement web et développement d\'applications web',    'about.founder.experience': '10+ ans d\'expérience IT\nDiplômes Master en développement web et développement d\'applications web',
-    'about.founder.experienceYears': '10+ ans d\'expérience IT',
+    'about.founder.description':
+      "Passionné par les nouvelles technologies et l'innovation numérique, je crée des solutions web sur mesure qui allient performance technique et excellence visuelle. Mon approche combine créativité et expertise technique pour donner vie à vos projets les plus ambitieux.",
+    'about.founder.education':
+      "Diplômes Master en développement web et développement d'applications web",
+    'about.founder.experience':
+      "10+ ans d'expérience IT\nDiplômes Master en développement web et développement d'applications web",
+    'about.founder.experienceYears': "10+ ans d'expérience IT",
     'about.founder.educationDegrees': 'Diplômes Master en développement web',
     'about.founder.experienceLabel': 'Expérience',
     'about.founder.educationLabel': 'Formation',
-    'about.founder.contactCta': 'Discutons de votre projet',// CTA section
+    'about.founder.contactCta': 'Discutons de votre projet', // CTA section
     'about.cta.title': 'Transformons ensemble vos idées en réalité numérique',
-    'about.cta.description': 'Nous accompagnons votre croissance digitale avec des solutions innovantes et sur mesure. Contactez-nous pour une consultation gratuite et découvrez comment nous pouvons booster votre présence en ligne.',
+    'about.cta.description':
+      'Nous accompagnons votre croissance digitale avec des solutions innovantes et sur mesure. Contactez-nous pour une consultation gratuite et découvrez comment nous pouvons booster votre présence en ligne.',
     'about.cta.button': 'Démarrer votre projet',
 
     // Portfolio
@@ -131,7 +141,8 @@ const translations: Record<Language, TranslationMap> = {
       'Applications web sur mesure pour automatiser vos processus et améliorer votre productivité.',
     'services.webapp.feature1': 'Développement sur mesure',
     'services.webapp.feature2': 'Interface intuitive',
-    'services.webapp.feature3': 'Base de données',    'services.webapp.feature4': 'API & intégrations',
+    'services.webapp.feature3': 'Base de données',
+    'services.webapp.feature4': 'API & intégrations',
     'services.features': 'Fonctionnalités',
     'services.cta.pricing': 'Découvrir les tarifs',
     'services.cta.quote': 'Demander un devis',
@@ -313,23 +324,28 @@ const translations: Record<Language, TranslationMap> = {
     'expertise.item3.description': 'Strong and consistent visual identity to enhance your brand.',
     'expertise.item4.title': 'API Integration',
     'expertise.item4.description':
-      'Seamless connection between user interface and your backend services.',    // About (used in About component)
+      'Seamless connection between user interface and your backend services.', // About (used in About component)
     'about.title': 'About Us',
-    'about.intro.title': 'SIDIKOFF DIGITAL is a web agency founded in France with an international outlook.',
-    'about.intro.description': 'SIDIKOFF DIGITAL is a web agency founded in France with an international outlook. We support brands, freelancers, entrepreneurs, and startups with tailored digital solutions that are bold, effective, and built to last.',
-    
+    'about.intro.title':
+      'SIDIKOFF DIGITAL is a web agency founded in France with an international outlook.',
+    'about.intro.description':
+      'SIDIKOFF DIGITAL is a web agency founded in France with an international outlook. We support brands, freelancers, entrepreneurs, and startups with tailored digital solutions that are bold, effective, and built to last.',
+
     // What defines us section
     'about.defining.title': 'What defines us',
-    
-    'about.creativity.title': '💡 Bold creativity',
-    'about.creativity.description': 'Each project is crafted as a unique piece — driven by strong vision and deliberate design.',
-    
-    'about.approach.title': '🤝 Human-centered approach',
-    'about.approach.description': 'We build real relationships — listening, supporting, and staying close to our clients throughout the process.',
-    
-    'about.expertise.title': '🧠 Technical expertise',
-    'about.expertise.description': 'We use modern technologies and clean code to deliver fast, stable, and long-lasting results.',
-    
+
+    'about.creativity.title': 'Bold creativity',
+    'about.creativity.description':
+      'Each project is crafted as a unique piece — driven by strong vision and deliberate design.',
+
+    'about.approach.title': 'Human-centered approach',
+    'about.approach.description':
+      'We build real relationships — listening, supporting, and staying close to our clients throughout the process.',
+
+    'about.expertise.title': 'Technical expertise',
+    'about.expertise.description':
+      'We use modern technologies and clean code to deliver fast, stable, and long-lasting results.',
+
     // Some key numbers section
     'about.stats.title': 'Some key numbers',
     'about.stats.projects': '50+',
@@ -338,25 +354,30 @@ const translations: Record<Language, TranslationMap> = {
     'about.stats.satisfactionLabel': 'satisfied clients',
     'about.stats.experience': '10+',
     'about.stats.experienceLabel': 'years of IT experience',
-        // Founder section
+    // Founder section
     'about.founder.name': 'Sardorbek SIDIKOV',
-    'about.founder.title': 'Founder & Technical Director',    
-    'about.founder.education': 'Master\'s degrees in web development and web application development',    'about.founder.experience': '10+ years of IT experience\nMaster\'s degrees in web development and web application development',
+    'about.founder.title': 'Founder & Technical Director',
+    'about.founder.education':
+      "Master's degrees in web development and web application development",
+    'about.founder.experience':
+      "10+ years of IT experience\nMaster's degrees in web development and web application development",
     'about.founder.experienceYears': '10+ years of IT experience',
-    'about.founder.educationDegrees': 'Master\'s degrees in web development',
+    'about.founder.educationDegrees': "Master's degrees in web development",
     'about.founder.experienceLabel': 'Experience',
     'about.founder.educationLabel': 'Education',
-    'about.founder.contactCta': 'Let\'s discuss your project',
-    'about.founder.description': 'Passionate about new technologies and digital innovation, I create custom web solutions that combine technical performance and visual excellence. My approach combines creativity and technical expertise to bring your most ambitious projects to life.',
-    
+    'about.founder.contactCta': "Let's discuss your project",
+    'about.founder.description':
+      'Passionate about new technologies and digital innovation, I create custom web solutions that combine technical performance and visual excellence. My approach combines creativity and technical expertise to bring your most ambitious projects to life.',
+
     // Founder personal stats
     'about.founderStats.projects': '50+',
     'about.founderStats.projectsLabel': 'Projects completed',
     'about.founderStats.satisfaction': '100%',
     'about.founderStats.satisfactionLabel': 'Positive feedback',
-      // CTA section
-    'about.cta.title': 'Let\'s transform your ideas into digital reality together',
-    'about.cta.description': 'We support your digital growth with innovative and tailored solutions. Contact us for a free consultation and discover how we can boost your online presence.',
+    // CTA section
+    'about.cta.title': "Let's transform your ideas into digital reality together",
+    'about.cta.description':
+      'We support your digital growth with innovative and tailored solutions. Contact us for a free consultation and discover how we can boost your online presence.',
     'about.cta.button': 'Start your project',
 
     // Portfolio
@@ -393,7 +414,8 @@ const translations: Record<Language, TranslationMap> = {
       'Custom web applications to automate your processes and improve your productivity.',
     'services.webapp.feature1': 'Custom development',
     'services.webapp.feature2': 'Intuitive interface',
-    'services.webapp.feature3': 'Database',    'services.webapp.feature4': 'API & integrations',
+    'services.webapp.feature3': 'Database',
+    'services.webapp.feature4': 'API & integrations',
     'services.features': 'Features',
     'services.cta.pricing': 'Discover pricing',
     'services.cta.quote': 'Request a quote',
@@ -568,23 +590,28 @@ const translations: Record<Language, TranslationMap> = {
       'Интуитивные и эстетичные интерфейсы для лучшего пользовательского опыта.',
     'expertise.item3.title': 'Брендинг и логотип',
     'expertise.item3.description': 'Сильный и узнаваемый визуальный стиль для вашего бренда.',
-    'expertise.item4.title': 'Интеграция API',    'expertise.item4.description': 'Бесшовная интеграция интерфейса с вашими сервисами и API.',    // About (used in About component)
+    'expertise.item4.title': 'Интеграция API',
+    'expertise.item4.description': 'Бесшовная интеграция интерфейса с вашими сервисами и API.', // About (used in About component)
     'about.title': 'О нас',
-    'about.intro.title': 'SIDIKOFF DIGITAL — это веб-агентство, основанное во Франции с международным подходом.',
-    'about.intro.description': 'SIDIKOFF DIGITAL — это веб-агентство, основанное во Франции с международным подходом. Мы помогаем брендам, фрилансерам, предпринимателям и стартапам создавать эффективные цифровые решения, которые работают и запоминаются.',
-    
+    'about.intro.title':
+      'SIDIKOFF DIGITAL — это веб-агентство, основанное во Франции с международным подходом.',
+    'about.intro.description':
+      'SIDIKOFF DIGITAL — это веб-агентство, основанное во Франции с международным подходом. Мы помогаем брендам, фрилансерам, предпринимателям и стартапам создавать эффективные цифровые решения, которые работают и запоминаются.',
+
     // Наши принципы section
     'about.defining.title': 'Наши принципы',
-    
-    'about.creativity.title': '💡 Смелый креатив',
-    'about.creativity.description': 'Каждый проект — это уникальная идея, реализованная с вниманием к деталям и концепции.',
-    
-    'about.approach.title': '🤝 Человечность и забота',
-    'about.approach.description': 'Мы работаем как партнёры, выстраиваем настоящие связи и всегда остаёмся на связи.',
-    
-    'about.expertise.title': '🧠 Техническая точность',
+
+    'about.creativity.title': 'Смелый креатив',
+    'about.creativity.description':
+      'Каждый проект — это уникальная идея, реализованная с вниманием к деталям и концепции.',
+
+    'about.approach.title': 'Человечность и забота',
+    'about.approach.description':
+      'Мы работаем как партнёры, выстраиваем настоящие связи и всегда остаёмся на связи.',
+
+    'about.expertise.title': 'Техническая точность',
     'about.expertise.description': 'Современные технологии, чистый код и ориентация на результат.',
-    
+
     // В цифрах section
     'about.stats.title': 'В цифрах',
     'about.stats.projects': '50+',
@@ -593,25 +620,29 @@ const translations: Record<Language, TranslationMap> = {
     'about.stats.satisfactionLabel': 'довольных клиентов',
     'about.stats.experience': '10+',
     'about.stats.experienceLabel': 'лет в IT',
-        // Founder section
+    // Founder section
     'about.founder.name': 'Sardorbek SIDIKOV',
-    'about.founder.title': 'Founder & CEO',    
-    'about.founder.education': 'Магистр веб-разработки и разработки веб-приложений',    'about.founder.experience': '10+ лет опыта в IT\nМагистр веб-разработки и разработки веб-приложений',
+    'about.founder.title': 'Founder & CEO',
+    'about.founder.education': 'Магистр веб-разработки и разработки веб-приложений',
+    'about.founder.experience':
+      '10+ лет опыта в IT\nМагистр веб-разработки и разработки веб-приложений',
     'about.founder.experienceYears': '10+ лет опыта в IT',
     'about.founder.educationDegrees': 'Магистр веб-разработки',
     'about.founder.experienceLabel': 'Опыт',
     'about.founder.educationLabel': 'Образование',
     'about.founder.contactCta': 'Обсудим ваш проект',
-    'about.founder.description': 'Увлеченный новыми технологиями и цифровыми инновациями, я создаю индивидуальные веб-решения, сочетающие техническую производительность и визуальное совершенство. Мой подход объединяет креативность и техническую экспертизу для воплощения ваших самых амбициозных проектов.',
-    
+    'about.founder.description':
+      'Увлеченный новыми технологиями и цифровыми инновациями, я создаю индивидуальные веб-решения, сочетающие техническую производительность и визуальное совершенство. Мой подход объединяет креативность и техническую экспертизу для воплощения ваших самых амбициозных проектов.',
+
     // Founder personal stats
     'about.founderStats.projects': '50+',
     'about.founderStats.projectsLabel': 'Реализованных проектов',
     'about.founderStats.satisfaction': '100%',
     'about.founderStats.satisfactionLabel': 'Положительных отзывов',
-      // CTA section
+    // CTA section
     'about.cta.title': 'Давайте вместе превратим ваши идеи в цифровую реальность',
-    'about.cta.description': 'Мы поддерживаем ваш цифровой рост с помощью инновационных и индивидуальных решений. Свяжитесь с нами для бесплатной консультации и узнайте, как мы можем улучшить ваше присутствие в интернете.',
+    'about.cta.description':
+      'Мы поддерживаем ваш цифровой рост с помощью инновационных и индивидуальных решений. Свяжитесь с нами для бесплатной консультации и узнайте, как мы можем улучшить ваше присутствие в интернете.',
     'about.cta.button': 'Начать ваш проект',
 
     // Portfolio
@@ -648,7 +679,8 @@ const translations: Record<Language, TranslationMap> = {
       'Индивидуальные веб-приложения для автоматизации процессов и повышения продуктивности.',
     'services.webapp.feature1': 'Разработка под заказ',
     'services.webapp.feature2': 'Интуитивный интерфейс',
-    'services.webapp.feature3': 'База данных',    'services.webapp.feature4': 'API и интеграции',
+    'services.webapp.feature3': 'База данных',
+    'services.webapp.feature4': 'API и интеграции',
     'services.features': 'Возможности',
     'services.cta.pricing': 'Узнать цены',
     'services.cta.quote': 'Запросить предложение',

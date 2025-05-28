@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { ChevronDownIcon, SparklesIcon, RocketLaunchIcon } from '@heroicons/react/24/outline'
+import { ChevronDown, Sparkles, Rocket } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 
@@ -70,11 +70,10 @@ export default function Hero() {
         <motion.div
           className='space-y-6 sm:space-y-8 text-center lg:text-left'
           variants={itemVariants}>
-          {/* Badge */}
-          <motion.div
+          {/* Badge */}          <motion.div
             className='inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-sm font-medium border border-indigo-200 dark:border-indigo-800'
             whileTap={{ scale: 0.95 }}>
-            <SparklesIcon className='w-4 h-4' />
+            <Sparkles className='w-4 h-4' />
             {t('hero.badge') || 'Agence Web Premium'}
           </motion.div>{' '}          {/* Main Title */}
           <motion.h1
@@ -123,9 +122,8 @@ export default function Hero() {
               onClick={(e) => handleNavClick(e, 'contact')}
               className='group relative overflow-hidden w-full sm:w-auto'
               whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}>
-              <div className='relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 min-h-[48px]'>
-                <RocketLaunchIcon className='w-5 h-5' />
+              whileTap={{ scale: 0.98 }}>              <div className='relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 min-h-[48px]'>
+                <Rocket className='w-5 h-5' />
                 {t('hero.contact')}
               </div>
             </motion.a>            <motion.a
@@ -189,11 +187,10 @@ export default function Hero() {
           onClick={() => scrollToSection('expertise')}
           className='flex flex-col items-center gap-1 sm:gap-2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors p-2 sm:p-3 rounded-full'
           whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}>
-          <span className='text-xs sm:text-sm font-medium hidden sm:block'>
+          whileTap={{ scale: 0.9 }}>          <span className='text-xs sm:text-sm font-medium hidden sm:block'>
             {t('hero.scroll') || 'Découvrir'}
           </span>
-          <ChevronDownIcon className='w-4 h-4 sm:w-5 sm:h-5' />
+          <ChevronDown className='w-4 h-4 sm:w-5 sm:h-5' />
         </motion.button>
       </motion.div>
     </motion.section>

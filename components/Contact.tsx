@@ -3,7 +3,7 @@
 import type React from 'react'
 
 import { useState, useRef, useEffect } from 'react'
-import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import { Building2, Mail, Phone, ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Popup from './Popup'
 import AnimatedSection from './AnimatedSection'
@@ -208,14 +208,14 @@ export default function Contact() {
               <div className='flex gap-x-4'>
                 <dt className='flex-none'>
                   <span className='sr-only'>Address</span>
-                  <BuildingOffice2Icon aria-hidden='true' className='h-7 w-6 text-gray-400' />
+                  <Building2 aria-hidden='true' className='h-7 w-6 text-gray-400' />
                 </dt>
                 <dd>{t('contact.address')}</dd>
               </div>
               <div className='flex gap-x-4'>
                 <dt className='flex-none'>
                   <span className='sr-only'>Telephone</span>
-                  <PhoneIcon aria-hidden='true' className='h-7 w-6 text-gray-400' />
+                  <Phone aria-hidden='true' className='h-7 w-6 text-gray-400' />
                 </dt>
                 <dd>
                   <a href='tel:+33626932734' className='hover:text-gray-900 dark:hover:text-white'>
@@ -226,7 +226,7 @@ export default function Contact() {
               <div className='flex gap-x-4'>
                 <dt className='flex-none'>
                   <span className='sr-only'>Email</span>
-                  <EnvelopeIcon aria-hidden='true' className='h-7 w-6 text-gray-400' />
+                  <Mail aria-hidden='true' className='h-7 w-6 text-gray-400' />
                 </dt>
                 <dd>
                   <a
@@ -428,15 +428,7 @@ export default function Contact() {
                         }}>
                         {t('prices.tier3.name')}
                       </option>
-                    </select>
-                    <svg
-                      className='pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 dark:text-gray-300'
-                      fill='none'
-                      stroke='currentColor'
-                      strokeWidth='2'
-                      viewBox='0 0 24 24'>
-                      <path strokeLinecap='round' strokeLinejoin='round' d='M19 9l-7 7-7-7' />
-                    </svg>
+                    </select>                    <ChevronDown className='pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 dark:text-gray-300' />
                     {formErrors.tariff && (
                       <p className='mt-1 text-sm text-red-500 dark:text-red-400'>
                         {formErrors.tariff}

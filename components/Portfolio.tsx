@@ -10,15 +10,15 @@ import AnimatedSection from './AnimatedSection'
 import { useLanguage } from '@/context/LanguageContext'
 import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 import { 
-  ArrowTopRightOnSquareIcon, 
-  EyeIcon, 
-  CodeBracketIcon,
-  SparklesIcon,
-  FolderOpenIcon,
-  ArrowRightIcon,
-  ChevronDownIcon,
-  FunnelIcon
-} from '@heroicons/react/24/outline'
+  ExternalLink, 
+  Eye, 
+  Code,
+  Sparkles,
+  FolderOpen,
+  ArrowRight,
+  ChevronDown,
+  Filter
+} from 'lucide-react'
 
 interface PortfolioProps {
   title?: string
@@ -125,12 +125,11 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
           animate={isInView ? "visible" : "hidden"}
           variants={containerVariants}
           className="text-center mb-16"
-        >
-          <motion.div 
+        >          <motion.div 
             variants={cardVariants}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
           >
-            <SparklesIcon className="w-4 h-4 text-primary" />
+            <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-primary">
               {title || t('portfolio.title')}
             </span>
@@ -158,27 +157,25 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
             {showAllProjects ? (
               <button
                 onClick={handleHomeClick}
-                className="btn-secondary group">
-                <ArrowRightIcon className="w-4 h-4 rotate-180 transition-transform group-hover:-translate-x-1" />
+                className="btn-secondary group">                <ArrowRight className="w-4 h-4 rotate-180 transition-transform group-hover:-translate-x-1" />
                 {t('nav.home')}
               </button>
             ) : (
               <Link href='/projects'>
                 <button className="btn-primary group">
                   {t('portfolio.viewAll')}
-                  <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </button>
               </Link>
             )}
-            
-            {/* Filter Toggle */}
+              {/* Filter Toggle */}
             <button
               onClick={() => setShowFilters(!showFilters)}
               className={`btn-secondary group ${showFilters ? 'bg-primary/10 border-primary/30' : ''}`}
             >
-              <FunnelIcon className="w-4 h-4" />
+              <Filter className="w-4 h-4" />
               {t('portfolio.filter') || 'Filter'}
-              <ChevronDownIcon className={`w-4 h-4 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-4 h-4 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
             </button>
           </motion.div>
 
@@ -252,10 +249,9 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                       </div>
                         {/* Hover Overlay */}
                       <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="flex gap-3">
-                          <Link href={`/projects/${project.id}`}>
+                        <div className="flex gap-3">                          <Link href={`/projects/${project.id}`}>
                             <button className="p-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-all duration-200 hover:scale-110">
-                              <EyeIcon className="w-5 h-5 text-gray-800" />
+                              <Eye className="w-5 h-5 text-gray-800" />
                             </button>
                           </Link>
                           {project.link && (
@@ -265,7 +261,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                               rel="noopener noreferrer"
                               className="p-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-all duration-200 hover:scale-110"
                             >
-                              <ArrowTopRightOnSquareIcon className="w-5 h-5 text-gray-800" />
+                              <ExternalLink className="w-5 h-5 text-gray-800" />
                             </a>
                           )}
                         </div>
@@ -311,11 +307,10 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                             </span>
                           )}
                         </div>
-                      )}                      {/* Action Button */}
-                      <Link href={`/projects/${project.id}`}>
+                      )}                      {/* Action Button */}                      <Link href={`/projects/${project.id}`}>
                         <button className='w-full btn-secondary group/btn'>
                           {t('portfolio.viewDetails')}
-                          <ArrowRightIcon className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                          <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                         </button>
                       </Link>
                     </div>
@@ -330,12 +325,11 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
             className='mt-12 text-center'
-          >
-            <button
+          >            <button
               onClick={loadMoreProjects}
               className='btn-primary group hover:scale-105 transition-transform duration-200'
             >
-              <FolderOpenIcon className="w-5 h-5" />
+              <FolderOpen className="w-5 h-5" />
               {t('portfolio.showMore')}
               <span className="ml-2 px-2 py-0.5 bg-white/20 rounded-full text-xs">
                 +{Math.min(4, filteredProjects.length - visibleProjects)}
@@ -351,7 +345,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
             animate={{ opacity: 1 }}
             className="text-center py-16"
           >
-            <FolderOpenIcon className="w-16 h-16 text-muted-foreground/50 mx-auto mb-4" />
+            <FolderOpen className="w-16 h-16 text-muted-foreground/50 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-muted-foreground mb-2">
               No projects found
             </h3>

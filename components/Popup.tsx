@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { CheckCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { CheckCircle, X } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 
 interface PopupProps {
@@ -28,7 +28,7 @@ export default function Popup({ isOpen, onClose }: PopupProps) {
             <div className='p-4'>
               <div className='flex items-start'>
                 <div className='flex-shrink-0'>
-                  <CheckCircleIcon className='h-6 w-6 text-green-400' aria-hidden='true' />
+                  <CheckCircle className='h-6 w-6 text-green-400' aria-hidden='true' />
                 </div>
                 <div className='ml-3 w-0 flex-1 pt-0.5'>
                   <p className='text-sm font-medium text-gray-900 dark:text-gray-100'>
@@ -43,7 +43,7 @@ export default function Popup({ isOpen, onClose }: PopupProps) {
                     className='bg-white dark:bg-gray-800 rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
                     onClick={onClose}>
                     <span className='sr-only'>Close</span>
-                    <XMarkIcon className='h-5 w-5' aria-hidden='true' />
+                    <X className='h-5 w-5' aria-hidden='true' />
                   </button>
                 </div>
               </div>
