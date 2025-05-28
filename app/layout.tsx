@@ -36,16 +36,15 @@ export const metadata: Metadata = generateSEOMetadata({
     'next.js agence',
     'typescript développement',
     'agence web française',
-    'site internet professionnel',
-  ],
+    'site internet professionnel',  ],
   locale: 'fr-FR',
   alternateLanguages: {
-    fr: 'https://sidikoff.com/',
-    en: 'https://sidikoff.com/en',
-    ru: 'https://sidikoff.com/ru',
+    fr: 'https://www.sidikoff.com/',
+    en: 'https://www.sidikoff.com/en',
+    ru: 'https://www.sidikoff.com/ru',
   },
-  ogImage: 'https://sidikoff.com/images/contact.png',
-  canonical: 'https://sidikoff.com/',
+  ogImage: 'https://www.sidikoff.com/images/contact.png',
+  canonical: 'https://www.sidikoff.com/',
 })
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

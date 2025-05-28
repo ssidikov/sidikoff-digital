@@ -42,11 +42,10 @@ export default function Breadcrumbs() {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: breadcrumbs.map((breadcrumb, index) => ({
-      '@type': 'ListItem',
+    itemListElement: breadcrumbs.map((breadcrumb, index) => ({      '@type': 'ListItem',
       position: index + 1,
       name: breadcrumb.label,
-      item: `https://sidikoff.com${breadcrumb.href}`,
+      item: `https://www.sidikoff.com${breadcrumb.href}`,
     })),
   }
 

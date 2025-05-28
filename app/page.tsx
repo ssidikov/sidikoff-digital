@@ -16,19 +16,19 @@ import { generateServiceSchema, generateFAQSchema } from '@/lib/seo'
 const homepageSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  '@id': 'https://sidikoff.com/#webpage',
-  url: 'https://sidikoff.com/',
+  '@id': 'https://www.sidikoff.com/#webpage',
+  url: 'https://www.sidikoff.com/',
   name: 'SIDIKOFF DIGITAL - Agence Web à Paris',
   description:
     'Agence web parisienne spécialisée en création de sites internet, applications web et stratégie digitale',
   isPartOf: {
-    '@id': 'https://sidikoff.com/#website',
+    '@id': 'https://www.sidikoff.com/#website',
   },
   about: {
-    '@id': 'https://sidikoff.com/#organization',
+    '@id': 'https://www.sidikoff.com/#organization',
   },
   mainEntity: {
-    '@id': 'https://sidikoff.com/#business',
+    '@id': 'https://www.sidikoff.com/#business',
   },
 }
 

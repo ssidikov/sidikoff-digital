@@ -31,9 +31,8 @@ const defaultSEOConfig = {
     'site internet professionnel',
     'développement next.js',
     'react développeur',
-    'typescript développeur',
-  ],
-  baseUrl: 'https://sidikoff.com',
+    'typescript développeur',  ],
+  baseUrl: 'https://www.sidikoff.com',
   social: {
     twitter: '@sidikoffdigital',
     linkedin: 'sidikoff-digital',
@@ -153,22 +152,21 @@ export const pagesSEO = {
         'création site internet',
         'développement web',
         'agence digitale',
-      ],
-      canonical: 'https://sidikoff.com/',
+      ],      canonical: 'https://www.sidikoff.com/',
     },
     en: {
       title: 'SIDIKOFF DIGITAL - Web Agency in Paris | Website & Web Application Development',
       description:
         'Web agency specialized in website creation, web applications and digital strategy. Modern development, UX/UI design, SEO optimization. Free quote.',
       keywords: ['web agency paris', 'website creation', 'web development', 'digital agency'],
-      canonical: 'https://sidikoff.com/',
+      canonical: 'https://www.sidikoff.com/',
     },
     ru: {
       title: 'SIDIKOFF DIGITAL - Веб-агентство | Создание Сайтов и Веб-Приложений',
       description:
         'Веб-агентство, специализирующееся на создании сайтов, веб-приложений и цифровой стратегии. Современная разработка, UX/UI дизайн, SEO оптимизация.',
       keywords: ['веб агентство париж', 'создание сайтов', 'веб разработка', 'цифровое агентство'],
-      canonical: 'https://sidikoff.com/',
+      canonical: 'https://www.sidikoff.com/',
     },
   },
   services: {
@@ -181,22 +179,21 @@ export const pagesSEO = {
         'services web paris',
         'devis site internet',
         'prix développement web',
-      ],
-      canonical: 'https://sidikoff.com/services',
+      ],      canonical: 'https://www.sidikoff.com/services',
     },
     en: {
       title: 'Services & Pricing | SIDIKOFF DIGITAL - Web Agency',
       description:
         'Discover our web services: website creation, applications, e-commerce, SEO optimization. Transparent pricing and free quote. Web agency in France.',
       keywords: ['web agency pricing', 'web services paris', 'website quote', 'development costs'],
-      canonical: 'https://sidikoff.com/services',
+      canonical: 'https://www.sidikoff.com/services',
     },
     ru: {
       title: 'Услуги и Цены | SIDIKOFF DIGITAL - Веб-агентство',
       description:
         'Откройте для себя наши веб-услуги: создание сайтов, приложений, e-commerce, SEO оптимизация. Прозрачные цены и бесплатная смета.',
       keywords: ['цены веб агентство', 'веб услуги париж', 'смета сайта', 'стоимость разработки'],
-      canonical: 'https://sidikoff.com/services',
+      canonical: 'https://www.sidikoff.com/services',
     },
   },
   Projects: {
@@ -209,8 +206,7 @@ export const pagesSEO = {
         'réalisations web paris',
         'exemples sites internet',
         'références clients',
-      ],
-      canonical: 'https://sidikoff.com/projects',
+      ],      canonical: 'https://www.sidikoff.com/projects',
     },
     en: {
       title: 'Projects | SIDIKOFF DIGITAL - Our Web Projects',
@@ -222,7 +218,7 @@ export const pagesSEO = {
         'website examples',
         'client references',
       ],
-      canonical: 'https://sidikoff.com/projects',
+      canonical: 'https://www.sidikoff.com/projects',
     },
     ru: {
       title: 'Портфолио | SIDIKOFF DIGITAL - Наши Веб-проекты',
@@ -234,7 +230,7 @@ export const pagesSEO = {
         'примеры сайтов',
         'клиентские референсы',
       ],
-      canonical: 'https://sidikoff.com/projects',
+      canonical: 'https://www.sidikoff.com/projects',
     },
   },
   legal: {
@@ -247,22 +243,21 @@ export const pagesSEO = {
         'protection données personnelles',
         'cookies',
         'conditions utilisation',
-      ],
-      canonical: 'https://sidikoff.com/mentions-legales',
+      ],      canonical: 'https://www.sidikoff.com/mentions-legales',
     },
     en: {
       title: 'Privacy Policy | SIDIKOFF DIGITAL - Web Agency Paris',
       description:
         'Privacy policy of SIDIKOFF DIGITAL, Parisian web agency. Personal data protection, cookies and terms of use.',
       keywords: ['privacy policy', 'data protection', 'cookies', 'terms of use'],
-      canonical: 'https://sidikoff.com/mentions-legales',
+      canonical: 'https://www.sidikoff.com/mentions-legales',
     },
     ru: {
       title: 'Политика конфиденциальности | SIDIKOFF DIGITAL - Веб-агентство Париж',
       description:
         'Политика конфиденциальности SIDIKOFF DIGITAL, парижского веб-агентства. Защита персональных данных, куки и условия использования.',
       keywords: ['политика конфиденциальности', 'защита данных', 'куки', 'условия использования'],
-      canonical: 'https://sidikoff.com/mentions-legales',
+      canonical: 'https://www.sidikoff.com/mentions-legales',
     },
   },
 }
@@ -272,7 +267,7 @@ export function generateLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': 'https://sidikoff.com/#business',
+    '@id': 'https://www.sidikoff.com/#business',
     name: defaultSEOConfig.business.name,
     alternateName: 'SIDIKOFF DIGITAL',
     description:
@@ -368,18 +363,18 @@ export function generateWebsiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    '@id': 'https://sidikoff.com/#website',
+    '@id': 'https://www.sidikoff.com/#website',
     url: defaultSEOConfig.baseUrl,
     name: defaultSEOConfig.siteName,
     description: defaultSEOConfig.defaultDescription,
     publisher: {
-      '@id': 'https://sidikoff.com/#business',
+      '@id': 'https://www.sidikoff.com/#business',
     },
     potentialAction: {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: 'https://sidikoff.com/search?q={search_term_string}',
+        urlTemplate: 'https://www.sidikoff.com/search?q={search_term_string}',
       },
       'query-input': 'required name=search_term_string',
     },
@@ -392,18 +387,18 @@ export function generateOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    '@id': 'https://sidikoff.com/#organization',
+    '@id': 'https://www.sidikoff.com/#organization',
     name: defaultSEOConfig.business.name,
     url: defaultSEOConfig.baseUrl,
     logo: {
       '@type': 'ImageObject',
-      url: 'https://sidikoff.com/logo.svg',
+      url: 'https://www.sidikoff.com/logo.svg',
       width: 400,
       height: 400,
     },
     image: {
       '@type': 'ImageObject',
-      url: 'https://sidikoff.com/og-image.jpg',
+      url: 'https://www.sidikoff.com/og-image.jpg',
       width: 1200,
       height: 630,
     },
@@ -547,7 +542,7 @@ export function generateCreativeWorkSchema(work: {
     creator: {
       '@type': 'Organization',
       name: 'SIDIKOFF DIGITAL',
-      '@id': 'https://sidikoff.com/#organization',
+      '@id': 'https://www.sidikoff.com/#organization',
     },
     about: work.category || 'Web Development',
     keywords: work.technologies?.join(', ') || 'React, Next.js, TypeScript',
@@ -588,7 +583,7 @@ export function generatePersonSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    '@id': 'https://sidikoff.com/#founder',
+    '@id': 'https://www.sidikoff.com/#founder',
     name: defaultSEOConfig.business.founder,
     givenName: 'Sardorbek',
     familyName: 'SIDIKOV',
@@ -602,11 +597,10 @@ export function generatePersonSchema() {
       '@type': 'PostalAddress',
       addressLocality: 'Paris',
       addressCountry: 'FR',
-    },
-    worksFor: {
+    },    worksFor: {
       '@type': 'Organization',
       name: 'SIDIKOFF DIGITAL',
-      '@id': 'https://sidikoff.com/#organization',
+      '@id': 'https://www.sidikoff.com/#organization',
     },
     knowsAbout: [
       'Web Development',
@@ -633,22 +627,21 @@ export function generateWebPageSchema(page: {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    '@id': `${page.url}#webpage`,
-    url: page.url,
+    '@id': `${page.url}#webpage`,    url: page.url,
     name: page.name,
     description: page.description,
     inLanguage: 'fr-FR',
     isPartOf: {
       '@type': 'WebSite',
-      '@id': 'https://sidikoff.com/#website',
+      '@id': 'https://www.sidikoff.com/#website',
     },
     about: {
       '@type': 'Organization',
-      '@id': 'https://sidikoff.com/#organization',
+      '@id': 'https://www.sidikoff.com/#organization',
     },
     publisher: {
       '@type': 'Organization',
-      '@id': 'https://sidikoff.com/#organization',
+      '@id': 'https://www.sidikoff.com/#organization',
     },
     ...(page.datePublished && { datePublished: page.datePublished }),
     ...(page.dateModified && { dateModified: page.dateModified }),

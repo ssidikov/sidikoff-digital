@@ -6,15 +6,15 @@ export const metadata: Metadata = generateSEOMetadata(pagesSEO.legal.fr)
 const legalSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  '@id': 'https://sidikoff.com/mentions-legales#webpage',
-  url: 'https://sidikoff.com/mentions-legales',
+  '@id': 'https://www.sidikoff.com/mentions-legales#webpage',
+  url: 'https://www.sidikoff.com/mentions-legales',
   name: 'Politique de confidentialité - SIDIKOFF DIGITAL',
   description: 'Politique de confidentialité de SIDIKOFF DIGITAL, agence web parisienne',
   isPartOf: {
-    '@id': 'https://sidikoff.com/#website',
+    '@id': 'https://www.sidikoff.com/#website',
   },
   about: {
-    '@id': 'https://sidikoff.com/#business',
+    '@id': 'https://www.sidikoff.com/#business',
   },
   inLanguage: 'fr-FR',
 }
