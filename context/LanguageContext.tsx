@@ -434,7 +434,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.tier2.includes.5': 'Analytics and tracking integration',
     'prices.tier2.cta': 'View details',
     'prices.tier3.name': 'Premium Business Website',
-    'prices.tier3.price': 'Custom quote on request',
+    'prices.tier3.price': 'On request',
     'prices.tier3.audience':
       'Perfect for growing businesses and brands seeking full SEO strategy, unique branding, and top-tier performance.',
     'prices.tier3.includes.title': 'Includes:',
