@@ -303,7 +303,7 @@ export default function Prices() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ delay: 0.8 }}
           className='mt-16 lg:mt-20 text-center'>
-          <div className='group relative max-w-2xl mx-auto p-8 bg-white dark:bg-card/80 backdrop-blur-sm border border-gray-200 dark:border-border/50 rounded-3xl hover:border-indigo-300 dark:hover:border-primary/30 shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10 dark:hover:shadow-primary/5 transition-all duration-500'>
+          <div className='group relative max-w-2xl mx-auto p-8 bg-white dark:bg-card/80 backdrop-blur-sm border border-gray-200 dark:border-border/50 rounded-3xl hover:border-indigo-300 dark:hover:border-border shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10 dark:hover:shadow-primary/5 transition-all duration-500'>
             {/* Animated border glow */}
             <div className='absolute -inset-0.5 bg-gradient-to-r from-indigo-500/20 via-purple-500/10 to-indigo-500/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm' />
 
