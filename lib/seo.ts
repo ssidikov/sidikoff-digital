@@ -31,7 +31,8 @@ const defaultSEOConfig = {
     'site internet professionnel',
     'développement next.js',
     'react développeur',
-    'typescript développeur',  ],
+    'typescript développeur',
+  ],
   baseUrl: 'https://www.sidikoff.com',
   social: {
     twitter: '@sidikoffdigital',
@@ -152,7 +153,8 @@ export const pagesSEO = {
         'création site internet',
         'développement web',
         'agence digitale',
-      ],      canonical: 'https://www.sidikoff.com/',
+      ],
+      canonical: 'https://www.sidikoff.com/',
     },
     en: {
       title: 'SIDIKOFF DIGITAL - Web Agency in Paris | Website & Web Application Development',
@@ -179,7 +181,8 @@ export const pagesSEO = {
         'services web paris',
         'devis site internet',
         'prix développement web',
-      ],      canonical: 'https://www.sidikoff.com/services',
+      ],
+      canonical: 'https://www.sidikoff.com/services',
     },
     en: {
       title: 'Services & Pricing | SIDIKOFF DIGITAL - Web Agency',
@@ -206,7 +209,8 @@ export const pagesSEO = {
         'réalisations web paris',
         'exemples sites internet',
         'références clients',
-      ],      canonical: 'https://www.sidikoff.com/projects',
+      ],
+      canonical: 'https://www.sidikoff.com/projects',
     },
     en: {
       title: 'Projects | SIDIKOFF DIGITAL - Our Web Projects',
@@ -243,7 +247,8 @@ export const pagesSEO = {
         'protection données personnelles',
         'cookies',
         'conditions utilisation',
-      ],      canonical: 'https://www.sidikoff.com/mentions-legales',
+      ],
+      canonical: 'https://www.sidikoff.com/mentions-legales',
     },
     en: {
       title: 'Privacy Policy | SIDIKOFF DIGITAL - Web Agency Paris',
@@ -597,7 +602,8 @@ export function generatePersonSchema() {
       '@type': 'PostalAddress',
       addressLocality: 'Paris',
       addressCountry: 'FR',
-    },    worksFor: {
+    },
+    worksFor: {
       '@type': 'Organization',
       name: 'SIDIKOFF DIGITAL',
       '@id': 'https://www.sidikoff.com/#organization',
@@ -627,7 +633,8 @@ export function generateWebPageSchema(page: {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    '@id': `${page.url}#webpage`,    url: page.url,
+    '@id': `${page.url}#webpage`,
+    url: page.url,
     name: page.name,
     description: page.description,
     inLanguage: 'fr-FR',

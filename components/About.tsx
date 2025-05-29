@@ -20,6 +20,10 @@ const About: React.FC = () => {
   const { t } = useLanguage()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
+  
+  // Mouse tracking for founder card
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -102,14 +106,28 @@ const About: React.FC = () => {
 text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
               {t('about.intro.description')}
             </p>
-          </motion.div>{' '}
-          {/* Founder intro card */}
+          </motion.div>{' '}          {/* Founder intro card */}
           <motion.div
-            className='max-w-3xl mx-auto bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 lg:p-10 border border-gray-200/50 dark:border-white/10 shadow-2xl shadow-indigo-500/10'
+            className='group relative max-w-3xl mx-auto rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm p-8 lg:p-10 cursor-pointer overflow-hidden'
             variants={itemVariants}
-            transition={{ duration: 0.3 }}>
-            {/* Header Section */}
-            <div className='flex flex-col lg:flex-row items-center lg:items-start gap-6 mb-8'>
+            onMouseMove={({ currentTarget, clientX, clientY }: ReactMouseEvent<HTMLDivElement>) => {
+              const { left, top } = currentTarget.getBoundingClientRect()
+              mouseX.set(clientX - left)
+              mouseY.set(clientY - top)
+            }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}>
+            {/* Gradient overlay */}
+            <motion.div
+              className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
+              style={{ 
+                background: useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)`
+              }}
+              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            />
+            {/* Border glow effect */}
+            <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />            {/* Header Section */}
+            <div className='relative z-10 flex flex-col lg:flex-row items-center lg:items-start gap-6 mb-8'>
               {/* Avatar */}{' '}
               <motion.div className='relative' transition={{ duration: 0.3 }}>
                 <div className='relative w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 shadow-lg shadow-indigo-500/25 overflow-hidden flex items-center justify-center'>
@@ -137,15 +155,13 @@ text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
                   {t('about.founder.title')}
                 </div>
               </div>
-            </div>
-            {/* Description */}
-            <div className='mb-8'>
+            </div>            {/* Description */}
+            <div className='relative z-10 mb-8'>
               <p className='text-gray-600 dark:text-gray-300 leading-relaxed text-justify lg:text-left'>
                 {t('about.founder.description')}
               </p>
-            </div>{' '}
-            {/* Experience and Education Grid */}
-            <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
+            </div>{' '}            {/* Experience and Education Grid */}
+            <div className='relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-4'>
               {/* Experience */}{' '}
               <motion.div
                 className='flex items-center gap-4 p-4 bg-gradient-to-r from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20 rounded-2xl border border-indigo-200/50 dark:border-indigo-700/30'
@@ -174,9 +190,8 @@ text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
                   </p>
                 </div>
               </motion.div>
-            </div>
-            {/* Contact CTA */}
-            <div className='mt-8 text-center'>
+            </div>            {/* Contact CTA */}
+            <div className='relative z-10 mt-8 text-center'>
               {' '}
               <motion.a
                 href='#contact'
