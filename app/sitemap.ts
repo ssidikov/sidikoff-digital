@@ -14,46 +14,45 @@ function makeAlternates(url: string) {
   }
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  // Static pages with multilingual support
-  const staticPages = [
-    {
-      url: baseUrl,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 1.0,
-      alternates: makeAlternates(baseUrl),
-    },
-    {
-      url: `${baseUrl}/#services`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-      alternates: makeAlternates(`${baseUrl}/#services`),
-    },
-    {
-      url: `${baseUrl}/#portfolio`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-      alternates: makeAlternates(`${baseUrl}/#portfolio`),
-    },
-    {
-      url: `${baseUrl}/mentions-legales`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly' as const,
-      priority: 0.3,
-      alternates: makeAlternates(`${baseUrl}/mentions-legales`),
-    },
-  ]
-  // Dynamic project pages - using actual project IDs from data
-  const projectPages = projects.map((project) => ({
-    url: `${baseUrl}/projects/${project.id}`,
+function staticPage({
+  path = '',
+  anchor = '',
+  changeFrequency,
+  priority,
+}: {
+  path?: string
+  anchor?: string
+  changeFrequency: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never'
+  priority: number
+}) {
+  const url = anchor ? `${baseUrl}/#${anchor}` : path ? `${baseUrl}/${path}` : baseUrl
+  return {
+    url,
     lastModified: currentDate,
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-    alternates: makeAlternates(`${baseUrl}/projects/${project.id}`),
-  }))
+    changeFrequency,
+    priority,
+    alternates: makeAlternates(url),
+  }
+}
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const staticPages = [
+    staticPage({ changeFrequency: 'weekly', priority: 1.0 }),
+    staticPage({ anchor: 'services', changeFrequency: 'weekly', priority: 0.9 }),
+    staticPage({ anchor: 'portfolio', changeFrequency: 'weekly', priority: 0.8 }),
+    staticPage({ path: 'mentions-legales', changeFrequency: 'yearly', priority: 0.3 }),
+  ]
+
+  const projectPages = projects.map((project) => {
+    const url = `${baseUrl}/projects/${project.id}`
+    return {
+      url,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+      alternates: makeAlternates(url),
+    }
+  })
 
   return [...staticPages, ...projectPages]
 }
