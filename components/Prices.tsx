@@ -288,70 +288,92 @@ export default function Prices() {
               </motion.div>
             )
           })}
-        </motion.div>
-
-        {/* Custom Quote Section */}
+        </motion.div>        {/* Custom Quote Section */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ delay: 0.8 }}
           className='mt-16 lg:mt-20 text-center'>
-          <div className='group relative max-w-2xl mx-auto p-8 bg-white dark:bg-card/80 backdrop-blur-sm border border-gray-200 dark:border-border/50 rounded-3xl hover:border-indigo-300 dark:hover:border-border shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10 dark:hover:shadow-primary/5 transition-all duration-500'>
-            {/* Animated border glow */}
-            <div className='absolute -inset-0.5 bg-gradient-to-r from-indigo-500/20 via-purple-500/10 to-indigo-500/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm' />
+          {(() => {
+            const mouseX = useMotionValue(0)
+            const mouseY = useMotionValue(0)
+            
+            const handleMouseMove = ({ currentTarget, clientX, clientY }: ReactMouseEvent<HTMLDivElement>) => {
+              const { left, top } = currentTarget.getBoundingClientRect()
+              mouseX.set(clientX - left)
+              mouseY.set(clientY - top)
+            }
 
-            <div className='relative z-10'>
-              <div className='flex items-center justify-center gap-4 mb-6'>
-                <div className='p-3 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-500'>
-                  <Users className='w-6 h-6 text-white' />
-                </div>
-                <div className='text-left'>
-                  <h3 className='text-xl font-bold text-gray-900 dark:text-white'>
-                    {t('prices.custom')}
-                  </h3>
-                  <p className='text-sm text-gray-600 dark:text-muted-foreground'>
-                    {t('prices.customDescription')}
-                  </p>
-                </div>
-              </div>
-              <div className='grid md:grid-cols-3 gap-4 mb-8'>
-                <div className='flex items-center gap-3'>
-                  <Shield className='w-5 h-5 text-indigo-600 dark:text-primary' />
-                  <span className='text-sm text-gray-700 dark:text-foreground'>
-                    {t('prices.features.enterpriseSecurity')}
-                  </span>
-                </div>
-                <div className='flex items-center gap-3'>
-                  <Clock className='w-5 h-5 text-indigo-600 dark:text-primary' />
-                  <span className='text-sm text-gray-700 dark:text-foreground'>
-                    {t('prices.features.prioritySupport')}
-                  </span>
-                </div>
-                <div className='flex items-center gap-3'>
-                  <Sparkles className='w-5 h-5 text-indigo-600 dark:text-primary' />
-                  <span className='text-sm text-gray-700 dark:text-foreground'>
-                    {t('prices.features.customFeatures')}
-                  </span>
-                </div>
-              </div>
+            const background = useMotionTemplate`
+              radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)
+            `
 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                onClick={() => handleTariffSelect('')}
-                className='group relative px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl font-semibold text-lg transition-all duration-500 hover:shadow-xl overflow-hidden'
-                whileTap={{ scale: 0.98 }}>
-                {/* Background gradient overlay */}
-                <div className='absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-purple-500/10 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
-                {/* Button content */}
-                <span className='relative z-10 flex items-center justify-center gap-3'>
-                  <span className='transition-all duration-300'>{t('prices.quote')}</span>
-                  <ArrowRight className='w-5 h-5 transition-transform group-hover:translate-x-1' />
-                </span>
-                {/* Shine effect */}
-                <div className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12' />
-              </motion.button>
-            </div>
-          </div>
+            return (
+              <motion.div 
+                className='group relative max-w-2xl mx-auto rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm p-8 cursor-pointer overflow-hidden'
+                onMouseMove={handleMouseMove}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}>
+                {/* Gradient overlay */}
+                <motion.div
+                  className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
+                  style={{ background }}
+                  transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                />
+                {/* Border glow effect */}
+                <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />                {/* Border glow effect */}
+                <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+
+                <div className='relative z-10'>
+                  <div className='flex items-center justify-center gap-4 mb-6'>
+                    <div className='p-3 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-500'>
+                      <Users className='w-6 h-6 text-white' />
+                    </div>                    <div className='text-left'>
+                      <h3 className='text-h5 font-heading text-text-primary'>
+                        {t('prices.custom')}
+                      </h3>
+                      <p className='text-body-sm text-text-secondary'>
+                        {t('prices.customDescription')}
+                      </p>
+                    </div>
+                  </div>
+                  <div className='grid md:grid-cols-3 gap-4 mb-8'>                    <div className='flex items-center gap-3'>
+                      <Shield className='w-5 h-5 text-indigo-600 dark:text-primary' />
+                      <span className='text-body-sm text-text-primary'>
+                        {t('prices.features.enterpriseSecurity')}
+                      </span>
+                    </div>
+                    <div className='flex items-center gap-3'>
+                      <Clock className='w-5 h-5 text-indigo-600 dark:text-primary' />
+                      <span className='text-body-sm text-text-primary'>
+                        {t('prices.features.prioritySupport')}
+                      </span>
+                    </div>
+                    <div className='flex items-center gap-3'>
+                      <Sparkles className='w-5 h-5 text-indigo-600 dark:text-primary' />
+                      <span className='text-body-sm text-text-primary'>
+                        {t('prices.features.customFeatures')}
+                      </span>
+                    </div>
+                  </div>                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    onClick={() => handleTariffSelect('')}
+                    className='group relative px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl font-semibold text-button-lg transition-all duration-500 hover:shadow-xl overflow-hidden'
+                    whileTap={{ scale: 0.98 }}>
+                    {/* Background gradient overlay */}
+                    <div className='absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-purple-500/10 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+                    {/* Button content */}
+                    <span className='relative z-10 flex items-center justify-center gap-3'>
+                      <span className='transition-all duration-300'>{t('prices.quote')}</span>
+                      <ArrowRight className='w-5 h-5 transition-transform group-hover:translate-x-1' />
+                    </span>
+                    {/* Shine effect */}
+                    <div className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12' />
+                  </motion.button>
+                </div>
+              </motion.div>
+            )
+          })()}
         </motion.div>
       </div>
     </section>
