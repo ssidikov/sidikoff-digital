@@ -36,7 +36,8 @@ export const metadata: Metadata = generateSEOMetadata({
     'next.js agence',
     'typescript développement',
     'agence web française',
-    'site internet professionnel',  ],
+    'site internet professionnel',
+  ],
   locale: 'fr-FR',
   alternateLanguages: {
     fr: 'https://www.sidikoff.com/',
@@ -58,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
 
         {/* Favicon and app icons */}
-        <link rel='icon' href='/favicon.png' />
+        <link rel='icon' href='/logo-5.svg' />
         <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
         <link rel='manifest' href='/manifest.json' />
 

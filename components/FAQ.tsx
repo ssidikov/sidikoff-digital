@@ -41,16 +41,14 @@ export default function FAQ() {
       </div>
 
       <div className='container mx-auto px-4'>
-        <div className='max-w-4xl mx-auto'>
-          <motion.h2 
-            className='text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-gray-900 via-indigo-600 to-purple-600 dark:from-foreground dark:via-primary dark:to-primary/80 bg-clip-text text-transparent'
+        <div className='max-w-4xl mx-auto'>          <motion.h2 
+            className='text-h1 font-heading text-center mb-12 bg-gradient-to-r from-gray-900 via-indigo-600 to-purple-600 dark:from-foreground dark:via-primary dark:to-primary/80 bg-clip-text text-transparent'
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             {t('faq.title')}
-          </motion.h2>
-            <div className='max-w-3xl mx-auto space-y-4'>
+          </motion.h2>            <div className='max-w-3xl mx-auto space-y-4'>
             {faqData.map((faq, index) => {
               const mouseX = useMotionValue(0)
               const mouseY = useMotionValue(0)
@@ -68,34 +66,26 @@ export default function FAQ() {
               return (
                 <motion.div
                   key={index}
-                  className='group relative cursor-pointer'
+                  className='group relative flex flex-col rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm cursor-pointer overflow-hidden'
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   onMouseMove={handleMouseMove}
-                  style={{ background }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  <div className='relative bg-card/80 backdrop-blur-sm border border-border rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-primary/20'>
-                    {/* Gradient overlay */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10"
-                      style={{ background }}
-                    />
+                  {/* Gradient overlay */}
+                  <motion.div
+                    className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
+                    style={{ background }}
+                    transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                  />
+                  {/* Border glow effect */}
+                  <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
                     
-                    {/* Border glow effect */}
-                    <motion.div
-                      className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                      style={{
-                        background: useMotionTemplate`
-                          radial-gradient(300px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.15), transparent 70%)
-                        `,
-                      }}
-                    />
-                    
-                    <div className='relative z-20 p-6'>
+                    <div className='relative z-10 p-6'>
                       <button
                         onClick={() => toggleFAQ(index)}
-                        className='w-full text-left flex items-center justify-between gap-4 font-semibold text-foreground group-hover:text-primary transition-colors duration-300'
+                        className='w-full text-left flex items-center justify-between gap-4 text-h5 font-heading text-text-primary group-hover:text-indigo-600 transition-colors duration-300'
                       >
                         <span>{faq.question}</span>
                         <motion.div
@@ -116,14 +106,13 @@ export default function FAQ() {
                             transition={{ duration: 0.3, ease: 'easeInOut' }}
                             className='overflow-hidden'
                           >
-                            <div className='pt-4 text-muted-foreground leading-relaxed'>
+                            <div className='pt-4 text-body-base text-text-secondary leading-relaxed max-w-readable'>
                               {faq.answer}
                             </div>
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
-                  </div>
                 </motion.div>
               )
             })}

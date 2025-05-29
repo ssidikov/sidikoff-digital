@@ -309,8 +309,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                 const handleMouseMove = ({
                   currentTarget,
                   clientX,
-                  clientY,
-                }: ReactMouseEvent<HTMLDivElement>) => {
+                  clientY,                }: ReactMouseEvent<HTMLDivElement>) => {
                   const { left, top } = currentTarget.getBoundingClientRect()
                   mouseX.set(clientX - left)
                   mouseY.set(clientY - top)
@@ -328,26 +327,20 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                     initial='hidden'
                     animate='visible'
                     exit='hidden'
-                    className='group cursor-pointer'
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                    className='group relative flex flex-col h-full rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm cursor-pointer overflow-hidden'
                     onMouseMove={handleMouseMove}
-                    style={{ background }}>
-                    <div className='relative bg-card/80 backdrop-blur-sm border border-border rounded-2xl overflow-hidden h-full flex flex-col shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-primary/20'>
-                      {/* Gradient overlay */}
-                      <motion.div
-                        className='absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10'
-                        style={{ background }}
-                      />
-                      {/* Border glow effect */}
-                      <motion.div
-                        className='absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none'
-                        style={{
-                          background: useMotionTemplate`
-                            radial-gradient(300px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.15), transparent 70%)
-                          `,
-                        }}
-                      />
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}>
+                    {/* Gradient overlay */}
+                    <motion.div
+                      className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
+                      style={{ background }}
+                      transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                    />
+                    {/* Border glow effect */}
+                    <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+
+                    <div className='relative z-10 flex flex-col h-full'>
                       {/* Enhanced Project Image */}
                       <div className='relative h-48 lg:h-52 overflow-hidden'>
                         <div className='absolute inset-0 bg-gradient-to-br from-gray-50/20 to-gray-100/20 dark:from-gray-800/20 dark:to-gray-900/20'>
@@ -358,8 +351,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                             className='object-cover object-top transition-all duration-300 group-hover:scale-105'
                             sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                           />
-                        </div>
-                      </div>{' '}
+                        </div>                      </div>{' '}
                       {/* Project Content */}
                       <div className='p-6 flex flex-col flex-1'>
                         {/* Title with enhanced styling */}
@@ -402,8 +394,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                               {t('portfolio.viewDetails')}
                               <ArrowRight className='w-4 h-4 transition-transform group-hover:translate-x-1' />
                             </motion.button>
-                          </Link>
-                        </div>{' '}
+                          </Link>                        </div>{' '}
                       </div>
                     </div>
                   </motion.div>
