@@ -201,13 +201,18 @@ text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
             className='text-3xl sm:text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white'
             variants={itemVariants}>
             {t('about.defining.title')}
-          </motion.h3>{' '}          <div className='grid md:grid-cols-3 gap-8'>
+          </motion.h3>{' '}
+          <div className='grid md:grid-cols-3 gap-8'>
             {principles.map((principle, index) => {
-              const PrincipleCard = ({ principle, index }: { principle: any, index: number }) => {
+              const PrincipleCard = ({ principle, index }: { principle: any; index: number }) => {
                 const mouseX = useMotionValue(0)
                 const mouseY = useMotionValue(0)
 
-                function handleMouseMove({ currentTarget, clientX, clientY }: ReactMouseEvent<HTMLDivElement>) {
+                function handleMouseMove({
+                  currentTarget,
+                  clientX,
+                  clientY,
+                }: ReactMouseEvent<HTMLDivElement>) {
                   const { left, top } = currentTarget.getBoundingClientRect()
                   mouseX.set(clientX - left)
                   mouseY.set(clientY - top)
@@ -216,16 +221,11 @@ text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
                 const background = useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)`
 
                 return (
-                  <motion.div
-                    key={index}
-                    className='group'
-                    variants={itemVariants}
-                  >
+                  <motion.div key={index} className='group' variants={itemVariants}>
                     <motion.div
                       className='group relative bg-white/90 dark:bg-card/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/60 dark:border-border/50 h-full shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10 dark:hover:shadow-primary/5 transition-all duration-500 hover:border-indigo-300/60 dark:hover:border-primary/30 overflow-hidden cursor-pointer'
                       onMouseMove={handleMouseMove}
-                      whileTap={{ scale: 0.98 }}
-                    >
+                      whileTap={{ scale: 0.98 }}>
                       {/* Gradient overlay */}
                       <motion.div
                         className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
@@ -268,13 +268,18 @@ text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
             className='text-3xl sm:text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white'
             variants={itemVariants}>
             {t('about.stats.title')}
-          </motion.h3>{' '}          <div className='grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto'>
+          </motion.h3>{' '}
+          <div className='grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto'>
             {stats.map((stat, index) => {
-              const StatsCard = ({ stat, index }: { stat: any, index: number }) => {
+              const StatsCard = ({ stat, index }: { stat: any; index: number }) => {
                 const mouseX = useMotionValue(0)
                 const mouseY = useMotionValue(0)
 
-                function handleMouseMove({ currentTarget, clientX, clientY }: ReactMouseEvent<HTMLDivElement>) {
+                function handleMouseMove({
+                  currentTarget,
+                  clientX,
+                  clientY,
+                }: ReactMouseEvent<HTMLDivElement>) {
                   const { left, top } = currentTarget.getBoundingClientRect()
                   mouseX.set(clientX - left)
                   mouseY.set(clientY - top)
@@ -288,8 +293,7 @@ text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
                     className='group text-center bg-white/90 dark:bg-card/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/60 dark:border-border/50 shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10 dark:hover:shadow-primary/5 transition-all duration-500 hover:border-indigo-300/60 relative overflow-hidden cursor-pointer'
                     variants={itemVariants}
                     onMouseMove={handleMouseMove}
-                    whileTap={{ scale: 0.98 }}
-                  >
+                    whileTap={{ scale: 0.98 }}>
                     {/* Gradient overlay */}
                     <motion.div
                       className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'

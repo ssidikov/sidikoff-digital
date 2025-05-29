@@ -447,44 +447,28 @@ const translations: Record<Language, TranslationMap> = {
 
     // Custom prices
     'prices.custom': 'Custom Project',
-    'prices.customDescription':
-      'Need a unique website or complex solution? We deliver any level of custom web development for your business goals.',
-    'prices.features.enterpriseSecurity': 'Enterprise security',
-    'prices.features.prioritySupport': 'Priority support',
-    'prices.features.customFeatures': 'Custom features',
-    'prices.quote': 'Request a custom quote', // FAQ
-    'faq.title': 'Questions Fréquentes',
-    'faq.question1': "Combien coûte la création d'un site web ?",
-    'faq.answer1':
-      'Nos tarifs commencent à 500€ pour un site vitrine simple. Le prix varie selon vos besoins spécifiques : nombre de pages, fonctionnalités, design personnalisé, etc. Nous proposons un devis gratuit et personnalisé.',
-    'faq.question2': 'Combien de temps faut-il pour créer un site web ?',
-    'faq.answer2':
-      'Un site vitrine simple prend généralement 2-3 semaines. Pour un site plus complexe avec fonctionnalités avancées, comptez 4-8 semaines. Nous définissons ensemble un planning précis dès le début du projet.',
-    'faq.question3': 'Proposez-vous la maintenance de sites web ?',
-    'faq.answer3':
-      'Oui, nous proposons des contrats de maintenance pour assurer la sécurité, les mises à jour et les sauvegardes de votre site. Nous offrons également un support technique et des conseils pour optimiser votre présence en ligne.',
-    'faq.question4': 'Mes sites sont-ils optimisés pour le référencement SEO ?',
-    'faq.answer4':
-      'Absolument ! Tous nos sites sont conçus avec les bonnes pratiques SEO : structure optimisée, balises méta, vitesse de chargement, responsive design, contenu structuré. Nous proposons également des prestations SEO avancées.',
-
-    // Contact
-    'contact.title': 'Contactez-nous',
-    'contact.subtitle': 'Discutons de votre projet',
+    'prices.customDescription': 'Tailored solutions for your business',
+    'prices.quote': 'Request a quote',
+    'prices.features.enterpriseSecurity': 'Enterprise Security',
+    'prices.features.prioritySupport': 'Priority Support',
+    'prices.features.customFeatures': 'Custom Features',
+    'contact.title': 'Contact Us',
+    'contact.subtitle': 'Let’s discuss your project',
     'contact.description':
-      'Vous avez un projet web ? Parlons-en ! Notre équipe vous accompagne de l’idée à la mise en ligne : site vitrine, refonte, SEO, performance, accessibilité… Chaque projet est unique, et nous sommes là pour vous conseiller à chaque étape.',
+      "Do you have a web project? Let's talk! Our team supports you from idea to launch: showcase site, redesign, SEO, performance, accessibility... Every project is unique, and we are here to advise you at every step.",
     'contact.address': 'Paris, France',
-    'contact.send': 'Demander un devis gratuit',
-    'contact.firstName': 'Prénom',
-    'contact.placeholder.firstName': 'Votre prénom',
-    'contact.lastName': 'Nom',
-    'contact.placeholder.lastName': 'Votre nom de famille',
-    'contact.email': 'E-mail',
-    'contact.placeholder.email': 'Votre adresse e-mail',
-    'contact.phone': 'Téléphone',
-    'contact.placeholder.phone': 'Votre numéro de téléphone',
+    'contact.send': 'Request a free quote',
+    'contact.firstName': 'First Name',
+    'contact.placeholder.firstName': 'Your first name',
+    'contact.lastName': 'Last Name',
+    'contact.placeholder.lastName': 'Your last name',
+    'contact.email': 'Email',
+    'contact.placeholder.email': 'Your email address',
+    'contact.phone': 'Phone',
+    'contact.placeholder.phone': 'Your phone number',
     'contact.message': 'Message',
-    'contact.placeholder.message': 'Votre message',
-    'contact.sending': 'Envoi en cours...',
+    'contact.placeholder.message': 'Your message',
+    'contact.sending': 'Sending...',
 
     // Form validation errors
     'validation.firstName.required': 'Le prénom est obligatoire',
@@ -705,15 +689,44 @@ const translations: Record<Language, TranslationMap> = {
     'prices.tier3.includes.4': 'Интеграция CMS, блог, мультиязычность (по необходимости)',
     'prices.tier3.includes.5': 'Персональное сопровождение и гибкая структура',
     'prices.tier3.cta': 'Запросить предложение',
-
-    // Индивидуальные тарифы
-    'prices.custom': 'Индивидуальный проект',
-    'prices.customDescription':
-      'Нужен уникальный сайт или сложное решение? Мы реализуем проект любой сложности под ваши задачи и бизнес-процессы.',
+    'prices.custom': 'Нужен индивидуальный проект? Свяжитесь с нами для обсуждения.',
+    'prices.customDescription': 'Индивидуальные решения для вашего бизнеса',
+    'prices.quote': 'Запросить расчёт',
     'prices.features.enterpriseSecurity': 'Корпоративная безопасность',
     'prices.features.prioritySupport': 'Приоритетная поддержка',
     'prices.features.customFeatures': 'Индивидуальные функции',
-    'prices.quote': 'Запросить индивидуальное предложение',
+    'contact.title': 'Связаться с нами',
+    'contact.subtitle': 'Обсудим ваш проект',
+    'contact.description':
+      'Есть идея для сайта? Давайте обсудим! Наша команда поможет реализовать проект от концепции до запуска: корпоративный сайт, редизайн, SEO, производительность, доступность... Каждый проект уникален, и мы готовы сопровождать вас на каждом этапе.',
+    'contact.address': 'Париж, Франция',
+    'contact.send': 'Запросить бесплатную консультацию',
+    'contact.firstName': 'Имя',
+    'contact.placeholder.firstName': 'Ваше имя',
+    'contact.lastName': 'Фамилия',
+    'contact.placeholder.lastName': 'Ваша фамилия',
+    'contact.email': 'Электронная почта',
+    'contact.placeholder.email': 'Ваш e-mail',
+    'contact.phone': 'Телефон',
+    'contact.placeholder.phone': 'Ваш номер телефона',
+    'contact.message': 'Сообщение',
+    'contact.placeholder.message': 'Ваше сообщение',
+    'contact.sending': 'Отправка...',
+
+    // Form validation errors
+    'validation.firstName.required': 'Имя обязательно для заполнения',
+    'validation.firstName.minLength': 'Имя должно содержать минимум 2 символа',
+    'validation.lastName.required': 'Фамилия обязательна для заполнения',
+    'validation.lastName.minLength': 'Фамилия должна содержать минимум 2 символа',
+    'validation.email.required': 'Электронная почта обязательна для заполнения',
+    'validation.email.invalid': 'Пожалуйста, введите корректный адрес электронной почты',
+    'validation.phone.required': 'Номер телефона обязателен для заполнения',
+    'validation.phone.invalid': 'Пожалуйста, введите корректный номер телефона',
+    'validation.tariff.required': 'Пожалуйста, выберите услугу',
+    'validation.message.required': 'Сообщение обязательно для заполнения',
+    'validation.message.minLength': 'Сообщение должно содержать минимум 10 символов', // Success popup messages
+    'popup.success.title': 'Успешно отправлено!',
+    'popup.success.message': 'Ваше сообщение было успешно отправлено. Мы скоро свяжемся с вами!',
 
     // FAQ
     'faq.title': 'Часто задаваемые вопросы',

@@ -135,8 +135,8 @@ export default function Prices() {
           <motion.div
             variants={cardVariants}
             className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-100 dark:bg-primary/10 border border-indigo-200 dark:border-primary/20 mb-6 backdrop-blur-sm'>
-            <TrendingUp className='w-4 h-4 text-indigo-600 dark:text-primary animate-pulse' />
-            <span className='text-sm font-medium text-indigo-600 dark:text-primary'>
+            <TrendingUp className='w-4 h-4 text-indigo-600 dark:text-indigo-100' />
+            <span className='text-base font-medium text-indigo-600 dark:text-indigo-100 '>
               {t('prices.title')}
             </span>
           </motion.div>
