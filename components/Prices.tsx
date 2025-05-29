@@ -64,17 +64,16 @@ export default function Prices() {
     {
       name: t('prices.tier1.name'),
       price: t('prices.tier1.price'),
-      description: t('prices.tier1.description'),
+      description: t('prices.tier1.audience'),
       icon: Zap,
       color: 'from-blue-500 to-cyan-500',
+      includesTitle: t('prices.tier1.includes.title'),
       features: [
-        t('prices.tier1.feature1'),
-        t('prices.tier1.feature2'),
-        t('prices.tier1.feature3'),
-        t('prices.tier1.feature4'),
-        t('prices.tier1.feature5'),
-        t('prices.tier1.feature6'),
-        t('prices.tier1.feature7'),
+        t('prices.tier1.includes.1'),
+        t('prices.tier1.includes.2'),
+        t('prices.tier1.includes.3'),
+        t('prices.tier1.includes.4'),
+        t('prices.tier1.includes.5'),
       ],
       cta: t('prices.tier1.cta'),
       badge: null,
@@ -82,19 +81,16 @@ export default function Prices() {
     {
       name: t('prices.tier2.name'),
       price: t('prices.tier2.price'),
-      description: t('prices.tier2.description'),
+      description: t('prices.tier2.audience'),
       icon: Crown,
       color: 'from-purple-500 to-pink-500',
+      includesTitle: t('prices.tier2.includes.title'),
       features: [
-        t('prices.tier2.feature1'),
-        t('prices.tier2.feature2'),
-        t('prices.tier2.feature3'),
-        t('prices.tier2.feature4'),
-        t('prices.tier2.feature5'),
-        t('prices.tier2.feature6'),
-        t('prices.tier2.feature7'),
-        t('prices.tier2.feature8'),
-        t('prices.tier2.feature9'),
+        t('prices.tier2.includes.1'),
+        t('prices.tier2.includes.2'),
+        t('prices.tier2.includes.3'),
+        t('prices.tier2.includes.4'),
+        t('prices.tier2.includes.5'),
       ],
       cta: t('prices.tier2.cta'),
       highlighted: true,
@@ -103,20 +99,16 @@ export default function Prices() {
     {
       name: t('prices.tier3.name'),
       price: t('prices.tier3.price'),
-      description: t('prices.tier3.description'),
+      description: t('prices.tier3.audience'),
       icon: Star,
       color: 'from-orange-500 to-red-500',
+      includesTitle: t('prices.tier3.includes.title'),
       features: [
-        t('prices.tier3.feature1'),
-        t('prices.tier3.feature2'),
-        t('prices.tier3.feature3'),
-        t('prices.tier3.feature4'),
-        t('prices.tier3.feature5'),
-        t('prices.tier3.feature6'),
-        t('prices.tier3.feature7'),
-        t('prices.tier3.feature8'),
-        t('prices.tier3.feature9'),
-        t('prices.tier3.feature10'),
+        t('prices.tier3.includes.1'),
+        t('prices.tier3.includes.2'),
+        t('prices.tier3.includes.3'),
+        t('prices.tier3.includes.4'),
+        t('prices.tier3.includes.5'),
       ],
       cta: t('prices.tier3.cta'),
       badge: 'Enterprise',
@@ -198,7 +190,7 @@ export default function Prices() {
                 onMouseMove={handleMouseMove}
                 style={{ background }}
                 whileTap={{ scale: 0.98 }}>
-                <div className='relative rounded-3xl transition-all duration-500 h-full bg-card/90 backdrop-blur-sm border shadow-lg'>
+                <div className='relative rounded-3xl transition-all duration-500 h-full bg-card/90 backdrop-blur-sm border shadow-lg flex flex-col min-h-[540px]'>
                   {/* Gradient overlay */}
                   <motion.div
                     className='absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 rounded-3xl'
@@ -226,7 +218,7 @@ export default function Prices() {
                   )}
 
                   {/* Card content */}
-                  <div className='relative z-10 p-6 lg:p-8 h-full flex flex-col'>
+                  <div className='relative z-10 p-6 lg:p-8 h-full flex flex-col flex-1'>
                     {/* Header */}
                     <div className='text-center mb-8'>
                       {/* Icon */}
@@ -236,25 +228,24 @@ export default function Prices() {
                           <Icon className='w-8 h-8 text-indigo-600 dark:text-primary' />
                         </div>
                       </div>
-
                       {/* Name */}
                       <h3 className='text-2xl font-bold text-gray-900 dark:text-foreground mb-2'>
                         {tier.name}
-                      </h3>                      {/* Price */}
+                      </h3>{' '}
+                      {/* Price */}
                       <div className='mb-4'>
                         <span className='text-4xl font-bold text-indigo-600 dark:text-primary'>
                           {tier.price}
                         </span>
                       </div>
-
                       {/* Description */}
-                      <p className='text-gray-600 dark:text-muted-foreground leading-relaxed'>
+                      <p className='text-gray-600 dark:text-muted-foreground leading-relaxed md:min-h-28'>
                         {tier.description}
                       </p>
                     </div>{' '}
                     {/* Features */}
-                    <div className='flex-grow mb-8'>
-                      <ul className='space-y-4 min-h-[280px]'>
+                    <div className='flex-grow mb-8 flex flex-col'>
+                      <ul className='space-y-4 min-h-[220px]'>
                         {tier.features.map((feature, featureIndex) => (
                           <motion.li
                             key={featureIndex}
