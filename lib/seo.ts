@@ -120,9 +120,7 @@ export function generateMetadata(seoData: SEOData): Metadata {
     verification: {
       google: 'google-site-verification-code',
       yandex: 'yandex-verification-code',
-    },
-
-    // Additional meta tags for enhanced SEO
+    },    // Additional meta tags for enhanced SEO
     other: {
       'theme-color': '#4f46e5',
       'msapplication-TileColor': '#4f46e5',
@@ -132,9 +130,18 @@ export function generateMetadata(seoData: SEOData): Metadata {
       'mobile-web-app-capable': 'yes',
       'application-name': 'SIDIKOFF DIGITAL',
       'apple-mobile-web-app-title': 'SIDIKOFF DIGITAL',
-      'msapplication-tooltip': 'Agence Web à Paris',
+      'msapplication-tooltip': 'SIDIKOFF DIGITAL - Agence Web Paris',
       'msapplication-starturl': '/',
       'msapplication-navbutton-color': '#4f46e5',
+      'og:site_name': 'SIDIKOFF DIGITAL',
+      'twitter:site': '@sidikoffdigital',
+      'twitter:creator': '@sidikoffdigital',
+      'publisher': 'SIDIKOFF DIGITAL',
+      'organization': 'SIDIKOFF DIGITAL',
+      'company': 'SIDIKOFF DIGITAL',
+      'brand': 'SIDIKOFF DIGITAL',
+      'copyright': 'SIDIKOFF DIGITAL',
+      'author': 'SIDIKOFF DIGITAL',
     },
   }
 
@@ -370,10 +377,14 @@ export function generateWebsiteSchema() {
     '@type': 'WebSite',
     '@id': 'https://www.sidikoff.com/#website',
     url: defaultSEOConfig.baseUrl,
-    name: defaultSEOConfig.siteName,
+    name: 'SIDIKOFF DIGITAL',
+    alternateName: 'SIDIKOFF DIGITAL - Agence Web Paris',
     description: defaultSEOConfig.defaultDescription,
     publisher: {
-      '@id': 'https://www.sidikoff.com/#business',
+      '@id': 'https://www.sidikoff.com/#organization',
+    },
+    copyrightHolder: {
+      '@id': 'https://www.sidikoff.com/#organization',
     },
     potentialAction: {
       '@type': 'SearchAction',
@@ -384,6 +395,9 @@ export function generateWebsiteSchema() {
       'query-input': 'required name=search_term_string',
     },
     inLanguage: ['fr-FR', 'en-US', 'ru-RU'],
+    about: {
+      '@id': 'https://www.sidikoff.com/#organization',
+    },
   }
 }
 
@@ -393,7 +407,9 @@ export function generateOrganizationSchema() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': 'https://www.sidikoff.com/#organization',
-    name: defaultSEOConfig.business.name,
+    name: 'SIDIKOFF DIGITAL',
+    legalName: 'SIDIKOFF DIGITAL',
+    alternateName: 'SIDIKOFF DIGITAL - Agence Web Paris',
     url: defaultSEOConfig.baseUrl,
     logo: {
       '@type': 'ImageObject',

@@ -41,8 +41,8 @@ export const metadata: Metadata = generateSEOMetadata({
   locale: 'fr-FR',
   alternateLanguages: {
     fr: 'https://www.sidikoff.com/',
-    en: 'https://www.sidikoff.com/en',
-    ru: 'https://www.sidikoff.com/ru',
+    en: 'https://www.sidikoff.com',
+    ru: 'https://www.sidikoff.com',
   },
   ogImage: 'https://www.sidikoff.com/images/contact.png',
   canonical: 'https://www.sidikoff.com/',
@@ -57,12 +57,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel='dns-prefetch' href='//www.googletagmanager.com' />
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
-
         {/* Favicon and app icons */}
         <link rel='icon' href='/favicon.svg' />
         <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
         <link rel='manifest' href='/manifest.json' />
-
         {/* Additional meta tags for better SEO */}
         <meta name='author' content='SIDIKOFF DIGITAL' />
         <meta name='generator' content='Next.js' />
@@ -72,17 +70,36 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name='revisit-after' content='7 days' />
         <meta name='HandheldFriendly' content='True' />
         <meta name='MobileOptimized' content='320' />
-
+        {/* Site branding meta tags */}
+        <meta name='application-name' content='SIDIKOFF DIGITAL' />
+        <meta name='apple-mobile-web-app-title' content='SIDIKOFF DIGITAL' />
+        <meta name='msapplication-tooltip' content='SIDIKOFF DIGITAL - Agence Web Paris' />
+        <meta name='msapplication-starturl' content='https://www.sidikoff.com/' />
+        <meta name='msapplication-navbutton-color' content='#4f46e5' />
+        {/* Publisher and Organization info */}
+        <meta name='publisher' content='SIDIKOFF DIGITAL' />
+        <meta name='organization' content='SIDIKOFF DIGITAL' />
+        <meta name='company' content='SIDIKOFF DIGITAL' />
+        <meta name='brand' content='SIDIKOFF DIGITAL' />
         {/* Language and region meta tags */}
         <meta name='geo.region' content='FR-75' />
         <meta name='geo.placename' content='Paris' />
         <meta name='geo.position' content='48.8566;2.3522' />
         <meta name='ICBM' content='48.8566, 2.3522' />
-
         {/* Business information */}
         <meta name='contact' content='contact@sidikoff.com' />
         <meta name='copyright' content='SIDIKOFF DIGITAL' />
-
+        {/* Google-specific meta tags for proper site name display */}
+        <meta name='application-name' content='SIDIKOFF DIGITAL' />
+        <meta name='og:site_name' content='SIDIKOFF DIGITAL' />
+        <meta name='twitter:site' content='@sidikoffdigital' />
+        <meta name='twitter:creator' content='@sidikoffdigital' />
+        {/* Additional branding */}
+        <meta name='format-detection' content='telephone=no' />
+        <meta name='mobile-web-app-capable' content='yes' />
+        <meta name='apple-mobile-web-app-capable' content='yes' />
+        <meta name='apple-mobile-web-app-status-bar-style' content='default' />
+        <meta name='apple-mobile-web-app-title' content='SIDIKOFF DIGITAL' />
         {/* Performance hints */}
         <link rel='dns-prefetch' href='//vercel.com' />
         <link rel='preload' href='/logo.svg' as='image' type='image/svg+xml' />
@@ -101,7 +118,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     });
   `}
         </Script>
-
         {/* GTM script */}
         {process.env.NEXT_PUBLIC_GTM_ID && (
           <Script id='gtm-script' strategy='afterInteractive'>
@@ -111,13 +127,33 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'https://www.googletagmanager.com/gtm.js?id=${process.env.NEXT_PUBLIC_GTM_ID}'+dl;
       f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID}');
-    `}
+    })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID}');            `}
           </Script>
         )}
-
         {/* Structured Data */}
         <StructuredData type='all' />
+        {/* Additional Schema for better site name recognition */}
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'SIDIKOFF DIGITAL',
+              alternateName: 'SIDIKOFF DIGITAL - Agence Web Paris',
+              url: 'https://www.sidikoff.com',
+              sameAs: [
+                'https://linkedin.com/company/sidikoff-digital',
+                'https://twitter.com/sidikoffdigital',
+              ],
+              publisher: {
+                '@type': 'Organization',
+                '@id': 'https://www.sidikoff.com/#organization',
+                name: 'SIDIKOFF DIGITAL',
+              },
+            }),
+          }}
+        />
       </head>
       <body className={inter.className}>
         {/* GTM noscript */}
@@ -129,7 +165,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               width='0'
               style={{ display: 'none', visibility: 'hidden' }}></iframe>
           </noscript>
-        )}{' '}
+        )}
         <ThemeProvider
           attribute='class'
           defaultTheme='system'

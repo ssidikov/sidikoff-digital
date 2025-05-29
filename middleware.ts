@@ -50,14 +50,13 @@ export function middleware(request: NextRequest) {
     pathname === '/manifest.json'
   ) {
     return NextResponse.next()
-  }
-  // Special redirect for euclid project to homepage
+  }  // Special redirect for euclid project to homepage
   if (pathname === '/projects/euclid') {
     return NextResponse.redirect(new URL('/', request.url))
   }
 
-  // Handle legacy project slug redirects
-  if (projectId && legacyProjectSlugs[projectId]) {
+  // Handle legacy project slug redirects (but exclude euclid which is already handled above)
+  if (projectId && projectId !== 'euclid' && legacyProjectSlugs[projectId]) {
     return NextResponse.redirect(new URL(`/projects/${legacyProjectSlugs[projectId]}`, request.url))
   }
 
