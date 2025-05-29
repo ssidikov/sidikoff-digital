@@ -51,6 +51,10 @@ export function middleware(request: NextRequest) {
   ) {
     return NextResponse.next()
   }
+  // Special redirect for euclid project to homepage
+  if (pathname === '/projects/euclid') {
+    return NextResponse.redirect(new URL('/', request.url))
+  }
 
   // Handle legacy project slug redirects
   if (projectId && legacyProjectSlugs[projectId]) {
