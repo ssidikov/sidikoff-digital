@@ -28,7 +28,7 @@ export default function Header() {
     if (pathname.startsWith('/ru/') || pathname === '/ru') return 'ru'
     return 'fr' // Default to French
   }
-  
+
   const currentLocale = getCurrentLocale()
   // Generate locale-aware URLs
   const getLocalePath = (path: string) => {
@@ -39,7 +39,7 @@ export default function Header() {
   // Ensure theme is mounted before using it
   useEffect(() => {
     setMounted(true)
-  }, [])  // Track active section for navigation indicators
+  }, []) // Track active section for navigation indicators
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'services', 'portfolio', 'about', 'prices', 'contact']
@@ -60,11 +60,12 @@ export default function Header() {
     // Check if we're on the homepage (with or without locale)
     const locale = currentLocale || ''
     const isHomePage = pathname === '/' || pathname === `/${locale}` || pathname === `/${locale}/`
-    
+
     if (isHomePage) {
       window.addEventListener('scroll', handleScroll)
       handleScroll() // Initial check
-    }    return () => window.removeEventListener('scroll', handleScroll)
+    }
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [pathname, currentLocale])
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -75,10 +76,10 @@ export default function Header() {
       // Check if we're on the homepage (with or without locale)
       const locale = currentLocale || ''
       const isHomePage = pathname === '/' || pathname === `/${locale}` || pathname === `/${locale}/`
-      
+
       if (isHomePage) {
         scrollToSection(sectionId)
-            } else {
+      } else {
         // Navigate to homepage with locale and then scroll to section
         const homePath = getLocalePath('/')
         router.push(homePath)
@@ -103,7 +104,7 @@ export default function Header() {
       // Check if we're on the homepage (with or without locale)
       const locale = currentLocale || ''
       const isHomePage = pathname === '/' || pathname === `/${locale}` || pathname === `/${locale}/`
-      
+
       if (isHomePage) {
         setTimeout(() => scrollToSection(sectionId), 100) // Small delay for menu closing
       } else {
@@ -120,13 +121,13 @@ export default function Header() {
       router.push(localePath)
     }
   }
-  
+
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     // Check if we're on the homepage (with or without locale)
     const locale = currentLocale || ''
     const isHomePage = pathname === '/' || pathname === `/${locale}` || pathname === `/${locale}/`
-    
+
     if (isHomePage) {
       scrollToTop()
     } else {
@@ -168,7 +169,8 @@ export default function Header() {
       },
     },
   }
-  return (    <motion.header className='fixed top-0 left-0 right-0 z-50 backdrop-blur-xl transition-all duration-300 border-b border-gray-200/30 dark:border-gray-700/30'>
+  return (
+    <motion.header className='fixed top-0 left-0 right-0 z-50 backdrop-blur-xl transition-all duration-300 border-b border-gray-200/30 dark:border-gray-700/30'>
       <motion.div className='container mx-auto px-4 py-2 md:py-3 flex items-center justify-between transition-all duration-300'>
         {/* Logo */}
         <div className='z-50'>
@@ -176,7 +178,8 @@ export default function Header() {
             href='/'
             className='flex flex-col items-center leading-none text-gray-900 dark:text-white'
             onClick={handleLogoClick}>
-            <Image              src='/logo-sidikoff.svg'
+            <Image
+              src='/logo-sidikoff.svg'
               alt='Logo'
               width={200}
               height={100}
@@ -227,7 +230,8 @@ export default function Header() {
               />
             </motion.svg>
           </motion.button>
-        </div>{' '}        {/* Desktop nav */}
+        </div>{' '}
+        {/* Desktop nav */}
         <nav className='hidden md:flex items-center gap-6'>
           {[
             { href: `${getLocalePath('/')}#home`, key: 'nav.home', section: 'home' },
@@ -250,18 +254,19 @@ export default function Header() {
                 {t(key)}
                 {activeSection === section && (
                   <motion.div
-                    className='absolute -bottom-1 left-1/2 w-4 h-0.5 bg-gradient-to-r from-primary/60 via-primary to-primary/60 rounded-full shadow-sm'
+                    className='absolute -bottom-1 left-1/4 w-6 h-0.5 bg-gradient-to-r from-primary/60 via-primary to-primary/60 rounded-full shadow-sm'
                     layoutId='activeIndicator'
                     initial={{ opacity: 0, scale: 0, width: 0 }}
-                    animate={{ opacity: 1, scale: 1, width: 16 }}
+                    animate={{ opacity: 1, scale: 1, width: '50%' }}
                     transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-                    style={{ translateX: '-50%' }}
+                    style={{ translateX: '-40%' }}
                   />
                 )}
               </motion.a>
             </motion.div>
           ))}
-        </nav>        {/* Desktop CTA */}
+        </nav>{' '}
+        {/* Desktop CTA */}
         <div className='hidden md:flex items-center gap-2'>
           <motion.a
             href={`${getLocalePath('/')}#contact`}
@@ -282,7 +287,7 @@ export default function Header() {
       <AnimatePresence mode='wait'>
         {menuOpen && (
           <motion.div
-            className='md:hidden w-full backdrop-blur-xl bg-background/98 border-b border-border shadow-xl dark:bg-background/95 dark:shadow-2xl'
+            className='md:hidden w-full backdrop-blur-xxl bg-background/98 border-b border-border shadow-xl dark:shadow-2xl'
             initial={{ opacity: 0, y: -20, height: 0 }}
             animate={{ opacity: 1, y: 0, height: 'auto' }}
             exit={{ opacity: 0, y: -20, height: 0 }}
@@ -292,14 +297,24 @@ export default function Header() {
               height: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] },
             }}>
             <motion.nav
-              className='flex flex-col gap-2 py-6 px-4 w-full'
+              className='flex flex-col gap-2 py-6 px-4 w-full bg-transparent'
               variants={menuVariants}
               initial='hidden'
               animate='visible'
-              exit='hidden'>              {' '}              {[
+              exit='hidden'>
+              {' '}
+              {[
                 { href: `${getLocalePath('/')}#home`, key: 'nav.home', section: 'home' },
-                { href: `${getLocalePath('/')}#services`, key: 'nav.services', section: 'services' },
-                { href: `${getLocalePath('/')}#portfolio`, key: 'nav.portfolio', section: 'portfolio' },
+                {
+                  href: `${getLocalePath('/')}#services`,
+                  key: 'nav.services',
+                  section: 'services',
+                },
+                {
+                  href: `${getLocalePath('/')}#portfolio`,
+                  key: 'nav.portfolio',
+                  section: 'portfolio',
+                },
                 { href: `${getLocalePath('/')}#about`, key: 'nav.expertise', section: 'about' },
                 { href: `${getLocalePath('/')}#prices`, key: 'nav.prices', section: 'prices' },
               ].map(({ href, key, section }) => (
@@ -309,9 +324,10 @@ export default function Header() {
                     onClick={(e) => handleMobileNavClick(e, href)}
                     className={`flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200 cursor-pointer backdrop-blur-sm ${
                       activeSection === section
-                        ? 'bg-primary/15 text-primary border border-primary/30 shadow-sm dark:bg-primary/10 dark:border-primary/20'
-                        : 'hover:bg-accent/60 text-muted-foreground hover:text-foreground hover:shadow-sm dark:hover:bg-accent/40'
-                    }`}                    whileHover={{ scale: 1.02 }}
+                        ? 'bg-primary/15 text-primary border border-primary/30 shadow-sm'
+                        : 'hover:bg-accent/60 text-muted-foreground hover:text-foreground hover:shadow-sm'
+                    }`}
+                    whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}>
                     <span className='font-medium'>{t(key)}</span>{' '}
                     {activeSection === section && (
@@ -327,7 +343,9 @@ export default function Header() {
               ))}
               <motion.div
                 variants={itemVariants}
-                className='w-full mt-4 pt-4 border-t border-border'>                <motion.a
+                className='w-full mt-4 pt-4 border-t border-border'>
+                {' '}
+                <motion.a
                   href={`${getLocalePath('/')}#contact`}
                   className='w-full block'
                   onClick={(e) => handleMobileNavClick(e, `${getLocalePath('/')}#contact`)}
