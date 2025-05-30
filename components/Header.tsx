@@ -252,16 +252,6 @@ export default function Header() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}>
                 {t(key)}
-                {activeSection === section && (
-                  <motion.div
-                    className='absolute -bottom-1 left-1/4 w-6 h-0.5 bg-gradient-to-r from-primary/60 via-primary to-primary/60 rounded-full shadow-sm'
-                    layoutId='activeIndicator'
-                    initial={{ opacity: 0, scale: 0, width: 0 }}
-                    animate={{ opacity: 1, scale: 1, width: '50%' }}
-                    transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-                    style={{ translateX: '-40%' }}
-                  />
-                )}
               </motion.a>
             </motion.div>
           ))}
