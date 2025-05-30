@@ -17,6 +17,9 @@ type TranslationMap = {
 
 const translations: Record<Language, TranslationMap> = {
   fr: {
+    // Common
+    'common.back': 'Retour',
+    
     // Header    'nav.home': 'Accueil',
     'nav.home': 'Accueil',
     'nav.portfolio': 'Réalisations',
@@ -274,9 +277,11 @@ const translations: Record<Language, TranslationMap> = {
       "Conformément au RGPD, vous disposez de droits sur vos données personnelles. Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes et ne sont pas transmises à des tiers. Vous pouvez exercer vos droits concernant vos données personnelles en contactant à l'adresse e-mail : contact@sidikoff.com.",
     'legal.cookies.title': 'Cookies',
     'legal.cookies.content':
-      'Ce site utilise des cookies essentiels au fonctionnement du site. En continuant à naviguer sur ce site, vous acceptez leur utilisation.',
-  },
+      'Ce site utilise des cookies essentiels au fonctionnement du site. En continuant à naviguer sur ce site, vous acceptez leur utilisation.',  },
   en: {
+    // Common
+    'common.back': 'Back',
+    
     'nav.home': 'Home',
     'nav.portfolio': 'Portfolio',
     'nav.expertise': 'About',
@@ -520,9 +525,11 @@ const translations: Record<Language, TranslationMap> = {
       "Conformément au RGPD, vous disposez de droits sur vos données personnelles. Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes et ne sont pas transmises à des tiers. Vous pouvez exercer vos droits concernant vos données personnelles en contactant à l'adresse e-mail : contact@sidikoff.com.",
     'legal.cookies.title': 'Cookies',
     'legal.cookies.content':
-      'Ce site utilise des cookies essentiels au fonctionnement du site. En continuant à naviguer sur ce site, vous acceptez leur utilisation.',
-  },
+      'Ce site utilise des cookies essentiels au fonctionnement du site. En continuant à naviguer sur ce site, vous acceptez leur utilisation.',  },
   ru: {
+    // Common
+    'common.back': 'Назад',
+    
     'nav.home': 'Главная',
     'nav.portfolio': 'Портфолио',
     'nav.expertise': 'О нас',

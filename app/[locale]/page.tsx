@@ -42,9 +42,8 @@ export default function LocalePage({
   if (!locales.includes(locale)) {
     notFound()
   }
-
   return (
-    <>
+    <div className='scroll-smooth min-h-screen antialiased'>
       <Header />
       <main>
         <Hero />
@@ -57,6 +56,6 @@ export default function LocalePage({
       </main>
       <Footer />
       <StructuredData type='all' />
-    </>
+    </div>
   )
 }

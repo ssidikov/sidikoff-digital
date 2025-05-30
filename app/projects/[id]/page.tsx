@@ -63,11 +63,11 @@ export default function ProjectPage({
         : project.longDescription,
   }
   return (
-    <div className='min-h-screen text-foreground transition-colors duration-300 bg-gradient-light dark:bg-gradient-dark'>
+    <div className='scroll-smooth min-h-screen'>
       <Header />
       <main className='container mx-auto px-4 pt-24 md:pt-32 min-h-screen'>
         <Breadcrumbs />
-        <div className='float-right'>
+        <div className='mt-8 max-w-4xl mx-auto'>
           <button
             onClick={handleBackClick}
             className='px-4 py-2 text-sm border rounded-md bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors'>
@@ -99,17 +99,18 @@ export default function ProjectPage({
                   </span>
                 ))}
               </div>
-            </div>{' '}            <div className='flex flex-row gap-4 justify-between md:justify-normal items-center'>
+            </div>{' '}
+            <div className='flex flex-row gap-4 justify-between md:justify-normal items-center'>
               <a href='/#contact' onClick={handleContactClick} className='w-1/2 md:w-48'>
                 <button className='group relative w-full min-w-[120px] max-w-[220px] px-6 py-3 text-base font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center mx-auto overflow-hidden'>
                   {/* Animated background overlay */}
                   <div className='absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
-                  
+
                   {/* Button content */}
                   <span className='relative z-10 transition-all duration-300 group-hover:tracking-wide'>
                     {t('hero.contact')}
                   </span>
-                  
+
                   {/* Shine effect */}
                   <div className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12' />
                 </button>
@@ -123,12 +124,12 @@ export default function ProjectPage({
                 <button className='group relative w-full min-w-[120px] max-w-[220px] px-6 py-3 text-base font-medium bg-gradient-to-r from-primary/10 to-primary/5 text-primary border-2 border-primary/20 rounded-lg shadow-lg hover:shadow-xl hover:bg-gradient-to-r hover:from-primary hover:to-primary/80 hover:text-primary-foreground hover:border-primary transition-all duration-300 flex items-center justify-center mx-auto overflow-hidden'>
                   {/* Background gradient overlay */}
                   <div className='absolute inset-0 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
-                  
+
                   {/* Button content */}
                   <span className='relative z-10 transition-all duration-300 group-hover:tracking-wide'>
                     {t('portfolio.viewProject')}
                   </span>
-                  
+
                   {/* Shine effect */}
                   <div className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12' />
                 </button>

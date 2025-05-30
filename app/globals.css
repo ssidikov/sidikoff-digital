@@ -92,6 +92,15 @@
     @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600;
   }
 
+  /* Градиентные фоны */
+  .bg-gradient-light {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  }
+
+  .bg-gradient-dark {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
   /* Кнопки */
   .btn-primary {
     @apply inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg 

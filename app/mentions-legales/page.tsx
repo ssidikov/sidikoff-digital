@@ -8,7 +8,7 @@ export default function LegalMentionsPage() {
   const { t } = useLanguage()
 
   return (
-    <div className='min-h-screen text-foreground transition-colors duration-300 bg-gradient-light dark:bg-gradient-dark'>
+    <div className='scroll-smooth min-h-screen'>
       <Header />
       <Breadcrumbs />
       <main className='container mx-auto py-20 pt-24 md:pt-32 px-4'>

@@ -392,7 +392,7 @@ text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
                   {/* Button content */}
                   <span className='relative z-10 flex items-center gap-3'>
                     <MessageCircle className='w-5 h-5 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12' />
-                    <span className='transition-all duration-300 group-hover:tracking-wide'>
+                    <span className='transition-all duration-300 group-hover:tracking-wide text-left'>
                       {t('about.cta.button')}
                     </span>
                     <ArrowRight className='w-5 h-5 transition-all duration-300 group-hover:translate-x-2 group-hover:scale-110' />

@@ -9,7 +9,7 @@ export default function ProjectsPage() {
   const { t } = useLanguage()
 
   return (
-    <div className='min-h-screen text-foreground transition-colors duration-300 bg-gradient-light dark:bg-gradient-dark'>
+    <div className='min-h-screen'>
       <Header />
       <main className='container mx-auto py-20 pt-24 md:pt-32'>
         <Portfolio showAllProjects />

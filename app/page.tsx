@@ -187,7 +187,7 @@ export default function Page() {
         <StructuredData key={index} customData={schema} />
       ))}
 
-      <div className='scroll-smooth min-h-screen bg-background text-foreground transition-colors duration-300 bg-gradient-light dark:bg-gradient-dark'>
+      <div className='scroll-smooth min-h-screen antialiased'>
         <Header />
         <main>
           <Hero />
