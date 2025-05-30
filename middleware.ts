@@ -2,10 +2,17 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { projects } from '@/data/portfolio-data'
 
+const locales = ['fr', 'en', 'ru']
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  // List of valid paths
+  // Extract locale from pathname
+  const pathnameIsMissingLocale = locales.every(
+    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+  )
+
+  // List of valid paths (without locale prefix)
   const validPaths = [
     '/',
     '/services',
@@ -16,8 +23,10 @@ export function middleware(request: NextRequest) {
   ]
 
   // Check for valid project paths - allow any numeric ID
-  const isValidProjectPath = pathname.startsWith('/projects/') && pathname.split('/').length === 3
-  const projectId = pathname.startsWith('/projects/') ? pathname.split('/')[2] : null
+  const isValidProjectPath = (path: string) => {
+    const segments = path.split('/')
+    return segments.length === 3 && segments[1] === 'projects' && segments[2]
+  }
 
   // Legacy project slug mappings - redirect old slug URLs to new ID URLs
   const legacyProjectSlugs: Record<string, string> = {
@@ -50,23 +59,58 @@ export function middleware(request: NextRequest) {
     pathname === '/manifest.json'
   ) {
     return NextResponse.next()
-  }  // Special redirect for euclid project to homepage
+  }
+
+  // Special redirect for euclid project to homepage
   if (pathname === '/projects/euclid') {
     return NextResponse.redirect(new URL('/', request.url))
   }
 
-  // Handle legacy project slug redirects (but exclude euclid which is already handled above)
-  if (projectId && projectId !== 'euclid' && legacyProjectSlugs[projectId]) {
-    return NextResponse.redirect(new URL(`/projects/${legacyProjectSlugs[projectId]}`, request.url))
+  // Handle legacy project slug redirects for paths without locale
+  const projectMatch = pathname.match(/^\/projects\/(.+)$/)
+  if (projectMatch && legacyProjectSlugs[projectMatch[1]]) {
+    return NextResponse.redirect(new URL(`/projects/${legacyProjectSlugs[projectMatch[1]]}`, request.url))
   }
 
-  // If it's a valid path or valid project path, continue
-  if (validPaths.includes(pathname) || isValidProjectPath) {
+  // Handle locale-prefixed legacy redirects
+  const localeProjectMatch = pathname.match(/^\/([a-z]{2})\/projects\/(.+)$/)
+  if (localeProjectMatch && locales.includes(localeProjectMatch[1]) && legacyProjectSlugs[localeProjectMatch[2]]) {
+    return NextResponse.redirect(new URL(`/${localeProjectMatch[1]}/projects/${legacyProjectSlugs[localeProjectMatch[2]]}`, request.url))
+  }
+
+  // If pathname is missing locale, redirect to default locale (fr)
+  if (pathnameIsMissingLocale) {
+    // Special handling for root path
+    if (pathname === '/') {
+      return NextResponse.next() // Allow root path without redirect
+    }
+    
+    // For other paths, check if they're valid
+    if (validPaths.includes(pathname) || isValidProjectPath(pathname)) {
+      return NextResponse.next() // Allow valid paths without locale
+    }
+    
+    // For invalid paths, redirect to homepage
+    return NextResponse.redirect(new URL('/', request.url))
+  }
+
+  // Extract locale and remaining path
+  const segments = pathname.split('/')
+  const locale = segments[1]
+  const pathWithoutLocale = '/' + segments.slice(2).join('/')
+
+  // Validate locale
+  if (!locales.includes(locale)) {
+    return NextResponse.redirect(new URL('/', request.url))
+  }
+
+  // Check if the path without locale is valid
+  if (validPaths.includes(pathWithoutLocale) || isValidProjectPath(pathWithoutLocale)) {
     return NextResponse.next()
   }
 
-  // For any other path, redirect to homepage
-  return NextResponse.redirect(new URL('/', request.url))
+  // For any other path, redirect to homepage with locale
+  return NextResponse.redirect(new URL(`/${locale}`, request.url))
 }
 
 export const config = {

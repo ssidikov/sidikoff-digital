@@ -16,11 +16,25 @@ export default function Header() {
   const [activeSection, setActiveSection] = useState('home')
   const [isScrolled, setIsScrolled] = useState(false)
   const [mounted, setMounted] = useState(false)
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const { scrollToSection, scrollToTop } = useSmoothScroll()
   const { theme, resolvedTheme } = useTheme()
   const router = useRouter()
   const pathname = usePathname()
+  // Get current locale from pathname
+  const getCurrentLocale = () => {
+    if (pathname.startsWith('/fr/') || pathname === '/fr') return 'fr'
+    if (pathname.startsWith('/en/') || pathname === '/en') return 'en'
+    if (pathname.startsWith('/ru/') || pathname === '/ru') return 'ru'
+    return 'fr' // Default to French
+  }
+  
+  const currentLocale = getCurrentLocale()
+  // Generate locale-aware URLs
+  const getLocalePath = (path: string) => {
+    // All languages use the /locale prefix for consistency
+    return `/${currentLocale}${path}`
+  }
 
   // Ensure theme is mounted before using it
   useEffect(() => {
@@ -43,31 +57,39 @@ export default function Header() {
       }
     }
 
-    if (pathname === '/') {
+    // Check if we're on the homepage (with or without locale)
+    const locale = currentLocale || ''
+    const isHomePage = pathname === '/' || pathname === `/${locale}` || pathname === `/${locale}/`
+    
+    if (isHomePage) {
       window.addEventListener('scroll', handleScroll)
       handleScroll() // Initial check
-    }
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [pathname])
+    }    return () => window.removeEventListener('scroll', handleScroll)
+  }, [pathname, currentLocale])
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
     if (href.startsWith('/#')) {
-      const sectionId = href.substring(2) // Удаляем "/#"
+      const sectionId = href.substring(2) // Remove "/#"
 
-      // Если мы на главной странице, просто скроллим к секции
-      if (pathname === '/') {
+      // Check if we're on the homepage (with or without locale)
+      const locale = currentLocale || ''
+      const isHomePage = pathname === '/' || pathname === `/${locale}` || pathname === `/${locale}/`
+      
+      if (isHomePage) {
         scrollToSection(sectionId)
-      } else {
-        // Если мы на другой странице, переходим на главную с якорем
-        router.push('/')
-        // Добавляем задержку для завершения навигации, затем скролл к секции
+            } else {
+        // Navigate to homepage with locale and then scroll to section
+        const homePath = getLocalePath('/')
+        router.push(homePath)
         setTimeout(() => {
           scrollToSection(sectionId)
         }, 150)
       }
     } else {
-      router.push(href)
+      // For regular links, use locale-aware paths
+      const localePath = getLocalePath(href)
+      router.push(localePath)
     }
   }
 
@@ -76,32 +98,41 @@ export default function Header() {
     setMenuOpen(false)
 
     if (href.startsWith('/#')) {
-      const sectionId = href.substring(2) // Удаляем "/#"
+      const sectionId = href.substring(2) // Remove "/#"
 
-      // Если мы на главной странице, просто скроллим к секции
-      if (pathname === '/') {
-        setTimeout(() => scrollToSection(sectionId), 100) // Небольшая задержка для закрытия меню
+      // Check if we're on the homepage (with or without locale)
+      const locale = currentLocale || ''
+      const isHomePage = pathname === '/' || pathname === `/${locale}` || pathname === `/${locale}/`
+      
+      if (isHomePage) {
+        setTimeout(() => scrollToSection(sectionId), 100) // Small delay for menu closing
       } else {
-        // Если мы на другой странице, переходим на главную с якорем
-        router.push('/')
-        // Добавляем задержку для завершения навигации, затем скролл к секции
+        // Navigate to homepage with locale and then scroll to section
+        const homePath = getLocalePath('/')
+        router.push(homePath)
         setTimeout(() => {
           scrollToSection(sectionId)
-        }, 250) // Больше времени для закрытия меню и навигации
+        }, 250) // More time for menu closing and navigation
       }
     } else {
-      router.push(href)
+      // For regular links, use locale-aware paths
+      const localePath = getLocalePath(href)
+      router.push(localePath)
     }
   }
-
+  
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
-    // Если мы на главной странице, скролл наверх
-    if (pathname === '/') {
+    // Check if we're on the homepage (with or without locale)
+    const locale = currentLocale || ''
+    const isHomePage = pathname === '/' || pathname === `/${locale}` || pathname === `/${locale}/`
+    
+    if (isHomePage) {
       scrollToTop()
     } else {
-      // Если на другой странице, переходим на главную через router
-      router.push('/')
+      // Navigate to homepage with proper locale
+      const homePath = getLocalePath('/')
+      router.push(homePath)
     }
   }
 
@@ -196,13 +227,14 @@ export default function Header() {
               />
             </motion.svg>
           </motion.button>
-        </div>{' '}        {/* Desktop nav */}        <nav className='hidden md:flex items-center gap-6'>
+        </div>{' '}        {/* Desktop nav */}
+        <nav className='hidden md:flex items-center gap-6'>
           {[
-            { href: '/#home', key: 'nav.home', section: 'home' },
-            { href: '/#services', key: 'nav.services', section: 'services' },
-            { href: '/#portfolio', key: 'nav.portfolio', section: 'portfolio' },
-            { href: '/#about', key: 'nav.expertise', section: 'about' },
-            { href: '/#prices', key: 'nav.prices', section: 'prices' },
+            { href: `${getLocalePath('/')}#home`, key: 'nav.home', section: 'home' },
+            { href: `${getLocalePath('/')}#services`, key: 'nav.services', section: 'services' },
+            { href: `${getLocalePath('/')}#portfolio`, key: 'nav.portfolio', section: 'portfolio' },
+            { href: `${getLocalePath('/')}#about`, key: 'nav.expertise', section: 'about' },
+            { href: `${getLocalePath('/')}#prices`, key: 'nav.prices', section: 'prices' },
           ].map(({ href, key, section }) => (
             <motion.div key={section} className='relative'>
               <motion.a
@@ -215,7 +247,7 @@ export default function Header() {
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}>
-                {t(key)}{' '}
+                {t(key)}
                 {activeSection === section && (
                   <motion.div
                     className='absolute -bottom-1 left-1/2 w-4 h-0.5 bg-gradient-to-r from-primary/60 via-primary to-primary/60 rounded-full shadow-sm'
@@ -229,11 +261,11 @@ export default function Header() {
               </motion.a>
             </motion.div>
           ))}
-        </nav>{' '}        {/* Desktop CTA */}
+        </nav>        {/* Desktop CTA */}
         <div className='hidden md:flex items-center gap-2'>
           <motion.a
-            href='/#contact'
-            onClick={(e) => handleNavClick(e, '/#contact')}
+            href={`${getLocalePath('/')}#contact`}
+            onClick={(e) => handleNavClick(e, `${getLocalePath('/')}#contact`)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}>
             {' '}
@@ -265,11 +297,11 @@ export default function Header() {
               initial='hidden'
               animate='visible'
               exit='hidden'>              {' '}              {[
-                { href: '/#home', key: 'nav.home', section: 'home' },
-                { href: '/#services', key: 'nav.services', section: 'services' },
-                { href: '/#portfolio', key: 'nav.portfolio', section: 'portfolio' },
-                { href: '/#about', key: 'nav.expertise', section: 'about' },
-                { href: '/#prices', key: 'nav.prices', section: 'prices' },
+                { href: `${getLocalePath('/')}#home`, key: 'nav.home', section: 'home' },
+                { href: `${getLocalePath('/')}#services`, key: 'nav.services', section: 'services' },
+                { href: `${getLocalePath('/')}#portfolio`, key: 'nav.portfolio', section: 'portfolio' },
+                { href: `${getLocalePath('/')}#about`, key: 'nav.expertise', section: 'about' },
+                { href: `${getLocalePath('/')}#prices`, key: 'nav.prices', section: 'prices' },
               ].map(({ href, key, section }) => (
                 <motion.div key={section} variants={itemVariants}>
                   <motion.a
@@ -295,11 +327,10 @@ export default function Header() {
               ))}
               <motion.div
                 variants={itemVariants}
-                className='w-full mt-4 pt-4 border-t border-border'>
-                <motion.a
-                  href='/#contact'
+                className='w-full mt-4 pt-4 border-t border-border'>                <motion.a
+                  href={`${getLocalePath('/')}#contact`}
                   className='w-full block'
-                  onClick={(e) => handleMobileNavClick(e, '/#contact')}
+                  onClick={(e) => handleMobileNavClick(e, `${getLocalePath('/')}#contact`)}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}>
                   {' '}

@@ -3,19 +3,42 @@
 import { useState, useRef, useEffect } from 'react'
 import { Globe } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
+import { useRouter, usePathname } from 'next/navigation'
 
 export default function LanguageSelector() {
   const { language, setLanguage } = useLanguage()
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const router = useRouter()
+  const pathname = usePathname()
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen)
   }
-
   const selectLanguage = (lang: 'fr' | 'en' | 'ru') => {
     setLanguage(lang)
     setIsOpen(false)
+    
+    // Get current path without locale prefix
+    let currentPath = pathname
+    
+    // Remove existing locale prefix if present
+    if (pathname.startsWith('/fr/') || pathname.startsWith('/en/') || pathname.startsWith('/ru/')) {
+      currentPath = pathname.substring(3) // Remove /xx
+    } else if (pathname === '/fr' || pathname === '/en' || pathname === '/ru') {
+      currentPath = '/'
+    }
+    
+    // Ensure currentPath starts with /
+    if (currentPath && !currentPath.startsWith('/')) {
+      currentPath = '/' + currentPath
+    }
+    
+    // Generate new path with selected language - all languages use /lang prefix
+    const newPath = `/${lang}${currentPath || '/'}`
+    
+    // Navigate to the new locale path
+    router.push(newPath)
   }
 
   useEffect(() => {

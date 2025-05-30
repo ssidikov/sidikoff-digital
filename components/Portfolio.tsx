@@ -3,7 +3,7 @@
 import { useState, useRef, MouseEvent as ReactMouseEvent } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import {
   motion,
   useInView,
@@ -39,8 +39,22 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
   const { t, language } = useLanguage()
   const { scrollToSection } = useSmoothScroll()
   const router = useRouter()
+  const pathname = usePathname()
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
+
+  // Get current locale from pathname
+  const currentLocale = pathname.startsWith('/fr') ? 'fr' : 
+                       pathname.startsWith('/en') ? 'en' : 
+                       pathname.startsWith('/ru') ? 'ru' : 'fr'
+
+  // Generate locale-aware URLs
+  const getLocalePath = (path: string) => {
+    if (currentLocale === 'fr' && !pathname.startsWith('/fr')) {
+      return path // Default French without prefix
+    }
+    return `/${currentLocale}${path}`
+  }
 
   // Simplified animation variants
   const containerVariants = {
@@ -71,12 +85,12 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
       opacity: 1,
       height: 'auto',
       transition: { duration: 0.3, ease: 'easeOut' },
-    },
-  }
+    },  }
+  
   const handleHomeClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     // Используем Next.js router для навигации без перезагрузки страницы
-    router.push('/')
+    router.push(getLocalePath('/'))
     // Небольшая задержка для завершения навигации, затем скролл к секции portfolio
     setTimeout(() => {
       scrollToSection('portfolio')
@@ -171,8 +185,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                 <ArrowRight className='w-4 h-4 rotate-180 transition-transform group-hover:-translate-x-1' />
                 {t('nav.home')}
               </motion.button>
-            ) : (
-              <Link href='/projects'>
+            ) : (              <Link href={getLocalePath('/projects')}>
                 <motion.button
                   className='btn-primary group flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg'
                   whileHover={{ scale: 1.02 }}
@@ -383,10 +396,9 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                               </span>
                             )}
                           </div>
-                        </div>
-                        {/* Action Button - styled like Services CTA */}
+                        </div>                        {/* Action Button - styled like Services CTA */}
                         <div className='mt-auto'>
-                          <Link href={`/projects/${project.id}`}>
+                          <Link href={getLocalePath(`/projects/${project.id}`)}>
                             <motion.button
                               className='w-full px-4 py-3 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 dark:from-gray-700 dark:to-gray-800 dark:hover:from-gray-600 dark:hover:to-gray-700 text-white rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-semibold shadow-lg hover:shadow-xl'
                               whileTap={{ scale: 0.98 }}>

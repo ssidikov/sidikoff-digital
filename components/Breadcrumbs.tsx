@@ -15,15 +15,24 @@ export default function Breadcrumbs() {
   const { t } = useLanguage()
 
   // Don't show breadcrumbs on homepage
-  if (!pathname || pathname === '/') return null
+  if (!pathname || pathname === '/' || pathname.match(/^\/[a-z]{2}$/)) return null
 
   const pathSegments = pathname.split('/').filter(Boolean)
+  
+  // Detect if path starts with locale
+  const locales = ['fr', 'en', 'ru']
+  const hasLocalePrefix = locales.includes(pathSegments[0])
+  const currentLocale = hasLocalePrefix ? pathSegments[0] : 'fr'
+  const contentSegments = hasLocalePrefix ? pathSegments.slice(1) : pathSegments
+
+  // Generate locale-aware home path
+  const homePath = hasLocalePrefix ? `/${currentLocale}` : '/'
 
   // Generate breadcrumbs
-  const breadcrumbs: BreadcrumbItem[] = [{ label: t('nav.home'), href: '/' }]
+  const breadcrumbs: BreadcrumbItem[] = [{ label: t('nav.home'), href: homePath }]
 
-  let currentPath = ''
-  pathSegments.forEach((segment, index) => {
+  let currentPath = hasLocalePrefix ? `/${currentLocale}` : ''
+  contentSegments.forEach((segment, index) => {
     currentPath += `/${segment}` // Map path segments to labels
     const labels: { [key: string]: string } = {
       about: t('nav.expertise'),
