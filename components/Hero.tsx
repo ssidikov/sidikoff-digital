@@ -119,9 +119,9 @@ export default function Hero() {
           <motion.div
             className='flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-stretch sm:items-center px-4 sm:px-0'
             variants={itemVariants}>
-            {' '}            <motion.a
+            {' '}
+            <motion.a
               href='/#contact-form'
-              onClick={(e) => handleNavClick(e, 'contact-form')}
               className='group relative overflow-hidden w-full sm:w-auto'
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}>
