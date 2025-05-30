@@ -54,28 +54,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     staticPage({ path: '/en/mentions-legales', changeFrequency: 'yearly', priority: 0.3 }),
     staticPage({ path: '/ru/mentions-legales', changeFrequency: 'yearly', priority: 0.3 }),
   ]
-  
-  // Individual project pages for each language - LOWER PRIORITY than main pages
-  const projectPages = projects.flatMap((project) =>
-    locales.flatMap((locale) => [
-      // Default language (French) without prefix
-      {
-        url: `${baseUrl}/projects/${project.id}`,
-        lastModified: currentDate,
-        changeFrequency: 'monthly' as const,
-        priority: 0.4, // Reduced priority for individual projects
-        alternates: makeAlternates(`/projects/${project.id}`),
-      },
-      // With language prefix
-      {
-        url: `${baseUrl}/${locale}/projects/${project.id}`,
-        lastModified: currentDate,
-        changeFrequency: 'monthly' as const,
-        priority: 0.4, // Reduced priority for individual projects
-        alternates: makeAlternates(`/projects/${project.id}`),
-      }
-    ])
-  )
+    // Individual project pages for each language - LOWER PRIORITY than main pages
+  const projectPages = projects.flatMap((project) => [
+    // Default language (French) without prefix
+    {
+      url: `${baseUrl}/projects/${project.id}`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.4, // Reduced priority for individual projects
+      alternates: makeAlternates(`/projects/${project.id}`),
+    },
+    // With language prefixes (for non-default languages)
+    ...locales.map((locale) => ({
+      url: `${baseUrl}/${locale}/projects/${project.id}`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.4, // Reduced priority for individual projects
+      alternates: makeAlternates(`/projects/${project.id}`),
+    }))
+  ])
 
   return [...staticPages, ...projectPages]
 }

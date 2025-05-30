@@ -42,9 +42,9 @@ export const metadata: Metadata = generateSEOMetadata({
   ],
   locale: 'fr-FR',
   alternateLanguages: {
-    fr: 'https://www.sidikoff.com/',
-    en: 'https://www.sidikoff.com',
-    ru: 'https://www.sidikoff.com',
+    fr: 'https://www.sidikoff.com/fr',
+    en: 'https://www.sidikoff.com/en',
+    ru: 'https://www.sidikoff.com/ru',
   },
   ogImage: 'https://www.sidikoff.com/images/contact.png',
   canonical: 'https://www.sidikoff.com/',
@@ -52,17 +52,15 @@ export const metadata: Metadata = generateSEOMetadata({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='fr' dir='ltr' suppressHydrationWarning>      <head>
-        {/* DNS Prefetch and Preconnect for performance */}
+    <html lang='fr' dir='ltr' suppressHydrationWarning>
+      <head>
         <link rel='dns-prefetch' href='//fonts.googleapis.com' />
         <link rel='dns-prefetch' href='//www.googletagmanager.com' />
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
-        {/* Favicon and app icons */}
         <link rel='icon' href='/favicon.svg' />
         <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
         <link rel='manifest' href='/manifest.json' />
-        {/* Meta tags for SEO and branding */}
         <meta name='author' content='SIDIKOFF DIGITAL' />
         <meta name='generator' content='Next.js' />
         <meta name='HandheldFriendly' content='True' />
@@ -83,7 +81,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name='apple-mobile-web-app-status-bar-style' content='default' />
         {/* Google Search Console Verification */}
         {process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION && (
-          <meta name='google-site-verification' content={process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION} />
+          <meta
+            name='google-site-verification'
+            content={process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION}
+          />
         )}
         {/* Geolocation meta */}
         <meta name='geo.region' content='FR-75' />
