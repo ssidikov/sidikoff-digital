@@ -240,6 +240,7 @@ export default function Contact() {
           </div>
         </AnimatedSection>        <AnimatedSection>
           <form
+            id='contact-form'
             ref={formRef}
             onSubmit={handleSubmit}
             className='px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48'>

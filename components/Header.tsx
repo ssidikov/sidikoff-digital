@@ -255,12 +255,11 @@ export default function Header() {
               </motion.a>
             </motion.div>
           ))}
-        </nav>{' '}
-        {/* Desktop CTA */}
+        </nav>{' '}        {/* Desktop CTA */}
         <div className='hidden md:flex items-center gap-2'>
           <motion.a
-            href={`${getLocalePath('/')}#contact`}
-            onClick={(e) => handleNavClick(e, `${getLocalePath('/')}#contact`)}
+            href={`${getLocalePath('/')}#contact-form`}
+            onClick={(e) => handleNavClick(e, `${getLocalePath('/')}#contact-form`)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}>
             {' '}
@@ -330,15 +329,14 @@ export default function Header() {
                     )}
                   </motion.a>
                 </motion.div>
-              ))}
-              <motion.div
+              ))}              <motion.div
                 variants={itemVariants}
                 className='w-full mt-4 pt-4 border-t border-border'>
                 {' '}
                 <motion.a
-                  href={`${getLocalePath('/')}#contact`}
+                  href={`${getLocalePath('/')}#contact-form`}
                   className='w-full block'
-                  onClick={(e) => handleMobileNavClick(e, `${getLocalePath('/')}#contact`)}
+                  onClick={(e) => handleMobileNavClick(e, `${getLocalePath('/')}#contact-form`)}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}>
                   {' '}
