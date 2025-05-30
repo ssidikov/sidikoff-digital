@@ -67,7 +67,7 @@ export default function ProjectPage({
       <Header />
       <main className='container mx-auto px-4 pt-24 md:pt-32 min-h-screen'>
         <Breadcrumbs />
-        <div className='mt-8 max-w-4xl mx-auto'>
+        <div className='mt-8 max-w-4xl mx-auto float-right'>
           <button
             onClick={handleBackClick}
             className='px-4 py-2 text-sm border rounded-md bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors'>

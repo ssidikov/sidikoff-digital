@@ -12,7 +12,7 @@ import StructuredData from '@/components/StructuredData'
 import { generateCreativeWorkSchema } from '@/lib/seo'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ExternalLink, ArrowLeft } from 'lucide-react'
+// import { ExternalLink, ArrowLeft } from 'lucide-react'
 
 const locales = ['fr', 'en', 'ru']
 
