@@ -21,44 +21,47 @@ export default function LanguageSelector() {
     }
 
     setIsOpen(false)
-    
+
     // Save current state
     const currentScrollY = window.scrollY
     const currentHash = window.location.hash
     const currentSection = getCurrentActiveSection()
-    
+
     // Get current path without locale prefix
     let currentPath = pathname
-    
+
     // Remove existing locale prefix if present
     if (pathname.startsWith('/fr/') || pathname.startsWith('/en/') || pathname.startsWith('/ru/')) {
       currentPath = pathname.substring(3) // Remove /xx
     } else if (pathname === '/fr' || pathname === '/en' || pathname === '/ru') {
       currentPath = '/'
     }
-    
+
     // Ensure currentPath starts with /
     if (currentPath && !currentPath.startsWith('/')) {
       currentPath = '/' + currentPath
     }
-    
+
     // Generate new path with selected language
     const newPath = `/${lang}${currentPath || '/'}`
-    
+
     // Add hash if we have one
     const fullNewPath = currentHash ? `${newPath}${currentHash}` : newPath
-    
+
     // Store restoration data in sessionStorage for persistence across navigation
-    sessionStorage.setItem('languageSwitch', JSON.stringify({
-      scrollY: currentScrollY,
-      hash: currentHash,
-      section: currentSection,
-      timestamp: Date.now()
-    }))
-    
+    sessionStorage.setItem(
+      'languageSwitch',
+      JSON.stringify({
+        scrollY: currentScrollY,
+        hash: currentHash,
+        section: currentSection,
+        timestamp: Date.now(),
+      })
+    )
+
     // Update language context first
     setLanguage(lang)
-    
+
     // Navigate to the new locale path
     router.push(fullNewPath)
   }
@@ -93,7 +96,7 @@ export default function LanguageSelector() {
 
     document.addEventListener('mousedown', handleClickOutside)
     document.addEventListener('keydown', handleEscapeKey)
-    
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
       document.removeEventListener('keydown', handleEscapeKey)
@@ -126,7 +129,8 @@ export default function LanguageSelector() {
       {isOpen && (
         <div className='absolute right-0 mt-2 w-32 rounded-md shadow-lg bg-white dark:bg-gray-900 ring-1 ring-black ring-opacity-5 z-10'>
           <div className='py-1' role='menu' aria-orientation='vertical'>
-            {['fr', 'en', 'ru'].map((lang) => (              <button
+            {['fr', 'en', 'ru'].map((lang) => (
+              <button
                 key={lang}
                 onClick={() => selectLanguage(lang as 'fr' | 'en' | 'ru')}
                 className={`block px-4 py-2 text-sm w-full text-left transition-all duration-200 ${

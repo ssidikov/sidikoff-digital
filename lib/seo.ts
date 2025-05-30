@@ -418,7 +418,8 @@ export function generateOrganizationSchema() {
       '@type': 'Brand',
       name: 'SIDIKOFF DIGITAL',
       slogan: 'Votre transformation digitale commence ici',
-    },    url: defaultSEOConfig.baseUrl,
+    },
+    url: defaultSEOConfig.baseUrl,
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.sidikoff.com/logo-sidikoff.svg',
@@ -460,7 +461,8 @@ export function generateOrganizationSchema() {
       '@type': 'GeoCoordinates',
       latitude: 48.8566,
       longitude: 2.3522,
-    },    areaServed: [
+    },
+    areaServed: [
       {
         '@type': 'Country',
         name: 'France',
@@ -504,7 +506,8 @@ export function generateOrganizationSchema() {
       'Web Applications',
       'Digital Strategy',
       'Responsive Design',
-    ],    hasCredential: {
+    ],
+    hasCredential: {
       '@type': 'EducationalOccupationalCredential',
       credentialCategory: 'Professional Certification',
       recognizedBy: {

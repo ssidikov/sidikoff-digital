@@ -26,6 +26,126 @@ import {
   Filter,
 } from 'lucide-react'
 
+// Project card component to avoid hooks in map
+interface ProjectCardProps {
+  project: any
+  filterTechnology: string
+  currentLocale: string
+  t: any
+  onProjectClick: (project: any) => void
+}
+
+function ProjectCard({
+  project,
+  filterTechnology,
+  currentLocale,
+  t,
+  onProjectClick,
+}: ProjectCardProps) {
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+
+  const handleMouseMove = ({
+    currentTarget,
+    clientX,
+    clientY,
+  }: ReactMouseEvent<HTMLDivElement>) => {
+    const { left, top } = currentTarget.getBoundingClientRect()
+    mouseX.set(clientX - left)
+    mouseY.set(clientY - top)
+  }
+
+  const background = useMotionTemplate`
+    radial-gradient(320px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.1), transparent 80%)
+  `
+  return (
+    <motion.div
+      key={`${project.id}-${filterTechnology}`}
+      layout
+      variants={{
+        hidden: { opacity: 0, y: 50, scale: 0.9 },
+        visible: { opacity: 1, y: 0, scale: 1 },
+      }}
+      initial='hidden'
+      animate='visible'
+      exit='hidden'
+      className='group relative flex flex-col h-full rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm cursor-pointer overflow-hidden'
+      onMouseMove={handleMouseMove}
+      whileTap={{ scale: 0.98 }}
+      transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+      onClick={() => onProjectClick(project)}>
+      {/* Gradient overlay */}
+      <motion.div
+        className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
+        style={{ background }}
+        transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+      />
+      {/* Border glow effect */}
+      <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+
+      <div className='relative z-10 flex flex-col h-full'>
+        {/* Enhanced Project Image */}
+        <div className='relative h-48 lg:h-52 overflow-hidden'>
+          <div className='absolute inset-0 bg-gradient-to-br from-gray-50/20 to-gray-100/20 dark:from-gray-800/20 dark:to-gray-900/20'>
+            <Image
+              src={project.image || '/placeholder.svg'}
+              alt={project.title}
+              fill
+              className='object-cover object-top transition-all duration-300 group-hover:scale-105'
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+            />
+          </div>
+        </div>
+        {/* Project Content */}
+        <div className='p-6 flex flex-col flex-1'>
+          {/* Title with enhanced styling */}
+          <h4 className='font-bold text-xl mb-3 text-gray-900 dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300 line-clamp-2 min-h-[3.5rem]'>
+            {project.title}
+          </h4>
+          {/* Description */}
+          <p className='text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-6 line-clamp-3 min-h-[4rem]'>
+            {project.description}
+          </p>
+          {/* Technologies - fixed height for consistency */}
+          <div className='mb-6 min-h-[5.5rem]'>
+            <h5 className='text-xs font-semibold text-gray-800 dark:text-gray-200 uppercase tracking-wide mb-3'>
+              {t('portfolio.technologies')}
+            </h5>
+            <div className='flex flex-wrap gap-1.5'>
+              {project.technologies.slice(0, 4).map((tech: string) => (
+                <span
+                  key={tech}
+                  className='inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 dark:from-blue-900/30 dark:to-indigo-900/30 dark:text-blue-300 border border-blue-200/50 dark:border-blue-700/50'>
+                  {tech}
+                </span>
+              ))}
+              {project.technologies.length > 4 && (
+                <span className='inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400'>
+                  +{project.technologies.length - 4}
+                </span>
+              )}
+            </div>
+          </div>
+          {/* Action Buttons */}
+          <div className='mt-auto space-y-3'>
+            <div className='flex gap-3'>
+              <Link
+                href={`/${currentLocale}/projects/${project.id}`}
+                className='w-full px-4 py-3 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 dark:from-gray-700/50 dark:to-gray-800/50 dark:hover:from-gray-600/50 dark:hover:to-gray-700/50 text-white rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-semibold shadow-lg hover:shadow-xl'>
+                <div className='absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700' />
+                <div className='relative flex items-center justify-center gap-2'>
+                  <Eye className='h-4 w-4' />
+                  <span>{t('portfolio.viewDetails')}</span>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
 interface PortfolioProps {
   title?: string
   subtitle?: string
@@ -44,9 +164,13 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
 
   // Get current locale from pathname
-  const currentLocale = pathname.startsWith('/fr') ? 'fr' : 
-                       pathname.startsWith('/en') ? 'en' : 
-                       pathname.startsWith('/ru') ? 'ru' : 'fr'
+  const currentLocale = pathname.startsWith('/fr')
+    ? 'fr'
+    : pathname.startsWith('/en')
+    ? 'en'
+    : pathname.startsWith('/ru')
+    ? 'ru'
+    : 'fr'
 
   // Generate locale-aware URLs
   const getLocalePath = (path: string) => {
@@ -85,8 +209,9 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
       opacity: 1,
       height: 'auto',
       transition: { duration: 0.3, ease: 'easeOut' },
-    },  }
-  
+    },
+  }
+
   const handleHomeClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     // Используем Next.js router для навигации без перезагрузки страницы
@@ -96,6 +221,11 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
       scrollToSection('portfolio')
     }, 150)
   }
+  // Handle project click - navigate to project page
+  const handleProjectClick = (project: any) => {
+    router.push(getLocalePath(`/projects/${project.id}`))
+  }
+
   const loadMoreProjects = () => {
     setVisibleProjects((prev) => Math.min(prev + 4, projects.length))
   }
@@ -185,7 +315,8 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                 <ArrowRight className='w-4 h-4 rotate-180 transition-transform group-hover:-translate-x-1' />
                 {t('nav.home')}
               </motion.button>
-            ) : (              <Link href={getLocalePath('/projects')}>
+            ) : (
+              <Link href={getLocalePath('/projects')}>
                 <motion.button
                   className='btn-primary group flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg'
                   whileHover={{ scale: 1.02 }}
@@ -312,106 +443,18 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
           variants={containerVariants}
           className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8'>
           <AnimatePresence mode='wait'>
-            {' '}
             {filteredProjects
               .slice(0, showAllProjects ? filteredProjects.length : visibleProjects)
-              .map((project, index) => {
-                const mouseX = useMotionValue(0)
-                const mouseY = useMotionValue(0)
-
-                const handleMouseMove = ({
-                  currentTarget,
-                  clientX,
-                  clientY,                }: ReactMouseEvent<HTMLDivElement>) => {
-                  const { left, top } = currentTarget.getBoundingClientRect()
-                  mouseX.set(clientX - left)
-                  mouseY.set(clientY - top)
-                }
-
-                const background = useMotionTemplate`
-                  radial-gradient(320px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.1), transparent 80%)
-                `
-
-                return (
-                  <motion.div
-                    key={`${project.id}-${filterTechnology}`}
-                    layout
-                    variants={cardVariants}
-                    initial='hidden'
-                    animate='visible'
-                    exit='hidden'
-                    className='group relative flex flex-col h-full rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm cursor-pointer overflow-hidden'
-                    onMouseMove={handleMouseMove}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}>
-                    {/* Gradient overlay */}
-                    <motion.div
-                      className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
-                      style={{ background }}
-                      transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-                    />
-                    {/* Border glow effect */}
-                    <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
-
-                    <div className='relative z-10 flex flex-col h-full'>
-                      {/* Enhanced Project Image */}
-                      <div className='relative h-48 lg:h-52 overflow-hidden'>
-                        <div className='absolute inset-0 bg-gradient-to-br from-gray-50/20 to-gray-100/20 dark:from-gray-800/20 dark:to-gray-900/20'>
-                          <Image
-                            src={project.image || '/placeholder.svg'}
-                            alt={project.title}
-                            fill
-                            className='object-cover object-top transition-all duration-300 group-hover:scale-105'
-                            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-                          />
-                        </div>                      </div>{' '}
-                      {/* Project Content */}
-                      <div className='p-6 flex flex-col flex-1'>
-                        {/* Title with enhanced styling */}
-                        <h4 className='font-bold text-xl mb-3 text-gray-900 dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300 line-clamp-2 min-h-[3.5rem]'>
-                          {project.title}
-                        </h4>
-                        {/* Description */}
-                        <p className='text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-6 line-clamp-3 min-h-[4rem]'>
-                          {project.description}
-                        </p>{' '}
-                        {/* Technologies - fixed height for consistency */}
-                        <div className='mb-6 min-h-[5.5rem]'>
-                          <h5 className='text-xs font-semibold text-gray-800 dark:text-gray-200 uppercase tracking-wide mb-3'>
-                            {t('portfolio.technologies')}
-                          </h5>
-                          <div className='flex flex-wrap gap-2'>
-                            {project.technologies &&
-                              project.technologies.slice(0, 4).map((tech, idx) => (
-                                <span
-                                  key={idx}
-                                  className='flex items-center text-xs text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-md'>
-                                  <span className='flex-shrink-0 w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-500 mr-2' />
-                                  {tech}
-                                </span>
-                              ))}
-                            {project.technologies && project.technologies.length > 4 && (
-                              <span className='text-xs text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 px-2 py-1 rounded-md'>
-                                +{project.technologies.length - 4} more
-                              </span>
-                            )}
-                          </div>
-                        </div>                        {/* Action Button - styled like Services CTA */}
-                        <div className='mt-auto'>
-                          <Link href={getLocalePath(`/projects/${project.id}`)}>
-                            <motion.button
-                              className='w-full px-4 py-3 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 dark:from-gray-700 dark:to-gray-800 dark:hover:from-gray-600 dark:hover:to-gray-700 text-white rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-semibold shadow-lg hover:shadow-xl'
-                              whileTap={{ scale: 0.98 }}>
-                              <Eye className='w-4 h-4' />
-                              {t('portfolio.viewDetails')}
-                              <ArrowRight className='w-4 h-4 transition-transform group-hover:translate-x-1' />
-                            </motion.button>
-                          </Link>                        </div>{' '}
-                      </div>
-                    </div>
-                  </motion.div>
-                )
-              })}
+              .map((project) => (
+                <ProjectCard
+                  key={`${project.id}-${filterTechnology}`}
+                  project={project}
+                  filterTechnology={filterTechnology}
+                  currentLocale={currentLocale}
+                  t={t}
+                  onProjectClick={handleProjectClick}
+                />
+              ))}
           </AnimatePresence>
         </motion.div>
         {/* Load More Button */}

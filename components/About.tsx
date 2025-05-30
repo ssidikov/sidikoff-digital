@@ -200,7 +200,8 @@ text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
             </div>{' '}
             {/* Contact CTA */}
             <div className='relative z-10 mt-8 text-center'>
-              {' '}              <motion.a
+              {' '}
+              <motion.a
                 href='#contact-form'
                 className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-gray-700 dark:text-gray-200 rounded-xl font-medium hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-600'
                 whileTap={{ scale: 0.95 }}>
@@ -371,7 +372,8 @@ text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
               </motion.h3>
               <motion.p className='text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto text-justify'>
                 {t('about.cta.description')}
-              </motion.p>              <motion.div className='relative z-10 text-gray-600 dark:text-muted-foreground leading-relaxed text-justify flex flex-col sm:flex-row gap-4 justify-center max-w-readable'>
+              </motion.p>{' '}
+              <motion.div className='relative z-10 text-gray-600 dark:text-muted-foreground leading-relaxed text-justify flex flex-col sm:flex-row gap-4 justify-center max-w-readable'>
                 <motion.a
                   href='#contact-form'
                   className='group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl font-semibold text-button-lg shadow-lg shadow-indigo-500/25 hover:shadow-2xl hover:shadow-indigo-500/40 transition-all duration-300 overflow-hidden border border-transparent hover:border-white/20'

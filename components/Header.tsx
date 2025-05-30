@@ -255,7 +255,8 @@ export default function Header() {
               </motion.a>
             </motion.div>
           ))}
-        </nav>{' '}        {/* Desktop CTA */}
+        </nav>{' '}
+        {/* Desktop CTA */}
         <div className='hidden md:flex items-center gap-2'>
           <motion.a
             href={`${getLocalePath('/')}#contact-form`}
@@ -329,7 +330,8 @@ export default function Header() {
                     )}
                   </motion.a>
                 </motion.div>
-              ))}              <motion.div
+              ))}{' '}
+              <motion.div
                 variants={itemVariants}
                 className='w-full mt-4 pt-4 border-t border-border'>
                 {' '}

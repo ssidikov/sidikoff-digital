@@ -171,7 +171,8 @@ function ServiceCard({
               </motion.svg>
             </div>
           </motion.a>{' '}
-          {/* Secondary CTA - Request quote */}{' '}          <motion.a
+          {/* Secondary CTA - Request quote */}{' '}
+          <motion.a
             href='#contact-form'
             className='group w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/20 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-semibold backdrop-blur-sm'
             whileTap={{ scale: 0.98 }}>

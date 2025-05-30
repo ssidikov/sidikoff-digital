@@ -38,14 +38,14 @@ export default function LocaleLegalPage({
       if (savedData) {
         try {
           const { scrollY, timestamp } = JSON.parse(savedData)
-          
+
           // Only restore if the switch was recent (within 5 seconds)
           if (Date.now() - timestamp < 5000 && scrollY > 0) {
             setTimeout(() => {
               window.scrollTo({ top: scrollY, behavior: 'smooth' })
             }, 100)
           }
-          
+
           // Clean up the saved data
           sessionStorage.removeItem('languageSwitch')
         } catch (error) {

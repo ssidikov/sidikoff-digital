@@ -41,20 +41,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     staticPage({ path: '/fr', changeFrequency: 'daily', priority: 1.0 }),
     staticPage({ path: '/en', changeFrequency: 'daily', priority: 1.0 }),
     staticPage({ path: '/ru', changeFrequency: 'daily', priority: 1.0 }),
-    
+
     // Projects pages for each language - MEDIUM PRIORITY
     staticPage({ path: '/projects', changeFrequency: 'weekly', priority: 0.7 }), // Default (French)
     staticPage({ path: '/fr/projects', changeFrequency: 'weekly', priority: 0.7 }),
     staticPage({ path: '/en/projects', changeFrequency: 'weekly', priority: 0.7 }),
     staticPage({ path: '/ru/projects', changeFrequency: 'weekly', priority: 0.7 }),
-    
+
     // Legal pages for each language - LOW PRIORITY
     staticPage({ path: '/mentions-legales', changeFrequency: 'yearly', priority: 0.3 }), // Default (French)
     staticPage({ path: '/fr/mentions-legales', changeFrequency: 'yearly', priority: 0.3 }),
     staticPage({ path: '/en/mentions-legales', changeFrequency: 'yearly', priority: 0.3 }),
     staticPage({ path: '/ru/mentions-legales', changeFrequency: 'yearly', priority: 0.3 }),
   ]
-    // Individual project pages for each language - LOWER PRIORITY than main pages
+  // Individual project pages for each language - LOWER PRIORITY than main pages
   const projectPages = projects.flatMap((project) => [
     // Default language (French) without prefix
     {
@@ -71,7 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.4, // Reduced priority for individual projects
       alternates: makeAlternates(`/projects/${project.id}`),
-    }))
+    })),
   ])
 
   return [...staticPages, ...projectPages]

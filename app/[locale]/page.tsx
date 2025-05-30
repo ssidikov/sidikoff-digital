@@ -45,7 +45,7 @@ export default function LocalePage({
       if (savedData) {
         try {
           const { scrollY, hash, section, timestamp } = JSON.parse(savedData)
-          
+
           // Only restore if the switch was recent (within 5 seconds)
           if (Date.now() - timestamp < 5000) {
             if (hash && hash.startsWith('#')) {
@@ -71,7 +71,7 @@ export default function LocalePage({
               }, 100)
             }
           }
-          
+
           // Clean up the saved data
           sessionStorage.removeItem('languageSwitch')
         } catch (error) {

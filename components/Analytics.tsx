@@ -70,7 +70,8 @@ export default function Analytics({
         id='local-business-schema'
         type='application/ld+json'
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({            '@context': 'https://schema.org',
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
             '@type': 'LocalBusiness',
             name: 'SIDIKOFF DIGITAL',
             description:
