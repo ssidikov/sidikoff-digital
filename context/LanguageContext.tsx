@@ -851,10 +851,15 @@ interface LanguageProviderProps {
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   const [language, setLanguage] = useState<Language>('fr')
   const [isInitialized, setIsInitialized] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    // Проверяем, что мы на клиенте
-    if (typeof window === 'undefined') return
+    setIsMounted(true)
+  }, [])
+
+  useEffect(() => {
+    // Проверяем, что компонент примонтирован (клиент)
+    if (!isMounted) return
 
     // Сначала проверяем сохраненный язык в localStorage
     const savedLanguage = localStorage.getItem('language') as Language
@@ -870,12 +875,11 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
     }
 
     setIsInitialized(true)
-  }, [])
-
+  }, [isMounted])
   const handleSetLanguage = (newLanguage: Language) => {
     setLanguage(newLanguage)
-    // Проверяем, что мы на клиенте перед использованием localStorage
-    if (typeof window !== 'undefined') {
+    // Проверяем, что компонент примонтирован перед использованием localStorage
+    if (isMounted) {
       localStorage.setItem('language', newLanguage)
     }
   }

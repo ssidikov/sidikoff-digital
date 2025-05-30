@@ -8,6 +8,7 @@ import { LanguageProvider } from '@/context/LanguageContext'
 import { TariffProvider } from '@/context/TariffContext'
 import ClientLayout from '@/components/ClientLayout'
 import StructuredData from '@/components/StructuredData'
+import BrandStructuredData from '@/components/BrandStructuredData'
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo'
 import Script from 'next/script'
 import { Suspense } from 'react'
@@ -19,25 +20,25 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = generateSEOMetadata({
-  title: 'SIDIKOFF DIGITAL - Agence Web à Paris | Création Sites & Apps',
+  title: 'SIDIKOFF DIGITAL - Agence Web Premium à Paris | Sardorbek SIDIKOV',
   description:
-    'Agence web parisienne spécialisée en création de sites internet, applications web et stratégie digitale. Développement moderne, design UX/UI, référencement SEO. Devis gratuit.',
+    'SIDIKOFF DIGITAL, agence web fondée par Sardorbek SIDIKOV. Création de sites internet sur mesure, applications React/Next.js, stratégie SEO et transformation digitale à Paris.',
   keywords: [
-    'agence web paris',
-    'création site internet',
-    'développement web',
-    'agence digitale paris',
-    'site web responsive',
-    'UX UI design',
-    'référencement SEO',
-    'application web',
-    'e-commerce',
-    'développeur paris',
-    'react développeur',
-    'next.js agence',
+    'SIDIKOFF DIGITAL',
+    'Sardorbek SIDIKOV',
+    'agence web paris premium',
+    'création site internet paris',
+    'développement web paris',
+    'agence digitale parisienne',
+    'site web responsive paris',
+    'UX UI design paris',
+    'référencement SEO paris',
+    'application web react',
+    'e-commerce paris',
+    'développeur react paris',
+    'next.js agence paris',
     'typescript développement',
-    'agence web française',
-    'site internet professionnel',
+    'transformation digitale paris',
   ],
   locale: 'fr-FR',
   alternateLanguages: {
@@ -51,8 +52,7 @@ export const metadata: Metadata = generateSEOMetadata({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='fr' dir='ltr' suppressHydrationWarning>
-      <head>
+    <html lang='fr' dir='ltr' suppressHydrationWarning>      <head>
         {/* DNS Prefetch and Preconnect for performance */}
         <link rel='dns-prefetch' href='//fonts.googleapis.com' />
         <link rel='dns-prefetch' href='//www.googletagmanager.com' />
@@ -81,6 +81,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name='mobile-web-app-capable' content='yes' />
         <meta name='apple-mobile-web-app-capable' content='yes' />
         <meta name='apple-mobile-web-app-status-bar-style' content='default' />
+        {/* Google Search Console Verification */}
+        {process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION && (
+          <meta name='google-site-verification' content={process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION} />
+        )}
         {/* Geolocation meta */}
         <meta name='geo.region' content='FR-75' />
         <meta name='geo.placename' content='Paris' />
@@ -119,6 +123,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Structured Data */}
         <Suspense fallback={null}>
           <StructuredData type='all' />
+          <BrandStructuredData />
         </Suspense>
         {/* Additional Schema for better site name recognition */}
         <script

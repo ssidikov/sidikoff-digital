@@ -1,12 +1,47 @@
 User-agent: *
 Allow: /
 
-# Block specific paths if needed
-# Disallow: /admin/
-# Disallow: /api/
+# Allow important pages for indexing
+Allow: /about
+Allow: /projects
+Allow: /fr/
+Allow: /en/
+Allow: /ru/
+Allow: /fr/about
+Allow: /en/about
+Allow: /ru/about
+Allow: /fr/projects
+Allow: /en/projects
+Allow: /ru/projects
 
-# Sitemap
-Sitemap: https://sidikoff.com/sitemap.xml
+# Block API routes and sensitive directories
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /.well-known/
 
-# Crawl delay (optional)
+# Allow specific assets
+Allow: /images/
+Allow: /logo/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.svg
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.webp
+
+# Sitemap location
+Sitemap: https://www.sidikoff.com/sitemap.xml
+
+# Crawl delay for good behavior
+Crawl-delay: 1
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
 Crawl-delay: 1

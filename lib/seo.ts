@@ -120,7 +120,7 @@ export function generateMetadata(seoData: SEOData): Metadata {
     verification: {
       google: 'google-site-verification-code',
       yandex: 'yandex-verification-code',
-    },    // Additional meta tags for enhanced SEO
+    }, // Additional meta tags for enhanced SEO
     other: {
       'theme-color': '#4f46e5',
       'msapplication-TileColor': '#4f46e5',
@@ -136,12 +136,12 @@ export function generateMetadata(seoData: SEOData): Metadata {
       'og:site_name': 'SIDIKOFF DIGITAL',
       'twitter:site': '@sidikoffdigital',
       'twitter:creator': '@sidikoffdigital',
-      'publisher': 'SIDIKOFF DIGITAL',
-      'organization': 'SIDIKOFF DIGITAL',
-      'company': 'SIDIKOFF DIGITAL',
-      'brand': 'SIDIKOFF DIGITAL',
-      'copyright': 'SIDIKOFF DIGITAL',
-      'author': 'SIDIKOFF DIGITAL',
+      publisher: 'SIDIKOFF DIGITAL',
+      organization: 'SIDIKOFF DIGITAL',
+      company: 'SIDIKOFF DIGITAL',
+      brand: 'SIDIKOFF DIGITAL',
+      copyright: 'SIDIKOFF DIGITAL',
+      author: 'SIDIKOFF DIGITAL',
     },
   }
 
@@ -401,7 +401,7 @@ export function generateWebsiteSchema() {
   }
 }
 
-// Organization Schema - Enhanced
+// Organization Schema - Enhanced for Brand Recognition
 export function generateOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
@@ -409,27 +409,43 @@ export function generateOrganizationSchema() {
     '@id': 'https://www.sidikoff.com/#organization',
     name: 'SIDIKOFF DIGITAL',
     legalName: 'SIDIKOFF DIGITAL',
-    alternateName: 'SIDIKOFF DIGITAL - Agence Web Paris',
-    url: defaultSEOConfig.baseUrl,
+    alternateName: [
+      'SIDIKOFF DIGITAL - Agence Web Paris',
+      'SIDIKOFF DIGITAL Agence',
+      'Sardorbek SIDIKOV Agence',
+    ],
+    brand: {
+      '@type': 'Brand',
+      name: 'SIDIKOFF DIGITAL',
+      slogan: 'Votre transformation digitale commence ici',
+    },    url: defaultSEOConfig.baseUrl,
     logo: {
       '@type': 'ImageObject',
-      url: 'https://www.sidikoff.com/logo.svg',
+      url: 'https://www.sidikoff.com/logo-sidikoff.svg',
       width: 400,
       height: 400,
+      caption: 'SIDIKOFF DIGITAL Logo',
     },
     image: {
       '@type': 'ImageObject',
-      url: 'https://www.sidikoff.com/og-image.jpg',
+      url: 'https://www.sidikoff.com/images/contact.png',
       width: 1200,
       height: 630,
+      caption: 'SIDIKOFF DIGITAL - Agence Web Paris',
     },
     description:
-      'Agence web parisienne spécialisée en développement de sites internet et applications web modernes. React, Next.js, TypeScript, design UX/UI.',
+      'SIDIKOFF DIGITAL est une agence web parisienne fondée par Sardorbek SIDIKOV, spécialisée en développement de sites internet et applications web modernes. React, Next.js, TypeScript, design UX/UI.',
     slogan: 'Votre transformation digitale commence ici',
     foundingDate: defaultSEOConfig.business.foundingDate,
     founder: {
       '@type': 'Person',
       name: defaultSEOConfig.business.founder,
+      jobTitle: 'Founder & Lead Developer',
+      sameAs: 'https://linkedin.com/in/sardorbek-sidikov',
+    },
+    employee: {
+      '@type': 'Person',
+      name: 'Sardorbek SIDIKOV',
       jobTitle: 'Founder & Lead Developer',
     },
     address: {
@@ -438,7 +454,26 @@ export function generateOrganizationSchema() {
       addressRegion: 'Île-de-France',
       addressCountry: 'FR',
       postalCode: '75000',
+      streetAddress: 'Paris, France',
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 48.8566,
+      longitude: 2.3522,
+    },    areaServed: [
+      {
+        '@type': 'Country',
+        name: 'France',
+      },
+      {
+        '@type': 'City',
+        name: 'Paris',
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Europe',
+      },
+    ],
     contactPoint: [
       {
         '@type': 'ContactPoint',
@@ -458,16 +493,6 @@ export function generateOrganizationSchema() {
       '@type': 'Place',
       name: 'Paris, France',
     },
-    areaServed: [
-      {
-        '@type': 'Country',
-        name: 'France',
-      },
-      {
-        '@type': 'AdministrativeArea',
-        name: 'Europe',
-      },
-    ],
     knowsAbout: [
       'Web Development',
       'React.js',
@@ -479,8 +504,7 @@ export function generateOrganizationSchema() {
       'Web Applications',
       'Digital Strategy',
       'Responsive Design',
-    ],
-    hasCredential: {
+    ],    hasCredential: {
       '@type': 'EducationalOccupationalCredential',
       credentialCategory: 'Professional Certification',
       recognizedBy: {
@@ -489,6 +513,8 @@ export function generateOrganizationSchema() {
       },
     },
     sameAs: [
+      'https://github.com/ssidikov',
+      'https://linkedin.com/company/sidikoff-digital',
       `https://linkedin.com/company/${defaultSEOConfig.social.linkedin}`,
       `https://twitter.com/${defaultSEOConfig.social.twitter.replace('@', '')}`,
     ],

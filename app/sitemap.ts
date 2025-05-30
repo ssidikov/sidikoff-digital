@@ -36,26 +36,26 @@ function staticPage({
 export default function sitemap(): MetadataRoute.Sitemap {
   // Static pages for each language
   const staticPages = [
-    // Homepage for each language
-    staticPage({ path: '', changeFrequency: 'weekly', priority: 1.0 }), // Default (French)
-    staticPage({ path: '/fr', changeFrequency: 'weekly', priority: 1.0 }),
-    staticPage({ path: '/en', changeFrequency: 'weekly', priority: 1.0 }),
-    staticPage({ path: '/ru', changeFrequency: 'weekly', priority: 1.0 }),
+    // Homepage for each language - HIGHEST PRIORITY (includes About section)
+    staticPage({ path: '', changeFrequency: 'daily', priority: 1.0 }), // Default (French)
+    staticPage({ path: '/fr', changeFrequency: 'daily', priority: 1.0 }),
+    staticPage({ path: '/en', changeFrequency: 'daily', priority: 1.0 }),
+    staticPage({ path: '/ru', changeFrequency: 'daily', priority: 1.0 }),
     
-    // Projects pages for each language
-    staticPage({ path: '/projects', changeFrequency: 'weekly', priority: 0.8 }), // Default (French)
-    staticPage({ path: '/fr/projects', changeFrequency: 'weekly', priority: 0.8 }),
-    staticPage({ path: '/en/projects', changeFrequency: 'weekly', priority: 0.8 }),
-    staticPage({ path: '/ru/projects', changeFrequency: 'weekly', priority: 0.8 }),
+    // Projects pages for each language - MEDIUM PRIORITY
+    staticPage({ path: '/projects', changeFrequency: 'weekly', priority: 0.7 }), // Default (French)
+    staticPage({ path: '/fr/projects', changeFrequency: 'weekly', priority: 0.7 }),
+    staticPage({ path: '/en/projects', changeFrequency: 'weekly', priority: 0.7 }),
+    staticPage({ path: '/ru/projects', changeFrequency: 'weekly', priority: 0.7 }),
     
-    // Legal pages for each language
+    // Legal pages for each language - LOW PRIORITY
     staticPage({ path: '/mentions-legales', changeFrequency: 'yearly', priority: 0.3 }), // Default (French)
     staticPage({ path: '/fr/mentions-legales', changeFrequency: 'yearly', priority: 0.3 }),
     staticPage({ path: '/en/mentions-legales', changeFrequency: 'yearly', priority: 0.3 }),
     staticPage({ path: '/ru/mentions-legales', changeFrequency: 'yearly', priority: 0.3 }),
   ]
-
-  // Individual project pages for each language
+  
+  // Individual project pages for each language - LOWER PRIORITY than main pages
   const projectPages = projects.flatMap((project) =>
     locales.flatMap((locale) => [
       // Default language (French) without prefix
@@ -63,7 +63,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${baseUrl}/projects/${project.id}`,
         lastModified: currentDate,
         changeFrequency: 'monthly' as const,
-        priority: 0.6,
+        priority: 0.4, // Reduced priority for individual projects
         alternates: makeAlternates(`/projects/${project.id}`),
       },
       // With language prefix
@@ -71,7 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${baseUrl}/${locale}/projects/${project.id}`,
         lastModified: currentDate,
         changeFrequency: 'monthly' as const,
-        priority: 0.6,
+        priority: 0.4, // Reduced priority for individual projects
         alternates: makeAlternates(`/projects/${project.id}`),
       }
     ])

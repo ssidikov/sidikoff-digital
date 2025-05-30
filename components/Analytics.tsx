@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Script from 'next/script'
 import { reportWebVitals } from '@/lib/performance'
 
@@ -13,8 +13,14 @@ export default function Analytics({
   googleAnalyticsId = 'G-KFKPR6DVQ1',
   enableWebVitals = true,
 }: AnalyticsProps) {
+  const [isMounted, setIsMounted] = useState(false)
+
   useEffect(() => {
-    if (enableWebVitals && typeof window !== 'undefined') {
+    setIsMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (enableWebVitals && isMounted) {
       // Import web-vitals dynamically
       import('web-vitals').then(({ onCLS, onINP, onFCP, onLCP, onTTFB }) => {
         onCLS(reportWebVitals)
@@ -24,7 +30,7 @@ export default function Analytics({
         onTTFB(reportWebVitals)
       })
     }
-  }, [enableWebVitals])
+  }, [enableWebVitals, isMounted])
 
   return (
     <>

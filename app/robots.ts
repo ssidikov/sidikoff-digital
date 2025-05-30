@@ -7,23 +7,29 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
+        allow: [
+          '/',
+          '/fr/',
+          '/en/', 
+          '/ru/',
+          '/projects/',
+          '/about/',
+          '/mentions-legales/',
+        ],
         disallow: [
-          '/api/', // backend API routes, not for indexing
-          '/admin/', // admin panel
-          '/_next/', // Next.js build files
-          '/temp/', // temporary files
-          // '*.json$' — removed, чтобы не блокировать все JSON
+          '/api/',
+          '/admin/',
+          '/_next/',
+          '/temp/',
         ],
       },
       {
         userAgent: 'Googlebot',
         allow: '/',
-        crawlDelay: 1, // ограничение скорости обхода для Google (может игнорироваться)
+        crawlDelay: 1,
       },
-      // Можно добавить других ботов при необходимости
     ],
-    sitemap: `${baseUrl}/sitemap.xml`, // ссылка на sitemap
+    sitemap: `${baseUrl}/sitemap.xml`,
     host: baseUrl,
   }
 }
