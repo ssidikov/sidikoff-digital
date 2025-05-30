@@ -6,13 +6,120 @@ import About from '@/components/About'
 import Portfolio from '@/components/Portfolio'
 import Services from '@/components/Services'
 import Prices from '@/components/Prices'
-import FAQ from '@/components/FAQ'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import StructuredData from '@/components/StructuredData'
-import { generateServiceSchema, generateFAQSchema } from '@/lib/seo'
+import { generateServiceSchema } from '@/lib/seo'
 
-// Structured data for homepage
+export const metadata: Metadata = {
+  title: 'SIDIKOFF DIGITAL - Agence Web SEO & Développement Site Web à Paris',
+  description:
+    'Agence web parisienne spécialisée en création de sites internet, applications web React, Next.js, SEO et stratégie digitale efficace pour booster votre présence en ligne.',
+  keywords: [
+    'Agence web Paris',
+    'Développement React',
+    'Création de sites internet',
+    'Développement web Paris',
+    'Web agency Paris',
+    'SEO Paris',
+    'React development Paris',
+    'Web development Paris',
+    'Digital marketing Paris',
+    'Web design Paris',
+    'Web development',
+    'Web agency',
+    'Web design',
+    'Web development Paris',
+    'Web agency Paris',
+    'Web design Paris',
+    'Web development agency',
+    'Web design agency',
+    'Web development services',
+    'Web design services',
+    'Web development company',
+    'Web design company',
+    'Web development Paris',
+    'SEO',
+    'Création site internet',
+    'Digital marketing',
+    'Веб-агентство Париж',
+    'Создание сайтов',
+    'React разработка',
+    'Оптимизация SEO',
+    'Разработка веб-приложений',
+    'Сайт под ключ',
+    'Разработка сайтов',
+    'Landing page Paris',
+    'Site vitrine Paris',
+    'Site e-commerce Paris',
+    'Site web Paris',
+    'Site internet Paris',
+    'Développement web Paris',
+    'Développement React Paris',
+    'Développement Next.js Paris',
+    'Développement d’applications web Paris',
+    'Développement d’applications React Paris',
+    'Développement d’applications Next.js Paris',
+    'Développement de sites web Paris',
+    'Développement de sites internet Paris',
+    'Développement de sites React Paris',
+    'Développement de sites Next.js Paris',
+    'Développement de sites e-commerce Paris',
+    'Développement de sites vitrine Paris',
+    'Développement de sites web responsive Paris',
+    'Développement de sites web modernes Paris',
+    'Développement de sites web professionnels Paris',
+    'Développement de sites web sur mesure Paris',
+    'Développement de sites web optimisés SEO Paris',
+    'Développement de sites web performants Paris',
+    'Développement de sites web sécurisés Paris',
+    'Développement de sites web accessibles Paris',
+    'Développement de sites web rapides Paris',
+    'Développement de sites web évolutifs Paris',
+    'Développement de sites web adaptatifs Paris',
+    'Développement de sites web intuitifs Paris',
+    'Développement de sites web ergonomiques Paris',
+    'Développement de sites web interactifs Paris',
+    'Développement de sites web dynamiques Paris',
+    'Développement de sites web eco Paris',
+    'Développement de sites web éco-responsables Paris',
+    'Développement de sites web éco-conçus Paris',
+    'Développement de sites web éco-durables Paris',
+    'Développement de sites web éco-innovants Paris',
+    'Développement de sites web éco-efficaces Paris',
+    'Développement de sites web éco-performants Paris',
+    'Développement de sites web éco-optimisés Paris',
+    'Développement de sites web éco-responsables Paris',
+    'Développement de sites web éco-conscients Paris',
+    'Développement de sites web éco-compatibles Paris',
+    'Développement de sites web éco-intelligents Paris',
+    'Développement de sites web éco-centrés Paris',
+    'Développement de sites web éco-innovants Paris',
+    'Développement de sites web éco-optimisés Paris',
+    'Développement de sites web éco-responsables Paris',
+    'Web agency Paris',
+    'React development',
+    'SEO services',
+    'Website creation',
+    'Digital strategy',
+  ],
+  openGraph: {
+    title: 'SIDIKOFF DIGITAL - Agence Web SEO & Développement React à Paris',
+    description:
+      'Agence web parisienne spécialisée en création de sites internet, applications web React, SEO et stratégie digitale efficace pour booster votre présence en ligne.',
+    url: 'https://www.sidikoff.com/',
+    siteName: 'SIDIKOFF DIGITAL',
+    locale: 'fr_FR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SIDIKOFF DIGITAL - Agence Web SEO & Développement React à Paris',
+    description:
+      'Agence web parisienne spécialisée en création de sites internet, applications web React, SEO et stratégie digitale efficace pour booster votre présence en ligne.',
+  },
+}
+
 const homepageSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
@@ -32,7 +139,25 @@ const homepageSchema = {
   },
 }
 
-// Services structured data
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://www.sidikoff.com/#organization',
+  name: 'SIDIKOFF DIGITAL',
+  url: 'https://www.sidikoff.com/',
+  logo: 'https://www.sidikoff.com/logo.png',
+  sameAs: [
+    'https://www.linkedin.com/company/sidikoff-digital',
+    'https://www.facebook.com/sidikoff-digital',
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+33 6 26 93 27 34',
+    contactType: 'customer service',
+    availableLanguage: ['French', 'English'],
+  },
+}
+
 const servicesSchema = [
   generateServiceSchema({
     name: 'Création de Sites Web',
@@ -54,55 +179,23 @@ const servicesSchema = [
   }),
 ]
 
-// FAQ Schema
-const faqSchema = generateFAQSchema([
-  {
-    question: "Combien coûte la création d'un site web ?",
-    answer:
-      'Nos tarifs commencent à 500€ pour un site vitrine simple. Le prix varie selon vos besoins spécifiques : nombre de pages, fonctionnalités, design personnalisé, etc. Nous proposons un devis gratuit et personnalisé.',
-  },
-  {
-    question: 'Combien de temps faut-il pour créer un site web ?',
-    answer:
-      'Un site vitrine simple prend généralement 2-3 semaines. Pour un site plus complexe avec fonctionnalités avancées, comptez 4-8 semaines. Nous définissons ensemble un planning précis dès le début du projet.',
-  },
-  {
-    question: 'Proposez-vous la maintenance de sites web ?',
-    answer:
-      'Oui, nous proposons des contrats de maintenance pour assurer la sécurité, les mises à jour et les sauvegardes de votre site. Nous offrons également un support technique et des conseils pour optimiser votre présence en ligne.',
-  },
-  {
-    question: 'Mes sites sont-ils optimisés pour le référencement SEO ?',
-    answer:
-      'Absolument ! Tous nos sites sont conçus avec les bonnes pratiques SEO : structure optimisée, balises méta, vitesse de chargement, responsive design, contenu structuré. Nous proposons également des prestations SEO avancées.',
-  },
-  {
-    question: 'Travaillez-vous avec des clients en dehors de Paris ?',
-    answer:
-      'Bien que nous soyons basés à Paris, nous travaillons avec des clients partout en France. Nous organisons des réunions en visioconférence et nous déplaçons si nécessaire pour les projets importants.',
-  },
-])
-
 export default function Page() {
   return (
     <>
-      {/* Structured Data for Homepage */}
       <StructuredData customData={homepageSchema} />
-      {/* Structured Data for Services */}
+      <StructuredData customData={organizationSchema} />
       {servicesSchema.map((schema, index) => (
         <StructuredData key={index} customData={schema} />
       ))}
-      <StructuredData customData={faqSchema} />
 
       <div className='scroll-smooth min-h-screen bg-background text-foreground transition-colors duration-300 bg-gradient-light dark:bg-gradient-dark'>
-        <Header />{' '}
+        <Header />
         <main>
           <Hero />
           <Services />
           <Portfolio />
           <About />
           <Prices />
-          {/* <FAQ /> */}
           <Contact />
         </main>
         <Footer />

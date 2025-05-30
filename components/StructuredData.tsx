@@ -21,7 +21,11 @@ interface StructuredDataProps {
   }
 }
 
-export default function StructuredData({ type = 'all', customData, pageData }: StructuredDataProps) {
+export default function StructuredData({
+  type = 'all',
+  customData,
+  pageData,
+}: StructuredDataProps) {
   const schemas = []
 
   if (type === 'business' || type === 'all') {
