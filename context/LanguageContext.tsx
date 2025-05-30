@@ -19,7 +19,7 @@ const translations: Record<Language, TranslationMap> = {
   fr: {
     // Common
     'common.back': 'Retour',
-    
+
     // Header    'nav.home': 'Accueil',
     'nav.home': 'Accueil',
     'nav.portfolio': 'Réalisations',
@@ -209,10 +209,16 @@ const translations: Record<Language, TranslationMap> = {
       'Absolument ! Tous nos sites sont conçus avec les bonnes pratiques SEO : structure optimisée, balises méta, vitesse de chargement, responsive design, contenu structuré. Nous proposons également des prestations SEO avancées.',
 
     // Contact
-    'contact.title': 'Contactez-nous',
-    'contact.subtitle': 'Discutons de votre projet',
+    // Contact
+    'contact.title': 'Parlez-nous de votre projet', // ✅ Новый титр формы
+    'contact.subtitle': 'Un projet web ? Discutons-en.', // ✅ Более engageant
     'contact.description':
-      'Vous avez un projet web ? Parlons-en ! Notre équipe vous accompagne de l’idée à la mise en ligne : site vitrine, refonte, SEO, performance, accessibilité… Chaque projet est unique, et nous sommes là pour vous conseiller à chaque étape.',
+      'Chez SIDIKOFF DIGITAL, nous transformons vos idées en solutions digitales concrètes : site vitrine, refonte, SEO, performance, accessibilité…\nChaque projet est unique. Notre approche est personnalisée, claire et humaine.',
+    'contact.subdescription1':
+      'Nous sommes basés à Paris, mais nous travaillons avec des clients dans le monde entier.',
+    'contact.subdescription2': '💬 Réponse sous 24h',
+    'contact.subdescription3': '📝 Devis gratuit',
+    'contact.form.title': 'Contactez-nous',
     'contact.address': 'Paris, France',
     'contact.send': 'Demander un devis gratuit',
     'contact.firstName': 'Prénom',
@@ -277,11 +283,12 @@ const translations: Record<Language, TranslationMap> = {
       "Conformément au RGPD, vous disposez de droits sur vos données personnelles. Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes et ne sont pas transmises à des tiers. Vous pouvez exercer vos droits concernant vos données personnelles en contactant à l'adresse e-mail : contact@sidikoff.com.",
     'legal.cookies.title': 'Cookies',
     'legal.cookies.content':
-      'Ce site utilise des cookies essentiels au fonctionnement du site. En continuant à naviguer sur ce site, vous acceptez leur utilisation.',  },
+      'Ce site utilise des cookies essentiels au fonctionnement du site. En continuant à naviguer sur ce site, vous acceptez leur utilisation.',
+  },
   en: {
     // Common
     'common.back': 'Back',
-    
+
     'nav.home': 'Home',
     'nav.portfolio': 'Portfolio',
     'nav.expertise': 'About',
@@ -457,10 +464,14 @@ const translations: Record<Language, TranslationMap> = {
     'prices.features.enterpriseSecurity': 'Enterprise Security',
     'prices.features.prioritySupport': 'Priority Support',
     'prices.features.customFeatures': 'Custom Features',
-    'contact.title': 'Contact Us',
-    'contact.subtitle': 'Let’s discuss your project',
+    'contact.title': 'Tell us about your project',
+    'contact.subtitle': 'Got a web project? Let’s talk.',
     'contact.description':
-      "Do you have a web project? Let's talk! Our team supports you from idea to launch: showcase site, redesign, SEO, performance, accessibility... Every project is unique, and we are here to advise you at every step.",
+      'At SIDIKOFF DIGITAL, we turn your ideas into real digital solutions: landing pages, redesigns, SEO, performance, accessibility...\nEvery project is unique. Our approach is personal, clear and effective.',
+    'contact.subdescription1': 'We are based in Paris, but we work with clients around the world.',
+    'contact.subdescription2': '💬 Reply within 24h',
+    'contact.subdescription3': '📝 Free quote',
+    'contact.form.title': 'Contact Us',
     'contact.address': 'Paris, France',
     'contact.send': 'Request a free quote',
     'contact.firstName': 'First Name',
@@ -525,11 +536,12 @@ const translations: Record<Language, TranslationMap> = {
       "Conformément au RGPD, vous disposez de droits sur vos données personnelles. Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes et ne sont pas transmises à des tiers. Vous pouvez exercer vos droits concernant vos données personnelles en contactant à l'adresse e-mail : contact@sidikoff.com.",
     'legal.cookies.title': 'Cookies',
     'legal.cookies.content':
-      'Ce site utilise des cookies essentiels au fonctionnement du site. En continuant à naviguer sur ce site, vous acceptez leur utilisation.',  },
+      'Ce site utilise des cookies essentiels au fonctionnement du site. En continuant à naviguer sur ce site, vous acceptez leur utilisation.',
+  },
   ru: {
     // Common
     'common.back': 'Назад',
-    
+
     'nav.home': 'Главная',
     'nav.portfolio': 'Портфолио',
     'nav.expertise': 'О нас',
@@ -702,10 +714,14 @@ const translations: Record<Language, TranslationMap> = {
     'prices.features.enterpriseSecurity': 'Корпоративная безопасность',
     'prices.features.prioritySupport': 'Приоритетная поддержка',
     'prices.features.customFeatures': 'Индивидуальные функции',
-    'contact.title': 'Связаться с нами',
-    'contact.subtitle': 'Обсудим ваш проект',
+    'contact.title': 'Расскажите нам о своём проекте',
+    'contact.subtitle': 'Есть идея? Давайте обсудим.',
     'contact.description':
-      'Есть идея для сайта? Давайте обсудим! Наша команда поможет реализовать проект от концепции до запуска: корпоративный сайт, редизайн, SEO, производительность, доступность... Каждый проект уникален, и мы готовы сопровождать вас на каждом этапе.',
+      'В SIDIKOFF DIGITAL мы превращаем идеи в реальные цифровые решения: лендинги, редизайн, SEO, производительность, доступность…\nКаждый проект уникален. Мы подходим к работе персонализированно, ясно и эффективно.',
+    'contact.subdescription1': 'Мы находимся в Париже, но работаем с клиентами по всему миру.',
+    'contact.subdescription2': '💬 Ответ в течение 24 часов',
+    'contact.subdescription3': '📝 Бесплатный расчёт стоимости',
+    'contact.form.title': 'Свяжитесь с нами',
     'contact.address': 'Париж, Франция',
     'contact.send': 'Запросить бесплатную консультацию',
     'contact.firstName': 'Имя',

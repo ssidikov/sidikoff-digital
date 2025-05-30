@@ -192,9 +192,11 @@ export default function Contact() {
                 />
               </div>
             </div>
-            <h2 className='text-lg text-primary mb-2'>{t('contact.subtitle')}</h2>
-            <h3 className='text-3xl font-bold mb-4 text-card-foreground'>{t('contact.title')}</h3>
-            <p className='mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300'>
+            <h2 className='text-3xl font-bold mb-4 text-card-foreground'>{t('contact.title')}</h2>
+            {/* <h3 className='text-3xl font-bold mb-4 text-card-foreground'>
+              {t('contact.subtitle')}
+            </h3> */}
+            <p className='mt-4 text-gray-700 dark:text-gray-300'>
               {t('contact.description')
                 .split('\n')
                 .map((line, i) => (
@@ -204,6 +206,9 @@ export default function Contact() {
                   </span>
                 ))}
             </p>
+            <p className='mt-4 text-gray-700 dark:text-gray-300'>{t('contact.subdescription1')}</p>
+            <p className='mt-4 text-gray-700 dark:text-gray-300'>{t('contact.subdescription2')}</p>
+            <p className='mt-4 text-gray-700 dark:text-gray-300'>{t('contact.subdescription3')}</p>
             <dl className='mt-10 space-y-4 text-base leading-7 text-gray-600 dark:text-gray-300'>
               <div className='flex gap-x-4'>
                 <dt className='flex-none'>
@@ -238,7 +243,8 @@ export default function Contact() {
               </div>
             </dl>
           </div>
-        </AnimatedSection>        <AnimatedSection>
+        </AnimatedSection>{' '}
+        <AnimatedSection>
           <form
             id='contact-form'
             ref={formRef}
@@ -247,14 +253,11 @@ export default function Contact() {
             <div className='mx-auto max-w-xl lg:mr-0 lg:max-w-lg'>
               {/* Contact Form Header */}
               <div className='mb-8'>
-                <h2 className='text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl'>
-                  {t('contact.title')}
+                <h2 className='text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-gray-900 via-indigo-600 to-purple-600 dark:from-white dark:via-indigo-400 dark:to-purple-400 bg-clip-text text-transparent mb-8 leading-tight'>
+                  {t('contact.form.title')}
                 </h2>
-                <p className='mt-2 text-lg leading-8 text-gray-600 dark:text-gray-300'>
-                  {t('contact.subtitle')}
-                </p>
               </div>
-              
+
               <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
                 <div>
                   <label
@@ -438,7 +441,8 @@ export default function Contact() {
                         }}>
                         {t('prices.tier3.name')}
                       </option>
-                    </select>                    <ChevronDown className='pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 dark:text-gray-300' />
+                    </select>{' '}
+                    <ChevronDown className='pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 dark:text-gray-300' />
                     {formErrors.tariff && (
                       <p className='mt-1 text-sm text-red-500 dark:text-red-400'>
                         {formErrors.tariff}
