@@ -30,13 +30,40 @@ export default function LocaleProjectPage({
 
   const { locale, id } = resolvedParams
   const { setLanguage, t, language } = useLanguage()
-
   useEffect(() => {
     if (!locales.includes(locale)) {
       notFound()
     }
     setLanguage(locale as 'fr' | 'en' | 'ru')
   }, [locale, setLanguage])
+
+  // Restore scroll position after language switch
+  useEffect(() => {
+    const restorePosition = () => {
+      const savedData = sessionStorage.getItem('languageSwitch')
+      if (savedData) {
+        try {
+          const { scrollY, timestamp } = JSON.parse(savedData)
+          
+          // Only restore if the switch was recent (within 5 seconds)
+          if (Date.now() - timestamp < 5000 && scrollY > 0) {
+            setTimeout(() => {
+              window.scrollTo({ top: scrollY, behavior: 'smooth' })
+            }, 100)
+          }
+          
+          // Clean up the saved data
+          sessionStorage.removeItem('languageSwitch')
+        } catch (error) {
+          console.error('Error restoring scroll position:', error)
+          sessionStorage.removeItem('languageSwitch')
+        }
+      }
+    }
+
+    const timer = setTimeout(restorePosition, 50)
+    return () => clearTimeout(timer)
+  }, [locale])
 
   if (!locales.includes(locale)) {
     notFound()
