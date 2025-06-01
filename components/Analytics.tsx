@@ -6,11 +6,13 @@ import { reportWebVitals } from '@/lib/performance'
 
 interface AnalyticsProps {
   googleAnalyticsId?: string
+  googleAdsId?: string
   enableWebVitals?: boolean
 }
 
 export default function Analytics({
-  googleAnalyticsId = 'G-KFKPR6DVQ1',
+  googleAnalyticsId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID,
+  googleAdsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID,
   enableWebVitals = true,
 }: AnalyticsProps) {
   const [isMounted, setIsMounted] = useState(false)
@@ -39,6 +41,15 @@ export default function Analytics({
         src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
         strategy='afterInteractive'
       />
+
+      {/* Google Ads */}
+      {googleAdsId && (
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleAdsId}`}
+          strategy='afterInteractive'
+        />
+      )}
+
       <Script id='google-analytics' strategy='afterInteractive'>
         {`
           window.dataLayer = window.dataLayer || [];
@@ -51,6 +62,7 @@ export default function Analytics({
               'metric_id': 'web_vitals'
             }
           });
+          ${googleAdsId ? `gtag('config', '${googleAdsId}');` : ''}
         `}
       </Script>
 
@@ -111,14 +123,40 @@ export function trackEvent(eventName: string, parameters?: Record<string, any>) 
   }
 }
 
-// Track page views
-export function trackPageView(url: string, title?: string) {
+// Track Google Ads conversions
+export function trackConversion(
+  conversionLabel?: string,
+  value?: number,
+  currency: string = 'EUR'
+) {
   if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', 'G-KFKPR6DVQ1', {
-      page_title: title || document.title,
-      page_location: url,
+    const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID
+    const label = conversionLabel || process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL
+
+    window.gtag('event', 'conversion', {
+      send_to: `${adsId}/${label}`,
+      value: value,
+      currency: currency,
     })
   }
+}
+
+// Track lead form submission (specific conversion)
+export function trackLeadFormSubmission(formData?: {
+  firstName?: string
+  email?: string
+  tariff?: string
+}) {
+  trackConversion() // Uses default conversion label from env
+
+  // Also track as a custom event for GA4
+  trackEvent('lead_form_submission', {
+    event_category: 'engagement',
+    event_label: 'contact_form',
+    form_type: 'lead_generation',
+    tariff_selected: formData?.tariff || 'not_specified',
+    user_email: formData?.email ? 'provided' : 'not_provided',
+  })
 }
 
 declare global {

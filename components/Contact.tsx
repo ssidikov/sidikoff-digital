@@ -9,6 +9,7 @@ import Popup from './Popup'
 import AnimatedSection from './AnimatedSection'
 import { useLanguage } from '@/context/LanguageContext'
 import { useTariff } from '@/context/TariffContext'
+import { trackLeadFormSubmission } from './Analytics'
 
 interface FormErrors {
   firstName?: string
@@ -110,13 +111,15 @@ export default function Contact() {
     // Validate form
     const errors = validateForm(formData)
 
+    const formSubmissionID = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT
+
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors)
       setIsLoading(false)
       return
     }
     try {
-      const response = await fetch('https://formspree.io/f/xnndeppp', {
+      const response = await fetch(`https://formspree.io/f/${formSubmissionID}`, {
         method: 'POST',
         body: formData,
         headers: {
@@ -125,6 +128,18 @@ export default function Contact() {
       })
 
       if (response.ok) {
+        // Extract form data for tracking
+        const firstName = formData.get('first-name') as string
+        const email = formData.get('email') as string
+        const selectedTariff = formData.get('selected-tariff') as string
+
+        // Track Google Ads conversion
+        trackLeadFormSubmission({
+          firstName,
+          email,
+          tariff: selectedTariff,
+        })
+
         setIsPopupOpen(true)
         formRef.current?.reset()
         setTariff('')
