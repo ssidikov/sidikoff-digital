@@ -300,7 +300,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
             className='text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed'>
             {t('portfolio.description') ||
               'Explore my latest projects showcasing modern web development techniques and innovative solutions.'}
-          </motion.p>{' '}
+          </motion.p>
           {/* Navigation and Filter Section */}
           <motion.div
             variants={cardVariants}
@@ -326,7 +326,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                   <ArrowRight className='w-4 h-4 transition-transform group-hover:translate-x-1' />
                 </motion.button>
               </Link>
-            )}{' '}
+            )}
             {/* Filter Toggle */}
             <motion.button
               onClick={() => setShowFilters(!showFilters)}
@@ -343,7 +343,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                 }`}
               />
             </motion.button>
-          </motion.div>{' '}
+          </motion.div>
           {/* Enhanced Technology Filters */}
           <AnimatePresence>
             {showFilters && (
@@ -355,7 +355,6 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                 className='mb-12'>
                 <div className='bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-6 max-w-5xl mx-auto'>
                   <div className='flex flex-wrap justify-center gap-3'>
-                    {' '}
                     <motion.button
                       onClick={() => handleFilterChange('all')}
                       className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 relative overflow-hidden ${
@@ -414,18 +413,18 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                     <p className='text-sm text-muted-foreground'>
                       {filterTechnology === 'all' ? (
                         <>
-                          Showing all{' '}
+                          Showing all
                           <span className='font-semibold text-primary'>
                             {filteredProjects.length}
-                          </span>{' '}
+                          </span>
                           projects
                         </>
                       ) : (
                         <>
-                          Found{' '}
+                          Found
                           <span className='font-semibold text-primary'>
                             {filteredProjects.length}
-                          </span>{' '}
+                          </span>
                           projects with <span className='font-semibold'>{filterTechnology}</span>
                         </>
                       )}
@@ -435,7 +434,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
               </motion.div>
             )}
           </AnimatePresence>
-        </motion.div>{' '}
+        </motion.div>
         {/* Enhanced Projects Grid */}
         <motion.div
           initial='hidden'
@@ -464,7 +463,6 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
             className='mt-12 text-center'>
-            {' '}
             <motion.button
               onClick={loadMoreProjects}
               className='inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-700/50 group'

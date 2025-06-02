@@ -106,7 +106,7 @@ export default function LocaleLegalPage({
                     CA 91723, USA
                   </p>
                   <p>
-                    <strong>Website:</strong>{' '}
+                    <strong>Website:</strong>
                     <a
                       href='https://vercel.com'
                       target='_blank'
@@ -132,7 +132,7 @@ export default function LocaleLegalPage({
                 <h2 className='text-2xl font-semibold mb-4'>{t('legal.contact.title')}</h2>
                 <p>{t('legal.contact.text')}</p>
                 <p className='mt-4'>
-                  <strong>Email:</strong>{' '}
+                  <strong>Email:</strong>
                   <a href='mailto:contact@sidikoff.com' className='text-primary hover:underline'>
                     contact@sidikoff.com
                   </a>
@@ -140,7 +140,7 @@ export default function LocaleLegalPage({
               </section>
             </div>
           </div>
-        </div>{' '}
+        </div>
       </main>
       <Footer />
     </div>

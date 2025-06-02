@@ -107,7 +107,7 @@ const About: React.FC = () => {
             <p className='text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
               {t('about.intro.description')}
             </p>
-          </motion.div>{' '}
+          </motion.div>
           {/* Founder intro card */}
           <motion.div
             className='group relative max-w-3xl mx-auto rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm p-8 lg:p-10 cursor-pointer overflow-hidden'
@@ -128,10 +128,10 @@ const About: React.FC = () => {
               transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             />
             {/* Border glow effect */}
-            <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />{' '}
+            <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
             {/* Header Section */}
             <div className='relative z-10 flex flex-col lg:flex-row items-center lg:items-start gap-6 mb-8'>
-              {/* Avatar */}{' '}
+              {/* Avatar */}
               <motion.div className='relative' transition={{ duration: 0.3 }}>
                 <div className='relative w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 shadow-lg shadow-indigo-500/25 overflow-hidden flex items-center justify-center'>
                   <Image
@@ -152,40 +152,38 @@ const About: React.FC = () => {
               <div className='text-center lg:text-left flex-1'>
                 <h3 className='text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2'>
                   {t('about.founder.name')}
-                </h3>{' '}
+                </h3>
                 <div className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full text-sm font-semibold mb-4'>
                   <CheckCircle className='w-4 h-4 mr-2' />
                   {t('about.founder.title')}
                 </div>
               </div>
-            </div>{' '}
+            </div>
             {/* Description */}
             <div className='relative z-10 mb-8'>
               <p className='text-gray-600 dark:text-gray-300 leading-relaxed lg:text-left'>
                 {t('about.founder.description')}
               </p>
-            </div>{' '}
+            </div>
             {/* Experience and Education Grid */}
             <div className='relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-4'>
-              {/* Experience */}{' '}
+              {/* Experience */}
               <motion.div
                 className='flex items-center gap-4 p-4 bg-gradient-to-r from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20 rounded-2xl border border-indigo-200/50 dark:border-indigo-700/30'
                 transition={{ duration: 0.2 }}>
-                {' '}
                 <div className='w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-lg'>
                   <Zap className='w-7 h-7 text-white' />
-                </div>{' '}
+                </div>
                 <div>
                   <p className='text-start text-gray-900 dark:text-white font-semibold'>
                     {t('about.founder.experienceYears')}
                   </p>
                 </div>
               </motion.div>
-              {/* Education */}{' '}
+              {/* Education */}
               <motion.div
                 className='flex items-center gap-4 p-4 bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-2xl border border-purple-200/50 dark:border-purple-700/30'
                 transition={{ duration: 0.2 }}>
-                {' '}
                 <div className='min-w-12 w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg'>
                   <GraduationCap className='w-7 h-7 text-white' />
                 </div>
@@ -195,10 +193,9 @@ const About: React.FC = () => {
                   </p>
                 </div>
               </motion.div>
-            </div>{' '}
+            </div>
             {/* Contact CTA */}
             <div className='relative z-10 mt-8 text-center'>
-              {' '}
               <motion.a
                 href='#contact-form'
                 className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-gray-700 dark:text-gray-200 rounded-xl font-medium hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-600'
@@ -275,7 +272,7 @@ const About: React.FC = () => {
               return <PrincipleCard key={index} principle={principle} index={index} />
             })}
           </div>
-        </motion.div>{' '}
+        </motion.div>
         {/* 4. Stats Section */}
         <motion.div
           className='mb-20'
@@ -286,7 +283,7 @@ const About: React.FC = () => {
             className='text-3xl sm:text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white'
             variants={itemVariants}>
             {t('about.stats.title')}
-          </motion.h3>{' '}
+          </motion.h3>
           <div className='grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto'>
             {stats.map((stat, index) => {
               const StatsCard = ({ stat, index }: { stat: any; index: number }) => {
@@ -337,7 +334,7 @@ const About: React.FC = () => {
               return <StatsCard key={index} stat={stat} index={index} />
             })}
           </div>
-        </motion.div>{' '}
+        </motion.div>
         {/* 5. CTA Section */}
         <motion.div
           variants={containerVariants}
@@ -370,7 +367,7 @@ const About: React.FC = () => {
               </motion.h3>
               <motion.p className='text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto'>
                 {t('about.cta.description')}
-              </motion.p>{' '}
+              </motion.p>
               <motion.div className='relative z-10 text-gray-600 dark:text-muted-foreground leading-relaxed flex flex-col sm:flex-row gap-4 justify-center max-w-readable'>
                 <motion.a
                   href='#contact-form'

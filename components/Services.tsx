@@ -111,7 +111,6 @@ function ServiceCard({
 
       {/* Card content */}
       <div className='relative z-10 flex flex-col h-full'>
-        {' '}
         {/* Icon container */}
         <div className='flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 mb-6 transition-transform duration-300'>
           <span className='text-3xl'>{service.emoji}</span>
@@ -123,7 +122,7 @@ function ServiceCard({
         {/* Description */}
         <p className='text-gray-600 dark:text-gray-300 mb-6 leading-relaxed flex-grow'>
           {t(service.descriptionKey)}
-        </p>{' '}
+        </p>
         {/* Features list */}
         <div className='space-y-3'>
           <h4 className='text-sm font-semibold text-gray-800 dark:text-gray-200 uppercase tracking-wide'>
@@ -137,16 +136,16 @@ function ServiceCard({
               </li>
             ))}
           </ul>
-        </div>{' '}
+        </div>
         {/* CTA Buttons */}
         <div className='mt-6 pt-4 border-t border-gray-100 dark:border-gray-800 space-y-3'>
-          {/* Primary CTA - Découvrir */}{' '}
+          {/* Primary CTA - Découvrir */}
           <motion.a
             href='#prices'
             className='group relative w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-semibold shadow-lg hover:shadow-xl overflow-hidden'
             whileTap={{ scale: 0.98 }}>
             {/* Animated background effect */}
-            <div className='absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />{' '}
+            <div className='absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
             <div className='relative flex items-center gap-2'>
               <Eye className='w-4 h-4 transition-transform duration-200' />
               <span>{t('services.cta.pricing')}</span>
@@ -170,8 +169,8 @@ function ServiceCard({
                 />
               </motion.svg>
             </div>
-          </motion.a>{' '}
-          {/* Secondary CTA - Request quote */}{' '}
+          </motion.a>
+          {/* Secondary CTA - Request quote */}
           <motion.a
             href='#contact-form'
             className='group w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/20 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-semibold backdrop-blur-sm'

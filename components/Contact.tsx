@@ -258,7 +258,7 @@ export default function Contact() {
               </div>
             </dl>
           </div>
-        </AnimatedSection>{' '}
+        </AnimatedSection>
         <AnimatedSection>
           <form
             id='contact-form'
@@ -279,7 +279,7 @@ export default function Contact() {
                     htmlFor='first-name'
                     className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
                     {t('contact.firstName')}
-                  </label>{' '}
+                  </label>
                   <div className='mt-2.5'>
                     <input
                       placeholder={t('contact.placeholder.firstName')}
@@ -312,7 +312,7 @@ export default function Contact() {
                     htmlFor='last-name'
                     className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
                     {t('contact.lastName')}
-                  </label>{' '}
+                  </label>
                   <div className='mt-2.5'>
                     <input
                       id='last-name'
@@ -338,7 +338,7 @@ export default function Contact() {
                     htmlFor='email'
                     className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
                     {t('contact.email')}
-                  </label>{' '}
+                  </label>
                   <div className='mt-2.5'>
                     <input
                       placeholder={t('contact.placeholder.email')}
@@ -371,7 +371,7 @@ export default function Contact() {
                     htmlFor='phone-number'
                     className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
                     {t('contact.phone')}
-                  </label>{' '}
+                  </label>
                   <div className='mt-2.5'>
                     <input
                       placeholder={t('contact.placeholder.phone')}
@@ -396,9 +396,9 @@ export default function Contact() {
                   <label
                     htmlFor='selected-tariff'
                     className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
-                    {t('prices.title')}{' '}
+                    {t('prices.title')}
                     <span className='text-xs text-gray-400'>({t('prices.subtitle')})</span>
-                  </label>{' '}
+                  </label>
                   <div className='mt-2.5 relative'>
                     <select
                       id='selected-tariff'
@@ -456,7 +456,7 @@ export default function Contact() {
                         }}>
                         {t('prices.tier3.name')}
                       </option>
-                    </select>{' '}
+                    </select>
                     <ChevronDown className='pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 dark:text-gray-300' />
                     {formErrors.tariff && (
                       <p className='mt-1 text-sm text-red-500 dark:text-red-400'>
@@ -473,7 +473,7 @@ export default function Contact() {
                     htmlFor='message'
                     className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
                     {t('contact.message')}
-                  </label>{' '}
+                  </label>
                   <div className='mt-2.5'>
                     <textarea
                       placeholder={t('contact.placeholder.message')}

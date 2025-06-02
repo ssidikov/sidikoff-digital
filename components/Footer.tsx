@@ -11,9 +11,13 @@ export default function Footer() {
   const pathname = usePathname()
 
   // Get current locale from pathname
-  const currentLocale = pathname.startsWith('/fr') ? 'fr' : 
-                       pathname.startsWith('/en') ? 'en' : 
-                       pathname.startsWith('/ru') ? 'ru' : 'fr'
+  const currentLocale = pathname.startsWith('/fr')
+    ? 'fr'
+    : pathname.startsWith('/en')
+    ? 'en'
+    : pathname.startsWith('/ru')
+    ? 'ru'
+    : 'fr'
 
   // Generate locale-aware URLs
   const getLocalePath = (path: string) => {
@@ -26,9 +30,10 @@ export default function Footer() {
   return (
     <footer className='border-t bg-card'>
       <div className='container mx-auto px-4 py-12'>
-        {' '}
         <div className='flex flex-row justify-between gap-2'>
-          <div className='flex items-center order-1'>            <a
+          <div className='flex items-center order-1'>
+            {' '}
+            <a
               href={getLocalePath('/')}
               className='flex flex-col items-center leading-none text-gray-900 dark:text-white'>
               <Image
@@ -44,11 +49,12 @@ export default function Footer() {
                 }}
               />
             </a>
-          </div>{' '}
+          </div>
           <div className='hidden md:flex flex-col items-center text-sm text-muted-foreground order-3 md:order-2 min-w-80'>
             <div>
               © {currentYear} {t('footer.rights')}
-            </div>            <Link
+            </div>{' '}
+            <Link
               href={getLocalePath('/mentions-legales')}
               className='text-xs text-muted-foreground hover:text-primary transition-colors mt-1'>
               {t('legal.title')}
@@ -66,11 +72,12 @@ export default function Footer() {
               <Linkedin className='w-5 h-5' />
             </Link>
           </div>
-        </div>{' '}
+        </div>
         <div className='md:hidden text-center mt-5 text-sm text-muted-foreground'>
           <div>
             © {currentYear} {t('footer.rights')}
-          </div>          <Link
+          </div>{' '}
+          <Link
             href={getLocalePath('/mentions-legales')}
             className='text-xs text-muted-foreground hover:text-primary transition-colors mt-1 block'>
             {t('legal.title')}

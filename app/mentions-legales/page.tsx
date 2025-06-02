@@ -57,7 +57,7 @@ export default function LegalMentionsPage() {
                 <strong>{t('legal.hosting.address')}:</strong> {t('legal.hosting.addressValue')}
               </p>
               <p>
-                <strong>{t('legal.hosting.website')}:</strong>{' '}
+                <strong>{t('legal.hosting.website')}:</strong>
                 <a
                   href={t('legal.hosting.websiteValue')}
                   target='_blank'

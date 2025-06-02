@@ -191,7 +191,7 @@ export default function Header() {
               }}
             />
           </motion.a>
-        </div>{' '}
+        </div>
         {/* Mobile: language, theme, burger */}
         <div className='flex items-center gap-2 md:hidden'>
           <LanguageSelector />
@@ -230,7 +230,7 @@ export default function Header() {
               />
             </motion.svg>
           </motion.button>
-        </div>{' '}
+        </div>
         {/* Desktop nav */}
         <nav className='hidden md:flex items-center gap-6'>
           {[
@@ -255,7 +255,7 @@ export default function Header() {
               </motion.a>
             </motion.div>
           ))}
-        </nav>{' '}
+        </nav>
         {/* Desktop CTA */}
         <div className='hidden md:flex items-center gap-2'>
           <motion.a
@@ -263,7 +263,6 @@ export default function Header() {
             onClick={(e) => handleNavClick(e, `${getLocalePath('/')}#contact-form`)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}>
-            {' '}
             <button className='px-4 py-2 text-sm font-medium border border-border rounded-lg bg-background/90 hover:bg-accent/80 transition-all duration-200 backdrop-blur-sm shadow-sm hover:shadow-md hover:border-primary/30 dark:hover:border-primary/50'>
               {t('nav.contact')}
             </button>
@@ -272,7 +271,7 @@ export default function Header() {
           <LanguageSelector />
           <DarkModeToggle />
         </div>
-      </motion.div>{' '}
+      </motion.div>
       {/* Mobile menu */}
       <AnimatePresence mode='wait'>
         {menuOpen && (
@@ -292,7 +291,6 @@ export default function Header() {
               initial='hidden'
               animate='visible'
               exit='hidden'>
-              {' '}
               {[
                 { href: `${getLocalePath('/')}#home`, key: 'nav.home', section: 'home' },
                 {
@@ -319,7 +317,7 @@ export default function Header() {
                     }`}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}>
-                    <span className='font-medium'>{t(key)}</span>{' '}
+                    <span className='font-medium'>{t(key)}</span>
                     {activeSection === section && (
                       <motion.div
                         className='w-2 h-2 bg-primary rounded-full shadow-sm dark:shadow-primary/50'
@@ -330,18 +328,16 @@ export default function Header() {
                     )}
                   </motion.a>
                 </motion.div>
-              ))}{' '}
+              ))}
               <motion.div
                 variants={itemVariants}
                 className='w-full mt-4 pt-4 border-t border-border'>
-                {' '}
                 <motion.a
                   href={`${getLocalePath('/')}#contact-form`}
                   className='w-full block'
                   onClick={(e) => handleMobileNavClick(e, `${getLocalePath('/')}#contact-form`)}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}>
-                  {' '}
                   <button className='w-full px-4 py-3 text-sm font-medium bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg dark:shadow-primary/25 dark:hover:shadow-primary/30'>
                     {t('nav.contact')}
                   </button>
