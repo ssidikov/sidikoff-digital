@@ -13,7 +13,7 @@ export interface SEOData {
 // Configuration SEO pour l'agence parisienne - Enhanced for 2024
 const defaultSEOConfig = {
   siteName: 'SIDIKOFF DIGITAL',
-  defaultTitle: 'SIDIKOFF DIGITAL - Agence Web à Paris | Création Sites & Apps',
+  defaultTitle: 'Agence Web Paris - SIDIKOFF DIGITAL',
   defaultDescription:
     'Agence web parisienne spécialisée en création de sites internet, applications web et stratégie digitale. Développement moderne, design UX/UI, référencement SEO. Devis gratuit.',
   defaultKeywords: [

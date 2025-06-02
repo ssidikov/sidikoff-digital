@@ -11,7 +11,7 @@ import StructuredData from '@/components/StructuredData'
 import { generateServiceSchema } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'SIDIKOFF DIGITAL - Agence Web Premium Paris | Sardorbek SIDIKOV, Fondateur',
+  title: 'Agence Web - SIDIKOFF DIGITAL',
   description:
     'SIDIKOFF DIGITAL, agence web parisienne fondée par Sardorbek SIDIKOV. Création de sites internet sur mesure, applications React/Next.js, stratégie SEO et transformation digitale. Découvrez notre expertise et notre approche unique.',
   keywords: [

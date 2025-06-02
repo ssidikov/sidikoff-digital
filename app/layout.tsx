@@ -20,7 +20,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = generateSEOMetadata({
-  title: 'SIDIKOFF DIGITAL - Agence Web Premium à Paris | Sardorbek SIDIKOV',
+  title: 'Agence Web - SIDIKOFF DIGITAL',
   description:
     'SIDIKOFF DIGITAL, agence web fondée par Sardorbek SIDIKOV. Création de sites internet sur mesure, applications React/Next.js, stratégie SEO et transformation digitale à Paris.',
   keywords: [
@@ -79,6 +79,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name='mobile-web-app-capable' content='yes' />
         <meta name='apple-mobile-web-app-capable' content='yes' />
         <meta name='apple-mobile-web-app-status-bar-style' content='default' />
+        <meta property='og:title' content='Agence Web - SIDIKOFF DIGITAL' />
+        <meta name='twitter:title' content='SIDIKOFF DIGITAL | Agence Web' />
         {/* Google Search Console Verification */}
         {process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION && (
           <meta
@@ -134,7 +136,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               '@context': 'https://schema.org',
               '@type': 'WebSite',
               name: 'SIDIKOFF DIGITAL',
-              alternateName: 'SIDIKOFF DIGITAL - Agence Web Paris',
+              alternateName: 'SIDIKOFF DIGITAL - Agence Web',
               url: 'https://www.sidikoff.com',
               sameAs: [
                 'https://linkedin.com/company/sidikoff-digital',

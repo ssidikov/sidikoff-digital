@@ -65,7 +65,7 @@ export default async function Image() {
               maxWidth: '800px',
               lineHeight: 1.3,
             }}>
-            Agence Web à Paris • Création Sites & Applications
+            Agence Web • Création Sites & Applications
           </p>
 
           <div
