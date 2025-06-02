@@ -104,9 +104,7 @@ const About: React.FC = () => {
           initial='hidden'
           animate={isInView ? 'visible' : 'hidden'}>
           <motion.div className='max-w-4xl mx-auto mb-12' variants={itemVariants}>
-            <p
-              className='text-justify
-text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
+            <p className='text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
               {t('about.intro.description')}
             </p>
           </motion.div>{' '}
@@ -163,7 +161,7 @@ text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
             </div>{' '}
             {/* Description */}
             <div className='relative z-10 mb-8'>
-              <p className='text-gray-600 dark:text-gray-300 leading-relaxed text-justify lg:text-left'>
+              <p className='text-gray-600 dark:text-gray-300 leading-relaxed lg:text-left'>
                 {t('about.founder.description')}
               </p>
             </div>{' '}
@@ -266,7 +264,7 @@ text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
                         </h4>
                       </div>
                       {/* Description */}
-                      <p className='relative z-10 text-gray-600 dark:text-muted-foreground leading-relaxed text-justify max-w-readable'>
+                      <p className='relative z-10 text-gray-600 dark:text-muted-foreground leading-relaxed max-w-readable'>
                         {t(principle.descriptionKey)}
                       </p>
                     </motion.div>
@@ -370,10 +368,10 @@ text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
               <motion.h3 className='text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4'>
                 {t('about.cta.title')}
               </motion.h3>
-              <motion.p className='text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto text-justify'>
+              <motion.p className='text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto'>
                 {t('about.cta.description')}
               </motion.p>{' '}
-              <motion.div className='relative z-10 text-gray-600 dark:text-muted-foreground leading-relaxed text-justify flex flex-col sm:flex-row gap-4 justify-center max-w-readable'>
+              <motion.div className='relative z-10 text-gray-600 dark:text-muted-foreground leading-relaxed flex flex-col sm:flex-row gap-4 justify-center max-w-readable'>
                 <motion.a
                   href='#contact-form'
                   className='group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl font-semibold text-button-lg shadow-lg shadow-indigo-500/25 hover:shadow-2xl hover:shadow-indigo-500/40 transition-all duration-300 overflow-hidden border border-transparent hover:border-white/20'

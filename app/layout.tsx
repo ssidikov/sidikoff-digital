@@ -60,7 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
         <link rel='icon' href='/favicon.svg' />
         <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
-        <link rel='manifest' href='/manifest.json' />
+        <link rel='manifest' href='/manifest.json' />{' '}
         <meta name='author' content='SIDIKOFF DIGITAL' />
         <meta name='generator' content='Next.js' />
         <meta name='HandheldFriendly' content='True' />
