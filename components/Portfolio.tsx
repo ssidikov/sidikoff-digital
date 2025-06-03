@@ -156,7 +156,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
   const [visibleProjects, setVisibleProjects] = useState(4)
   const [filterTechnology, setFilterTechnology] = useState<string>('all')
   const [showFilters, setShowFilters] = useState(false)
-  const { t, language } = useLanguage()
+  const { t, language, plural } = useLanguage()
   const { scrollToSection } = useSmoothScroll()
   const router = useRouter()
   const pathname = usePathname()
@@ -363,10 +363,9 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                           : 'bg-secondary/50 hover:bg-secondary text-muted-foreground hover:text-foreground border border-transparent hover:border-primary/20'
                       }`}
                       whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}>
-                      <span className='relative z-10 flex items-center gap-2'>
+                      whileTap={{ scale: 0.95 }}>                      <span className='relative z-10 flex items-center gap-2'>
                         <Sparkles className='w-3 h-3' />
-                        All Projects
+                        {t('portfolio.allProjects')}
                       </span>
                       {filterTechnology === 'all' && (
                         <motion.div
@@ -409,23 +408,23 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                     className='mt-4 text-center'
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}>
-                    <p className='text-sm text-muted-foreground'>
+                    transition={{ delay: 0.2 }}>                    <p className='text-sm text-muted-foreground'>
                       {filterTechnology === 'all' ? (
                         <>
-                          Showing all
-                          <span className='font-semibold text-primary'>
+                          {t('portfolio.showingAll')}{' '}
+                          <span className='font-semibold text-primary mx-1'>
                             {filteredProjects.length}
-                          </span>
-                          projects
+                          </span>{' '}
+                          {plural(filteredProjects.length, t('portfolio.project'), t('portfolio.projects'))}
                         </>
                       ) : (
                         <>
-                          Found
-                          <span className='font-semibold text-primary'>
+                          {t('portfolio.found')}{' '}
+                          <span className='font-semibold text-primary mx-1'>
                             {filteredProjects.length}
-                          </span>
-                          projects with <span className='font-semibold'>{filterTechnology}</span>
+                          </span>{' '}
+                          {plural(filteredProjects.length, t('portfolio.projectWith'), t('portfolio.projectsWith'))}{' '}
+                          <span className='font-semibold'>{filterTechnology}</span>
                         </>
                       )}
                     </p>

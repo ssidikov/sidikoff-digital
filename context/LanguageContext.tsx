@@ -8,6 +8,7 @@ interface LanguageContextType {
   language: Language
   setLanguage: (language: Language) => void
   t: (key: string) => string
+  plural: (count: number, singular: string, plural?: string) => string
 }
 
 // Définition des traductions
@@ -108,13 +109,19 @@ const translations: Record<Language, TranslationMap> = {
     'portfolio.title': 'Projets récents',
     'portfolio.subtitle': 'Nos réalisations',
     'portfolio.description':
-      'Explorez nos derniers projets mettant en valeur des techniques de développement web modernes et des solutions innovantes.',
-    'portfolio.filter': 'Filtrer',
+      'Explorez nos derniers projets mettant en valeur des techniques de développement web modernes et des solutions innovantes.',    'portfolio.filter': 'Filtrer',
     'portfolio.viewAll': 'Voir tout',
     'portfolio.viewDetails': 'Détails du projet',
     'portfolio.showMore': 'Afficher plus',
     'portfolio.viewProject': 'Accéder au site',
     'portfolio.technologies': 'Technologies',
+    'portfolio.allProjects': 'Tous les projets',
+    'portfolio.showingAll': 'Affichage de tous les',
+    'portfolio.projects': 'projets',
+    'portfolio.project': 'projet',
+    'portfolio.found': 'Trouvé',
+    'portfolio.projectsWith': 'projets avec',
+    'portfolio.projectWith': 'projet avec',
     'project.notFound': 'Projet non trouvé',
 
     // Services
@@ -380,13 +387,19 @@ const translations: Record<Language, TranslationMap> = {
     'portfolio.title': 'Recent Projects',
     'portfolio.subtitle': 'Our Work',
     'portfolio.description':
-      'Explore our latest projects showcasing modern web development techniques and innovative solutions.',
-    'portfolio.filter': 'Filter',
+      'Explore our latest projects showcasing modern web development techniques and innovative solutions.',    'portfolio.filter': 'Filter',
     'portfolio.viewAll': 'View All',
     'portfolio.viewDetails': 'Project Details',
     'portfolio.showMore': 'Show More',
     'portfolio.viewProject': 'Visit Site',
     'portfolio.technologies': 'Technologies',
+    'portfolio.allProjects': 'All Projects',
+    'portfolio.showingAll': 'Showing all',
+    'portfolio.projects': 'projects',
+    'portfolio.project': 'project',
+    'portfolio.found': 'Found',
+    'portfolio.projectsWith': 'projects with',
+    'portfolio.projectWith': 'project with',
     'project.notFound': 'Project not found',
 
     // Services
@@ -632,13 +645,19 @@ const translations: Record<Language, TranslationMap> = {
     'portfolio.title': 'Недавние проекты',
     'portfolio.subtitle': 'Наши работы',
     'portfolio.description':
-      'Изучите наши последние проекты, демонстрирующие современные техники веб-разработки и инновационные решения.',
-    'portfolio.filter': 'Фильтр',
+      'Изучите наши последние проекты, демонстрирующие современные техники веб-разработки и инновационные решения.',    'portfolio.filter': 'Фильтр',
     'portfolio.viewAll': 'Смотреть все',
     'portfolio.viewDetails': 'Подробнее о проекте',
     'portfolio.showMore': 'Показать ещё',
     'portfolio.viewProject': 'Перейти на сайт',
     'portfolio.technologies': 'Технологии',
+    'portfolio.allProjects': 'Все проекты',
+    'portfolio.showingAll': 'Показаны все',
+    'portfolio.projects': 'проектов',
+    'portfolio.project': 'проект',
+    'portfolio.found': 'Найдено',
+    'portfolio.projectsWith': 'проектов с',
+    'portfolio.projectWith': 'проект с',
     'project.notFound': 'Проект не найден',
 
     // Services
@@ -840,6 +859,7 @@ const LanguageContext = createContext<LanguageContextType>({
   language: 'fr',
   setLanguage: () => {},
   t: (key: string) => key,
+  plural: (count: number, singular: string, plural?: string) => count === 1 ? singular : (plural || singular),
 })
 
 export const useLanguage = () => useContext(LanguageContext)
@@ -883,22 +903,41 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
       localStorage.setItem('language', newLanguage)
     }
   }
-
   const t = (key: string): string => {
     return translations[language]?.[key] || key
   }
 
+  const plural = (count: number, singular: string, plural?: string): string => {
+    if (language === 'ru') {
+      // Russian plural rules: 1, 2-4, 5+
+      const lastDigit = count % 10
+      const lastTwoDigits = count % 100
+      
+      if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
+        return plural || singular
+      } else if (lastDigit === 1) {
+        return singular
+      } else if (lastDigit >= 2 && lastDigit <= 4) {
+        return plural || singular
+      } else {
+        return plural || singular
+      }
+    } else {
+      // French and English: simple plural rule
+      return count === 1 ? singular : (plural || singular)
+    }
+  }
   // Если не инициализирован, показываем с дефолтным языком
   if (!isInitialized) {
     return (
-      <LanguageContext.Provider value={{ language: 'fr', setLanguage: handleSetLanguage, t }}>
+      <LanguageContext.Provider value={{ language: 'fr', setLanguage: handleSetLanguage, t, plural }}>
         {children}
       </LanguageContext.Provider>
     )
   }
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t, plural }}>
       {children}
     </LanguageContext.Provider>
   )
