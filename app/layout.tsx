@@ -11,7 +11,6 @@ import StructuredData from '@/components/StructuredData'
 import BrandStructuredData from '@/components/BrandStructuredData'
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo'
 import Script from 'next/script'
-import { Suspense } from 'react'
 
 const inter = Inter({
   subsets: ['latin', 'latin-ext'],
@@ -54,47 +53,42 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='fr' dir='ltr' suppressHydrationWarning>
       <head>
+        {/* Prefetch & Preconnect */}
         <link rel='dns-prefetch' href='//fonts.googleapis.com' />
-        <link rel='dns-prefetch' href='//www.googletagmanager.com' />
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
+        {/* Icons & Manifest */}
         <link rel='icon' href='/favicon.svg' />
         <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
         <link rel='manifest' href='/manifest.json' />
+        {/* Meta */}
         <meta name='author' content='SIDIKOFF DIGITAL' />
         <meta name='generator' content='Next.js' />
-        <meta name='HandheldFriendly' content='True' />
-        <meta name='MobileOptimized' content='320' />
         <meta name='application-name' content='SIDIKOFF DIGITAL' />
         <meta name='apple-mobile-web-app-title' content='SIDIKOFF DIGITAL' />
-        <meta name='msapplication-tooltip' content='SIDIKOFF DIGITAL - Agence Web Paris' />
-        <meta name='msapplication-starturl' content='https://www.sidikoff.com/' />
+        <meta name='format-detection' content='telephone=no' />
+        <meta name='mobile-web-app-capable' content='yes' />
+        <meta name='apple-mobile-web-app-capable' content='yes' />
+        <meta name='apple-mobile-web-app-status-bar-style' content='default' />
         <meta name='msapplication-navbutton-color' content='#4f46e5' />
         <meta name='contact' content='contact@sidikoff.com' />
         <meta name='copyright' content='SIDIKOFF DIGITAL' />
         <meta name='og:site_name' content='SIDIKOFF DIGITAL' />
         <meta name='twitter:site' content='@sidikoffdigital' />
         <meta name='twitter:creator' content='@sidikoffdigital' />
-        <meta name='format-detection' content='telephone=no' />
-        <meta name='mobile-web-app-capable' content='yes' />
-        <meta name='apple-mobile-web-app-capable' content='yes' />
-        <meta name='apple-mobile-web-app-status-bar-style' content='default' />
+        <meta name='geo.region' content='FR-75' />
+        <meta name='geo.placename' content='Paris' />
+        <meta name='geo.position' content='48.8566;2.3522' />
+        {/* SEO titles */}
         <meta property='og:title' content='Agence Web - SIDIKOFF DIGITAL' />
         <meta name='twitter:title' content='SIDIKOFF DIGITAL | Agence Web' />
-        {/* Google Search Console Verification */}
+        {/* Google Verification */}
         {process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION && (
           <meta
             name='google-site-verification'
             content={process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION}
           />
         )}
-        {/* Geolocation meta */}
-        <meta name='geo.region' content='FR-75' />
-        <meta name='geo.placename' content='Paris' />
-        <meta name='geo.position' content='48.8566;2.3522' />
-        {/* Performance hints */}
-        <link rel='dns-prefetch' href='//vercel.com' />
-        <link rel='preload' href='/logo.svg' as='image' type='image/svg+xml' />
         {/* Google Analytics */}
         <Script
           strategy='afterInteractive'
@@ -123,12 +117,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             `}
           </Script>
         )}
-        {/* Structured Data */}
-        <Suspense fallback={null}>
-          <StructuredData type='all' />
-          <BrandStructuredData />
-        </Suspense>
-        {/* Additional Schema for better site name recognition */}
+        {/* LD+JSON schema.org */}
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{
@@ -152,7 +141,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={inter.className}>
-        {/* GTM noscript */}
+        {/* GTM NoScript fallback */}
         {process.env.NEXT_PUBLIC_GTM_ID && (
           <noscript>
             <iframe
@@ -163,6 +152,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             />
           </noscript>
         )}
+
         <ThemeProvider
           attribute='class'
           defaultTheme='system'
@@ -171,6 +161,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <LanguageProvider>
             <TariffProvider>
               <ClientLayout>{children}</ClientLayout>
+              {/* Schema components — moved out of <head> */}
+              <StructuredData type='all' />
+              <BrandStructuredData />
             </TariffProvider>
           </LanguageProvider>
           <Analytics />

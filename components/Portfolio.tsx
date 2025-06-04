@@ -363,7 +363,9 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                           : 'bg-secondary/50 hover:bg-secondary text-muted-foreground hover:text-foreground border border-transparent hover:border-primary/20'
                       }`}
                       whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}>                      <span className='relative z-10 flex items-center gap-2'>
+                      whileTap={{ scale: 0.95 }}>
+                      {' '}
+                      <span className='relative z-10 flex items-center gap-2'>
                         <Sparkles className='w-3 h-3' />
                         {t('portfolio.allProjects')}
                       </span>
@@ -401,21 +403,24 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                         </motion.button>
                       )
                     })}
-                  </div>
-
-                  {/* Filter Results Summary */}
+                  </div>                  {/* Filter Results Summary */}
                   <motion.div
                     className='mt-4 text-center'
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}>                    <p className='text-sm text-muted-foreground'>
+                    transition={{ delay: 0.2 }}>
+                    <p className='text-sm text-muted-foreground'>
                       {filterTechnology === 'all' ? (
                         <>
                           {t('portfolio.showingAll')}{' '}
                           <span className='font-semibold text-primary mx-1'>
                             {filteredProjects.length}
                           </span>{' '}
-                          {plural(filteredProjects.length, t('portfolio.project'), t('portfolio.projects'))}
+                          {plural(
+                            filteredProjects.length,
+                            t('portfolio.project'),
+                            t('portfolio.projects')
+                          )}
                         </>
                       ) : (
                         <>
@@ -423,7 +428,11 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                           <span className='font-semibold text-primary mx-1'>
                             {filteredProjects.length}
                           </span>{' '}
-                          {plural(filteredProjects.length, t('portfolio.projectWith'), t('portfolio.projectsWith'))}{' '}
+                          {plural(
+                            filteredProjects.length,
+                            t('portfolio.projectWith'),
+                            t('portfolio.projectsWith')
+                          )}{' '}
                           <span className='font-semibold'>{filterTechnology}</span>
                         </>
                       )}
@@ -431,8 +440,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                   </motion.div>
                 </div>
               </motion.div>
-            )}
-          </AnimatePresence>
+            )}          </AnimatePresence>
         </motion.div>
         {/* Enhanced Projects Grid */}
         <motion.div
@@ -440,7 +448,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
           animate={isInView ? 'visible' : 'hidden'}
           variants={containerVariants}
           className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8'>
-          <AnimatePresence mode='wait'>
+          <AnimatePresence>
             {filteredProjects
               .slice(0, showAllProjects ? filteredProjects.length : visibleProjects)
               .map((project) => (
