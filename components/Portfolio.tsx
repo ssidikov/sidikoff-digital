@@ -403,7 +403,8 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                         </motion.button>
                       )
                     })}
-                  </div>                  {/* Filter Results Summary */}
+                  </div>{' '}
+                  {/* Filter Results Summary */}
                   <motion.div
                     className='mt-4 text-center'
                     initial={{ opacity: 0 }}
@@ -440,7 +441,8 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                   </motion.div>
                 </div>
               </motion.div>
-            )}          </AnimatePresence>
+            )}{' '}
+          </AnimatePresence>
         </motion.div>
         {/* Enhanced Projects Grid */}
         <motion.div
@@ -477,7 +479,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
               whileTap={{ scale: 0.98 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}>
               <FolderOpen className='w-5 h-5 group-hover:scale-110 transition-transform duration-200' />
-              <span className='font-medium'>{t('portfolio.showMore')}</span>
+              <span className='text-fluid-base'>{t('portfolio.showMore')}</span>
               <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
             </motion.button>
           </motion.div>

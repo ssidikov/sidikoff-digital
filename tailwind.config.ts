@@ -13,6 +13,9 @@ const config: Config = {
       screens: {
         xs: '475px',
       },
+      fontSize: {
+        'fluid-base': 'clamp(0.9rem, 0.8714rem + 0.1429vw, 1rem)',
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
