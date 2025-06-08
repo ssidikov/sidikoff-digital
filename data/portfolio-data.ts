@@ -31,7 +31,7 @@ export const projects = [
       ru: 'SportSee визуализирует фитнес-данные пользователя, включая сессии и ключевые метрики. Реализовано на React с интеграцией API.',
     },
     technologies: ['React', 'React Router', 'Recharts', 'SASS', 'Axios'],
-    link: 'https://ssidikov.github.io/SportSee',
+    link: 'https://ssidikov.github.io/SportSee/',
   },
   {
     id: '3',
@@ -48,7 +48,7 @@ export const projects = [
       ru: 'ArgentBank обеспечивает безопасный и удобный доступ к информации о счетах. Аутентификация и управление состоянием через Redux.',
     },
     technologies: ['React', 'Redux', 'React Router', 'REST API', 'Swagger'],
-    link: 'https://ssidikov.github.io/Argent-Bank',
+    link: 'https://ssidikov.github.io/Argent-Bank/',
   },
   {
     id: '4',
@@ -89,7 +89,7 @@ export const projects = [
       'Functional Programming',
       'Performance Analysis',
     ],
-    link: 'https://ssidikov.github.io/PetitsPlats2.0',
+    link: 'https://ssidikov.github.io/PetitsPlats2.0/',
   },
   {
     id: '6',
@@ -123,7 +123,7 @@ export const projects = [
       ru: 'Fisheye — это веб-приложение для фотографов для презентации портфолио. Динамические страницы, LightBox, формы обратной связи, лайки. Акцент на доступности и модульности.',
     },
     technologies: ['HTML', 'CSS', 'JavaScript', 'JSON', 'AChecker'],
-    link: 'https://ssidikov.github.io/Front-End-Fisheye',
+    link: 'https://ssidikov.github.io/Front-End-Fisheye/',
   },
   {
     id: '8',
@@ -140,7 +140,7 @@ export const projects = [
       ru: 'GameOn — лендинг для компании, организующей гейминг-конференции и конкурсы. Динамические взаимодействия, валидация форм, адаптивный дизайн, работа с DOM на JavaScript.',
     },
     technologies: ['HTML', 'CSS', 'JavaScript', 'Flexbox'],
-    link: 'https://ssidikov.github.io/GameOn-website-FR',
+    link: 'https://ssidikov.github.io/GameOn-website-FR/',
   },
   {
     id: '9',
@@ -157,7 +157,7 @@ export const projects = [
       ru: 'Разработка страницы с меню четырёх известных ресторанов Парижа, онлайн-бронирование и составление меню. CSS-анимации и mobile-first дизайн.',
     },
     technologies: ['HTML', 'SASS', 'CSS Animations', 'Figma', 'Flexbox'],
-    link: 'https://ssidikov.github.io/OhMyFood',
+    link: 'https://ssidikov.github.io/OhMyFood/',
   },
   {
     id: '10',
@@ -178,7 +178,7 @@ export const projects = [
       ru: 'В проекте проводилась отладка и написание unit-, интеграционных и e2e-тестов для функции подачи расходов. Исправление багов через Chrome Debugger, покрытие тестами >80%, составление тест-плана.',
     },
     technologies: ['JavaScript', 'Jest', 'Chrome Debugger', 'End-to-End Testing'],
-    link: 'https://github.com/ssidikov/Billed-app-FR-Front',
+    link: 'https://github.com/ssidikov/Billed-app-FR-Front/',
   },
   {
     id: '11',
@@ -199,7 +199,7 @@ export const projects = [
       ru: 'В этом проекте я разработал главную страницу турагентства на HTML и CSS. Основной акцент — адаптивность и поддержка разных устройств по макетам Figma.',
     },
     technologies: ['HTML', 'CSS', 'Figma', 'Flexbox', 'Grid'],
-    link: 'https://ssidikov.github.io/Booki',
+    link: 'https://ssidikov.github.io/Booki/',
   },
   {
     id: '12',
@@ -220,7 +220,7 @@ export const projects = [
       ru: 'Проект по созданию лендинга для бургерной с интерактивной формой заказа. Пользователь может выбрать и настроить свой бургер.',
     },
     technologies: ['HTML', 'CSS', 'JavaScript', 'Flexbox'],
-    link: 'https://ssidikov.github.io/burgers-landing',
+    link: 'https://ssidikov.github.io/burgers-landing/',
   },
   {
     id: '13',
@@ -285,5 +285,6 @@ export const expertiseItems = [
   {
     titleKey: 'expertise.item4.title',
     descriptionKey: 'expertise.item4.description',
-    icon: '/logo/api.svg',  },
+    icon: '/logo/api.svg',
+  },
 ]
