@@ -264,6 +264,35 @@ export const projects = [
     technologies: ['Figma', 'HTML', 'CSS', 'Flexbox'],
     link: 'https://ssidikov.github.io/Evklid_website/',
   },
+  {
+    id: '15',
+    title: {
+      en: 'Le Moderne',
+      fr: 'Le Moderne',
+      ru: 'Le Moderne',
+    },
+    description: {
+      en: 'Le Moderne - Restaurant Management System',
+      fr: 'Le Moderne - Système de gestion de restaurant',
+      ru: 'Le Moderne - Система управления рестораном',
+    },
+    image: '/projects/resto.webp',
+    longDescription: {
+      en: 'Developed a modern web platform for a Parisian restaurant featuring a complete reservation management system. Includes secure admin dashboard with authentication and intuitive online booking interface.',
+      fr: "Plateforme web moderne pour restaurant parisien avec système complet de gestion des réservations. Comprend un panel d'administration sécurisé et une interface de réservation en ligne intuitive.",
+      ru: 'Современная веб-платформа для французского ресторана с полной системой управления бронированием. Включает административную панель с аутентификацией и интуитивную систему онлайн-резервирования.',
+    },
+    technologies: [
+      'Next.js',
+      'TypeScript',
+      'PostgreSQL',
+      'NextAuth',
+      'Tailwind CSS',
+      'Neon Database',
+      'Nodemailer',
+    ],
+    link: 'https://resto-parisien.vercel.app/',
+  },
 ]
 
 export const expertiseItems = [
