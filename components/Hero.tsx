@@ -58,7 +58,7 @@ export default function Hero() {
       {/* Background Elements */}
       <div className='absolute inset-0 -z-10'>
         {/* Simplified Gradient Background */}
-        <div className='absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20' />
+        <div className='absolute inset-0' />
         {/* Simple decorative elements */}
         <div className='absolute top-1/4 -left-20 w-72 h-72 bg-indigo-300/10 rounded-full blur-3xl' />
         <div className='absolute bottom-1/4 -right-20 w-96 h-96 bg-cyan-300/10 rounded-full blur-3xl' />

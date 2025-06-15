@@ -79,7 +79,7 @@ const About: React.FC = () => {
     <section id='about' className='relative py-20 lg:py-32 overflow-hidden' ref={ref}>
       {/* Background */}
       <div className='absolute inset-0 -z-10'>
-        <div className='absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/10' />
+        <div className='absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950' />
         <div className='absolute top-1/4 -left-20 w-72 h-72 bg-indigo-300/20 rounded-full blur-3xl' />
         <div className='absolute bottom-1/4 -right-20 w-96 h-96 bg-cyan-300/20 rounded-full blur-3xl' />
       </div>
