@@ -109,7 +109,8 @@ const translations: Record<Language, TranslationMap> = {
     'portfolio.title': 'Projets récents',
     'portfolio.subtitle': 'Nos réalisations',
     'portfolio.description':
-      'Explorez nos derniers projets mettant en valeur des techniques de développement web modernes et des solutions innovantes.',    'portfolio.filter': 'Filtrer',
+      'Explorez nos derniers projets mettant en valeur des techniques de développement web modernes et des solutions innovantes.',
+    'portfolio.filter': 'Filtrer',
     'portfolio.viewAll': 'Voir tout',
     'portfolio.viewDetails': 'Détails du projet',
     'portfolio.showMore': 'Afficher plus',
@@ -272,7 +273,7 @@ const translations: Record<Language, TranslationMap> = {
     'legal.company.phone': 'Téléphone',
     'legal.company.phoneValue': '+33 6 26 93 27 34',
     'legal.company.email': 'Email',
-    'legal.company.emailValue': 'contact@sidikoff.com',
+    'legal.company.emailValue': 's.sidikoff@gmail.com',
     'legal.director.title': 'Directeur de la publication',
     'legal.director.name': 'Sardorbek SIDIKOV',
     'legal.hosting.title': 'Hébergement',
@@ -287,7 +288,7 @@ const translations: Record<Language, TranslationMap> = {
       "Ce site web et tous ses éléments (textes, images, logos, etc.) sont protégés par le droit d'auteur. Toute reproduction, même partielle, est interdite sans autorisation préalable.",
     'legal.data.title': 'Protection des données personnelles',
     'legal.data.content':
-      "Conformément au RGPD, vous disposez de droits sur vos données personnelles. Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes et ne sont pas transmises à des tiers. Vous pouvez exercer vos droits concernant vos données personnelles en contactant à l'adresse e-mail : contact@sidikoff.com.",
+      "Conformément au RGPD, vous disposez de droits sur vos données personnelles. Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes et ne sont pas transmises à des tiers. Vous pouvez exercer vos droits concernant vos données personnelles en contactant à l'adresse e-mail : s.sidikoff@gmail.com.",
     'legal.cookies.title': 'Cookies',
     'legal.cookies.content':
       'Ce site utilise des cookies essentiels au fonctionnement du site. En continuant à naviguer sur ce site, vous acceptez leur utilisation.',
@@ -387,7 +388,8 @@ const translations: Record<Language, TranslationMap> = {
     'portfolio.title': 'Recent Projects',
     'portfolio.subtitle': 'Our Work',
     'portfolio.description':
-      'Explore our latest projects showcasing modern web development techniques and innovative solutions.',    'portfolio.filter': 'Filter',
+      'Explore our latest projects showcasing modern web development techniques and innovative solutions.',
+    'portfolio.filter': 'Filter',
     'portfolio.viewAll': 'View All',
     'portfolio.viewDetails': 'Project Details',
     'portfolio.showMore': 'Show More',
@@ -531,7 +533,7 @@ const translations: Record<Language, TranslationMap> = {
     'legal.company.phone': 'Téléphone',
     'legal.company.phoneValue': '+33 6 26 93 27 34',
     'legal.company.email': 'Email',
-    'legal.company.emailValue': 'contact@sidikoff.com',
+    'legal.company.emailValue': 's.sidikoff@gmail.com',
     'legal.director.title': 'Directeur de la publication',
     'legal.director.name': 'Sardorbek SIDIKOV',
     'legal.hosting.title': 'Hébergement',
@@ -546,7 +548,7 @@ const translations: Record<Language, TranslationMap> = {
       "Ce site web et tous ses éléments (textes, images, logos, etc.) sont protégés par le droit d'auteur. Toute reproduction, même partielle, est interdite sans autorisation préalable.",
     'legal.data.title': 'Protection des données personnelles',
     'legal.data.content':
-      "Conformément au RGPD, vous disposez de droits sur vos données personnelles. Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes et ne sont pas transmises à des tiers. Vous pouvez exercer vos droits concernant vos données personnelles en contactant à l'adresse e-mail : contact@sidikoff.com.",
+      "Conformément au RGPD, vous disposez de droits sur vos données personnelles. Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes et ne sont pas transmises à des tiers. Vous pouvez exercer vos droits concernant vos données personnelles en contactant à l'adresse e-mail : s.sidikoff@gmail.com.",
     'legal.cookies.title': 'Cookies',
     'legal.cookies.content':
       'Ce site utilise des cookies essentiels au fonctionnement du site. En continuant à naviguer sur ce site, vous acceptez leur utilisation.',
@@ -645,7 +647,8 @@ const translations: Record<Language, TranslationMap> = {
     'portfolio.title': 'Недавние проекты',
     'portfolio.subtitle': 'Наши работы',
     'portfolio.description':
-      'Изучите наши последние проекты, демонстрирующие современные техники веб-разработки и инновационные решения.',    'portfolio.filter': 'Фильтр',
+      'Изучите наши последние проекты, демонстрирующие современные техники веб-разработки и инновационные решения.',
+    'portfolio.filter': 'Фильтр',
     'portfolio.viewAll': 'Смотреть все',
     'portfolio.viewDetails': 'Подробнее о проекте',
     'portfolio.showMore': 'Показать ещё',
@@ -799,7 +802,7 @@ const translations: Record<Language, TranslationMap> = {
     'legal.company.phone': 'Телефон',
     'legal.company.phoneValue': '+33 6 26 93 27 34',
     'legal.company.email': 'Email',
-    'legal.company.emailValue': 'contact@sidikoff.com',
+    'legal.company.emailValue': 's.sidikoff@gmail.com',
     'legal.director.title': 'Директор публикации',
     'legal.director.name': 'Сардорбек СИДИКОВ',
     'legal.hosting.title': 'Веб-хостинг',
@@ -814,7 +817,7 @@ const translations: Record<Language, TranslationMap> = {
       'Этот веб-сайт и все его элементы (тексты, изображения, логотипы и т.д.) защищены авторским правом. Любое воспроизведение, даже частичное, запрещено без предварительного разрешения.',
     'legal.data.title': 'Защита персональных данных',
     'legal.data.content':
-      'В соответствии с GDPR, у вас есть права на ваши персональные данные. Данные, собранные через контактную форму, используются только для ответа на ваши запросы и не передаются третьим лицам. Вы можете осуществить свои права касательно ваших персональных данных, связавшись с нами по электронной почте: contact@sidikoff.com.',
+      'В соответствии с GDPR, у вас есть права на ваши персональные данные. Данные, собранные через контактную форму, используются только для ответа на ваши запросы и не передаются третьим лицам. Вы можете осуществить свои права касательно ваших персональных данных, связавшись с нами по электронной почте: s.sidikoff@gmail.com.',
     'legal.cookies.title': 'Куки',
     'legal.cookies.content':
       'Этот сайт использует основные куки, необходимые для функционирования сайта. Продолжая навигацию по этому сайту, вы принимаете их использование.',
@@ -859,7 +862,8 @@ const LanguageContext = createContext<LanguageContextType>({
   language: 'fr',
   setLanguage: () => {},
   t: (key: string) => key,
-  plural: (count: number, singular: string, plural?: string) => count === 1 ? singular : (plural || singular),
+  plural: (count: number, singular: string, plural?: string) =>
+    count === 1 ? singular : plural || singular,
 })
 
 export const useLanguage = () => useContext(LanguageContext)
@@ -912,7 +916,7 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
       // Russian plural rules: 1, 2-4, 5+
       const lastDigit = count % 10
       const lastTwoDigits = count % 100
-      
+
       if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
         return plural || singular
       } else if (lastDigit === 1) {
@@ -924,13 +928,14 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
       }
     } else {
       // French and English: simple plural rule
-      return count === 1 ? singular : (plural || singular)
+      return count === 1 ? singular : plural || singular
     }
   }
   // Если не инициализирован, показываем с дефолтным языком
   if (!isInitialized) {
     return (
-      <LanguageContext.Provider value={{ language: 'fr', setLanguage: handleSetLanguage, t, plural }}>
+      <LanguageContext.Provider
+        value={{ language: 'fr', setLanguage: handleSetLanguage, t, plural }}>
         {children}
       </LanguageContext.Provider>
     )

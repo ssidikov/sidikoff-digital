@@ -71,7 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name='apple-mobile-web-app-capable' content='yes' />
         <meta name='apple-mobile-web-app-status-bar-style' content='default' />
         <meta name='msapplication-navbutton-color' content='#4f46e5' />
-        <meta name='contact' content='contact@sidikoff.com' />
+        <meta name='contact' content='s.sidikoff@gmail.com' />
         <meta name='copyright' content='SIDIKOFF DIGITAL' />
         <meta name='og:site_name' content='SIDIKOFF DIGITAL' />
         <meta name='twitter:site' content='@sidikoffdigital' />

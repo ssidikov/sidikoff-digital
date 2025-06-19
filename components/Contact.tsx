@@ -250,9 +250,9 @@ export default function Contact() {
                 </dt>
                 <dd>
                   <a
-                    href='mailto:contact@sidikoff.com'
+                    href='mailto:s.sidikoff@gmail.com'
                     className='hover:text-gray-900 dark:hover:text-white'>
-                    contact@sidikoff.com
+                    s.sidikoff@gmail.com
                   </a>
                 </dd>
               </div>

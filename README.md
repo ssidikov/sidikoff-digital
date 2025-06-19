@@ -268,7 +268,7 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de 
 **SIDIKOFF DIGITAL - Agence Web à Paris**
 
 - 🌐 **Site Web** : [www.sidikoff.com](https://www.sidikoff.com)
-- 📧 **Email** : contact@sidikoff.com
+- 📧 **Email** : s.sidikoff@gmail.com
 - 📱 **Téléphone** : +33 6 26 93 27 34
 - 📍 **Localisation** : Paris, France
 - 💼 **LinkedIn** : [SIDIKOFF Digital](https://linkedin.com/company/sidikoff-digital)

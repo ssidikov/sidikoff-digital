@@ -84,7 +84,7 @@ export default function LocaleLegalPage({
                     <strong>{t('legal.company.form')}:</strong> {t('legal.company.formValue')}
                   </p>
                   <p>
-                    <strong>Email:</strong> contact@sidikoff.com
+                    <strong>Email:</strong> s.sidikoff@gmail.com
                   </p>
                   <p>
                     <strong>{t('legal.company.phone')}:</strong> +33 6 26 93 27 34
@@ -133,8 +133,8 @@ export default function LocaleLegalPage({
                 <p>{t('legal.contact.text')}</p>
                 <p className='mt-4'>
                   <strong>Email:</strong>
-                  <a href='mailto:contact@sidikoff.com' className='text-primary hover:underline'>
-                    contact@sidikoff.com
+                  <a href='mailto:s.sidikoff@gmail.com' className='text-primary hover:underline'>
+                    s.sidikoff@gmail.com
                   </a>
                 </p>
               </section>

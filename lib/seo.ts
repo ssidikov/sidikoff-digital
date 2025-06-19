@@ -42,7 +42,7 @@ const defaultSEOConfig = {
     name: 'SIDIKOFF DIGITAL',
     address: 'Paris, France',
     phone: '+33 6 26 93 27 34',
-    email: 'contact@sidikoff.com',
+    email: 's.sidikoff@gmail.com',
     foundingDate: '2025',
     founder: 'Sardorbek SIDIKOV',
     employees: '1-10',
