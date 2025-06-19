@@ -33,6 +33,8 @@ interface ProjectCardProps {
   currentLocale: string
   t: any
   onProjectClick: (project: any) => void
+  index: number
+  isNewlyAdded: boolean
 }
 
 function ProjectCard({
@@ -41,6 +43,8 @@ function ProjectCard({
   currentLocale,
   t,
   onProjectClick,
+  index,
+  isNewlyAdded,
 }: ProjectCardProps) {
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
@@ -58,22 +62,61 @@ function ProjectCard({
   const background = useMotionTemplate`
     radial-gradient(320px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.1), transparent 80%)
   `
+
+  // Enhanced animation variants for new projects
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 60, 
+      scale: 0.8,
+      rotateX: 15,
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      rotateX: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.1, 0.25, 1],
+        delay: isNewlyAdded ? index * 0.1 : 0,
+      }
+    },
+    exit: { 
+      opacity: 0, 
+      y: -30, 
+      scale: 0.9,
+      transition: {
+        duration: 0.3,
+        ease: [0.25, 0.1, 0.25, 1],
+      }
+    },
+  }
   return (
     <motion.div
       key={`${project.id}-${filterTechnology}`}
       layout
-      variants={{
-        hidden: { opacity: 0, y: 50, scale: 0.9 },
-        visible: { opacity: 1, y: 0, scale: 1 },
-      }}
+      variants={cardVariants}
       initial='hidden'
       animate='visible'
-      exit='hidden'
-      className='group relative flex flex-col h-full rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm cursor-pointer overflow-hidden'
+      exit='exit'
+      className={`group relative flex flex-col h-full rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm cursor-pointer overflow-hidden ${
+        isNewlyAdded ? 'ring-2 ring-blue-500/50 ring-offset-2 ring-offset-background' : ''
+      }`}
       onMouseMove={handleMouseMove}
       whileTap={{ scale: 0.98 }}
-      transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-      onClick={() => onProjectClick(project)}>
+      onClick={() => onProjectClick(project)}
+      style={{ perspective: 1000 }}>
+      {/* Enhanced glow effect for new projects */}
+      {isNewlyAdded && (
+        <motion.div
+          className='absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-2xl blur-sm'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 1, 0.5, 1, 0] }}
+          transition={{ duration: 2, ease: "easeInOut" }}
+        />
+      )}
+      
       {/* Gradient overlay */}
       <motion.div
         className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
@@ -156,6 +199,8 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
   const [visibleProjects, setVisibleProjects] = useState(4)
   const [filterTechnology, setFilterTechnology] = useState<string>('all')
   const [showFilters, setShowFilters] = useState(false)
+  const [isLoadingMore, setIsLoadingMore] = useState(false)
+  const [newlyAddedProjects, setNewlyAddedProjects] = useState<number[]>([])
   const { t, language, plural } = useLanguage()
   const { scrollToSection } = useSmoothScroll()
   const router = useRouter()
@@ -226,13 +271,37 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
     router.push(getLocalePath(`/projects/${project.id}`))
   }
 
-  const loadMoreProjects = () => {
-    setVisibleProjects((prev) => Math.min(prev + 4, projects.length))
+  const loadMoreProjects = async () => {
+    setIsLoadingMore(true)
+    
+    // Get the range of new projects that will be added
+    const currentCount = visibleProjects
+    const newCount = Math.min(currentCount + 4, filteredProjects.length)
+    const newProjectIndices = Array.from(
+      { length: newCount - currentCount }, 
+      (_, i) => currentCount + i
+    )
+    
+    // Set the newly added projects for animation
+    setNewlyAddedProjects(newProjectIndices)
+    
+    // Simulate loading delay for better UX
+    await new Promise(resolve => setTimeout(resolve, 300))
+    
+    setVisibleProjects(newCount)
+    setIsLoadingMore(false)
+    
+    // Clear newly added projects after animation completes
+    setTimeout(() => {
+      setNewlyAddedProjects([])
+    }, 800)
   }
 
   const handleFilterChange = (tech: string) => {
     setFilterTechnology(tech)
     setVisibleProjects(4) // Reset visible projects when filter changes
+    setNewlyAddedProjects([]) // Clear newly added projects
+    setIsLoadingMore(false) // Reset loading state
   }
   // Get localized projects based on current language
   const getLocalizedProjects = () => {
@@ -450,10 +519,10 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
           animate={isInView ? 'visible' : 'hidden'}
           variants={containerVariants}
           className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8'>
-          <AnimatePresence>
+          <AnimatePresence mode="popLayout">
             {filteredProjects
               .slice(0, showAllProjects ? filteredProjects.length : visibleProjects)
-              .map((project) => (
+              .map((project, index) => (
                 <ProjectCard
                   key={`${project.id}-${filterTechnology}`}
                   project={project}
@@ -461,6 +530,8 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                   currentLocale={currentLocale}
                   t={t}
                   onProjectClick={handleProjectClick}
+                  index={index}
+                  isNewlyAdded={newlyAddedProjects.includes(index)}
                 />
               ))}
           </AnimatePresence>
@@ -474,14 +545,73 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
             className='mt-12 text-center'>
             <motion.button
               onClick={loadMoreProjects}
-              className='inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-700/50 group'
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
+              disabled={isLoadingMore}
+              className={`inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-700/50 group relative overflow-hidden ${
+                isLoadingMore ? 'cursor-not-allowed opacity-80' : 'cursor-pointer'
+              }`}
+              whileHover={!isLoadingMore ? { scale: 1.02, y: -2 } : {}}
+              whileTap={!isLoadingMore ? { scale: 0.98 } : {}}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}>
-              <FolderOpen className='w-5 h-5 group-hover:scale-110 transition-transform duration-200' />
-              <span className='text-fluid-base'>{t('portfolio.showMore')}</span>
-              <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
+              
+              {/* Loading overlay */}
+              {isLoadingMore && (
+                <motion.div
+                  className='absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20'
+                  initial={{ x: '-100%' }}
+                  animate={{ x: '100%' }}
+                  transition={{ 
+                    duration: 1.5, 
+                    repeat: Infinity, 
+                    ease: 'linear' 
+                  }}
+                />
+              )}
+              
+              {/* Loading spinner */}
+              {isLoadingMore ? (
+                <motion.div
+                  className='w-5 h-5 border-2 border-white/30 border-t-white rounded-full'
+                  animate={{ rotate: 360 }}
+                  transition={{ 
+                    duration: 1, 
+                    repeat: Infinity, 
+                    ease: 'linear' 
+                  }}
+                />
+              ) : (
+                <FolderOpen className='w-5 h-5 group-hover:scale-110 transition-transform duration-200' />
+              )}
+              
+              <span className='text-fluid-base relative z-10'>
+                {isLoadingMore ? t('portfolio.loading') || 'Загрузка...' : t('portfolio.showMore')}
+              </span>
+              
+              {!isLoadingMore && (
+                <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
+              )}
             </motion.button>
+            
+            {/* Progress indicator */}
+            <motion.div
+              className='mt-4 flex justify-center'
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}>
+              <div className='flex items-center gap-2 text-sm text-muted-foreground'>
+                <span>{visibleProjects}</span>
+                <div className='w-24 h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden'>
+                  <motion.div
+                    className='h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full'
+                    initial={{ width: 0 }}
+                    animate={{ 
+                      width: `${(visibleProjects / filteredProjects.length) * 100}%` 
+                    }}
+                    transition={{ duration: 0.5, ease: 'easeOut' }}
+                  />
+                </div>
+                <span>{filteredProjects.length}</span>
+              </div>
+            </motion.div>
           </motion.div>
         )}
         {/* Empty State */}
