@@ -396,7 +396,7 @@ export default function Contact() {
                   <label
                     htmlFor='selected-tariff'
                     className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
-                    {t('prices.title')}
+                    {t('prices.title')}{' '}
                     <span className='text-xs text-gray-400'>({t('prices.subtitle')})</span>
                   </label>
                   <div className='mt-2.5 relative'>
