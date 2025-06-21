@@ -22,33 +22,12 @@ export default function LanguageSelector() {
 
     setIsOpen(false)
 
-    // Save current state
+    // Save current state for smooth transition
     const currentScrollY = window.scrollY
     const currentHash = window.location.hash
     const currentSection = getCurrentActiveSection()
 
-    // Get current path without locale prefix
-    let currentPath = pathname
-
-    // Remove existing locale prefix if present
-    if (pathname.startsWith('/fr/') || pathname.startsWith('/en/') || pathname.startsWith('/ru/')) {
-      currentPath = pathname.substring(3) // Remove /xx
-    } else if (pathname === '/fr' || pathname === '/en' || pathname === '/ru') {
-      currentPath = '/'
-    }
-
-    // Ensure currentPath starts with /
-    if (currentPath && !currentPath.startsWith('/')) {
-      currentPath = '/' + currentPath
-    }
-
-    // Generate new path with selected language
-    const newPath = `/${lang}${currentPath || '/'}`
-
-    // Add hash if we have one
-    const fullNewPath = currentHash ? `${newPath}${currentHash}` : newPath
-
-    // Store restoration data in sessionStorage for persistence across navigation
+    // Store restoration data in sessionStorage for persistence
     sessionStorage.setItem(
       'languageSwitch',
       JSON.stringify({
@@ -59,11 +38,23 @@ export default function LanguageSelector() {
       })
     )
 
-    // Update language context first
+    // Update language context and localStorage - user stays on main site
     setLanguage(lang)
 
-    // Navigate to the new locale path
-    router.push(fullNewPath)
+    // If user is currently on a localized path, redirect to main site
+    if (pathname.startsWith('/fr/') || pathname.startsWith('/en/') || pathname.startsWith('/ru/')) {
+      let currentPath = pathname.substring(3) // Remove /xx prefix
+      if (!currentPath.startsWith('/')) {
+        currentPath = '/' + currentPath
+      }
+      const fullNewPath = currentHash ? `${currentPath}${currentHash}` : currentPath
+      router.push(fullNewPath)
+    } else if (pathname === '/fr' || pathname === '/en' || pathname === '/ru') {
+      // If on localized homepage, go to main homepage
+      const fullNewPath = currentHash ? `/${currentHash}` : '/'
+      router.push(fullNewPath)
+    }
+    // If already on main site (no locale prefix), no navigation needed - just language change
   }
 
   const getCurrentActiveSection = () => {

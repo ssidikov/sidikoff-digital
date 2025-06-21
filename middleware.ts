@@ -6,6 +6,10 @@ const locales = ['fr', 'en', 'ru']
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
+  const userAgent = request.headers.get('user-agent') || ''
+
+  // Check if the request is from a search engine bot
+  const isBot = /bot|crawl|spider|facebook|twitter|linkedin|whatsapp|telegram/i.test(userAgent)
 
   // Extract locale from pathname
   const pathnameIsMissingLocale = locales.every(
@@ -94,23 +98,26 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/', request.url))
   }
 
-  // Extract locale and remaining path
-  const segments = pathname.split('/')
-  const locale = segments[1]
-  const pathWithoutLocale = '/' + segments.slice(2).join('/')
+  // If pathname has locale prefix, check if it's a bot request
+  if (!pathnameIsMissingLocale) {
+    // Extract locale and remaining path
+    const segments = pathname.split('/')
+    const locale = segments[1]
+    const pathWithoutLocale = '/' + segments.slice(2).join('/')
 
-  // Validate locale
-  if (!locales.includes(locale)) {
-    return NextResponse.redirect(new URL('/', request.url))
+    // Validate locale
+    if (!locales.includes(locale)) {
+      return NextResponse.redirect(new URL('/', request.url))
+    }
+
+    // Allow access to localized pages for both bots and regular users
+    if (pathWithoutLocale === '/' || validPaths.includes(pathWithoutLocale) || isValidProjectPath(pathWithoutLocale)) {
+      return NextResponse.next()
+    }
+    
+    // For any other path with locale prefix, redirect to homepage with locale (for bots)
+    return NextResponse.redirect(new URL(`/${locale}`, request.url))
   }
-
-  // Check if the path without locale is valid
-  if (validPaths.includes(pathWithoutLocale) || isValidProjectPath(pathWithoutLocale)) {
-    return NextResponse.next()
-  }
-
-  // For any other path, redirect to homepage with locale
-  return NextResponse.redirect(new URL(`/${locale}`, request.url))
 }
 
 export const config = {

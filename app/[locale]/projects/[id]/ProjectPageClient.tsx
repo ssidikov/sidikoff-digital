@@ -92,7 +92,7 @@ export default function ProjectPageClient({ locale, project }: ProjectPageClient
           </div>
           <div className='space-y-6 flex flex-col justify-between'>
             <h1 className='text-4xl font-bold gradient-text'>{project.title[language]}</h1>
-            <p className='text-lg text-gray-600 dark:text-gray-400'>
+            <p className='text-fluid-base text-gray-600 dark:text-gray-400'>
               {project.longDescription?.[language] || project.description[language]}
             </p>
             <div>
@@ -107,7 +107,7 @@ export default function ProjectPageClient({ locale, project }: ProjectPageClient
                 ))}
               </div>
             </div>
-            <div className='flex flex-row gap-4 justify-between md:justify-normal items-center'>
+            <div className='flex flex-col md:flex-row gap-4 justify-between md:justify-normal items-center'>
               <a href={`/${locale}#contact-form`} className='w-1/2 md:w-48'>
                 <button className='group relative w-full min-w-[120px] max-w-[220px] px-6 py-3 text-base font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center mx-auto overflow-hidden'>
                   <div className='absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
@@ -123,10 +123,10 @@ export default function ProjectPageClient({ locale, project }: ProjectPageClient
                   href={project.link}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='w-1/2 md:w-48'>
-                  <button className='group relative w-full min-w-[120px] max-w-[220px] px-6 py-3 text-base font-medium bg-gradient-to-r from-primary/10 to-primary/5 text-primary border-2 border-primary/20 rounded-lg shadow-lg hover:shadow-xl hover:bg-gradient-to-r hover:from-primary hover:to-primary/80 hover:text-primary-foreground hover:border-primary transition-all duration-300 flex items-center justify-center mx-auto overflow-hidden'>
+                  className='w-full md:w-48'>
+                  <button className='group relative w-full md:min-w-[120px] md:max-w-[220px] px-6 py-4 md:py-3 text-base font-medium bg-gradient-to-r from-primary/10 to-primary/5 text-primary border-2 border-primary/20 rounded-lg shadow-lg hover:shadow-xl hover:bg-gradient-to-r hover:from-primary hover:to-primary/80 hover:text-primary-foreground hover:border-primary transition-all duration-300 flex items-center justify-center mx-auto overflow-hidden'>
                     <div className='absolute inset-0 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
-                    <span className='text-fluid-base relative z-10 transition-all duration-300 group-hover:tracking-wide'>
+                    <span className='text-m relative z-10 transition-all duration-300 group-hover:tracking-wide'>
                       {t('portfolio.viewProject')}
                     </span>
                     <div className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12' />
