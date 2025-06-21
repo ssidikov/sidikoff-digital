@@ -162,13 +162,13 @@ const servicesSchema = [
   generateServiceSchema({
     name: 'Création de Sites Web',
     description: 'Développement de sites internet modernes, responsifs et optimisés SEO',
-    price: '500',
+    price: '390',
     areaServed: 'Paris, France',
   }),
   generateServiceSchema({
     name: 'Applications Web',
     description: "Développement d'applications web sur mesure avec technologies modernes",
-    price: '1500',
+    price: '690',
     areaServed: 'Paris, France',
   }),
   generateServiceSchema({
