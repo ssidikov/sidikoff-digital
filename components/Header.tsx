@@ -174,6 +174,7 @@ export default function Header() {
       <motion.div className='container mx-auto px-4 py-2 md:py-3 flex items-center justify-between transition-all duration-300'>
         {/* Logo */}
         <div className='z-50'>
+          <span className='sr-only'>Sidikoff Digital</span>
           <motion.a
             href='/'
             className='flex flex-col items-center leading-none text-gray-900 dark:text-white'
