@@ -171,17 +171,35 @@ export const pagesSEO = {
       canonical: 'https://www.sidikoff.com/',
     },
     en: {
-      title: 'SIDIKOFF DIGITAL - Web Agency in Paris | Website & Web Application Development',
+      title: 'Top Web Design Agency in Paris | SIDIKOFF DIGITAL | Custom Websites & Apps',
       description:
-        'Web agency specialized in website creation, web applications and digital strategy. Modern development, UX/UI design, SEO optimization. Free quote.',
-      keywords: ['web agency paris', 'website creation', 'web development', 'digital agency'],
+        'Expert web design and development agency in Paris. We build custom websites, e-commerce stores, and web applications with a focus on Next.js, React, and SEO. Get a free quote today.',
+      keywords: [
+        'web design agency paris',
+        'custom website development',
+        'react developer paris',
+        'next.js agency',
+        'e-commerce development france',
+        'web application developer',
+        'seo services paris',
+        'freelance developer paris',
+      ],
       canonical: 'https://www.sidikoff.com/',
     },
     ru: {
-      title: 'SIDIKOFF DIGITAL - Веб-агентство | Создание Сайтов и Веб-Приложений',
+      title: 'Веб-агентство в Париже | SIDIKOFF DIGITAL | Разработка сайтов и веб-приложений',
       description:
-        'Веб-агентство, специализирующееся на создании сайтов, веб-приложений и цифровой стратегии. Современная разработка, UX/UI дизайн, SEO оптимизация.',
-      keywords: ['веб агентство париж', 'создание сайтов', 'веб разработка', 'цифровое агентство'],
+        'Профессиональная разработка сайтов, интернет-магазинов и веб-приложений в Париже. Экспертиза в Next.js, React, UX/UI дизайне и SEO. Закажите бесплатный расчет.',
+      keywords: [
+        'разработка сайтов париж',
+        'веб-агентство франция',
+        'создание интернет-магазина',
+        'разработчик react париж',
+        'next.js агентство',
+        'заказать сайт',
+        'seo-продвижение',
+        'веб-приложения на заказ',
+      ],
       canonical: 'https://www.sidikoff.com/',
     },
   },
@@ -199,17 +217,29 @@ export const pagesSEO = {
       canonical: 'https://www.sidikoff.com/services',
     },
     en: {
-      title: 'Services & Pricing | SIDIKOFF DIGITAL - Web Agency',
+      title: 'Web Development Services & Pricing | SIDIKOFF DIGITAL Paris',
       description:
-        'Discover our web services: website creation, applications, e-commerce, SEO optimization. Transparent pricing and free quote. Web agency in France.',
-      keywords: ['web agency pricing', 'web services paris', 'website quote', 'development costs'],
+        'Our web development services include custom website design, e-commerce solutions, web apps, and SEO. View our transparent pricing and get a free quote from our Paris-based agency.',
+      keywords: [
+        'web development services',
+        'website design pricing',
+        'e-commerce cost',
+        'seo packages paris',
+        'react development services',
+      ],
       canonical: 'https://www.sidikoff.com/services',
     },
     ru: {
-      title: 'Услуги и Цены | SIDIKOFF DIGITAL - Веб-агентство',
+      title: 'Услуги и Цены на Разработку Сайтов | SIDIKOFF DIGITAL',
       description:
-        'Откройте для себя наши веб-услуги: создание сайтов, приложений, e-commerce, SEO оптимизация. Прозрачные цены и бесплатная смета.',
-      keywords: ['цены веб агентство', 'веб услуги париж', 'смета сайта', 'стоимость разработки'],
+        'Наши услуги: разработка сайтов под ключ, создание интернет-магазинов, веб-приложений и SEO-оптимизация. Прозрачные цены и бесплатный расчет стоимости.',
+      keywords: [
+        'стоимость разработки сайта',
+        'цены на создание сайта',
+        'заказать интернет-магазин цена',
+        'seo услуги стоимость',
+        'разработка на react',
+      ],
       canonical: 'https://www.sidikoff.com/services',
     },
   },
@@ -227,26 +257,27 @@ export const pagesSEO = {
       canonical: 'https://www.sidikoff.com/projects',
     },
     en: {
-      title: 'Projects | SIDIKOFF DIGITAL - Our Web Projects',
+      title: 'Our Portfolio | Web Design & Development Projects | SIDIKOFF DIGITAL',
       description:
-        'Discover our web projects: showcase websites, e-commerce, applications. Projects of SIDIKOFF DIGITAL, web agency in Paris. Examples and client references.',
+        'Explore our portfolio of custom websites, e-commerce platforms, and web applications. See the quality of work delivered by our Paris web agency.',
       keywords: [
-        'web agency projects',
-        'web projects paris',
-        'website examples',
-        'client references',
+        'web design portfolio',
+        'development case studies',
+        'e-commerce projects',
+        'react project examples',
+        'our work',
       ],
       canonical: 'https://www.sidikoff.com/projects',
     },
     ru: {
-      title: 'Портфолио | SIDIKOFF DIGITAL - Наши Веб-проекты',
+      title: 'Портфолио | Примеры Наших Работ | SIDIKOFF DIGITAL',
       description:
-        'Откройте для себя наши веб-проекты: витринные сайты, электронная коммерция, приложения. Портфолио SIDIKOFF DIGITAL, веб-агентство в Париже.',
+        'Изучите наше портфолио: примеры разработанных сайтов, интернет-магазинов и веб-приложений. Оцените качество работы нашего веб-агентства в Париже.',
       keywords: [
-        'портфолио веб агентство',
-        'веб проекты париж',
-        'примеры сайтов',
-        'клиентские референсы',
+        'портфолио веб-разработки',
+        'примеры наших работ',
+        'кейсы по созданию сайтов',
+        'разработанные проекты react',
       ],
       canonical: 'https://www.sidikoff.com/projects',
     },
@@ -265,17 +296,23 @@ export const pagesSEO = {
       canonical: 'https://www.sidikoff.com/mentions-legales',
     },
     en: {
-      title: 'Privacy Policy | SIDIKOFF DIGITAL - Web Agency Paris',
+      title: 'Privacy Policy & Legal Notice | SIDIKOFF DIGITAL',
       description:
-        'Privacy policy of SIDIKOFF DIGITAL, Parisian web agency. Personal data protection, cookies and terms of use.',
-      keywords: ['privacy policy', 'data protection', 'cookies', 'terms of use'],
+        'Read the official privacy policy and legal notice for SIDIKOFF DIGITAL. Learn how we handle your data, our use of cookies, and terms of service.',
+      keywords: ['privacy policy', 'legal notice', 'data protection gdpr', 'terms of service', 'cookie policy'],
       canonical: 'https://www.sidikoff.com/mentions-legales',
     },
     ru: {
-      title: 'Политика конфиденциальности | SIDIKOFF DIGITAL - Веб-агентство Париж',
+      title: 'Политика конфиденциальности и правовая информация | SIDIKOFF DIGITAL',
       description:
-        'Политика конфиденциальности SIDIKOFF DIGITAL, парижского веб-агентства. Защита персональных данных, куки и условия использования.',
-      keywords: ['политика конфиденциальности', 'защита данных', 'куки', 'условия использования'],
+        'Официальная политика конфиденциальности и правовая информация SIDIKOFF DIGITAL. Узнайте, как мы обрабатываем данные, используем cookie и наши условия предоставления услуг.',
+      keywords: [
+        'политика конфиденциальности',
+        'правовая информация',
+        'защита данных gdpr',
+        'условия обслуживания',
+        'политика cookie',
+      ],
       canonical: 'https://www.sidikoff.com/mentions-legales',
     },
   },
@@ -523,8 +560,7 @@ export function generateOrganizationSchema() {
       },
     },
     sameAs: [
-      'https://github.com/ssidikov',
-      'https://linkedin.com/company/sidikoff-digital',
+      'https://github.com/sidikoff',
       `https://linkedin.com/company/${defaultSEOConfig.social.linkedin}`,
       `https://twitter.com/${defaultSEOConfig.social.twitter.replace('@', '')}`,
     ],
@@ -590,6 +626,7 @@ export function generateCreativeWorkSchema(work: {
   dateCreated?: string
   technologies?: string[]
   category?: string
+  locale?: string
 }) {
   return {
     '@context': 'https://schema.org',
@@ -603,7 +640,7 @@ export function generateCreativeWorkSchema(work: {
     },
     about: work.category || 'Web Development',
     keywords: work.technologies?.join(', ') || 'React, Next.js, TypeScript',
-    inLanguage: 'fr-FR',
+    inLanguage: work.locale || 'fr-FR',
     ...(work.url && { url: work.url }),
     ...(work.image && {
       image: {
@@ -681,6 +718,7 @@ export function generateWebPageSchema(page: {
   url: string
   datePublished?: string
   dateModified?: string
+  locale: string
 }) {
   return {
     '@context': 'https://schema.org',
@@ -689,7 +727,7 @@ export function generateWebPageSchema(page: {
     url: page.url,
     name: page.name,
     description: page.description,
-    inLanguage: 'fr-FR',
+    inLanguage: page.locale,
     isPartOf: {
       '@type': 'WebSite',
       '@id': 'https://www.sidikoff.com/#website',
