@@ -38,7 +38,7 @@ export default function Footer() {
               className='flex flex-col items-center leading-none text-gray-900 dark:text-white'>
               <Image
                 src='/logo-sidikoff.svg'
-                alt='Logo'
+                alt='SIDIKOFF DIGITAL - Agence Web Paris'
                 width={200}
                 height={100}
                 priority

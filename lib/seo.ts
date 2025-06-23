@@ -152,14 +152,21 @@ export function generateMetadata(seoData: SEOData): Metadata {
 export const pagesSEO = {
   home: {
     fr: {
-      title: 'SIDIKOFF DIGITAL - Agence Web à Paris | Création Sites & Applications Web',
+      title: 'Création de sites internet à Paris | SIDIKOFF DIGITAL - Agence Web',
       description:
-        'Agence web parisienne spécialisée en création de sites internet, applications web et stratégie digitale. Développement moderne, design UX/UI, référencement SEO. Devis gratuit.',
+        'Création de sites internet professionnels à Paris : vitrine, e-commerce, applications web. Agence web experte en Next.js, SEO, UX/UI, développement sur mesure. Devis gratuit.',
       keywords: [
+        'création de sites internet',
         'agence web paris',
-        'création site internet',
+        'site vitrine',
+        'site e-commerce',
         'développement web',
+        'référencement SEO',
+        'site internet professionnel',
         'agence digitale',
+        'UX UI design',
+        'application web',
+        'développeur paris',
       ],
       canonical: 'https://www.sidikoff.com/',
     },
