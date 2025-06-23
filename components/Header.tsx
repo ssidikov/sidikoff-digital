@@ -170,18 +170,21 @@ export default function Header() {
     },
   }
   return (
-    <motion.header className='fixed top-0 left-0 right-0 z-50 backdrop-blur-xl transition-all duration-300 border-b border-gray-200/30 dark:border-gray-700/30'>
+    <motion.header
+      role='banner'
+      className='fixed top-0 left-0 right-0 z-50 backdrop-blur-xl transition-all duration-300 border-b border-gray-200/30 dark:border-gray-700/30'>
       <motion.div className='container mx-auto px-4 py-2 md:py-3 flex items-center justify-between transition-all duration-300'>
         {/* Logo */}
         <div className='z-50'>
           <span className='sr-only'>Sidikoff Digital</span>
           <motion.a
             href='/'
+            title='Sidikoff Digital — Web Development and Design'
             className='flex flex-col items-center leading-none text-gray-900 dark:text-white'
             onClick={handleLogoClick}>
             <Image
               src='/logo-sidikoff.svg'
-              alt='Logo'
+              alt='Sidikoff Digital'
               width={200}
               height={100}
               priority

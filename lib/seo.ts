@@ -206,13 +206,13 @@ export const pagesSEO = {
       canonical: 'https://www.sidikoff.com/services',
     },
   },
-  Projects: {
+  projects: {
     fr: {
-      title: 'Projects | SIDIKOFF DIGITAL - Nos Réalisations Web',
+      title: 'Projets | SIDIKOFF DIGITAL - Nos Réalisations Web',
       description:
-        'Découvrez nos projets web : sites vitrine, e-commerce, applications. Projects de SIDIKOFF DIGITAL, agence web à Paris. Exemples et références clients.',
+        'Découvrez nos projets web : sites vitrine, e-commerce, applications. Projets de SIDIKOFF DIGITAL, agence web à Paris. Exemples et références clients.',
       keywords: [
-        'Projects agence web',
+        'projets agence web',
         'réalisations web paris',
         'exemples sites internet',
         'références clients',
@@ -224,7 +224,7 @@ export const pagesSEO = {
       description:
         'Discover our web projects: showcase websites, e-commerce, applications. Projects of SIDIKOFF DIGITAL, web agency in Paris. Examples and client references.',
       keywords: [
-        'web agency Projects',
+        'web agency projects',
         'web projects paris',
         'website examples',
         'client references',
