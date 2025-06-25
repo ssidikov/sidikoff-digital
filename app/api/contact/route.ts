@@ -55,19 +55,36 @@ export async function POST(request: NextRequest) {
     }
 
     // Send emails (don't block the response if emails fail)
-    Promise.all([sendUserConfirmation(emailData), sendAdminNotification(emailData)])
+    const emailPromise = Promise.all([sendUserConfirmation(emailData), sendAdminNotification(emailData)])
       .then(([userResult, adminResult]) => {
         console.log('=== EMAIL RESULTS ===')
         console.log('User confirmation email:', userResult.success ? '✅ SENT' : '❌ FAILED')
         if (userResult.error) console.log('User email error:', userResult.error)
+        if (userResult.details) console.log('User email details:', userResult.details)
         console.log('Admin notification email:', adminResult.success ? '✅ SENT' : '❌ FAILED')
         if (adminResult.error) console.log('Admin email error:', adminResult.error)
+        if (adminResult.details) console.log('Admin email details:', adminResult.details)
         console.log('Admin email sent to: s.sidikoff@gmail.com')
         console.log('=== END EMAIL RESULTS ===')
+        return { userResult, adminResult }
       })
       .catch((emailError) => {
         console.error('Email sending error:', emailError)
+        console.error('Email error stack:', emailError.stack)
+        return { error: emailError }
       })
+
+    // In development, wait for emails to complete for better debugging
+    if (process.env.NODE_ENV === 'development') {
+      console.log('🔧 [DEV] Waiting for emails to complete...')
+      const emailResults = await emailPromise
+      console.log('🔧 [DEV] Email results:', emailResults)
+    } else {
+      // In production, don't wait but still log the promise
+      emailPromise.then(results => {
+        console.log('📧 [PROD] Email sending completed:', results)
+      })
+    }
 
     return NextResponse.json({
       success: true,

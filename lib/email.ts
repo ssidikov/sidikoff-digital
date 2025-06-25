@@ -91,15 +91,14 @@ export const sendEmail = async (
       },
       // Vercel serverless optimizations
       pool: false,               // No connection pooling
-      connectionTimeout: 15000,  // 15 seconds max connection time
-      greetingTimeout: 10000,    // 10 seconds max greeting time
-      socketTimeout: 15000,      // 15 seconds max socket timeout
-      // Enhanced TLS settings
+      connectionTimeout: 10000,  // Reduced to 10 seconds for Vercel
+      greetingTimeout: 5000,     // Reduced to 5 seconds
+      socketTimeout: 10000,      // Reduced to 10 seconds
+      // Simplified TLS settings for better Gmail compatibility
       tls: {
         rejectUnauthorized: false,
-        ciphers: 'SSLv3',
       },
-      requireTLS: !isSecure,
+      // Remove requireTLS as it can cause issues with Gmail
       logger: false,
       debug: false,
     } as nodemailer.TransportOptions)
@@ -119,12 +118,20 @@ export const sendEmail = async (
     }
 
     console.log('📧 [SEND EMAIL] Sending email...')
+    console.log('📧 [SEND EMAIL] Mail options prepared:', {
+      from: mailOptions.from,
+      to: mailOptions.to,
+      subject: mailOptions.subject
+    })
 
-    // Send with timeout protection (crucial for Vercel)
+    // Send with timeout protection (crucial for Vercel) - reduced timeout
+    console.log('📧 [SEND EMAIL] Starting sendMail operation...')
     const sendPromise = transporter.sendMail(mailOptions)
     const timeoutPromise = new Promise((_, reject) =>
-      setTimeout(() => reject(new Error('Email send timeout after 20 seconds')), 20000)
+      setTimeout(() => reject(new Error('Email send timeout after 15 seconds')), 15000)
     )
+
+    console.log('📧 [SEND EMAIL] Waiting for email result...')
 
     const result = await Promise.race([sendPromise, timeoutPromise]) as nodemailer.SentMessageInfo
 
