@@ -2,7 +2,11 @@ import nodemailer from 'nodemailer'
 
 /**
  * SIDIKOFF Digital Email System
+<<<<<<< Updated upstream
  * 
+=======
+ *
+>>>>>>> Stashed changes
  * Completely rewritten email system optimized for Vercel serverless deployment.
  * Features:
  * - Stateless design (no persistent connections)
@@ -44,7 +48,11 @@ export const sendEmail = async (
 ): Promise<EmailResult> => {
   const startTime = Date.now()
   const timestamp = new Date().toISOString()
+<<<<<<< Updated upstream
   
+=======
+
+>>>>>>> Stashed changes
   console.log(`📧 [SEND EMAIL] ${timestamp} - Starting email send`)
   console.log(`📧 [SEND EMAIL] To: ${to}`)
   console.log(`📧 [SEND EMAIL] Subject: ${subject}`)
@@ -79,7 +87,11 @@ export const sendEmail = async (
 
     // Create fresh transporter for this request
     console.log('🔧 [SEND EMAIL] Creating transporter...')
+<<<<<<< Updated upstream
     
+=======
+
+>>>>>>> Stashed changes
     // Ultra-aggressive Gmail configuration for Vercel (no hanging)
     transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
@@ -93,9 +105,15 @@ export const sendEmail = async (
       pool: false,
       maxConnections: 1,
       maxMessages: 1,
+<<<<<<< Updated upstream
       connectionTimeout: 3000,   // 3 seconds max (reduced from 6)
       greetingTimeout: 2000,     // 2 seconds max (reduced from 3)
       socketTimeout: 3000,       // 3 seconds max (reduced from 6)
+=======
+      connectionTimeout: 3000, // 3 seconds max (reduced from 6)
+      greetingTimeout: 2000, // 2 seconds max (reduced from 3)
+      socketTimeout: 3000, // 3 seconds max (reduced from 6)
+>>>>>>> Stashed changes
       // Force close connections aggressively
       opportunisticTLS: true,
       // Minimal TLS for compatibility
@@ -128,15 +146,26 @@ export const sendEmail = async (
     console.log('📧 [SEND EMAIL] Mail options prepared:', {
       from: mailOptions.from,
       to: mailOptions.to,
+<<<<<<< Updated upstream
       subject: mailOptions.subject
+=======
+      subject: mailOptions.subject,
+>>>>>>> Stashed changes
     })
 
     // Send with ultra-aggressive timeout protection (crucial for Vercel)
     console.log('📧 [SEND EMAIL] Starting sendMail operation...')
+<<<<<<< Updated upstream
     
     let timeoutId: NodeJS.Timeout | null = null
     let isCompleted = false
     
+=======
+
+    let timeoutId: NodeJS.Timeout | null = null
+    let isCompleted = false
+
+>>>>>>> Stashed changes
     try {
       const result = await new Promise<nodemailer.SentMessageInfo>((resolve, reject) => {
         // Set up the timeout FIRST
@@ -158,14 +187,24 @@ export const sendEmail = async (
         }, 3000) // Reduced to 3 seconds
 
         console.log('📧 [SEND EMAIL] Waiting for email result...')
+<<<<<<< Updated upstream
         
+=======
+
+>>>>>>> Stashed changes
         // Start the send operation
         if (!transporter) {
           reject(new Error('Transporter not initialized'))
           return
         }
+<<<<<<< Updated upstream
         
         transporter.sendMail(mailOptions)
+=======
+
+        transporter
+          .sendMail(mailOptions)
+>>>>>>> Stashed changes
           .then((result) => {
             if (!isCompleted) {
               isCompleted = true
@@ -211,14 +250,20 @@ export const sendEmail = async (
           duration,
         },
       }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     } finally {
       // Clean up timeout if it's still active
       if (timeoutId) {
         clearTimeout(timeoutId)
       }
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   } catch (error) {
     const duration = Date.now() - startTime
     console.error(`❌ [SEND EMAIL] Failed after ${duration}ms`)
@@ -234,7 +279,10 @@ export const sendEmail = async (
       error: error instanceof Error ? error.message : 'Unknown email error',
       details: { duration, errorType: error?.constructor?.name || 'Unknown' },
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   } finally {
     // Aggressively close the transporter to prevent hanging connections
     if (transporter) {
@@ -250,7 +298,11 @@ export const sendEmail = async (
             resolve()
           }, 1000)
         })
+<<<<<<< Updated upstream
         
+=======
+
+>>>>>>> Stashed changes
         await Promise.race([closePromise, closeTimeout])
         console.log('🔧 [SEND EMAIL] Transporter closed')
       } catch (closeError) {
@@ -410,7 +462,11 @@ SIDIKOFF Digital Team
   return {
     subject: '✓ Your Project Request - SIDIKOFF Digital',
     html,
+<<<<<<< Updated upstream
     text
+=======
+    text,
+>>>>>>> Stashed changes
   }
 }
 
@@ -499,8 +555,19 @@ const generateAdminNotificationEmail = (submission: ContactSubmission) => {
           <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border-radius: 8px; padding: 20px; text-align: center;">
             <h3 style="color: #065f46; margin: 0 0 15px 0; font-size: 16px; font-weight: 600;">🚀 Quick Actions</h3>
             <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+<<<<<<< Updated upstream
               <a href="mailto:${submission.email}" style="background-color: #10b981; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 14px; display: inline-block;">Reply by Email</a>
               ${submission.phone ? `<a href="tel:${submission.phone}" style="background-color: #3b82f6; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 14px; display: inline-block;">Call Client</a>` : ''}
+=======
+              <a href="mailto:${
+                submission.email
+              }" style="background-color: #10b981; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 14px; display: inline-block;">Reply by Email</a>
+              ${
+                submission.phone
+                  ? `<a href="tel:${submission.phone}" style="background-color: #3b82f6; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 14px; display: inline-block;">Call Client</a>`
+                  : ''
+              }
+>>>>>>> Stashed changes
             </div>
           </div>
         </div>
@@ -539,9 +606,17 @@ SIDIKOFF Digital Admin Notification
   `
 
   return {
+<<<<<<< Updated upstream
     subject: `🚨 New Contact Submission: ${submission.name} - ${submission.projectType || 'General Inquiry'}`,
     html,
     text
+=======
+    subject: `🚨 New Contact Submission: ${submission.name} - ${
+      submission.projectType || 'General Inquiry'
+    }`,
+    html,
+    text,
+>>>>>>> Stashed changes
   }
 }
 
@@ -549,19 +624,28 @@ SIDIKOFF Digital Admin Notification
 export const sendUserConfirmation = async (submission: ContactSubmission) => {
   console.log('📧 [USER CONFIRMATION] Starting user confirmation email...')
   const emailContent = generateUserConfirmationEmail(submission)
+<<<<<<< Updated upstream
   
+=======
+
+>>>>>>> Stashed changes
   const result = await sendEmailWithFallback(
     submission.email,
     emailContent.subject,
     emailContent.html,
     emailContent.text
   )
+<<<<<<< Updated upstream
   
+=======
+
+>>>>>>> Stashed changes
   if (result.success) {
     console.log('✅ [USER CONFIRMATION] User confirmation email sent successfully')
   } else {
     console.error('❌ [USER CONFIRMATION] Failed to send user confirmation email:', result.error)
   }
+<<<<<<< Updated upstream
   
   return result
 }
@@ -572,19 +656,41 @@ export const sendAdminNotification = async (submission: ContactSubmission): Prom
   
   const emailContent = generateAdminNotificationEmail(submission)
   
+=======
+
+  return result
+}
+
+export const sendAdminNotification = async (
+  submission: ContactSubmission
+): Promise<EmailResult> => {
+  console.log('📧 [ADMIN NOTIFICATION] Starting admin notification email...')
+  console.log('📧 [ADMIN NOTIFICATION] Admin email:', ADMIN_EMAIL)
+
+  const emailContent = generateAdminNotificationEmail(submission)
+
+>>>>>>> Stashed changes
   const result = await sendEmailWithFallback(
     ADMIN_EMAIL,
     emailContent.subject,
     emailContent.html,
     emailContent.text
   )
+<<<<<<< Updated upstream
   
+=======
+
+>>>>>>> Stashed changes
   if (result.success) {
     console.log('✅ [ADMIN NOTIFICATION] Email sent successfully')
   } else {
     console.error('❌ [ADMIN NOTIFICATION] Failed to send email:', result.error)
   }
+<<<<<<< Updated upstream
   
+=======
+
+>>>>>>> Stashed changes
   return result
 }
 
@@ -593,11 +699,16 @@ export const sendAdminNotification = async (submission: ContactSubmission): Prom
  */
 export const testEmailConfiguration = async (): Promise<EmailResult> => {
   console.log('🧪 [EMAIL TEST] Testing email configuration...')
+<<<<<<< Updated upstream
   
+=======
+
+>>>>>>> Stashed changes
   try {
     const testSubmission: ContactSubmission = {
       name: 'Email System Test',
       email: ADMIN_EMAIL,
+<<<<<<< Updated upstream
       message: 'This is a test email to verify the SIDIKOFF Digital email system is working correctly in production.',
       projectType: 'System Test',
       submittedAt: new Date().toISOString()
@@ -605,6 +716,16 @@ export const testEmailConfiguration = async (): Promise<EmailResult> => {
     
     const result = await sendUserConfirmation(testSubmission)
     
+=======
+      message:
+        'This is a test email to verify the SIDIKOFF Digital email system is working correctly in production.',
+      projectType: 'System Test',
+      submittedAt: new Date().toISOString(),
+    }
+
+    const result = await sendUserConfirmation(testSubmission)
+
+>>>>>>> Stashed changes
     if (result.success) {
       console.log('✅ [EMAIL TEST] Email configuration test passed!')
       return { success: true, messageId: result.messageId, details: result.details }
@@ -614,9 +735,15 @@ export const testEmailConfiguration = async (): Promise<EmailResult> => {
     }
   } catch (error) {
     console.error('❌ [EMAIL TEST] Email test crashed:', error)
+<<<<<<< Updated upstream
     return { 
       success: false, 
       error: error instanceof Error ? error.message : 'Unknown test error' 
+=======
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown test error',
+>>>>>>> Stashed changes
     }
   }
 }
@@ -633,7 +760,11 @@ export const sendEmailBackup = async (
 ): Promise<EmailResult> => {
   const startTime = Date.now()
   const timestamp = new Date().toISOString()
+<<<<<<< Updated upstream
   
+=======
+
+>>>>>>> Stashed changes
   console.log(`🔄 [BACKUP EMAIL] ${timestamp} - Starting backup email send`)
   console.log(`🔄 [BACKUP EMAIL] To: ${to}`)
   console.log(`🔄 [BACKUP EMAIL] Subject: ${subject}`)
@@ -643,7 +774,11 @@ export const sendEmailBackup = async (
   try {
     // Use alternative Gmail configuration optimized for serverless
     console.log('🔧 [BACKUP EMAIL] Creating alternative transporter...')
+<<<<<<< Updated upstream
     
+=======
+
+>>>>>>> Stashed changes
     const config = {
       host: process.env.SMTP_HOST || 'smtp.gmail.com',
       port: parseInt(process.env.SMTP_PORT || '587', 10),
@@ -666,9 +801,15 @@ export const sendEmailBackup = async (
       },
       // Absolute minimal timeouts
       pool: false,
+<<<<<<< Updated upstream
       connectionTimeout: 2000,   // 2 seconds
       greetingTimeout: 1500,     // 1.5 seconds  
       socketTimeout: 2000,       // 2 seconds
+=======
+      connectionTimeout: 2000, // 2 seconds
+      greetingTimeout: 1500, // 1.5 seconds
+      socketTimeout: 2000, // 2 seconds
+>>>>>>> Stashed changes
       // Disable all extra features
       tls: {
         rejectUnauthorized: false,
@@ -690,7 +831,11 @@ export const sendEmailBackup = async (
 
     let timeoutId: NodeJS.Timeout | null = null
     let isCompleted = false
+<<<<<<< Updated upstream
     
+=======
+
+>>>>>>> Stashed changes
     try {
       const result = await new Promise<nodemailer.SentMessageInfo>((resolve, reject) => {
         // Set up the timeout FIRST (even more aggressive for backup)
@@ -716,8 +861,14 @@ export const sendEmailBackup = async (
           reject(new Error('Backup transporter not initialized'))
           return
         }
+<<<<<<< Updated upstream
         
         transporter.sendMail(mailOptions)
+=======
+
+        transporter
+          .sendMail(mailOptions)
+>>>>>>> Stashed changes
           .then((result) => {
             if (!isCompleted) {
               isCompleted = true
@@ -745,14 +896,20 @@ export const sendEmailBackup = async (
         messageId: result.messageId,
         details: { duration, method: 'backup' },
       }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     } finally {
       // Clean up timeout if it's still active
       if (timeoutId) {
         clearTimeout(timeoutId)
       }
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   } catch (error) {
     const duration = Date.now() - startTime
     console.error(`❌ [BACKUP EMAIL] Failed after ${duration}ms`)
@@ -763,7 +920,10 @@ export const sendEmailBackup = async (
       error: error instanceof Error ? error.message : 'Backup email error',
       details: { duration, method: 'backup' },
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   } finally {
     if (transporter) {
       try {
@@ -786,10 +946,17 @@ export const sendEmailWithFallback = async (
   textContent: string
 ): Promise<EmailResult> => {
   console.log('🔄 [SMART EMAIL] Attempting primary email send...')
+<<<<<<< Updated upstream
   
   // Try primary method first
   const primaryResult = await sendEmail(to, subject, htmlContent, textContent)
   
+=======
+
+  // Try primary method first
+  const primaryResult = await sendEmail(to, subject, htmlContent, textContent)
+
+>>>>>>> Stashed changes
   if (primaryResult.success) {
     console.log('✅ [SMART EMAIL] Primary method succeeded')
     return primaryResult
@@ -797,17 +964,28 @@ export const sendEmailWithFallback = async (
 
   console.log('⚠️ [SMART EMAIL] Primary method failed, trying backup...')
   console.log('⚠️ [SMART EMAIL] Primary error:', primaryResult.error)
+<<<<<<< Updated upstream
   
   // Try backup method if primary fails
   const backupResult = await sendEmailBackup(to, subject, htmlContent, textContent)
   
+=======
+
+  // Try backup method if primary fails
+  const backupResult = await sendEmailBackup(to, subject, htmlContent, textContent)
+
+>>>>>>> Stashed changes
   if (backupResult.success) {
     console.log('✅ [SMART EMAIL] Backup method succeeded')
     return backupResult
   }
 
   console.log('❌ [SMART EMAIL] Both methods failed')
+<<<<<<< Updated upstream
   
+=======
+
+>>>>>>> Stashed changes
   // Return combined error information
   return {
     success: false,
