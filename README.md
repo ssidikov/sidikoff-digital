@@ -268,7 +268,7 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de 
 **SIDIKOFF DIGITAL - Agence Web à Paris**
 
 - 🌐 **Site Web** : [www.sidikoff.com](https://www.sidikoff.com)
-- 📧 **Email** : admin@sidikoff.com
+- 📧 **Email** : s.sidikoff@gmail.com
 - 📍 **Localisation** : Paris, France
 - 💼 **LinkedIn** : [SIDIKOFF Digital](https://linkedin.com/company/sidikoff-digital)
 - 🐙 **GitHub** : [ssidikov](https://github.com/ssidikov)
@@ -304,7 +304,7 @@ SMTP_USER=your-email@gmail.com
 SMTP_PASSWORD=your-app-password
 
 # Admin Configuration
-ADMIN_EMAIL=admin@sidikoff.com
+ADMIN_EMAIL=s.sidikoff@gmail.com
 ```
 
 #### Gmail Configuration
@@ -325,6 +325,7 @@ npm run test-email
 ```
 
 This script will:
+
 - ✅ Check all required environment variables
 - 📧 Send a test email to verify SMTP connection
 - 🧪 Test user confirmation email template
@@ -337,6 +338,7 @@ This script will:
 **Cause**: Missing or incorrect SMTP environment variables
 
 **Solution**:
+
 1. Check that all SMTP variables are set in Vercel environment variables
 2. Ensure `SMTP_PASSWORD` is the App Password, not your regular Gmail password
 3. Verify `SMTP_USER` is the full email address
@@ -346,6 +348,7 @@ This script will:
 **Cause**: Incorrect Gmail credentials or security settings
 
 **Solution**:
+
 1. Regenerate Gmail App Password
 2. Ensure 2FA is enabled on Gmail account
 3. Check that `SMTP_USER` matches the Gmail account
@@ -355,6 +358,7 @@ This script will:
 **Cause**: Network issues or firewall blocking SMTP
 
 **Solution**:
+
 1. Try different SMTP ports (587, 465)
 2. For port 465, set `secure: true` in the email config
 3. Consider using alternative SMTP providers (SendGrid, Mailgun)
@@ -364,6 +368,7 @@ This script will:
 **Cause**: Spam filters or email delivery issues
 
 **Solution**:
+
 1. Check spam/junk folders
 2. Verify sender email reputation
 3. Add SPF/DKIM records to your domain
@@ -374,6 +379,7 @@ This script will:
 For production deployments, consider these alternatives:
 
 #### SendGrid
+
 ```bash
 SMTP_HOST=smtp.sendgrid.net
 SMTP_PORT=587
@@ -382,6 +388,7 @@ SMTP_PASSWORD=your-sendgrid-api-key
 ```
 
 #### Mailgun
+
 ```bash
 SMTP_HOST=smtp.mailgun.org
 SMTP_PORT=587
@@ -411,6 +418,7 @@ Enable detailed email logging by checking Vercel function logs:
 4. Look for email success/error messages
 
 Common log messages:
+
 - ✅ `Email sent successfully: [message-id]`
 - ❌ `Email transporter is not available`
 - ❌ `Email send error: [error details]`

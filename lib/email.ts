@@ -40,6 +40,17 @@ const createTransporter = () => {
         user: process.env.SMTP_USER!,
         pass: process.env.SMTP_PASSWORD!,
       },
+      tls: {
+        rejectUnauthorized: false, // Allow self-signed certificates, important for some hosts
+        ciphers: 'SSLv3', // Add cipher specification for better compatibility
+      },
+      connectionTimeout: 30000, // Reduced to 30 seconds for Vercel
+      greetingTimeout: 15000, // Reduced to 15 seconds
+      socketTimeout: 30000, // Reduced to 30 seconds
+      pool: true, // Use connection pooling
+      maxConnections: 1, // Limit concurrent connections
+      rateDelta: 1000, // Minimum time between sending emails
+      rateLimit: 3, // Maximum emails per rateDelta
     })
   } catch (error) {
     console.error('❌ Failed to create email transporter:', error)
@@ -187,7 +198,7 @@ export const generateUserConfirmationEmail = (submission: ContactSubmission) => 
           <div style="text-align: center; padding: 20px 0;">
             <p style="color: #6b7280; margin: 0 0 15px 0;">Need immediate assistance? Reach out to us:</p>
             <div style="margin-bottom: 10px;">
-              <a href="mailto:admin@sidikoff.com" style="color: #667eea; text-decoration: none; font-weight: 600;">📧 admin@sidikoff.com</a>
+              <a href="mailto:s.sidikoff@gmail.com" style="color: #667eea; text-decoration: none; font-weight: 600;">📧 s.sidikoff@gmail.com</a>
             </div>
           </div>
         </div>
@@ -229,7 +240,7 @@ What happens next:
 3. Provide you with a detailed proposal and timeline
 
 Need immediate assistance? Contact us:
-Email: admin@sidikoff.com
+Email: s.sidikoff@gmail.com
 
 Best regards,
 SIDIKOFF Digital Team
@@ -396,14 +407,24 @@ SIDIKOFF Digital Admin Notification
 
 // Send email function
 export const sendEmail = async (to: string, subject: string, html: string, text: string) => {
-  console.log(`📧 Attempting to send email to: ${to}`)
+  console.log(`📧 [${new Date().toISOString()}] Attempting to send email to: ${to}`)
   console.log(`📧 Subject: ${subject}`)
+  console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`)
+  console.log(`🔧 SMTP Host: ${process.env.SMTP_HOST}`)
+  console.log(`🔧 SMTP Port: ${process.env.SMTP_PORT}`)
+  console.log(`🔧 SMTP User: ${process.env.SMTP_USER?.replace(/(.{3}).*(@.*)/, '$1***$2')}`)
+  console.log(`🔧 SMTP Password: ${process.env.SMTP_PASSWORD ? '***SET***' : '***NOT SET***'}`)
 
   const emailTransporter = getTransporter()
 
   if (!emailTransporter) {
     const error = 'Email transporter is not available. Please check SMTP configuration.'
     console.error('❌ ' + error)
+    console.error('❌ Missing environment variables check:')
+    console.error('❌ SMTP_HOST:', process.env.SMTP_HOST ? '✓' : '✗ MISSING')
+    console.error('❌ SMTP_PORT:', process.env.SMTP_PORT ? '✓' : '✗ MISSING')
+    console.error('❌ SMTP_USER:', process.env.SMTP_USER ? '✓' : '✗ MISSING')
+    console.error('❌ SMTP_PASSWORD:', process.env.SMTP_PASSWORD ? '✓' : '✗ MISSING')
     return { success: false, error }
   }
 
@@ -418,9 +439,19 @@ export const sendEmail = async (to: string, subject: string, html: string, text:
     })
 
     console.log('✅ Email sent successfully:', result.messageId)
+    console.log('✅ Response info:', result.response)
     return { success: true, messageId: result.messageId }
   } catch (error) {
     console.error('❌ Email send error:', error)
+    console.error('❌ Error type:', typeof error)
+    console.error('❌ Error name:', error instanceof Error ? error.name : 'Unknown')
+    console.error('❌ Error message:', error instanceof Error ? error.message : 'Unknown error')
+
+    // Log additional error details for debugging
+    if (error && typeof error === 'object') {
+      console.error('❌ Error details:', JSON.stringify(error, null, 2))
+    }
+
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',
@@ -442,7 +473,7 @@ export const sendUserConfirmation = async (submission: ContactSubmission) => {
 
 // Send notification email to admin
 export const sendAdminNotification = async (submission: ContactSubmission) => {
-  const adminEmail = process.env.ADMIN_EMAIL || 'admin@sidikoff.com'
+  const adminEmail = process.env.ADMIN_EMAIL || 's.sidikoff@gmail.com'
   console.log('Sending admin notification to:', adminEmail)
   const emailContent = generateAdminNotificationEmail(submission)
   return await sendEmail(adminEmail, emailContent.subject, emailContent.html, emailContent.text)
