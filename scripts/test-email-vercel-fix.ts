@@ -6,7 +6,7 @@
  * recommended for Vercel deployment.
  */
 
-import { sendUserConfirmation, sendAdminNotification, ContactSubmission } from '../lib/email'
+import { sendUserConfirmation, sendAdminNotification, ContactSubmission } from '@/lib/email'
 
 const testSubmission: ContactSubmission = {
   name: 'Test User',
