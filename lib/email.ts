@@ -42,7 +42,6 @@ const createTransporter = () => {
       },
       tls: {
         rejectUnauthorized: false, // Allow self-signed certificates, important for some hosts
-        ciphers: 'SSLv3', // Add cipher specification for better compatibility
       },
       connectionTimeout: 30000, // Reduced to 30 seconds for Vercel
       greetingTimeout: 15000, // Reduced to 15 seconds
@@ -429,14 +428,18 @@ export const sendEmail = async (to: string, subject: string, html: string, text:
   }
 
   try {
-    const info = await transporter!.sendMail({
-      from: process.env.SMTP_USER,
-      to: process.env.SMTP_USER,
-      subject: '...',
-      text: '...',
-      html: '...',
+    console.log('📧 Sending email with transporter...')
+    const result = await emailTransporter.sendMail({
+      from: `"SIDIKOFF Digital" <${process.env.SMTP_USER}>`,
+      to,
+      subject,
+      html,
+      text,
     })
-    console.log('✅ Email sent:', info.messageId)
+
+    console.log('✅ Email sent successfully:', result.messageId)
+    console.log('✅ Response info:', result.response)
+    return { success: true, messageId: result.messageId }
   } catch (error) {
     console.error('❌ Email send error:', error)
     console.error('❌ Error type:', typeof error)
@@ -469,8 +472,8 @@ export const sendUserConfirmation = async (submission: ContactSubmission) => {
 
 // Send notification email to admin
 export const sendAdminNotification = async (submission: ContactSubmission) => {
-  const adminEmail = process.env.ADMIN_EMAIL || 's.sidikoff@gmail.com'
-  console.log('Sending admin notification to:', adminEmail)
+  const adminEmail = process.env.ADMIN_EMAIL || 'admin@sidikoff.com'
+  console.log('📧 Sending admin notification to:', adminEmail)
   const emailContent = generateAdminNotificationEmail(submission)
   return await sendEmail(adminEmail, emailContent.subject, emailContent.html, emailContent.text)
 }
