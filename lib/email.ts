@@ -1,71 +1,15 @@
 import nodemailer from 'nodemailer'
 
-// Validate environment variables
-const validateEmailConfig = () => {
-  const requiredVars = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_USER', 'SMTP_PASSWORD']
-  const missing = requiredVars.filter((varName) => !process.env[varName])
-
-  if (missing.length > 0) {
-    console.error('❌ Missing email environment variables:', missing)
-    return false
-  }
-
-  console.log('✅ Email configuration validated')
-  return true
-}
-
-// Email configuration
-const createTransporter = () => {
-  if (!validateEmailConfig()) {
-    console.error('❌ Email configuration invalid - cannot create transporter')
-    return null
-  }
-
-  const port = parseInt(process.env.SMTP_PORT || '587')
-  const isSecure = port === 465
-
-  console.log('📧 Creating email transporter with config:', {
-    host: process.env.SMTP_HOST,
-    port: port,
-    secure: isSecure,
-    user: process.env.SMTP_USER?.replace(/(.{3}).*(@.*)/, '$1***$2'), // Mask email for logs
-  })
-
-  try {
-    return nodemailer.createTransport({
-      host: process.env.SMTP_HOST!,
-      port: port,
-      secure: isSecure, // true for 465, false for other ports
-      auth: {
-        user: process.env.SMTP_USER!,
-        pass: process.env.SMTP_PASSWORD!,
-      },
-      tls: {
-        rejectUnauthorized: false, // Allow self-signed certificates, important for some hosts
-      },
-      connectionTimeout: 30000, // Reduced to 30 seconds for Vercel
-      greetingTimeout: 15000, // Reduced to 15 seconds
-      socketTimeout: 30000, // Reduced to 30 seconds
-      pool: true, // Use connection pooling
-      maxConnections: 1, // Limit concurrent connections
-      rateDelta: 1000, // Minimum time between sending emails
-      rateLimit: 3, // Maximum emails per rateDelta
-    })
-  } catch (error) {
-    console.error('❌ Failed to create email transporter:', error)
-    return null
-  }
-}
-
-// Lazy initialization of transporter
-let transporter: nodemailer.Transporter | null = null
-
-const getTransporter = () => {
-  if (!transporter) {
-    transporter = createTransporter()
-  }
-  return transporter
-}
+/**
+ * SIDIKOFF Digital Email System
+ * 
+ * Completely rewritten email system optimized for Vercel serverless deployment.
+ * Features:
+ * - Stateless design (no persistent connections)
+ * - Comprehensive error handling and logging
+ * - Production-ready configuration
+ * - All emails use s.sidikoff@gmail.com as admin address
+ */
 
 export interface ContactSubmission {
   name: string
@@ -79,18 +23,180 @@ export interface ContactSubmission {
   submittedAt: string
 }
 
-// User confirmation email template
-export const generateUserConfirmationEmail = (submission: ContactSubmission) => {
+interface EmailResult {
+  success: boolean
+  messageId?: string
+  error?: string
+  details?: Record<string, unknown>
+}
+
+// Admin email address (as specified in requirements)
+const ADMIN_EMAIL = 's.sidikoff@gmail.com'
+
+/**
+ * Send email with comprehensive error handling and logging
+ */
+export const sendEmail = async (
+  to: string,
+  subject: string,
+  htmlContent: string,
+  textContent: string
+): Promise<EmailResult> => {
+  const startTime = Date.now()
+  const timestamp = new Date().toISOString()
+  
+  console.log(`📧 [SEND EMAIL] ${timestamp} - Starting email send`)
+  console.log(`📧 [SEND EMAIL] To: ${to}`)
+  console.log(`📧 [SEND EMAIL] Subject: ${subject}`)
+
+  let transporter: nodemailer.Transporter | null = null
+
+  try {
+    // Validate email config first
+    const config = {
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
+      user: process.env.SMTP_USER,
+      password: process.env.SMTP_PASSWORD,
+    }
+
+    const missing = Object.entries(config)
+      .filter(([, value]) => !value)
+      .map(([key]) => key)
+
+    if (missing.length > 0) {
+      const errorMsg = `Missing email environment variables: ${missing.join(', ')}`
+      console.error('❌ [SEND EMAIL]', errorMsg)
+      return { success: false, error: errorMsg }
+    }
+
+    const port = parseInt(config.port!, 10)
+    if (isNaN(port) || port <= 0) {
+      const errorMsg = `Invalid SMTP_PORT: ${config.port}`
+      console.error('❌ [SEND EMAIL]', errorMsg)
+      return { success: false, error: errorMsg }
+    }
+
+    // Create fresh transporter for this request
+    const isSecure = port === 465
+    console.log('🔧 [SEND EMAIL] Creating transporter...')
+    
+    transporter = nodemailer.createTransport({
+      host: config.host!,
+      port,
+      secure: isSecure,
+      auth: {
+        user: config.user!,
+        pass: config.password!,
+      },
+      // Vercel serverless optimizations
+      pool: false,               // No connection pooling
+      connectionTimeout: 15000,  // 15 seconds max connection time
+      greetingTimeout: 10000,    // 10 seconds max greeting time
+      socketTimeout: 15000,      // 15 seconds max socket timeout
+      // Enhanced TLS settings
+      tls: {
+        rejectUnauthorized: false,
+        ciphers: 'SSLv3',
+      },
+      requireTLS: !isSecure,
+      logger: false,
+      debug: false,
+    } as nodemailer.TransportOptions)
+
+    // Prepare mail options
+    const mailOptions = {
+      from: `"SIDIKOFF Digital" <${config.user}>`,
+      to: to,
+      subject: subject,
+      html: htmlContent,
+      text: textContent,
+      headers: {
+        'X-Mailer': 'SIDIKOFF Digital Contact System v2.0',
+        'X-Priority': '3',
+        'Reply-To': ADMIN_EMAIL,
+      },
+    }
+
+    console.log('📧 [SEND EMAIL] Sending email...')
+
+    // Send with timeout protection (crucial for Vercel)
+    const sendPromise = transporter.sendMail(mailOptions)
+    const timeoutPromise = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('Email send timeout after 20 seconds')), 20000)
+    )
+
+    const result = await Promise.race([sendPromise, timeoutPromise]) as nodemailer.SentMessageInfo
+
+    const duration = Date.now() - startTime
+    console.log(`✅ [SEND EMAIL] Email sent successfully in ${duration}ms`)
+    console.log('📧 [SEND EMAIL] Message ID:', result.messageId)
+    console.log('📧 [SEND EMAIL] Response:', result.response)
+
+    // Log delivery details
+    if (result.accepted?.length > 0) {
+      console.log('✅ [SEND EMAIL] Accepted recipients:', result.accepted)
+    }
+    if (result.rejected?.length > 0) {
+      console.log('⚠️ [SEND EMAIL] Rejected recipients:', result.rejected)
+    }
+    if (result.envelope) {
+      console.log('📧 [SEND EMAIL] Envelope:', result.envelope)
+    }
+
+    return {
+      success: true,
+      messageId: result.messageId,
+      details: {
+        accepted: result.accepted,
+        rejected: result.rejected,
+        envelope: result.envelope,
+        response: result.response,
+        duration,
+      },
+    }
+
+  } catch (error) {
+    const duration = Date.now() - startTime
+    console.error(`❌ [SEND EMAIL] Failed after ${duration}ms`)
+    console.error('❌ [SEND EMAIL] Error:', error)
+
+    if (error instanceof Error) {
+      console.error('❌ [SEND EMAIL] Error message:', error.message)
+      console.error('❌ [SEND EMAIL] Error stack:', error.stack)
+    }
+
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown email error',
+      details: { duration, errorType: error?.constructor?.name || 'Unknown' },
+    }
+
+  } finally {
+    // Always close the transporter to free resources
+    if (transporter) {
+      try {
+        transporter.close()
+        console.log('🔧 [SEND EMAIL] Transporter closed')
+      } catch (closeError) {
+        console.warn('⚠️ [SEND EMAIL] Error closing transporter:', closeError)
+      }
+    }
+  }
+}
+
+// Generate user confirmation email content
+const generateUserConfirmationEmail = (submission: ContactSubmission) => {
   const html = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Thank You for Your Request - SIDIKOFF Digital</title>
+      <title>Thank You - SIDIKOFF Digital</title>
     </head>
-    <body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; line-height: 1.6;">
-      <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #f8fafc; line-height: 1.6;">
+      <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff;">
         
         <!-- Header -->
         <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 30px; text-align: center;">
@@ -101,12 +207,10 @@ export const generateUserConfirmationEmail = (submission: ContactSubmission) => 
         <!-- Main Content -->
         <div style="padding: 40px 30px;">
           <div style="text-align: center; margin-bottom: 30px;">
-            <div style="display: inline-block; background-color: #10b981; color: white; padding: 12px 24px; border-radius: 50px; font-weight: 600; margin-bottom: 20px;">
+            <div style="display: inline-block; background-color: #10b981; color: white; padding: 12px 24px; border-radius: 25px; font-weight: 600; margin-bottom: 20px;">
               ✓ Request Received
             </div>
-            <h2 style="color: #1f2937; margin: 0; font-size: 24px; font-weight: 700;">Thank You, ${
-              submission.name
-            }!</h2>
+            <h2 style="color: #1f2937; margin: 0; font-size: 24px; font-weight: 700;">Thank You, ${submission.name}!</h2>
             <p style="color: #6b7280; margin: 15px 0 0 0; font-size: 16px;">Your project request has been successfully submitted.</p>
           </div>
 
@@ -124,45 +228,31 @@ export const generateUserConfirmationEmail = (submission: ContactSubmission) => 
               <span style="color: #1f2937;">${submission.email}</span>
             </div>
             
-            ${
-              submission.phone
-                ? `
+            ${submission.phone ? `
             <div style="margin-bottom: 15px;">
               <span style="color: #6b7280; font-weight: 500; display: inline-block; width: 100px;">Phone:</span>
               <span style="color: #1f2937;">${submission.phone}</span>
             </div>
-            `
-                : ''
-            }
+            ` : ''}
             
-            ${
-              submission.company
-                ? `
+            ${submission.company ? `
             <div style="margin-bottom: 15px;">
               <span style="color: #6b7280; font-weight: 500; display: inline-block; width: 100px;">Company:</span>
               <span style="color: #1f2937;">${submission.company}</span>
             </div>
-            `
-                : ''
-            }
+            ` : ''}
             
-            ${
-              submission.projectType
-                ? `
+            ${submission.projectType ? `
             <div style="margin-bottom: 15px;">
               <span style="color: #6b7280; font-weight: 500; display: inline-block; width: 100px;">Project Type:</span>
               <span style="color: #1f2937; background-color: #ddd6fe; padding: 4px 8px; border-radius: 6px; font-size: 14px;">${submission.projectType}</span>
             </div>
-            `
-                : ''
-            }
+            ` : ''}
             
             <div style="margin-bottom: 0;">
               <span style="color: #6b7280; font-weight: 500; display: block; margin-bottom: 8px;">Message:</span>
               <div style="background-color: white; padding: 15px; border-radius: 8px; border: 1px solid #e5e7eb;">
-                <p style="color: #374151; margin: 0; white-space: pre-line;">${
-                  submission.message
-                }</p>
+                <p style="color: #374151; margin: 0; white-space: pre-line;">${submission.message}</p>
               </div>
             </div>
           </div>
@@ -197,7 +287,7 @@ export const generateUserConfirmationEmail = (submission: ContactSubmission) => 
           <div style="text-align: center; padding: 20px 0;">
             <p style="color: #6b7280; margin: 0 0 15px 0;">Need immediate assistance? Reach out to us:</p>
             <div style="margin-bottom: 10px;">
-              <a href="mailto:s.sidikoff@gmail.com" style="color: #667eea; text-decoration: none; font-weight: 600;">📧 s.sidikoff@gmail.com</a>
+              <a href="mailto:${ADMIN_EMAIL}" style="color: #667eea; text-decoration: none; font-weight: 600;">📧 ${ADMIN_EMAIL}</a>
             </div>
           </div>
         </div>
@@ -217,10 +307,7 @@ export const generateUserConfirmationEmail = (submission: ContactSubmission) => 
     </html>
   `
 
-  return {
-    subject: '✓ Your Project Request - SIDIKOFF Digital',
-    html,
-    text: `
+  const text = `
 Thank you for your project request, ${submission.name}!
 
 Your request has been successfully submitted and we'll review it within 24 hours.
@@ -239,26 +326,31 @@ What happens next:
 3. Provide you with a detailed proposal and timeline
 
 Need immediate assistance? Contact us:
-Email: s.sidikoff@gmail.com
+Email: ${ADMIN_EMAIL}
 
 Best regards,
 SIDIKOFF Digital Team
-    `,
+  `
+
+  return {
+    subject: '✓ Your Project Request - SIDIKOFF Digital',
+    html,
+    text
   }
 }
 
-// Admin notification email template
-export const generateAdminNotificationEmail = (submission: ContactSubmission) => {
+// Generate admin notification email content
+const generateAdminNotificationEmail = (submission: ContactSubmission) => {
   const html = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>New Contact Form Submission - SIDIKOFF Digital</title>
+      <title>New Contact Submission - SIDIKOFF Digital</title>
     </head>
-    <body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; line-height: 1.6;">
-      <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #f8fafc; line-height: 1.6;">
+      <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff;">
         
         <!-- Header -->
         <div style="background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); padding: 30px; text-align: center;">
@@ -283,57 +375,39 @@ export const generateAdminNotificationEmail = (submission: ContactSubmission) =>
             <table style="width: 100%; border-collapse: collapse;">
               <tr>
                 <td style="padding: 8px 0; color: #6b7280; font-weight: 500; width: 120px; vertical-align: top;">Name:</td>
-                <td style="padding: 8px 0; color: #1f2937; font-weight: 600;">${
-                  submission.name
-                }</td>
+                <td style="padding: 8px 0; color: #1f2937; font-weight: 600;">${submission.name}</td>
               </tr>
               <tr>
                 <td style="padding: 8px 0; color: #6b7280; font-weight: 500; vertical-align: top;">Email:</td>
                 <td style="padding: 8px 0;">
-                  <a href="mailto:${
-                    submission.email
-                  }" style="color: #2563eb; text-decoration: none;">${submission.email}</a>
+                  <a href="mailto:${submission.email}" style="color: #2563eb; text-decoration: none;">${submission.email}</a>
                 </td>
               </tr>
-              ${
-                submission.phone
-                  ? `
+              ${submission.phone ? `
               <tr>
                 <td style="padding: 8px 0; color: #6b7280; font-weight: 500; vertical-align: top;">Phone:</td>
                 <td style="padding: 8px 0;">
                   <a href="tel:${submission.phone}" style="color: #2563eb; text-decoration: none;">${submission.phone}</a>
                 </td>
               </tr>
-              `
-                  : ''
-              }
-              ${
-                submission.company
-                  ? `
+              ` : ''}
+              ${submission.company ? `
               <tr>
                 <td style="padding: 8px 0; color: #6b7280; font-weight: 500; vertical-align: top;">Company:</td>
                 <td style="padding: 8px 0; color: #1f2937;">${submission.company}</td>
               </tr>
-              `
-                  : ''
-              }
-              ${
-                submission.projectType
-                  ? `
+              ` : ''}
+              ${submission.projectType ? `
               <tr>
                 <td style="padding: 8px 0; color: #6b7280; font-weight: 500; vertical-align: top;">Project Type:</td>
                 <td style="padding: 8px 0;">
                   <span style="background-color: #ddd6fe; color: #5b21b6; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 600;">${submission.projectType}</span>
                 </td>
               </tr>
-              `
-                  : ''
-              }
+              ` : ''}
               <tr>
                 <td style="padding: 8px 0; color: #6b7280; font-weight: 500; vertical-align: top;">Submitted:</td>
-                <td style="padding: 8px 0; color: #1f2937;">${new Date(
-                  submission.submittedAt
-                ).toLocaleString()}</td>
+                <td style="padding: 8px 0; color: #1f2937;">${new Date(submission.submittedAt).toLocaleString()}</td>
               </tr>
             </table>
           </div>
@@ -342,9 +416,7 @@ export const generateAdminNotificationEmail = (submission: ContactSubmission) =>
           <div style="background-color: #f0f9ff; border-radius: 8px; padding: 20px; margin-bottom: 25px;">
             <h3 style="color: #374151; margin: 0 0 10px 0; font-size: 16px; font-weight: 600;">💬 Message</h3>
             <div style="background-color: white; padding: 15px; border-radius: 6px; border: 1px solid #e0f2fe;">
-              <p style="color: #374151; margin: 0; white-space: pre-line; font-size: 14px; line-height: 1.5;">${
-                submission.message
-              }</p>
+              <p style="color: #374151; margin: 0; white-space: pre-line; font-size: 14px; line-height: 1.5;">${submission.message}</p>
             </div>
           </div>
 
@@ -352,13 +424,8 @@ export const generateAdminNotificationEmail = (submission: ContactSubmission) =>
           <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border-radius: 8px; padding: 20px; text-align: center;">
             <h3 style="color: #065f46; margin: 0 0 15px 0; font-size: 16px; font-weight: 600;">🚀 Quick Actions</h3>
             <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-              <a href="mailto:${
-                submission.email
-              }" style="background-color: #10b981; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 14px; display: inline-block;">Reply by Email</a>
-              <a href="tel:${
-                submission.phone || ''
-              }" style="background-color: #3b82f6; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 14px; display: inline-block;">Call Client</a>
-              <a href="https://www.sidikoff.com/admin/submissions" style="background-color: #6366f1; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 14px; display: inline-block;">View in Admin</a>
+              <a href="mailto:${submission.email}" style="background-color: #10b981; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 14px; display: inline-block;">Reply by Email</a>
+              ${submission.phone ? `<a href="tel:${submission.phone}" style="background-color: #3b82f6; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 14px; display: inline-block;">Call Client</a>` : ''}
             </div>
           </div>
         </div>
@@ -374,12 +441,7 @@ export const generateAdminNotificationEmail = (submission: ContactSubmission) =>
     </html>
   `
 
-  return {
-    subject: `🚨 New Contact Submission: ${submission.name} - ${
-      submission.projectType || 'General Inquiry'
-    }`,
-    html,
-    text: `
+  const text = `
 NEW CONTACT FORM SUBMISSION
 
 Client Details:
@@ -396,94 +458,90 @@ ${submission.message}
 Quick Actions:
 - Reply: mailto:${submission.email}
 ${submission.phone ? `- Call: tel:${submission.phone}` : ''}
-- Admin Panel: https://www.sidikoff.com/admin/submissions
 
 ---
 SIDIKOFF Digital Admin Notification
-    `,
+  `
+
+  return {
+    subject: `🚨 New Contact Submission: ${submission.name} - ${submission.projectType || 'General Inquiry'}`,
+    html,
+    text
   }
 }
 
-// Send email function
-export const sendEmail = async (to: string, subject: string, html: string, text: string) => {
-  console.log(`📧 [${new Date().toISOString()}] Attempting to send email to: ${to}`)
-  console.log(`📧 Subject: ${subject}`)
-  console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`)
-  console.log(`🔧 SMTP Host: ${process.env.SMTP_HOST}`)
-  console.log(`🔧 SMTP Port: ${process.env.SMTP_PORT}`)
-  console.log(`🔧 SMTP User: ${process.env.SMTP_USER?.replace(/(.{3}).*(@.*)/, '$1***$2')}`)
-  console.log(`🔧 SMTP Password: ${process.env.SMTP_PASSWORD ? '***SET***' : '***NOT SET***'}`)
-
-  const emailTransporter = getTransporter()
-
-  if (!emailTransporter) {
-    const error = 'Email transporter is not available. Please check SMTP configuration.'
-    console.error('❌ ' + error)
-    console.error('❌ Missing environment variables check:')
-    console.error('❌ SMTP_HOST:', process.env.SMTP_HOST ? '✓' : '✗ MISSING')
-    console.error('❌ SMTP_PORT:', process.env.SMTP_PORT ? '✓' : '✗ MISSING')
-    console.error('❌ SMTP_USER:', process.env.SMTP_USER ? '✓' : '✗ MISSING')
-    console.error('❌ SMTP_PASSWORD:', process.env.SMTP_PASSWORD ? '✓' : '✗ MISSING')
-    return { success: false, error }
-  }
-
-  try {
-    console.log('📧 Sending email with transporter...')
-    const result = await emailTransporter.sendMail({
-      from: `"SIDIKOFF Digital" <${process.env.SMTP_USER}>`,
-      to,
-      subject,
-      html,
-      text,
-    })
-
-    console.log('✅ Email sent successfully!')
-    console.log('📧 Message ID:', result.messageId)
-    console.log('📧 Response:', result.response)
-    console.log('📧 Envelope:', result.envelope)
-    console.log('📧 Accepted:', result.accepted)
-    console.log('📧 Rejected:', result.rejected)
-    
-    return { 
-      success: true, 
-      messageId: result.messageId,
-      response: result.response 
-    }
-  } catch (error) {
-    console.error('❌ Failed to send email:', error)
-    console.error('❌ Error type:', typeof error)
-    console.error('❌ Error name:', error instanceof Error ? error.name : 'Unknown')
-    console.error('❌ Error message:', error instanceof Error ? error.message : 'Unknown error')
-    console.error('❌ Error stack:', error instanceof Error ? error.stack : 'No stack trace')
-
-    // Log additional error details for debugging
-    if (error && typeof error === 'object') {
-      console.error('❌ Error details:', JSON.stringify(error, null, 2))
-    }
-
-    return {
-      success: false,
-      error: error instanceof Error ? error.message : 'Unknown error',
-      details: error,
-    }
-  }
-}
-
-// Send confirmation email to user
+// Public functions for sending emails
 export const sendUserConfirmation = async (submission: ContactSubmission) => {
+  console.log('📧 [USER CONFIRMATION] Starting user confirmation email...')
   const emailContent = generateUserConfirmationEmail(submission)
-  return await sendEmail(
+  
+  const result = await sendEmail(
     submission.email,
     emailContent.subject,
     emailContent.html,
     emailContent.text
   )
+  
+  if (result.success) {
+    console.log('✅ [USER CONFIRMATION] User confirmation email sent successfully')
+  } else {
+    console.error('❌ [USER CONFIRMATION] Failed to send user confirmation email:', result.error)
+  }
+  
+  return result
 }
 
-// Send notification email to admin
-export const sendAdminNotification = async (submission: ContactSubmission) => {
-  const adminEmail = process.env.ADMIN_EMAIL || 'admin@sidikoff.com'
-  console.log('📧 Sending admin notification to:', adminEmail)
+export const sendAdminNotification = async (submission: ContactSubmission): Promise<EmailResult> => {
+  console.log('📧 [ADMIN NOTIFICATION] Starting admin notification email...')
+  console.log('📧 [ADMIN NOTIFICATION] Admin email:', ADMIN_EMAIL)
+  
   const emailContent = generateAdminNotificationEmail(submission)
-  return await sendEmail(adminEmail, emailContent.subject, emailContent.html, emailContent.text)
+  
+  const result = await sendEmail(
+    ADMIN_EMAIL,
+    emailContent.subject,
+    emailContent.html,
+    emailContent.text
+  )
+  
+  if (result.success) {
+    console.log('✅ [ADMIN NOTIFICATION] Email sent successfully')
+  } else {
+    console.error('❌ [ADMIN NOTIFICATION] Failed to send email:', result.error)
+  }
+  
+  return result
+}
+
+/**
+ * Test email configuration (for debugging)
+ */
+export const testEmailConfiguration = async (): Promise<EmailResult> => {
+  console.log('🧪 [EMAIL TEST] Testing email configuration...')
+  
+  try {
+    const testSubmission: ContactSubmission = {
+      name: 'Email System Test',
+      email: ADMIN_EMAIL,
+      message: 'This is a test email to verify the SIDIKOFF Digital email system is working correctly in production.',
+      projectType: 'System Test',
+      submittedAt: new Date().toISOString()
+    }
+    
+    const result = await sendUserConfirmation(testSubmission)
+    
+    if (result.success) {
+      console.log('✅ [EMAIL TEST] Email configuration test passed!')
+      return { success: true, messageId: result.messageId, details: result.details }
+    } else {
+      console.error('❌ [EMAIL TEST] Email configuration test failed:', result.error)
+      return { success: false, error: result.error }
+    }
+  } catch (error) {
+    console.error('❌ [EMAIL TEST] Email test crashed:', error)
+    return { 
+      success: false, 
+      error: error instanceof Error ? error.message : 'Unknown test error' 
+    }
+  }
 }

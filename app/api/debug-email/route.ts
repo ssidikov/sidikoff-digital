@@ -31,8 +31,8 @@ export async function POST(request: NextRequest) {
     console.log('🔍 Environment variables check:', envCheck)
 
     const missingVars = Object.entries(envCheck)
-      .filter(([_, exists]) => !exists)
-      .map(([name, _]) => name)
+      .filter(([, exists]) => !exists)
+      .map(([name]) => name)
 
     if (missingVars.length > 0) {
       console.error('❌ Missing environment variables:', missingVars)

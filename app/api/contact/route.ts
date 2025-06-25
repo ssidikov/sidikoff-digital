@@ -62,7 +62,7 @@ export async function POST(request: NextRequest) {
         if (userResult.error) console.log('User email error:', userResult.error)
         console.log('Admin notification email:', adminResult.success ? '✅ SENT' : '❌ FAILED')
         if (adminResult.error) console.log('Admin email error:', adminResult.error)
-        console.log('Admin email sent to:', process.env.ADMIN_EMAIL)
+        console.log('Admin email sent to: s.sidikoff@gmail.com')
         console.log('=== END EMAIL RESULTS ===')
       })
       .catch((emailError) => {
