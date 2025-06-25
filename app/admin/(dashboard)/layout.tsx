@@ -9,7 +9,6 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'SIDIKOFF Admin Dashboard',
   description: 'Admin dashboard for managing SIDIKOFF Digital website',
-  manifest: '/admin-manifest.json',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',

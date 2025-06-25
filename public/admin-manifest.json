@@ -2,7 +2,7 @@
   "name": "SIDIKOFF Admin Dashboard",
   "short_name": "SIDIKOFF Admin",
   "description": "Admin dashboard for managing SIDIKOFF Digital website content, projects, and client communications",
-  "start_url": "/admin/dashboard",
+  "start_url": "/admin/dashboard?source=pwa",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#4f46e5",

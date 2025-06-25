@@ -9,6 +9,7 @@ import { TariffProvider } from '@/context/TariffContext'
 import ClientLayout from '@/components/ClientLayout'
 import StructuredData from '@/components/StructuredData'
 import BrandStructuredData from '@/components/BrandStructuredData'
+import DynamicManifest from '@/components/DynamicManifest'
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo'
 import Script from 'next/script'
 
@@ -60,10 +61,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel='dns-prefetch' href='//fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
-        {/* Icons & Manifest */}
+        {/* Icons - Manifest handled dynamically */}
         <link rel='icon' href='/favicon.svg' />
         <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
-        <link rel='manifest' href='/manifest.json' />
         {/* Meta */}
         <meta name='author' content='SIDIKOFF DIGITAL' />
         <meta name='generator' content='Next.js' />
@@ -161,6 +161,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           defaultTheme='system'
           enableSystem
           disableTransitionOnChange>
+          <DynamicManifest />
           <LanguageProvider>
             <TariffProvider>
               <ClientLayout>{children}</ClientLayout>
