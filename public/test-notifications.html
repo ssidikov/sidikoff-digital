@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push Notification Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        button {
+            background: #007cba;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #005f91;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+    </style>
+</head>
+<body>
+    <h1>Push Notification Debug Tool</h1>
+    
+    <div class="container">
+        <h2>1. Service Worker Status</h2>
+        <div id="sw-status" class="status info">Loading...</div>
+        <button onclick="registerServiceWorker()">Register Service Worker</button>
+    </div>
+
+    <div class="container">
+        <h2>2. Notification Permission</h2>
+        <div id="permission-status" class="status info">Loading...</div>
+        <button onclick="requestPermission()">Request Permission</button>
+    </div>
+
+    <div class="container">
+        <h2>3. Push Subscription</h2>
+        <div id="subscription-status" class="status info">Loading...</div>
+        <button onclick="subscribeToPush()">Subscribe to Push</button>
+        <button onclick="unsubscribe()">Unsubscribe</button>
+    </div>
+
+    <div class="container">
+        <h2>4. Test Notifications</h2>
+        <div id="test-status" class="status info">Ready to test</div>
+        <button onclick="testLocalNotification()">Test Local Notification</button>
+        <button onclick="testPushNotification()">Test Push Notification</button>
+        <button onclick="testFormSubmission()">Simulate Form Submission</button>
+    </div>
+
+    <div class="container">
+        <h2>Debug Log</h2>
+        <div id="debug-log" style="background: white; padding: 10px; height: 200px; overflow-y: scroll; border: 1px solid #ccc;">
+        </div>
+        <button onclick="clearLog()">Clear Log</button>
+    </div>
+
+    <script>
+        const VAPID_PUBLIC_KEY = 'BIyZ0SOmcCW7B5BaiE_6F6O8QTPQtvL4omOenGOnhqyDtGtdVDakp5rnJj08Ui2V_5LwJhryaVzCfONCVRHVQWA';
+        let swRegistration = null;
+
+        function log(message) {
+            const logDiv = document.getElementById('debug-log');
+            const timestamp = new Date().toLocaleTimeString();
+            logDiv.innerHTML += `[${timestamp}] ${message}<br>`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+            console.log(message);
+        }
+
+        function clearLog() {
+            document.getElementById('debug-log').innerHTML = '';
+        }
+
+        function updateStatus(elementId, message, type = 'info') {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.className = `status ${type}`;
+        }
+
+        function urlBase64ToUint8Array(base64String) {
+            const padding = '='.repeat((4 - base64String.length % 4) % 4);
+            const base64 = (base64String + padding)
+                .replace(/-/g, '+')
+                .replace(/_/g, '/');
+
+            const rawData = window.atob(base64);
+            const outputArray = new Uint8Array(rawData.length);
+
+            for (let i = 0; i < rawData.length; ++i) {
+                outputArray[i] = rawData.charCodeAt(i);
+            }
+            return outputArray;
+        }
+
+        async function registerServiceWorker() {
+            try {
+                log('Registering service worker...');
+                swRegistration = await navigator.serviceWorker.register('/admin-sw.js', {
+                    scope: '/admin/'
+                });
+                log('Service worker registered successfully');
+                updateStatus('sw-status', 'Service worker registered', 'success');
+                
+                await navigator.serviceWorker.ready;
+                log('Service worker is ready');
+            } catch (error) {
+                log(`Service worker registration failed: ${error.message}`);
+                updateStatus('sw-status', `Registration failed: ${error.message}`, 'error');
+            }
+        }
+
+        async function requestPermission() {
+            try {
+                log('Requesting notification permission...');
+                const permission = await Notification.requestPermission();
+                log(`Permission result: ${permission}`);
+                updateStatus('permission-status', `Permission: ${permission}`, 
+                    permission === 'granted' ? 'success' : 'error');
+            } catch (error) {
+                log(`Permission request failed: ${error.message}`);
+                updateStatus('permission-status', `Permission failed: ${error.message}`, 'error');
+            }
+        }
+
+        async function subscribeToPush() {
+            try {
+                if (!swRegistration) {
+                    throw new Error('Service worker not registered');
+                }
+
+                log('Subscribing to push notifications...');
+                const subscription = await swRegistration.pushManager.subscribe({
+                    userVisibleOnly: true,
+                    applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC_KEY)
+                });
+
+                log('Push subscription successful');
+                log(`Endpoint: ${subscription.endpoint}`);
+
+                // Send subscription to server
+                const response = await fetch('/api/admin/notifications/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(subscription)
+                });
+
+                if (response.ok) {
+                    log('Subscription sent to server successfully');
+                    updateStatus('subscription-status', 'Subscribed successfully', 'success');
+                } else {
+                    log(`Failed to send subscription to server: ${response.status}`);
+                    updateStatus('subscription-status', 'Server subscription failed', 'error');
+                }
+
+            } catch (error) {
+                log(`Push subscription failed: ${error.message}`);
+                updateStatus('subscription-status', `Subscription failed: ${error.message}`, 'error');
+            }
+        }
+
+        async function unsubscribe() {
+            try {
+                if (!swRegistration) {
+                    throw new Error('Service worker not registered');
+                }
+
+                const subscription = await swRegistration.pushManager.getSubscription();
+                if (subscription) {
+                    await subscription.unsubscribe();
+                    log('Unsubscribed from push notifications');
+                    updateStatus('subscription-status', 'Unsubscribed', 'info');
+                } else {
+                    log('No active subscription found');
+                    updateStatus('subscription-status', 'No active subscription', 'info');
+                }
+            } catch (error) {
+                log(`Unsubscribe failed: ${error.message}`);
+                updateStatus('subscription-status', `Unsubscribe failed: ${error.message}`, 'error');
+            }
+        }
+
+        async function testLocalNotification() {
+            try {
+                if (Notification.permission !== 'granted') {
+                    throw new Error('Notification permission not granted');
+                }
+
+                new Notification('🧪 Test Local Notification', {
+                    body: 'This is a test local notification',
+                    icon: '/favicon.png'
+                });
+
+                log('Local notification sent');
+                updateStatus('test-status', 'Local notification sent', 'success');
+            } catch (error) {
+                log(`Local notification failed: ${error.message}`);
+                updateStatus('test-status', `Local notification failed: ${error.message}`, 'error');
+            }
+        }
+
+        async function testPushNotification() {
+            try {
+                log('Triggering test push notification...');
+                const response = await fetch('/api/admin/debug-notifications', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+
+                if (response.ok) {
+                    log('Test push notification triggered');
+                    updateStatus('test-status', 'Push notification triggered', 'success');
+                } else {
+                    log(`Push notification failed: ${response.status}`);
+                    updateStatus('test-status', 'Push notification failed', 'error');
+                }
+            } catch (error) {
+                log(`Push notification test failed: ${error.message}`);
+                updateStatus('test-status', `Push test failed: ${error.message}`, 'error');
+            }
+        }
+
+        async function testFormSubmission() {
+            try {
+                log('Simulating form submission...');
+                const response = await fetch('/api/test-form-submission', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+
+                if (response.ok) {
+                    log('Form submission simulation triggered');
+                    updateStatus('test-status', 'Form submission simulated', 'success');
+                } else {
+                    log(`Form submission simulation failed: ${response.status}`);
+                    updateStatus('test-status', 'Form submission simulation failed', 'error');
+                }
+            } catch (error) {
+                log(`Form submission test failed: ${error.message}`);
+                updateStatus('test-status', `Form submission test failed: ${error.message}`, 'error');
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', async function() {
+            log('Page loaded, checking initial status...');
+            
+            // Check service worker support
+            if ('serviceWorker' in navigator) {
+                log('Service worker supported');
+                updateStatus('sw-status', 'Service worker supported', 'info');
+            } else {
+                log('Service worker not supported');
+                updateStatus('sw-status', 'Service worker not supported', 'error');
+            }
+
+            // Check notification permission
+            if ('Notification' in window) {
+                const permission = Notification.permission;
+                log(`Current notification permission: ${permission}`);
+                updateStatus('permission-status', `Permission: ${permission}`, 
+                    permission === 'granted' ? 'success' : 'info');
+            } else {
+                log('Notifications not supported');
+                updateStatus('permission-status', 'Notifications not supported', 'error');
+            }
+
+            // Check for existing service worker registration
+            if ('serviceWorker' in navigator) {
+                try {
+                    const registration = await navigator.serviceWorker.getRegistration('/admin/');
+                    if (registration) {
+                        swRegistration = registration;
+                        log('Found existing service worker registration');
+                        updateStatus('sw-status', 'Service worker already registered', 'success');
+                        
+                        // Check for existing subscription
+                        const subscription = await registration.pushManager.getSubscription();
+                        if (subscription) {
+                            log('Found existing push subscription');
+                            updateStatus('subscription-status', 'Already subscribed', 'success');
+                        } else {
+                            log('No existing push subscription');
+                            updateStatus('subscription-status', 'Not subscribed', 'info');
+                        }
+                    }
+                } catch (error) {
+                    log(`Error checking existing registration: ${error.message}`);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

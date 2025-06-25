@@ -83,21 +83,27 @@ export class AdminNotificationManager {
     }
 
     try {
+      const vapidPublicKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY
+      console.log('🔧 VAPID Public Key available:', !!vapidPublicKey)
+      
+      if (!vapidPublicKey) {
+        console.error('❌ VAPID public key not found')
+        return null
+      }
+
       const subscription = await this.swRegistration.pushManager.subscribe({
         userVisibleOnly: true,
-        applicationServerKey: this.urlBase64ToUint8Array(
-          process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY || ''
-        ) as BufferSource
+        applicationServerKey: this.urlBase64ToUint8Array(vapidPublicKey) as BufferSource
       })
 
-      console.log('Push subscription successful')
+      console.log('✅ Push subscription successful:', subscription.endpoint)
       
       // Send subscription to server
       await this.sendSubscriptionToServer(subscription)
       
       return subscription
     } catch (error) {
-      console.error('Push subscription failed:', error)
+      console.error('❌ Push subscription failed:', error)
       return null
     }
   }
@@ -226,15 +232,22 @@ export class AdminNotificationManager {
   // Send subscription to server
   private async sendSubscriptionToServer(subscription: PushSubscription): Promise<void> {
     try {
-      await fetch('/api/admin/notifications/subscribe', {
+      console.log('📤 Sending subscription to server...')
+      const response = await fetch('/api/admin/notifications/subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(subscription)
       })
+      
+      if (response.ok) {
+        console.log('✅ Subscription sent to server successfully')
+      } else {
+        console.error('❌ Failed to send subscription to server:', response.status, response.statusText)
+      }
     } catch (error) {
-      console.error('Failed to send subscription to server:', error)
+      console.error('❌ Error sending subscription to server:', error)
     }
   }
 

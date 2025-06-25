@@ -82,10 +82,28 @@ export default function NotificationSettings() {
   }
 
   const testNotification = async () => {
+    setIsLoading(true)
     try {
+      // Test local notification first
       await notificationManager.testNotification()
+      
+      // Also test server-side push notification
+      const response = await fetch('/api/admin/debug-notifications', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      
+      if (response.ok) {
+        console.log('✅ Debug notification triggered from server')
+      } else {
+        console.error('❌ Failed to trigger debug notification from server')
+      }
     } catch (error) {
       console.error('Failed to send test notification:', error)
+    } finally {
+      setIsLoading(false)
     }
   }
 
