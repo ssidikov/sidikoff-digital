@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
         }, 100) // Very fast simulation
 
         // Add timeout protection
-        const timeout = setTimeout(() => {
+        setTimeout(() => {
           clearTimeout(timer)
           reject(new Error('Emergency email timeout'))
         }, 1000) // 1 second max
