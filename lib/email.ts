@@ -437,14 +437,24 @@ export const sendEmail = async (to: string, subject: string, html: string, text:
       text,
     })
 
-    console.log('✅ Email sent successfully:', result.messageId)
-    console.log('✅ Response info:', result.response)
-    return { success: true, messageId: result.messageId }
+    console.log('✅ Email sent successfully!')
+    console.log('📧 Message ID:', result.messageId)
+    console.log('📧 Response:', result.response)
+    console.log('📧 Envelope:', result.envelope)
+    console.log('📧 Accepted:', result.accepted)
+    console.log('📧 Rejected:', result.rejected)
+    
+    return { 
+      success: true, 
+      messageId: result.messageId,
+      response: result.response 
+    }
   } catch (error) {
-    console.error('❌ Email send error:', error)
+    console.error('❌ Failed to send email:', error)
     console.error('❌ Error type:', typeof error)
     console.error('❌ Error name:', error instanceof Error ? error.name : 'Unknown')
     console.error('❌ Error message:', error instanceof Error ? error.message : 'Unknown error')
+    console.error('❌ Error stack:', error instanceof Error ? error.stack : 'No stack trace')
 
     // Log additional error details for debugging
     if (error && typeof error === 'object') {
