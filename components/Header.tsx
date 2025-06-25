@@ -20,7 +20,7 @@ export default function Header() {
   // const { theme, resolvedTheme } = useTheme() // Not used
   const router = useRouter()
   const pathname = usePathname()
-  
+
   // Get current locale from pathname
   const getCurrentLocale = useCallback(() => {
     if (pathname.startsWith('/fr/') || pathname === '/fr') return 'fr'
@@ -34,9 +34,14 @@ export default function Header() {
   // Generate locale-aware URLs
   const getLocalePath = (path: string) => {
     // Check if user is on a localized URL path
-    const isOnLocalizedPath = pathname.startsWith('/fr/') || pathname.startsWith('/en/') || pathname.startsWith('/ru/') || 
-                               pathname === '/fr' || pathname === '/en' || pathname === '/ru'
-    
+    const isOnLocalizedPath =
+      pathname.startsWith('/fr/') ||
+      pathname.startsWith('/en/') ||
+      pathname.startsWith('/ru/') ||
+      pathname === '/fr' ||
+      pathname === '/en' ||
+      pathname === '/ru'
+
     // If user is on a localized path, use locale prefix for consistency
     // If user is on main site, keep them on main site (no locale prefix)
     if (isOnLocalizedPath) {
@@ -67,7 +72,8 @@ export default function Header() {
 
     // Check if we're on the homepage (with or without locale)
     const urlLocale = getCurrentLocale() // Use URL-based locale for page detection
-    const isHomePage = pathname === '/' || pathname === `/${urlLocale}` || pathname === `/${urlLocale}/`
+    const isHomePage =
+      pathname === '/' || pathname === `/${urlLocale}` || pathname === `/${urlLocale}/`
 
     if (isHomePage) {
       window.addEventListener('scroll', handleScroll)
@@ -78,23 +84,26 @@ export default function Header() {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
-    if (href.startsWith('/#')) {
-      const sectionId = href.substring(2) // Remove "/#"
+    // Extract hash (section) from href, e.g. /fr/#contact-form => contact-form
+    const hashIndex = href.indexOf('#')
+    const hasHash = hashIndex !== -1
+    const sectionId = hasHash ? href.substring(hashIndex + 1) : null
 
-      // Check if we're on the homepage (with or without locale)
-      const urlLocale = getCurrentLocale() // Use URL-based locale for page detection
-      const isHomePage = pathname === '/' || pathname === `/${urlLocale}` || pathname === `/${urlLocale}/`
+    // Check if we're on the homepage (with or without locale)
+    const urlLocale = getCurrentLocale()
+    const isHomePage =
+      pathname === '/' || pathname === `/${urlLocale}` || pathname === `/${urlLocale}/`
 
-      if (isHomePage) {
+    if (isHomePage && sectionId) {
+      scrollToSection(sectionId)
+    } else if (sectionId) {
+      // Navigate to homepage with locale and hash, then scroll
+      const homePath = getLocalePath('/') + `#${sectionId}`
+      router.push(homePath)
+      // Optionally, scroll after navigation (if needed)
+      setTimeout(() => {
         scrollToSection(sectionId)
-      } else {
-        // Navigate to homepage with locale and then scroll to section
-        const homePath = getLocalePath('/')
-        router.push(homePath)
-        setTimeout(() => {
-          scrollToSection(sectionId)
-        }, 150)
-      }
+      }, 350)
     } else {
       // For regular links, use locale-aware paths
       const localePath = getLocalePath(href)
@@ -106,12 +115,15 @@ export default function Header() {
     e.preventDefault()
     setMenuOpen(false)
 
-    if (href.startsWith('/#')) {
-      const sectionId = href.substring(2) // Remove "/#"
+    // Extract hash from href (could be /#section or /locale/#section)
+    const hashIndex = href.indexOf('#')
+    if (hashIndex !== -1) {
+      const sectionId = href.substring(hashIndex + 1) // Remove "#"
 
       // Check if we're on the homepage (with or without locale)
       const urlLocale = getCurrentLocale() // Use URL-based locale for page detection
-      const isHomePage = pathname === '/' || pathname === `/${urlLocale}` || pathname === `/${urlLocale}/`
+      const isHomePage =
+        pathname === '/' || pathname === `/${urlLocale}` || pathname === `/${urlLocale}/`
 
       if (isHomePage) {
         setTimeout(() => scrollToSection(sectionId), 100) // Small delay for menu closing
@@ -134,7 +146,8 @@ export default function Header() {
     e.preventDefault()
     // Check if we're on the homepage (with or without locale)
     const urlLocale = getCurrentLocale() // Use URL-based locale for page detection
-    const isHomePage = pathname === '/' || pathname === `/${urlLocale}` || pathname === `/${urlLocale}/`
+    const isHomePage =
+      pathname === '/' || pathname === `/${urlLocale}` || pathname === `/${urlLocale}/`
 
     if (isHomePage) {
       scrollToTop()
@@ -271,8 +284,7 @@ export default function Header() {
         {/* Desktop CTA */}
         <div className='hidden md:flex items-center gap-2'>
           <motion.a
-            href={`${getLocalePath('/')}#contact-form`}
-            onClick={(e) => handleNavClick(e, `${getLocalePath('/')}#contact-form`)}
+            href='/#contact-form'
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}>
             <button className='px-4 py-2 text-sm font-medium border border-border rounded-lg bg-background/90 hover:bg-accent/80 transition-all duration-200 backdrop-blur-sm shadow-sm hover:shadow-md hover:border-primary/30 dark:hover:border-primary/50'>
@@ -345,9 +357,8 @@ export default function Header() {
                 variants={itemVariants}
                 className='w-full mt-4 pt-4 border-t border-border'>
                 <motion.a
-                  href={`${getLocalePath('/')}#contact-form`}
+                  href='/#contact-form'
                   className='w-full block'
-                  onClick={(e) => handleMobileNavClick(e, `${getLocalePath('/')}#contact-form`)}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}>
                   <button className='w-full px-4 py-3 text-sm font-medium bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg dark:shadow-primary/25 dark:hover:shadow-primary/30'>

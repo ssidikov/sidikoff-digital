@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "setup-admin": "npx ts-node scripts/setup-admin.ts"
+    "setup-admin": "npx ts-node scripts/setup-admin.ts",
+    "test-email": "npx tsx scripts/test-email.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.6.1",
@@ -38,6 +39,7 @@
     "postcss": "^8.5.1",
     "tailwindcss": "^3.4.17",
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
     "typescript": "^5.7.3"
   }
 }

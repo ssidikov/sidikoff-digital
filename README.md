@@ -268,8 +268,7 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de 
 **SIDIKOFF DIGITAL - Agence Web à Paris**
 
 - 🌐 **Site Web** : [www.sidikoff.com](https://www.sidikoff.com)
-- 📧 **Email** : s.sidikoff@gmail.com
-- 📱 **Téléphone** : +33 6 26 93 27 34
+- 📧 **Email** : admin@sidikoff.com
 - 📍 **Localisation** : Paris, France
 - 💼 **LinkedIn** : [SIDIKOFF Digital](https://linkedin.com/company/sidikoff-digital)
 - 🐙 **GitHub** : [ssidikov](https://github.com/ssidikov)
@@ -288,3 +287,130 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de 
 **Développé avec ❤️ à Paris en utilisant Next.js 15 et les technologies web modernes.**
 
 _Dernière mise à jour : Mai 2025_
+
+## 📧 Email Configuration & Troubleshooting
+
+### Email Setup
+
+The contact form uses SMTP to send confirmation emails to users and notifications to admins. Here's how to configure it:
+
+#### Required Environment Variables
+
+```bash
+# Email Configuration (SMTP)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your-email@gmail.com
+SMTP_PASSWORD=your-app-password
+
+# Admin Configuration
+ADMIN_EMAIL=admin@sidikoff.com
+```
+
+#### Gmail Configuration
+
+1. **Enable 2FA** on your Gmail account
+2. **Generate App Password**:
+   - Go to Google Account Settings
+   - Security → App passwords
+   - Generate password for "Mail"
+   - Use this password in `SMTP_PASSWORD`
+
+#### Testing Email Configuration
+
+Run the email test script to verify your configuration:
+
+```bash
+npm run test-email
+```
+
+This script will:
+- ✅ Check all required environment variables
+- 📧 Send a test email to verify SMTP connection
+- 🧪 Test user confirmation email template
+- 📝 Provide troubleshooting guidance
+
+### Common Email Issues on Vercel
+
+#### Issue 1: "Email transporter is not available"
+
+**Cause**: Missing or incorrect SMTP environment variables
+
+**Solution**:
+1. Check that all SMTP variables are set in Vercel environment variables
+2. Ensure `SMTP_PASSWORD` is the App Password, not your regular Gmail password
+3. Verify `SMTP_USER` is the full email address
+
+#### Issue 2: "EAUTH - Authentication failed"
+
+**Cause**: Incorrect Gmail credentials or security settings
+
+**Solution**:
+1. Regenerate Gmail App Password
+2. Ensure 2FA is enabled on Gmail account
+3. Check that `SMTP_USER` matches the Gmail account
+
+#### Issue 3: "ETIMEDOUT - Connection timeout"
+
+**Cause**: Network issues or firewall blocking SMTP
+
+**Solution**:
+1. Try different SMTP ports (587, 465)
+2. For port 465, set `secure: true` in the email config
+3. Consider using alternative SMTP providers (SendGrid, Mailgun)
+
+#### Issue 4: Emails sent but not received
+
+**Cause**: Spam filters or email delivery issues
+
+**Solution**:
+1. Check spam/junk folders
+2. Verify sender email reputation
+3. Add SPF/DKIM records to your domain
+4. Use a dedicated email service for production
+
+### Alternative SMTP Providers
+
+For production deployments, consider these alternatives:
+
+#### SendGrid
+```bash
+SMTP_HOST=smtp.sendgrid.net
+SMTP_PORT=587
+SMTP_USER=apikey
+SMTP_PASSWORD=your-sendgrid-api-key
+```
+
+#### Mailgun
+```bash
+SMTP_HOST=smtp.mailgun.org
+SMTP_PORT=587
+SMTP_USER=your-mailgun-username
+SMTP_PASSWORD=your-mailgun-password
+```
+
+### Environment Variables on Vercel
+
+1. Go to your Vercel project dashboard
+2. Navigate to Settings → Environment Variables
+3. Add all required email variables:
+   - `SMTP_HOST`
+   - `SMTP_PORT`
+   - `SMTP_USER`
+   - `SMTP_PASSWORD`
+   - `ADMIN_EMAIL`
+4. Redeploy your application
+
+### Debugging Email Issues
+
+Enable detailed email logging by checking Vercel function logs:
+
+1. Go to Vercel dashboard → Functions
+2. Click on your deployment
+3. View logs for the `/api/contact` endpoint
+4. Look for email success/error messages
+
+Common log messages:
+- ✅ `Email sent successfully: [message-id]`
+- ❌ `Email transporter is not available`
+- ❌ `Email send error: [error details]`

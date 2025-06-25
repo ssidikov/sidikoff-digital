@@ -1,18 +1,67 @@
 import nodemailer from 'nodemailer'
 
-// Email configuration
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || 'smtp.gmail.com',
-  port: parseInt(process.env.SMTP_PORT || '587'),
-  secure: false, // true for 465, false for other ports
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASSWORD,
-  },
-  tls: {
-    rejectUnauthorized: false // For development only
+// Validate environment variables
+const validateEmailConfig = () => {
+  const requiredVars = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_USER', 'SMTP_PASSWORD']
+  const missing = requiredVars.filter(varName => !process.env[varName])
+  
+  if (missing.length > 0) {
+    console.error('❌ Missing email environment variables:', missing)
+    return false
   }
-})
+  
+  console.log('✅ Email configuration validated')
+  return true
+}
+
+// Email configuration
+const createTransporter = () => {
+  if (!validateEmailConfig()) {
+    console.error('❌ Email configuration invalid - cannot create transporter')
+    return null
+  }
+
+  const port = parseInt(process.env.SMTP_PORT || '587')
+  const isSecure = port === 465
+
+  console.log('📧 Creating email transporter with config:', {
+    host: process.env.SMTP_HOST,
+    port: port,
+    secure: isSecure,
+    user: process.env.SMTP_USER?.replace(/(.{3}).*(@.*)/, '$1***$2'), // Mask email for logs
+  })
+
+  try {
+    return nodemailer.createTransport({
+      host: process.env.SMTP_HOST!,
+      port: port,
+      secure: isSecure, // true for 465, false for other ports
+      auth: {
+        user: process.env.SMTP_USER!,
+        pass: process.env.SMTP_PASSWORD!,
+      },
+      tls: {
+        rejectUnauthorized: false // Allow self-signed certificates
+      },
+      connectionTimeout: 60000, // 60 seconds
+      greetingTimeout: 30000, // 30 seconds
+      socketTimeout: 60000, // 60 seconds
+    })
+  } catch (error) {
+    console.error('❌ Failed to create email transporter:', error)
+    return null
+  }
+}
+
+// Lazy initialization of transporter
+let transporter: nodemailer.Transporter | null = null
+
+const getTransporter = () => {
+  if (!transporter) {
+    transporter = createTransporter()
+  }
+  return transporter
+}
 
 export interface ContactSubmission {
   name: string
@@ -144,10 +193,7 @@ export const generateUserConfirmationEmail = (submission: ContactSubmission) => 
           <div style="text-align: center; padding: 20px 0;">
             <p style="color: #6b7280; margin: 0 0 15px 0;">Need immediate assistance? Reach out to us:</p>
             <div style="margin-bottom: 10px;">
-              <a href="mailto:s.sidikoff@gmail.com" style="color: #667eea; text-decoration: none; font-weight: 600;">📧 s.sidikoff@gmail.com</a>
-            </div>
-            <div>
-              <a href="tel:+33626932734" style="color: #667eea; text-decoration: none; font-weight: 600;">📞 +33 6 26 93 27 34</a>
+              <a href="mailto:admin@sidikoff.com" style="color: #667eea; text-decoration: none; font-weight: 600;">📧 admin@sidikoff.com</a>
             </div>
           </div>
         </div>
@@ -189,8 +235,7 @@ What happens next:
 3. Provide you with a detailed proposal and timeline
 
 Need immediate assistance? Contact us:
-Email: s.sidikoff@gmail.com
-Phone: +33 6 26 93 27 34
+Email: admin@sidikoff.com
 
 Best regards,
 SIDIKOFF Digital Team
@@ -357,8 +402,20 @@ SIDIKOFF Digital Admin Notification
 
 // Send email function
 export const sendEmail = async (to: string, subject: string, html: string, text: string) => {
+  console.log(`📧 Attempting to send email to: ${to}`)
+  console.log(`📧 Subject: ${subject}`)
+  
+  const emailTransporter = getTransporter()
+  
+  if (!emailTransporter) {
+    const error = 'Email transporter is not available. Please check SMTP configuration.'
+    console.error('❌ ' + error)
+    return { success: false, error }
+  }
+
   try {
-    const result = await transporter.sendMail({
+    console.log('📧 Sending email with transporter...')
+    const result = await emailTransporter.sendMail({
       from: `"SIDIKOFF Digital" <${process.env.SMTP_USER}>`,
       to,
       subject,
@@ -366,11 +423,15 @@ export const sendEmail = async (to: string, subject: string, html: string, text:
       text,
     })
 
-    console.log('Email sent successfully:', result.messageId)
+    console.log('✅ Email sent successfully:', result.messageId)
     return { success: true, messageId: result.messageId }
   } catch (error) {
-    console.error('Email send error:', error)
-    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' }
+    console.error('❌ Email send error:', error)
+    return { 
+      success: false, 
+      error: error instanceof Error ? error.message : 'Unknown error',
+      details: error
+    }
   }
 }
 
@@ -387,7 +448,7 @@ export const sendUserConfirmation = async (submission: ContactSubmission) => {
 
 // Send notification email to admin
 export const sendAdminNotification = async (submission: ContactSubmission) => {
-  const adminEmail = process.env.ADMIN_EMAIL || 's.sidikoff@gmail.com'
+  const adminEmail = process.env.ADMIN_EMAIL || 'admin@sidikoff.com'
   console.log('Sending admin notification to:', adminEmail)
   const emailContent = generateAdminNotificationEmail(submission)
   return await sendEmail(adminEmail, emailContent.subject, emailContent.html, emailContent.text)
