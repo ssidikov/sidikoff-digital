@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 // import Link from 'next/link' // Not used
 import Image from 'next/image'
 import { useRouter, usePathname } from 'next/navigation'
@@ -20,20 +20,20 @@ export default function Header() {
   // const { theme, resolvedTheme } = useTheme() // Not used
   const router = useRouter()
   const pathname = usePathname()
+  
   // Get current locale from pathname
-  const getCurrentLocale = () => {
+  const getCurrentLocale = useCallback(() => {
     if (pathname.startsWith('/fr/') || pathname === '/fr') return 'fr'
     if (pathname.startsWith('/en/') || pathname === '/en') return 'en'
     if (pathname.startsWith('/ru/') || pathname === '/ru') return 'ru'
     return 'fr' // Default to French
-  }
+  }, [pathname])
 
   // Use language from context instead of URL for navigation links
   const currentLocale = language // Use context language instead of getCurrentLocale()
   // Generate locale-aware URLs
   const getLocalePath = (path: string) => {
     // Check if user is on a localized URL path
-    const urlLocale = getCurrentLocale()
     const isOnLocalizedPath = pathname.startsWith('/fr/') || pathname.startsWith('/en/') || pathname.startsWith('/ru/') || 
                                pathname === '/fr' || pathname === '/en' || pathname === '/ru'
     
@@ -74,7 +74,7 @@ export default function Header() {
       handleScroll() // Initial check
     }
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [pathname]) // Remove currentLocale dependency since we use language from context now
+  }, [pathname, getCurrentLocale]) // Add getCurrentLocale to dependencies
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
