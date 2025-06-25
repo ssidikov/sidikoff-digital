@@ -23,54 +23,59 @@ async function testEmailConfiguration() {
 
   // Check environment variables
   console.log('📋 Environment Variables Check:')
-  const requiredVars = ['MTP_PASSWORD']
-  const gmailConfig = {
-    SMTP_HOST: 'smtp.gmail.com',
-    SMTP_PORT: '587',
-    SMTP_USER: 's.sidikoff@gmail.com',
-    ADMIN_EMAIL: 's.sidikoff@gmail.com'
-  }
+  const requiredVars = ['EMAIL_USER', 'EMAIL_PASS']
+  const optionalVars = ['EMAIL_SERVICE', 'EMAIL_FROM', 'EMAIL_TO']
   
   let allPresent = true
 
-  // Check required environment variable
+  // Check required environment variables
   for (const varName of requiredVars) {
     const value = process.env[varName]
     if (value) {
-      console.log(`✅ ${varName}: ${'*'.repeat(8)}`)
+      if (varName === 'EMAIL_USER') {
+        console.log(`✅ ${varName}: ${value.replace(/(.{3}).*(@.*)/, '$1***$2')}`)
+      } else if (varName === 'EMAIL_PASS') {
+        console.log(`✅ ${varName}: ${'*'.repeat(8)}`)
+      } else {
+        console.log(`✅ ${varName}: ${value}`)
+      }
     } else {
       console.log(`❌ ${varName}: MISSING`)
       allPresent = false
     }
   }
 
-  // Display Gmail configuration
-  console.log('\n📧 Gmail Configuration (built-in):')
-  for (const [key, value] of Object.entries(gmailConfig)) {
-    if (key === 'SMTP_USER' || key === 'ADMIN_EMAIL') {
-      console.log(`✅ ${key}: ${value.replace(/(.{3}).*(@.*)/, '$1***$2')}`)
+  // Check optional environment variables
+  console.log('\n📧 Optional Configuration:')
+  for (const varName of optionalVars) {
+    const value = process.env[varName]
+    if (value) {
+      if (varName === 'EMAIL_FROM' || varName === 'EMAIL_TO') {
+        console.log(`✅ ${varName}: ${value.replace(/(.{3}).*(@.*)/, '$1***$2')}`)
+      } else {
+        console.log(`✅ ${varName}: ${value}`)
+      }
     } else {
-      console.log(`✅ ${key}: ${value}`)
+      console.log(`⚪ ${varName}: NOT SET (using defaults)`)
     }
   }
 
   if (!allPresent) {
     console.log('\n❌ Missing required environment variables. Please check your .env.local file.')
-    console.log('💡 For Gmail setup, you only need to add the following to your .env.local:')
-    console.log('   MTP_PASSWORD=your-gmail-app-password')
-    console.log('💡 To get a Gmail App Password:')
-    console.log('   1. Go to your Google Account settings')
-    console.log('   2. Enable 2-factor authentication if not already enabled')
-    console.log('   3. Go to Security > App passwords')
-    console.log('   4. Generate a new app password for "Mail"')
-    console.log('   5. Use that 16-character password as MTP_PASSWORD')
+    console.log('💡 Required environment variables:')
+    console.log('   EMAIL_USER=s.sidikoff@gmail.com')
+    console.log('   EMAIL_PASS=your-gmail-app-password')
+    console.log('💡 Optional environment variables:')
+    console.log('   EMAIL_SERVICE=gmail')
+    console.log('   EMAIL_FROM=s.sidikoff@gmail.com')
+    console.log('   EMAIL_TO=s.sidikoff@gmail.com')
     process.exit(1)
   }
 
   console.log('\n📧 Testing basic email sending...')
 
   // Test basic email
-  const adminEmail = 's.sidikoff@gmail.com'
+  const adminEmail = process.env.EMAIL_TO || 's.sidikoff@gmail.com'
   const testResult = await sendEmail(
     adminEmail,
     '🧪 Test Email - SIDIKOFF Digital',

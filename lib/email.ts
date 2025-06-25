@@ -1,58 +1,22 @@
 import nodemailer from 'nodemailer'
 
-// Gmail-specific configuration
-const GMAIL_CONFIG = {
-  host: 'smtp.gmail.com',
-  port: 587,
-  secure: false, // true for 465, false for other ports
-  user: 's.sidikoff@gmail.com', // Your Gmail address
-}
-
-// Validate environment variables for Gmail
-const validateEmailConfig = () => {
-  const requiredVars = ['MTP_PASSWORD']
-  const missing = requiredVars.filter((varName) => !process.env[varName])
-
-  if (missing.length > 0) {
-    console.error('❌ Missing email environment variables:', missing)
-    console.error('💡 For Gmail setup, you only need to set MTP_PASSWORD in .env.local')
-    console.error('💡 MTP_PASSWORD should be your Gmail App Password (not your regular password)')
-    return false
-  }
-
-  console.log('✅ Gmail email configuration validated')
-  return true
-}
-
-// Email configuration
+// Create transporter using the working Gmail configuration
 const createTransporter = () => {
-  if (!validateEmailConfig()) {
-    console.error('❌ Gmail configuration invalid - cannot create transporter')
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    console.warn('⚠️ Email credentials not configured. Email notifications disabled.')
+    console.warn('💡 Required: EMAIL_USER and EMAIL_PASS environment variables')
     return null
   }
 
-  console.log('📧 Creating Gmail transporter with config:', {
-    host: GMAIL_CONFIG.host,
-    port: GMAIL_CONFIG.port,
-    secure: GMAIL_CONFIG.secure,
-    user: GMAIL_CONFIG.user.replace(/(.{3}).*(@.*)/, '$1***$2'), // Mask email for logs
-  })
+  console.log('📧 Creating Gmail transporter with service configuration')
 
   try {
     return nodemailer.createTransport({
-      host: GMAIL_CONFIG.host,
-      port: GMAIL_CONFIG.port,
-      secure: GMAIL_CONFIG.secure,
+      service: process.env.EMAIL_SERVICE || 'gmail',
       auth: {
-        user: GMAIL_CONFIG.user,
-        pass: process.env.MTP_PASSWORD!, // Gmail App Password
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
-      tls: {
-        rejectUnauthorized: false, // Allow self-signed certificates
-      },
-      connectionTimeout: 60000, // 60 seconds
-      greetingTimeout: 30000, // 30 seconds
-      socketTimeout: 60000, // 60 seconds
     })
   } catch (error) {
     console.error('❌ Failed to create email transporter:', error)
@@ -407,7 +371,7 @@ SIDIKOFF Digital Admin Notification
   }
 }
 
-// Send email function with Vercel-compatible async/await pattern
+// Send email function with simplified approach (like the working restaurant project)
 export const sendEmail = async (to: string, subject: string, html: string, text: string) => {
   console.log(`📧 Attempting to send email to: ${to}`)
   console.log(`📧 Subject: ${subject}`)
@@ -415,54 +379,24 @@ export const sendEmail = async (to: string, subject: string, html: string, text:
   const emailTransporter = getTransporter()
 
   if (!emailTransporter) {
-    const error = 'Email transporter is not available. Please check SMTP configuration.'
+    const error = 'Email transporter is not available. Please check email configuration.'
     console.error('❌ ' + error)
     return { success: false, error }
   }
 
   try {
-    console.log('📧 Verifying transporter connection...')
-
-    // Verify connection configuration using Promise wrapper (Vercel fix)
-    await new Promise((resolve, reject) => {
-      emailTransporter.verify(function (error, success) {
-        if (error) {
-          console.log('❌ Transporter verification failed:', error)
-          reject(error)
-        } else {
-          console.log('✅ Server is ready to take our messages')
-          resolve(success)
-        }
-      })
-    })
-
-    const mailData = {
-      from: {
-        name: 'SIDIKOFF Digital',
-        address: process.env.SMTP_USER!,
-      },
-      replyTo: to,
+    const mailOptions = {
+      from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
       to: to,
       subject: subject,
-      text: text,
       html: html,
+      text: text,
     }
 
-    console.log('📧 Sending email with verified transporter...')
-
-    // Send mail using Promise wrapper (Vercel fix)
-    const result = await new Promise<nodemailer.SentMessageInfo>((resolve, reject) => {
-      emailTransporter.sendMail(mailData, (err, info) => {
-        if (err) {
-          console.error('❌ Email send error:', err)
-          reject(err)
-        } else {
-          console.log('✅ Email sent successfully:', info)
-          resolve(info)
-        }
-      })
-    })
-
+    console.log('📧 Sending email...')
+    const result = await emailTransporter.sendMail(mailOptions)
+    console.log('✅ Email sent successfully:', result.messageId)
+    
     return { success: true, messageId: result.messageId }
   } catch (error) {
     console.error('❌ Email send error:', error)
@@ -474,21 +408,86 @@ export const sendEmail = async (to: string, subject: string, html: string, text:
   }
 }
 
-// Send confirmation email to user
+// Send confirmation email to user (following working restaurant pattern)
 export const sendUserConfirmation = async (submission: ContactSubmission) => {
+  const transporter = getTransporter()
+  if (!transporter) {
+    console.log('📧 Email transporter not configured, skipping user confirmation')
+    return { success: false, error: 'Email transporter not available' }
+  }
+
   const emailContent = generateUserConfirmationEmail(submission)
-  return await sendEmail(
-    submission.email,
-    emailContent.subject,
-    emailContent.html,
-    emailContent.text
-  )
+  
+  try {
+    const mailOptions = {
+      from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
+      to: submission.email,
+      subject: emailContent.subject,
+      html: emailContent.html,
+      text: emailContent.text,
+    }
+
+    const result = await transporter.sendMail(mailOptions)
+    console.log('✅ User confirmation sent successfully:', result.messageId)
+    return { success: true, messageId: result.messageId }
+  } catch (error) {
+    console.error('❌ Failed to send user confirmation:', error)
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown error',
+      details: error,
+    }
+  }
 }
 
-// Send notification email to admin
+// Send notification email to admin (following working restaurant pattern)
 export const sendAdminNotification = async (submission: ContactSubmission) => {
-  const adminEmail = process.env.ADMIN_EMAIL || 's.sidikoff@gmail.com'
+  const transporter = getTransporter()
+  if (!transporter) {
+    console.log('📧 Email transporter not configured, skipping admin notification')
+    return { success: false, error: 'Email transporter not available' }
+  }
+
+  const adminEmail = process.env.EMAIL_TO || 's.sidikoff@gmail.com'
   console.log('Sending admin notification to:', adminEmail)
+  
   const emailContent = generateAdminNotificationEmail(submission)
-  return await sendEmail(adminEmail, emailContent.subject, emailContent.html, emailContent.text)
+  
+  try {
+    const mailOptions = {
+      from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
+      to: adminEmail,
+      subject: emailContent.subject,
+      html: emailContent.html,
+      text: emailContent.text,
+    }
+
+    const result = await transporter.sendMail(mailOptions)
+    console.log('✅ Admin notification sent successfully:', result.messageId)
+    return { success: true, messageId: result.messageId }
+  } catch (error) {
+    console.error('❌ Failed to send admin notification:', error)
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown error',
+      details: error,
+    }
+  }
+}
+
+// Test email configuration (like in restaurant project)
+export const testEmailConfiguration = async (): Promise<boolean> => {
+  const transporter = getTransporter()
+  if (!transporter) {
+    return false
+  }
+
+  try {
+    await transporter.verify()
+    console.log('✅ Email configuration is valid')
+    return true
+  } catch (error) {
+    console.error('❌ Email configuration test failed:', error)
+    return false
+  }
 }
