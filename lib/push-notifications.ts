@@ -1,5 +1,5 @@
 // Utility for sending push notifications to admin users
-import { writeFileSync, readFileSync, existsSync } from 'fs'
+import { writeFileSync, readFileSync, existsSync, mkdirSync } from 'fs'
 import { join } from 'path'
 
 const SUBSCRIPTIONS_FILE = join(process.cwd(), 'data', 'push-subscriptions.json')
@@ -31,7 +31,7 @@ function saveSubscriptions() {
     
     // Create data directory if it doesn't exist
     if (!existsSync(dir)) {
-      require('fs').mkdirSync(dir, { recursive: true })
+      mkdirSync(dir, { recursive: true })
     }
     
     writeFileSync(SUBSCRIPTIONS_FILE, JSON.stringify(data, null, 2))

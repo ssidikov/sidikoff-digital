@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { sendNotificationToAdmins } from '@/lib/push-notifications'
 
 export async function POST() {

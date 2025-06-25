@@ -1,8 +1,8 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { getAdminSession } from '@/lib/admin-auth-server'
 import { sendNotificationToAdmins } from '@/lib/push-notifications'
 
-export async function POST(request: NextRequest) {
+export async function POST() {
   try {
     // Verify admin session
     const user = await getAdminSession()
