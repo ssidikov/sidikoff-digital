@@ -48,5 +48,8 @@ scripts/debug-auth.js
 scripts/test-auth.js
 ADMIN_PANEL_README.md
 
+# Push notification subscriptions (contains sensitive keys)
+data/push-subscriptions.json
+
 # github instructions
 .github

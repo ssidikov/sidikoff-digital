@@ -1,0 +1,9 @@
+# Push Notification Data Directory
+
+This directory stores push notification subscriptions at runtime.
+
+**Files in this directory:**
+- `push-subscriptions.json` - Contains active push subscriptions (auto-generated, not tracked in git)
+
+**Security Note:**
+Push subscription files contain sensitive authentication keys and should never be committed to version control.
