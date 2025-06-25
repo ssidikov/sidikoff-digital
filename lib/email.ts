@@ -2,22 +2,36 @@ import nodemailer from 'nodemailer'
 
 // Create transporter using the working Gmail configuration
 const createTransporter = () => {
-  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+  // Check if environment variables are available
+  const emailUser = process.env.EMAIL_USER
+  const emailPass = process.env.EMAIL_PASS
+  
+  console.log('🔍 Environment check:')
+  console.log('EMAIL_USER:', emailUser ? 'SET' : 'MISSING')
+  console.log('EMAIL_PASS:', emailPass ? 'SET' : 'MISSING')
+  
+  if (!emailUser || !emailPass) {
     console.warn('⚠️ Email credentials not configured. Email notifications disabled.')
     console.warn('💡 Required: EMAIL_USER and EMAIL_PASS environment variables')
+    console.warn('💡 Current EMAIL_USER:', emailUser || 'undefined')
+    console.warn('💡 Current EMAIL_PASS:', emailPass ? '[HIDDEN]' : 'undefined')
     return null
   }
 
   console.log('📧 Creating Gmail transporter with service configuration')
+  console.log('📧 Using EMAIL_USER:', emailUser.replace(/(.{3}).*(@.*)/, '$1***$2'))
 
   try {
-    return nodemailer.createTransport({
+    const transporter = nodemailer.createTransport({
       service: process.env.EMAIL_SERVICE || 'gmail',
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: emailUser,
+        pass: emailPass,
       },
     })
+    
+    console.log('✅ Gmail transporter created successfully')
+    return transporter
   } catch (error) {
     console.error('❌ Failed to create email transporter:', error)
     return null
@@ -385,6 +399,11 @@ export const sendEmail = async (to: string, subject: string, html: string, text:
   }
 
   try {
+    // Verify transporter before sending
+    console.log('🔍 Verifying email transporter...')
+    await emailTransporter.verify()
+    console.log('✅ Email transporter verified successfully')
+
     const mailOptions = {
       from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
       to: to,
@@ -393,7 +412,12 @@ export const sendEmail = async (to: string, subject: string, html: string, text:
       text: text,
     }
 
-    console.log('📧 Sending email...')
+    console.log('📧 Sending email with options:', {
+      from: mailOptions.from?.replace(/(.{3}).*(@.*)/, '$1***$2') || 'undefined',
+      to: to.replace(/(.{3}).*(@.*)/, '$1***$2'),
+      subject: subject
+    })
+
     const result = await emailTransporter.sendMail(mailOptions)
     console.log('✅ Email sent successfully:', result.messageId)
     
