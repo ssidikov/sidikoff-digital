@@ -57,6 +57,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Send emails (don't block the response if emails fail)
+    console.log('📧 Starting email sending process...')
     Promise.all([
       sendUserConfirmation(emailData),
       sendAdminNotification(emailData)
@@ -64,12 +65,16 @@ export async function POST(request: NextRequest) {
       console.log('=== EMAIL RESULTS ===')
       console.log('User confirmation email:', userResult.success ? '✅ SENT' : '❌ FAILED')
       if (userResult.error) console.log('User email error:', userResult.error)
+      if (userResult.messageId) console.log('User email message ID:', userResult.messageId)
+      
       console.log('Admin notification email:', adminResult.success ? '✅ SENT' : '❌ FAILED')
       if (adminResult.error) console.log('Admin email error:', adminResult.error)
-      console.log('Admin email sent to:', process.env.ADMIN_EMAIL)
+      if (adminResult.messageId) console.log('Admin email message ID:', adminResult.messageId)
+      
+      console.log('Admin email sent to:', process.env.EMAIL_TO || 's.sidikoff@gmail.com')
       console.log('=== END EMAIL RESULTS ===')
     }).catch((emailError) => {
-      console.error('Email sending error:', emailError)
+      console.error('❌ Email sending process failed:', emailError)
     })
 
     return NextResponse.json({ 

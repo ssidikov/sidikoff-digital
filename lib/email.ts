@@ -434,69 +434,30 @@ export const sendEmail = async (to: string, subject: string, html: string, text:
 
 // Send confirmation email to user (following working restaurant pattern)
 export const sendUserConfirmation = async (submission: ContactSubmission) => {
-  const transporter = getTransporter()
-  if (!transporter) {
-    console.log('📧 Email transporter not configured, skipping user confirmation')
-    return { success: false, error: 'Email transporter not available' }
-  }
-
+  console.log('📧 Starting user confirmation email...')
   const emailContent = generateUserConfirmationEmail(submission)
   
-  try {
-    const mailOptions = {
-      from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
-      to: submission.email,
-      subject: emailContent.subject,
-      html: emailContent.html,
-      text: emailContent.text,
-    }
-
-    const result = await transporter.sendMail(mailOptions)
-    console.log('✅ User confirmation sent successfully:', result.messageId)
-    return { success: true, messageId: result.messageId }
-  } catch (error) {
-    console.error('❌ Failed to send user confirmation:', error)
-    return {
-      success: false,
-      error: error instanceof Error ? error.message : 'Unknown error',
-      details: error,
-    }
-  }
+  return await sendEmail(
+    submission.email,
+    emailContent.subject,
+    emailContent.html,
+    emailContent.text
+  )
 }
 
 // Send notification email to admin (following working restaurant pattern)
 export const sendAdminNotification = async (submission: ContactSubmission) => {
-  const transporter = getTransporter()
-  if (!transporter) {
-    console.log('📧 Email transporter not configured, skipping admin notification')
-    return { success: false, error: 'Email transporter not available' }
-  }
-
   const adminEmail = process.env.EMAIL_TO || 's.sidikoff@gmail.com'
-  console.log('Sending admin notification to:', adminEmail)
+  console.log('📧 Starting admin notification email to:', adminEmail)
   
   const emailContent = generateAdminNotificationEmail(submission)
   
-  try {
-    const mailOptions = {
-      from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
-      to: adminEmail,
-      subject: emailContent.subject,
-      html: emailContent.html,
-      text: emailContent.text,
-    }
-
-    const result = await transporter.sendMail(mailOptions)
-    console.log('✅ Admin notification sent successfully:', result.messageId)
-    return { success: true, messageId: result.messageId }
-  } catch (error) {
-    console.error('❌ Failed to send admin notification:', error)
-    return {
-      success: false,
-      error: error instanceof Error ? error.message : 'Unknown error',
-      details: error,
-    }
-  }
+  return await sendEmail(
+    adminEmail,
+    emailContent.subject,
+    emailContent.html,
+    emailContent.text
+  )
 }
 
 // Test email configuration (like in restaurant project)
