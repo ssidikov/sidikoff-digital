@@ -29,10 +29,14 @@ export interface ContactSubmission {
  * Method 1: Use EmailJS or similar service (client-side approach adapted for server)
  */
 export const sendEmailViaHTTP = async (
-  _to: string,
-  _subject: string,
-  _htmlContent: string,
-  _textContent: string
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  to: string,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  subject: string,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  htmlContent: string,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  textContent: string
 ): Promise<AlternativeEmailResult> => {
   const startTime = Date.now()
   console.log('🌐 [HTTP EMAIL] Attempting HTTP-based email send...')
@@ -74,10 +78,14 @@ export const sendEmailViaHTTP = async (
  * Method 2: Use a different SMTP library (like smtp-client)
  */
 export const sendEmailViaAlternativeSMTP = async (
-  _to: string,
-  _subject: string,
-  _htmlContent: string,
-  _textContent: string
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  to: string,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  subject: string,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  htmlContent: string,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  textContent: string
 ): Promise<AlternativeEmailResult> => {
   const startTime = Date.now()
   console.log('📮 [ALT SMTP] Attempting alternative SMTP...')
@@ -117,8 +125,10 @@ export const sendEmailViaAlternativeSMTP = async (
 export const sendEmailViaQueue = async (
   to: string,
   subject: string,
-  _htmlContent: string,
-  _textContent: string
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  htmlContent: string,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  textContent: string
 ): Promise<AlternativeEmailResult> => {
   const startTime = Date.now()
   console.log('📝 [QUEUE EMAIL] Queueing email for later processing...')

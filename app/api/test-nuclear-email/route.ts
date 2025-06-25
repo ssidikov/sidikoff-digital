@@ -1,10 +1,11 @@
 export const runtime = 'nodejs'
 
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { 
   sendUserConfirmationNuclear, 
   sendAdminNotificationNuclear, 
-  type ContactSubmission 
+  type ContactSubmission,
+  type EmailResult
 } from '@/lib/email-nuclear'
 
 export async function GET() {
@@ -36,10 +37,10 @@ export async function GET() {
     // Wait for both with overall timeout
     const results = await Promise.race([
       Promise.all([userPromise, adminPromise]),
-      new Promise((_, reject) => 
+      new Promise<[EmailResult, EmailResult]>((_, reject) => 
         setTimeout(() => reject(new Error('Overall test timeout after 10 seconds')), 10000)
       )
-    ]) as [any, any]
+    ])
     
     const [userResult, adminResult] = results
     const totalDuration = Date.now() - startTime
