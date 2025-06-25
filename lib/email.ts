@@ -133,41 +133,90 @@ export const sendEmail = async (
 
     // Send with ultra-aggressive timeout protection (crucial for Vercel)
     console.log('📧 [SEND EMAIL] Starting sendMail operation...')
-    const sendPromise = transporter.sendMail(mailOptions)
-    const timeoutPromise = new Promise((_, reject) =>
-      setTimeout(() => reject(new Error('Email send timeout after 5 seconds')), 5000)
-    )
+    
+    let timeoutId: NodeJS.Timeout | null = null
+    let isCompleted = false
+    
+    try {
+      const result = await new Promise<nodemailer.SentMessageInfo>((resolve, reject) => {
+        // Set up the timeout FIRST
+        timeoutId = setTimeout(() => {
+          if (!isCompleted) {
+            isCompleted = true
+            console.log('⏰ [SEND EMAIL] TIMEOUT: Force rejecting after 3 seconds')
+            // Force close the transporter on timeout
+            if (transporter) {
+              try {
+                transporter.close()
+                console.log('🔧 [SEND EMAIL] Transporter force-closed on timeout')
+              } catch (e) {
+                console.warn('⚠️ [SEND EMAIL] Error force-closing transporter:', e)
+              }
+            }
+            reject(new Error('Email send timeout after 3 seconds (forced)'))
+          }
+        }, 3000) // Reduced to 3 seconds
 
-    console.log('📧 [SEND EMAIL] Waiting for email result...')
+        console.log('📧 [SEND EMAIL] Waiting for email result...')
+        
+        // Start the send operation
+        if (!transporter) {
+          reject(new Error('Transporter not initialized'))
+          return
+        }
+        
+        transporter.sendMail(mailOptions)
+          .then((result) => {
+            if (!isCompleted) {
+              isCompleted = true
+              if (timeoutId) clearTimeout(timeoutId)
+              console.log('✅ [SEND EMAIL] Send operation completed before timeout')
+              resolve(result)
+            }
+          })
+          .catch((error) => {
+            if (!isCompleted) {
+              isCompleted = true
+              if (timeoutId) clearTimeout(timeoutId)
+              console.log('❌ [SEND EMAIL] Send operation failed before timeout')
+              reject(error)
+            }
+          })
+      })
 
-    const result = await Promise.race([sendPromise, timeoutPromise]) as nodemailer.SentMessageInfo
+      const duration = Date.now() - startTime
+      console.log(`✅ [SEND EMAIL] Email sent successfully in ${duration}ms`)
+      console.log('📧 [SEND EMAIL] Message ID:', result.messageId)
+      console.log('📧 [SEND EMAIL] Response:', result.response)
 
-    const duration = Date.now() - startTime
-    console.log(`✅ [SEND EMAIL] Email sent successfully in ${duration}ms`)
-    console.log('📧 [SEND EMAIL] Message ID:', result.messageId)
-    console.log('📧 [SEND EMAIL] Response:', result.response)
+      // Log delivery details
+      if (result.accepted?.length > 0) {
+        console.log('✅ [SEND EMAIL] Accepted recipients:', result.accepted)
+      }
+      if (result.rejected?.length > 0) {
+        console.log('⚠️ [SEND EMAIL] Rejected recipients:', result.rejected)
+      }
+      if (result.envelope) {
+        console.log('📧 [SEND EMAIL] Envelope:', result.envelope)
+      }
 
-    // Log delivery details
-    if (result.accepted?.length > 0) {
-      console.log('✅ [SEND EMAIL] Accepted recipients:', result.accepted)
-    }
-    if (result.rejected?.length > 0) {
-      console.log('⚠️ [SEND EMAIL] Rejected recipients:', result.rejected)
-    }
-    if (result.envelope) {
-      console.log('📧 [SEND EMAIL] Envelope:', result.envelope)
-    }
+      return {
+        success: true,
+        messageId: result.messageId,
+        details: {
+          accepted: result.accepted,
+          rejected: result.rejected,
+          envelope: result.envelope,
+          response: result.response,
+          duration,
+        },
+      }
 
-    return {
-      success: true,
-      messageId: result.messageId,
-      details: {
-        accepted: result.accepted,
-        rejected: result.rejected,
-        envelope: result.envelope,
-        response: result.response,
-        duration,
-      },
+    } finally {
+      // Clean up timeout if it's still active
+      if (timeoutId) {
+        clearTimeout(timeoutId)
+      }
     }
 
   } catch (error) {
@@ -639,22 +688,69 @@ export const sendEmailBackup = async (
 
     console.log('🔄 [BACKUP EMAIL] Sending with ultra-fast timeout...')
 
-    // Even more aggressive timeout for backup
-    const sendPromise = transporter.sendMail(mailOptions)
-    const timeoutPromise = new Promise((_, reject) =>
-      setTimeout(() => reject(new Error('Backup email timeout after 3 seconds')), 3000)
-    )
+    let timeoutId: NodeJS.Timeout | null = null
+    let isCompleted = false
+    
+    try {
+      const result = await new Promise<nodemailer.SentMessageInfo>((resolve, reject) => {
+        // Set up the timeout FIRST (even more aggressive for backup)
+        timeoutId = setTimeout(() => {
+          if (!isCompleted) {
+            isCompleted = true
+            console.log('⏰ [BACKUP EMAIL] TIMEOUT: Force rejecting after 2 seconds')
+            // Force close the transporter on timeout
+            if (transporter) {
+              try {
+                transporter.close()
+                console.log('🔧 [BACKUP EMAIL] Transporter force-closed on timeout')
+              } catch (e) {
+                console.warn('⚠️ [BACKUP EMAIL] Error force-closing transporter:', e)
+              }
+            }
+            reject(new Error('Backup email timeout after 2 seconds (forced)'))
+          }
+        }, 2000) // Even more aggressive - 2 seconds
 
-    const result = await Promise.race([sendPromise, timeoutPromise]) as nodemailer.SentMessageInfo
+        // Start the send operation
+        if (!transporter) {
+          reject(new Error('Backup transporter not initialized'))
+          return
+        }
+        
+        transporter.sendMail(mailOptions)
+          .then((result) => {
+            if (!isCompleted) {
+              isCompleted = true
+              if (timeoutId) clearTimeout(timeoutId)
+              console.log('✅ [BACKUP EMAIL] Send operation completed before timeout')
+              resolve(result)
+            }
+          })
+          .catch((error) => {
+            if (!isCompleted) {
+              isCompleted = true
+              if (timeoutId) clearTimeout(timeoutId)
+              console.log('❌ [BACKUP EMAIL] Send operation failed before timeout')
+              reject(error)
+            }
+          })
+      })
 
-    const duration = Date.now() - startTime
-    console.log(`✅ [BACKUP EMAIL] Email sent successfully in ${duration}ms`)
-    console.log('🔄 [BACKUP EMAIL] Message ID:', result.messageId)
+      const duration = Date.now() - startTime
+      console.log(`✅ [BACKUP EMAIL] Email sent successfully in ${duration}ms`)
+      console.log('🔄 [BACKUP EMAIL] Message ID:', result.messageId)
 
-    return {
-      success: true,
-      messageId: result.messageId,
-      details: { duration, method: 'backup' },
+      return {
+        success: true,
+        messageId: result.messageId,
+        details: { duration, method: 'backup' },
+      }
+
+    } finally {
+      // Clean up timeout if it's still active
+      if (timeoutId) {
+        clearTimeout(timeoutId)
+      }
     }
 
   } catch (error) {
