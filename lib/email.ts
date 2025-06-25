@@ -78,27 +78,34 @@ export const sendEmail = async (
     }
 
     // Create fresh transporter for this request
-    const isSecure = port === 465
     console.log('🔧 [SEND EMAIL] Creating transporter...')
     
+    // Ultra-aggressive Gmail configuration for Vercel (no hanging)
     transporter = nodemailer.createTransport({
-      host: config.host!,
-      port,
-      secure: isSecure,
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false, // Use STARTTLS instead of SSL
       auth: {
         user: config.user!,
         pass: config.password!,
       },
-      // Vercel serverless optimizations
-      pool: false,               // No connection pooling
-      connectionTimeout: 10000,  // Reduced to 10 seconds for Vercel
-      greetingTimeout: 5000,     // Reduced to 5 seconds
-      socketTimeout: 10000,      // Reduced to 10 seconds
-      // Simplified TLS settings for better Gmail compatibility
+      // ULTRA aggressive timeouts for Vercel (fail fast, no hanging)
+      pool: false,
+      maxConnections: 1,
+      maxMessages: 1,
+      connectionTimeout: 3000,   // 3 seconds max (reduced from 6)
+      greetingTimeout: 2000,     // 2 seconds max (reduced from 3)
+      socketTimeout: 3000,       // 3 seconds max (reduced from 6)
+      // Force close connections aggressively
+      opportunisticTLS: true,
+      // Minimal TLS for compatibility
       tls: {
         rejectUnauthorized: false,
+        ciphers: 'ALL',
       },
-      // Remove requireTLS as it can cause issues with Gmail
+      // Force immediate connection close
+      ignoreTLS: false,
+      requireTLS: true,
       logger: false,
       debug: false,
     } as nodemailer.TransportOptions)
@@ -124,11 +131,11 @@ export const sendEmail = async (
       subject: mailOptions.subject
     })
 
-    // Send with timeout protection (crucial for Vercel) - reduced timeout
+    // Send with ultra-aggressive timeout protection (crucial for Vercel)
     console.log('📧 [SEND EMAIL] Starting sendMail operation...')
     const sendPromise = transporter.sendMail(mailOptions)
     const timeoutPromise = new Promise((_, reject) =>
-      setTimeout(() => reject(new Error('Email send timeout after 15 seconds')), 15000)
+      setTimeout(() => reject(new Error('Email send timeout after 5 seconds')), 5000)
     )
 
     console.log('📧 [SEND EMAIL] Waiting for email result...')
@@ -180,10 +187,22 @@ export const sendEmail = async (
     }
 
   } finally {
-    // Always close the transporter to free resources
+    // Aggressively close the transporter to prevent hanging connections
     if (transporter) {
       try {
-        transporter.close()
+        // Force close with timeout
+        const closePromise = new Promise<void>((resolve) => {
+          transporter!.close()
+          resolve()
+        })
+        const closeTimeout = new Promise<void>((resolve) => {
+          setTimeout(() => {
+            console.warn('⚠️ [SEND EMAIL] Transporter close timeout, forcing cleanup')
+            resolve()
+          }, 1000)
+        })
+        
+        await Promise.race([closePromise, closeTimeout])
         console.log('🔧 [SEND EMAIL] Transporter closed')
       } catch (closeError) {
         console.warn('⚠️ [SEND EMAIL] Error closing transporter:', closeError)
@@ -477,12 +496,12 @@ SIDIKOFF Digital Admin Notification
   }
 }
 
-// Public functions for sending emails
+// Public functions for sending emails with fallback
 export const sendUserConfirmation = async (submission: ContactSubmission) => {
   console.log('📧 [USER CONFIRMATION] Starting user confirmation email...')
   const emailContent = generateUserConfirmationEmail(submission)
   
-  const result = await sendEmail(
+  const result = await sendEmailWithFallback(
     submission.email,
     emailContent.subject,
     emailContent.html,
@@ -504,7 +523,7 @@ export const sendAdminNotification = async (submission: ContactSubmission): Prom
   
   const emailContent = generateAdminNotificationEmail(submission)
   
-  const result = await sendEmail(
+  const result = await sendEmailWithFallback(
     ADMIN_EMAIL,
     emailContent.subject,
     emailContent.html,
@@ -550,5 +569,158 @@ export const testEmailConfiguration = async (): Promise<EmailResult> => {
       success: false, 
       error: error instanceof Error ? error.message : 'Unknown test error' 
     }
+  }
+}
+
+/**
+ * Backup email function with alternative configuration
+ * Uses different settings that might work better on Vercel
+ */
+export const sendEmailBackup = async (
+  to: string,
+  subject: string,
+  htmlContent: string,
+  textContent: string
+): Promise<EmailResult> => {
+  const startTime = Date.now()
+  const timestamp = new Date().toISOString()
+  
+  console.log(`🔄 [BACKUP EMAIL] ${timestamp} - Starting backup email send`)
+  console.log(`🔄 [BACKUP EMAIL] To: ${to}`)
+  console.log(`🔄 [BACKUP EMAIL] Subject: ${subject}`)
+
+  let transporter: nodemailer.Transporter | null = null
+
+  try {
+    // Use alternative Gmail configuration optimized for serverless
+    console.log('🔧 [BACKUP EMAIL] Creating alternative transporter...')
+    
+    const config = {
+      host: process.env.SMTP_HOST || 'smtp.gmail.com',
+      port: parseInt(process.env.SMTP_PORT || '587', 10),
+      user: process.env.SMTP_USER,
+      password: process.env.SMTP_PASSWORD,
+    }
+
+    if (!config.user || !config.password) {
+      throw new Error('SMTP credentials not configured')
+    }
+
+    // Ultra-minimal configuration for Vercel compatibility
+    transporter = nodemailer.createTransport({
+      host: config.host,
+      port: config.port,
+      secure: false,
+      auth: {
+        user: config.user,
+        pass: config.password,
+      },
+      // Absolute minimal timeouts
+      pool: false,
+      connectionTimeout: 2000,   // 2 seconds
+      greetingTimeout: 1500,     // 1.5 seconds  
+      socketTimeout: 2000,       // 2 seconds
+      // Disable all extra features
+      tls: {
+        rejectUnauthorized: false,
+      },
+      dnsTimeout: 2000,
+      logger: false,
+      debug: false,
+    } as nodemailer.TransportOptions)
+
+    const mailOptions = {
+      from: `"SIDIKOFF Digital" <${config.user}>`,
+      to: to,
+      subject: subject,
+      html: htmlContent,
+      text: textContent,
+    }
+
+    console.log('🔄 [BACKUP EMAIL] Sending with ultra-fast timeout...')
+
+    // Even more aggressive timeout for backup
+    const sendPromise = transporter.sendMail(mailOptions)
+    const timeoutPromise = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('Backup email timeout after 3 seconds')), 3000)
+    )
+
+    const result = await Promise.race([sendPromise, timeoutPromise]) as nodemailer.SentMessageInfo
+
+    const duration = Date.now() - startTime
+    console.log(`✅ [BACKUP EMAIL] Email sent successfully in ${duration}ms`)
+    console.log('🔄 [BACKUP EMAIL] Message ID:', result.messageId)
+
+    return {
+      success: true,
+      messageId: result.messageId,
+      details: { duration, method: 'backup' },
+    }
+
+  } catch (error) {
+    const duration = Date.now() - startTime
+    console.error(`❌ [BACKUP EMAIL] Failed after ${duration}ms`)
+    console.error('❌ [BACKUP EMAIL] Error:', error)
+
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Backup email error',
+      details: { duration, method: 'backup' },
+    }
+
+  } finally {
+    if (transporter) {
+      try {
+        transporter.close()
+        console.log('🔧 [BACKUP EMAIL] Transporter closed')
+      } catch (closeError) {
+        console.warn('⚠️ [BACKUP EMAIL] Error closing transporter:', closeError)
+      }
+    }
+  }
+}
+
+/**
+ * Smart email sender that tries main method first, then backup
+ */
+export const sendEmailWithFallback = async (
+  to: string,
+  subject: string,
+  htmlContent: string,
+  textContent: string
+): Promise<EmailResult> => {
+  console.log('🔄 [SMART EMAIL] Attempting primary email send...')
+  
+  // Try primary method first
+  const primaryResult = await sendEmail(to, subject, htmlContent, textContent)
+  
+  if (primaryResult.success) {
+    console.log('✅ [SMART EMAIL] Primary method succeeded')
+    return primaryResult
+  }
+
+  console.log('⚠️ [SMART EMAIL] Primary method failed, trying backup...')
+  console.log('⚠️ [SMART EMAIL] Primary error:', primaryResult.error)
+  
+  // Try backup method if primary fails
+  const backupResult = await sendEmailBackup(to, subject, htmlContent, textContent)
+  
+  if (backupResult.success) {
+    console.log('✅ [SMART EMAIL] Backup method succeeded')
+    return backupResult
+  }
+
+  console.log('❌ [SMART EMAIL] Both methods failed')
+  
+  // Return combined error information
+  return {
+    success: false,
+    error: `Both email methods failed. Primary: ${primaryResult.error}. Backup: ${backupResult.error}`,
+    details: {
+      primaryError: primaryResult.error,
+      backupError: backupResult.error,
+      primaryDetails: primaryResult.details,
+      backupDetails: backupResult.details,
+    },
   }
 }
