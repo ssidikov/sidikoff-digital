@@ -429,18 +429,14 @@ export const sendEmail = async (to: string, subject: string, html: string, text:
   }
 
   try {
-    console.log('📧 Sending email with transporter...')
-    const result = await emailTransporter.sendMail({
-      from: `"SIDIKOFF Digital" <${process.env.SMTP_USER}>`,
-      to,
-      subject,
-      html,
-      text,
+    const info = await transporter!.sendMail({
+      from: process.env.SMTP_USER,
+      to: process.env.SMTP_USER,
+      subject: '...',
+      text: '...',
+      html: '...',
     })
-
-    console.log('✅ Email sent successfully:', result.messageId)
-    console.log('✅ Response info:', result.response)
-    return { success: true, messageId: result.messageId }
+    console.log('✅ Email sent:', info.messageId)
   } catch (error) {
     console.error('❌ Email send error:', error)
     console.error('❌ Error type:', typeof error)
