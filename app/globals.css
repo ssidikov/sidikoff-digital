@@ -154,6 +154,144 @@
     }
   }
 
+  /* Enhanced Mobile Touch Interactions */
+  @media (hover: none) and (pointer: coarse) {
+    /* Better touch targets for mobile */
+    .touch-target {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    /* Larger tap areas for buttons */
+    button {
+      min-height: 44px;
+      touch-action: manipulation;
+    }
+    
+    /* Remove hover effects on touch devices */
+    .hover\:scale-105:hover {
+      transform: none;
+    }
+  }
+
+  /* Enhanced animations for mobile interactions */
+  .mobile-card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mobile-card-hover:active {
+    transform: scale(0.98);
+    transition-duration: 0.1s;
+  }
+
+  /* Pull-to-refresh indicator */
+  .pull-refresh {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .pull-refresh.pulling {
+    transform: translateY(0);
+  }
+
+  /* Mobile-optimized scrollbars */
+  @media (max-width: 768px) {
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: rgba(156, 163, 175, 0.5);
+      border-radius: 2px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(156, 163, 175, 0.7);
+    }
+  }
+
+  /* Swipe gesture visual feedback */
+  .swipe-action {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .swipe-action::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .swipe-action.swiping::before {
+    transform: translateX(100%);
+  }
+
+  /* Enhanced focus states for accessibility */
+  .focus-enhanced:focus {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
+    border-radius: 8px;
+  }
+
+  /* Improved mobile modal animations */
+  .modal-mobile {
+    animation: slideUpMobile 0.3s ease-out;
+  }
+
+  @keyframes slideUpMobile {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Mobile-first responsive text */
+  .text-responsive {
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+  }
+
+  .text-responsive-lg {
+    font-size: clamp(1.125rem, 3vw, 1.25rem);
+  }
+
+  /* Enhanced ripple effect for touch feedback */
+  .ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ripple::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .ripple:active::before {
+    width: 300px;
+    height: 300px;
+  }
+
   /* Отступ для секций с учётом фиксированного хедера */
   section[id] {
     scroll-margin-top: 100px;
@@ -203,5 +341,157 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  /* Advanced Mobile UX Enhancements */
+  
+  /* Smooth momentum scrolling for iOS */
+  .momentum-scroll {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  /* Enhanced touch feedback for buttons */
+  .touch-feedback {
+    transform: scale(1);
+    transition: transform 0.1s ease-out;
+  }
+
+  .touch-feedback:active {
+    transform: scale(0.96);
+  }
+
+  /* Pull-to-refresh visual indicator */
+  .pull-to-refresh {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-size: 14px;
+    background: linear-gradient(to bottom, transparent, rgba(156, 163, 175, 0.1));
+    transform: translateY(-60px);
+    transition: transform 0.3s ease;
+  }
+
+  .pull-to-refresh.visible {
+    transform: translateY(0);
+  }
+
+  /* Mobile-optimized tab bar */
+  .mobile-tab-bar {
+    display: flex;
+    background: white;
+    border-radius: 12px;
+    padding: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 16px;
+  }
+
+  .mobile-tab-bar button {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    background: transparent;
+    border: none;
+  }
+
+  .mobile-tab-bar button.active {
+    background: #4f46e5;
+    color: white;
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+  }
+
+  /* Mobile card swipe actions */
+  .swipe-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .swipe-actions {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, transparent, #ef4444);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    padding: 0 20px;
+    color: white;
+  }
+
+  .swipe-card.swiped .swipe-actions {
+    transform: translateX(0);
+  }
+
+  .swipe-card.swiped .card-content {
+    transform: translateX(-80px);
+  }
+
+  /* Haptic feedback simulation */
+  @keyframes haptic-light {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+  }
+
+  .haptic-feedback {
+    animation: haptic-light 0.1s ease-out;
+  }
+
+  /* Mobile-friendly dropdown */
+  .mobile-dropdown {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: 60;
+  }
+
+  .mobile-dropdown.open {
+    transform: translateY(0);
+  }
+
+  /* Safe area adjustments for modern phones */
+  @supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .mobile-safe-bottom {
+      padding-bottom: calc(16px + env(safe-area-inset-bottom));
+    }
+    
+    .fab-safe {
+      bottom: calc(24px + env(safe-area-inset-bottom));
+    }
+  }
+
+  /* Dark mode mobile adjustments */
+  @media (prefers-color-scheme: dark) {
+    .mobile-tab-bar {
+      background: #374151;
+    }
+    
+    .mobile-dropdown {
+      background: #1f2937;
+      color: white;
+    }
+  }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-card-hover,
+    .touch-feedback,
+    .swipe-actions,
+    .mobile-dropdown {
+      transition: none !important;
+      animation: none !important;
+    }
   }
 }

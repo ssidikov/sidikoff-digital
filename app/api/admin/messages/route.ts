@@ -25,8 +25,10 @@ export async function POST(request: NextRequest) {
         .from('contact_submissions')
         .select('deleted_at')
         .limit(1)
-    } catch (error: any) {
-      if (error.message && error.message.includes('column') && error.message.includes('does not exist')) {
+    } catch (error: unknown) {
+      if (error && typeof error === 'object' && 'message' in error && 
+          typeof error.message === 'string' && 
+          error.message.includes('column') && error.message.includes('does not exist')) {
         hasDeletedAtColumn = false
       }
     }
@@ -150,8 +152,10 @@ export async function GET(request: NextRequest) {
         .from('contact_submissions')
         .select('deleted_at')
         .limit(1)
-    } catch (error: any) {
-      if (error.message && error.message.includes('column') && error.message.includes('does not exist')) {
+    } catch (error: unknown) {
+      if (error && typeof error === 'object' && 'message' in error && 
+          typeof error.message === 'string' && 
+          error.message.includes('column') && error.message.includes('does not exist')) {
         hasDeletedAtColumn = false
       }
     }

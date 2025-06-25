@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation'
 import { getAdminSession } from '@/lib/admin-auth-server'
-import AdminSidebar from '@/components/admin/AdminSidebar'
+import AdminSidebar, { MobileMenuProvider } from '@/components/admin/AdminSidebar'
 import AdminHeader from '@/components/admin/AdminHeader'
 import { Toaster } from 'react-hot-toast'
 
@@ -16,38 +16,44 @@ export default async function AdminLayout({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
-      <AdminSidebar />
-      <div className="lg:pl-72">
-        <AdminHeader user={user} />
-        <main className="py-8">
-          <div className="px-4 sm:px-6 lg:px-8">
-            {children}
-          </div>
-        </main>
+    <MobileMenuProvider>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
+        <AdminSidebar user={user} />
+        <div className="lg:pl-72">
+          <AdminHeader />
+          <main className="py-4 sm:py-6 lg:py-8 min-h-[calc(100vh-4rem)]">
+            <div className="px-3 sm:px-4 lg:px-8 max-w-7xl mx-auto">
+              {children}
+            </div>
+          </main>
+        </div>
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            duration: 4000,
+            style: {
+              background: '#363636',
+              color: '#fff',
+              fontSize: '14px',
+              maxWidth: '90vw',
+              borderRadius: '12px',
+              padding: '12px 16px',
+            },
+            success: {
+              duration: 3000,
+              style: {
+                background: '#10b981',
+              },
+            },
+            error: {
+              duration: 5000,
+              style: {
+                background: '#ef4444',
+              },
+            },
+          }}
+        />
       </div>
-      <Toaster
-        position="top-right"
-        toastOptions={{
-          duration: 4000,
-          style: {
-            background: '#363636',
-            color: '#fff',
-          },
-          success: {
-            duration: 3000,
-            style: {
-              background: '#10b981',
-            },
-          },
-          error: {
-            duration: 5000,
-            style: {
-              background: '#ef4444',
-            },
-          },
-        }}
-      />
-    </div>
+    </MobileMenuProvider>
   )
 }

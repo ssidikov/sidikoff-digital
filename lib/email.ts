@@ -5,11 +5,11 @@ const createTransporter = () => {
   // Check if environment variables are available
   const emailUser = process.env.EMAIL_USER
   const emailPass = process.env.EMAIL_PASS
-  
+
   console.log('🔍 Environment check:')
   console.log('EMAIL_USER:', emailUser ? 'SET' : 'MISSING')
   console.log('EMAIL_PASS:', emailPass ? 'SET' : 'MISSING')
-  
+
   if (!emailUser || !emailPass) {
     console.warn('⚠️ Email credentials not configured. Email notifications disabled.')
     console.warn('💡 Required: EMAIL_USER and EMAIL_PASS environment variables')
@@ -29,7 +29,7 @@ const createTransporter = () => {
         pass: emailPass,
       },
     })
-    
+
     console.log('✅ Gmail transporter created successfully')
     return transporter
   } catch (error) {
@@ -405,7 +405,7 @@ export const sendEmail = async (to: string, subject: string, html: string, text:
     console.log('✅ Email transporter verified successfully')
 
     const mailOptions = {
-      from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
+      from: `"SIDIKOFF DIGITAL" <${process.env.EMAIL_FROM || process.env.EMAIL_USER}>`,
       to: to,
       subject: subject,
       html: html,
@@ -415,12 +415,12 @@ export const sendEmail = async (to: string, subject: string, html: string, text:
     console.log('📧 Sending email with options:', {
       from: mailOptions.from?.replace(/(.{3}).*(@.*)/, '$1***$2') || 'undefined',
       to: to.replace(/(.{3}).*(@.*)/, '$1***$2'),
-      subject: subject
+      subject: subject,
     })
 
     const result = await emailTransporter.sendMail(mailOptions)
     console.log('✅ Email sent successfully:', result.messageId)
-    
+
     return { success: true, messageId: result.messageId }
   } catch (error) {
     console.error('❌ Email send error:', error)
@@ -436,7 +436,7 @@ export const sendEmail = async (to: string, subject: string, html: string, text:
 export const sendUserConfirmation = async (submission: ContactSubmission) => {
   console.log('📧 Starting user confirmation email...')
   const emailContent = generateUserConfirmationEmail(submission)
-  
+
   return await sendEmail(
     submission.email,
     emailContent.subject,
@@ -449,15 +449,10 @@ export const sendUserConfirmation = async (submission: ContactSubmission) => {
 export const sendAdminNotification = async (submission: ContactSubmission) => {
   const adminEmail = process.env.EMAIL_TO || 's.sidikoff@gmail.com'
   console.log('📧 Starting admin notification email to:', adminEmail)
-  
+
   const emailContent = generateAdminNotificationEmail(submission)
-  
-  return await sendEmail(
-    adminEmail,
-    emailContent.subject,
-    emailContent.html,
-    emailContent.text
-  )
+
+  return await sendEmail(adminEmail, emailContent.subject, emailContent.html, emailContent.text)
 }
 
 // Test email configuration (like in restaurant project)
