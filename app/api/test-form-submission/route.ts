@@ -15,23 +15,22 @@ export async function POST() {
         submissionId: 'test-123',
         senderName: 'Test User',
         senderEmail: 'test@example.com',
-        viewUrl: '/admin/submissions?highlight=test-123'
-      }
+        viewUrl: '/admin/submissions?highlight=test-123',
+      },
     })
 
     console.log('✅ Test form submission notification sent')
 
-    return NextResponse.json({ 
+    return NextResponse.json({
       success: true,
-      message: 'Test form submission notification sent successfully'
+      message: 'Test form submission notification sent successfully',
     })
-
   } catch (error) {
     console.error('❌ Test form submission failed:', error)
     return NextResponse.json(
-      { 
+      {
         error: 'Failed to send test form submission notification',
-        details: error instanceof Error ? error.message : String(error)
+        details: error instanceof Error ? error.message : String(error),
       },
       { status: 500 }
     )
@@ -55,22 +54,21 @@ export async function GET() {
     const vapidKeys = {
       publicKey: process.env.VAPID_PUBLIC_KEY ? 'Set' : 'Missing',
       privateKey: process.env.VAPID_PRIVATE_KEY ? 'Set' : 'Missing',
-      email: process.env.VAPID_EMAIL || 'Missing'
+      email: process.env.VAPID_EMAIL || 'Missing',
     }
 
     return NextResponse.json({
       status: 'Test endpoint active',
       vapidKeys,
       webPushAvailable,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     })
-
   } catch (error) {
     console.error('❌ Test endpoint failed:', error)
     return NextResponse.json(
-      { 
+      {
         error: 'Test endpoint failed',
-        details: error instanceof Error ? error.message : String(error)
+        details: error instanceof Error ? error.message : String(error),
       },
       { status: 500 }
     )

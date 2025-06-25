@@ -28,12 +28,12 @@ function saveSubscriptions() {
   try {
     const data = Object.fromEntries(subscriptions)
     const dir = join(process.cwd(), 'data')
-    
+
     // Create data directory if it doesn't exist
     if (!existsSync(dir)) {
       mkdirSync(dir, { recursive: true })
     }
-    
+
     writeFileSync(SUBSCRIPTIONS_FILE, JSON.stringify(data, null, 2))
     console.log(`Saved ${subscriptions.size} push subscriptions`)
   } catch (error) {
@@ -66,7 +66,7 @@ export async function sendNotificationToAdmins(notificationData: {
 }) {
   console.log(`🔔 Attempting to send notification to ${subscriptions.size} subscriptions`)
   console.log(`📊 Notification data:`, notificationData)
-  
+
   if (subscriptions.size === 0) {
     console.log('❌ No subscriptions found - notification not sent')
     return
@@ -76,22 +76,22 @@ export async function sendNotificationToAdmins(notificationData: {
   const vapidPublic = process.env.VAPID_PUBLIC_KEY
   const vapidPrivate = process.env.VAPID_PRIVATE_KEY
   const vapidEmail = process.env.VAPID_EMAIL
-  
+
   if (!vapidPublic || !vapidPrivate || !vapidEmail) {
     console.error('❌ Missing VAPID keys:', {
       public: !!vapidPublic,
       private: !!vapidPrivate,
-      email: !!vapidEmail
+      email: !!vapidEmail,
     })
     return
   }
 
-  // Use dynamic import for web-push  
+  // Use dynamic import for web-push
   const webpush = await import('web-push')
-  
+
   // Configure VAPID keys
   webpush.setVapidDetails(
-    `mailto:${vapidEmail}`,  // VAPID subject must be a valid URL (mailto: format)
+    `mailto:${vapidEmail}`, // VAPID subject must be a valid URL (mailto: format)
     vapidPublic,
     vapidPrivate
   )
@@ -102,7 +102,7 @@ export async function sendNotificationToAdmins(notificationData: {
     try {
       console.log(`📤 Sending notification to user: ${userId}`)
       await webpush.sendNotification(
-        subscription as unknown as import('web-push').PushSubscription, 
+        subscription as unknown as import('web-push').PushSubscription,
         JSON.stringify(notificationData)
       )
       console.log(`✅ Notification sent successfully to user: ${userId}`)

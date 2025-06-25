@@ -20,24 +20,23 @@ export async function POST() {
       data: {
         debug: true,
         timestamp: new Date().toISOString(),
-        triggeredBy: user.email
-      }
+        triggeredBy: user.email,
+      },
     })
 
     console.log('✅ Debug notification sent')
 
-    return NextResponse.json({ 
+    return NextResponse.json({
       success: true,
       message: 'Debug notification sent successfully',
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     })
-
   } catch (error) {
     console.error('❌ Debug notification failed:', error)
     return NextResponse.json(
-      { 
+      {
         error: 'Failed to send debug notification',
-        details: error instanceof Error ? error.message : String(error)
+        details: error instanceof Error ? error.message : String(error),
       },
       { status: 500 }
     )
@@ -56,7 +55,7 @@ export async function GET() {
     const vapidKeys = {
       publicKey: process.env.VAPID_PUBLIC_KEY ? 'Set' : 'Missing',
       privateKey: process.env.VAPID_PRIVATE_KEY ? 'Set' : 'Missing',
-      email: process.env.VAPID_EMAIL || 'Missing'
+      email: process.env.VAPID_EMAIL || 'Missing',
     }
 
     // Check if web-push is available
@@ -73,15 +72,14 @@ export async function GET() {
       user: user.email,
       vapidKeys,
       webPushAvailable,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     })
-
   } catch (error) {
     console.error('❌ Debug endpoint failed:', error)
     return NextResponse.json(
-      { 
+      {
         error: 'Debug endpoint failed',
-        details: error instanceof Error ? error.message : String(error)
+        details: error instanceof Error ? error.message : String(error),
       },
       { status: 500 }
     )

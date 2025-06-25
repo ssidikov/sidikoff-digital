@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +12,14 @@
             margin: 0 auto;
             padding: 20px;
         }
+
         .container {
             background: #f5f5f5;
             padding: 20px;
             border-radius: 8px;
             margin: 20px 0;
         }
+
         button {
             background: #007cba;
             color: white;
@@ -26,28 +29,34 @@
             cursor: pointer;
             margin: 5px;
         }
+
         button:hover {
             background: #005f91;
         }
+
         button:disabled {
             background: #ccc;
             cursor: not-allowed;
         }
+
         .status {
             padding: 10px;
             margin: 10px 0;
             border-radius: 4px;
         }
+
         .success {
             background: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
         }
+
         .error {
             background: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
         }
+
         .info {
             background: #d1ecf1;
             color: #0c5460;
@@ -55,9 +64,10 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Push Notification Debug Tool</h1>
-    
+
     <div class="container">
         <h2>1. Service Worker Status</h2>
         <div id="sw-status" class="status info">Loading...</div>
@@ -87,7 +97,8 @@
 
     <div class="container">
         <h2>Debug Log</h2>
-        <div id="debug-log" style="background: white; padding: 10px; height: 200px; overflow-y: scroll; border: 1px solid #ccc;">
+        <div id="debug-log"
+            style="background: white; padding: 10px; height: 200px; overflow-y: scroll; border: 1px solid #ccc;">
         </div>
         <button onclick="clearLog()">Clear Log</button>
     </div>
@@ -137,7 +148,7 @@
                 });
                 log('Service worker registered successfully');
                 updateStatus('sw-status', 'Service worker registered', 'success');
-                
+
                 await navigator.serviceWorker.ready;
                 log('Service worker is ready');
             } catch (error) {
@@ -151,7 +162,7 @@
                 log('Requesting notification permission...');
                 const permission = await Notification.requestPermission();
                 log(`Permission result: ${permission}`);
-                updateStatus('permission-status', `Permission: ${permission}`, 
+                updateStatus('permission-status', `Permission: ${permission}`,
                     permission === 'granted' ? 'success' : 'error');
             } catch (error) {
                 log(`Permission request failed: ${error.message}`);
@@ -284,9 +295,9 @@
         }
 
         // Initialize on page load
-        document.addEventListener('DOMContentLoaded', async function() {
+        document.addEventListener('DOMContentLoaded', async function () {
             log('Page loaded, checking initial status...');
-            
+
             // Check service worker support
             if ('serviceWorker' in navigator) {
                 log('Service worker supported');
@@ -300,7 +311,7 @@
             if ('Notification' in window) {
                 const permission = Notification.permission;
                 log(`Current notification permission: ${permission}`);
-                updateStatus('permission-status', `Permission: ${permission}`, 
+                updateStatus('permission-status', `Permission: ${permission}`,
                     permission === 'granted' ? 'success' : 'info');
             } else {
                 log('Notifications not supported');
@@ -315,7 +326,7 @@
                         swRegistration = registration;
                         log('Found existing service worker registration');
                         updateStatus('sw-status', 'Service worker already registered', 'success');
-                        
+
                         // Check for existing subscription
                         const subscription = await registration.pushManager.getSubscription();
                         if (subscription) {
@@ -333,4 +344,5 @@
         });
     </script>
 </body>
+
 </html>

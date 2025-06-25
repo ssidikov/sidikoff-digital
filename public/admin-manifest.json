@@ -1,13 +1,14 @@
 {
   "name": "SIDIKOFF Admin Dashboard",
-  "short_name": "SIDIKOFF Admin",
+  "short_name": "SIDIKOFF",
   "description": "Admin dashboard for managing SIDIKOFF Digital website content, projects, and client communications",
-  "start_url": "/admin/dashboard?source=pwa",
+  "start_url": "/admin/dashboard?source=pwa&utm_source=homescreen&installed=true",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#4f46e5",
   "orientation": "portrait-primary",
   "scope": "/admin/",
+  "id": "admin-dashboard",
   "lang": "en",
   "dir": "ltr",
   "categories": [
@@ -34,7 +35,7 @@
       "name": "Dashboard",
       "short_name": "Dashboard",
       "description": "Admin dashboard overview",
-      "url": "/admin/dashboard",
+      "url": "/admin/dashboard?source=shortcut",
       "icons": [
         {
           "src": "/favicon.png",
@@ -47,7 +48,7 @@
       "name": "Messages",
       "short_name": "Messages",
       "description": "View contact submissions",
-      "url": "/admin/submissions",
+      "url": "/admin/submissions?source=shortcut",
       "icons": [
         {
           "src": "/favicon.png",
@@ -60,7 +61,7 @@
       "name": "Projects",
       "short_name": "Projects",
       "description": "Manage projects",
-      "url": "/admin/projects",
+      "url": "/admin/projects?source=shortcut",
       "icons": [
         {
           "src": "/favicon.png",
@@ -71,6 +72,13 @@
     }
   ],
   "prefer_related_applications": false,
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
   "features": [
     "push-messaging",
     "background-sync"

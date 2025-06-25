@@ -10,14 +10,15 @@ const STATIC_FILES = [
   '/admin/submissions',
   '/admin/settings',
   '/favicon.png',
-  '/logo-sidikoff.svg'
+  '/logo-sidikoff.svg',
 ]
 
 // Install event - cache static files
 self.addEventListener('install', (event) => {
   console.log('Service Worker: Installing...')
   event.waitUntil(
-    caches.open(STATIC_CACHE)
+    caches
+      .open(STATIC_CACHE)
       .then((cache) => {
         console.log('Service Worker: Caching static files')
         return cache.addAll(STATIC_FILES)
@@ -36,7 +37,8 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   console.log('Service Worker: Activating...')
   event.waitUntil(
-    caches.keys()
+    caches
+      .keys()
       .then((cacheNames) => {
         return Promise.all(
           cacheNames.map((cacheName) => {
@@ -62,23 +64,25 @@ self.addEventListener('fetch', (event) => {
   }
 
   event.respondWith(
-    caches.match(event.request)
+    caches
+      .match(event.request)
       .then((response) => {
         // Return cached version or fetch from network
-        return response || fetch(event.request)
-          .then((fetchResponse) => {
+        return (
+          response ||
+          fetch(event.request).then((fetchResponse) => {
             // Don't cache API calls or non-GET requests
             if (event.request.method !== 'GET' || event.request.url.includes('/api/')) {
               return fetchResponse
             }
 
             // Cache dynamic content
-            return caches.open(DYNAMIC_CACHE)
-              .then((cache) => {
-                cache.put(event.request, fetchResponse.clone())
-                return fetchResponse
-              })
+            return caches.open(DYNAMIC_CACHE).then((cache) => {
+              cache.put(event.request, fetchResponse.clone())
+              return fetchResponse
+            })
           })
+        )
       })
       .catch(() => {
         // Offline fallback
@@ -92,13 +96,13 @@ self.addEventListener('fetch', (event) => {
 // Push notification event
 self.addEventListener('push', (event) => {
   console.log('Service Worker: Push notification received')
-  
+
   let notificationData = {
     title: 'SIDIKOFF Admin',
     body: 'New notification',
     icon: '/favicon.png',
     badge: '/favicon.png',
-    data: {}
+    data: {},
   }
 
   if (event.data) {
@@ -112,7 +116,7 @@ self.addEventListener('push', (event) => {
         data: data.data || {},
         tag: data.tag || 'admin-notification',
         requireInteraction: data.requireInteraction || false,
-        actions: data.actions || []
+        actions: data.actions || [],
       }
     } catch (error) {
       console.error('Service Worker: Error parsing push data', error)
@@ -129,7 +133,7 @@ self.addEventListener('push', (event) => {
       requireInteraction: notificationData.requireInteraction,
       actions: notificationData.actions,
       vibrate: [100, 50, 100],
-      renotify: true
+      renotify: true,
     })
   )
 })
@@ -137,7 +141,7 @@ self.addEventListener('push', (event) => {
 // Notification click event
 self.addEventListener('notificationclick', (event) => {
   console.log('Service Worker: Notification clicked')
-  
+
   event.notification.close()
 
   const { data } = event.notification
@@ -166,29 +170,28 @@ self.addEventListener('notificationclick', (event) => {
   }
 
   event.waitUntil(
-    clients.matchAll({ type: 'window', includeUncontrolled: true })
-      .then((clientList) => {
-        // Check if admin dashboard is already open
-        for (const client of clientList) {
-          if (client.url.includes('/admin/') && 'focus' in client) {
-            client.focus()
-            client.navigate(urlToOpen)
-            return
-          }
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clientList) => {
+      // Check if admin dashboard is already open
+      for (const client of clientList) {
+        if (client.url.includes('/admin/') && 'focus' in client) {
+          client.focus()
+          client.navigate(urlToOpen)
+          return
         }
-        
-        // Open new window if not already open
-        if (clients.openWindow) {
-          return clients.openWindow(urlToOpen)
-        }
-      })
+      }
+
+      // Open new window if not already open
+      if (clients.openWindow) {
+        return clients.openWindow(urlToOpen)
+      }
+    })
   )
 })
 
 // Background sync for offline actions
 self.addEventListener('sync', (event) => {
   console.log('Service Worker: Background sync triggered')
-  
+
   if (event.tag === 'background-sync') {
     event.waitUntil(
       // Handle offline actions here
@@ -200,7 +203,7 @@ self.addEventListener('sync', (event) => {
 // Message handling from main thread
 self.addEventListener('message', (event) => {
   console.log('Service Worker: Message received', event.data)
-  
+
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting()
   }

@@ -80,7 +80,9 @@ export default function AdminSettingsPage() {
               </div>
 
               {/* Notifications Section */}
-              <div id='notifications' className='bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden'>
+              <div
+                id='notifications'
+                className='bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden'>
                 <div className='p-6 border-b border-gray-200'>
                   <div className='flex items-center gap-3'>
                     <div className='p-2 bg-blue-100 rounded-lg'>

@@ -7,7 +7,7 @@ export async function GET(request: NextRequest) {
   // Check if debug secret is provided for security
   const { searchParams } = new URL(request.url)
   const debugSecret = searchParams.get('secret')
-  
+
   if (debugSecret !== process.env.EMAIL_DEBUG_SECRET && debugSecret !== 'temp-debug-123') {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
     EMAIL_SERVICE: process.env.EMAIL_SERVICE || 'gmail (default)',
     EMAIL_FROM: process.env.EMAIL_FROM || 'Using EMAIL_USER',
     EMAIL_TO: process.env.EMAIL_TO || 's.sidikoff@gmail.com (default)',
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   }
 
   return NextResponse.json({
@@ -36,7 +36,7 @@ export async function GET(request: NextRequest) {
       step2d: 'EMAIL_FROM=s.sidikoff@gmail.com',
       step2e: 'EMAIL_TO=s.sidikoff@gmail.com',
       step3: 'Redeploy your application',
-      note: 'Delete this API route after debugging'
-    }
+      note: 'Delete this API route after debugging',
+    },
   })
 }

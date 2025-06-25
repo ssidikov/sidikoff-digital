@@ -2,10 +2,10 @@
 
 /**
  * Email Configuration Test Script
- * 
+ *
  * This script tests the email configuration and SMTP connectivity.
  * Use this to diagnose email issues during development or after deployment.
- * 
+ *
  * Usage:
  * npm run test-email
  * or
@@ -25,7 +25,7 @@ async function testEmailConfiguration() {
   console.log('📋 Environment Variables Check:')
   const requiredVars = ['EMAIL_USER', 'EMAIL_PASS']
   const optionalVars = ['EMAIL_SERVICE', 'EMAIL_FROM', 'EMAIL_TO']
-  
+
   let allPresent = true
 
   // Check required environment variables
@@ -116,7 +116,7 @@ Environment: ${process.env.NODE_ENV || 'development'}
     message: 'This is a test submission from the email configuration test script.',
     projectType: 'Website Development',
     company: 'Test Company',
-    submittedAt: new Date().toISOString()
+    submittedAt: new Date().toISOString(),
   }
 
   const confirmationResult = await sendUserConfirmation(testSubmission)
@@ -137,7 +137,7 @@ Environment: ${process.env.NODE_ENV || 'development'}
   console.log('1. Check your email inbox for the test messages')
   console.log('2. If emails are not received, check your spam folder')
   console.log('3. Verify SMTP credentials and server settings')
-  console.log('4. For Gmail: ensure you\'re using an App Password, not your regular password')
+  console.log("4. For Gmail: ensure you're using an App Password, not your regular password")
   console.log('5. For production: ensure environment variables are set correctly on Vercel')
 }
 

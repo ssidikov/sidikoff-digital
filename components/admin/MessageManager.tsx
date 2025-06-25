@@ -37,41 +37,44 @@ export default function MessageManager() {
   const [actionLoading, setActionLoading] = useState(false)
   const [migrationRequired, setMigrationRequired] = useState(false)
 
-  const fetchMessages = useCallback(async (view: 'active' | 'trash' = currentView) => {
-    try {
-      setLoading(true)
-      const response = await fetch(`/api/admin/messages?view=${view}`)
-      const result = await response.json()
+  const fetchMessages = useCallback(
+    async (view: 'active' | 'trash' = currentView) => {
+      try {
+        setLoading(true)
+        const response = await fetch(`/api/admin/messages?view=${view}`)
+        const result = await response.json()
 
-      if (result.success) {
-        setMessages(result.data)
-        setStats(result.stats)
-        setMigrationRequired(result.migrationStatus === 'required')
+        if (result.success) {
+          setMessages(result.data)
+          setStats(result.stats)
+          setMigrationRequired(result.migrationStatus === 'required')
 
-        if (result.migrationStatus === 'required') {
-          toast.error('Database migration required for trash functionality')
-        }
-      } else {
-        if (
-          result.error &&
-          result.error.includes('column') &&
-          result.error.includes('does not exist')
-        ) {
-          toast.error(
-            'Database migration required. Please apply the trash functionality migration first.'
-          )
-          setMigrationRequired(true)
+          if (result.migrationStatus === 'required') {
+            toast.error('Database migration required for trash functionality')
+          }
         } else {
-          toast.error('Failed to fetch messages')
+          if (
+            result.error &&
+            result.error.includes('column') &&
+            result.error.includes('does not exist')
+          ) {
+            toast.error(
+              'Database migration required. Please apply the trash functionality migration first.'
+            )
+            setMigrationRequired(true)
+          } else {
+            toast.error('Failed to fetch messages')
+          }
         }
+      } catch (error) {
+        console.error('Error fetching messages:', error)
+        toast.error('Error loading messages')
+      } finally {
+        setLoading(false)
       }
-    } catch (error) {
-      console.error('Error fetching messages:', error)
-      toast.error('Error loading messages')
-    } finally {
-      setLoading(false)
-    }
-  }, [currentView])
+    },
+    [currentView]
+  )
 
   useEffect(() => {
     fetchMessages()
@@ -534,38 +537,71 @@ ADD COLUMN deleted_at timestamp with time zone DEFAULT NULL;`}
       {selectedMessages.length > 0 && (
         <FloatingActionButton
           actions={[
-            ...(currentView === 'active' ? [{
-              icon: (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                </svg>
-              ),
-              label: 'Move to Trash',
-              onClick: () => handleBulkAction('moveToTrash'),
-              color: 'danger' as const
-            }] : []),
-            ...(currentView === 'trash' ? [
-              {
-                icon: (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                  </svg>
-                ),
-                label: 'Restore',
-                onClick: () => handleBulkAction('restore'),
-                color: 'success' as const
-              },
-              {
-                icon: (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                ),
-                label: 'Delete Forever',
-                onClick: () => handleBulkAction('permanentDelete'),
-                color: 'danger' as const
-              }
-            ] : [])
+            ...(currentView === 'active'
+              ? [
+                  {
+                    icon: (
+                      <svg
+                        className='w-5 h-5'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'>
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth={2}
+                          d='M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16'
+                        />
+                      </svg>
+                    ),
+                    label: 'Move to Trash',
+                    onClick: () => handleBulkAction('moveToTrash'),
+                    color: 'danger' as const,
+                  },
+                ]
+              : []),
+            ...(currentView === 'trash'
+              ? [
+                  {
+                    icon: (
+                      <svg
+                        className='w-5 h-5'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'>
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth={2}
+                          d='M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15'
+                        />
+                      </svg>
+                    ),
+                    label: 'Restore',
+                    onClick: () => handleBulkAction('restore'),
+                    color: 'success' as const,
+                  },
+                  {
+                    icon: (
+                      <svg
+                        className='w-5 h-5'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'>
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth={2}
+                          d='M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z'
+                        />
+                      </svg>
+                    ),
+                    label: 'Delete Forever',
+                    onClick: () => handleBulkAction('permanentDelete'),
+                    color: 'danger' as const,
+                  },
+                ]
+              : []),
           ]}
         />
       )}

@@ -27,7 +27,7 @@ export function useSwipeGesture(options: SwipeGestureOptions) {
 
   const handleTouchMove = (e: TouchEvent) => {
     if (!touchStartRef.current) return
-    
+
     const touch = e.touches[0]
     touchEndRef.current = { x: touch.clientX, y: touch.clientY }
   }

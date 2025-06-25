@@ -161,13 +161,13 @@
       min-height: 44px;
       min-width: 44px;
     }
-    
+
     /* Larger tap areas for buttons */
     button {
       min-height: 44px;
       touch-action: manipulation;
     }
-    
+
     /* Remove hover effects on touch devices */
     .hover\:scale-105:hover {
       transform: none;
@@ -199,16 +199,16 @@
     ::-webkit-scrollbar {
       width: 4px;
     }
-    
+
     ::-webkit-scrollbar-track {
       background: transparent;
     }
-    
+
     ::-webkit-scrollbar-thumb {
       background: rgba(156, 163, 175, 0.5);
       border-radius: 2px;
     }
-    
+
     ::-webkit-scrollbar-thumb:hover {
       background: rgba(156, 163, 175, 0.7);
     }
@@ -344,7 +344,7 @@
   }
 
   /* Advanced Mobile UX Enhancements */
-  
+
   /* Smooth momentum scrolling for iOS */
   .momentum-scroll {
     -webkit-overflow-scrolling: touch;
@@ -434,9 +434,15 @@
 
   /* Haptic feedback simulation */
   @keyframes haptic-light {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-    100% { transform: scale(1); }
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 
   .haptic-feedback {
@@ -466,7 +472,7 @@
     .mobile-safe-bottom {
       padding-bottom: calc(16px + env(safe-area-inset-bottom));
     }
-    
+
     .fab-safe {
       bottom: calc(24px + env(safe-area-inset-bottom));
     }
@@ -477,7 +483,7 @@
     .mobile-tab-bar {
       background: #374151;
     }
-    
+
     .mobile-dropdown {
       background: #1f2937;
       color: white;

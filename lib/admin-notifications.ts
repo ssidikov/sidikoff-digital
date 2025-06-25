@@ -19,7 +19,8 @@ export class AdminNotificationManager {
   private isSupported: boolean = false
 
   private constructor() {
-    this.isSupported = 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window
+    this.isSupported =
+      'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window
   }
 
   public static getInstance(): AdminNotificationManager {
@@ -39,7 +40,7 @@ export class AdminNotificationManager {
     try {
       // Register service worker
       this.swRegistration = await navigator.serviceWorker.register('/admin-sw.js', {
-        scope: '/admin/'
+        scope: '/admin/',
       })
 
       console.log('Service Worker registered successfully')
@@ -85,7 +86,7 @@ export class AdminNotificationManager {
     try {
       const vapidPublicKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY
       console.log('🔧 VAPID Public Key available:', !!vapidPublicKey)
-      
+
       if (!vapidPublicKey) {
         console.error('❌ VAPID public key not found')
         return null
@@ -93,14 +94,14 @@ export class AdminNotificationManager {
 
       const subscription = await this.swRegistration.pushManager.subscribe({
         userVisibleOnly: true,
-        applicationServerKey: this.urlBase64ToUint8Array(vapidPublicKey) as BufferSource
+        applicationServerKey: this.urlBase64ToUint8Array(vapidPublicKey) as BufferSource,
       })
 
       console.log('✅ Push subscription successful:', subscription.endpoint)
-      
+
       // Send subscription to server
       await this.sendSubscriptionToServer(subscription)
-      
+
       return subscription
     } catch (error) {
       console.error('❌ Push subscription failed:', error)
@@ -111,7 +112,7 @@ export class AdminNotificationManager {
   // Show local notification
   async showNotification(options: NotificationOptions): Promise<void> {
     const permission = await this.requestPermission()
-    
+
     if (permission !== 'granted') {
       console.warn('Notification permission not granted')
       return
@@ -123,7 +124,7 @@ export class AdminNotificationManager {
         body: options.body,
         icon: '/favicon.png',
         badge: '/favicon.png',
-        data: options.data
+        data: options.data,
       })
       return
     }
@@ -136,12 +137,12 @@ export class AdminNotificationManager {
       data: {
         type: options.type,
         url: options.url,
-        ...options.data
+        ...options.data,
       },
       tag: `admin-${options.type}-${Date.now()}`,
       requireInteraction: options.requireInteraction || false,
       vibrate: [100, 50, 100],
-      renotify: true
+      renotify: true,
     }
 
     // Add actions if provided
@@ -168,18 +169,18 @@ export class AdminNotificationManager {
       actions: [
         {
           action: 'view',
-          title: 'View Message'
+          title: 'View Message',
         },
         {
           action: 'dismiss',
-          title: 'Dismiss'
-        }
+          title: 'Dismiss',
+        },
       ],
       data: {
         submissionId: submissionData.id,
         senderEmail: submissionData.email,
-        viewUrl: `/admin/submissions?highlight=${submissionData.id}`
-      }
+        viewUrl: `/admin/submissions?highlight=${submissionData.id}`,
+      },
     })
   }
 
@@ -193,13 +194,13 @@ export class AdminNotificationManager {
       actions: [
         {
           action: 'refresh',
-          title: 'Refresh Now'
+          title: 'Refresh Now',
         },
         {
           action: 'later',
-          title: 'Later'
-        }
-      ]
+          title: 'Later',
+        },
+      ],
     })
   }
 
@@ -215,10 +216,8 @@ export class AdminNotificationManager {
 
   // Helper function to convert VAPID key
   private urlBase64ToUint8Array(base64String: string): Uint8Array {
-    const padding = '='.repeat((4 - base64String.length % 4) % 4)
-    const base64 = (base64String + padding)
-      .replace(/-/g, '+')
-      .replace(/_/g, '/')
+    const padding = '='.repeat((4 - (base64String.length % 4)) % 4)
+    const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/')
 
     const rawData = window.atob(base64)
     const outputArray = new Uint8Array(rawData.length)
@@ -238,13 +237,17 @@ export class AdminNotificationManager {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(subscription)
+        body: JSON.stringify(subscription),
       })
-      
+
       if (response.ok) {
         console.log('✅ Subscription sent to server successfully')
       } else {
-        console.error('❌ Failed to send subscription to server:', response.status, response.statusText)
+        console.error(
+          '❌ Failed to send subscription to server:',
+          response.status,
+          response.statusText
+        )
       }
     } catch (error) {
       console.error('❌ Error sending subscription to server:', error)
@@ -257,7 +260,7 @@ export class AdminNotificationManager {
       title: '🧪 Test Notification',
       body: 'This is a test notification from SIDIKOFF Admin Dashboard',
       type: 'general',
-      data: { test: true }
+      data: { test: true },
     })
   }
 }

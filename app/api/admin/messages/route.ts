@@ -5,7 +5,7 @@ import { requireAdminAuth } from '@/lib/admin-auth-server'
 export async function POST(request: NextRequest) {
   try {
     await requireAdminAuth()
-    
+
     const body = await request.json()
     const { action, messageIds } = body
 
@@ -21,23 +21,26 @@ export async function POST(request: NextRequest) {
     // Check if deleted_at column exists
     let hasDeletedAtColumn = true
     try {
-      await supabase
-        .from('contact_submissions')
-        .select('deleted_at')
-        .limit(1)
+      await supabase.from('contact_submissions').select('deleted_at').limit(1)
     } catch (error: unknown) {
-      if (error && typeof error === 'object' && 'message' in error && 
-          typeof error.message === 'string' && 
-          error.message.includes('column') && error.message.includes('does not exist')) {
+      if (
+        error &&
+        typeof error === 'object' &&
+        'message' in error &&
+        typeof error.message === 'string' &&
+        error.message.includes('column') &&
+        error.message.includes('does not exist')
+      ) {
         hasDeletedAtColumn = false
       }
     }
 
     if (!hasDeletedAtColumn) {
       return NextResponse.json(
-        { 
-          error: 'Database migration required. Please apply the trash functionality migration first.',
-          migrationRequired: true
+        {
+          error:
+            'Database migration required. Please apply the trash functionality migration first.',
+          migrationRequired: true,
         },
         { status: 400 }
       )
@@ -48,37 +51,34 @@ export async function POST(request: NextRequest) {
         // Soft delete: set deleted_at timestamp
         const { error: moveError } = await supabase
           .from('contact_submissions')
-          .update({ 
+          .update({
             deleted_at: new Date().toISOString(),
             status: 'trash',
-            updated_at: new Date().toISOString()
+            updated_at: new Date().toISOString(),
           })
           .in('id', messageIds)
           .is('deleted_at', null) // Only move items that aren't already deleted
 
         if (moveError) {
           console.error('Error moving to trash:', moveError)
-          return NextResponse.json(
-            { error: 'Failed to move messages to trash' },
-            { status: 500 }
-          )
+          return NextResponse.json({ error: 'Failed to move messages to trash' }, { status: 500 })
         }
 
         return NextResponse.json({
           success: true,
           message: `${messageIds.length} message(s) moved to trash`,
           action: 'moveToTrash',
-          count: messageIds.length
+          count: messageIds.length,
         })
 
       case 'restore':
         // Restore from trash: remove deleted_at timestamp
         const { error: restoreError } = await supabase
           .from('contact_submissions')
-          .update({ 
+          .update({
             deleted_at: null,
             status: 'new', // Reset to new status when restoring
-            updated_at: new Date().toISOString()
+            updated_at: new Date().toISOString(),
           })
           .in('id', messageIds)
           .not('deleted_at', 'is', null) // Only restore items that are deleted
@@ -95,7 +95,7 @@ export async function POST(request: NextRequest) {
           success: true,
           message: `${messageIds.length} message(s) restored from trash`,
           action: 'restore',
-          count: messageIds.length
+          count: messageIds.length,
         })
 
       case 'permanentDelete':
@@ -118,7 +118,7 @@ export async function POST(request: NextRequest) {
           success: true,
           message: `${messageIds.length} message(s) permanently deleted`,
           action: 'permanentDelete',
-          count: messageIds.length
+          count: messageIds.length,
         })
 
       default:
@@ -129,17 +129,14 @@ export async function POST(request: NextRequest) {
     }
   } catch (error) {
     console.error('Message management error:', error)
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
 
 export async function GET(request: NextRequest) {
   try {
     await requireAdminAuth()
-    
+
     const { searchParams } = new URL(request.url)
     const view = searchParams.get('view') || 'active' // 'active', 'trash', 'all'
 
@@ -148,14 +145,16 @@ export async function GET(request: NextRequest) {
     // First, check if deleted_at column exists by trying a simple query
     let hasDeletedAtColumn = true
     try {
-      await supabase
-        .from('contact_submissions')
-        .select('deleted_at')
-        .limit(1)
+      await supabase.from('contact_submissions').select('deleted_at').limit(1)
     } catch (error: unknown) {
-      if (error && typeof error === 'object' && 'message' in error && 
-          typeof error.message === 'string' && 
-          error.message.includes('column') && error.message.includes('does not exist')) {
+      if (
+        error &&
+        typeof error === 'object' &&
+        'message' in error &&
+        typeof error.message === 'string' &&
+        error.message.includes('column') &&
+        error.message.includes('does not exist')
+      ) {
         hasDeletedAtColumn = false
       }
     }
@@ -189,7 +188,7 @@ export async function GET(request: NextRequest) {
           stats: { active: 0, trash: 0, total: 0 },
           view,
           count: 0,
-          warning: 'Migration required: deleted_at column does not exist'
+          warning: 'Migration required: deleted_at column does not exist',
         })
       }
     }
@@ -206,23 +205,23 @@ export async function GET(request: NextRequest) {
 
     // Get counts for different views
     let stats = { active: 0, trash: 0, total: 0 }
-    
+
     if (hasDeletedAtColumn) {
       const { data: allData } = await supabase
         .from('contact_submissions')
         .select('id, deleted_at, status')
 
       stats = {
-        active: allData?.filter(item => item.deleted_at === null).length || 0,
-        trash: allData?.filter(item => item.deleted_at !== null).length || 0,
-        total: allData?.length || 0
+        active: allData?.filter((item) => item.deleted_at === null).length || 0,
+        trash: allData?.filter((item) => item.deleted_at !== null).length || 0,
+        total: allData?.length || 0,
       }
     } else {
       // If no deleted_at column, all are active
       stats = {
         active: data?.length || 0,
         trash: 0,
-        total: data?.length || 0
+        total: data?.length || 0,
       }
     }
 
@@ -232,13 +231,10 @@ export async function GET(request: NextRequest) {
       stats,
       view,
       count: data?.length || 0,
-      migrationStatus: hasDeletedAtColumn ? 'applied' : 'required'
+      migrationStatus: hasDeletedAtColumn ? 'applied' : 'required',
     })
   } catch (error) {
     console.error('Error fetching messages:', error)
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

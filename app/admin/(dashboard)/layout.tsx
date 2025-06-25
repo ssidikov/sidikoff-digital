@@ -3,12 +3,14 @@ import { getAdminSession } from '@/lib/admin-auth-server'
 import AdminSidebar, { MobileMenuProvider } from '@/components/admin/AdminSidebar'
 import AdminHeader from '@/components/admin/AdminHeader'
 import PWAInit from '@/components/admin/PWAInit'
+import AdminManifestOverride from '@/components/admin/AdminManifestOverride'
 import { Toaster } from 'react-hot-toast'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'SIDIKOFF Admin Dashboard',
   description: 'Admin dashboard for managing SIDIKOFF Digital website',
+  manifest: '/admin-manifest.json',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
@@ -21,15 +23,11 @@ export const metadata: Metadata = {
     'apple-mobile-web-app-title': 'SIDIKOFF Admin',
     'application-name': 'SIDIKOFF Admin',
     'msapplication-TileColor': '#4f46e5',
-    'theme-color': '#4f46e5'
-  }
+    'theme-color': '#4f46e5',
+  },
 }
 
-export default async function AdminLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const user = await getAdminSession()
 
   if (!user) {
@@ -38,19 +36,18 @@ export default async function AdminLayout({
 
   return (
     <MobileMenuProvider>
+      <AdminManifestOverride />
       <PWAInit />
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
+      <div className='min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100'>
         <AdminSidebar user={user} />
-        <div className="lg:pl-72">
+        <div className='lg:pl-72'>
           <AdminHeader />
-          <main className="py-4 sm:py-6 lg:py-8 min-h-[calc(100vh-4rem)]">
-            <div className="px-3 sm:px-4 lg:px-8 max-w-7xl mx-auto">
-              {children}
-            </div>
+          <main className='py-4 sm:py-6 lg:py-8 min-h-[calc(100vh-4rem)]'>
+            <div className='px-3 sm:px-4 lg:px-8 max-w-7xl mx-auto'>{children}</div>
           </main>
         </div>
         <Toaster
-          position="top-center"
+          position='top-center'
           toastOptions={{
             duration: 4000,
             style: {

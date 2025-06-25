@@ -9,11 +9,11 @@ interface MobileSearchProps {
   suggestions?: string[]
 }
 
-export default function MobileSearch({ 
-  placeholder = 'Search...', 
-  onSearch, 
+export default function MobileSearch({
+  placeholder = 'Search...',
+  onSearch,
   onClear,
-  suggestions = []
+  suggestions = [],
 }: MobileSearchProps) {
   const [query, setQuery] = useState('')
   const [isExpanded, setIsExpanded] = useState(false)
@@ -44,18 +44,19 @@ export default function MobileSearch({
     setShowSuggestions(false)
   }
 
-  const filteredSuggestions = suggestions.filter(s => 
-    s.toLowerCase().includes(query.toLowerCase()) && s !== query
-  ).slice(0, 5)
+  const filteredSuggestions = suggestions
+    .filter((s) => s.toLowerCase().includes(query.toLowerCase()) && s !== query)
+    .slice(0, 5)
 
   return (
-    <div className="relative">
+    <div className='relative'>
       {/* Mobile Search Bar */}
-      <div className={`flex items-center transition-all duration-300 ${
-        isExpanded 
-          ? 'bg-white border border-gray-300 rounded-xl shadow-lg' 
-          : 'bg-gray-100 border border-transparent rounded-lg'
-      }`}>
+      <div
+        className={`flex items-center transition-all duration-300 ${
+          isExpanded
+            ? 'bg-white border border-gray-300 rounded-xl shadow-lg'
+            : 'bg-gray-100 border border-transparent rounded-lg'
+        }`}>
         {/* Search Icon/Button */}
         <button
           onClick={() => {
@@ -67,17 +68,21 @@ export default function MobileSearch({
           }}
           className={`flex items-center justify-center w-10 h-10 text-gray-500 hover:text-gray-700 transition-colors ${
             isExpanded ? 'ml-2' : 'mx-2'
-          }`}
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          }`}>
+          <svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={2}
+              d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
+            />
           </svg>
         </button>
 
         {/* Search Input */}
         <input
           ref={inputRef}
-          type="text"
+          type='text'
           value={query}
           onChange={(e) => {
             setQuery(e.target.value)
@@ -100,10 +105,14 @@ export default function MobileSearch({
         {query && isExpanded && (
           <button
             onClick={handleClear}
-            className="flex items-center justify-center w-8 h-8 mr-2 text-gray-400 hover:text-gray-600 transition-colors"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            className='flex items-center justify-center w-8 h-8 mr-2 text-gray-400 hover:text-gray-600 transition-colors'>
+            <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={2}
+                d='M6 18L18 6M6 6l12 12'
+              />
             </svg>
           </button>
         )}
@@ -111,16 +120,24 @@ export default function MobileSearch({
 
       {/* Search Suggestions */}
       {showSuggestions && filteredSuggestions.length > 0 && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-lg z-50 max-h-60 overflow-y-auto">
+        <div className='absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-lg z-50 max-h-60 overflow-y-auto'>
           {filteredSuggestions.map((suggestion, index) => (
             <button
               key={index}
               onClick={() => handleSuggestionClick(suggestion)}
-              className="w-full px-4 py-3 text-left text-sm text-gray-700 hover:bg-gray-50 first:rounded-t-xl last:rounded-b-xl transition-colors"
-            >
-              <div className="flex items-center space-x-2">
-                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              className='w-full px-4 py-3 text-left text-sm text-gray-700 hover:bg-gray-50 first:rounded-t-xl last:rounded-b-xl transition-colors'>
+              <div className='flex items-center space-x-2'>
+                <svg
+                  className='w-4 h-4 text-gray-400'
+                  fill='none'
+                  stroke='currentColor'
+                  viewBox='0 0 24 24'>
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth={2}
+                    d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
+                  />
                 </svg>
                 <span>{suggestion}</span>
               </div>
@@ -131,10 +148,7 @@ export default function MobileSearch({
 
       {/* Backdrop for mobile */}
       {isExpanded && (
-        <div
-          className="fixed inset-0 z-10 lg:hidden"
-          onClick={() => setIsExpanded(false)}
-        />
+        <div className='fixed inset-0 z-10 lg:hidden' onClick={() => setIsExpanded(false)} />
       )}
     </div>
   )
