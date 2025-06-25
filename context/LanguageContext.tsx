@@ -262,7 +262,7 @@ const translations: Record<Language, TranslationMap> = {
       'Votre message a été envoyé avec succès ! Vous recevrez un email de confirmation sous peu. Nous vous contacterons bientôt !', // Footer
     'footer.rights':
       'SIDIKOFF DIGITAL — Agence Web à Paris. Création de sites internet sur mesure.', // Legal Mentions
-    'legal.title': 'Politique de confidentialité',
+    'legal.title': 'Mentions légales',
     'legal.company.title': "Informations sur l'entreprise",
     'legal.company.name': 'Nom commercial',
     'legal.company.nameValue': 'SIDIKOFF DIGITAL',

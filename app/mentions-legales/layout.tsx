@@ -8,8 +8,8 @@ const legalSchema = {
   '@type': 'WebPage',
   '@id': 'https://www.sidikoff.com/mentions-legales#webpage',
   url: 'https://www.sidikoff.com/mentions-legales',
-  name: 'Politique de confidentialité - SIDIKOFF DIGITAL',
-  description: 'Politique de confidentialité de SIDIKOFF DIGITAL, agence web parisienne',
+  name: 'Mentions légales - SIDIKOFF DIGITAL',
+  description: 'Mentions légales de SIDIKOFF DIGITAL, agence web parisienne',
   isPartOf: {
     '@id': 'https://www.sidikoff.com/#website',
   },

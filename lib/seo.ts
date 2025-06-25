@@ -285,11 +285,11 @@ export const pagesSEO = {
   },
   legal: {
     fr: {
-      title: 'Politique de confidentialité | SIDIKOFF DIGITAL - Agence Web Paris',
+      title: 'Mentions légales | SIDIKOFF DIGITAL - Agence Web Paris',
       description:
-        "Politique de confidentialité de SIDIKOFF DIGITAL, agence web parisienne. Protection des données personnelles, cookies et conditions d'utilisation.",
+        "Mentions légales de SIDIKOFF DIGITAL, agence web parisienne. Protection des données personnelles, cookies et conditions d'utilisation.",
       keywords: [
-        'politique de confidentialité',
+        'Mentions légales',
         'protection données personnelles',
         'cookies',
         'conditions utilisation',
