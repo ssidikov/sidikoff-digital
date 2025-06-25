@@ -3,13 +3,13 @@ import nodemailer from 'nodemailer'
 // Validate environment variables
 const validateEmailConfig = () => {
   const requiredVars = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_USER', 'SMTP_PASSWORD']
-  const missing = requiredVars.filter(varName => !process.env[varName])
-  
+  const missing = requiredVars.filter((varName) => !process.env[varName])
+
   if (missing.length > 0) {
     console.error('❌ Missing email environment variables:', missing)
     return false
   }
-  
+
   console.log('✅ Email configuration validated')
   return true
 }
@@ -40,12 +40,6 @@ const createTransporter = () => {
         user: process.env.SMTP_USER!,
         pass: process.env.SMTP_PASSWORD!,
       },
-      tls: {
-        rejectUnauthorized: false // Allow self-signed certificates
-      },
-      connectionTimeout: 60000, // 60 seconds
-      greetingTimeout: 30000, // 30 seconds
-      socketTimeout: 60000, // 60 seconds
     })
   } catch (error) {
     console.error('❌ Failed to create email transporter:', error)
@@ -404,9 +398,9 @@ SIDIKOFF Digital Admin Notification
 export const sendEmail = async (to: string, subject: string, html: string, text: string) => {
   console.log(`📧 Attempting to send email to: ${to}`)
   console.log(`📧 Subject: ${subject}`)
-  
+
   const emailTransporter = getTransporter()
-  
+
   if (!emailTransporter) {
     const error = 'Email transporter is not available. Please check SMTP configuration.'
     console.error('❌ ' + error)
@@ -427,10 +421,10 @@ export const sendEmail = async (to: string, subject: string, html: string, text:
     return { success: true, messageId: result.messageId }
   } catch (error) {
     console.error('❌ Email send error:', error)
-    return { 
-      success: false, 
+    return {
+      success: false,
       error: error instanceof Error ? error.message : 'Unknown error',
-      details: error
+      details: error,
     }
   }
 }
