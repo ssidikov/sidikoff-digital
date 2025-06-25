@@ -23,36 +23,56 @@ async function testEmailConfiguration() {
 
   // Check environment variables
   console.log('📋 Environment Variables Check:')
-  const requiredVars = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_USER', 'SMTP_PASSWORD', 'ADMIN_EMAIL']
+  const requiredVars = ['MTP_PASSWORD']
+  const gmailConfig = {
+    SMTP_HOST: 'smtp.gmail.com',
+    SMTP_PORT: '587',
+    SMTP_USER: 's.sidikoff@gmail.com',
+    ADMIN_EMAIL: 's.sidikoff@gmail.com'
+  }
+  
   let allPresent = true
 
+  // Check required environment variable
   for (const varName of requiredVars) {
     const value = process.env[varName]
     if (value) {
-      if (varName === 'SMTP_USER' || varName === 'ADMIN_EMAIL') {
-        // Mask email addresses for security
-        console.log(`✅ ${varName}: ${value.replace(/(.{3}).*(@.*)/, '$1***$2')}`)
-      } else if (varName === 'SMTP_PASSWORD') {
-        console.log(`✅ ${varName}: ${'*'.repeat(8)}`)
-      } else {
-        console.log(`✅ ${varName}: ${value}`)
-      }
+      console.log(`✅ ${varName}: ${'*'.repeat(8)}`)
     } else {
       console.log(`❌ ${varName}: MISSING`)
       allPresent = false
     }
   }
 
+  // Display Gmail configuration
+  console.log('\n📧 Gmail Configuration (built-in):')
+  for (const [key, value] of Object.entries(gmailConfig)) {
+    if (key === 'SMTP_USER' || key === 'ADMIN_EMAIL') {
+      console.log(`✅ ${key}: ${value.replace(/(.{3}).*(@.*)/, '$1***$2')}`)
+    } else {
+      console.log(`✅ ${key}: ${value}`)
+    }
+  }
+
   if (!allPresent) {
     console.log('\n❌ Missing required environment variables. Please check your .env.local file.')
+    console.log('💡 For Gmail setup, you only need to add the following to your .env.local:')
+    console.log('   MTP_PASSWORD=your-gmail-app-password')
+    console.log('💡 To get a Gmail App Password:')
+    console.log('   1. Go to your Google Account settings')
+    console.log('   2. Enable 2-factor authentication if not already enabled')
+    console.log('   3. Go to Security > App passwords')
+    console.log('   4. Generate a new app password for "Mail"')
+    console.log('   5. Use that 16-character password as MTP_PASSWORD')
     process.exit(1)
   }
 
   console.log('\n📧 Testing basic email sending...')
 
   // Test basic email
+  const adminEmail = 's.sidikoff@gmail.com'
   const testResult = await sendEmail(
-    process.env.ADMIN_EMAIL!,
+    adminEmail,
     '🧪 Test Email - SIDIKOFF Digital',
     `
     <h1>Test Email</h1>
@@ -87,7 +107,7 @@ Environment: ${process.env.NODE_ENV || 'development'}
   // Test user confirmation email
   const testSubmission: ContactSubmission = {
     name: 'Test User',
-    email: process.env.ADMIN_EMAIL!,
+    email: adminEmail,
     message: 'This is a test submission from the email configuration test script.',
     projectType: 'Website Development',
     company: 'Test Company',

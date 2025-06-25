@@ -292,18 +292,16 @@ _Dernière mise à jour : Mai 2025_
 
 ### Email Setup
 
-The contact form uses SMTP to send confirmation emails to users and notifications to admins. Here's how to configure it:
+The contact form uses Gmail SMTP to send confirmation emails to users and notifications to admins. The configuration is simplified with built-in Gmail settings.
 
 #### Required Environment Variables
 
 ```bash
-# Email Configuration (SMTP)
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=your-email@gmail.com
-SMTP_PASSWORD=your-app-password
+# Email Configuration (Gmail - Simplified Setup)
+# Only MTP_PASSWORD is required - Gmail settings are built-in
+MTP_PASSWORD=your-gmail-app-password
 
-# Admin Configuration
+# Admin Configuration (optional - defaults to s.sidikoff@gmail.com)
 ADMIN_EMAIL=s.sidikoff@gmail.com
 ```
 
@@ -314,7 +312,7 @@ ADMIN_EMAIL=s.sidikoff@gmail.com
    - Go to Google Account Settings
    - Security → App passwords
    - Generate password for "Mail"
-   - Use this password in `SMTP_PASSWORD`
+   - Use this password as `MTP_PASSWORD`
 
 #### Testing Email Configuration
 
@@ -335,17 +333,17 @@ This script will:
 
 #### Issue 1: "Email transporter is not available"
 
-**Cause**: Missing or incorrect SMTP environment variables
+**Cause**: Missing MTP_PASSWORD environment variable
 
 **Solution**:
 
-1. Check that all SMTP variables are set in Vercel environment variables
-2. Ensure `SMTP_PASSWORD` is the App Password, not your regular Gmail password
-3. Verify `SMTP_USER` is the full email address
+1. Check that `MTP_PASSWORD` is set in Vercel environment variables
+2. Ensure `MTP_PASSWORD` is your Gmail App Password, not your regular Gmail password
+3. The Gmail user (s.sidikoff@gmail.com) is built into the configuration
 
 #### Issue 2: "EAUTH - Authentication failed"
 
-**Cause**: Incorrect Gmail credentials or security settings
+**Cause**: Incorrect Gmail App Password
 
 **Solution**:
 

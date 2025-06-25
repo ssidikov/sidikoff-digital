@@ -1,45 +1,52 @@
 import nodemailer from 'nodemailer'
 
-// Validate environment variables
+// Gmail-specific configuration
+const GMAIL_CONFIG = {
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false, // true for 465, false for other ports
+  user: 's.sidikoff@gmail.com', // Your Gmail address
+}
+
+// Validate environment variables for Gmail
 const validateEmailConfig = () => {
-  const requiredVars = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_USER', 'SMTP_PASSWORD']
+  const requiredVars = ['MTP_PASSWORD']
   const missing = requiredVars.filter((varName) => !process.env[varName])
 
   if (missing.length > 0) {
     console.error('❌ Missing email environment variables:', missing)
+    console.error('💡 For Gmail setup, you only need to set MTP_PASSWORD in .env.local')
+    console.error('💡 MTP_PASSWORD should be your Gmail App Password (not your regular password)')
     return false
   }
 
-  console.log('✅ Email configuration validated')
+  console.log('✅ Gmail email configuration validated')
   return true
 }
 
 // Email configuration
 const createTransporter = () => {
   if (!validateEmailConfig()) {
-    console.error('❌ Email configuration invalid - cannot create transporter')
+    console.error('❌ Gmail configuration invalid - cannot create transporter')
     return null
   }
 
-  const port = parseInt(process.env.SMTP_PORT || '465')
-  const isSecure = port === 465
-
-  console.log('📧 Creating email transporter with config:', {
-    host: process.env.SMTP_HOST,
-    port: port,
-    secure: isSecure,
-    user: process.env.SMTP_USER?.replace(/(.{3}).*(@.*)/, '$1***$2'), // Mask email for logs
+  console.log('📧 Creating Gmail transporter with config:', {
+    host: GMAIL_CONFIG.host,
+    port: GMAIL_CONFIG.port,
+    secure: GMAIL_CONFIG.secure,
+    user: GMAIL_CONFIG.user.replace(/(.{3}).*(@.*)/, '$1***$2'), // Mask email for logs
   })
 
   try {
     return nodemailer.createTransport({
-      port: port,
-      host: process.env.SMTP_HOST!,
+      host: GMAIL_CONFIG.host,
+      port: GMAIL_CONFIG.port,
+      secure: GMAIL_CONFIG.secure,
       auth: {
-        user: process.env.SMTP_USER!,
-        pass: process.env.SMTP_PASSWORD!,
+        user: GMAIL_CONFIG.user,
+        pass: process.env.MTP_PASSWORD!, // Gmail App Password
       },
-      secure: isSecure, // true for 465, false for other ports
       tls: {
         rejectUnauthorized: false, // Allow self-signed certificates
       },
