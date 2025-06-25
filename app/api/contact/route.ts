@@ -56,12 +56,14 @@ export async function POST(request: NextRequest) {
       submittedAt: new Date().toISOString()
     }
 
-    // Send emails (don't block the response if emails fail)
+    // Send emails (wait for completion to see full logs)
     console.log('📧 Starting email sending process...')
-    Promise.all([
-      sendUserConfirmation(emailData),
-      sendAdminNotification(emailData)
-    ]).then(([userResult, adminResult]) => {
+    try {
+      const [userResult, adminResult] = await Promise.all([
+        sendUserConfirmation(emailData),
+        sendAdminNotification(emailData)
+      ])
+      
       console.log('=== EMAIL RESULTS ===')
       console.log('User confirmation email:', userResult.success ? '✅ SENT' : '❌ FAILED')
       if (userResult.error) console.log('User email error:', userResult.error)
@@ -73,9 +75,9 @@ export async function POST(request: NextRequest) {
       
       console.log('Admin email sent to:', process.env.EMAIL_TO || 's.sidikoff@gmail.com')
       console.log('=== END EMAIL RESULTS ===')
-    }).catch((emailError) => {
+    } catch (emailError) {
       console.error('❌ Email sending process failed:', emailError)
-    })
+    }
 
     return NextResponse.json({ 
       success: true, 
