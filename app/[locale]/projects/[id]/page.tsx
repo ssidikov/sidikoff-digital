@@ -9,14 +9,9 @@ const locales = ['fr', 'en', 'ru']
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string; id: string }> | { locale: string; id: string }
+  params: Promise<{ locale: string; id: string }>
 }): Promise<Metadata> {
-  const resolvedParams =
-    typeof (params as any).then === 'function'
-      ? await (params as Promise<{ locale: string; id: string }>)
-      : (params as { locale: string; id: string })
-
-  const { locale, id } = resolvedParams
+  const { locale, id } = await params
   const project = projects.find((p) => p.id === id)
 
   if (!project) {
@@ -77,15 +72,9 @@ export async function generateMetadata({
 export default async function LocaleProjectPage({
   params,
 }: {
-  params: Promise<{ locale: string; id: string }> | { locale: string; id: string }
+  params: Promise<{ locale: string; id: string }>
 }) {
-  // Handle both Promise and direct params for Next.js 15+ compatibility
-  const resolvedParams =
-    typeof (params as any).then === 'function'
-      ? await (params as Promise<{ locale: string; id: string }>)
-      : (params as { locale: string; id: string })
-
-  const { locale, id } = resolvedParams
+  const { locale, id } = await params
 
   if (!locales.includes(locale)) {
     notFound()

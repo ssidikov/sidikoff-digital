@@ -8,13 +8,13 @@ try {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false,
   },
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
   images: {
-    unoptimized: true,
+    unoptimized: false,
   },
   experimental: {
     webpackBuildWorker: true,
@@ -31,10 +31,7 @@ function mergeConfig(nextConfig, userConfig) {
   }
 
   for (const key in userConfig) {
-    if (
-      typeof nextConfig[key] === 'object' &&
-      !Array.isArray(nextConfig[key])
-    ) {
+    if (typeof nextConfig[key] === 'object' && !Array.isArray(nextConfig[key])) {
       nextConfig[key] = {
         ...nextConfig[key],
         ...userConfig[key],

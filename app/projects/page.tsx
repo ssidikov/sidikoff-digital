@@ -1,12 +1,12 @@
 'use client'
-import Link from 'next/link'
+// import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Portfolio from '@/components/Portfolio'
-import { useLanguage } from '@/context/LanguageContext'
+// import { useLanguage } from '@/context/LanguageContext'
 
 export default function ProjectsPage() {
-  const { t } = useLanguage()
+  // const { t } = useLanguage()
 
   return (
     <div className='min-h-screen'>

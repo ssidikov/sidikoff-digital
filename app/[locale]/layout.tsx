@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 
 type Props = {
   children: React.ReactNode
-  params: Promise<{ locale: string }> | { locale: string }
+  params: Promise<{ locale: string }>
 }
 
 const locales = ['fr', 'en', 'ru']
@@ -12,14 +12,9 @@ const locales = ['fr', 'en', 'ru']
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }> | { locale: string }
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
-  // Handle both Promise and direct params for Next.js 15+ compatibility
-  const resolvedParams = await (typeof (params as any).then === 'function'
-    ? (params as Promise<{ locale: string }>)
-    : Promise.resolve(params as { locale: string }))
-
-  const { locale } = resolvedParams
+  const { locale } = await params
 
   if (!locales.includes(locale)) {
     notFound()
@@ -66,12 +61,7 @@ export async function generateMetadata({
 }
 
 export default async function LocaleLayout({ children, params }: Props) {
-  // Handle both Promise and direct params for Next.js 15+ compatibility
-  const resolvedParams = await (typeof (params as any).then === 'function'
-    ? (params as Promise<{ locale: string }>)
-    : Promise.resolve(params as { locale: string }))
-
-  const { locale } = resolvedParams
+  const { locale } = await params
 
   if (!locales.includes(locale)) {
     notFound()

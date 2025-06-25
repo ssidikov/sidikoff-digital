@@ -51,11 +51,11 @@ export default function Contact() {
     const errors: FormErrors = {}
 
     const firstName = formData.get('first-name') as string
-    const lastName = formData.get('last-name') as string
+    // const lastName = formData.get('last-name') as string // Not used in validation
     const email = formData.get('email') as string
-    const phone = formData.get('phone-number') as string
-    const selectedTariff = formData.get('selected-tariff') as string
-    const message = formData.get('message') as string
+    // const phone = formData.get('phone-number') as string // Not used in validation
+    // const selectedTariff = formData.get('selected-tariff') as string // Not used in validation
+    // const message = formData.get('message') as string // Not used in validation
 
     // First name validation
     if (!firstName || firstName.trim().length === 0) {
@@ -111,28 +111,43 @@ export default function Contact() {
     // Validate form
     const errors = validateForm(formData)
 
-    const formSubmissionID = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT
-
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors)
       setIsLoading(false)
       return
     }
+
     try {
-      const response = await fetch(`https://formspree.io/f/${formSubmissionID}`, {
+      // Extract form data
+      const firstName = formData.get('first-name') as string
+      const lastName = formData.get('last-name') as string
+      const email = formData.get('email') as string
+      const phone = formData.get('phone-number') as string
+      const company = formData.get('company') as string
+      const selectedTariff = formData.get('selected-tariff') as string
+      const message = formData.get('message') as string
+
+      // Send to our API
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        body: formData,
         headers: {
-          Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({
+          name: `${firstName} ${lastName || ''}`.trim(),
+          email,
+          phone,
+          company,
+          message,
+          projectType: selectedTariff,
+          budget: null, // Can be added later if needed
+          timeline: null, // Can be added later if needed
+        }),
       })
 
-      if (response.ok) {
-        // Extract form data for tracking
-        const firstName = formData.get('first-name') as string
-        const email = formData.get('email') as string
-        const selectedTariff = formData.get('selected-tariff') as string
+      const result = await response.json()
 
+      if (response.ok) {
         // Track Google Ads conversion
         trackLeadFormSubmission({
           firstName,
@@ -146,9 +161,10 @@ export default function Contact() {
         setFormErrors({})
         setTimeout(() => setIsPopupOpen(false), 5000)
       } else {
-        throw new Error('Failed to send message')
+        throw new Error(result.error || 'Failed to send message')
       }
     } catch (err) {
+      console.error('Contact form error:', err)
       setError('An error occurred while sending the message. Please try again.')
     } finally {
       setIsLoading(false)

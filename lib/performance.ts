@@ -7,7 +7,16 @@ export interface PerformanceMetrics {
   ttfb?: number // Time to First Byte
 }
 
-export function reportWebVitals(metric: any) {
+interface WebVitalMetric {
+  name: string
+  value: number
+  id: string
+  delta: number
+  navigationType?: string
+  rating?: 'good' | 'needs-improvement' | 'poor'
+}
+
+export function reportWebVitals(metric: WebVitalMetric) {
   // Log to console in development
   if (process.env.NODE_ENV === 'development') {
     console.log('Web Vital:', metric)
@@ -28,7 +37,7 @@ export function reportWebVitals(metric: any) {
   sendToAnalytics(metric)
 }
 
-function sendToAnalytics(metric: any) {
+function sendToAnalytics(metric: WebVitalMetric) {
   const body = JSON.stringify({
     name: metric.name,
     value: metric.value,

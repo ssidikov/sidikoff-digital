@@ -2,13 +2,13 @@
 
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import StructuredData from '@/components/StructuredData'
 import { useLanguage } from '@/context/LanguageContext'
-import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 import { generateCreativeWorkSchema } from '@/lib/seo'
 
 interface Project {
@@ -28,19 +28,19 @@ interface ProjectPageClientProps {
 export default function ProjectPageClient({ project }: ProjectPageClientProps) {
   const { t, language } = useLanguage()
   const router = useRouter()
-  const { scrollToSection } = useSmoothScroll()
+  // const { scrollToSection } = useSmoothScroll() // Removed unused function
 
   const handleBackClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    router.push('/projects')
-  }
-
-  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    router.push('/')
-    setTimeout(() => {
-      scrollToSection('contact')
-    }, 150)
+    // Check if user came from a localized URL or main site
+    const referrer = document.referrer
+    if (referrer.includes('/fr/projects') || referrer.includes('/en/projects') || referrer.includes('/ru/projects')) {
+      // If coming from localized projects page, go back to localized projects
+      router.push(`/${language}/projects`)
+    } else {
+      // Otherwise go to main projects page
+      router.push('/projects')
+    }
   }
 
   // Get localized project data
@@ -87,6 +87,7 @@ export default function ProjectPageClient({ project }: ProjectPageClientProps) {
               src={project.image}
               alt={localizedProject.title}
               fill
+              sizes='(max-width: 768px) 100vw, 50vw'
               className='object-cover object-top'
             />
           </div>
@@ -108,7 +109,7 @@ export default function ProjectPageClient({ project }: ProjectPageClientProps) {
               </div>
             </div>
             <div className='flex flex-col md:flex-row gap-4 justify-between md:justify-normal items-center'>
-              <a href='/#contact-form' onClick={handleContactClick} className='w-full md:w-48'>
+              <Link href='/#contact-form' className='w-full md:w-48'>
                 <button className='group relative w-full md:min-w-[120px] md:max-w-[220px] px-6 py-4 md:py-3 text-base font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center mx-auto overflow-hidden'>
                   <div className='absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
                   <span className='text-m relative z-10 transition-all duration-300 group-hover:tracking-wide'>
@@ -116,7 +117,7 @@ export default function ProjectPageClient({ project }: ProjectPageClientProps) {
                   </span>
                   <div className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12' />
                 </button>
-              </a>
+              </Link>
 
               {project.link && (
                 <a

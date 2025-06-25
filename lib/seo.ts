@@ -66,6 +66,7 @@ export function generateMetadata(seoData: SEOData): Metadata {
     : `${title} | ${defaultSEOConfig.siteName}`
 
   const metadata: Metadata = {
+    metadataBase: new URL(defaultSEOConfig.baseUrl),
     title: fullTitle,
     description,
     keywords: [...defaultSEOConfig.defaultKeywords, ...keywords],
@@ -299,7 +300,13 @@ export const pagesSEO = {
       title: 'Privacy Policy & Legal Notice | SIDIKOFF DIGITAL',
       description:
         'Read the official privacy policy and legal notice for SIDIKOFF DIGITAL. Learn how we handle your data, our use of cookies, and terms of service.',
-      keywords: ['privacy policy', 'legal notice', 'data protection gdpr', 'terms of service', 'cookie policy'],
+      keywords: [
+        'privacy policy',
+        'legal notice',
+        'data protection gdpr',
+        'terms of service',
+        'cookie policy',
+      ],
       canonical: 'https://www.sidikoff.com/mentions-legales',
     },
     ru: {

@@ -32,7 +32,7 @@ export default function Breadcrumbs() {
   const breadcrumbs: BreadcrumbItem[] = [{ label: t('nav.home'), href: homePath }]
 
   let currentPath = hasLocalePrefix ? `/${currentLocale}` : ''
-  contentSegments.forEach((segment, index) => {
+  contentSegments.forEach((segment) => {
     currentPath += `/${segment}` // Map path segments to labels
     const labels: { [key: string]: string } = {
       about: t('nav.expertise'),

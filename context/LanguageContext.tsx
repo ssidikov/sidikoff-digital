@@ -158,6 +158,7 @@ const translations: Record<Language, TranslationMap> = {
     // Tarifs
     'prices.title': 'Tarifs',
     'prices.subtitle': 'Des solutions accessibles et sur mesure',
+    'prices.popular': 'Le plus populaire',
     'prices.description':
       'Des sites web modernes, performants et optimisés SEO pour booster votre visibilité et attirer plus de clients.',
     'prices.tier1.name': 'Site Essentiel',
@@ -258,7 +259,7 @@ const translations: Record<Language, TranslationMap> = {
     // Success popup messages
     'popup.success.title': 'Envoyé avec succès !',
     'popup.success.message':
-      'Votre message a été envoyé avec succès. Nous vous répondrons bientôt !', // Footer
+      'Votre message a été envoyé avec succès ! Vous recevrez un email de confirmation sous peu. Nous vous contacterons bientôt !', // Footer
     'footer.rights':
       'SIDIKOFF DIGITAL — Agence Web à Paris. Création de sites internet sur mesure.', // Legal Mentions
     'legal.title': 'Politique de confidentialité',
@@ -438,6 +439,7 @@ const translations: Record<Language, TranslationMap> = {
     // Prices
     'prices.title': 'Plans',
     'prices.subtitle': 'Accessible and tailored solutions',
+    'prices.popular': 'Most Popular',
     'prices.description':
       'Modern, high-performance, SEO-optimized websites to boost your visibility and attract more clients.',
     'prices.tier1.name': 'Essential Website',
@@ -504,22 +506,22 @@ const translations: Record<Language, TranslationMap> = {
     'contact.sending': 'Sending...',
 
     // Form validation errors
-    'validation.firstName.required': 'Le prénom est obligatoire',
-    'validation.firstName.minLength': 'Le prénom doit contenir au moins 2 caractères',
-    'validation.lastName.required': 'Le nom est obligatoire',
-    'validation.lastName.minLength': 'Le nom doit contenir au moins 2 caractères',
-    'validation.email.required': "L'adresse e-mail est obligatoire",
-    'validation.email.invalid': 'Veuillez saisir une adresse e-mail valide',
-    'validation.phone.required': 'Le numéro de téléphone est obligatoire',
-    'validation.phone.invalid': 'Veuillez saisir un numéro de téléphone valide',
-    'validation.tariff.required': 'Veuillez sélectionner un service',
-    'validation.message.required': 'Le message est obligatoire',
-    'validation.message.minLength': 'Le message doit contenir au moins 10 caractères',
+    'validation.firstName.required': 'First name is required',
+    'validation.firstName.minLength': 'First name must be at least 2 characters',
+    'validation.lastName.required': 'Last name is required',
+    'validation.lastName.minLength': 'Last name must be at least 2 characters',
+    'validation.email.required': 'Email address is required',
+    'validation.email.invalid': 'Please enter a valid email address',
+    'validation.phone.required': 'Phone number is required',
+    'validation.phone.invalid': 'Please enter a valid phone number',
+    'validation.tariff.required': 'Please select a service',
+    'validation.message.required': 'Message is required',
+    'validation.message.minLength': 'Message must be at least 10 characters',
 
     // Success popup messages
-    'popup.success.title': 'Envoyé avec succès !',
+    'popup.success.title': 'Successfully Sent!',
     'popup.success.message':
-      'Votre message a été envoyé avec succès. Nous vous répondrons bientôt !', // Footer
+      'Your message has been sent successfully! You will receive a confirmation email shortly. We will contact you soon!', // Footer
     'footer.rights':
       'SIDIKOFF DIGITAL — Agence Web à Paris. Création de sites internet sur mesure.', // Legal Mentions
     'legal.title': 'Politique de confidentialité',
@@ -698,6 +700,7 @@ const translations: Record<Language, TranslationMap> = {
     // Цены (Тарифы)
     'prices.title': 'Цены',
     'prices.subtitle': 'Доступные и индивидуальные решения',
+    'prices.popular': 'Популярно',
     'prices.description':
       'Современные, быстрые и SEO-оптимизированные сайты для роста вашего бизнеса и привлечения клиентов.',
     'prices.tier1.name': 'Сайт-визитка',
@@ -772,9 +775,12 @@ const translations: Record<Language, TranslationMap> = {
     'validation.phone.invalid': 'Пожалуйста, введите корректный номер телефона',
     'validation.tariff.required': 'Пожалуйста, выберите услугу',
     'validation.message.required': 'Сообщение обязательно для заполнения',
-    'validation.message.minLength': 'Сообщение должно содержать минимум 10 символов', // Success popup messages
+    'validation.message.minLength': 'Сообщение должно содержать минимум 10 символов',
+
+    // Success popup messages
     'popup.success.title': 'Успешно отправлено!',
-    'popup.success.message': 'Ваше сообщение было успешно отправлено. Мы скоро свяжемся с вами!',
+    'popup.success.message':
+      'Ваше сообщение было успешно отправлено! Вы получите подтверждение по электронной почте в ближайшее время. Мы скоро свяжемся с вами!',
 
     // FAQ
     'faq.title': 'Часто задаваемые вопросы',

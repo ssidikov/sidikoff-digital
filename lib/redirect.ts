@@ -9,7 +9,9 @@ export const redirectToHome = () => {
   }
 }
 
-export const redirectToHomeWithRouter = (router: any) => {
+import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
+
+export const redirectToHomeWithRouter = (router: AppRouterInstance | null) => {
   if (router) {
     router.replace('/')
   } else {

@@ -138,6 +138,7 @@ const About: React.FC = () => {
                     src='/founder.webp'
                     alt='Founder'
                     fill
+                    sizes='(max-width: 96px) 96px, 96px'
                     style={{ objectFit: 'cover' }}
                     className='rounded-full'
                     priority
@@ -219,7 +220,17 @@ const About: React.FC = () => {
           </motion.h3>
           <div className='grid md:grid-cols-3 gap-8'>
             {principles.map((principle, index) => {
-              const PrincipleCard = ({ principle, index }: { principle: any; index: number }) => {
+              const PrincipleCard = ({
+                principle,
+                index,
+              }: {
+                principle: {
+                  icon: React.ComponentType<{ className?: string }>
+                  titleKey: string
+                  descriptionKey: string
+                }
+                index: number
+              }) => {
                 const mouseX = useMotionValue(0)
                 const mouseY = useMotionValue(0)
 
@@ -286,7 +297,16 @@ const About: React.FC = () => {
           </motion.h3>
           <div className='grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto'>
             {stats.map((stat, index) => {
-              const StatsCard = ({ stat, index }: { stat: any; index: number }) => {
+              const StatsCard = ({
+                stat,
+                index,
+              }: {
+                stat: {
+                  valueKey: string
+                  labelKey: string
+                }
+                index: number
+              }) => {
                 const mouseX = useMotionValue(0)
                 const mouseY = useMotionValue(0)
 

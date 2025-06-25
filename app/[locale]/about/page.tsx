@@ -8,13 +8,9 @@ const locales = ['fr', 'en', 'ru']
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }> | { locale: string }
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
-  const resolvedParams = await (typeof (params as any).then === 'function'
-    ? (params as Promise<{ locale: string }>)
-    : Promise.resolve(params as { locale: string }))
-
-  const { locale } = resolvedParams
+  const { locale } = await params
 
   const metadataByLocale = {
     fr: {
@@ -111,14 +107,9 @@ export async function generateMetadata({
 export default async function LocaleAboutPage({
   params,
 }: {
-  params: Promise<{ locale: string }> | { locale: string }
+  params: Promise<{ locale: string }>
 }) {
-  // Handle both Promise and direct params for Next.js 15+ compatibility
-  const resolvedParams = await (typeof (params as any).then === 'function'
-    ? (params as Promise<{ locale: string }>)
-    : Promise.resolve(params as { locale: string }))
-
-  const { locale } = resolvedParams
+  const { locale } = await params
 
   if (!locales.includes(locale)) {
     notFound()

@@ -11,14 +11,10 @@ const getProjectById = (id: string) => {
 export async function generateMetadata({
   params,
 }: {
-  params: { id: string } | Promise<{ id: string }>
+  params: Promise<{ id: string }>
 }): Promise<Metadata> {
-  const actualParams =
-    typeof (params as any).then === 'function'
-      ? await (params as Promise<{ id: string }>)
-      : (params as { id: string })
-
-  const project = getProjectById(actualParams.id)
+  const { id } = await params
+  const project = getProjectById(id)
 
   if (!project) {
     return {
@@ -74,15 +70,9 @@ export async function generateMetadata({
 export default async function ProjectPage({
   params,
 }: {
-  params: { id: string } | Promise<{ id: string }>
+  params: Promise<{ id: string }>
 }) {
-  // Handle both Promise and direct params for Next.js 15+ compatibility
-  const resolvedParams =
-    typeof (params as any).then === 'function'
-      ? await (params as Promise<{ id: string }>)
-      : (params as { id: string })
-
-  const { id } = resolvedParams
+  const { id } = await params
   const project = getProjectById(id)
 
   if (!project) {

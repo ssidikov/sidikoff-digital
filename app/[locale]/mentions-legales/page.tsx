@@ -13,14 +13,9 @@ const locales = ['fr', 'en', 'ru']
 export default function LocaleLegalPage({
   params,
 }: {
-  params: Promise<{ locale: string }> | { locale: string }
+  params: Promise<{ locale: string }>
 }) {
-  // Handle both Promise and direct params for Next.js 15+ compatibility
-  const resolvedParams = React.use(
-    typeof (params as any).then === 'function'
-      ? (params as Promise<{ locale: string }>)
-      : Promise.resolve(params as { locale: string })
-  )
+  const resolvedParams = React.use(params)
 
   const { locale } = resolvedParams
   const { setLanguage, t } = useLanguage()

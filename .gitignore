@@ -16,8 +16,12 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files
-.env*
+# env files - IMPORTANT: Never commit these!
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # vercel
 .vercel
@@ -37,6 +41,12 @@ next-env.d.ts
 # OS
 .DS_Store
 Thumbs.db
+
+# Sensitive files
+scripts/setup-admin.js
+scripts/debug-auth.js
+scripts/test-auth.js
+ADMIN_PANEL_README.md
 
 # github instructions
 .github

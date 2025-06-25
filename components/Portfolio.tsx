@@ -12,11 +12,11 @@ import {
   useMotionValue,
 } from 'framer-motion'
 import { projects } from '@/data/portfolio-data'
-import AnimatedSection from './AnimatedSection'
+// import AnimatedSection from './AnimatedSection' // Not used
 import { useLanguage } from '@/context/LanguageContext'
 import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 import {
-  ExternalLink,
+  // ExternalLink, // Not used
   Eye,
   Code,
   Sparkles,
@@ -27,12 +27,22 @@ import {
 } from 'lucide-react'
 
 // Project card component to avoid hooks in map
+interface LocalizedProject {
+  id: string
+  title: string
+  description: string
+  longDescription: string
+  image: string
+  technologies: string[]
+  link: string
+}
+
 interface ProjectCardProps {
-  project: any
+  project: LocalizedProject
   filterTechnology: string
   currentLocale: string
-  t: any
-  onProjectClick: (project: any) => void
+  t: (key: string) => string
+  onProjectClick: (project: LocalizedProject) => void
   index: number
   isNewlyAdded: boolean
 }
@@ -267,7 +277,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
     }, 150)
   }
   // Handle project click - navigate to project page
-  const handleProjectClick = (project: any) => {
+  const handleProjectClick = (project: LocalizedProject) => {
     router.push(getLocalePath(`/projects/${project.id}`))
   }
 

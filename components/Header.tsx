@@ -1,10 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
+// import Link from 'next/link' // Not used
 import Image from 'next/image'
 import { useRouter, usePathname } from 'next/navigation'
-import { useTheme } from 'next-themes'
 import { DarkModeToggle } from './ui/DarkModeToggle'
 import { motion, AnimatePresence } from 'framer-motion'
 import LanguageSelector from './LanguageSelector'
@@ -14,11 +13,11 @@ import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [mounted, setMounted] = useState(false)
-  const { t, language } = useLanguage()
+  // const [isScrolled, setIsScrolled] = useState(false) // Not used
+  // const [mounted, setMounted] = useState(false) // Not used
+  const { t, language } = useLanguage() // Added language
   const { scrollToSection, scrollToTop } = useSmoothScroll()
-  const { theme, resolvedTheme } = useTheme()
+  // const { theme, resolvedTheme } = useTheme() // Not used
   const router = useRouter()
   const pathname = usePathname()
   // Get current locale from pathname
@@ -29,17 +28,26 @@ export default function Header() {
     return 'fr' // Default to French
   }
 
-  const currentLocale = getCurrentLocale()
+  // Use language from context instead of URL for navigation links
+  const currentLocale = language // Use context language instead of getCurrentLocale()
   // Generate locale-aware URLs
   const getLocalePath = (path: string) => {
-    // All languages use the /locale prefix for consistency
-    return `/${currentLocale}${path}`
+    // Check if user is on a localized URL path
+    const urlLocale = getCurrentLocale()
+    const isOnLocalizedPath = pathname.startsWith('/fr/') || pathname.startsWith('/en/') || pathname.startsWith('/ru/') || 
+                               pathname === '/fr' || pathname === '/en' || pathname === '/ru'
+    
+    // If user is on a localized path, use locale prefix for consistency
+    // If user is on main site, keep them on main site (no locale prefix)
+    if (isOnLocalizedPath) {
+      return `/${currentLocale}${path}`
+    } else {
+      return path // Keep on main site
+    }
   }
 
-  // Ensure theme is mounted before using it
-  useEffect(() => {
-    setMounted(true)
-  }, []) // Track active section for navigation indicators
+  // Theme mounting effect removed as not needed
+  // Track active section for navigation indicators
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'services', 'portfolio', 'about', 'prices', 'contact']
@@ -58,15 +66,15 @@ export default function Header() {
     }
 
     // Check if we're on the homepage (with or without locale)
-    const locale = currentLocale || ''
-    const isHomePage = pathname === '/' || pathname === `/${locale}` || pathname === `/${locale}/`
+    const urlLocale = getCurrentLocale() // Use URL-based locale for page detection
+    const isHomePage = pathname === '/' || pathname === `/${urlLocale}` || pathname === `/${urlLocale}/`
 
     if (isHomePage) {
       window.addEventListener('scroll', handleScroll)
       handleScroll() // Initial check
     }
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [pathname, currentLocale])
+  }, [pathname]) // Remove currentLocale dependency since we use language from context now
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
@@ -74,8 +82,8 @@ export default function Header() {
       const sectionId = href.substring(2) // Remove "/#"
 
       // Check if we're on the homepage (with or without locale)
-      const locale = currentLocale || ''
-      const isHomePage = pathname === '/' || pathname === `/${locale}` || pathname === `/${locale}/`
+      const urlLocale = getCurrentLocale() // Use URL-based locale for page detection
+      const isHomePage = pathname === '/' || pathname === `/${urlLocale}` || pathname === `/${urlLocale}/`
 
       if (isHomePage) {
         scrollToSection(sectionId)
@@ -102,8 +110,8 @@ export default function Header() {
       const sectionId = href.substring(2) // Remove "/#"
 
       // Check if we're on the homepage (with or without locale)
-      const locale = currentLocale || ''
-      const isHomePage = pathname === '/' || pathname === `/${locale}` || pathname === `/${locale}/`
+      const urlLocale = getCurrentLocale() // Use URL-based locale for page detection
+      const isHomePage = pathname === '/' || pathname === `/${urlLocale}` || pathname === `/${urlLocale}/`
 
       if (isHomePage) {
         setTimeout(() => scrollToSection(sectionId), 100) // Small delay for menu closing
@@ -125,8 +133,8 @@ export default function Header() {
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     // Check if we're on the homepage (with or without locale)
-    const locale = currentLocale || ''
-    const isHomePage = pathname === '/' || pathname === `/${locale}` || pathname === `/${locale}/`
+    const urlLocale = getCurrentLocale() // Use URL-based locale for page detection
+    const isHomePage = pathname === '/' || pathname === `/${urlLocale}` || pathname === `/${urlLocale}/`
 
     if (isHomePage) {
       scrollToTop()

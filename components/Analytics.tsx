@@ -117,7 +117,7 @@ export default function Analytics({
 }
 
 // Track custom events
-export function trackEvent(eventName: string, parameters?: Record<string, any>) {
+export function trackEvent(eventName: string, parameters?: Record<string, string | number | boolean>) {
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', eventName, parameters)
   }
@@ -161,7 +161,7 @@ export function trackLeadFormSubmission(formData?: {
 
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void
-    dataLayer: any[]
+    gtag: (command: string, targetId: string, config?: Record<string, unknown>) => void
+    dataLayer: Record<string, unknown>[]
   }
 }

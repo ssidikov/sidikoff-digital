@@ -18,36 +18,39 @@ const inter = Inter({
   preload: true,
 })
 
-export const metadata: Metadata = generateSEOMetadata({
-  title: 'Agence Web - SIDIKOFF DIGITAL',
-  description:
-    'SIDIKOFF DIGITAL, agence web fondée par Sardorbek SIDIKOV. Création de sites internet sur mesure, applications React/Next.js, stratégie SEO et transformation digitale à Paris.',
-  keywords: [
-    'SIDIKOFF DIGITAL',
-    'Sardorbek SIDIKOV',
-    'agence web paris premium',
-    'création site internet paris',
-    'développement web paris',
-    'agence digitale parisienne',
-    'site web responsive paris',
-    'UX UI design paris',
-    'référencement SEO paris',
-    'application web react',
-    'e-commerce paris',
-    'développeur react paris',
-    'next.js agence paris',
-    'typescript développement',
-    'transformation digitale paris',
-  ],
-  locale: 'fr-FR',
-  alternateLanguages: {
-    fr: 'https://www.sidikoff.com/fr',
-    en: 'https://www.sidikoff.com/en',
-    ru: 'https://www.sidikoff.com/ru',
-  },
-  ogImage: 'https://www.sidikoff.com/images/contact.png',
-  canonical: 'https://www.sidikoff.com/',
-})
+export const metadata: Metadata = {
+  metadataBase: new URL('https://www.sidikoff.com'),
+  ...generateSEOMetadata({
+    title: 'Agence Web - SIDIKOFF DIGITAL',
+    description:
+      'SIDIKOFF DIGITAL, agence web fondée par Sardorbek SIDIKOV. Création de sites internet sur mesure, applications React/Next.js, stratégie SEO et transformation digitale à Paris.',
+    keywords: [
+      'SIDIKOFF DIGITAL',
+      'Sardorbek SIDIKOV',
+      'agence web paris premium',
+      'création site internet paris',
+      'développement web paris',
+      'agence digitale parisienne',
+      'site web responsive paris',
+      'UX UI design paris',
+      'référencement SEO paris',
+      'application web react',
+      'e-commerce paris',
+      'développeur react paris',
+      'next.js agence paris',
+      'typescript développement',
+      'transformation digitale paris',
+    ],
+    locale: 'fr-FR',
+    alternateLanguages: {
+      fr: 'https://www.sidikoff.com/fr',
+      en: 'https://www.sidikoff.com/en',
+      ru: 'https://www.sidikoff.com/ru',
+    },
+    ogImage: 'https://www.sidikoff.com/images/contact.png',
+    canonical: 'https://www.sidikoff.com/',
+  }),
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

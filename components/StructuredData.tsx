@@ -11,13 +11,14 @@ import {
 
 interface StructuredDataProps {
   type?: 'business' | 'website' | 'organization' | 'person' | 'webpage' | 'all'
-  customData?: Record<string, any>
+  customData?: Record<string, unknown>
   pageData?: {
     name: string
     description: string
     url: string
     datePublished?: string
     dateModified?: string
+    locale: string
   }
 }
 

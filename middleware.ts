@@ -8,6 +8,31 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
   const userAgent = request.headers.get('user-agent') || ''
 
+  // Admin routes protection
+  if (pathname.startsWith('/admin')) {
+    // Allow login page
+    if (pathname === '/admin/login') {
+      return NextResponse.next()
+    }
+
+    // Check for admin session cookie
+    const adminSession = request.cookies.get('admin_session')
+    
+    if (!adminSession) {
+      // Redirect to login if no session
+      return NextResponse.redirect(new URL('/admin/login', request.url))
+    }
+
+    try {
+      // Basic validation that the session exists and is parseable
+      JSON.parse(adminSession.value)
+      return NextResponse.next()
+    } catch {
+      // Invalid session, redirect to login
+      return NextResponse.redirect(new URL('/admin/login', request.url))
+    }
+  }
+
   // Check if the request is from a search engine bot
   const isBot = /bot|crawl|spider|facebook|twitter|linkedin|whatsapp|telegram/i.test(userAgent)
 
