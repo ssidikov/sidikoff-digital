@@ -1,0 +1,78 @@
+{
+  "name": "SIDIKOFF Admin Dashboard",
+  "short_name": "SIDIKOFF Admin",
+  "description": "Admin dashboard for managing SIDIKOFF Digital website content, projects, and client communications",
+  "start_url": "/admin/dashboard",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#4f46e5",
+  "orientation": "portrait-primary",
+  "scope": "/admin/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "description": "Admin dashboard overview",
+      "url": "/admin/dashboard",
+      "icons": [
+        {
+          "src": "/favicon.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Messages",
+      "short_name": "Messages",
+      "description": "View contact submissions",
+      "url": "/admin/submissions",
+      "icons": [
+        {
+          "src": "/favicon.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Projects",
+      "short_name": "Projects",
+      "description": "Manage projects",
+      "url": "/admin/projects",
+      "icons": [
+        {
+          "src": "/favicon.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false,
+  "features": [
+    "push-messaging",
+    "background-sync"
+  ]
+}

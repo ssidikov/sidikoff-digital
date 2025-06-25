@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createAdminClient } from '@/utils/supabase/server'
 import { sendUserConfirmation, sendAdminNotification, type ContactSubmission } from '@/lib/email'
+import { sendNotificationToAdmins } from '@/lib/push-notifications'
 
 export async function POST(request: NextRequest) {
   try {
@@ -77,6 +78,24 @@ export async function POST(request: NextRequest) {
       console.log('=== END EMAIL RESULTS ===')
     } catch (emailError) {
       console.error('❌ Email sending process failed:', emailError)
+    }
+
+    // Send push notification to admin
+    try {
+      await sendNotificationToAdmins({
+        title: '📨 New Contact Submission',
+        body: `From ${name}: ${message.substring(0, 100)}${message.length > 100 ? '...' : ''}`,
+        type: 'new_submission',
+        data: {
+          submissionId: submission.id,
+          senderName: name,
+          senderEmail: email,
+          viewUrl: `/admin/submissions?highlight=${submission.id}`
+        }
+      })
+      console.log('✅ Push notification sent to admins')
+    } catch (notificationError) {
+      console.error('❌ Failed to send push notification:', notificationError)
     }
 
     return NextResponse.json({ 

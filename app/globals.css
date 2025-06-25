@@ -494,4 +494,73 @@
       animation: none !important;
     }
   }
+
+  /* PWA-specific styles */
+  .pwa-mode {
+    /* Add padding for status bar on iOS PWA */
+    --safe-area-inset-top: env(safe-area-inset-top);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom);
+  }
+
+  .pwa-mode .admin-header {
+    padding-top: calc(1rem + var(--safe-area-inset-top, 0px));
+  }
+
+  .pwa-mode .admin-sidebar {
+    padding-top: var(--safe-area-inset-top, 0px);
+  }
+
+  .pwa-mode .mobile-bottom-nav {
+    padding-bottom: calc(1rem + var(--safe-area-inset-bottom, 0px));
+  }
+
+  /* PWA install banner styles */
+  .pwa-install-banner {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  /* Enhanced notification styles */
+  .notification-badge {
+    position: relative;
+  }
+
+  .notification-badge::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    background: #ef4444;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+
+  .notification-pulse {
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
 }

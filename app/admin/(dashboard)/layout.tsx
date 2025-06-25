@@ -2,7 +2,29 @@ import { redirect } from 'next/navigation'
 import { getAdminSession } from '@/lib/admin-auth-server'
 import AdminSidebar, { MobileMenuProvider } from '@/components/admin/AdminSidebar'
 import AdminHeader from '@/components/admin/AdminHeader'
+import PWAInit from '@/components/admin/PWAInit'
 import { Toaster } from 'react-hot-toast'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'SIDIKOFF Admin Dashboard',
+  description: 'Admin dashboard for managing SIDIKOFF Digital website',
+  manifest: '/admin-manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'SIDIKOFF Admin',
+  },
+  other: {
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'default',
+    'apple-mobile-web-app-title': 'SIDIKOFF Admin',
+    'application-name': 'SIDIKOFF Admin',
+    'msapplication-TileColor': '#4f46e5',
+    'theme-color': '#4f46e5'
+  }
+}
 
 export default async function AdminLayout({
   children,
@@ -17,6 +39,7 @@ export default async function AdminLayout({
 
   return (
     <MobileMenuProvider>
+      <PWAInit />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
         <AdminSidebar user={user} />
         <div className="lg:pl-72">
