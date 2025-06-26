@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PWA & Push Notification Tester - SIDIKOFF Admin</title>
+    <link rel="manifest" href="/admin-manifest.json">
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+        button {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .status {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .status.success { background: rgba(0,255,0,0.1); }
+        .status.error { background: rgba(255,0,0,0.1); }
+        .status.warning { background: rgba(255,165,0,0.1); }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .info-item {
+            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .info-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .info-value {
+            font-family: monospace;
+            font-size: 12px;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 PWA & Push Notification Tester</h1>
+        <p style="text-align: center;">Comprehensive testing tool for SIDIKOFF Admin PWA</p>
+
+        <!-- Device & Browser Info -->
+        <div class="section">
+            <h2>📱 Device & Browser Information</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">User Agent:</div>
+                    <div class="info-value" id="userAgent"></div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Platform:</div>
+                    <div class="info-value" id="platform"></div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Screen:</div>
+                    <div class="info-value" id="screen"></div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Display Mode:</div>
+                    <div class="info-value" id="displayMode"></div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Standalone:</div>
+                    <div class="info-value" id="standalone"></div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Online:</div>
+                    <div class="info-value" id="online"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PWA Tests -->
+        <div class="section">
+            <h2>📦 PWA Tests</h2>
+            <button onclick="testManifest()">Test Manifest</button>
+            <button onclick="testServiceWorker()">Test Service Worker</button>
+            <button onclick="testInstallPrompt()">Test Install Prompt</button>
+            <button onclick="checkPWAMode()">Check PWA Mode</button>
+            <div class="status" id="pwaStatus"></div>
+        </div>
+
+        <!-- Push Notification Tests -->
+        <div class="section">
+            <h2>🔔 Push Notification Tests</h2>
+            <button onclick="requestNotificationPermission()">Request Permission</button>
+            <button onclick="testLocalNotification()">Test Local Notification</button>
+            <button onclick="subscribeToPush()">Subscribe to Push</button>
+            <button onclick="testPushNotification()">Send Test Push</button>
+            <button onclick="checkSubscription()">Check Subscription</button>
+            <button onclick="toggleRealTimeMonitoring()" id="realTimeBtn">Start Real-Time Monitor</button>
+            <div class="status" id="notificationStatus"></div>
+            
+            <!-- Real-time monitoring section -->
+            <div id="realTimeSection" style="display: none; margin-top: 20px;">
+                <h3>📊 Real-Time Monitoring</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Total Submissions:</div>
+                        <div class="info-value" id="submissionCount">0</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Last Update:</div>
+                        <div class="info-value" id="lastUpdate">Never</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Monitoring Status:</div>
+                        <div class="info-value" id="monitoringStatus">Stopped</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Push Notifications:</div>
+                        <div class="info-value" id="pushStatus">Unknown</div>
+                    </div>
+                </div>
+                <button onclick="resetCounter()">Reset Counter</button>
+                <button onclick="forceUpdate()">Force Update</button>
+            </div>
+        </div>
+
+        <!-- Android Specific Tests -->
+        <div class="section">
+            <h2>🤖 Android Chrome Tests</h2>
+            <button onclick="testAndroidPWA()">Test Android PWA</button>
+            <button onclick="testAndroidNotifications()">Test Android Notifications</button>
+            <button onclick="debugAndroidIssues()">Debug Android Issues</button>
+            <div class="status" id="androidStatus"></div>
+        </div>
+
+        <!-- Debug Information -->
+        <div class="section">
+            <h2>🐛 Debug Information</h2>
+            <button onclick="exportDebugInfo()">Export Debug Info</button>
+            <button onclick="clearStorage()">Clear Storage</button>
+            <button onclick="refreshPage()">Refresh Page</button>
+            <div class="status" id="debugStatus"></div>
+        </div>
+    </div>
+
+    <script>
+        // Real-time monitoring state
+        let realTimeMonitoring = false;
+        let monitoringInterval = null;
+        let lastNotificationCheck = Date.now();
+        let notificationCount = 0;
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDeviceInfo();
+            checkFeatureSupport();
+            setupRealTimeListeners();
+        });
+
+        function setupRealTimeListeners() {
+            // Listen for service worker messages in real-time
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.addEventListener('message', (event) => {
+                    const timestamp = new Date().toLocaleTimeString();
+                    log(`[REAL-TIME] SW Message: ${JSON.stringify(event.data)}`, 'success', 'debugStatus');
+                    
+                    // Handle specific message types
+                    if (event.data?.type === 'PUSH_RECEIVED') {
+                        notificationCount++;
+                        log(`[REAL-TIME] Push notification received! Count: ${notificationCount}`, 'success', 'notificationStatus');
+                        updateNotificationStats();
+                    } else if (event.data?.type === 'SW_UPDATED') {
+                        log(`[REAL-TIME] Service Worker updated to version ${event.data.version}`, 'success', 'pwaStatus');
+                    }
+                });
+
+                // Listen for push events
+                navigator.serviceWorker.addEventListener('push', (event) => {
+                    log(`[REAL-TIME] Push event detected`, 'success', 'notificationStatus');
+                });
+            }
+
+            // Listen for visibility changes to check for updates
+            document.addEventListener('visibilitychange', () => {
+                if (document.visibilityState === 'visible' && realTimeMonitoring) {
+                    log('[REAL-TIME] Page became visible - checking for updates', 'info', 'debugStatus');
+                    setTimeout(checkForNewData, 1000);
+                }
+            });
+
+            // Listen for online/offline changes
+            window.addEventListener('online', () => {
+                log('[REAL-TIME] Connection restored - resuming monitoring', 'success', 'debugStatus');
+                document.getElementById('online').textContent = 'Yes';
+            });
+
+            window.addEventListener('offline', () => {
+                log('[REAL-TIME] Connection lost - monitoring offline', 'warning', 'debugStatus');
+                document.getElementById('online').textContent = 'No';
+            });
+        }
+
+        function toggleRealTimeMonitoring() {
+            const btn = document.getElementById('realTimeBtn');
+            
+            if (!realTimeMonitoring) {
+                realTimeMonitoring = true;
+                btn.textContent = 'Stop Real-Time Monitor';
+                btn.style.background = 'rgba(255,0,0,0.3)';
+                startRealTimeMonitoring();
+                log('[REAL-TIME] Started real-time monitoring for new form submissions', 'success', 'notificationStatus');
+            } else {
+                realTimeMonitoring = false;
+                btn.textContent = 'Start Real-Time Monitor';
+                btn.style.background = 'rgba(255,255,255,0.2)';
+                stopRealTimeMonitoring();
+                log('[REAL-TIME] Stopped real-time monitoring', 'info', 'notificationStatus');
+            }
+        }
+
+        function startRealTimeMonitoring() {
+            // Check for new data every 5 seconds
+            monitoringInterval = setInterval(() => {
+                if (navigator.onLine) {
+                    checkForNewData();
+                }
+            }, 5000);
+
+            // Initial check
+            checkForNewData();
+        }
+
+        function stopRealTimeMonitoring() {
+            if (monitoringInterval) {
+                clearInterval(monitoringInterval);
+                monitoringInterval = null;
+            }
+        }
+
+        async function checkForNewData() {
+            try {
+                // Check if subscription is still active
+                if ('serviceWorker' in navigator) {
+                    const registration = await navigator.serviceWorker.ready;
+                    const subscription = await registration.pushManager.getSubscription();
+                    
+                    if (!subscription) {
+                        log('[REAL-TIME] ⚠️ Push subscription lost - attempting to re-subscribe', 'warning', 'notificationStatus');
+                        await subscribeToPush();
+                        return;
+                    }
+                }
+
+                // Ping the notification system to ensure it's working
+                const response = await fetch('/api/admin/debug-notifications?action=ping', {
+                    method: 'GET'
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const timestamp = new Date().toLocaleTimeString();
+                    
+                    // Only log if there's something noteworthy
+                    if (data.newSubmissions > 0) {
+                        log(`[REAL-TIME] ${timestamp} - ${data.newSubmissions} new submissions detected!`, 'success', 'notificationStatus');
+                    }
+                    
+                    updateConnectionStatus('connected');
+                } else {
+                    log(`[REAL-TIME] API check failed: ${response.status}`, 'error', 'notificationStatus');
+                    updateConnectionStatus('error');
+                }
+            } catch (error) {
+                log(`[REAL-TIME] Connection error: ${error.message}`, 'error', 'notificationStatus');
+                updateConnectionStatus('offline');
+            }
+        }
+
+        function updateConnectionStatus(status) {
+            const onlineElement = document.getElementById('online');
+            switch (status) {
+                case 'connected':
+                    onlineElement.textContent = '✅ Connected';
+                    onlineElement.style.color = '#00ff00';
+                    break;
+                case 'error':
+                    onlineElement.textContent = '⚠️ API Error';
+                    onlineElement.style.color = '#ffaa00';
+                    break;
+                case 'offline':
+                    onlineElement.textContent = '❌ Offline';
+                    onlineElement.style.color = '#ff0000';
+                    break;
+            }
+        }
+
+        function updateNotificationStats() {
+            // Update the display with current notification count
+            const statsElement = document.getElementById('notificationStatus');
+            const currentText = statsElement.textContent;
+            const timestamp = new Date().toLocaleTimeString();
+            
+            if (!currentText.includes('📊 Stats:')) {
+                statsElement.textContent += `\n📊 Stats: ${notificationCount} notifications received since ${timestamp}\n`;
+            } else {
+                // Update existing stats
+                const lines = currentText.split('\n');
+                const updatedLines = lines.map(line => {
+                    if (line.includes('📊 Stats:')) {
+                        return `📊 Stats: ${notificationCount} notifications received since start`;
+                    }
+                    return line;
+                });
+                statsElement.textContent = updatedLines.join('\n');
+            }
+        }
+
+        function log(message, type = 'info', elementId = 'debugStatus') {
+            const element = document.getElementById(elementId);
+            const timestamp = new Date().toLocaleTimeString();
+            const logMessage = `[${timestamp}] ${message}\n`;
+            element.textContent += logMessage;
+            element.className = `status ${type}`;
+            element.scrollTop = element.scrollHeight;
+            console.log(message);
+        }
+
+        function updateDeviceInfo() {
+            document.getElementById('userAgent').textContent = navigator.userAgent;
+            document.getElementById('platform').textContent = navigator.platform;
+            document.getElementById('screen').textContent = `${screen.width}x${screen.height}`;
+            
+            // Display mode detection
+            const displayModes = ['standalone', 'fullscreen', 'minimal-ui', 'browser'];
+            let currentMode = 'browser';
+            for (const mode of displayModes) {
+                if (window.matchMedia(`(display-mode: ${mode})`).matches) {
+                    currentMode = mode;
+                    break;
+                }
+            }
+            document.getElementById('displayMode').textContent = currentMode;
+            
+            document.getElementById('standalone').textContent = 
+                window.matchMedia('(display-mode: standalone)').matches ? 'Yes' : 'No';
+            document.getElementById('online').textContent = navigator.onLine ? 'Yes' : 'No';
+        }
+
+        function checkFeatureSupport() {
+            const features = {
+                'Service Worker': 'serviceWorker' in navigator,
+                'Push Manager': 'PushManager' in window,
+                'Notifications': 'Notification' in window,
+                'Background Sync': 'serviceWorker' in navigator && 'sync' in window.ServiceWorkerRegistration.prototype,
+                'Web App Manifest': 'serviceWorker' in navigator
+            };
+
+            let supportInfo = 'Feature Support:\n';
+            for (const [feature, supported] of Object.entries(features)) {
+                supportInfo += `${feature}: ${supported ? '✅' : '❌'}\n`;
+            }
+            log(supportInfo, 'info', 'pwaStatus');
+        }
+
+        async function testManifest() {
+            log('Testing manifest...', 'info', 'pwaStatus');
+            
+            try {
+                const response = await fetch('/admin-manifest.json');
+                if (response.ok) {
+                    const manifest = await response.json();
+                    log(`Manifest loaded successfully: ${manifest.name}`, 'success', 'pwaStatus');
+                    log(`Start URL: ${manifest.start_url}`, 'info', 'pwaStatus');
+                    log(`Display: ${manifest.display}`, 'info', 'pwaStatus');
+                    log(`Scope: ${manifest.scope}`, 'info', 'pwaStatus');
+                } else {
+                    log(`Manifest fetch failed: ${response.status}`, 'error', 'pwaStatus');
+                }
+            } catch (error) {
+                log(`Manifest error: ${error.message}`, 'error', 'pwaStatus');
+            }
+        }
+
+        async function testServiceWorker() {
+            log('Testing service worker...', 'info', 'pwaStatus');
+            
+            if (!('serviceWorker' in navigator)) {
+                log('Service Worker not supported', 'error', 'pwaStatus');
+                return;
+            }
+
+            try {
+                const registration = await navigator.serviceWorker.register('/admin-sw.js', { scope: '/admin/' });
+                log('Service Worker registered successfully', 'success', 'pwaStatus');
+                log(`Scope: ${registration.scope}`, 'info', 'pwaStatus');
+                
+                if (registration.active) {
+                    log('Service Worker is active', 'success', 'pwaStatus');
+                } else if (registration.installing) {
+                    log('Service Worker is installing', 'warning', 'pwaStatus');
+                } else if (registration.waiting) {
+                    log('Service Worker is waiting', 'warning', 'pwaStatus');
+                }
+            } catch (error) {
+                log(`Service Worker error: ${error.message}`, 'error', 'pwaStatus');
+            }
+        }
+
+        function testInstallPrompt() {
+            log('Testing install prompt...', 'info', 'pwaStatus');
+            
+            // Check if already installed
+            if (window.matchMedia('(display-mode: standalone)').matches) {
+                log('App is already installed as PWA', 'success', 'pwaStatus');
+                return;
+            }
+
+            // Listen for beforeinstallprompt
+            window.addEventListener('beforeinstallprompt', (e) => {
+                log('Install prompt available', 'success', 'pwaStatus');
+                e.preventDefault();
+                
+                // Show prompt
+                setTimeout(async () => {
+                    e.prompt();
+                    const { outcome } = await e.userChoice;
+                    log(`Install prompt outcome: ${outcome}`, 'info', 'pwaStatus');
+                }, 1000);
+            });
+
+            log('Listening for install prompt...', 'info', 'pwaStatus');
+        }
+
+        function checkPWAMode() {
+            log('Checking PWA mode...', 'info', 'pwaStatus');
+            
+            const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+            const isFullscreen = window.matchMedia('(display-mode: fullscreen)').matches;
+            const isMinimalUI = window.matchMedia('(display-mode: minimal-ui)').matches;
+            const isIOSStandalone = (navigator.standalone === true);
+            
+            if (isStandalone || isFullscreen || isMinimalUI || isIOSStandalone) {
+                log('✅ Running as PWA', 'success', 'pwaStatus');
+                log(`Mode: ${isStandalone ? 'standalone' : isFullscreen ? 'fullscreen' : isMinimalUI ? 'minimal-ui' : 'iOS standalone'}`, 'info', 'pwaStatus');
+            } else {
+                log('❌ Not running as PWA', 'warning', 'pwaStatus');
+            }
+        }
+
+        async function requestNotificationPermission() {
+            log('Requesting notification permission...', 'info', 'notificationStatus');
+            
+            if (!('Notification' in window)) {
+                log('Notifications not supported', 'error', 'notificationStatus');
+                return;
+            }
+
+            const permission = await Notification.requestPermission();
+            log(`Permission: ${permission}`, permission === 'granted' ? 'success' : 'error', 'notificationStatus');
+        }
+
+        function testLocalNotification() {
+            log('Testing local notification...', 'info', 'notificationStatus');
+            
+            if (Notification.permission !== 'granted') {
+                log('Notification permission not granted', 'error', 'notificationStatus');
+                return;
+            }
+
+            const notification = new Notification('Test Notification', {
+                body: 'This is a test notification from SIDIKOFF Admin',
+                icon: '/favicon.png',
+                tag: 'test-notification'
+            });
+
+            notification.onclick = () => {
+                log('Local notification clicked', 'success', 'notificationStatus');
+                notification.close();
+            };
+
+            log('Local notification sent', 'success', 'notificationStatus');
+        }
+
+        async function subscribeToPush() {
+            log('Subscribing to push notifications...', 'info', 'notificationStatus');
+            
+            if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
+                log('Push notifications not supported', 'error', 'notificationStatus');
+                return;
+            }
+
+            try {
+                const registration = await navigator.serviceWorker.ready;
+                
+                // Check if already subscribed
+                let subscription = await registration.pushManager.getSubscription();
+                if (subscription) {
+                    log('Already subscribed to push', 'info', 'notificationStatus');
+                    log(`Endpoint: ${subscription.endpoint}`, 'info', 'notificationStatus');
+                    return subscription;
+                }
+
+                // Subscribe
+                const vapidPublicKey = 'BIyZ0SOmcCW7B5BaiE_6F6O8QTPQtvL4omOenGOnhqyDtGtdVDakp5rnJj08Ui2V_5LwJhryaVzCfONCVRHVQWA'; // Actual VAPID key
+                subscription = await registration.pushManager.subscribe({
+                    userVisibleOnly: true,
+                    applicationServerKey: urlBase64ToUint8Array(vapidPublicKey)
+                });
+
+                log('Subscribed to push notifications', 'success', 'notificationStatus');
+                log(`Endpoint: ${subscription.endpoint}`, 'info', 'notificationStatus');
+
+                // Send subscription to server
+                const response = await fetch('/api/admin/notifications/subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(subscription)
+                });
+
+                if (response.ok) {
+                    log('Subscription sent to server', 'success', 'notificationStatus');
+                } else {
+                    log('Failed to send subscription to server', 'error', 'notificationStatus');
+                }
+
+            } catch (error) {
+                log(`Push subscription error: ${error.message}`, 'error', 'notificationStatus');
+            }
+        }
+
+        async function testPushNotification() {
+            log('Testing push notification...', 'info', 'notificationStatus');
+            
+            try {
+                const response = await fetch('/api/test-form-submission', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: 'Test User',
+                        email: 'test@example.com',
+                        message: 'This is a test message for push notifications'
+                    })
+                });
+
+                if (response.ok) {
+                    log('Test form submission sent', 'success', 'notificationStatus');
+                    log('Check if push notification was received', 'info', 'notificationStatus');
+                } else {
+                    log('Failed to send test form submission', 'error', 'notificationStatus');
+                }
+            } catch (error) {
+                log(`Test push error: ${error.message}`, 'error', 'notificationStatus');
+            }
+        }
+
+        async function checkSubscription() {
+            log('Checking push subscription...', 'info', 'notificationStatus');
+            
+            if (!('serviceWorker' in navigator)) {
+                log('Service Worker not supported', 'error', 'notificationStatus');
+                return;
+            }
+
+            try {
+                const registration = await navigator.serviceWorker.ready;
+                const subscription = await registration.pushManager.getSubscription();
+                
+                if (subscription) {
+                    log('Push subscription active', 'success', 'notificationStatus');
+                    log(`Endpoint: ${subscription.endpoint.substring(0, 50)}...`, 'info', 'notificationStatus');
+                    log(`Expiration: ${subscription.expirationTime || 'No expiration'}`, 'info', 'notificationStatus');
+                } else {
+                    log('No active push subscription', 'warning', 'notificationStatus');
+                }
+            } catch (error) {
+                log(`Subscription check error: ${error.message}`, 'error', 'notificationStatus');
+            }
+        }
+
+        function testAndroidPWA() {
+            log('Testing Android PWA functionality...', 'info', 'androidStatus');
+            
+            const isAndroid = /Android/i.test(navigator.userAgent);
+            const isChrome = /Chrome/i.test(navigator.userAgent) && !/Edge/i.test(navigator.userAgent);
+            
+            log(`Android: ${isAndroid ? 'Yes' : 'No'}`, 'info', 'androidStatus');
+            log(`Chrome: ${isChrome ? 'Yes' : 'No'}`, 'info', 'androidStatus');
+            
+            if (isAndroid && isChrome) {
+                log('Android Chrome detected', 'success', 'androidStatus');
+                
+                // Test display mode
+                const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+                log(`Standalone mode: ${isStandalone ? 'Yes' : 'No'}`, 'info', 'androidStatus');
+                
+                // Test viewport
+                const viewport = document.querySelector('meta[name="viewport"]');
+                if (viewport) {
+                    log(`Viewport: ${viewport.getAttribute('content')}`, 'info', 'androidStatus');
+                }
+                
+                // Test manifest
+                const manifest = document.querySelector('link[rel="manifest"]');
+                if (manifest) {
+                    log(`Manifest: ${manifest.getAttribute('href')}`, 'info', 'androidStatus');
+                }
+            } else {
+                log('Not Android Chrome', 'warning', 'androidStatus');
+            }
+        }
+
+        function testAndroidNotifications() {
+            log('Testing Android notification features...', 'info', 'androidStatus');
+            
+            // Check notification permission
+            if ('Notification' in window) {
+                log(`Notification permission: ${Notification.permission}`, 'info', 'androidStatus');
+                
+                // Test vibration API (Android specific)
+                if ('vibrate' in navigator) {
+                    log('Vibration API supported', 'success', 'androidStatus');
+                    navigator.vibrate([100, 50, 100]);
+                } else {
+                    log('Vibration API not supported', 'warning', 'androidStatus');
+                }
+                
+                // Test badge API
+                if ('setAppBadge' in navigator) {
+                    log('Badge API supported', 'success', 'androidStatus');
+                } else {
+                    log('Badge API not supported', 'warning', 'androidStatus');
+                }
+            } else {
+                log('Notifications not supported', 'error', 'androidStatus');
+            }
+        }
+
+        function debugAndroidIssues() {
+            log('Debugging common Android issues...', 'info', 'androidStatus');
+            
+            // Check for common Android PWA issues
+            const issues = [];
+            
+            // Check manifest scope
+            if (window.location.pathname.startsWith('/admin/')) {
+                log('✅ Correct admin scope', 'success', 'androidStatus');
+            } else {
+                issues.push('Not in admin scope');
+            }
+            
+            // Check service worker
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistrations().then(registrations => {
+                    if (registrations.length > 0) {
+                        log(`✅ ${registrations.length} service worker(s) registered`, 'success', 'androidStatus');
+                        registrations.forEach((reg, index) => {
+                            log(`SW ${index + 1}: ${reg.scope}`, 'info', 'androidStatus');
+                        });
+                    } else {
+                        issues.push('No service workers registered');
+                    }
+                });
+            } else {
+                issues.push('Service Worker not supported');
+            }
+            
+            // Check local storage
+            try {
+                localStorage.setItem('test', 'test');
+                localStorage.removeItem('test');
+                log('✅ Local storage working', 'success', 'androidStatus');
+            } catch (error) {
+                issues.push('Local storage not working');
+            }
+            
+            if (issues.length > 0) {
+                log(`Found ${issues.length} issues:`, 'warning', 'androidStatus');
+                issues.forEach(issue => log(`- ${issue}`, 'error', 'androidStatus'));
+            } else {
+                log('No issues found', 'success', 'androidStatus');
+            }
+        }
+
+        function exportDebugInfo() {
+            const debugInfo = {
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent,
+                platform: navigator.platform,
+                url: window.location.href,
+                displayMode: (() => {
+                    const modes = ['standalone', 'fullscreen', 'minimal-ui', 'browser'];
+                    return modes.find(mode => window.matchMedia(`(display-mode: ${mode})`).matches) || 'unknown';
+                })(),
+                notifications: {
+                    supported: 'Notification' in window,
+                    permission: 'Notification' in window ? Notification.permission : 'not-supported'
+                },
+                serviceWorker: {
+                    supported: 'serviceWorker' in navigator
+                },
+                localStorage: (() => {
+                    try {
+                        const subscription = localStorage.getItem('admin-push-subscription');
+                        return subscription ? JSON.parse(subscription) : null;
+                    } catch {
+                        return null;
+                    }
+                })()
+            };
+
+            const blob = new Blob([JSON.stringify(debugInfo, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `pwa-debug-${Date.now()}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+
+            log('Debug info exported', 'success', 'debugStatus');
+        }
+
+        function clearStorage() {
+            localStorage.clear();
+            sessionStorage.clear();
+            
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistrations().then(registrations => {
+                    registrations.forEach(registration => {
+                        registration.unregister();
+                    });
+                });
+            }
+
+            log('Storage and service workers cleared', 'success', 'debugStatus');
+        }
+
+        function refreshPage() {
+            window.location.reload();
+        }
+
+        // Real-time monitoring functions (enhanced)
+        let realTimeInterval = null;
+        let lastSubmissionCount = 0;
+
+        function toggleRealTimeMonitoring() {
+            const btn = document.getElementById('realTimeBtn');
+            const section = document.getElementById('realTimeSection');
+            
+            if (realTimeMonitoring) {
+                // Stop monitoring
+                realTimeMonitoring = false;
+                if (realTimeInterval) {
+                    clearInterval(realTimeInterval);
+                    realTimeInterval = null;
+                }
+                btn.textContent = 'Start Real-Time Monitor';
+                section.style.display = 'none';
+                document.getElementById('monitoringStatus').textContent = 'Stopped';
+                log('Real-time monitoring stopped', 'info', 'notificationStatus');
+            } else {
+                // Start monitoring
+                realTimeMonitoring = true;
+                btn.textContent = 'Stop Real-Time Monitor';
+                section.style.display = 'block';
+                document.getElementById('monitoringStatus').textContent = 'Active';
+                
+                // Check immediately
+                checkForNewData();
+                
+                // Set up interval to check every 2 seconds
+                realTimeInterval = setInterval(checkForNewData, 2000);
+                
+                log('Real-time monitoring started - checking every 2 seconds', 'success', 'notificationStatus');
+            }
+        }
+
+        async function checkForNewData() {
+            if (!realTimeMonitoring) return;
+            
+            try {
+                const response = await fetch('/api/real-time-stats?action=stats');
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    // Update UI
+                    document.getElementById('submissionCount').textContent = data.submissionCount;
+                    document.getElementById('lastUpdate').textContent = data.lastUpdate ? 
+                        new Date(data.lastUpdate).toLocaleString() : 'Never';
+                    
+                    // Check if there's a new submission
+                    if (data.submissionCount > lastSubmissionCount) {
+                        const newSubmissions = data.submissionCount - lastSubmissionCount;
+                        log(`🚨 NEW SUBMISSION DETECTED! (+${newSubmissions}) Total: ${data.submissionCount}`, 'success', 'notificationStatus');
+                        
+                        // Play sound or vibrate if available
+                        if ('vibrate' in navigator) {
+                            navigator.vibrate([200, 100, 200]);
+                        }
+                        
+                        // Update push status
+                        document.getElementById('pushStatus').textContent = 'New submission detected';
+                        document.getElementById('pushStatus').style.color = '#00ff00';
+                        
+                        // Reset color after 3 seconds
+                        setTimeout(() => {
+                            document.getElementById('pushStatus').style.color = '';
+                        }, 3000);
+                    }
+                    
+                    lastSubmissionCount = data.submissionCount;
+                }
+            } catch (error) {
+                log(`Real-time check error: ${error.message}`, 'error', 'notificationStatus');
+            }
+        }
+
+        async function resetCounter() {
+            log('Resetting submission counter...', 'info', 'notificationStatus');
+            
+            try {
+                const response = await fetch('/api/real-time-stats?action=reset');
+                if (response.ok) {
+                    const data = await response.json();
+                    log(`Counter reset: ${data.message}`, 'success', 'notificationStatus');
+                    
+                    // Update UI
+                    document.getElementById('submissionCount').textContent = '0';
+                    document.getElementById('lastUpdate').textContent = new Date().toLocaleString();
+                    lastSubmissionCount = 0;
+                } else {
+                    log('Failed to reset counter', 'error', 'notificationStatus');
+                }
+            } catch (error) {
+                log(`Reset error: ${error.message}`, 'error', 'notificationStatus');
+            }
+        }
+
+        function forceUpdate() {
+            log('Forcing update check...', 'info', 'notificationStatus');
+            checkForNewData();
+        }
+
+        function updateNotificationStats() {
+            document.getElementById('pushStatus').textContent = `Received ${notificationCount} notifications`;
+        }
+
+        // Utility functions
+        function urlBase64ToUint8Array(base64String) {
+            const padding = '='.repeat((4 - base64String.length % 4) % 4);
+            const base64 = (base64String + padding)
+                .replace(/\-/g, '+')
+                .replace(/_/g, '/');
+            const rawData = window.atob(base64);
+            const outputArray = new Uint8Array(rawData.length);
+            for (let i = 0; i < rawData.length; ++i) {
+                outputArray[i] = rawData.charCodeAt(i);
+            }
+            return outputArray;
+        }
+
+        // Listen for service worker messages
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.addEventListener('message', (event) => {
+                log(`SW Message: ${JSON.stringify(event.data)}`, 'info', 'debugStatus');
+            });
+        }
+
+        // Auto-start real-time monitoring if we're in a PWA
+        if (window.matchMedia('(display-mode: standalone)').matches) {
+            setTimeout(() => {
+                toggleRealTimeMonitoring();
+                log('Auto-started real-time monitoring (PWA mode detected)', 'success', 'debugStatus');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

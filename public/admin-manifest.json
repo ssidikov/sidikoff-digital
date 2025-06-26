@@ -1,6 +1,6 @@
 {
   "name": "SIDIKOFF Admin Dashboard",
-  "short_name": "SIDIKOFF",
+  "short_name": "SIDIKOFF Admin",
   "description": "Admin dashboard for managing SIDIKOFF Digital website content, projects, and client communications",
   "start_url": "/admin/dashboard?source=pwa&utm_source=homescreen&installed=true",
   "display": "standalone",
@@ -8,7 +8,7 @@
   "theme_color": "#4f46e5",
   "orientation": "portrait-primary",
   "scope": "/admin/",
-  "id": "admin-dashboard",
+  "id": "sidikoff-admin-dashboard-v2",
   "lang": "en",
   "dir": "ltr",
   "categories": [
@@ -17,6 +17,30 @@
     "utilities"
   ],
   "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "/favicon.png",
       "sizes": "192x192",
@@ -72,15 +96,21 @@
     }
   ],
   "prefer_related_applications": false,
+  "related_applications": [],
   "launch_handler": {
     "client_mode": "navigate-existing"
   },
   "display_override": [
     "standalone",
-    "minimal-ui"
+    "minimal-ui",
+    "browser"
   ],
   "features": [
     "push-messaging",
     "background-sync"
-  ]
+  ],
+  "protocol_handlers": [],
+  "edge_side_panel": {},
+  "handle_links": "preferred",
+  "capture_links": "existing-client-navigate"
 }

@@ -63,6 +63,12 @@ export async function sendNotificationToAdmins(notificationData: {
   body: string
   type: string
   data?: Record<string, unknown>
+  requireInteraction?: boolean
+  actions?: Array<{
+    action: string
+    title: string
+    icon?: string
+  }>
 }) {
   console.log(`🔔 Attempting to send notification to ${subscriptions.size} subscriptions`)
   console.log(`📊 Notification data:`, notificationData)

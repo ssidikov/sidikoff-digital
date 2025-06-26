@@ -2,6 +2,45 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createAdminClient } from '@/utils/supabase/server'
 import { sendUserConfirmation, sendAdminNotification, type ContactSubmission } from '@/lib/email'
 import { sendNotificationToAdmins } from '@/lib/push-notifications'
+import fs from 'fs'
+import path from 'path'
+
+// Function to update submission counter for real-time monitoring
+function updateSubmissionCounter() {
+  try {
+    const dataDir = path.join(process.cwd(), 'data')
+    const counterFile = path.join(dataDir, 'submission-counter.json')
+    
+    // Ensure data directory exists
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true })
+    }
+    
+    // Read current count or start at 0
+    let currentCount = 0
+    if (fs.existsSync(counterFile)) {
+      try {
+        const data = JSON.parse(fs.readFileSync(counterFile, 'utf-8'))
+        currentCount = data.count || 0
+      } catch (error) {
+        console.log('Counter file corrupted, resetting to 0')
+      }
+    }
+    
+    // Increment and save
+    currentCount++
+    fs.writeFileSync(counterFile, JSON.stringify({
+      count: currentCount,
+      lastUpdate: new Date().toISOString()
+    }, null, 2))
+    
+    console.log(`📊 Submission counter updated: ${currentCount}`)
+    return currentCount
+  } catch (error) {
+    console.error('Failed to update submission counter:', error)
+    return 0
+  }
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -76,7 +115,10 @@ export async function POST(request: NextRequest) {
       console.error('❌ Email sending process failed:', emailError)
     }
 
-    // Send push notification to admin
+    // Update submission counter for real-time monitoring
+    const submissionNumber = updateSubmissionCounter()
+
+    // Send push notification to admins immediately
     try {
       await sendNotificationToAdmins({
         title: '📨 New Contact Submission',
@@ -84,12 +126,16 @@ export async function POST(request: NextRequest) {
         type: 'new_submission',
         data: {
           submissionId: submission.id,
+          submissionNumber,
           senderName: name,
           senderEmail: email,
           viewUrl: `/admin/submissions?highlight=${submission.id}`,
+          timestamp: new Date().toISOString(),
+          urgent: budget && budget.includes('urgent') ? true : false
         },
+        requireInteraction: true, // Keep notification visible on Android
       })
-      console.log('✅ Push notification sent to admins')
+      console.log(`✅ Push notification sent to admins for submission #${submissionNumber}`)
     } catch (notificationError) {
       console.error('❌ Failed to send push notification:', notificationError)
     }

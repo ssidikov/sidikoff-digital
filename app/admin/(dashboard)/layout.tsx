@@ -4,6 +4,7 @@ import AdminSidebar, { MobileMenuProvider } from '@/components/admin/AdminSideba
 import AdminHeader from '@/components/admin/AdminHeader'
 import PWAInit from '@/components/admin/PWAInit'
 import AdminManifestOverride from '@/components/admin/AdminManifestOverride'
+import AndroidPWAEnhancements from '@/components/admin/AndroidPWAEnhancements'
 import { Toaster } from 'react-hot-toast'
 import { Metadata } from 'next'
 
@@ -38,6 +39,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     <MobileMenuProvider>
       <AdminManifestOverride />
       <PWAInit />
+      <AndroidPWAEnhancements />
       <div className='min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100'>
         <AdminSidebar user={user} />
         <div className='lg:pl-72'>

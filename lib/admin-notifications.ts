@@ -76,7 +76,7 @@ export class AdminNotificationManager {
     return permission
   }
 
-  // Subscribe to push notifications
+  // Subscribe to push notifications with enhanced Android support
   async subscribeToPush(): Promise<PushSubscription | null> {
     if (!this.swRegistration) {
       console.error('Service Worker not registered')
@@ -84,6 +84,22 @@ export class AdminNotificationManager {
     }
 
     try {
+      // Check if already subscribed
+      const existingSubscription = await this.swRegistration.pushManager.getSubscription()
+      if (existingSubscription) {
+        console.log('✅ Already subscribed to push notifications')
+        // Verify the subscription is still valid by sending to server
+        await this.sendSubscriptionToServer(existingSubscription)
+        return existingSubscription
+      }
+
+      // Request notification permission first
+      const permission = await this.requestPermission()
+      if (permission !== 'granted') {
+        console.warn('❌ Notification permission denied')
+        return null
+      }
+
       const vapidPublicKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY
       console.log('🔧 VAPID Public Key available:', !!vapidPublicKey)
 
@@ -92,19 +108,46 @@ export class AdminNotificationManager {
         return null
       }
 
+      console.log('🔔 Subscribing to push notifications...')
       const subscription = await this.swRegistration.pushManager.subscribe({
         userVisibleOnly: true,
         applicationServerKey: this.urlBase64ToUint8Array(vapidPublicKey) as BufferSource,
       })
 
-      console.log('✅ Push subscription successful:', subscription.endpoint)
+      console.log('✅ Push subscription successful:', {
+        endpoint: subscription.endpoint,
+        keys: subscription.getKey ? {
+          p256dh: subscription.getKey('p256dh'),
+          auth: subscription.getKey('auth')
+        } : 'Keys not available'
+      })
 
-      // Send subscription to server
+      // Send subscription to server with retry logic
       await this.sendSubscriptionToServer(subscription)
+
+      // Store subscription info locally for debugging
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('admin-push-subscription', JSON.stringify({
+          endpoint: subscription.endpoint,
+          expirationTime: subscription.expirationTime,
+          subscribed: new Date().toISOString(),
+          userAgent: navigator.userAgent
+        }))
+      }
 
       return subscription
     } catch (error) {
       console.error('❌ Push subscription failed:', error)
+      
+      // Enhanced error logging for Android debugging
+      if (error instanceof Error) {
+        console.error('Error details:', {
+          name: error.name,
+          message: error.message,
+          stack: error.stack
+        })
+      }
+      
       return null
     }
   }
