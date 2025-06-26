@@ -8,6 +8,9 @@ import AndroidPWAEnhancements from '@/components/admin/AndroidPWAEnhancements'
 import { Toaster } from 'react-hot-toast'
 import { Metadata } from 'next'
 
+// Force dynamic rendering for admin routes due to authentication
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'SIDIKOFF Admin Dashboard',
   description: 'Admin dashboard for managing SIDIKOFF Digital website',
