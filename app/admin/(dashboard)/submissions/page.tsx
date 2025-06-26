@@ -1,50 +1,45 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
 import MessageManager from '@/components/admin/MessageManager'
 
 export default function SubmissionsPage() {
-  const router = useRouter()
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const [loading, setLoading] = useState(true)
+  const [key, setKey] = useState(0)
 
+  // Force re-mount when navigating back to this page
   useEffect(() => {
-    // Check authentication status
-    const checkAuth = async () => {
-      try {
-        const response = await fetch('/api/admin/auth/check')
-        if (response.ok) {
-          setIsAuthenticated(true)
-        } else {
-          router.push('/admin/login')
-        }
-      } catch (error) {
-        console.error('Auth check failed:', error)
-        router.push('/admin/login')
-      } finally {
-        setLoading(false)
+    const handleVisibilityChange = () => {
+      if (!document.hidden) {
+        // Page became visible again, likely from back navigation
+        setKey(prev => prev + 1)
       }
     }
 
-    checkAuth()
-  }, [router])
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        // Page was loaded from bfcache (back button)
+        setKey(prev => prev + 1)
+      }
+    }
 
-  if (loading) {
-    return (
-      <div className='min-h-screen flex items-center justify-center'>
-        <div className='animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600'></div>
-      </div>
-    )
-  }
+    // Handle browser back/forward navigation
+    window.addEventListener('pageshow', handlePageShow)
+    document.addEventListener('visibilitychange', handleVisibilityChange)
 
-  if (!isAuthenticated) {
-    return null // Will redirect in useEffect
-  }
+    return () => {
+      window.removeEventListener('pageshow', handlePageShow)
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
+    }
+  }, [])
+
+  // Also refresh when component mounts
+  useEffect(() => {
+    setKey(Date.now())
+  }, [])
 
   return (
     <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-      <MessageManager />
+      <MessageManager key={key} />
     </div>
   )
 }

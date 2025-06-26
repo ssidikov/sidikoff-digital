@@ -176,12 +176,71 @@
 
   /* Enhanced animations for mobile interactions */
   .mobile-card-hover {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .mobile-card-hover:active {
-    transform: scale(0.98);
-    transition-duration: 0.1s;
+    transform: scale(0.97);
+    transition-duration: 0.15s;
+  }
+
+  /* Enhanced mobile message cards with staggered animations */
+  .mobile-message-card {
+    animation: slideInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  @keyframes slideInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Enhanced ring effect for selected cards */
+  .ring-3 {
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  }
+
+  /* Enhanced touch targets */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+    position: relative;
+  }
+
+  /* Ripple effect for mobile interactions */
+  .ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ripple::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .ripple:active::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Enhanced focus states */
+  .focus-enhanced:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.4);
+    transform: scale(1.05);
   }
 
   /* Pull-to-refresh indicator */
@@ -336,14 +395,7 @@
     overflow: hidden;
   }
 
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  /* Advanced Mobile UX Enhancements */
+  /* Enhanced Mobile UX Enhancements */
 
   /* Smooth momentum scrolling for iOS */
   .momentum-scroll {
@@ -402,6 +454,11 @@
     background: #4f46e5;
     color: white;
     box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+  }
+
+  /* Custom border utilities */
+  .border-b-3 {
+    border-bottom-width: 3px;
   }
 
   /* Mobile card swipe actions */
@@ -568,5 +625,46 @@
       transform: scale(1);
       opacity: 1;
     }
+  }
+
+  /* Enhanced mobile card styling with line-clamp utility and improved visual feedback */
+  .shadow-card {
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06),
+      0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+
+  .shadow-card-hover {
+    box-shadow: 
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04),
+      0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Enhanced gradient backgrounds for mobile cards */
+  .bg-gradient-mobile {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  .bg-gradient-mobile-hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  }
+
+  /* Enhanced mobile button states */
+  .mobile-button-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mobile-button-primary:hover {
+    box-shadow: 0 12px 24px rgba(102, 126, 234, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .mobile-button-primary:active {
+    transform: translateY(0) scale(0.95);
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
   }
 }
