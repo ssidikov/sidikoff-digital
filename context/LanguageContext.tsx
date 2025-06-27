@@ -162,7 +162,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.description':
       'Des sites web modernes, performants et optimisés SEO pour booster votre visibilité et attirer plus de clients.',
     'prices.tier1.name': 'Site Essentiel',
-    'prices.tier1.price': '390 €',
+    'prices.tier1.price': '500 €',
     'prices.tier1.audience':
       'Idéal pour freelances, coachs, auto-entrepreneurs et projets personnels.',
     'prices.tier1.includes.title': 'Inclus :',
@@ -173,7 +173,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.tier1.includes.5': 'Présentation claire et professionnelle',
     'prices.tier1.cta': 'Démarrer mon projet',
     'prices.tier2.name': 'Site Vitrine Pro',
-    'prices.tier2.price': '690 €',
+    'prices.tier2.price': '900 €',
     'prices.tier2.audience':
       'Parfait pour TPE, PME, artisans ou prestataires de services souhaitant se positionner sérieusement en ligne.',
     'prices.tier2.includes.title': 'Inclus :',
@@ -207,7 +207,7 @@ const translations: Record<Language, TranslationMap> = {
     'faq.title': 'Questions Fréquentes',
     'faq.question1': "Combien coûte la création d'un site web ?",
     'faq.answer1':
-      'Nos tarifs commencent à 390€ pour un site vitrine simple. Le prix varie selon vos besoins spécifiques : nombre de pages, fonctionnalités, design personnalisé, etc. Nous proposons un devis gratuit et personnalisé.',
+      'Nos tarifs commencent à 500€ pour un site vitrine simple. Le prix varie selon vos besoins spécifiques : nombre de pages, fonctionnalités, design personnalisé, etc. Nous proposons un devis gratuit et personnalisé.',
     'faq.question2': 'Combien de temps faut-il pour créer un site web ?',
     'faq.answer2':
       'Un site vitrine simple prend généralement 2-3 semaines. Pour un site plus complexe avec fonctionnalités avancées, comptez 4-8 semaines. Nous définissons ensemble un planning précis dès le début du projet.',
@@ -443,7 +443,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.description':
       'Modern, high-performance, SEO-optimized websites to boost your visibility and attract more clients.',
     'prices.tier1.name': 'Essential Website',
-    'prices.tier1.price': '€390',
+    'prices.tier1.price': '500 €',
     'prices.tier1.audience':
       'Perfect for freelancers, consultants, coaches, solo entrepreneurs and personal projects.',
     'prices.tier1.includes.title': 'Includes:',
@@ -454,7 +454,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.tier1.includes.5': 'Clean code & high performance',
     'prices.tier1.cta': 'Start my project',
     'prices.tier2.name': 'Pro Website',
-    'prices.tier2.price': '€690',
+    'prices.tier2.price': '900 €',
     'prices.tier2.audience':
       'Ideal for small businesses, artisans, agencies and independent professionals looking for a serious online presence.',
     'prices.tier2.includes.title': 'Includes:',
@@ -703,7 +703,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.description':
       'Современные, быстрые и SEO-оптимизированные сайты для роста вашего бизнеса и привлечения клиентов.',
     'prices.tier1.name': 'Сайт-визитка',
-    'prices.tier1.price': '390 €',
+    'prices.tier1.price': '500 €',
     'prices.tier1.audience':
       'Подходит для фрилансеров, экспертов, коучей, индивидуальных предпринимателей и личных проектов.',
     'prices.tier1.includes.title': 'Что входит:',
@@ -714,7 +714,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.tier1.includes.5': 'Чистая структура и современный внешний вид',
     'prices.tier1.cta': 'Запустить проект',
     'prices.tier2.name': 'Pro сайт для бизнеса',
-    'prices.tier2.price': '690 €',
+    'prices.tier2.price': '900 €',
     'prices.tier2.audience':
       'Идеально для малого и среднего бизнеса, мастеров и специалистов, желающих профессионально представить свои услуги в интернете.',
     'prices.tier2.includes.title': 'Что входит:',

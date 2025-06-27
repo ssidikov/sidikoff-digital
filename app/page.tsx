@@ -104,7 +104,7 @@ export const metadata: Metadata = {
     'Digital strategy',
   ],
   openGraph: {
-    title: 'SIDIKOFF DIGITAL - Agence Web SEO & Développement React à Paris',
+    title: 'SIDIKOFF DIGITAL - Agence Web SEO & Développement Site web',
     description:
       'Agence web parisienne spécialisée en création de sites internet, applications web React, SEO et stratégie digitale efficace pour booster votre présence en ligne.',
     url: 'https://www.sidikoff.com/',
@@ -114,7 +114,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SIDIKOFF DIGITAL - Agence Web SEO & Développement React à Paris',
+    title: 'SIDIKOFF DIGITAL - Agence Web SEO & Développement Site web',
     description:
       'Agence web parisienne spécialisée en création de sites internet, applications web React, SEO et stratégie digitale efficace pour booster votre présence en ligne.',
   },
@@ -162,13 +162,13 @@ const servicesSchema = [
   generateServiceSchema({
     name: 'Création de Sites Web',
     description: 'Développement de sites internet modernes, responsifs et optimisés SEO',
-    price: '390',
+    price: '500',
     areaServed: 'Paris, France',
   }),
   generateServiceSchema({
     name: 'Applications Web',
     description: "Développement d'applications web sur mesure avec technologies modernes",
-    price: '690',
+    price: '900',
     areaServed: 'Paris, France',
   }),
   generateServiceSchema({
