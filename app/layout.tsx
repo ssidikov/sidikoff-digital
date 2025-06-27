@@ -48,7 +48,6 @@ export const metadata: Metadata = {
       en: 'https://www.sidikoff.com/en',
       ru: 'https://www.sidikoff.com/ru',
     },
-    ogImage: 'https://www.sidikoff.com/images/contact.png',
     canonical: 'https://www.sidikoff.com/',
   }),
 }
@@ -82,6 +81,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name='geo.region' content='FR-75' />
         <meta name='geo.placename' content='Paris' />
         <meta name='geo.position' content='48.8566;2.3522' />
+        {/* Explicit Open Graph Tags for better social media sharing */}
+        <meta property='og:type' content='website' />
+        <meta property='og:site_name' content='SIDIKOFF DIGITAL' />
+        <meta property='og:locale' content='fr_FR' />
+        <meta property='og:image:type' content='image/png' />
+        <meta property='og:image:width' content='1200' />
+        <meta property='og:image:height' content='630' />
+        <meta property='og:image:alt' content='SIDIKOFF DIGITAL - Agence Web Parisienne' />
+        {/* Twitter Card specific tags */}
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:domain' content='sidikoff.com' />
+        <meta name='twitter:url' content='https://www.sidikoff.com' />
         {/* SEO titles */}
         <meta property='og:title' content='Agence Web - SIDIKOFF DIGITAL' />
         <meta name='twitter:title' content='SIDIKOFF DIGITAL | Agence Web' />
