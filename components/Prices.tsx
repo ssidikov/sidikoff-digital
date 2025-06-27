@@ -57,7 +57,7 @@ function PricingTierCard({ tier, index, t, handleTariffSelect }: PricingTierCard
         hidden: { opacity: 0, y: 50 },
         visible: { opacity: 1, y: 0, transition: { delay: index * 0.1, duration: 0.6 } },
       }}
-      className={`relative group rounded-3xl p-8 transition-all duration-300 overflow-visible ${
+      className={`relative group rounded-3xl p-8 transition-all duration-300 overflow-visible flex flex-col h-full ${
         isPopular
           ? 'border-2 border-indigo-500 bg-gradient-to-br from-indigo-50/50 to-purple-50/50 dark:from-indigo-900/20 dark:to-purple-900/20'
           : 'border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80'
@@ -78,7 +78,7 @@ function PricingTierCard({ tier, index, t, handleTariffSelect }: PricingTierCard
         </div>
       )}
 
-      <div className='relative z-10'>
+      <div className='relative z-10 flex flex-col h-full'>
         {/* Icon and title */}
         <div className='flex items-center gap-3 mb-6 min-h-28'>
           <div
@@ -103,7 +103,7 @@ function PricingTierCard({ tier, index, t, handleTariffSelect }: PricingTierCard
         </div>
 
         {/* Features */}
-        <ul className='space-y-4 mb-8'>
+        <ul className='space-y-4 mb-8 flex-grow'>
           {tier.features.map((feature: string, featureIndex: number) => (
             <li key={featureIndex} className='flex items-start gap-3'>
               <Check className='w-5 h-5 text-green-500 flex-shrink-0 mt-0.5' />
@@ -271,7 +271,7 @@ export default function Prices() {
           initial='hidden'
           animate={isInView ? 'visible' : 'hidden'}
           variants={containerVariants}
-          className='grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto'>
+          className='grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto items-stretch'>
           {pricingTiers.map((tier, index) => (
             <PricingTierCard
               key={index}
