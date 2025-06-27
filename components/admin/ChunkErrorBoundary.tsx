@@ -30,7 +30,7 @@ class ChunkErrorBoundary extends Component<Props, State> {
     }
   }
 
-  componentDidCatch(error: Error, errorInfo: any) {
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     // Log chunk loading errors specifically
     if (error.message.includes('Loading chunk')) {
       console.error('Chunk loading error:', error, errorInfo)

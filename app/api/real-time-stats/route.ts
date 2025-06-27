@@ -113,7 +113,7 @@ export async function POST(request: NextRequest) {
         try {
           const data = JSON.parse(fs.readFileSync(counterFile, 'utf-8'))
           currentCount = data.count || 0
-        } catch (error) {
+        } catch {
           console.log('Counter file corrupted, starting from 0')
         }
       }

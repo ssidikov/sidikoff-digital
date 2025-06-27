@@ -12,36 +12,23 @@ export default function Services() {
   const services = [
     {
       emoji: '🌐',
-      titleKey: 'services.showcase.title',
-      descriptionKey: 'services.showcase.description',
-      features: [
-        'services.showcase.feature1',
-        'services.showcase.feature2',
-        'services.showcase.feature3',
-        'services.showcase.feature4',
-      ],
+      titleKey: 'services.creation.title',
+      descriptionKey: 'services.creation.description',
     },
     {
-      emoji: '🛒',
-      titleKey: 'services.ecommerce.title',
-      descriptionKey: 'services.ecommerce.description',
-      features: [
-        'services.ecommerce.feature1',
-        'services.ecommerce.feature2',
-        'services.ecommerce.feature3',
-        'services.ecommerce.feature4',
-      ],
+      emoji: '🎨',
+      titleKey: 'services.redesign.title',
+      descriptionKey: 'services.redesign.description',
     },
     {
-      emoji: '⚡',
-      titleKey: 'services.webapp.title',
-      descriptionKey: 'services.webapp.description',
-      features: [
-        'services.webapp.feature1',
-        'services.webapp.feature2',
-        'services.webapp.feature3',
-        'services.webapp.feature4',
-      ],
+      emoji: '🔍',
+      titleKey: 'services.seo.title',
+      descriptionKey: 'services.seo.description',
+    },
+    {
+      emoji: '🛠️',
+      titleKey: 'services.maintenance.title',
+      descriptionKey: 'services.maintenance.description',
     },
   ]
 
@@ -58,13 +45,41 @@ export default function Services() {
         </AnimatedSection>
 
         {/* Services Grid */}
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+        <div className='grid md:grid-cols-2 gap-8 mb-12'>
           {services.map((service, index) => (
             <AnimatedSection key={index}>
               <ServiceCard service={service} t={t} />
             </AnimatedSection>
           ))}
         </div>
+
+        {/* CTA Section */}
+        <AnimatedSection>
+          <div className='max-w-2xl mx-auto text-center'>
+            <div className='flex flex-col sm:flex-row gap-4 justify-center'>
+              <motion.a
+                href='#contact-form'
+                className='group relative overflow-hidden px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2'
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}>
+                <div className='absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+                <div className='relative flex items-center gap-2'>
+                  <MessageCircle className='w-5 h-5' />
+                  <span>{t('services.cta.quote')}</span>
+                </div>
+              </motion.a>
+              
+              <motion.a
+                href='#prices'
+                className='group px-8 py-4 border-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 dark:border-indigo-400 rounded-xl font-semibold text-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all duration-300 flex items-center justify-center gap-2'
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}>
+                <Eye className='w-5 h-5' />
+                <span>{t('services.cta.pricing')}</span>
+              </motion.a>
+            </div>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   )
@@ -78,7 +93,6 @@ function ServiceCard({
     emoji: string
     titleKey: string
     descriptionKey: string
-    features: string[]
   }
   t: (key: string) => string
 }) {
@@ -94,7 +108,7 @@ function ServiceCard({
   const background = useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)`
   return (
     <motion.div
-      className='group relative flex flex-col h-full rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm p-8 min-h-[320px] cursor-pointer overflow-hidden'
+      className='group relative flex flex-col h-full rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm p-8 min-h-[220px] cursor-pointer overflow-hidden'
       onMouseMove={handleMouseMove}
       whileTap={{ scale: 0.98 }}
       initial={{ opacity: 0, y: 20 }}
@@ -123,67 +137,6 @@ function ServiceCard({
         <p className='text-gray-600 dark:text-gray-300 mb-6 leading-relaxed flex-grow'>
           {t(service.descriptionKey)}
         </p>
-        {/* Features list */}
-        <div className='space-y-3'>
-          <h4 className='text-sm font-semibold text-gray-800 dark:text-gray-200 uppercase tracking-wide'>
-            {t('services.features')}
-          </h4>
-          <ul className='space-y-2'>
-            {service.features.map((featureKey, index) => (
-              <li key={index} className='flex items-start text-sm text-gray-600 dark:text-gray-300'>
-                <span className='flex-shrink-0 w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 mt-2 mr-3' />
-                <span className='leading-relaxed'>{t(featureKey)}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        {/* CTA Buttons */}
-        <div className='mt-6 pt-4 border-t border-gray-100 dark:border-gray-800 space-y-3'>
-          {/* Primary CTA - Découvrir */}
-          <motion.a
-            href='#prices'
-            className='group relative w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-semibold shadow-lg hover:shadow-xl overflow-hidden'
-            whileTap={{ scale: 0.98 }}>
-            {/* Animated background effect */}
-            <div className='absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
-            <div className='relative flex items-center gap-2'>
-              <Eye className='w-4 h-4 transition-transform duration-200' />
-              <span>{t('services.cta.pricing')}</span>
-              <motion.svg
-                className='w-4 h-4'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
-                animate={{ x: [0, 2, 0] }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                  delay: 0.5,
-                }}>
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth={2}
-                  d='M17 8l4 4m0 0l-4 4m4-4H3'
-                />
-              </motion.svg>
-            </div>
-          </motion.a>
-          {/* Secondary CTA - Request quote */}
-          <motion.a
-            href='#contact-form'
-            className='group w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/20 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-semibold backdrop-blur-sm'
-            whileTap={{ scale: 0.98 }}>
-            <MessageCircle className='w-4 h-4 transition-transform duration-200' />
-            <span>{t('services.cta.quote')}</span>
-            <motion.div
-              className='w-2 h-2 bg-green-500 rounded-full opacity-0 group-hover:opacity-100'
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 1, repeat: Infinity }}
-            />
-          </motion.a>
-        </div>
       </div>
     </motion.div>
   )

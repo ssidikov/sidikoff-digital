@@ -22,7 +22,7 @@ function updateSubmissionCounter() {
       try {
         const data = JSON.parse(fs.readFileSync(counterFile, 'utf-8'))
         currentCount = data.count || 0
-      } catch (error) {
+      } catch {
         console.log('Counter file corrupted, resetting to 0')
       }
     }

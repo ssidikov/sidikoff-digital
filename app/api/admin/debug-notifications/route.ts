@@ -72,7 +72,7 @@ export async function GET(request: NextRequest) {
           newSubmissions = Math.max(0, data.count - submissionCount)
           submissionCount = data.count
         }
-      } catch (error) {
+      } catch {
         console.log('No submission counter file found - this is normal')
       }
       
@@ -122,7 +122,7 @@ export async function GET(request: NextRequest) {
         const subscriptions = JSON.parse(fs.readFileSync(subscriptionsFile, 'utf-8'))
         subscriptionCount = subscriptions.length || 0
       }
-    } catch (error) {
+    } catch {
       console.log('No subscriptions file found')
     }
 
