@@ -21,7 +21,6 @@ const nextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
     optimizeCss: true,
-    legacyBrowsers: false,
   },
   // Fix chunk loading issues for mobile
   webpack: (config, { dev, isServer }) => {

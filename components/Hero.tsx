@@ -51,7 +51,7 @@ export default function Hero() {
   return (
     <motion.section
       id='home'
-      className='relative min-h-screen flex items-center justify-center overflow-hidden pt-16 pb-8 sm:pt-20 sm:pb-12 lg:pt-0 lg:pb-0'
+      className='relative min-h-screen flex items-center justify-center overflow-hidden pt-16 pb-8 sm:pt-20 sm:pb-12 lg:pb-0'
       initial='hidden'
       animate='visible'
       variants={containerVariants}>
