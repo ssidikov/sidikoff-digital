@@ -280,11 +280,8 @@ export default function Header() {
         </nav>
         {/* Desktop CTA */}
         <div className='hidden md:flex items-center gap-2'>
-          <motion.a
-            href='/#contact-form'
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}>
-            <button className='px-4 py-2 text-sm font-medium border border-border rounded-lg bg-background/90 hover:bg-accent/80 transition-all duration-200 backdrop-blur-sm shadow-sm hover:shadow-md hover:border-primary/30 dark:hover:border-primary/50'>
+          <motion.a href='/#contact-form' whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <button className='px-4 py-2 text-sm font-medium border border-border rounded-lg transition-all duration-200 backdrop-blur-sm shadow-sm bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'>
               {t('nav.contact')}
             </button>
           </motion.a>

@@ -27,7 +27,7 @@ const translations: Record<Language, TranslationMap> = {
     'nav.expertise': 'À propos',
     'nav.prices': 'Tarifs',
     'nav.services': 'Services',
-    'nav.contact': 'Contact',
+    'nav.contact': 'Nous contacter',
     'nav.projects': 'Projets',
 
     // Hero
@@ -43,7 +43,12 @@ const translations: Record<Language, TranslationMap> = {
     'hero.scroll': 'Découvrir',
     'hero.stat1': 'Projets',
     'hero.stat2': 'Satisfaction',
-    'hero.stat3': 'Support', // Expertise    'expertise.title': 'À propos',
+    'hero.stat3': 'Support',
+    'hero.directContact': 'Ou contactez-nous directement :',
+    'hero.contactSubtitle': 'Choisissez votre méthode de contact préférée',
+    'hero.whatsappDesc': 'Réponse rapide',
+    'hero.telegramDesc': 'Chat instantané',
+    'hero.emailDesc': 'Contact formel', // Expertise    'expertise.title': 'À propos',
     'expertise.subtitle': 'Ce qui nous rend unique',
     'expertise.description':
       'Nous maîtrisons les technologies les plus avancées pour créer des expériences digitales exceptionnelles qui font grandir votre entreprise.',
@@ -317,7 +322,12 @@ const translations: Record<Language, TranslationMap> = {
     'hero.scroll': 'Discover',
     'hero.stat1': 'Projects',
     'hero.stat2': 'Satisfaction',
-    'hero.stat3': 'Support', // Expertise
+    'hero.stat3': 'Support',
+    'hero.directContact': 'Or contact us directly:',
+    'hero.contactSubtitle': 'Choose your preferred contact method',
+    'hero.whatsappDesc': 'Quick response',
+    'hero.telegramDesc': 'Instant chat',
+    'hero.emailDesc': 'Formal contact', // Expertise
     'expertise.title': 'Our Expertise',
     'expertise.subtitle': 'What we offer',
     'expertise.description':
@@ -578,7 +588,12 @@ const translations: Record<Language, TranslationMap> = {
     'hero.scroll': 'Узнать больше',
     'hero.stat1': 'Проектов',
     'hero.stat2': 'Довольных клиентов',
-    'hero.stat3': 'Поддержка', // Expertise
+    'hero.stat3': 'Поддержка',
+    'hero.directContact': 'Или свяжитесь с нами напрямую:',
+    'hero.contactSubtitle': 'Выберите удобный способ связи',
+    'hero.whatsappDesc': 'Быстрый ответ',
+    'hero.telegramDesc': 'Мгновенный чат',
+    'hero.emailDesc': 'Официальная связь', // Expertise
     'expertise.title': 'Наша экспертиза',
     'expertise.subtitle': 'Что мы предлагаем',
     'expertise.description':
