@@ -100,7 +100,7 @@ export default function Hero() {
           <motion.div
             className='lg:hidden relative flex items-center justify-center p-0 m-0'
             variants={logoVariants}>
-            <div className='relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto'>
+            <div className='relative w-48 h-32 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto'>
               <div className='absolute inset-0 bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-full blur-2xl opacity-20' />
               <Image
                 src='/logo-sidikoff.svg'
