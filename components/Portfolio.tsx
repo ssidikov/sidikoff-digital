@@ -88,7 +88,6 @@ function ProjectCard({
       rotateX: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.1, 0.25, 1],
         delay: isNewlyAdded ? index * 0.1 : 0,
       }
     },
@@ -98,7 +97,6 @@ function ProjectCard({
       scale: 0.9,
       transition: {
         duration: 0.3,
-        ease: [0.25, 0.1, 0.25, 1],
       }
     },
   }
@@ -123,7 +121,7 @@ function ProjectCard({
           className='absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-2xl blur-sm'
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 1, 0.5, 1, 0] }}
-          transition={{ duration: 2, ease: "easeInOut" }}
+          transition={{ duration: 2 }}
         />
       )}
       
@@ -131,7 +129,7 @@ function ProjectCard({
       <motion.div
         className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
         style={{ background }}
-        transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+        transition={{ duration: 0.3 }}
       />
       {/* Border glow effect */}
       <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
@@ -263,7 +261,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
     visible: {
       opacity: 1,
       height: 'auto',
-      transition: { duration: 0.3, ease: 'easeOut' },
+      transition: { duration: 0.3 },
     },
   }
 
@@ -571,8 +569,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                   animate={{ x: '100%' }}
                   transition={{ 
                     duration: 1.5, 
-                    repeat: Infinity, 
-                    ease: 'linear' 
+                    repeat: Infinity
                   }}
                 />
               )}
@@ -584,8 +581,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                   animate={{ rotate: 360 }}
                   transition={{ 
                     duration: 1, 
-                    repeat: Infinity, 
-                    ease: 'linear' 
+                    repeat: Infinity
                   }}
                 />
               ) : (
@@ -616,7 +612,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                     animate={{ 
                       width: `${(visibleProjects / filteredProjects.length) * 100}%` 
                     }}
-                    transition={{ duration: 0.5, ease: 'easeOut' }}
+                    transition={{ duration: 0.5 }}
                   />
                 </div>
                 <span>{filteredProjects.length}</span>

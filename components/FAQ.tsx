@@ -66,7 +66,7 @@ function FAQItem({ faq, index, openIndex, setOpenIndex }: FAQItemProps) {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              transition={{ duration: 0.3 }}
               className='overflow-hidden'
             >
               <div className='pt-4 text-body-base text-text-secondary leading-relaxed max-w-readable'>

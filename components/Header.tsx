@@ -164,7 +164,6 @@ export default function Header() {
       y: -10,
       transition: {
         duration: 0.15,
-        ease: [0.25, 0.1, 0.25, 1],
       },
     },
     visible: {
@@ -172,7 +171,6 @@ export default function Header() {
       y: 0,
       transition: {
         duration: 0.2,
-        ease: [0.25, 0.1, 0.25, 1],
         staggerChildren: 0.03,
         delayChildren: 0.05,
       },
@@ -186,7 +184,6 @@ export default function Header() {
       y: 0,
       transition: {
         duration: 0.15,
-        ease: [0.25, 0.1, 0.25, 1],
       },
     },
   }

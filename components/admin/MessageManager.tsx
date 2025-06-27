@@ -37,17 +37,7 @@ export default function MessageManager() {
   const [loading, setLoading] = useState(true)
   const [actionLoading, setActionLoading] = useState(false)
   const [migrationRequired, setMigrationRequired] = useState(false)
-
-  // Reset state when component mounts/remounts
-  useEffect(() => {
-    setMessages([])
-    setSelectedMessages([])
-    setCurrentView('active')
-    setStats({ active: 0, trash: 0, total: 0 })
-    setLoading(true)
-    setActionLoading(false)
-    setMigrationRequired(false)
-  }, [])
+  const [initialized, setInitialized] = useState(false)
 
   const fetchMessages = useCallback(async () => {
     try {
@@ -85,9 +75,43 @@ export default function MessageManager() {
     }
   }, [currentView])
 
+  // Initialize component and fetch data
   useEffect(() => {
-    fetchMessages()
-  }, [fetchMessages])
+    let mounted = true
+    
+    const initializeData = async () => {
+      if (!initialized) {
+        setInitialized(true)
+        if (mounted) {
+          await fetchMessages()
+        }
+      }
+    }
+    
+    initializeData()
+    
+    return () => {
+      mounted = false
+    }
+  }, [initialized, fetchMessages])
+
+  // Fetch messages when view changes (only after initialization)
+  useEffect(() => {
+    let mounted = true
+    
+    if (initialized) {
+      const loadData = async () => {
+        if (mounted) {
+          await fetchMessages()
+        }
+      }
+      loadData()
+    }
+    
+    return () => {
+      mounted = false
+    }
+  }, [currentView, initialized, fetchMessages])
 
   const handleSelectAll = () => {
     if (selectedMessages.length === messages.length) {

@@ -9,6 +9,7 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import StructuredData from '@/components/StructuredData'
 import { generateServiceSchema } from '@/lib/seo'
+import FAQ from '@/components/FAQ'
 
 export const metadata: Metadata = {
   title: 'Agence Web - SIDIKOFF DIGITAL',
@@ -196,6 +197,7 @@ export default function Page() {
           <Portfolio />
           <About />
           <Prices />
+          <FAQ />
           <Contact />
         </main>
         <Footer />
