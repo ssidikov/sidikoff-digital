@@ -133,7 +133,7 @@ Environment: ${process.env.NODE_ENV || 'development'}
   }
 
   console.log('\n🎉 Email configuration test completed!')
-  console.log('\n📝 Next steps:')
+  console.log('\n Next steps:')
   console.log('1. Check your email inbox for the test messages')
   console.log('2. If emails are not received, check your spam folder')
   console.log('3. Verify SMTP credentials and server settings')

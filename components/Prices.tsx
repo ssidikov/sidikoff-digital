@@ -364,7 +364,7 @@ function CustomQuoteSection({
         </div>
         <motion.button
           whileHover={{ scale: 1.05 }}
-          onClick={() => handleTariffSelect('')}
+          onClick={() => handleTariffSelect(t('prices.maintenanceSupport.title'))}
           className='group relative px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl font-semibold text-button-lg transition-all duration-500 hover:shadow-xl overflow-hidden'
           whileTap={{ scale: 0.98 }}>
           {/* Background gradient overlay */}

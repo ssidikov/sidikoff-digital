@@ -174,7 +174,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.description':
       'Des sites web modernes, performants et optimisés SEO pour booster votre visibilité et attirer plus de clients.',
     'prices.tier1.name': 'Site Essentiel',
-    'prices.tier1.price': 'à partir de 500 €',
+    'prices.tier1.price': '500 €',
     'prices.tier1.audience':
       'Idéal pour freelances, coachs, auto-entrepreneurs et projets personnels.',
     'prices.tier1.includes.title': 'Inclus :',
@@ -185,7 +185,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.tier1.includes.5': 'Présentation claire et professionnelle',
     'prices.tier1.cta': 'Démarrer mon projet',
     'prices.tier2.name': 'Site Vitrine Pro',
-    'prices.tier2.price': 'à partir de 900 €',
+    'prices.tier2.price': '900 €',
     'prices.tier2.audience':
       'Parfait pour TPE, PME, artisans ou prestataires de services souhaitant se positionner sérieusement en ligne.',
     'prices.tier2.includes.title': 'Inclus :',
@@ -217,38 +217,98 @@ const translations: Record<Language, TranslationMap> = {
 
     // --- CustomQuoteSection translations ---
     'prices.maintenanceSupport.title': 'Maintenance et Support',
-    'prices.maintenanceSupport.billing': 'Facturation horaire ou forfait selon la demande',
-    'prices.maintenanceSupport.1': 'Accompagnement personnalisé après la livraison',
+    'prices.maintenanceSupport.billing': 'Facturation horaire ou forfaitaire selon la demande',
+    'prices.maintenanceSupport.1': 'Accompagnement personnalisé après livraison',
     'prices.maintenanceSupport.2': 'Interventions ponctuelles pour modifications et mises à jour',
     'prices.maintenanceSupport.3':
       'Support technique réactif par email, téléphone, WhatsApp ou Telegram',
 
     // FAQ
     'faq.title': 'Questions Fréquentes',
-    'faq.question1': "Combien coûte la création d'un site web ?",
+    'faq.subtitle': 'Retrouvez les réponses aux questions les plus fréquentes',
+
+    // General FAQ
+    'faq.question1': "Quel est le délai moyen pour la réalisation d'un site ?",
     'faq.answer1':
-      'Nos tarifs commencent à 500€ pour un site vitrine simple. Le prix varie selon vos besoins spécifiques : nombre de pages, fonctionnalités, design personnalisé, etc. Nous proposons un devis gratuit et personnalisé.',
-    'faq.question2': 'Combien de temps faut-il pour créer un site web ?',
+      'Le délai dépend de la complexité du projet. Pour un site classique, il faut prévoir entre 3 à 6 semaines.',
+
+    'faq.question2': 'De quels éléments ai-je besoin pour démarrer mon projet ?',
     'faq.answer2':
-      'Un site vitrine simple prend généralement 2-3 semaines. Pour un site plus complexe avec fonctionnalités avancées, comptez 4-8 semaines. Nous définissons ensemble un planning précis dès le début du projet.',
-    'faq.question3': 'Proposez-vous la maintenance de sites web ?',
+      'Idéalement, une idée claire de vos besoins et quelques contenus de base (textes, images, logo). Je vous accompagne pour préciser ces éléments ensemble.',
+
+    'faq.question3': "Que comprend l'optimisation SEO ?",
     'faq.answer3':
-      'Oui, nous proposons des contrats de maintenance pour assurer la sécurité, les mises à jour et les sauvegardes de votre site. Nous offrons également un support technique et des conseils pour optimiser votre présence en ligne.',
-    'faq.question4': 'Mes sites sont-ils optimisés pour le référencement SEO ?',
+      "Il s'agit d'optimiser la structure du site, les temps de chargement, les balises et le contenu pour améliorer la visibilité sur les moteurs de recherche.",
+
+    'faq.question4': 'Comment se passe la maintenance du site ?',
     'faq.answer4':
-      'Absolument ! Tous nos sites sont conçus avec les bonnes pratiques SEO : structure optimisée, balises méta, vitesse de chargement, responsive design, contenu structuré. Nous proposons également des prestations SEO avancées.',
+      'Je propose un service flexible et réactif : intervention à la demande avec une facturation horaire ou forfaitaire pour toute mise à jour ou modification.',
+
+    'faq.question5': "Mon entreprise n'y connaît rien en web. Comment m'accompagnez-vous ?",
+    'faq.answer5':
+      "J'explique chaque étape de manière simple et claire. Mon objectif est de rendre le digital accessible et compréhensible pour tous, avec un accompagnement personnalisé.",
+
+    // Technical section
+    'faq.technical.title': '🛠️ Technique',
+    'faq.technical.question1': 'Quelles technologies utilisez-vous ?',
+    'faq.technical.answer1':
+      "J'utilise les technologies modernes : Next.js, React, TypeScript, Tailwind CSS, Node.js. Le choix dépend des besoins du projet.",
+
+    'faq.technical.question2': 'Le site sera-t-il responsive ?',
+    'faq.technical.answer2':
+      "Absolument ! Tous mes sites s'adaptent parfaitement aux mobiles, tablettes et ordinateurs. C'est un standard aujourd'hui.",
+
+    // After delivery section
+    'faq.afterDelivery.title': '📈 Après livraison',
+    'faq.afterDelivery.question1': 'Proposez-vous de la formation ?',
+    'faq.afterDelivery.answer1':
+      "Oui, je forme mes clients à l'utilisation de leur site et fournis une documentation claire pour leur autonomie.",
+
+    'faq.afterDelivery.question2': 'Que se passe-t-il en cas de problème ?',
+    'faq.afterDelivery.answer2':
+      'Support garanti pendant 3 mois après livraison. Ensuite, intervention rapide selon contrat de maintenance.',
+
+    // Contact section
+    'faq.contact.title': 'Vous ne trouvez pas la réponse à votre question ?',
+    'faq.contact.description': "N'hésitez pas à me contacter directement, je réponds rapidement !",
+    'faq.contact.askQuestion': 'Poser une question',
+    'faq.contact.whatsapp': 'WhatsApp direct',
+
+    // Cards
+    'faq.card1.icon': '⚡',
+    'faq.card1.title': 'Réactivité',
+    'faq.card1.description': 'Réponse garantie sous 24h maximum',
+
+    'faq.card2.icon': '🎯',
+    'faq.card2.title': 'Conseil personnalisé',
+    'faq.card2.description': 'Chaque projet est unique, mes conseils aussi',
+
+    'faq.card3.icon': '💬',
+    'faq.card3.title': 'Communication simple',
+    'faq.card3.description': 'Pas de jargon technique, que du concret',
 
     // Contact
-    // Contact
-    'contact.title': 'Parlez-nous de votre projet', // ✅ Новый титр формы
-    'contact.subtitle': 'Un projet web ? Discutons-en.', // ✅ Более engageant
-    'contact.description':
-      'Chez SIDIKOFF DIGITAL, nous transformons vos idées en solutions digitales concrètes : site vitrine, refonte, SEO, performance, accessibilité…\nChaque projet est unique. Notre approche est personnalisée, claire et humaine.',
-    'contact.subdescription1':
-      'Nous sommes basés à Paris, mais nous travaillons avec des clients dans le monde entier.',
-    'contact.subdescription2': '💬 Réponse sous 24h',
-    'contact.subdescription3': '📝 Devis gratuit',
+    'contact.title': 'Parlons de votre projet !',
+    'contact.subtitle':
+      "Pour toute demande de création de site, de refonte ou d'optimisation, n'hésitez pas à me contacter via le formulaire ci-dessous ou directement par :",
+    'contact.description': '• WhatsApp / Telegram\n• Email\n• Appel téléphonique',
+    'contact.email.label': 'Email',
+    'contact.email.value': 's.sidikoff@gmail.com',
+    'contact.phone.label': 'Téléphone',
+    'contact.phone.value': '06 26 93 27 34',
+    'contact.location.label': 'Localisation',
+    'contact.location.value': 'France',
+    'contact.socialMedia.title': 'Réseaux sociaux',
+    'contact.socialMedia.whatsapp': 'WhatsApp',
+    'contact.socialMedia.telegram': 'Telegram',
+    'contact.subdescription1': '',
+    'contact.subdescription2': 'Réponse sous 24h',
+    'contact.subdescription3': ' Devis gratuit',
+    'contact.benefits.title': 'Pourquoi nous choisir ?',
+    'contact.benefits.1': 'Solutions sur mesure',
+    'contact.benefits.2': 'Support continu',
     'contact.form.title': 'Contactez-nous',
+    'contact.form.subtitle': 'Remplissez le formulaire ci-dessous et recevez une réponse rapide',
     'contact.address': 'Paris, France',
     'contact.send': 'Demander un devis gratuit',
     'contact.firstName': 'Prénom',
@@ -475,7 +535,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.description':
       'Modern, high-performance, SEO-optimized websites to boost your visibility and attract more clients.',
     'prices.tier1.name': 'Essential Website',
-    'prices.tier1.price': 'from 500 €',
+    'prices.tier1.price': '500 €',
     'prices.tier1.audience':
       'Perfect for freelancers, consultants, coaches, solo entrepreneurs and personal projects.',
     'prices.tier1.includes.title': 'Includes:',
@@ -486,7 +546,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.tier1.includes.5': 'Clean code & high performance',
     'prices.tier1.cta': 'Start my project',
     'prices.tier2.name': 'Pro Website',
-    'prices.tier2.price': 'from 900 €',
+    'prices.tier2.price': '900 €',
     'prices.tier2.audience':
       'Ideal for small businesses, artisans, agencies and independent professionals looking for a serious online presence.',
     'prices.tier2.includes.title': 'Includes:',
@@ -524,14 +584,91 @@ const translations: Record<Language, TranslationMap> = {
     'prices.maintenanceSupport.3':
       'Reactive technical support via email, phone, WhatsApp or Telegram',
 
-    'contact.title': 'Tell us about your project',
-    'contact.subtitle': 'Got a web project? Let’s talk.',
-    'contact.description':
-      'At SIDIKOFF DIGITAL, we turn your ideas into real digital solutions: landing pages, redesigns, SEO, performance, accessibility...\nEvery project is unique. Our approach is personal, clear and effective.',
-    'contact.subdescription1': 'We are based in Paris, but we work with clients around the world.',
-    'contact.subdescription2': '💬 Reply within 24h',
-    'contact.subdescription3': '📝 Free quote',
+    // FAQ
+    'faq.title': 'Frequently Asked Questions',
+    'faq.subtitle': 'Find answers to the most frequently asked questions',
+
+    // General FAQ
+    'faq.question1': 'What is the average timeframe for creating a website?',
+    'faq.answer1':
+      'The timeframe depends on the project complexity. For a standard website, plan between 3 to 6 weeks.',
+
+    'faq.question2': 'What elements do I need to start my project?',
+    'faq.answer2':
+      'Ideally, a clear idea of your needs and some basic content (texts, images, logo). I help you clarify these elements together.',
+
+    'faq.question3': 'What does SEO optimization include?',
+    'faq.answer3':
+      'It involves optimizing the site structure, loading times, tags, and content to improve visibility on search engines.',
+
+    'faq.question4': 'How does website maintenance work?',
+    'faq.answer4':
+      'I offer a flexible and responsive service: on-demand intervention with hourly or flat rate billing for any updates or modifications.',
+
+    'faq.question5': 'My company knows nothing about web technologies. How do you support me?',
+    'faq.answer5':
+      'I explain each step in simple and clear terms. My goal is to make digital accessible and understandable for everyone, with personalized support.',
+
+    // Technical section
+    'faq.technical.title': '🛠️ Technical',
+    'faq.technical.question1': 'What technologies do you use?',
+    'faq.technical.answer1':
+      'I use modern technologies: Next.js, React, TypeScript, Tailwind CSS, Node.js. The choice depends on project needs.',
+
+    'faq.technical.question2': 'Will the site be responsive?',
+    'faq.technical.answer2':
+      "Absolutely! All my sites adapt perfectly to mobile devices, tablets, and computers. It's a standard today.",
+
+    // After delivery section
+    'faq.afterDelivery.title': '📈 After delivery',
+    'faq.afterDelivery.question1': 'Do you offer training?',
+    'faq.afterDelivery.answer1':
+      'Yes, I train my clients on how to use their site and provide clear documentation for their autonomy.',
+
+    'faq.afterDelivery.question2': 'What happens in case of a problem?',
+    'faq.afterDelivery.answer2':
+      'Support guaranteed for 3 months after delivery. Then, quick intervention according to maintenance contract.',
+
+    // Contact section
+    'faq.contact.title': "Can't find the answer to your question?",
+    'faq.contact.description': "Don't hesitate to contact me directly, I respond quickly!",
+    'faq.contact.askQuestion': 'Ask a question',
+    'faq.contact.whatsapp': 'Direct WhatsApp',
+
+    // Cards
+    'faq.card1.icon': '⚡',
+    'faq.card1.title': 'Responsiveness',
+    'faq.card1.description': 'Response guaranteed within 24h maximum',
+
+    'faq.card2.icon': '🎯',
+    'faq.card2.title': 'Personalized advice',
+    'faq.card2.description': 'Each project is unique, my advice too',
+
+    'faq.card3.icon': '💬',
+    'faq.card3.title': 'Simple communication',
+    'faq.card3.description': 'No technical jargon, only concrete solutions',
+
+    'contact.title': "Let's talk about your project!",
+    'contact.subtitle':
+      'For any website creation, redesign or optimization request, feel free to contact me via the form below or directly by:',
+    'contact.description': '• WhatsApp / Telegram\n• Email\n• Phone call',
+    'contact.email.label': 'Email',
+    'contact.email.value': 's.sidikoff@gmail.com',
+    'contact.phone.label': 'Phone',
+    'contact.phone.value': '06 26 93 27 34',
+    'contact.location.label': 'Location',
+    'contact.location.value': 'France',
+    'contact.socialMedia.title': 'Social Media',
+    'contact.socialMedia.whatsapp': 'WhatsApp',
+    'contact.socialMedia.telegram': 'Telegram',
+    'contact.subdescription1': '',
+    'contact.subdescription2': 'Reply within 24h',
+    'contact.subdescription3': ' Free quote',
+    'contact.benefits.title': 'Why choose us?',
+    'contact.benefits.1': 'Custom solutions',
+    'contact.benefits.2': 'Continuous support',
     'contact.form.title': 'Contact Us',
+    'contact.form.subtitle': 'Fill out the form below and receive a quick response',
     'contact.address': 'Paris, France',
     'contact.send': 'Request a free quote',
     'contact.firstName': 'First Name',
@@ -548,54 +685,55 @@ const translations: Record<Language, TranslationMap> = {
 
     // Form validation errors
     'validation.firstName.required': 'First name is required',
-    'validation.firstName.minLength': 'First name must be at least 2 characters',
+    'validation.firstName.minLength': 'First name must contain at least 2 characters',
     'validation.lastName.required': 'Last name is required',
-    'validation.lastName.minLength': 'Last name must be at least 2 characters',
+    'validation.lastName.minLength': 'Last name must contain at least 2 characters',
     'validation.email.required': 'Email address is required',
     'validation.email.invalid': 'Please enter a valid email address',
     'validation.phone.required': 'Phone number is required',
     'validation.phone.invalid': 'Please enter a valid phone number',
     'validation.tariff.required': 'Please select a service',
     'validation.message.required': 'Message is required',
-    'validation.message.minLength': 'Message must be at least 10 characters',
+    'validation.message.minLength': 'Message must contain at least 10 characters',
 
     // Success popup messages
-    'popup.success.title': 'Successfully Sent!',
+    'popup.success.title': 'Successfully sent!',
     'popup.success.message':
       'Your message has been sent successfully! You will receive a confirmation email shortly. We will contact you soon!', // Footer
-    'footer.rights': 'SIDIKOFF DIGITAL — Web Agency in Paris, Web Development & Digital Solutions', // Legal Mentions
-    'legal.title': 'Privacy Policy',
-    'legal.company.title': 'Company Information',
-    'legal.company.name': 'Trade Name',
+    'footer.rights':
+      'SIDIKOFF DIGITAL — Agence Web à Paris. Création de sites internet sur mesure.', // Legal Mentions
+    'legal.title': 'Mentions légales',
+    'legal.company.title': "Informations sur l'entreprise",
+    'legal.company.name': 'Nom commercial',
     'legal.company.nameValue': 'SIDIKOFF DIGITAL',
-    'legal.company.form': 'Legal Form',
-    'legal.company.formValue': 'Micro-enterprise',
-    'legal.company.SIREN': 'SIREN Number',
+    'legal.company.form': 'Forme juridique',
+    'legal.company.formValue': 'Micro-entreprise',
+    'legal.company.SIREN': 'Numéro SIREN',
     'legal.company.SIRENValue': '943 266 213',
-    'legal.company.address': 'Registered Office Address',
+    'legal.company.address': 'Adresse du siège social',
     'legal.company.addressValue': 'Paris, France',
-    'legal.company.phone': 'Phone',
+    'legal.company.phone': 'Téléphone',
     'legal.company.phoneValue': '+33 6 26 93 27 34',
     'legal.company.email': 'Email',
     'legal.company.emailValue': 's.sidikoff@gmail.com',
-    'legal.director.title': 'Publication Director',
+    'legal.director.title': 'Directeur de la publication',
     'legal.director.name': 'Sardorbek SIDIKOV',
-    'legal.hosting.title': 'Hosting',
-    'legal.hosting.provider': 'Hosting Provider',
+    'legal.hosting.title': 'Hébergement',
+    'legal.hosting.provider': 'Hébergeur',
     'legal.hosting.providerValue': 'Vercel Inc.',
-    'legal.hosting.address': 'Address',
-    'legal.hosting.addressValue': '340 S Lemon Ave #4133, Walnut, CA 91789, United States',
-    'legal.hosting.website': 'Website',
+    'legal.hosting.address': 'Adresse',
+    'legal.hosting.addressValue': '340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis',
+    'legal.hosting.website': 'Site web',
     'legal.hosting.websiteValue': 'https://vercel.com',
-    'legal.property.title': 'Intellectual Property',
+    'legal.property.title': 'Propriété intellectuelle',
     'legal.property.content':
-      'This website and all its elements (texts, images, logos, etc.) are protected by copyright. Any reproduction, even partial, is prohibited without prior authorization.',
-    'legal.data.title': 'Personal Data Protection',
+      "Ce site web et tous ses éléments (textes, images, logos, etc.) sont protégés par le droit d'auteur. Toute reproduction, même partielle, est interdite sans autorisation préalable.",
+    'legal.data.title': 'Protection des données personnelles',
     'legal.data.content':
-      'In accordance with the GDPR, you have rights regarding your personal data. The data collected via the contact form is used solely to respond to your requests and is not shared with third parties. You can exercise your rights regarding your personal data by contacting the email address: s.sidikoff@gmail.com.',
+      "Conformément au RGPD, vous disposez de droits sur vos données personnelles. Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes et ne sont pas transmises à des tiers. Vous pouvez exercer vos droits concernant vos données personnelles en contactant à l'adresse e-mail : s.sidikoff@gmail.com.",
     'legal.cookies.title': 'Cookies',
     'legal.cookies.content':
-      'This site uses cookies essential to the functioning of the site. By continuing to browse this site, you accept their use.',
+      'Ce site utilise des cookies essentiels au fonctionnement du site. En continuant à naviguer sur ce site, vous acceptez leur utilisation.',
   },
   ru: {
     // Common
@@ -756,7 +894,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.description':
       'Современные, быстрые и SEO-оптимизированные сайты для роста вашего бизнеса и привлечения клиентов.',
     'prices.tier1.name': 'Сайт-визитка',
-    'prices.tier1.price': 'от 500 €',
+    'prices.tier1.price': '500 €',
     'prices.tier1.audience':
       'Подходит для фрилансеров, экспертов, коучей, индивидуальных предпринимателей и личных проектов.',
     'prices.tier1.includes.title': 'Что входит:',
@@ -767,7 +905,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.tier1.includes.5': 'Чистая структура и современный внешний вид',
     'prices.tier1.cta': 'Запустить проект',
     'prices.tier2.name': 'Pro сайт для бизнеса',
-    'prices.tier2.price': 'от 900 €',
+    'prices.tier2.price': '900 €',
     'prices.tier2.audience':
       'Идеально для малого и среднего бизнеса, мастеров и специалистов, желающих профессионально представить свои услуги в интернете.',
     'prices.tier2.includes.title': 'Что входит:',
@@ -804,22 +942,99 @@ const translations: Record<Language, TranslationMap> = {
     'prices.maintenanceSupport.3':
       'Техническая поддержка по WhatsApp, Telegram или электронной почте',
 
-    'contact.title': 'Расскажите нам о своём проекте',
-    'contact.subtitle': 'Есть идея? Давайте обсудим.',
-    'contact.description':
-      'В SIDIKOFF DIGITAL мы превращаем идеи в реальные цифровые решения: лендинги, редизайн, SEO, производительность, доступность…\nКаждый проект уникален. Мы подходим к работе персонализированно, ясно и эффективно.',
-    'contact.subdescription1': 'Мы находимся в Париже, но работаем с клиентами по всему миру.',
-    'contact.subdescription2': '💬 Ответ в течение 24 часов',
-    'contact.subdescription3': '📝 Бесплатный расчёт стоимости',
+    // FAQ
+    'faq.title': 'Часто задаваемые вопросы',
+    'faq.subtitle': 'Найдите ответы на самые часто задаваемые вопросы',
+
+    // General FAQ
+    'faq.question1': 'Какой средний срок создания сайта?',
+    'faq.answer1':
+      'Срок зависит от сложности проекта. Для обычного сайта планируйте от 3 до 6 недель.',
+
+    'faq.question2': 'Какие элементы мне нужны для запуска проекта?',
+    'faq.answer2':
+      'В идеале — чёткое понимание ваших потребностей и базовый контент (тексты, изображения, логотип). Я помогу вам уточнить эти элементы вместе.',
+
+    'faq.question3': 'Что включает SEO-оптимизация?',
+    'faq.answer3':
+      'Это оптимизация структуры сайта, времени загрузки, тегов и контента для улучшения видимости в поисковых системах.',
+
+    'faq.question4': 'Как происходит поддержка сайта?',
+    'faq.answer4':
+      'Я предлагаю гибкий и отзывчивый сервис: вмешательство по запросу с почасовой оплатой или фиксированной ставкой для любых обновлений или изменений.',
+
+    'faq.question5': 'Моя компания ничего не знает о веб-технологиях. Как вы меня поддержите?',
+    'faq.answer5':
+      'Я объясняю каждый шаг простым и понятным языком. Моя цель — сделать цифровые технологии доступными и понятными для всех, с персональной поддержкой.',
+
+    // Technical section
+    'faq.technical.title': '🛠️ Техническая часть',
+    'faq.technical.question1': 'Какие технологии вы используете?',
+    'faq.technical.answer1':
+      'Я использую современные технологии: Next.js, React, TypeScript, Tailwind CSS, Node.js. Выбор зависит от потребностей проекта.',
+
+    'faq.technical.question2': 'Будет ли сайт адаптивным?',
+    'faq.technical.answer2':
+      'Абсолютно! Все мои сайты идеально адаптируются к мобильным устройствам, планшетам и компьютерам. Это стандарт сегодня.',
+
+    // After delivery section
+    'faq.afterDelivery.title': '📈 После сдачи',
+    'faq.afterDelivery.question1': 'Предлагаете ли вы обучение?',
+    'faq.afterDelivery.answer1':
+      'Да, я обучаю клиентов использованию их сайта и предоставляю понятную документацию для самостоятельной работы.',
+
+    'faq.afterDelivery.question2': 'Что происходит в случае проблемы?',
+    'faq.afterDelivery.answer2':
+      'Поддержка гарантирована в течение 3 месяцев после сдачи. Затем — быстрое вмешательство согласно договору на поддержку.',
+
+    // Contact section
+    'faq.contact.title': 'Не можете найти ответ на свой вопрос?',
+    'faq.contact.description': 'Не стесняйтесь связаться со мной напрямую, я быстро отвечаю!',
+    'faq.contact.askQuestion': 'Задать вопрос',
+    'faq.contact.whatsapp': 'WhatsApp напрямую',
+
+    // Cards
+    'faq.card1.icon': '⚡',
+    'faq.card1.title': 'Быстрый отклик',
+    'faq.card1.description': 'Ответ гарантирован максимум в течение 24ч',
+
+    'faq.card2.icon': '🎯',
+    'faq.card2.title': 'Персональные советы',
+    'faq.card2.description': 'Каждый проект уникален, мои советы тоже',
+
+    'faq.card3.icon': '💬',
+    'faq.card3.title': 'Простое общение',
+    'faq.card3.description': 'Никакого технического жаргона, только конкретика',
+
+    'contact.title': 'Поговорим о вашем проекте!',
+    'contact.subtitle':
+      'По любому запросу создания сайта, редизайна или оптимизации, не стесняйтесь связаться со мной через форму ниже или напрямую:',
+    'contact.description': '• WhatsApp / Telegram\n• Email\n• Телефонный звонок',
+    'contact.email.label': 'Email',
+    'contact.email.value': 's.sidikoff@gmail.com',
+    'contact.phone.label': 'Телефон',
+    'contact.phone.value': '06 26 93 27 34',
+    'contact.location.label': 'Местоположение',
+    'contact.location.value': 'Франция',
+    'contact.socialMedia.title': 'Социальные сети',
+    'contact.socialMedia.whatsapp': 'WhatsApp',
+    'contact.socialMedia.telegram': 'Telegram',
+    'contact.subdescription1': '',
+    'contact.subdescription2': 'Ответ в течение 24 часов',
+    'contact.subdescription3': ' Бесплатный расчёт стоимости',
+    'contact.benefits.title': 'Почему выбирают нас?',
+    'contact.benefits.1': 'Индивидуальные решения',
+    'contact.benefits.2': 'Постоянная поддержка',
     'contact.form.title': 'Свяжитесь с нами',
+    'contact.form.subtitle': 'Заполните форму ниже и получите быстрый ответ',
     'contact.address': 'Париж, Франция',
     'contact.send': 'Запросить бесплатную консультацию',
     'contact.firstName': 'Имя',
     'contact.placeholder.firstName': 'Ваше имя',
     'contact.lastName': 'Фамилия',
     'contact.placeholder.lastName': 'Ваша фамилия',
-    'contact.email': 'Электронная почта',
-    'contact.placeholder.email': 'Ваш e-mail',
+    'contact.email': 'Email',
+    'contact.placeholder.email': 'Ваш адрес электронной почты',
     'contact.phone': 'Телефон',
     'contact.placeholder.phone': 'Ваш номер телефона',
     'contact.message': 'Сообщение',
@@ -843,21 +1058,6 @@ const translations: Record<Language, TranslationMap> = {
     'popup.success.title': 'Успешно отправлено!',
     'popup.success.message':
       'Ваше сообщение было успешно отправлено! Вы получите подтверждение по электронной почте в ближайшее время. Мы скоро свяжемся с вами!',
-
-    // FAQ
-    'faq.title': 'Часто задаваемые вопросы',
-    'faq.question1': 'Сколько стоит создание сайта?',
-    'faq.answer1':
-      'Наши цены начинаются от 500€ за простой сайт-визитку. Стоимость варьируется в зависимости от ваших потребностей: количество страниц, функции, индивидуальный дизайн и т.д. Мы предлагаем бесплатную персональную консультацию.',
-    'faq.question2': 'Сколько времени нужно для создания сайта?',
-    'faq.answer2':
-      'Простой сайт-визитка обычно занимает 2-3 недели. Для более сложного сайта с дополнительными функциями рассчитывайте на 4-8 недель. Мы определим точный график в начале проекта.',
-    'faq.question3': 'Предлагаете ли вы обслуживание сайтов?',
-    'faq.answer3':
-      'Да, мы предлагаем договоры на обслуживание для обеспечения безопасности, обновлений и резервного копирования вашего сайта. Мы также предлагаем техническую поддержку и советы по оптимизации вашего онлайн-присутствия.',
-    'faq.question4': 'Оптимизированы ли мои сайты для SEO?',
-    'faq.answer4':
-      'Конечно! Все наши сайты создаются с учётом лучших SEO-практик: оптимизированная структура, мета-теги, скорость загрузки, адаптивный дизайн, структурированный контент. Мы также предлагаем расширенные SEO-услуги.',
 
     'footer.rights': 'SIDIKOFF DIGITAL — Веб-агентство в Париже. Разработка сайтов под ключ.', // Legal Mentions
     'legal.title': 'Политика конфиденциальности',

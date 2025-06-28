@@ -3,7 +3,19 @@
 import type React from 'react'
 
 import { useState, useRef, useEffect } from 'react'
-import { Building2, Mail, Phone, ChevronDown } from 'lucide-react'
+import {
+  Building2,
+  Mail,
+  Phone,
+  ChevronDown,
+  MapPin,
+  Clock,
+  CheckCircle,
+  MessageSquare,
+  Send,
+  Smartphone,
+  MessageCircle,
+} from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Popup from './Popup'
 import AnimatedSection from './AnimatedSection'
@@ -172,141 +184,196 @@ export default function Contact() {
   }
 
   return (
-    <section id='contact' className='relative isolate bg-white dark:bg-gray-900'>
-      <div className='mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2'>
-        <AnimatedSection className='relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48'>
-          <div className='mx-auto max-w-xl lg:mx-0 lg:max-w-lg'>
-            <div className='absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-gray-100 dark:bg-transparent ring-1 ring-gray-900/10 dark:ring-white/5 lg:w-1/2'>
-              <svg
-                aria-hidden='true'
-                className='absolute inset-0 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]'>
-                <defs>
-                  <pattern
-                    x='100%'
-                    y={-1}
-                    id='83fd4e5a-9d52-42fc-97b6-718e5d7ee527'
-                    width={200}
-                    height={200}
-                    patternUnits='userSpaceOnUse'>
-                    <path d='M130 200V.5M.5 .5H200' fill='none' />
-                  </pattern>
-                </defs>
-                <rect
-                  fill='white'
-                  className='dark:hidden'
-                  width='100%'
-                  height='100%'
-                  strokeWidth={0}
-                />
-                <svg
-                  x='100%'
-                  y={-1}
-                  className='overflow-visible fill-gray-50 dark:fill-gray-800/20'>
-                  <path d='M-470.5 0h201v201h-201Z' strokeWidth={0} />
-                </svg>
-                <rect
-                  fill='url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)'
-                  width='100%'
-                  height='100%'
-                  strokeWidth={0}
-                />
-              </svg>
-              <div
-                aria-hidden='true'
-                className='absolute -left-56 top-[calc(100%-13rem)] transform-gpu blur-3xl lg:left-[max(-14rem,calc(100%-59rem))] lg:top-[calc(50%-7rem)]'>
-                <div
-                  style={{
-                    clipPath:
-                      'polygon(74.1% 56.1%, 100% 38.6%, 97.5% 73.3%, 85.5% 100%, 80.7% 98.2%, 72.5% 67.7%, 60.2% 37.8%, 52.4% 32.2%, 47.5% 41.9%, 45.2% 65.8%, 27.5% 23.5%, 0.1% 35.4%, 17.9% 0.1%, 27.6% 23.5%, 76.1% 2.6%, 74.1% 56.1%)',
-                  }}
-                  className='aspect-[1155/678] w-[72.1875rem] bg-gradient-to-br from-[#80caff] to-[#4f46e5] opacity-20'
-                />
-              </div>
-            </div>
-            <h2 className='text-3xl font-bold mb-4 text-card-foreground'>{t('contact.title')}</h2>
-            {/* <h3 className='text-3xl font-bold mb-4 text-card-foreground'>
-              {t('contact.subtitle')}
-            </h3> */}
-            <p className='mt-4 text-gray-700 dark:text-gray-300'>
-              {t('contact.description')
-                .split('\n')
-                .map((line, i) => (
-                  <span key={i}>
-                    {line}
-                    <br />
-                  </span>
-                ))}
-            </p>
-            <p className='mt-4 text-gray-700 dark:text-gray-300'>{t('contact.subdescription1')}</p>
-            <p className='mt-4 text-gray-700 dark:text-gray-300'>{t('contact.subdescription2')}</p>
-            <p className='mt-4 text-gray-700 dark:text-gray-300'>{t('contact.subdescription3')}</p>
-            <dl className='mt-10 space-y-4 text-base leading-7 text-gray-600 dark:text-gray-300'>
-              <div className='flex gap-x-4'>
-                <dt className='flex-none'>
-                  <span className='sr-only'>Address</span>
-                  <Building2 aria-hidden='true' className='h-7 w-6 text-gray-400' />
-                </dt>
-                <dd>{t('contact.address')}</dd>
-              </div>
-              <div className='flex gap-x-4'>
-                <dt className='flex-none'>
-                  <span className='sr-only'>Telephone</span>
-                  <Phone aria-hidden='true' className='h-7 w-6 text-gray-400' />
-                </dt>
-                <dd>
-                  <a href='tel:+33626932734' className='hover:text-gray-900 dark:hover:text-white'>
-                    +33 6 26 93 27 34
-                  </a>
-                </dd>
-              </div>
-              <div className='flex gap-x-4'>
-                <dt className='flex-none'>
-                  <span className='sr-only'>Email</span>
-                  <Mail aria-hidden='true' className='h-7 w-6 text-gray-400' />
-                </dt>
-                <dd>
-                  <a
-                    href='mailto:s.sidikoff@gmail.com'
-                    className='hover:text-gray-900 dark:hover:text-white'>
-                    s.sidikoff@gmail.com
-                  </a>
-                </dd>
-              </div>
-            </dl>
-          </div>
+    <section
+      id='contact'
+      className='relative isolate bg-gradient-to-br from-gray-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-900 dark:to-indigo-950'>
+      {/* Background decoration */}
+      <div className='absolute inset-0 -z-10 overflow-hidden'>
+        <div className='absolute -top-40 -right-40 w-80 h-80 bg-purple-200 dark:bg-purple-900/20 rounded-full blur-3xl opacity-70' />
+        <div className='absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-200 dark:bg-indigo-900/20 rounded-full blur-3xl opacity-70' />
+      </div>
+
+      <div className='mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8'>
+        {/* Header */}
+        <AnimatedSection className='text-center mb-16'>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className='text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl'>
+            {t('contact.title')}
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className='mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto'>
+            {t('contact.subtitle')}
+          </motion.p>
         </AnimatedSection>
-        <AnimatedSection>
-          <form
-            id='contact-form'
-            ref={formRef}
-            onSubmit={handleSubmit}
-            className='px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48'>
-            <div className='mx-auto max-w-xl lg:mr-0 lg:max-w-lg'>
-              {/* Contact Form Header */}
-              <div className='mb-8'>
-                <h2 className='text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-gray-900 via-indigo-600 to-purple-600 dark:from-white dark:via-indigo-400 dark:to-purple-400 bg-clip-text text-transparent mb-8 leading-tight'>
-                  {t('contact.form.title')}
-                </h2>
+
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20'>
+          {/* Contact Information */}
+          <AnimatedSection className='space-y-8'>
+            {/* Quick Contact Methods */}
+            <div className='bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700'>
+              <h3 className='text-2xl font-semibold text-gray-900 dark:text-white mb-6'>
+                {t('contact.description').split('\n')[0].replace('• ', '')}
+              </h3>
+
+              {/* Contact Methods Grid */}
+              <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8'>
+                {/* WhatsApp */}
+                <a
+                  href={`https://wa.me/+33626932734`}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='flex items-center p-4 rounded-xl bg-green-50 dark:bg-green-900/20 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors group'>
+                  <div className='w-8 h-8 flex items-center justify-center'>
+                    <svg
+                      viewBox='0 0 24 24'
+                      className='w-8 h-8 fill-current text-green-600 dark:text-green-400'>
+                      <path d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.566' />
+                    </svg>
+                  </div>
+                  <div className='ml-4'>
+                    <p className='text-sm font-medium text-gray-900 dark:text-white'>
+                      {t('contact.socialMedia.whatsapp')}
+                    </p>
+                    <p className='text-sm text-gray-600 dark:text-gray-300'>
+                      {t('contact.phone.value')}
+                    </p>
+                  </div>
+                </a>
+
+                {/* Telegram */}
+                <a
+                  href='https://t.me/sardorbek_sidikov'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='flex items-center p-4 rounded-xl bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors group'>
+                  <div className='w-8 h-8 flex items-center justify-center'>
+                    <svg
+                      viewBox='0 0 24 24'
+                      className='w-8 h-8 fill-current text-blue-600 dark:text-blue-400'>
+                      <path d='m9.417 15.181-.397-.131-.964-2.946 7.966-4.729-.84 3.976-5.765 3.83Z' />
+                      <path d='M20.693 3.831 2.529 11.342c-.49.199-.49.656-.49.656s.13.32.524.474l4.631 1.714 1.748 5.656c.173.547.527.547.527.547s.271.062.546-.235l2.053-2.053 4.274 3.156c.395.235.77.131.77.131s.31-.135.411-.621L20.693 3.831Z' />
+                    </svg>
+                  </div>
+                  <div className='ml-4'>
+                    <p className='text-sm font-medium text-gray-900 dark:text-white'>
+                      {t('contact.socialMedia.telegram')}
+                    </p>
+                    <p className='text-sm text-gray-600 dark:text-gray-300'>@sardorbek_sidikov</p>
+                  </div>
+                </a>
               </div>
 
-              <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
-                <div>
-                  <label
-                    htmlFor='first-name'
-                    className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
-                    {t('contact.firstName')}
-                  </label>
-                  <div className='mt-2.5'>
+              {/* Contact Details */}
+              <div className='space-y-4'>
+                <div className='flex items-center text-gray-600 dark:text-gray-300'>
+                  <Mail className='h-5 w-5 text-indigo-500 mr-3 flex-shrink-0' />
+                  <div>
+                    <p className='text-sm font-medium text-gray-900 dark:text-white'>
+                      {t('contact.email.label')}
+                    </p>
+                    <a
+                      href={`mailto:${t('contact.email.value')}`}
+                      className='text-sm hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors'>
+                      {t('contact.email.value')}
+                    </a>
+                  </div>
+                </div>
+
+                <div className='flex items-center text-gray-600 dark:text-gray-300'>
+                  <Phone className='h-5 w-5 text-indigo-500 mr-3 flex-shrink-0' />
+                  <div>
+                    <p className='text-sm font-medium text-gray-900 dark:text-white'>
+                      {t('contact.phone.label')}
+                    </p>
+                    <a
+                      href={`tel:+33626932734`}
+                      className='text-sm hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors'>
+                      +33 {t('contact.phone.value')}
+                    </a>
+                  </div>
+                </div>
+
+                <div className='flex items-center text-gray-600 dark:text-gray-300'>
+                  <MapPin className='h-5 w-5 text-indigo-500 mr-3 flex-shrink-0' />
+                  <div>
+                    <p className='text-sm font-medium text-gray-900 dark:text-white'>
+                      {t('contact.location.label')}
+                    </p>
+                    <p className='text-sm'>{t('contact.location.value')}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Benefits */}
+            <div className='bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700'>
+              <h4 className='text-xl font-semibold text-gray-900 dark:text-white mb-6'>
+                {t('contact.benefits.title')}
+              </h4>
+              <div className='space-y-4'>
+                <div className='flex items-center'>
+                  <CheckCircle className='h-5 w-5 text-green-500 mr-3 flex-shrink-0' />
+                  <span className='text-gray-600 dark:text-gray-300'>
+                    {t('contact.subdescription2')}
+                  </span>
+                </div>
+                <div className='flex items-center'>
+                  <CheckCircle className='h-5 w-5 text-green-500 mr-3 flex-shrink-0' />
+                  <span className='text-gray-600 dark:text-gray-300'>
+                    {t('contact.subdescription3')}
+                  </span>
+                </div>
+                <div className='flex items-center'>
+                  <CheckCircle className='h-5 w-5 text-green-500 mr-3 flex-shrink-0' />
+                  <span className='text-gray-600 dark:text-gray-300'>
+                    {t('contact.benefits.1')}
+                  </span>
+                </div>
+                <div className='flex items-center'>
+                  <CheckCircle className='h-5 w-5 text-green-500 mr-3 flex-shrink-0' />
+                  <span className='text-gray-600 dark:text-gray-300'>
+                    {t('contact.benefits.2')}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          {/* Contact Form */}
+          <AnimatedSection>
+            <div className='bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700'>
+              <div className='mb-8'>
+                <h3 className='text-2xl font-semibold text-gray-900 dark:text-white mb-2'>
+                  {t('contact.form.title')}
+                </h3>
+                <p className='text-gray-600 dark:text-gray-300'>{t('contact.form.subtitle')}</p>
+              </div>
+
+              <form id='contact-form' ref={formRef} onSubmit={handleSubmit} className='space-y-6'>
+                {/* Name Fields */}
+                <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+                  <div>
+                    <label
+                      htmlFor='first-name'
+                      className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white mb-2'>
+                      {t('contact.firstName')}
+                    </label>
                     <input
                       placeholder={t('contact.placeholder.firstName')}
                       id='first-name'
                       name='first-name'
                       type='text'
                       autoComplete='given-name'
-                      className={`block w-full rounded-md border-0 dark:bg-white/5 px-3.5 py-2 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset dark:ring-white/10 sm:text-sm sm:leading-6 ${
+                      className={`block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700/50 px-4 py-3 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset transition-all duration-200 ${
                         formErrors.firstName
                           ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
-                          : 'ring-gray-300 focus:ring-primary'
+                          : 'ring-gray-200 dark:ring-gray-600 focus:ring-indigo-600 dark:focus:ring-indigo-400'
                       }`}
                     />
                     <AnimatePresence>
@@ -315,215 +382,217 @@ export default function Contact() {
                           initial={{ opacity: 0, y: -10 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -10 }}
-                          transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-                          className='mt-1 text-sm text-red-500 dark:text-red-400'>
+                          transition={{ duration: 0.2 }}
+                          className='mt-2 text-sm text-red-500 dark:text-red-400'>
                           {formErrors.firstName}
                         </motion.p>
                       )}
                     </AnimatePresence>
                   </div>
-                </div>
-                <div>
-                  <label
-                    htmlFor='last-name'
-                    className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
-                    {t('contact.lastName')}
-                  </label>
-                  <div className='mt-2.5'>
+
+                  <div>
+                    <label
+                      htmlFor='last-name'
+                      className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white mb-2'>
+                      {t('contact.lastName')}
+                    </label>
                     <input
                       id='last-name'
                       name='last-name'
                       placeholder={t('contact.placeholder.lastName')}
                       type='text'
                       autoComplete='family-name'
-                      className={`block w-full rounded-md border-0 dark:bg-white/5 px-3.5 py-2 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset dark:ring-white/10 sm:text-sm sm:leading-6 ${
+                      className={`block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700/50 px-4 py-3 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset transition-all duration-200 ${
                         formErrors.lastName
                           ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
-                          : 'ring-gray-300 focus:ring-primary'
+                          : 'ring-gray-200 dark:ring-gray-600 focus:ring-indigo-600 dark:focus:ring-indigo-400'
                       }`}
                     />
                     {formErrors.lastName && (
-                      <p className='mt-1 text-sm text-red-500 dark:text-red-400'>
+                      <p className='mt-2 text-sm text-red-500 dark:text-red-400'>
                         {formErrors.lastName}
                       </p>
                     )}
                   </div>
                 </div>
-                <div className='sm:col-span-2'>
+
+                {/* Email */}
+                <div>
                   <label
                     htmlFor='email'
-                    className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
+                    className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white mb-2'>
                     {t('contact.email')}
                   </label>
-                  <div className='mt-2.5'>
-                    <input
-                      placeholder={t('contact.placeholder.email')}
-                      id='email'
-                      name='email'
-                      type='email'
-                      autoComplete='email'
-                      className={`block w-full rounded-md border-0 dark:bg-white/5 px-3.5 py-2 dark:text-white text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 ${
-                        formErrors.email
-                          ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
-                          : 'ring-gray-300 dark:ring-white/10 focus:ring-primary'
-                      }`}
-                    />
-                    <AnimatePresence>
-                      {formErrors.email && (
-                        <motion.p
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-                          className='mt-1 text-sm text-red-500 dark:text-red-400'>
-                          {formErrors.email}
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
+                  <input
+                    placeholder={t('contact.placeholder.email')}
+                    id='email'
+                    name='email'
+                    type='email'
+                    autoComplete='email'
+                    className={`block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700/50 px-4 py-3 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset transition-all duration-200 ${
+                      formErrors.email
+                        ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
+                        : 'ring-gray-200 dark:ring-gray-600 focus:ring-indigo-600 dark:focus:ring-indigo-400'
+                    }`}
+                  />
+                  <AnimatePresence>
+                    {formErrors.email && (
+                      <motion.p
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className='mt-2 text-sm text-red-500 dark:text-red-400'>
+                        {formErrors.email}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
                 </div>
-                <div className='sm:col-span-2'>
+
+                {/* Phone */}
+                <div>
                   <label
                     htmlFor='phone-number'
-                    className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
+                    className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white mb-2'>
                     {t('contact.phone')}
                   </label>
-                  <div className='mt-2.5'>
-                    <input
-                      placeholder={t('contact.placeholder.phone')}
-                      id='phone-number'
-                      name='phone-number'
-                      type='tel'
-                      autoComplete='tel'
-                      className={`block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 dark:bg-white/5 dark:text-white ${
-                        formErrors.phone
-                          ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
-                          : 'ring-gray-300 dark:ring-white/10 focus:ring-primary'
-                      }`}
-                    />
-                    {formErrors.phone && (
-                      <p className='mt-1 text-sm text-red-500 dark:text-red-400'>
-                        {formErrors.phone}
-                      </p>
-                    )}
-                  </div>
+                  <input
+                    placeholder={t('contact.placeholder.phone')}
+                    id='phone-number'
+                    name='phone-number'
+                    type='tel'
+                    autoComplete='tel'
+                    className={`block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700/50 px-4 py-3 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset transition-all duration-200 ${
+                      formErrors.phone
+                        ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
+                        : 'ring-gray-200 dark:ring-gray-600 focus:ring-indigo-600 dark:focus:ring-indigo-400'
+                    }`}
+                  />
+                  {formErrors.phone && (
+                    <p className='mt-2 text-sm text-red-500 dark:text-red-400'>
+                      {formErrors.phone}
+                    </p>
+                  )}
                 </div>
-                <div className='sm:col-span-2'>
+
+                {/* Tariff Selection */}
+                <div>
                   <label
                     htmlFor='selected-tariff'
-                    className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
+                    className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white mb-2'>
                     {t('prices.title')}{' '}
-                    <span className='text-xs text-gray-400'>({t('prices.subtitle')})</span>
+                    <span className='text-xs text-gray-400 font-normal'>
+                      ({t('prices.subtitle')})
+                    </span>
                   </label>
-                  <div className='mt-2.5 relative'>
+                  <div className='relative'>
                     <select
                       id='selected-tariff'
                       name='selected-tariff'
                       value={tariff}
                       onChange={(e) => setTariff(e.target.value)}
-                      className={`block w-full rounded-md border-0 dark:bg-white/10 bg-white px-3.5 py-2 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 transition-colors appearance-none pr-10 ${
+                      className={`block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700/50 px-4 py-3 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset transition-all duration-200 appearance-none pr-10 ${
                         formErrors.tariff
                           ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
-                          : 'ring-gray-300 dark:ring-white/10 focus:ring-primary dark:focus:ring-indigo-400'
+                          : 'ring-gray-200 dark:ring-gray-600 focus:ring-indigo-600 dark:focus:ring-indigo-400'
                       }`}>
-                      <option
-                        value=''
-                        disabled
-                        hidden
-                        className='bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500 py-3 my-2 px-3'
-                        style={{
-                          paddingTop: '0.75rem',
-                          paddingBottom: '0.75rem',
-                          paddingLeft: '0.75rem',
-                          paddingRight: '0.75rem',
-                        }}>
+                      <option value='' disabled hidden className='text-gray-400'>
                         -- {t('prices.title')} --
                       </option>
-                      <option
-                        value={t('prices.tier1.name')}
-                        className='bg-indigo-50 dark:bg-gray-900 text-gray-900 dark:text-white hover:bg-indigo-100 dark:hover:bg-indigo-800 py-3 my-2 px-3'
-                        style={{
-                          paddingTop: '0.75rem',
-                          paddingBottom: '0.75rem',
-                          paddingLeft: '0.75rem',
-                          paddingRight: '0.75rem',
-                        }}>
+                      <option value={t('prices.tier1.name')} className='bg-white dark:bg-gray-800'>
                         {t('prices.tier1.name')}
                       </option>
-                      <option
-                        value={t('prices.tier2.name')}
-                        className='bg-indigo-50 dark:bg-gray-900 text-gray-900 dark:text-white hover:bg-indigo-100 dark:hover:bg-indigo-800 py-3 my-2 px-3'
-                        style={{
-                          paddingTop: '0.75rem',
-                          paddingBottom: '0.75rem',
-                          paddingLeft: '0.75rem',
-                          paddingRight: '0.75rem',
-                        }}>
+                      <option value={t('prices.tier2.name')} className='bg-white dark:bg-gray-800'>
                         {t('prices.tier2.name')}
                       </option>
-                      <option
-                        value={t('prices.tier3.name')}
-                        className='bg-indigo-50 dark:bg-gray-900 text-gray-900 dark:text-white hover:bg-indigo-100 dark:hover:bg-indigo-800 py-3 my-2 px-3'
-                        style={{
-                          paddingTop: '0.75rem',
-                          paddingBottom: '0.75rem',
-                          paddingLeft: '0.75rem',
-                          paddingRight: '0.75rem',
-                        }}>
+                      <option value={t('prices.tier3.name')} className='bg-white dark:bg-gray-800'>
                         {t('prices.tier3.name')}
                       </option>
+                      <option
+                        value={t('prices.customDescription')}
+                        className='bg-white dark:bg-gray-800'>
+                        {t('prices.customDescription')}
+                      </option>
+                      <option
+                        value={t('prices.maintenanceSupport.title')}
+                        className='bg-white dark:bg-gray-800'>
+                        {t('prices.maintenanceSupport.title')}
+                      </option>
                     </select>
-                    <ChevronDown className='pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 dark:text-gray-300' />
-                    {formErrors.tariff && (
-                      <p className='mt-1 text-sm text-red-500 dark:text-red-400'>
-                        {formErrors.tariff}
-                      </p>
-                    )}
+                    <ChevronDown className='pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400' />
                   </div>
-                  <p className='mt-1 text-xs text-gray-400 dark:text-gray-500'>
+                  {formErrors.tariff && (
+                    <p className='mt-2 text-sm text-red-500 dark:text-red-400'>
+                      {formErrors.tariff}
+                    </p>
+                  )}
+                  <p className='mt-1 text-xs text-gray-500 dark:text-gray-400'>
                     {t('prices.description')}
                   </p>
                 </div>
-                <div className='sm:col-span-2'>
+
+                {/* Message */}
+                <div>
                   <label
                     htmlFor='message'
-                    className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
+                    className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white mb-2'>
                     {t('contact.message')}
                   </label>
-                  <div className='mt-2.5'>
-                    <textarea
-                      placeholder={t('contact.placeholder.message')}
-                      id='message'
-                      name='message'
-                      rows={4}
-                      className={`block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 dark:bg-white/5 dark:text-white ${
-                        formErrors.message
-                          ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
-                          : 'ring-gray-300 dark:ring-white/10 focus:ring-primary'
-                      }`}
-                      defaultValue={''}
-                    />
-                    {formErrors.message && (
-                      <p className='mt-1 text-sm text-red-500 dark:text-red-400'>
-                        {formErrors.message}
-                      </p>
-                    )}
-                  </div>
+                  <textarea
+                    placeholder={t('contact.placeholder.message')}
+                    id='message'
+                    name='message'
+                    rows={4}
+                    className={`block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700/50 px-4 py-3 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset transition-all duration-200 resize-none ${
+                      formErrors.message
+                        ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
+                        : 'ring-gray-200 dark:ring-gray-600 focus:ring-indigo-600 dark:focus:ring-indigo-400'
+                    }`}
+                    defaultValue={''}
+                  />
+                  {formErrors.message && (
+                    <p className='mt-2 text-sm text-red-500 dark:text-red-400'>
+                      {formErrors.message}
+                    </p>
+                  )}
                 </div>
-              </div>
-              <div className='mt-8 flex justify-end'>
-                <button
-                  type='submit'
-                  disabled={isLoading}
-                  className='rounded-md bg-primary px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed'>
-                  {isLoading ? t('contact.sending') : t('contact.send')}
-                </button>
-              </div>
-              {error && <p className='mt-4 text-sm text-red-500 dark:text-red-400'>{error}</p>}
+
+                {/* Submit Button */}
+                <div className='pt-4'>
+                  <motion.button
+                    type='submit'
+                    disabled={isLoading}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className='w-full rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-4 text-base font-semibold text-white shadow-lg hover:from-indigo-700 hover:to-purple-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none transition-all duration-200 flex items-center justify-center'>
+                    {isLoading ? (
+                      <>
+                        <div className='animate-spin -ml-1 mr-3 h-5 w-5 border-2 border-white border-t-transparent rounded-full'></div>
+                        {t('contact.sending')}
+                      </>
+                    ) : (
+                      <>
+                        <Send className='w-5 h-5 mr-2' />
+                        {t('contact.send')}
+                      </>
+                    )}
+                  </motion.button>
+                </div>
+
+                {error && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className='p-4 rounded-xl bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800'>
+                    <p className='text-sm text-red-600 dark:text-red-400'>{error}</p>
+                  </motion.div>
+                )}
+              </form>
             </div>
-          </form>
-        </AnimatedSection>
+          </AnimatedSection>
+        </div>
       </div>
+
       <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
     </section>
   )
