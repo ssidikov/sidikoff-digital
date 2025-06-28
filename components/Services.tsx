@@ -5,28 +5,29 @@ import { motion, useMotionTemplate, useMotionValue } from 'framer-motion'
 import { useLanguage } from '@/context/LanguageContext'
 import AnimatedSection from './AnimatedSection'
 import { Eye, MessageCircle } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Services() {
   const { t } = useLanguage()
 
   const services = [
     {
-      emoji: '🌐',
+      illustration: '/images/services/web-site.svg',
       titleKey: 'services.creation.title',
       descriptionKey: 'services.creation.description',
     },
     {
-      emoji: '🎨',
+      illustration: '/images/services/redesign.svg',
       titleKey: 'services.redesign.title',
       descriptionKey: 'services.redesign.description',
     },
     {
-      emoji: '🔍',
+      illustration: '/images/services/seo.svg',
       titleKey: 'services.seo.title',
       descriptionKey: 'services.seo.description',
     },
     {
-      emoji: '🛠️',
+      illustration: '/images/services/support.svg',
       titleKey: 'services.maintenance.title',
       descriptionKey: 'services.maintenance.description',
     },
@@ -45,7 +46,7 @@ export default function Services() {
         </AnimatedSection>
 
         {/* Services Grid */}
-        <div className='grid md:grid-cols-2 gap-8 mb-12'>
+        <div className='grid md:grid-cols-2 gap-8 md:gap-12 mb-12'>
           {services.map((service, index) => (
             <AnimatedSection key={index}>
               <ServiceCard service={service} t={t} />
@@ -68,7 +69,7 @@ export default function Services() {
                   <span>{t('services.cta.quote')}</span>
                 </div>
               </motion.a>
-              
+
               <motion.a
                 href='#prices'
                 className='group px-8 py-4 border-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 dark:border-indigo-400 rounded-xl font-semibold text-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all duration-300 flex items-center justify-center gap-2'
@@ -90,7 +91,7 @@ function ServiceCard({
   t,
 }: {
   service: {
-    emoji: string
+    illustration: string
     titleKey: string
     descriptionKey: string
   }
@@ -108,7 +109,7 @@ function ServiceCard({
   const background = useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)`
   return (
     <motion.div
-      className='group relative flex flex-col h-full rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm p-8 min-h-[220px] cursor-pointer overflow-hidden'
+      className='group relative flex flex-col h-full rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm p-8 md:p-10 min-h-[320px] cursor-pointer overflow-hidden'
       onMouseMove={handleMouseMove}
       whileTap={{ scale: 0.98 }}
       initial={{ opacity: 0, y: 20 }}
@@ -124,19 +125,27 @@ function ServiceCard({
       <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
 
       {/* Card content */}
-      <div className='relative z-10 flex flex-col h-full'>
-        {/* Icon container */}
-        <div className='flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 mb-6 transition-transform duration-300'>
-          <span className='text-3xl'>{service.emoji}</span>
-        </div>
+      <div className='relative z-10 flex flex-col h-full text-center'>
         {/* Title */}
-        <h3 className='text-xl font-bold text-gray-900 dark:text-white mb-4 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300'>
+        <h3 className='text-2xl font-bold text-gray-900 dark:text-white mb-4 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300'>
           {t(service.titleKey)}
         </h3>
         {/* Description */}
         <p className='text-gray-600 dark:text-gray-300 mb-6 leading-relaxed flex-grow'>
           {t(service.descriptionKey)}
         </p>
+        {/* Illustration */}
+        <div className='flex items-center justify-center mt-auto'>
+          <div className='relative w-64 h-64 group-hover:scale-105 transition-transform duration-300'>
+            <Image
+              src={service.illustration}
+              alt={t(service.titleKey)}
+              fill
+              className='object-contain filter dark:brightness-90'
+              sizes='(max-width: 768px) 128px, 128px'
+            />
+          </div>
+        </div>
       </div>
     </motion.div>
   )
