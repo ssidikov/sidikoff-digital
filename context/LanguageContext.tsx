@@ -136,28 +136,28 @@ const translations: Record<Language, TranslationMap> = {
     'services.subtitle': 'Des solutions web accessibles et sur mesure pour votre entreprise',
     'services.creation.title': 'Création de Sites Web – De A à Z',
     'services.creation.description':
-      'Chaque projet est conçu sur mesure pour répondre précisément à vos besoins. J\'assure toute la chaîne : conception, développement, mise en ligne et suivi.',
+      "Chaque projet est conçu sur mesure pour répondre précisément à vos besoins. J'assure toute la chaîne : conception, développement, mise en ligne et suivi.",
     'services.creation.feature1': 'Conception sur mesure',
     'services.creation.feature2': 'Développement complet',
     'services.creation.feature3': 'Mise en ligne et déploiement',
     'services.creation.feature4': 'Suivi et maintenance',
     'services.redesign.title': 'Refonte / Redesign',
     'services.redesign.description':
-      'Redonnez une nouvelle jeunesse à votre site existant ! Améliorez l\'ergonomie, modernisez l\'esthétique et optimisez la performance pour offrir une expérience utilisateur irréprochable.',
-    'services.redesign.feature1': 'Amélioration de l\'ergonomie',
+      "Redonnez une nouvelle jeunesse à votre site existant ! Améliorez l'ergonomie, modernisez l'esthétique et optimisez la performance pour offrir une expérience utilisateur irréprochable.",
+    'services.redesign.feature1': "Amélioration de l'ergonomie",
     'services.redesign.feature2': 'Modernisation esthétique',
     'services.redesign.feature3': 'Optimisation des performances',
     'services.redesign.feature4': 'Expérience utilisateur améliorée',
     'services.seo.title': 'SEO & Optimisation de la Visibilité',
     'services.seo.description':
-      'Faites-vous trouver par vos clients. J\'optimise le référencement naturel (SEO) de votre site grâce à des techniques éprouvées, un code allégé et une structure adaptée, afin de booster votre visibilité sur Google.',
+      "Faites-vous trouver par vos clients. J'optimise le référencement naturel (SEO) de votre site grâce à des techniques éprouvées, un code allégé et une structure adaptée, afin de booster votre visibilité sur Google.",
     'services.seo.feature1': 'Référencement naturel (SEO)',
     'services.seo.feature2': 'Optimisation technique',
     'services.seo.feature3': 'Structure de code optimisée',
     'services.seo.feature4': 'Amélioration de la visibilité',
     'services.maintenance.title': 'Maintenance & Support',
     'services.maintenance.description':
-      'Profitez d\'un accompagnement continu : support technique, mise à jour, modification ou ajout de nouvelles fonctionnalités selon vos besoins. Une facturation horaire ou sur demande ponctuelle pour un service flexible et évolutif.',
+      "Profitez d'un accompagnement continu : support technique, mise à jour, modification ou ajout de nouvelles fonctionnalités selon vos besoins. Une facturation horaire ou sur demande ponctuelle pour un service flexible et évolutif.",
     'services.maintenance.feature1': 'Support technique continu',
     'services.maintenance.feature2': 'Mises à jour régulières',
     'services.maintenance.feature3': 'Nouvelles fonctionnalités',
@@ -174,7 +174,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.description':
       'Des sites web modernes, performants et optimisés SEO pour booster votre visibilité et attirer plus de clients.',
     'prices.tier1.name': 'Site Essentiel',
-    'prices.tier1.price': '500 €',
+    'prices.tier1.price': 'à partir de 500 €',
     'prices.tier1.audience':
       'Idéal pour freelances, coachs, auto-entrepreneurs et projets personnels.',
     'prices.tier1.includes.title': 'Inclus :',
@@ -185,7 +185,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.tier1.includes.5': 'Présentation claire et professionnelle',
     'prices.tier1.cta': 'Démarrer mon projet',
     'prices.tier2.name': 'Site Vitrine Pro',
-    'prices.tier2.price': '900 €',
+    'prices.tier2.price': 'à partir de 900 €',
     'prices.tier2.audience':
       'Parfait pour TPE, PME, artisans ou prestataires de services souhaitant se positionner sérieusement en ligne.',
     'prices.tier2.includes.title': 'Inclus :',
@@ -214,6 +214,14 @@ const translations: Record<Language, TranslationMap> = {
     'prices.features.enterpriseSecurity': 'Sécurité Entreprise',
     'prices.features.prioritySupport': 'Support Prioritaire',
     'prices.features.customFeatures': 'Fonctionnalités Personnalisées',
+
+    // --- CustomQuoteSection translations ---
+    'prices.maintenanceSupport.title': 'Maintenance et Support',
+    'prices.maintenanceSupport.billing': 'Facturation horaire ou forfait selon la demande',
+    'prices.maintenanceSupport.1': 'Accompagnement personnalisé après la livraison',
+    'prices.maintenanceSupport.2': 'Interventions ponctuelles pour modifications et mises à jour',
+    'prices.maintenanceSupport.3':
+      'Support technique réactif par email, téléphone, WhatsApp ou Telegram',
 
     // FAQ
     'faq.title': 'Questions Fréquentes',
@@ -443,7 +451,7 @@ const translations: Record<Language, TranslationMap> = {
     'services.redesign.feature4': 'Enhanced user experience',
     'services.seo.title': 'SEO & Visibility Optimization',
     'services.seo.description':
-      'Get found by your customers. I optimize your website\'s natural referencing (SEO) using proven techniques, streamlined code and an adapted structure to boost your visibility on Google.',
+      "Get found by your customers. I optimize your website's natural referencing (SEO) using proven techniques, streamlined code and an adapted structure to boost your visibility on Google.",
     'services.seo.feature1': 'Natural referencing (SEO)',
     'services.seo.feature2': 'Technical optimization',
     'services.seo.feature3': 'Optimized code structure',
@@ -467,7 +475,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.description':
       'Modern, high-performance, SEO-optimized websites to boost your visibility and attract more clients.',
     'prices.tier1.name': 'Essential Website',
-    'prices.tier1.price': '500 €',
+    'prices.tier1.price': 'from 500 €',
     'prices.tier1.audience':
       'Perfect for freelancers, consultants, coaches, solo entrepreneurs and personal projects.',
     'prices.tier1.includes.title': 'Includes:',
@@ -478,7 +486,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.tier1.includes.5': 'Clean code & high performance',
     'prices.tier1.cta': 'Start my project',
     'prices.tier2.name': 'Pro Website',
-    'prices.tier2.price': '900 €',
+    'prices.tier2.price': 'from 900 €',
     'prices.tier2.audience':
       'Ideal for small businesses, artisans, agencies and independent professionals looking for a serious online presence.',
     'prices.tier2.includes.title': 'Includes:',
@@ -507,6 +515,15 @@ const translations: Record<Language, TranslationMap> = {
     'prices.features.enterpriseSecurity': 'Enterprise Security',
     'prices.features.prioritySupport': 'Priority Support',
     'prices.features.customFeatures': 'Custom Features',
+
+    // --- CustomQuoteSection translations ---
+    'prices.maintenanceSupport.title': 'Maintenance and Support',
+    'prices.maintenanceSupport.billing': 'Hourly billing or flat rate depending on the request',
+    'prices.maintenanceSupport.1': 'Personalized support after delivery',
+    'prices.maintenanceSupport.2': 'Occasional interventions for modifications and updates',
+    'prices.maintenanceSupport.3':
+      'Reactive technical support via email, phone, WhatsApp or Telegram',
+
     'contact.title': 'Tell us about your project',
     'contact.subtitle': 'Got a web project? Let’s talk.',
     'contact.description':
@@ -739,7 +756,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.description':
       'Современные, быстрые и SEO-оптимизированные сайты для роста вашего бизнеса и привлечения клиентов.',
     'prices.tier1.name': 'Сайт-визитка',
-    'prices.tier1.price': '500 €',
+    'prices.tier1.price': 'от 500 €',
     'prices.tier1.audience':
       'Подходит для фрилансеров, экспертов, коучей, индивидуальных предпринимателей и личных проектов.',
     'prices.tier1.includes.title': 'Что входит:',
@@ -750,7 +767,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.tier1.includes.5': 'Чистая структура и современный внешний вид',
     'prices.tier1.cta': 'Запустить проект',
     'prices.tier2.name': 'Pro сайт для бизнеса',
-    'prices.tier2.price': '900 €',
+    'prices.tier2.price': 'от 900 €',
     'prices.tier2.audience':
       'Идеально для малого и среднего бизнеса, мастеров и специалистов, желающих профессионально представить свои услуги в интернете.',
     'prices.tier2.includes.title': 'Что входит:',
@@ -777,6 +794,16 @@ const translations: Record<Language, TranslationMap> = {
     'prices.features.enterpriseSecurity': 'Корпоративная безопасность',
     'prices.features.prioritySupport': 'Приоритетная поддержка',
     'prices.features.customFeatures': 'Индивидуальные функции',
+
+    // --- CustomQuoteSection translations ---
+    'prices.maintenanceSupport.title': 'Техническая поддержка и сопровождение',
+    'prices.maintenanceSupport.billing':
+      'Почасовая оплата или фиксированная ставка в зависимости от запроса',
+    'prices.maintenanceSupport.1': 'Персонализированное сопровождение после доставки',
+    'prices.maintenanceSupport.2': 'Разовые вмешательства для модификаций и обновлений',
+    'prices.maintenanceSupport.3':
+      'Техническая поддержка по WhatsApp, Telegram или электронной почте',
+
     'contact.title': 'Расскажите нам о своём проекте',
     'contact.subtitle': 'Есть идея? Давайте обсудим.',
     'contact.description':

@@ -342,29 +342,25 @@ function CustomQuoteSection({
             <Users className='w-6 h-6 text-white' />
           </div>
           <div className='text-left'>
-            <h3 className='text-h5 font-heading text-text-primary'>{t('prices.custom')}</h3>
-            <p className='text-body-sm text-text-secondary'>{t('prices.customDescription')}</p>
+            <h3 className='text-h5 font-heading text-text-primary'>{t('prices.maintenanceSupport.title')}</h3>
+            <p className='text-body-sm text-text-secondary'>{t('prices.maintenanceSupport.billing')}</p>
           </div>
         </div>
-        <div className='grid md:grid-cols-3 gap-4 mb-8'>
-          <div className='flex items-center gap-3'>
-            <Shield className='w-5 h-5 text-indigo-600 dark:text-primary' />
-            <span className='text-body-sm text-text-primary'>
-              {t('prices.features.enterpriseSecurity')}
-            </span>
-          </div>
-          <div className='flex items-center gap-3'>
-            <Clock className='w-5 h-5 text-indigo-600 dark:text-primary' />
-            <span className='text-body-sm text-text-primary'>
-              {t('prices.features.prioritySupport')}
-            </span>
-          </div>
-          <div className='flex items-center gap-3'>
-            <Sparkles className='w-5 h-5 text-indigo-600 dark:text-primary' />
-            <span className='text-body-sm text-text-primary'>
-              {t('prices.features.customFeatures')}
-            </span>
-          </div>
+        <div className='mb-8'>
+          <ul className='space-y-2'>
+            <li className='flex items-start gap-3'>
+              <Check className='w-5 h-5 text-indigo-600 dark:text-primary mt-1' />
+              <span className='text-body-sm text-text-primary'>{t('prices.maintenanceSupport.1')}</span>
+            </li>
+            <li className='flex items-start gap-3'>
+              <Check className='w-5 h-5 text-indigo-600 dark:text-primary mt-1' />
+              <span className='text-body-sm text-text-primary'>{t('prices.maintenanceSupport.2')}</span>
+            </li>
+            <li className='flex items-start gap-3'>
+              <Check className='w-5 h-5 text-indigo-600 dark:text-primary mt-1' />
+              <span className='text-body-sm text-text-primary'>{t('prices.maintenanceSupport.3')}</span>
+            </li>
+          </ul>
         </div>
         <motion.button
           whileHover={{ scale: 1.05 }}
