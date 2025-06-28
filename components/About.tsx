@@ -107,104 +107,121 @@ const About: React.FC = () => {
               {t('about.intro.description')}
             </p>
           </motion.div>
-          {/* Founder intro card */}
-          <motion.div
-            className='group relative max-w-3xl mx-auto rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm p-8 lg:p-10 cursor-pointer overflow-hidden'
-            variants={itemVariants}
-            onMouseMove={({ currentTarget, clientX, clientY }: ReactMouseEvent<HTMLDivElement>) => {
-              const { left, top } = currentTarget.getBoundingClientRect()
-              mouseX.set(clientX - left)
-              mouseY.set(clientY - top)
-            }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}>
-            {/* Gradient overlay */}
+          {/* Founder section with experience and education cards */}
+          <div className='grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto'>
+            {/* Founder card - Left side */}
             <motion.div
-              className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
-              style={{
-                background: useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)`,
+              className='lg:col-span-2 group relative rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm p-8 lg:p-10 cursor-pointer overflow-hidden'
+              variants={itemVariants}
+              onMouseMove={({
+                currentTarget,
+                clientX,
+                clientY,
+              }: ReactMouseEvent<HTMLDivElement>) => {
+                const { left, top } = currentTarget.getBoundingClientRect()
+                mouseX.set(clientX - left)
+                mouseY.set(clientY - top)
               }}
-              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            />
-            {/* Border glow effect */}
-            <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
-            {/* Header Section */}
-            <div className='relative z-10 flex flex-col lg:flex-row items-center lg:items-start gap-6 mb-8'>
-              {/* Avatar */}
-              <motion.div className='relative' transition={{ duration: 0.3 }}>
-                <div className='relative w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 shadow-lg shadow-indigo-500/25 overflow-hidden flex items-center justify-center'>
-                  <Image
-                    src='/founder.webp'
-                    alt='Founder'
-                    fill
-                    sizes='(max-width: 96px) 96px, 96px'
-                    style={{ objectFit: 'cover' }}
-                    className='rounded-full'
-                    priority
-                  />
-                </div>
-                {/* Status dot */}
-                <div className='absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-4 border-white dark:border-gray-800 flex items-center justify-center'>
-                  <div className='w-2 h-2 bg-white rounded-full animate-pulse'></div>
-                </div>
-              </motion.div>
-              {/* Name and Title */}
-              <div className='text-center lg:text-left flex-1'>
-                <h3 className='text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2'>
-                  {t('about.founder.name')}
-                </h3>
-                <div className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full text-sm font-semibold mb-4'>
-                  <CheckCircle className='w-4 h-4 mr-2' />
-                  {t('about.founder.title')}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}>
+              {/* Gradient overlay */}
+              <motion.div
+                className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
+                style={{
+                  background: useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)`,
+                }}
+                transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              />
+              {/* Border glow effect */}
+              <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+              {/* Header Section */}
+              <div className='relative z-10 flex flex-col lg:flex-row items-center lg:items-start gap-6 mb-8'>
+                {/* Avatar */}
+                <motion.div className='relative' transition={{ duration: 0.3 }}>
+                  <div className='relative w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 shadow-lg shadow-indigo-500/25 overflow-hidden flex items-center justify-center'>
+                    <Image
+                      src='/founder.webp'
+                      alt='Founder'
+                      fill
+                      sizes='(max-width: 96px) 96px, 96px'
+                      style={{ objectFit: 'cover' }}
+                      className='rounded-full'
+                      priority
+                    />
+                  </div>
+                  {/* Status dot */}
+                  <div className='absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-4 border-white dark:border-gray-800 flex items-center justify-center'>
+                    <div className='w-2 h-2 bg-white rounded-full animate-pulse'></div>
+                  </div>
+                </motion.div>
+                {/* Name and Title */}
+                <div className='text-center lg:text-left flex-1'>
+                  <h3 className='text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2'>
+                    {t('about.founder.name')}
+                  </h3>
+                  <div className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full text-sm font-semibold mb-4'>
+                    <CheckCircle className='w-4 h-4 mr-2' />
+                    {t('about.founder.title')}
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* Description */}
-            <div className='relative z-10 mb-8'>
-              <p className='text-gray-600 dark:text-gray-300 leading-relaxed lg:text-left'>
-                {t('about.founder.description')}
-              </p>
-            </div>
-            {/* Experience and Education Grid */}
-            <div className='relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-4'>
-              {/* Experience */}
+              {/* Description */}
+              <div className='relative z-10 mb-8'>
+                <p className='text-gray-600 dark:text-gray-300 leading-relaxed lg:text-left'>
+                  {t('about.founder.description')}
+                </p>
+              </div>
+              {/* Contact CTA */}
+              <div className='relative z-10 text-center lg:text-left'>
+                <motion.a
+                  href='#contact-form'
+                  className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-gray-700 dark:text-gray-200 rounded-xl font-medium hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-600'
+                  whileTap={{ scale: 0.95 }}>
+                  <MessageCircle className='w-4 h-4' />
+                  {t('about.founder.contactCta')}
+                </motion.a>
+              </div>
+            </motion.div>
+
+            {/* Experience and Education cards - Right side */}
+            <div className='grid grid-cols-2 gap-4 lg:grid-rows-2 lg:grid-cols-1 lg:gap-6 lg:h-full'>
+              {/* Experience Card */}
               <motion.div
-                className='flex items-center gap-4 p-4 bg-gradient-to-r from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20 rounded-2xl border border-indigo-200/50 dark:border-indigo-700/30'
-                transition={{ duration: 0.2 }}>
-                <div className='w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-lg'>
-                  <Zap className='w-7 h-7 text-white' />
-                </div>
-                <div>
-                  <p className='text-start text-gray-900 dark:text-white font-semibold'>
+                className='group relative rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm p-6 cursor-pointer overflow-hidden h-full flex items-center justify-center'
+                variants={itemVariants}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}>
+                {/* Border glow effect */}
+                <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/5 via-transparent to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+                <div className='relative z-10 text-center'>
+                  <div className='w-16 h-16 mx-auto rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-lg mb-4'>
+                    <Zap className='w-8 h-8 text-white' />
+                  </div>
+                  <p className='text-gray-900 dark:text-white font-semibold text-sm md:text-lg'>
                     {t('about.founder.experienceYears')}
                   </p>
                 </div>
               </motion.div>
-              {/* Education */}
+
+              {/* Education Card */}
               <motion.div
-                className='flex items-center gap-4 p-4 bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-2xl border border-purple-200/50 dark:border-purple-700/30'
-                transition={{ duration: 0.2 }}>
-                <div className='min-w-12 w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg'>
-                  <GraduationCap className='w-7 h-7 text-white' />
-                </div>
-                <div>
-                  <p className='text-start text-gray-900 dark:text-white font-semibold'>
+                className='group relative rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm p-6 cursor-pointer overflow-hidden h-full flex items-center justify-center'
+                variants={itemVariants}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}>
+                {/* Border glow effect */}
+                <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+                <div className='relative z-10 text-center'>
+                  <div className='w-16 h-16 mx-auto rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg mb-4'>
+                    <GraduationCap className='w-8 h-8 text-white' />
+                  </div>
+                  <p className='text-gray-900 dark:text-white font-semibold text-sm md:text-lg'>
                     {t('about.founder.educationDegrees')}
                   </p>
                 </div>
               </motion.div>
             </div>
-            {/* Contact CTA */}
-            <div className='relative z-10 mt-8 text-center'>
-              <motion.a
-                href='#contact-form'
-                className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-gray-700 dark:text-gray-200 rounded-xl font-medium hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-600'
-                whileTap={{ scale: 0.95 }}>
-                <MessageCircle className='w-4 h-4' />
-                {t('about.founder.contactCta')}
-              </motion.a>
-            </div>
-          </motion.div>
+          </div>
         </motion.div>
         {/* 3. What defines us */}
         <motion.div
