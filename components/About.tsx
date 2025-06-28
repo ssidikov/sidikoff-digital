@@ -113,11 +113,11 @@ const About: React.FC = () => {
               {/* Border glow effect */}
               <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
 
-              <div className='relative z-10 text-center lg:text-left'>
-                <h3 className='text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent'>
+              <div className='relative z-10 text-left w-full'>
+                <h3 className='text-3xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6'>
                   {t('about.intro.title')}
                 </h3>
-                <p className='text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed'>
+                <p className='text-lg lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed'>
                   {t('about.intro.description')}
                 </p>
               </div>
@@ -135,13 +135,13 @@ const About: React.FC = () => {
                 <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/5 via-transparent to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
                 {/* Text at top */}
                 <div className='relative z-10 text-center pt-10 px-8'>
-                  <p className='text-gray-900 dark:text-white font-semibold text-sm md:text-2xl'>
+                  <p className='text-3xl lg:text-3xl font-bold text-gray-900 dark:text-white'>
                     {t('about.founder.experienceYears')}
                   </p>
                 </div>
 
                 {/* Experience image at bottom with no margin */}
-                <div className='w-full z-10 flex justify-center items-end -mt-4 -mb-4'>
+                <div className='w-full z-10 flex justify-center items-end -mb-4'>
                   <motion.div
                     className='w-full'
                     initial={{ y: 20, opacity: 0 }}
@@ -170,13 +170,13 @@ const About: React.FC = () => {
 
                 {/* Text at top */}
                 <div className='relative z-10 text-center pt-10 px-8'>
-                  <p className='text-gray-900 dark:text-white font-semibold text-sm md:text-2xl'>
+                  <p className='text-3xl lg:text-3xl font-bold text-gray-900 dark:text-white'>
                     {t('about.founder.educationDegrees')}
                   </p>
                 </div>
 
                 {/* Master image at bottom with no margin */}
-                <div className='w-full z-10 flex justify-center items-end -mt-4 -mb-4'>
+                <div className='w-full z-10 flex justify-center items-end -mb-4'>
                   <motion.div
                     className='w-full'
                     initial={{ y: 20, opacity: 0 }}
@@ -224,29 +224,25 @@ const About: React.FC = () => {
               <div className='relative z-10 text-center w-full'>
                 {/* Avatar */}
                 <motion.div className='relative mb-6' transition={{ duration: 0.3 }}>
-                  <div className='relative w-20 h-20 lg:w-24 lg:h-24 mx-auto rounded-full bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 shadow-lg shadow-indigo-500/25 overflow-hidden flex items-center justify-center'>
+                  <div className='relative w-40 h-40 md:w-72 md:h-72 mx-auto rounded-full bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 shadow-lg shadow-indigo-500/25 overflow-hidden flex items-center justify-center'>
                     <Image
                       src='/founder.webp'
                       alt='Founder'
                       fill
-                      sizes='(max-width: 96px) 96px, 96px'
+                      sizes='(max-width: 512px) 512px, 512px'
                       style={{ objectFit: 'cover' }}
                       className='rounded-full'
                       priority
                     />
                   </div>
-                  {/* Status dot */}
-                  <div className='absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-4 border-white dark:border-gray-800 flex items-center justify-center'>
-                    <div className='w-2 h-2 bg-white rounded-full animate-pulse'></div>
-                  </div>
                 </motion.div>
 
                 {/* Name and Title */}
                 <div className='text-center'>
-                  <h3 className='text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2'>
+                  <h3 className='text-2xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-2'>
                     {t('about.founder.name')}
                   </h3>
-                  <div className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full text-sm font-semibold'>
+                  <div className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full text-sm md:text-lg font-semibold'>
                     <CheckCircle className='w-4 h-4 mr-2' />
                     {t('about.founder.title')}
                   </div>
