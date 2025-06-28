@@ -70,10 +70,9 @@ const translations: Record<Language, TranslationMap> = {
     'expertise.stats.support': 'Support technique',
     'expertise.learnMore': 'En savoir plus', // About (used in About component)
     'about.title': 'À propos',
-    'about.intro.title':
-      'SIDIKOFF DIGITAL est une agence web fondée en France, avec une vision internationale.',
+    'about.intro.title': 'SIDIKOFF DIGITAL',
     'about.intro.description':
-      'SIDIKOFF DIGITAL est une agence web fondée en France, avec une vision internationale. Nous accompagnons les marques, freelancers, entrepreneurs et startups avec des solutions digitales sur mesure, percutantes et durables.',
+      'est une agence web fondée en France, avec une vision internationale. Nous accompagnons les marques, freelancers, entrepreneurs et startups avec des solutions digitales sur mesure, percutantes et durables.',
 
     // Ce qui nous définit section
     'about.defining.title': 'Ce qui nous définit',
@@ -444,10 +443,9 @@ const translations: Record<Language, TranslationMap> = {
     'expertise.item4.description':
       'Seamless connection between user interface and your backend services.', // About (used in About component)
     'about.title': 'About Us',
-    'about.intro.title':
-      'SIDIKOFF DIGITAL is a web agency founded in France with an international outlook.',
+    'about.intro.title': 'SIDIKOFF DIGITAL',
     'about.intro.description':
-      'SIDIKOFF DIGITAL is a web agency founded in France with an international outlook. We support brands, freelancers, entrepreneurs, and startups with tailored digital solutions that are bold, effective, and built to last.',
+      'is a web agency founded in France with an international outlook. We support brands, freelancers, entrepreneurs, and startups with tailored digital solutions that are bold, effective, and built to last.',
 
     // What defines us section
     'about.defining.title': 'What defines us',
@@ -721,8 +719,7 @@ const translations: Record<Language, TranslationMap> = {
     'popup.success.title': 'Successfully sent!',
     'popup.success.message':
       'Your message has been sent successfully! You will receive a confirmation email shortly. We will contact you soon!', // Footer
-    'footer.rights':
-      'SIDIKOFF DIGITAL — Web Agency in Paris. Custom website development.',
+    'footer.rights': 'SIDIKOFF DIGITAL — Web Agency in Paris. Custom website development.',
     'footer.navigation.title': 'Navigation',
     'footer.navigation.home': 'Home',
     'footer.navigation.about': 'About',
@@ -825,10 +822,9 @@ const translations: Record<Language, TranslationMap> = {
     'expertise.item4.title': 'Интеграция API',
     'expertise.item4.description': 'Бесшовная интеграция интерфейса с вашими сервисами и API.', // About (used in About component)
     'about.title': 'О нас',
-    'about.intro.title':
-      'SIDIKOFF DIGITAL — это веб-агентство, основанное во Франции с международным подходом.',
+    'about.intro.title': 'SIDIKOFF DIGITAL',
     'about.intro.description':
-      'SIDIKOFF DIGITAL — это веб-агентство, основанное во Франции с международным подходом. Мы помогаем брендам, фрилансерам, предпринимателям и стартапам создавать эффективные цифровые решения, которые работают и запоминаются.',
+      'это веб-агентство, основанное во Франции с международным подходом. Мы помогаем брендам, фрилансерам, предпринимателям и стартапам создавать эффективные цифровые решения, которые работают и запоминаются.',
 
     // Наши принципы section
     'about.defining.title': 'Наши принципы',

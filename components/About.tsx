@@ -83,7 +83,7 @@ const About: React.FC = () => {
         <div className='absolute bottom-1/4 -right-20 w-96 h-96 bg-cyan-300/20 rounded-full blur-3xl' />
       </div>
 
-      <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
+      <div className='container mx-auto px-4'>
         {/* 1. Section Title */}
         <motion.div
           className='text-center mb-16'
@@ -102,16 +102,102 @@ const About: React.FC = () => {
           variants={containerVariants}
           initial='hidden'
           animate={isInView ? 'visible' : 'hidden'}>
-          <motion.div className='max-w-4xl mx-auto mb-12' variants={itemVariants}>
-            <p className='text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8'>
-              {t('about.intro.description')}
-            </p>
-          </motion.div>
-          {/* Founder section with experience and education cards */}
-          <div className='grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto'>
-            {/* Founder card - Left side */}
+          {/* Three-column layout: Company info, credentials, founder */}
+          <div className='grid lg:grid-cols-3 gap-8 w-full mx-auto'>
+            {/* Company About Card - Left side */}
             <motion.div
-              className='lg:col-span-2 group relative rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm p-8 lg:p-10 cursor-pointer overflow-hidden'
+              className='group relative rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm p-8 lg:p-10 cursor-pointer overflow-hidden h-full flex items-center'
+              variants={itemVariants}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}>
+              {/* Border glow effect */}
+              <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+
+              <div className='relative z-10 text-center lg:text-left'>
+                <h3 className='text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent'>
+                  {t('about.intro.title')}
+                </h3>
+                <p className='text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed'>
+                  {t('about.intro.description')}
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Experience and Education cards - Middle */}
+            <div className='grid grid-rows-2 gap-6 h-full'>
+              {/* Experience Card */}
+              <motion.div
+                className='group relative rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm cursor-pointer h-full flex flex-col justify-between outline-none overflow-hidden'
+                variants={itemVariants}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}>
+                {/* Border glow effect */}
+                <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/5 via-transparent to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+                {/* Text at top */}
+                <div className='relative z-10 text-center pt-10 px-8'>
+                  <p className='text-gray-900 dark:text-white font-semibold text-sm md:text-2xl'>
+                    {t('about.founder.experienceYears')}
+                  </p>
+                </div>
+
+                {/* Experience image at bottom with no margin */}
+                <div className='w-full z-10 flex justify-center items-end -mt-4 -mb-4'>
+                  <motion.div
+                    className='w-full'
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+                    whileHover={{ y: -5, transition: { duration: 0.3 } }}>
+                    <Image
+                      src='/images/experience.png'
+                      alt='Experience'
+                      width={512}
+                      height={512}
+                      className='w-full h-48 object-contain drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300'
+                    />
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* Education Card */}
+              <motion.div
+                className='group relative rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm cursor-pointer h-full flex flex-col justify-between outline-none overflow-hidden'
+                variants={itemVariants}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}>
+                {/* Border glow effect */}
+                <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+
+                {/* Text at top */}
+                <div className='relative z-10 text-center pt-10 px-8'>
+                  <p className='text-gray-900 dark:text-white font-semibold text-sm md:text-2xl'>
+                    {t('about.founder.educationDegrees')}
+                  </p>
+                </div>
+
+                {/* Master image at bottom with no margin */}
+                <div className='w-full z-10 flex justify-center items-end -mt-4 -mb-4'>
+                  <motion.div
+                    className='w-full'
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+                    whileHover={{ y: -5, transition: { duration: 0.3 } }}>
+                    <Image
+                      src='/images/master.png'
+                      alt='Master Degree'
+                      width={512}
+                      height={512}
+                      className='w-full h-48 object-contain drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300'
+                    />
+                  </motion.div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Founder Card - Right side */}
+            <motion.div
+              className='group relative rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm p-8 lg:p-10 cursor-pointer overflow-hidden h-full flex items-center'
               variants={itemVariants}
               onMouseMove={({
                 currentTarget,
@@ -134,11 +220,11 @@ const About: React.FC = () => {
               />
               {/* Border glow effect */}
               <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
-              {/* Header Section */}
-              <div className='relative z-10 flex flex-col lg:flex-row items-center lg:items-start gap-6 mb-8'>
+
+              <div className='relative z-10 text-center w-full'>
                 {/* Avatar */}
-                <motion.div className='relative' transition={{ duration: 0.3 }}>
-                  <div className='relative w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 shadow-lg shadow-indigo-500/25 overflow-hidden flex items-center justify-center'>
+                <motion.div className='relative mb-6' transition={{ duration: 0.3 }}>
+                  <div className='relative w-20 h-20 lg:w-24 lg:h-24 mx-auto rounded-full bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 shadow-lg shadow-indigo-500/25 overflow-hidden flex items-center justify-center'>
                     <Image
                       src='/founder.webp'
                       alt='Founder'
@@ -154,73 +240,19 @@ const About: React.FC = () => {
                     <div className='w-2 h-2 bg-white rounded-full animate-pulse'></div>
                   </div>
                 </motion.div>
+
                 {/* Name and Title */}
-                <div className='text-center lg:text-left flex-1'>
+                <div className='text-center'>
                   <h3 className='text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2'>
                     {t('about.founder.name')}
                   </h3>
-                  <div className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full text-sm font-semibold mb-4'>
+                  <div className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full text-sm font-semibold'>
                     <CheckCircle className='w-4 h-4 mr-2' />
                     {t('about.founder.title')}
                   </div>
                 </div>
               </div>
-              {/* Description */}
-              <div className='relative z-10 mb-8'>
-                <p className='text-gray-600 dark:text-gray-300 leading-relaxed lg:text-left'>
-                  {t('about.founder.description')}
-                </p>
-              </div>
-              {/* Contact CTA */}
-              <div className='relative z-10 text-center lg:text-left'>
-                <motion.a
-                  href='#contact-form'
-                  className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-gray-700 dark:text-gray-200 rounded-xl font-medium hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-600'
-                  whileTap={{ scale: 0.95 }}>
-                  <MessageCircle className='w-4 h-4' />
-                  {t('about.founder.contactCta')}
-                </motion.a>
-              </div>
             </motion.div>
-
-            {/* Experience and Education cards - Right side */}
-            <div className='grid grid-cols-2 gap-4 lg:grid-rows-2 lg:grid-cols-1 lg:gap-6 lg:h-full'>
-              {/* Experience Card */}
-              <motion.div
-                className='group relative rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm p-6 cursor-pointer overflow-hidden h-full flex items-center justify-center'
-                variants={itemVariants}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}>
-                {/* Border glow effect */}
-                <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/5 via-transparent to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
-                <div className='relative z-10 text-center'>
-                  <div className='w-16 h-16 mx-auto rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-lg mb-4'>
-                    <Zap className='w-8 h-8 text-white' />
-                  </div>
-                  <p className='text-gray-900 dark:text-white font-semibold text-sm md:text-lg'>
-                    {t('about.founder.experienceYears')}
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Education Card */}
-              <motion.div
-                className='group relative rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm p-6 cursor-pointer overflow-hidden h-full flex items-center justify-center'
-                variants={itemVariants}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}>
-                {/* Border glow effect */}
-                <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
-                <div className='relative z-10 text-center'>
-                  <div className='w-16 h-16 mx-auto rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg mb-4'>
-                    <GraduationCap className='w-8 h-8 text-white' />
-                  </div>
-                  <p className='text-gray-900 dark:text-white font-semibold text-sm md:text-lg'>
-                    {t('about.founder.educationDegrees')}
-                  </p>
-                </div>
-              </motion.div>
-            </div>
           </div>
         </motion.div>
         {/* 3. What defines us */}
