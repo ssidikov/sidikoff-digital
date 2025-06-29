@@ -16,6 +16,7 @@ const defaultSEOConfig = {
   defaultTitle: 'Agence Web Paris - SIDIKOFF DIGITAL',
   defaultDescription:
     'Agence web parisienne spécialisée en création de sites internet, applications web et stratégie digitale. Développement moderne, design UX/UI, référencement SEO. Devis gratuit.',
+  defaultOgImage: 'https://www.sidikoff.com/opengraph-image.png',
   defaultKeywords: [
     'agence web paris',
     'création site internet',
@@ -79,16 +80,14 @@ export function generateMetadata(seoData: SEOData): Metadata {
       siteName: defaultSEOConfig.siteName,
       locale,
       type: 'website',
-      images: ogImage
-        ? [
-            {
-              url: ogImage,
-              width: 1200,
-              height: 630,
-              alt: title,
-            },
-          ]
-        : undefined,
+      images: [
+        {
+          url: ogImage || defaultSEOConfig.defaultOgImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
     },
 
     // Twitter Card
@@ -97,7 +96,7 @@ export function generateMetadata(seoData: SEOData): Metadata {
       title: fullTitle,
       description,
       site: defaultSEOConfig.social.twitter,
-      images: ogImage ? [ogImage] : undefined,
+      images: [ogImage || defaultSEOConfig.defaultOgImage],
     },
 
     // Canonical URL
@@ -480,7 +479,7 @@ export function generateOrganizationSchema() {
     },
     image: {
       '@type': 'ImageObject',
-      url: 'https://www.sidikoff.com/images/contact.png',
+      url: 'https://www.sidikoff.com/opengraph-image.png',
       width: 1200,
       height: 630,
       caption: 'SIDIKOFF DIGITAL - Agence Web Paris',
