@@ -8,10 +8,7 @@ import {
   Crown,
   Zap,
   ArrowRight,
-  Sparkles,
   TrendingUp,
-  Shield,
-  Clock,
   Users,
 } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'

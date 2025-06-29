@@ -4,17 +4,12 @@ import type React from 'react'
 
 import { useState, useRef, useEffect, MouseEvent as ReactMouseEvent } from 'react'
 import {
-  Building2,
   Mail,
   Phone,
   ChevronDown,
   MapPin,
-  Clock,
   CheckCircle,
-  MessageSquare,
   Send,
-  Smartphone,
-  MessageCircle,
 } from 'lucide-react'
 import { motion, AnimatePresence, useMotionTemplate, useMotionValue } from 'framer-motion'
 import Popup from './Popup'

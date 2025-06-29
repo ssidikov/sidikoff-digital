@@ -79,7 +79,7 @@ export function useDevicePerformance() {
     // Определяем слабые устройства
     const navigator = window.navigator
     const hardwareConcurrency = navigator.hardwareConcurrency || 1
-    const deviceMemory = (navigator as any).deviceMemory || 2
+    const deviceMemory = (navigator as { deviceMemory?: number }).deviceMemory || 2
     
     // Отключаем эффекты на слабых устройствах
     return hardwareConcurrency < 4 || deviceMemory < 4

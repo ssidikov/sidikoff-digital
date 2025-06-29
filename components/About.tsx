@@ -7,8 +7,6 @@ import Image from 'next/image'
 import { useLanguage } from '@/context/LanguageContext'
 import {
   CheckCircle,
-  Zap,
-  GraduationCap,
   MessageCircle,
   Lightbulb,
   Handshake,
