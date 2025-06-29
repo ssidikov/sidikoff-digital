@@ -69,9 +69,7 @@ function ProjectCard({
     mouseY.set(clientY - top)
   }
 
-  const background = useMotionTemplate`
-    radial-gradient(320px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.1), transparent 80%)
-  `
+  const background = useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)`
 
   // Enhanced animation variants for new projects
   const cardVariants = {
@@ -129,7 +127,7 @@ function ProjectCard({
       <motion.div
         className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
         style={{ background }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
       />
       {/* Border glow effect */}
       <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />

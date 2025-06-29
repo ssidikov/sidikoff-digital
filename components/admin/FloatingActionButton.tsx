@@ -29,7 +29,7 @@ export default function FloatingActionButton({
       case 'success':
         return 'bg-green-600 hover:bg-green-700 text-white'
       case 'danger':
-        return 'bg-red-600 hover:bg-red-700 text-white'
+        return 'bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white shadow-lg hover:shadow-red-500/25'
       case 'warning':
         return 'bg-yellow-600 hover:bg-yellow-700 text-white'
       default:

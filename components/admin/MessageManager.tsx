@@ -343,7 +343,7 @@ ADD COLUMN deleted_at timestamp with time zone DEFAULT NULL;`}
                           className={`touch-target px-4 py-3 text-white text-sm rounded-2xl font-bold transition-all duration-300 ${
                             migrationRequired
                               ? 'bg-gray-400 cursor-not-allowed'
-                              : 'bg-gradient-to-r from-red-700 to-red-900 hover:from-red-800 hover:to-red-950 active:scale-95 mobile-card-hover ripple shadow-lg hover:shadow-xl'
+                              : 'bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 active:scale-95 mobile-card-hover ripple shadow-lg hover:shadow-xl hover:shadow-red-500/25'
                           } disabled:opacity-50 flex items-center space-x-2 min-w-[120px] justify-center`}
                           title={migrationRequired ? 'Database migration required' : ''}>
                           <svg

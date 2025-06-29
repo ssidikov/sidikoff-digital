@@ -2,7 +2,7 @@
 
 import type React from 'react'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, MouseEvent as ReactMouseEvent } from 'react'
 import {
   Building2,
   Mail,
@@ -16,7 +16,7 @@ import {
   Smartphone,
   MessageCircle,
 } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useMotionTemplate, useMotionValue } from 'framer-motion'
 import Popup from './Popup'
 import AnimatedSection from './AnimatedSection'
 import { useLanguage } from '@/context/LanguageContext'
@@ -183,6 +183,43 @@ export default function Contact() {
     }
   }
 
+  // ContactCard component with mouse tracking
+  interface ContactCardProps {
+    children: React.ReactNode
+    className?: string
+  }
+
+  function ContactCard({ children, className = '' }: ContactCardProps) {
+    const mouseX = useMotionValue(0)
+    const mouseY = useMotionValue(0)
+
+    const handleMouseMove = ({
+      currentTarget,
+      clientX,
+      clientY,
+    }: ReactMouseEvent<HTMLDivElement>) => {
+      const { left, top } = currentTarget.getBoundingClientRect()
+      mouseX.set(clientX - left)
+      mouseY.set(clientY - top)
+    }
+
+    return (
+      <motion.div
+        className={`relative group bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700 ${className}`}
+        onMouseMove={handleMouseMove}>
+        {/* Gradient overlay */}
+        <motion.div
+          className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
+          style={{
+            background: useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)`,
+          }}
+          transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+        />
+        <div className='relative z-10'>{children}</div>
+      </motion.div>
+    )
+  }
+
   return (
     <section
       id='contact'
@@ -216,7 +253,7 @@ export default function Contact() {
           {/* Contact Information */}
           <AnimatedSection className='space-y-8'>
             {/* Quick Contact Methods */}
-            <div className='bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700'>
+            <ContactCard>
               <h3 className='text-2xl font-semibold text-gray-900 dark:text-white mb-6'>
                 {t('contact.description').split('\n')[0].replace('• ', '')}
               </h3>
@@ -309,10 +346,10 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-            </div>
+            </ContactCard>
 
             {/* Benefits */}
-            <div className='bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700'>
+            <ContactCard>
               <h4 className='text-xl font-semibold text-gray-900 dark:text-white mb-6'>
                 {t('contact.benefits.title')}
               </h4>
@@ -342,12 +379,12 @@ export default function Contact() {
                   </span>
                 </div>
               </div>
-            </div>
+            </ContactCard>
           </AnimatedSection>
 
           {/* Contact Form */}
           <AnimatedSection>
-            <div className='bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700'>
+            <ContactCard>
               <div className='mb-8'>
                 <h3 className='text-2xl font-semibold text-gray-900 dark:text-white mb-2'>
                   {t('contact.form.title')}
@@ -588,7 +625,7 @@ export default function Contact() {
                   </motion.div>
                 )}
               </form>
-            </div>
+            </ContactCard>
           </AnimatedSection>
         </div>
       </div>

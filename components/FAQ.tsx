@@ -52,7 +52,7 @@ function FAQItem({ faq, index, openIndex, setOpenIndex }: FAQItemProps) {
       <div className='relative z-10 p-6'>
         <button
           onClick={() => setOpenIndex(openIndex === index ? null : index)}
-          className='w-full text-left flex items-center justify-between gap-4 text-h5 font-heading text-text-primary group-hover:text-indigo-600 transition-colors duration-300'>
+          className='w-full text-left flex items-center justify-between gap-4 text-lg font-semibold text-gray-900 dark:text-white group-hover:text-indigo-600 transition-colors duration-300'>
           <span>{faq.question}</span>
           <motion.div
             animate={{ rotate: openIndex === index ? 180 : 0 }}
@@ -70,7 +70,7 @@ function FAQItem({ faq, index, openIndex, setOpenIndex }: FAQItemProps) {
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3 }}
               className='overflow-hidden'>
-              <div className='pt-4 text-body-base text-text-secondary leading-relaxed max-w-readable'>
+              <div className='pt-4 text-base text-gray-600 dark:text-gray-300 leading-relaxed'>
                 {faq.answer}
               </div>
             </motion.div>
@@ -93,7 +93,7 @@ interface FAQSectionProps {
 function FAQSection({ title, questions, openIndex, setOpenIndex, startIndex }: FAQSectionProps) {
   return (
     <div className='mb-12'>
-      <h3 className='text-2xl font-semibold text-gray-900 dark:text-foreground mb-6'>{title}</h3>
+      <h3 className='text-2xl font-semibold text-gray-900 dark:text-white mb-6'>{title}</h3>
       <div className='space-y-4'>
         {questions.map((faq, index) => (
           <FAQItem
@@ -118,16 +118,40 @@ interface FeatureCardProps {
 }
 
 function FeatureCard({ icon, title, description, index }: FeatureCardProps) {
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+
+  const handleMouseMove = ({
+    currentTarget,
+    clientX,
+    clientY,
+  }: ReactMouseEvent<HTMLDivElement>) => {
+    const { left, top } = currentTarget.getBoundingClientRect()
+    mouseX.set(clientX - left)
+    mouseY.set(clientY - top)
+  }
+
   return (
     <motion.div
-      className='bg-white dark:bg-gray-900/80 rounded-2xl p-6 border border-gray-200/60 dark:border-white/10 backdrop-blur-sm'
+      className='group relative bg-white dark:bg-gray-900/80 rounded-2xl p-6 border border-gray-200/60 dark:border-white/10 backdrop-blur-sm overflow-hidden'
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
+      onMouseMove={handleMouseMove}
       whileHover={{ y: -5 }}>
-      <div className='text-3xl mb-4'>{icon}</div>
-      <h4 className='text-lg font-semibold text-gray-900 dark:text-foreground mb-2'>{title}</h4>
-      <p className='text-gray-600 dark:text-gray-400'>{description}</p>
+      {/* Gradient overlay */}
+      <motion.div
+        className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
+        style={{
+          background: useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)`,
+        }}
+        transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+      />
+      <div className='relative z-10'>
+        <div className='text-3xl mb-4'>{icon}</div>
+        <h4 className='text-lg font-semibold text-gray-900 dark:text-white mb-2'>{title}</h4>
+        <p className='text-gray-600 dark:text-gray-400'>{description}</p>
+      </div>
     </motion.div>
   )
 }
@@ -225,7 +249,7 @@ export default function FAQ() {
               {t('faq.title')}
             </motion.h2>
             <motion.p
-              className='text-lg md:text-xl text-gray-600 dark:text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed'
+              className='text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed'
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}>
@@ -282,7 +306,7 @@ export default function FAQ() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}>
-            <h3 className='text-2xl font-semibold text-gray-900 dark:text-foreground mb-4'>
+            <h3 className='text-2xl font-semibold text-gray-900 dark:text-white mb-4'>
               {t('faq.contact.title')}
             </h3>
             <p className='text-gray-600 dark:text-gray-400 mb-8'>{t('faq.contact.description')}</p>

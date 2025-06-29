@@ -49,8 +49,6 @@ function PricingTierCard({ tier, index, t, handleTariffSelect }: PricingTierCard
     mouseY.set(clientY - top)
   }
 
-  const background = useMotionTemplate`radial-gradient(240px at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.1), transparent)`
-
   return (
     <motion.div
       variants={{
@@ -63,10 +61,13 @@ function PricingTierCard({ tier, index, t, handleTariffSelect }: PricingTierCard
           : 'border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80'
       } backdrop-blur-sm overflow-hidden`}
       onMouseMove={handleMouseMove}>
-      {/* Animated background gradient */}
+      {/* Gradient overlay */}
       <motion.div
-        className='pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition duration-300'
-        style={{ background }}
+        className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
+        style={{
+          background: useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)`,
+        }}
+        transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
       />
 
       {/* Popular badge */}

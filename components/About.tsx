@@ -28,6 +28,18 @@ const About: React.FC = () => {
   const ctaMouseX = useMotionValue(0)
   const ctaMouseY = useMotionValue(0)
 
+  // Mouse tracking for company card
+  const companyMouseX = useMotionValue(0)
+  const companyMouseY = useMotionValue(0)
+
+  // Mouse tracking for experience card
+  const experienceMouseX = useMotionValue(0)
+  const experienceMouseY = useMotionValue(0)
+
+  // Mouse tracking for education card
+  const educationMouseX = useMotionValue(0)
+  const educationMouseY = useMotionValue(0)
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -108,8 +120,25 @@ const About: React.FC = () => {
             <motion.div
               className='group relative rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm p-8 lg:p-10 cursor-pointer overflow-hidden h-full flex items-center'
               variants={itemVariants}
+              onMouseMove={({
+                currentTarget,
+                clientX,
+                clientY,
+              }: ReactMouseEvent<HTMLDivElement>) => {
+                const { left, top } = currentTarget.getBoundingClientRect()
+                companyMouseX.set(clientX - left)
+                companyMouseY.set(clientY - top)
+              }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}>
+              {/* Gradient overlay */}
+              <motion.div
+                className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
+                style={{
+                  background: useMotionTemplate`radial-gradient(400px circle at ${companyMouseX}px ${companyMouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)`,
+                }}
+                transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              />
               {/* Border glow effect */}
               <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
 
@@ -129,10 +158,27 @@ const About: React.FC = () => {
               <motion.div
                 className='group relative rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm cursor-pointer h-full flex flex-col justify-between outline-none overflow-hidden'
                 variants={itemVariants}
+                onMouseMove={({
+                  currentTarget,
+                  clientX,
+                  clientY,
+                }: ReactMouseEvent<HTMLDivElement>) => {
+                  const { left, top } = currentTarget.getBoundingClientRect()
+                  experienceMouseX.set(clientX - left)
+                  experienceMouseY.set(clientY - top)
+                }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}>
+                {/* Gradient overlay */}
+                <motion.div
+                  className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
+                  style={{
+                    background: useMotionTemplate`radial-gradient(400px circle at ${experienceMouseX}px ${experienceMouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)`,
+                  }}
+                  transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                />
                 {/* Border glow effect */}
-                <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/5 via-transparent to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+                <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
                 {/* Text at top */}
                 <div className='relative z-10 text-center pt-10 px-8'>
                   <p className='text-3xl lg:text-3xl font-bold text-gray-900 dark:text-white'>
@@ -163,10 +209,27 @@ const About: React.FC = () => {
               <motion.div
                 className='group relative rounded-2xl border border-gray-200/60 bg-white/80 dark:border-white/10 dark:bg-gray-900/80 backdrop-blur-sm cursor-pointer h-full flex flex-col justify-between outline-none overflow-hidden'
                 variants={itemVariants}
+                onMouseMove={({
+                  currentTarget,
+                  clientX,
+                  clientY,
+                }: ReactMouseEvent<HTMLDivElement>) => {
+                  const { left, top } = currentTarget.getBoundingClientRect()
+                  educationMouseX.set(clientX - left)
+                  educationMouseY.set(clientY - top)
+                }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}>
+                {/* Gradient overlay */}
+                <motion.div
+                  className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
+                  style={{
+                    background: useMotionTemplate`radial-gradient(400px circle at ${educationMouseX}px ${educationMouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)`,
+                  }}
+                  transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                />
                 {/* Border glow effect */}
-                <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+                <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
 
                 {/* Text at top */}
                 <div className='relative z-10 text-center pt-10 px-8'>
@@ -311,12 +374,12 @@ const About: React.FC = () => {
                         <div className='w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 dark:from-primary dark:to-primary/80 flex items-center justify-center shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:shadow-indigo-500/25 dark:group-hover:shadow-primary/25'>
                           <principle.icon className='w-6 h-6 text-white' />
                         </div>
-                        <h4 className='text-xl font-bold text-gray-900 dark:text-foreground flex-1'>
+                        <h4 className='text-xl font-bold text-gray-900 dark:text-white flex-1'>
                           {t(principle.titleKey)}
                         </h4>
                       </div>
                       {/* Description */}
-                      <p className='relative z-10 text-gray-600 dark:text-muted-foreground leading-relaxed max-w-readable'>
+                      <p className='relative z-10 text-gray-600 dark:text-gray-300 leading-relaxed max-w-readable'>
                         {t(principle.descriptionKey)}
                       </p>
                     </motion.div>
@@ -387,7 +450,7 @@ const About: React.FC = () => {
                       <div className='text-4xl lg:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3 transition-transform duration-300'>
                         {t(stat.valueKey)}
                       </div>
-                      <div className='text-gray-600 dark:text-muted-foreground font-medium group-hover:text-gray-900 dark:group-hover:text-foreground transition-colors duration-300'>
+                      <div className='text-gray-600 dark:text-gray-300 font-medium group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300'>
                         {t(stat.labelKey)}
                       </div>
                     </div>
@@ -432,7 +495,7 @@ const About: React.FC = () => {
               <motion.p className='text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto'>
                 {t('about.cta.description')}
               </motion.p>
-              <motion.div className='relative z-10 text-gray-600 dark:text-muted-foreground leading-relaxed flex flex-col sm:flex-row gap-4 justify-center max-w-readable'>
+              <motion.div className='relative z-10 text-gray-600 dark:text-gray-300 leading-relaxed flex flex-col sm:flex-row gap-4 justify-center max-w-readable'>
                 <motion.a
                   href='#contact-form'
                   className='group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl font-semibold text-button-lg shadow-lg shadow-indigo-500/25 hover:shadow-2xl hover:shadow-indigo-500/40 transition-all duration-300 overflow-hidden border border-transparent hover:border-white/20'

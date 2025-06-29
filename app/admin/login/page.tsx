@@ -11,6 +11,7 @@ export default function AdminLogin() {
   const [error, setError] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const router = useRouter()
+  const currentYear = new Date().getFullYear()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -330,7 +331,7 @@ export default function AdminLogin() {
                       autoComplete='email'
                       required
                       className='block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent input-focus bg-white/50 backdrop-blur-sm'
-                      placeholder='s.sidikoff@gmail.com'
+                      placeholder='Enter your email address'
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
@@ -415,7 +416,7 @@ export default function AdminLogin() {
             <div
               className='mt-8 text-center text-sm text-gray-500 animate-fadeInUp'
               style={{ animationDelay: '0.8s' }}>
-              <p>© 2024 SIDIKOFF DIGITAL. All rights reserved.</p>
+              <p>© {currentYear} SIDIKOFF DIGITAL. All rights reserved.</p>
             </div>
           </div>
         </div>
