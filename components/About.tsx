@@ -134,7 +134,7 @@ const About: React.FC = () => {
               <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
 
               <div className='relative z-10 text-left w-full'>
-                <h3 className='text-2xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-1 md:mb-4'>
+                <h3 className='text-center md:text-left text-[clamp(1.2rem,_0.3214rem_+_4.6429vw,_4.5rem)] leading-[1] font-bold text-gray-900 dark:text-white mb-1 md:mb-4'>
                   {t('about.intro.title')}
                 </h3>
                 <p className='text-base lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed'>
@@ -172,7 +172,7 @@ const About: React.FC = () => {
                 <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
                 {/* Text at top */}
                 <div className='relative z-10 text-center pt-10 px-8'>
-                  <p className='text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white'>
+                  <p className='text-xl md:text-2xl font-bold text-gray-900 dark:text-white'>
                     {t('about.founder.experienceYears')}
                   </p>
                 </div>
@@ -224,7 +224,7 @@ const About: React.FC = () => {
 
                 {/* Text at top */}
                 <div className='relative z-10 text-center pt-10 px-8'>
-                  <p className='text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white'>
+                  <p className='text-xl font-bold text-gray-900 dark:text-white'>
                     {t('about.founder.educationDegrees')}
                   </p>
                 </div>
