@@ -224,7 +224,7 @@ const About: React.FC = () => {
 
                 {/* Text at top */}
                 <div className='relative z-10 text-center pt-10 px-8'>
-                  <p className='text-xl font-bold text-gray-900 dark:text-white'>
+                  <p className='text-xl md:text-2xl font-bold text-gray-900 dark:text-white'>
                     {t('about.founder.educationDegrees')}
                   </p>
                 </div>
@@ -278,7 +278,7 @@ const About: React.FC = () => {
               <div className='relative z-10 text-center w-full'>
                 {/* Avatar */}
                 <motion.div className='relative mb-6' transition={{ duration: 0.3 }}>
-                  <div className='relative w-40 h-40 md:w-72 md:h-72 mx-auto rounded-full bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 shadow-lg shadow-indigo-500/25 overflow-hidden flex items-center justify-center'>
+                  <div className='relative w-32 h-32 md:w-72 md:h-72 mx-auto rounded-full bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 shadow-lg shadow-indigo-500/25 overflow-hidden flex items-center justify-center'>
                     <Image
                       src='/founder.webp'
                       alt='Founder'
@@ -293,10 +293,10 @@ const About: React.FC = () => {
 
                 {/* Name and Title */}
                 <div className='text-center'>
-                  <h3 className='text-2xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-2'>
+                  <h3 className='text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2'>
                     {t('about.founder.name')}
                   </h3>
-                  <div className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full text-sm md:text-lg font-semibold'>
+                  <div className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full text-xs md:text-base font-semibold'>
                     <CheckCircle className='w-4 h-4 mr-2' />
                     {t('about.founder.title')}
                   </div>
