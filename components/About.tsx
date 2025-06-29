@@ -5,14 +5,7 @@ import { motion, useInView, useMotionTemplate, useMotionValue } from 'framer-mot
 import { useRef } from 'react'
 import Image from 'next/image'
 import { useLanguage } from '@/context/LanguageContext'
-import {
-  CheckCircle,
-  MessageCircle,
-  Lightbulb,
-  Handshake,
-  Brain,
-  ArrowRight,
-} from 'lucide-react'
+import { CheckCircle, MessageCircle, Lightbulb, Handshake, Brain, ArrowRight } from 'lucide-react'
 
 const About: React.FC = () => {
   const { t } = useLanguage()
@@ -101,7 +94,7 @@ const About: React.FC = () => {
           initial='hidden'
           animate={isInView ? 'visible' : 'hidden'}>
           <motion.h2
-            className='text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-gray-900 via-indigo-600 to-purple-600 dark:from-white dark:via-indigo-400 dark:to-purple-400 bg-clip-text text-transparent mb-8 leading-tight'
+            className='text-3xl lg:text-6xl font-bold bg-gradient-to-r from-gray-900 via-indigo-600 to-purple-600 dark:from-white dark:via-indigo-400 dark:to-purple-400 bg-clip-text text-transparent mb-8 leading-tight'
             variants={itemVariants}>
             {t('about.title')}
           </motion.h2>
@@ -141,10 +134,10 @@ const About: React.FC = () => {
               <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
 
               <div className='relative z-10 text-left w-full'>
-                <h3 className='text-3xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6'>
+                <h3 className='text-2xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-1 md:mb-4'>
                   {t('about.intro.title')}
                 </h3>
-                <p className='text-lg lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed'>
+                <p className='text-base lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed'>
                   {t('about.intro.description')}
                 </p>
               </div>
@@ -179,7 +172,7 @@ const About: React.FC = () => {
                 <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
                 {/* Text at top */}
                 <div className='relative z-10 text-center pt-10 px-8'>
-                  <p className='text-3xl lg:text-3xl font-bold text-gray-900 dark:text-white'>
+                  <p className='text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white'>
                     {t('about.founder.experienceYears')}
                   </p>
                 </div>
@@ -231,7 +224,7 @@ const About: React.FC = () => {
 
                 {/* Text at top */}
                 <div className='relative z-10 text-center pt-10 px-8'>
-                  <p className='text-3xl lg:text-3xl font-bold text-gray-900 dark:text-white'>
+                  <p className='text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white'>
                     {t('about.founder.educationDegrees')}
                   </p>
                 </div>

@@ -127,16 +127,16 @@ function ServiceCard({
       {/* Card content */}
       <div className='relative z-10 flex flex-col h-full text-center'>
         {/* Title */}
-        <h3 className='text-2xl font-bold text-gray-900 dark:text-white mb-4 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300'>
+        <h3 className='text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300'>
           {t(service.titleKey)}
         </h3>
         {/* Description */}
-        <p className='text-gray-600 dark:text-gray-300 mb-6 leading-relaxed flex-grow'>
+        <p className='text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed flex-grow'>
           {t(service.descriptionKey)}
         </p>
         {/* Illustration */}
         <div className='flex items-center justify-center mt-auto'>
-          <div className='relative w-64 h-64 group-hover:scale-105 transition-transform duration-300'>
+          <div className='relative w-48 h-48 md:w-64 md:h-64 group-hover:scale-105 transition-transform duration-300'>
             <Image
               src={service.illustration}
               alt={t(service.titleKey)}

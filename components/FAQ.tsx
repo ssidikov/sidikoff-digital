@@ -49,10 +49,10 @@ function FAQItem({ faq, index, openIndex, setOpenIndex }: FAQItemProps) {
       {/* Border glow effect */}
       <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
 
-      <div className='relative z-10 p-6'>
+      <div className='relative z-10 p-8 md:pt-6 md:pr-6 md:pb-6'>
         <button
           onClick={() => setOpenIndex(openIndex === index ? null : index)}
-          className='w-full text-left flex items-center justify-between gap-4 text-lg font-semibold text-gray-900 dark:text-white group-hover:text-indigo-600 transition-colors duration-300'>
+          className='w-full text-left flex items-center justify-between gap-4 text-base md:text-2xl font-semibold text-gray-900 dark:text-white group-hover:text-indigo-600 transition-colors duration-300'>
           <span>{faq.question}</span>
           <motion.div
             animate={{ rotate: openIndex === index ? 180 : 0 }}
@@ -70,7 +70,7 @@ function FAQItem({ faq, index, openIndex, setOpenIndex }: FAQItemProps) {
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3 }}
               className='overflow-hidden'>
-              <div className='pt-4 text-base text-gray-600 dark:text-gray-300 leading-relaxed'>
+              <div className='pt-4 text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed'>
                 {faq.answer}
               </div>
             </motion.div>
