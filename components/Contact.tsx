@@ -1,8 +1,7 @@
 'use client'
 
 import type React from 'react'
-
-import { useState, useRef, useEffect, MouseEvent as ReactMouseEvent } from 'react'
+import { useState, useRef, useEffect, useCallback, memo, MouseEvent as ReactMouseEvent } from 'react'
 import {
   Mail,
   Phone,
@@ -27,34 +26,213 @@ interface FormErrors {
   message?: string
 }
 
+// ContactCard component with mouse tracking - moved outside to prevent re-renders
+interface ContactCardProps {
+  children: React.ReactNode
+  className?: string
+}
+
+function ContactCard({ children, className = '' }: ContactCardProps) {
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+
+  const handleMouseMove = ({
+    currentTarget,
+    clientX,
+    clientY,
+  }: ReactMouseEvent<HTMLDivElement>) => {
+    const { left, top } = currentTarget.getBoundingClientRect()
+    mouseX.set(clientX - left)
+    mouseY.set(clientY - top)
+  }
+
+  return (
+    <motion.div
+      className={`relative group bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700 ${className}`}
+      onMouseMove={handleMouseMove}>
+      {/* Gradient overlay */}
+      <motion.div
+        className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
+        style={{
+          background: useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)`,
+        }}
+        transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+      />
+      <div className='relative z-10'>{children}</div>
+    </motion.div>
+  )
+}
+
+// Мемоизированный компонент для input полей
+interface FormInputProps {
+  id: string
+  name: string
+  type: string
+  label: string
+  placeholder: string
+  value: string
+  onChange: (value: string) => void
+  error?: string
+  autoComplete?: string
+  rows?: number
+  isTextarea?: boolean
+}
+
+const FormInput = memo(({ 
+  id, 
+  name, 
+  type, 
+  label, 
+  placeholder, 
+  value, 
+  onChange, 
+  error, 
+  autoComplete,
+  rows,
+  isTextarea = false
+}: FormInputProps) => {
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    onChange(e.target.value)
+  }, [onChange])
+
+  const inputClassName = `block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700/50 px-4 py-3 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset transition-all duration-200 ${
+    isTextarea ? 'resize-none' : ''
+  } ${
+    error
+      ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
+      : 'ring-gray-200 dark:ring-gray-600 focus:ring-indigo-600 dark:focus:ring-indigo-400'
+  }`
+
+  return (
+    <div>
+      <label
+        htmlFor={id}
+        className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white mb-2'>
+        {label}
+      </label>
+      {isTextarea ? (
+        <textarea
+          placeholder={placeholder}
+          id={id}
+          name={name}
+          rows={rows}
+          value={value}
+          onChange={handleChange}
+          className={inputClassName}
+        />
+      ) : (
+        <input
+          placeholder={placeholder}
+          id={id}
+          name={name}
+          type={type}
+          autoComplete={autoComplete}
+          value={value}
+          onChange={handleChange}
+          className={inputClassName}
+        />
+      )}
+      <AnimatePresence>
+        {error && (
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className='mt-2 text-sm text-red-500 dark:text-red-400'>
+            {error}
+          </motion.p>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+})
+
+FormInput.displayName = 'FormInput'
+
 export default function Contact() {
   const [isPopupOpen, setIsPopupOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [tariff, setTariff] = useState('') // Локальное состояние для select
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    company: '',
+    message: ''
+  })
   const [formErrors, setFormErrors] = useState<FormErrors>({})
   const formRef = useRef<HTMLFormElement>(null)
   const { t } = useLanguage()
-  const { selectedTariff } = useTariff()
+  const { selectedTariff, setSelectedTariff } = useTariff()
+  
   // Синхронизация выбранного тарифа с локальным состоянием
   useEffect(() => {
-    if (selectedTariff) {
+    if (selectedTariff && selectedTariff !== tariff) {
       setTariff(selectedTariff)
     }
-  }, [selectedTariff])
+  }, [selectedTariff, tariff])
+
+  // Обработчик изменения тарифа
+  const handleTariffChange = useCallback((newTariff: string) => {
+    setTariff(newTariff)
+    setSelectedTariff(newTariff) // Обновляем глобальный контекст
+  }, [setSelectedTariff])
+
+  // Обработчик изменения полей формы
+  const handleInputChange = useCallback((field: keyof typeof formData, value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }))
+    // Очищаем ошибку поля при изменении
+    if (formErrors[field as keyof FormErrors]) {
+      setFormErrors(prev => ({
+        ...prev,
+        [field]: undefined
+      }))
+    }
+  }, [formErrors])
+
+  // Мемоизированные обработчики для каждого поля
+  const handleFirstNameChange = useCallback((value: string) => {
+    handleInputChange('firstName', value)
+  }, [handleInputChange])
+
+  const handleLastNameChange = useCallback((value: string) => {
+    handleInputChange('lastName', value)
+  }, [handleInputChange])
+
+  const handleEmailChange = useCallback((value: string) => {
+    handleInputChange('email', value)
+  }, [handleInputChange])
+
+  const handlePhoneChange = useCallback((value: string) => {
+    handleInputChange('phone', value)
+  }, [handleInputChange])
+
+  const handleCompanyChange = useCallback((value: string) => {
+    handleInputChange('company', value)
+  }, [handleInputChange])
+
+  const handleMessageChange = useCallback((value: string) => {
+    handleInputChange('message', value)
+  }, [handleInputChange])
 
   // Validation functions
-  const validateEmail = (email: string): boolean => {
+  const validateEmail = useCallback((email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     return emailRegex.test(email)
-  }
+  }, [])
 
   // const validatePhone = (phone: string): boolean => {
   //   const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/
   //   return phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''))
   // }
 
-  const validateForm = (formData: FormData): FormErrors => {
+  const validateForm = useCallback((formData: FormData): FormErrors => {
     const errors: FormErrors = {}
 
     const firstName = formData.get('first-name') as string
@@ -105,18 +283,26 @@ export default function Contact() {
     // }
 
     return errors
-  }
+  }, [t, validateEmail])
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = useCallback(async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setIsLoading(true)
     setError(null)
     setFormErrors({})
 
-    const formData = new FormData(event.currentTarget)
+    // Создаем FormData из состояния для валидации
+    const formDataForValidation = new FormData()
+    formDataForValidation.append('first-name', formData.firstName)
+    formDataForValidation.append('last-name', formData.lastName)
+    formDataForValidation.append('email', formData.email)
+    formDataForValidation.append('phone-number', formData.phone)
+    formDataForValidation.append('company', formData.company)
+    formDataForValidation.append('selected-tariff', tariff)
+    formDataForValidation.append('message', formData.message)
 
     // Validate form
-    const errors = validateForm(formData)
+    const errors = validateForm(formDataForValidation)
 
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors)
@@ -125,28 +311,19 @@ export default function Contact() {
     }
 
     try {
-      // Extract form data
-      const firstName = formData.get('first-name') as string
-      const lastName = formData.get('last-name') as string
-      const email = formData.get('email') as string
-      const phone = formData.get('phone-number') as string
-      const company = formData.get('company') as string
-      const selectedTariff = formData.get('selected-tariff') as string
-      const message = formData.get('message') as string
-
-      // Send to our API
+      // Send to our API using state data
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: `${firstName} ${lastName || ''}`.trim(),
-          email,
-          phone,
-          company,
-          message,
-          projectType: selectedTariff,
+          name: `${formData.firstName} ${formData.lastName || ''}`.trim(),
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          message: formData.message,
+          projectType: tariff,
           budget: null, // Can be added later if needed
           timeline: null, // Can be added later if needed
         }),
@@ -157,14 +334,23 @@ export default function Contact() {
       if (response.ok) {
         // Track Google Ads conversion
         trackLeadFormSubmission({
-          firstName,
-          email,
-          tariff: selectedTariff,
+          firstName: formData.firstName,
+          email: formData.email,
+          tariff: tariff,
         })
 
         setIsPopupOpen(true)
-        formRef.current?.reset()
+        // Сбрасываем все состояния формы
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          company: '',
+          message: ''
+        })
         setTariff('')
+        setSelectedTariff('') // Сбрасываем глобальный контекст
         setFormErrors({})
         setTimeout(() => setIsPopupOpen(false), 5000)
       } else {
@@ -176,44 +362,7 @@ export default function Contact() {
     } finally {
       setIsLoading(false)
     }
-  }
-
-  // ContactCard component with mouse tracking
-  interface ContactCardProps {
-    children: React.ReactNode
-    className?: string
-  }
-
-  function ContactCard({ children, className = '' }: ContactCardProps) {
-    const mouseX = useMotionValue(0)
-    const mouseY = useMotionValue(0)
-
-    const handleMouseMove = ({
-      currentTarget,
-      clientX,
-      clientY,
-    }: ReactMouseEvent<HTMLDivElement>) => {
-      const { left, top } = currentTarget.getBoundingClientRect()
-      mouseX.set(clientX - left)
-      mouseY.set(clientY - top)
-    }
-
-    return (
-      <motion.div
-        className={`relative group bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700 ${className}`}
-        onMouseMove={handleMouseMove}>
-        {/* Gradient overlay */}
-        <motion.div
-          className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
-          style={{
-            background: useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.08), transparent 60%)`,
-          }}
-          transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-        />
-        <div className='relative z-10'>{children}</div>
-      </motion.div>
-    )
-  }
+  }, [formData, tariff, t, setSelectedTariff, validateForm])
 
   return (
     <section
@@ -390,122 +539,68 @@ export default function Contact() {
               <form id='contact-form' ref={formRef} onSubmit={handleSubmit} className='space-y-6'>
                 {/* Name Fields */}
                 <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-                  <div>
-                    <label
-                      htmlFor='first-name'
-                      className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white mb-2'>
-                      {t('contact.firstName')}
-                    </label>
-                    <input
-                      placeholder={t('contact.placeholder.firstName')}
-                      id='first-name'
-                      name='first-name'
-                      type='text'
-                      autoComplete='given-name'
-                      className={`block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700/50 px-4 py-3 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset transition-all duration-200 ${
-                        formErrors.firstName
-                          ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
-                          : 'ring-gray-200 dark:ring-gray-600 focus:ring-indigo-600 dark:focus:ring-indigo-400'
-                      }`}
-                    />
-                    <AnimatePresence>
-                      {formErrors.firstName && (
-                        <motion.p
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          transition={{ duration: 0.2 }}
-                          className='mt-2 text-sm text-red-500 dark:text-red-400'>
-                          {formErrors.firstName}
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
+                  <FormInput
+                    id='first-name'
+                    name='first-name'
+                    type='text'
+                    label={t('contact.firstName')}
+                    placeholder={t('contact.placeholder.firstName')}
+                    value={formData.firstName}
+                    onChange={handleFirstNameChange}
+                    error={formErrors.firstName}
+                    autoComplete='given-name'
+                  />
 
-                  <div>
-                    <label
-                      htmlFor='last-name'
-                      className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white mb-2'>
-                      {t('contact.lastName')}
-                    </label>
-                    <input
-                      id='last-name'
-                      name='last-name'
-                      placeholder={t('contact.placeholder.lastName')}
-                      type='text'
-                      autoComplete='family-name'
-                      className={`block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700/50 px-4 py-3 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset transition-all duration-200 ${
-                        formErrors.lastName
-                          ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
-                          : 'ring-gray-200 dark:ring-gray-600 focus:ring-indigo-600 dark:focus:ring-indigo-400'
-                      }`}
-                    />
-                    {formErrors.lastName && (
-                      <p className='mt-2 text-sm text-red-500 dark:text-red-400'>
-                        {formErrors.lastName}
-                      </p>
-                    )}
-                  </div>
+                  <FormInput
+                    id='last-name'
+                    name='last-name'
+                    type='text'
+                    label={t('contact.lastName')}
+                    placeholder={t('contact.placeholder.lastName')}
+                    value={formData.lastName}
+                    onChange={handleLastNameChange}
+                    error={formErrors.lastName}
+                    autoComplete='family-name'
+                  />
                 </div>
 
                 {/* Email */}
-                <div>
-                  <label
-                    htmlFor='email'
-                    className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white mb-2'>
-                    {t('contact.email')}
-                  </label>
-                  <input
-                    placeholder={t('contact.placeholder.email')}
-                    id='email'
-                    name='email'
-                    type='email'
-                    autoComplete='email'
-                    className={`block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700/50 px-4 py-3 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset transition-all duration-200 ${
-                      formErrors.email
-                        ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
-                        : 'ring-gray-200 dark:ring-gray-600 focus:ring-indigo-600 dark:focus:ring-indigo-400'
-                    }`}
-                  />
-                  <AnimatePresence>
-                    {formErrors.email && (
-                      <motion.p
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.2 }}
-                        className='mt-2 text-sm text-red-500 dark:text-red-400'>
-                        {formErrors.email}
-                      </motion.p>
-                    )}
-                  </AnimatePresence>
-                </div>
+                <FormInput
+                  id='email'
+                  name='email'
+                  type='email'
+                  label={t('contact.email')}
+                  placeholder={t('contact.placeholder.email')}
+                  value={formData.email}
+                  onChange={handleEmailChange}
+                  error={formErrors.email}
+                  autoComplete='email'
+                />
 
                 {/* Phone */}
-                <div>
-                  <label
-                    htmlFor='phone-number'
-                    className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white mb-2'>
-                    {t('contact.phone')}
-                  </label>
-                  <input
-                    placeholder={t('contact.placeholder.phone')}
-                    id='phone-number'
-                    name='phone-number'
-                    type='tel'
-                    autoComplete='tel'
-                    className={`block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700/50 px-4 py-3 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset transition-all duration-200 ${
-                      formErrors.phone
-                        ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
-                        : 'ring-gray-200 dark:ring-gray-600 focus:ring-indigo-600 dark:focus:ring-indigo-400'
-                    }`}
-                  />
-                  {formErrors.phone && (
-                    <p className='mt-2 text-sm text-red-500 dark:text-red-400'>
-                      {formErrors.phone}
-                    </p>
-                  )}
-                </div>
+                <FormInput
+                  id='phone-number'
+                  name='phone-number'
+                  type='tel'
+                  label={t('contact.phone')}
+                  placeholder={t('contact.placeholder.phone')}
+                  value={formData.phone}
+                  onChange={handlePhoneChange}
+                  error={formErrors.phone}
+                  autoComplete='tel'
+                />
+
+                {/* Company */}
+                <FormInput
+                  id='company'
+                  name='company'
+                  type='text'
+                  label={t('contact.company')}
+                  placeholder={t('contact.placeholder.company')}
+                  value={formData.company}
+                  onChange={handleCompanyChange}
+                  autoComplete='organization'
+                />
 
                 {/* Tariff Selection */}
                 <div>
@@ -522,7 +617,7 @@ export default function Contact() {
                       id='selected-tariff'
                       name='selected-tariff'
                       value={tariff}
-                      onChange={(e) => setTariff(e.target.value)}
+                      onChange={(e) => handleTariffChange(e.target.value)}
                       className={`block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700/50 px-4 py-3 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset transition-all duration-200 appearance-none pr-10 ${
                         formErrors.tariff
                           ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
@@ -564,30 +659,18 @@ export default function Contact() {
                 </div>
 
                 {/* Message */}
-                <div>
-                  <label
-                    htmlFor='message'
-                    className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white mb-2'>
-                    {t('contact.message')}
-                  </label>
-                  <textarea
-                    placeholder={t('contact.placeholder.message')}
-                    id='message'
-                    name='message'
-                    rows={4}
-                    className={`block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700/50 px-4 py-3 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset transition-all duration-200 resize-none ${
-                      formErrors.message
-                        ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
-                        : 'ring-gray-200 dark:ring-gray-600 focus:ring-indigo-600 dark:focus:ring-indigo-400'
-                    }`}
-                    defaultValue={''}
-                  />
-                  {formErrors.message && (
-                    <p className='mt-2 text-sm text-red-500 dark:text-red-400'>
-                      {formErrors.message}
-                    </p>
-                  )}
-                </div>
+                <FormInput
+                  id='message'
+                  name='message'
+                  type='text'
+                  label={t('contact.message')}
+                  placeholder={t('contact.placeholder.message')}
+                  value={formData.message}
+                  onChange={handleMessageChange}
+                  error={formErrors.message}
+                  isTextarea={true}
+                  rows={4}
+                />
 
                 {/* Submit Button */}
                 <div className='pt-4'>
