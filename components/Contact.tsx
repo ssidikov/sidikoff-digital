@@ -15,7 +15,7 @@ import Popup from './Popup'
 import AnimatedSection from './AnimatedSection'
 import { useLanguage } from '@/context/LanguageContext'
 import { useTariff } from '@/context/TariffContext'
-import { trackLeadFormSubmission } from './Analytics'
+import { trackFormSubmission } from './Analytics'
 
 interface FormErrors {
   firstName?: string
@@ -333,10 +333,9 @@ export default function Contact() {
 
       if (response.ok) {
         // Track Google Ads conversion
-        trackLeadFormSubmission({
+        trackFormSubmission({
           firstName: formData.firstName,
           email: formData.email,
-          tariff: tariff,
         })
 
         setIsPopupOpen(true)
@@ -362,7 +361,7 @@ export default function Contact() {
     } finally {
       setIsLoading(false)
     }
-  }, [formData, tariff, t, setSelectedTariff, validateForm])
+  }, [formData, tariff, setSelectedTariff, validateForm])
 
   return (
     <section

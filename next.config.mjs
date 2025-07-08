@@ -15,38 +15,46 @@ const nextConfig = {
   },
   images: {
     unoptimized: false,
+    formats: ['image/webp', 'image/avif'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+    minimumCacheTTL: 31536000, // 1 year
   },
+  // Performance optimizations
+  compress: true,
+  poweredByHeader: false,
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
     optimizeCss: true,
+    optimizePackageImports: ['framer-motion', 'lucide-react', '@vercel/analytics'],
   },
   // Fix chunk loading issues for mobile
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
-      // Optimize chunk splitting for better mobile performance
+      // Optimize chunk splitting for better performance
       config.optimization = {
         ...config.optimization,
         splitChunks: {
           ...config.optimization.splitChunks,
           chunks: 'all',
-          minSize: 20000,
-          maxSize: 200000, // Smaller chunks for mobile
+          minSize: 10000,
+          maxSize: 150000, // Smaller chunks for faster loading
           cacheGroups: {
             ...config.optimization.splitChunks.cacheGroups,
             vendor: {
               test: /[\\/]node_modules[\\/]/,
               name: 'vendors',
               chunks: 'all',
-              maxSize: 200000,
+              maxSize: 150000,
               priority: 10,
             },
             common: {
               name: 'common',
               minChunks: 2,
               chunks: 'all',
-              maxSize: 200000,
+              maxSize: 150000,
               priority: 5,
               enforce: true,
             },

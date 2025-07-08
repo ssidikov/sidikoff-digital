@@ -1,15 +1,36 @@
 import { Metadata } from 'next'
+import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
-import Portfolio from '@/components/Portfolio'
-import Services from '@/components/Services'
-import Prices from '@/components/Prices'
-import Contact from '@/components/Contact'
-import Footer from '@/components/Footer'
 import StructuredData from '@/components/StructuredData'
 import { generateServiceSchema } from '@/lib/seo'
-import FAQ from '@/components/FAQ'
+
+// Lazy load non-critical components to improve initial page load
+const Portfolio = dynamic(() => import('@/components/Portfolio'), {
+  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-lg mx-4" />
+})
+
+const Services = dynamic(() => import('@/components/Services'), {
+  loading: () => <div className="h-screen bg-gray-100 animate-pulse rounded-lg mx-4" />
+})
+
+const Prices = dynamic(() => import('@/components/Prices'), {
+  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-lg mx-4" />
+})
+
+const Contact = dynamic(() => import('@/components/Contact'), {
+  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-lg mx-4" />
+})
+
+const Footer = dynamic(() => import('@/components/Footer'), {
+  loading: () => <div className="h-32 bg-gray-900 animate-pulse" />
+})
+
+const FAQ = dynamic(() => import('@/components/FAQ'), {
+  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-lg mx-4" />
+})
 
 export const metadata: Metadata = {
   title: 'Agence Web - SIDIKOFF DIGITAL',
@@ -192,15 +213,35 @@ export default function Page() {
       <div className='scroll-smooth min-h-screen antialiased'>
         <Header />
         <main>
+          {/* Critical above-the-fold content */}
           <Hero />
-          <Services />
-          <Portfolio />
           <About />
-          <Prices />
-          <FAQ />
-          <Contact />
+          
+          {/* Lazy loaded components with Suspense */}
+          <Suspense fallback={<div className="h-screen bg-gray-100 animate-pulse rounded-lg mx-4" />}>
+            <Services />
+          </Suspense>
+          
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-lg mx-4" />}>
+            <Portfolio />
+          </Suspense>
+          
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-lg mx-4" />}>
+            <Prices />
+          </Suspense>
+          
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-lg mx-4" />}>
+            <FAQ />
+          </Suspense>
+          
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-lg mx-4" />}>
+            <Contact />
+          </Suspense>
         </main>
-        <Footer />
+        
+        <Suspense fallback={<div className="h-32 bg-gray-900 animate-pulse" />}>
+          <Footer />
+        </Suspense>
       </div>
     </>
   )

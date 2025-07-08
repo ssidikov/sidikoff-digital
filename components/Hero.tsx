@@ -15,17 +15,6 @@ export default function Hero() {
     scrollToSection(sectionId)
   }
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  }
-
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -49,12 +38,9 @@ export default function Hero() {
     },
   }
   return (
-    <motion.section
+    <section
       id='home'
-      className='relative min-h-screen flex items-center justify-center overflow-hidden pt-16 pb-8 sm:pt-20 sm:pb-12 lg:pb-0'
-      initial='hidden'
-      animate='visible'
-      variants={containerVariants}>
+      className='relative min-h-screen flex items-center justify-center overflow-hidden pt-16 pb-8 sm:pt-20 sm:pb-12 lg:pb-0'>
       {/* Background Elements */}
       <div className='absolute inset-0 -z-10'>
         {/* Simplified Gradient Background */}
@@ -66,9 +52,7 @@ export default function Hero() {
       {/* Main Content */}
       <div className='container mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10 py-8 sm:py-12 lg:py-0'>
         {/* Left Column - Content */}
-        <motion.div
-          className='space-y-6 sm:space-y-8 text-center lg:text-left'
-          variants={itemVariants}>
+        <div className='space-y-6 sm:space-y-8 text-center lg:text-left'>
           {/* Badge */}
           <motion.div
             className='inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-sm font-medium border border-indigo-200 dark:border-indigo-800'
@@ -76,15 +60,21 @@ export default function Hero() {
             <Sparkles className='w-4 h-4' />
             {t('hero.badge') || 'Agence Web Premium'}
           </motion.div>
-          {/* Main Title */}
-          <motion.h1
+          {/* Main Title - Critical LCP element */}
+          <h1
             className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight'
-            variants={itemVariants}>
+            style={{
+              // Critical inline styles for faster LCP
+              fontSize: 'clamp(1.875rem, 8vw, 4.5rem)',
+              lineHeight: '1.1',
+              fontWeight: '700',
+              marginBottom: '1.5rem'
+            }}>
             <span className='bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent'>
               {t('hero.title1')}
             </span>
             <span className='text-gray-900 dark:text-white'>{t('hero.title2')}</span>
-          </motion.h1>
+          </h1>
           {/* Description */}
           <motion.div
             className='space-y-3 sm:space-y-4 max-w-2xl mx-auto lg:mx-0'
@@ -186,7 +176,7 @@ export default function Hero() {
               </div>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
         {/* Right Column - Logo/Visual */}
         <motion.div
           className='hidden lg:flex items-center justify-center relative'
@@ -219,6 +209,6 @@ export default function Hero() {
           <ChevronDown className='w-4 h-4 sm:w-5 sm:h-5' />
         </motion.button>
       </motion.div>
-    </motion.section>
+    </section>
   )
 }

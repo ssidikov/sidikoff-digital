@@ -16,14 +16,22 @@ export default function Analytics({
   enableWebVitals = true,
 }: AnalyticsProps) {
   const [isMounted, setIsMounted] = useState(false)
+  const [shouldLoadAnalytics, setShouldLoadAnalytics] = useState(false)
 
   useEffect(() => {
     setIsMounted(true)
+    
+    // Delay analytics loading to improve initial performance
+    const timer = setTimeout(() => {
+      setShouldLoadAnalytics(true)
+    }, 3000) // Load after 3 seconds
+    
+    return () => clearTimeout(timer)
   }, [])
 
   useEffect(() => {
-    if (enableWebVitals && isMounted) {
-      // Import web-vitals dynamically
+    if (enableWebVitals && isMounted && shouldLoadAnalytics) {
+      // Import web-vitals dynamically after analytics is ready
       import('web-vitals').then(({ onCLS, onINP, onFCP, onLCP, onTTFB }) => {
         onCLS(reportWebVitals)
         onINP(reportWebVitals)
@@ -32,25 +40,22 @@ export default function Analytics({
         onTTFB(reportWebVitals)
       })
     }
-  }, [enableWebVitals, isMounted])
+  }, [enableWebVitals, isMounted, shouldLoadAnalytics])
+
+  if (!isMounted || !shouldLoadAnalytics) {
+    return null
+  }
 
   return (
     <>
-      {/* Google Analytics */}
+      {/* Google Analytics with optimized loading */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
-        strategy='afterInteractive'
+        strategy='lazyOnload'
+        defer
       />
 
-      {/* Google Ads */}
-      {googleAdsId && (
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${googleAdsId}`}
-          strategy='afterInteractive'
-        />
-      )}
-
-      <Script id='google-analytics' strategy='afterInteractive'>
+      <Script id='google-analytics' strategy='lazyOnload'>
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -58,60 +63,11 @@ export default function Analytics({
           gtag('config', '${googleAnalyticsId}', {
             page_title: document.title,
             page_location: window.location.href,
-            custom_map: {
-              'metric_id': 'web_vitals'
-            }
+            send_page_view: false
           });
           ${googleAdsId ? `gtag('config', '${googleAdsId}');` : ''}
         `}
       </Script>
-
-      {/* Google Tag Manager (optional) */}
-      <Script id='gtm' strategy='afterInteractive'>
-        {`
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-XXXXXXX');
-        `}
-      </Script>
-
-      {/* Schema.org for French business */}
-      <Script
-        id='local-business-schema'
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'LocalBusiness',
-            name: 'SIDIKOFF DIGITAL',
-            description:
-              'Agence web parisienne spécialisée en création de sites internet et applications web modernes',
-            url: 'https://www.sidikoff.com',
-            address: {
-              '@type': 'PostalAddress',
-              addressLocality: 'Paris',
-              addressCountry: 'FR',
-            },
-            geo: {
-              '@type': 'GeoCoordinates',
-              latitude: 48.8566,
-              longitude: 2.3522,
-            },
-            areaServed: [
-              { '@type': 'City', name: 'Paris' },
-              { '@type': 'Country', name: 'France' },
-            ],
-            serviceType: [
-              'Création de sites web',
-              "Développement d'applications web",
-              'Design UX/UI',
-              'Référencement SEO',
-            ],
-          }),
-        }}
-      />
     </>
   )
 }
@@ -123,45 +79,39 @@ export function trackEvent(eventName: string, parameters?: Record<string, string
   }
 }
 
-// Track Google Ads conversions
-export function trackConversion(
-  conversionLabel?: string,
-  value?: number,
-  currency: string = 'EUR'
-) {
+// Track conversions
+export function trackConversion(label: string, value?: number) {
   if (typeof window !== 'undefined' && window.gtag) {
     const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID
-    const label = conversionLabel || process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL
-
-    window.gtag('event', 'conversion', {
-      send_to: `${adsId}/${label}`,
-      value: value,
-      currency: currency,
-    })
+    if (adsId) {
+      window.gtag('event', 'conversion', {
+        send_to: `${adsId}/${label}`,
+        value: value,
+        currency: 'EUR'
+      })
+    }
   }
 }
 
-// Track lead form submission (specific conversion)
-export function trackLeadFormSubmission(formData?: {
+// Track form submissions
+export function trackFormSubmission({
+  firstName,
+  email,
+}: {
   firstName?: string
   email?: string
-  tariff?: string
 }) {
-  trackConversion() // Uses default conversion label from env
-
-  // Also track as a custom event for GA4
   trackEvent('lead_form_submission', {
     event_category: 'engagement',
     event_label: 'contact_form',
-    form_type: 'lead_generation',
-    tariff_selected: formData?.tariff || 'not_specified',
-    user_email: formData?.email ? 'provided' : 'not_provided',
+    custom_parameter_1: firstName || '',
+    custom_parameter_2: email || '',
   })
 }
 
+// Extend Window interface for TypeScript
 declare global {
   interface Window {
     gtag: (command: string, targetId: string, config?: Record<string, unknown>) => void
-    dataLayer: Record<string, unknown>[]
   }
 }

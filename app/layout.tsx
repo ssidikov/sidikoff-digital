@@ -13,6 +13,44 @@ import DynamicManifest from '@/components/DynamicManifest'
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo'
 import Script from 'next/script'
 
+// Critical CSS for LCP optimization - inlined directly
+const criticalCSS = `
+/* Critical CSS for above-the-fold content */
+.hero-title {
+  font-size: clamp(1.875rem, 8vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #111827;
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero-title {
+    color: #ffffff;
+  }
+}
+
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.hero-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+`;
+
 const inter = Inter({
   subsets: ['latin', 'latin-ext'],
   display: 'swap',
@@ -56,6 +94,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='fr' dir='ltr' suppressHydrationWarning>
       <head>
+        {/* Critical CSS for LCP optimization */}
+        <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
+        
+        {/* Preload critical resources */}
+        <link rel="preload" href="/logo-sidikoff.svg" as="image" />
+        <link rel="preload" href="/favicon.svg" as="image" />
+        
         {/* Prefetch & Preconnect */}
         <link rel='dns-prefetch' href='//fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.googleapis.com' />
@@ -103,24 +148,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             content={process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION}
           />
         )}
-        {/* Google Analytics */}
+        {/* Google Analytics - Optimized for performance */}
         <Script
-          strategy='afterInteractive'
+          strategy='lazyOnload'
           src='https://www.googletagmanager.com/gtag/js?id=G-KFKPR6DVQ1'
         />
-        <Script id='gtag-init' strategy='afterInteractive'>
+        <Script id='gtag-init' strategy='lazyOnload'>
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-KFKPR6DVQ1', {
               page_path: window.location.pathname,
+              send_page_view: false
             });
           `}
         </Script>
-        {/* Google Tag Manager */}
+        {/* Google Tag Manager - Optimized for performance */}
         {process.env.NEXT_PUBLIC_GTM_ID && (
-          <Script id='gtm-script' strategy='afterInteractive'>
+          <Script id='gtm-script' strategy='lazyOnload'>
             {`
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
