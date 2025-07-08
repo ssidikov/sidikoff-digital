@@ -12,22 +12,22 @@ export default function Services() {
 
   const services = [
     {
-      illustration: '/images/services/web-site.svg',
+      illustration: '/images/services/web-site.webp',
       titleKey: 'services.creation.title',
       descriptionKey: 'services.creation.description',
     },
     {
-      illustration: '/images/services/redesign.svg',
+      illustration: '/images/services/redesign.webp',
       titleKey: 'services.redesign.title',
       descriptionKey: 'services.redesign.description',
     },
     {
-      illustration: '/images/services/seo.svg',
+      illustration: '/images/services/seo.webp',
       titleKey: 'services.seo.title',
       descriptionKey: 'services.seo.description',
     },
     {
-      illustration: '/images/services/support.svg',
+      illustration: '/images/services/support.webp',
       titleKey: 'services.maintenance.title',
       descriptionKey: 'services.maintenance.description',
     },
@@ -142,7 +142,7 @@ function ServiceCard({
               alt={t(service.titleKey)}
               fill
               className='object-contain filter dark:brightness-90'
-              sizes='(max-width: 768px) 128px, 128px'
+              sizes='256px, 100vw  '
             />
           </div>
         </div>

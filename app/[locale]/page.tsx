@@ -10,18 +10,14 @@ import About from '@/components/About'
 import Portfolio from '@/components/Portfolio'
 import Services from '@/components/Services'
 import Prices from '@/components/Prices'
-// import FAQ from '@/components/FAQ'
+import FAQ from '@/components/FAQ'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import StructuredData from '@/components/StructuredData'
 
 const locales = ['fr', 'en', 'ru']
 
-export default function LocalePage({
-  params,
-}: {
-  params: Promise<{ locale: string }>
-}) {
+export default function LocalePage({ params }: { params: Promise<{ locale: string }> }) {
   const resolvedParams = React.use(params)
 
   const { locale } = resolvedParams
@@ -93,7 +89,7 @@ export default function LocalePage({
         <Portfolio />
         <About />
         <Prices />
-        {/* <FAQ /> */}
+        <FAQ />
         <Contact />
       </main>
       <Footer />

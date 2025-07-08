@@ -186,7 +186,7 @@ const About: React.FC = () => {
                     transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
                     whileHover={{ y: -5, transition: { duration: 0.3 } }}>
                     <Image
-                      src='/images/experience.png'
+                      src='/images/experience.webp'
                       alt='Experience'
                       width={512}
                       height={512}
@@ -238,7 +238,7 @@ const About: React.FC = () => {
                     transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
                     whileHover={{ y: -5, transition: { duration: 0.3 } }}>
                     <Image
-                      src='/images/master.png'
+                      src='/images/master.webp'
                       alt='Master Degree'
                       width={512}
                       height={512}

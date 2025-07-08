@@ -8,8 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "setup-admin": "npx ts-node scripts/setup-admin.ts",
-    "test-email": "npx tsx scripts/test-email.ts"
+    "setup-admin": "npx ts-node scripts/setup-admin.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.6.1",
