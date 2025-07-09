@@ -9,27 +9,27 @@ import { generateServiceSchema } from '@/lib/seo'
 
 // Lazy load non-critical components to improve initial page load
 const Portfolio = dynamic(() => import('@/components/Portfolio'), {
-  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-lg mx-4" />
+  loading: () => <div className='h-96 bg-gray-100 animate-pulse rounded-lg mx-4' />,
 })
 
 const Services = dynamic(() => import('@/components/Services'), {
-  loading: () => <div className="h-screen bg-gray-100 animate-pulse rounded-lg mx-4" />
+  loading: () => <div className='h-screen bg-gray-100 animate-pulse rounded-lg mx-4' />,
 })
 
 const Prices = dynamic(() => import('@/components/Prices'), {
-  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-lg mx-4" />
+  loading: () => <div className='h-96 bg-gray-100 animate-pulse rounded-lg mx-4' />,
 })
 
 const Contact = dynamic(() => import('@/components/Contact'), {
-  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-lg mx-4" />
+  loading: () => <div className='h-96 bg-gray-100 animate-pulse rounded-lg mx-4' />,
 })
 
 const Footer = dynamic(() => import('@/components/Footer'), {
-  loading: () => <div className="h-32 bg-gray-900 animate-pulse" />
+  loading: () => <div className='h-32 bg-gray-900 animate-pulse' />,
 })
 
 const FAQ = dynamic(() => import('@/components/FAQ'), {
-  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-lg mx-4" />
+  loading: () => <div className='h-96 bg-gray-100 animate-pulse rounded-lg mx-4' />,
 })
 
 export const metadata: Metadata = {
@@ -216,30 +216,31 @@ export default function Page() {
           {/* Critical above-the-fold content */}
           <Hero />
           <About />
-          
+
           {/* Lazy loaded components with Suspense */}
-          <Suspense fallback={<div className="h-screen bg-gray-100 animate-pulse rounded-lg mx-4" />}>
+          <Suspense
+            fallback={<div className='h-screen bg-gray-100 animate-pulse rounded-lg mx-4' />}>
             <Services />
           </Suspense>
-          
-          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-lg mx-4" />}>
+
+          <Suspense fallback={<div className='h-96 bg-gray-100 animate-pulse rounded-lg mx-4' />}>
             <Portfolio />
           </Suspense>
-          
-          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-lg mx-4" />}>
+
+          <Suspense fallback={<div className='h-96 bg-gray-100 animate-pulse rounded-lg mx-4' />}>
             <Prices />
           </Suspense>
-          
-          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-lg mx-4" />}>
+
+          <Suspense fallback={<div className='h-96 bg-gray-100 animate-pulse rounded-lg mx-4' />}>
             <FAQ />
           </Suspense>
-          
-          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-lg mx-4" />}>
+
+          <Suspense fallback={<div className='h-96 bg-gray-100 animate-pulse rounded-lg mx-4' />}>
             <Contact />
           </Suspense>
         </main>
-        
-        <Suspense fallback={<div className="h-32 bg-gray-900 animate-pulse" />}>
+
+        <Suspense fallback={<div className='h-32 bg-gray-900 animate-pulse' />}>
           <Footer />
         </Suspense>
       </div>

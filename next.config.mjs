@@ -68,14 +68,14 @@ const nextConfig = {
           },
         },
       }
-      
+
       // Add retry logic for chunk loading
       config.output = {
         ...config.output,
         crossOriginLoading: 'anonymous',
       }
     }
-    
+
     return config
   },
   // Add headers for better caching

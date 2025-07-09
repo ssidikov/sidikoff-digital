@@ -1,0 +1,69 @@
+/* Critical CSS for above-the-fold content */
+/* This will be inlined to improve LCP */
+
+/* Hero title styles - Critical for LCP */
+.hero-title {
+  font-size: clamp(1.875rem, 8vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #111827;
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero-title {
+    color: #ffffff;
+  }
+}
+
+/* Loading skeleton for better perceived performance */
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Critical layout styles */
+.hero-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Preload styles for fonts */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/inter.woff2') format('woff2');
+}
+
+/* Critical button styles */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: transform 0.2s ease-in-out;
+}
+
+.cta-button:hover {
+  transform: scale(1.02);
+}

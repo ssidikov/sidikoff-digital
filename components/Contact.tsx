@@ -1,15 +1,15 @@
 'use client'
 
 import type React from 'react'
-import { useState, useRef, useEffect, useCallback, memo, MouseEvent as ReactMouseEvent } from 'react'
 import {
-  Mail,
-  Phone,
-  ChevronDown,
-  MapPin,
-  CheckCircle,
-  Send,
-} from 'lucide-react'
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+  memo,
+  MouseEvent as ReactMouseEvent,
+} from 'react'
+import { Mail, Phone, ChevronDown, MapPin, CheckCircle, Send } from 'lucide-react'
 import { motion, AnimatePresence, useMotionTemplate, useMotionValue } from 'framer-motion'
 import Popup from './Popup'
 import AnimatedSection from './AnimatedSection'
@@ -78,75 +78,80 @@ interface FormInputProps {
   isTextarea?: boolean
 }
 
-const FormInput = memo(({ 
-  id, 
-  name, 
-  type, 
-  label, 
-  placeholder, 
-  value, 
-  onChange, 
-  error, 
-  autoComplete,
-  rows,
-  isTextarea = false
-}: FormInputProps) => {
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    onChange(e.target.value)
-  }, [onChange])
+const FormInput = memo(
+  ({
+    id,
+    name,
+    type,
+    label,
+    placeholder,
+    value,
+    onChange,
+    error,
+    autoComplete,
+    rows,
+    isTextarea = false,
+  }: FormInputProps) => {
+    const handleChange = useCallback(
+      (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        onChange(e.target.value)
+      },
+      [onChange]
+    )
 
-  const inputClassName = `block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700/50 px-4 py-3 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset transition-all duration-200 ${
-    isTextarea ? 'resize-none' : ''
-  } ${
-    error
-      ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
-      : 'ring-gray-200 dark:ring-gray-600 focus:ring-indigo-600 dark:focus:ring-indigo-400'
-  }`
+    const inputClassName = `block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700/50 px-4 py-3 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset transition-all duration-200 ${
+      isTextarea ? 'resize-none' : ''
+    } ${
+      error
+        ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
+        : 'ring-gray-200 dark:ring-gray-600 focus:ring-indigo-600 dark:focus:ring-indigo-400'
+    }`
 
-  return (
-    <div>
-      <label
-        htmlFor={id}
-        className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white mb-2'>
-        {label}
-      </label>
-      {isTextarea ? (
-        <textarea
-          placeholder={placeholder}
-          id={id}
-          name={name}
-          rows={rows}
-          value={value}
-          onChange={handleChange}
-          className={inputClassName}
-        />
-      ) : (
-        <input
-          placeholder={placeholder}
-          id={id}
-          name={name}
-          type={type}
-          autoComplete={autoComplete}
-          value={value}
-          onChange={handleChange}
-          className={inputClassName}
-        />
-      )}
-      <AnimatePresence>
-        {error && (
-          <motion.p
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className='mt-2 text-sm text-red-500 dark:text-red-400'>
-            {error}
-          </motion.p>
+    return (
+      <div>
+        <label
+          htmlFor={id}
+          className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white mb-2'>
+          {label}
+        </label>
+        {isTextarea ? (
+          <textarea
+            placeholder={placeholder}
+            id={id}
+            name={name}
+            rows={rows}
+            value={value}
+            onChange={handleChange}
+            className={inputClassName}
+          />
+        ) : (
+          <input
+            placeholder={placeholder}
+            id={id}
+            name={name}
+            type={type}
+            autoComplete={autoComplete}
+            value={value}
+            onChange={handleChange}
+            className={inputClassName}
+          />
         )}
-      </AnimatePresence>
-    </div>
-  )
-})
+        <AnimatePresence>
+          {error && (
+            <motion.p
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className='mt-2 text-sm text-red-500 dark:text-red-400'>
+              {error}
+            </motion.p>
+          )}
+        </AnimatePresence>
+      </div>
+    )
+  }
+)
 
 FormInput.displayName = 'FormInput'
 
@@ -161,13 +166,13 @@ export default function Contact() {
     email: '',
     phone: '',
     company: '',
-    message: ''
+    message: '',
   })
   const [formErrors, setFormErrors] = useState<FormErrors>({})
   const formRef = useRef<HTMLFormElement>(null)
   const { t } = useLanguage()
   const { selectedTariff, setSelectedTariff } = useTariff()
-  
+
   // Синхронизация выбранного тарифа с локальным состоянием
   useEffect(() => {
     if (selectedTariff && selectedTariff !== tariff) {
@@ -176,50 +181,74 @@ export default function Contact() {
   }, [selectedTariff, tariff])
 
   // Обработчик изменения тарифа
-  const handleTariffChange = useCallback((newTariff: string) => {
-    setTariff(newTariff)
-    setSelectedTariff(newTariff) // Обновляем глобальный контекст
-  }, [setSelectedTariff])
+  const handleTariffChange = useCallback(
+    (newTariff: string) => {
+      setTariff(newTariff)
+      setSelectedTariff(newTariff) // Обновляем глобальный контекст
+    },
+    [setSelectedTariff]
+  )
 
   // Обработчик изменения полей формы
-  const handleInputChange = useCallback((field: keyof typeof formData, value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }))
-    // Очищаем ошибку поля при изменении
-    if (formErrors[field as keyof FormErrors]) {
-      setFormErrors(prev => ({
+  const handleInputChange = useCallback(
+    (field: keyof typeof formData, value: string) => {
+      setFormData((prev) => ({
         ...prev,
-        [field]: undefined
+        [field]: value,
       }))
-    }
-  }, [formErrors])
+      // Очищаем ошибку поля при изменении
+      if (formErrors[field as keyof FormErrors]) {
+        setFormErrors((prev) => ({
+          ...prev,
+          [field]: undefined,
+        }))
+      }
+    },
+    [formErrors]
+  )
 
   // Мемоизированные обработчики для каждого поля
-  const handleFirstNameChange = useCallback((value: string) => {
-    handleInputChange('firstName', value)
-  }, [handleInputChange])
+  const handleFirstNameChange = useCallback(
+    (value: string) => {
+      handleInputChange('firstName', value)
+    },
+    [handleInputChange]
+  )
 
-  const handleLastNameChange = useCallback((value: string) => {
-    handleInputChange('lastName', value)
-  }, [handleInputChange])
+  const handleLastNameChange = useCallback(
+    (value: string) => {
+      handleInputChange('lastName', value)
+    },
+    [handleInputChange]
+  )
 
-  const handleEmailChange = useCallback((value: string) => {
-    handleInputChange('email', value)
-  }, [handleInputChange])
+  const handleEmailChange = useCallback(
+    (value: string) => {
+      handleInputChange('email', value)
+    },
+    [handleInputChange]
+  )
 
-  const handlePhoneChange = useCallback((value: string) => {
-    handleInputChange('phone', value)
-  }, [handleInputChange])
+  const handlePhoneChange = useCallback(
+    (value: string) => {
+      handleInputChange('phone', value)
+    },
+    [handleInputChange]
+  )
 
-  const handleCompanyChange = useCallback((value: string) => {
-    handleInputChange('company', value)
-  }, [handleInputChange])
+  const handleCompanyChange = useCallback(
+    (value: string) => {
+      handleInputChange('company', value)
+    },
+    [handleInputChange]
+  )
 
-  const handleMessageChange = useCallback((value: string) => {
-    handleInputChange('message', value)
-  }, [handleInputChange])
+  const handleMessageChange = useCallback(
+    (value: string) => {
+      handleInputChange('message', value)
+    },
+    [handleInputChange]
+  )
 
   // Validation functions
   const validateEmail = useCallback((email: string): boolean => {
@@ -232,136 +261,142 @@ export default function Contact() {
   //   return phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''))
   // }
 
-  const validateForm = useCallback((formData: FormData): FormErrors => {
-    const errors: FormErrors = {}
+  const validateForm = useCallback(
+    (formData: FormData): FormErrors => {
+      const errors: FormErrors = {}
 
-    const firstName = formData.get('first-name') as string
-    // const lastName = formData.get('last-name') as string // Not used in validation
-    const email = formData.get('email') as string
-    // const phone = formData.get('phone-number') as string // Not used in validation
-    // const selectedTariff = formData.get('selected-tariff') as string // Not used in validation
-    // const message = formData.get('message') as string // Not used in validation
+      const firstName = formData.get('first-name') as string
+      // const lastName = formData.get('last-name') as string // Not used in validation
+      const email = formData.get('email') as string
+      // const phone = formData.get('phone-number') as string // Not used in validation
+      // const selectedTariff = formData.get('selected-tariff') as string // Not used in validation
+      // const message = formData.get('message') as string // Not used in validation
 
-    // First name validation
-    if (!firstName || firstName.trim().length === 0) {
-      errors.firstName = t('validation.firstName.required')
-    } else if (firstName.trim().length < 2) {
-      errors.firstName = t('validation.firstName.minLength')
-    }
-
-    // // Last name validation
-    // if (!lastName || lastName.trim().length === 0) {
-    //   errors.lastName = t('validation.lastName.required')
-    // } else if (lastName.trim().length < 2) {
-    //   errors.lastName = t('validation.lastName.minLength')
-    // }
-
-    // Email validation
-    if (!email || email.trim().length === 0) {
-      errors.email = t('validation.email.required')
-    } else if (!validateEmail(email)) {
-      errors.email = t('validation.email.invalid')
-    }
-
-    // // Phone validation
-    // if (!phone || phone.trim().length === 0) {
-    //   errors.phone = t('validation.phone.required')
-    // } else if (!validatePhone(phone)) {
-    //   errors.phone = t('validation.phone.invalid')
-    // }
-
-    // // Tariff validation
-    // if (!selectedTariff || selectedTariff.trim().length === 0) {
-    //   errors.tariff = t('validation.tariff.required')
-    // }
-
-    // // Message validation
-    // if (!message || message.trim().length === 0) {
-    //   errors.message = t('validation.message.required')
-    // } else if (message.trim().length < 10) {
-    //   errors.message = t('validation.message.minLength')
-    // }
-
-    return errors
-  }, [t, validateEmail])
-
-  const handleSubmit = useCallback(async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setIsLoading(true)
-    setError(null)
-    setFormErrors({})
-
-    // Создаем FormData из состояния для валидации
-    const formDataForValidation = new FormData()
-    formDataForValidation.append('first-name', formData.firstName)
-    formDataForValidation.append('last-name', formData.lastName)
-    formDataForValidation.append('email', formData.email)
-    formDataForValidation.append('phone-number', formData.phone)
-    formDataForValidation.append('company', formData.company)
-    formDataForValidation.append('selected-tariff', tariff)
-    formDataForValidation.append('message', formData.message)
-
-    // Validate form
-    const errors = validateForm(formDataForValidation)
-
-    if (Object.keys(errors).length > 0) {
-      setFormErrors(errors)
-      setIsLoading(false)
-      return
-    }
-
-    try {
-      // Send to our API using state data
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: `${formData.firstName} ${formData.lastName || ''}`.trim(),
-          email: formData.email,
-          phone: formData.phone,
-          company: formData.company,
-          message: formData.message,
-          projectType: tariff,
-          budget: null, // Can be added later if needed
-          timeline: null, // Can be added later if needed
-        }),
-      })
-
-      const result = await response.json()
-
-      if (response.ok) {
-        // Track Google Ads conversion
-        trackFormSubmission({
-          firstName: formData.firstName,
-          email: formData.email,
-        })
-
-        setIsPopupOpen(true)
-        // Сбрасываем все состояния формы
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          company: '',
-          message: ''
-        })
-        setTariff('')
-        setSelectedTariff('') // Сбрасываем глобальный контекст
-        setFormErrors({})
-        setTimeout(() => setIsPopupOpen(false), 5000)
-      } else {
-        throw new Error(result.error || 'Failed to send message')
+      // First name validation
+      if (!firstName || firstName.trim().length === 0) {
+        errors.firstName = t('validation.firstName.required')
+      } else if (firstName.trim().length < 2) {
+        errors.firstName = t('validation.firstName.minLength')
       }
-    } catch (err) {
-      console.error('Contact form error:', err)
-      setError('An error occurred while sending the message. Please try again.')
-    } finally {
-      setIsLoading(false)
-    }
-  }, [formData, tariff, setSelectedTariff, validateForm])
+
+      // // Last name validation
+      // if (!lastName || lastName.trim().length === 0) {
+      //   errors.lastName = t('validation.lastName.required')
+      // } else if (lastName.trim().length < 2) {
+      //   errors.lastName = t('validation.lastName.minLength')
+      // }
+
+      // Email validation
+      if (!email || email.trim().length === 0) {
+        errors.email = t('validation.email.required')
+      } else if (!validateEmail(email)) {
+        errors.email = t('validation.email.invalid')
+      }
+
+      // // Phone validation
+      // if (!phone || phone.trim().length === 0) {
+      //   errors.phone = t('validation.phone.required')
+      // } else if (!validatePhone(phone)) {
+      //   errors.phone = t('validation.phone.invalid')
+      // }
+
+      // // Tariff validation
+      // if (!selectedTariff || selectedTariff.trim().length === 0) {
+      //   errors.tariff = t('validation.tariff.required')
+      // }
+
+      // // Message validation
+      // if (!message || message.trim().length === 0) {
+      //   errors.message = t('validation.message.required')
+      // } else if (message.trim().length < 10) {
+      //   errors.message = t('validation.message.minLength')
+      // }
+
+      return errors
+    },
+    [t, validateEmail]
+  )
+
+  const handleSubmit = useCallback(
+    async (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault()
+      setIsLoading(true)
+      setError(null)
+      setFormErrors({})
+
+      // Создаем FormData из состояния для валидации
+      const formDataForValidation = new FormData()
+      formDataForValidation.append('first-name', formData.firstName)
+      formDataForValidation.append('last-name', formData.lastName)
+      formDataForValidation.append('email', formData.email)
+      formDataForValidation.append('phone-number', formData.phone)
+      formDataForValidation.append('company', formData.company)
+      formDataForValidation.append('selected-tariff', tariff)
+      formDataForValidation.append('message', formData.message)
+
+      // Validate form
+      const errors = validateForm(formDataForValidation)
+
+      if (Object.keys(errors).length > 0) {
+        setFormErrors(errors)
+        setIsLoading(false)
+        return
+      }
+
+      try {
+        // Send to our API using state data
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: `${formData.firstName} ${formData.lastName || ''}`.trim(),
+            email: formData.email,
+            phone: formData.phone,
+            company: formData.company,
+            message: formData.message,
+            projectType: tariff,
+            budget: null, // Can be added later if needed
+            timeline: null, // Can be added later if needed
+          }),
+        })
+
+        const result = await response.json()
+
+        if (response.ok) {
+          // Track Google Ads conversion
+          trackFormSubmission({
+            firstName: formData.firstName,
+            email: formData.email,
+          })
+
+          setIsPopupOpen(true)
+          // Сбрасываем все состояния формы
+          setFormData({
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            company: '',
+            message: '',
+          })
+          setTariff('')
+          setSelectedTariff('') // Сбрасываем глобальный контекст
+          setFormErrors({})
+          setTimeout(() => setIsPopupOpen(false), 5000)
+        } else {
+          throw new Error(result.error || 'Failed to send message')
+        }
+      } catch (err) {
+        console.error('Contact form error:', err)
+        setError('An error occurred while sending the message. Please try again.')
+      } finally {
+        setIsLoading(false)
+      }
+    },
+    [formData, tariff, setSelectedTariff, validateForm]
+  )
 
   return (
     <section

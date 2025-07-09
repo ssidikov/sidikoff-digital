@@ -68,7 +68,7 @@ export default function Hero() {
               fontSize: 'clamp(1.875rem, 8vw, 4.5rem)',
               lineHeight: '1.1',
               fontWeight: '700',
-              marginBottom: '1.5rem'
+              marginBottom: '1.5rem',
             }}>
             <span className='bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent'>
               {t('hero.title1')}

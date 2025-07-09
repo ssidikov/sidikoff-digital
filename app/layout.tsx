@@ -6,6 +6,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { LanguageProvider } from '@/context/LanguageContext'
 import { TariffProvider } from '@/context/TariffContext'
+import { EcoProvider } from '@/context/EcoContext'
 import ClientLayout from '@/components/ClientLayout'
 import StructuredData from '@/components/StructuredData'
 import BrandStructuredData from '@/components/BrandStructuredData'
@@ -49,7 +50,47 @@ const criticalCSS = `
   position: relative;
   overflow: hidden;
 }
-`;
+
+/* Eco-friendly optimizations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .loading-skeleton {
+    animation: none;
+    background: #f0f0f0;
+  }
+}
+
+/* Energy-saving dark mode optimizations */
+@media (prefers-color-scheme: dark) {
+  * {
+    color-scheme: dark;
+  }
+}
+
+/* Eco mode specific styles */
+[data-eco-mode="true"] {
+  /* Reduce visual complexity in eco mode */
+}
+
+[data-eco-mode="true"] .group:hover {
+  /* Disable hover effects in eco mode */
+  transform: none !important;
+}
+
+[data-eco-mode="true"] * {
+  /* Simplify animations in eco mode */
+  animation-duration: 0.1s !important;
+  transition-duration: 0.1s !important;
+}
+`
 
 const inter = Inter({
   subsets: ['latin', 'latin-ext'],
@@ -97,50 +138,33 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Critical CSS for LCP optimization */}
         <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
         
-        {/* Preload critical resources */}
-        <link rel="preload" href="/logo-sidikoff.svg" as="image" />
-        <link rel="preload" href="/favicon.svg" as="image" />
+        {/* Additional SEO Meta Tags - Non-duplicated */}
+        <meta name="language" content="French" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="classification" content="Business" />
+        <meta name="category" content="Web Development, Web Design, SEO" />
+        <meta name="coverage" content="Worldwide" />
+        <meta name="distribution" content="Global" />
+        <meta name="rating" content="General" />
         
+        {/* Preload critical resources */}
+        <link rel='preload' href='/logo-sidikoff.svg' as='image' />
+        <link rel='preload' href='/favicon.svg' as='image' />
+
         {/* Prefetch & Preconnect */}
         <link rel='dns-prefetch' href='//fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
+        
         {/* Icons - Manifest handled dynamically */}
         <link rel='icon' href='/favicon.svg' />
         <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
-        {/* Meta */}
-        <meta name='author' content='SIDIKOFF DIGITAL' />
-        <meta name='generator' content='Next.js' />
-        <meta name='application-name' content='SIDIKOFF DIGITAL' />
-        <meta name='apple-mobile-web-app-title' content='SIDIKOFF DIGITAL' />
-        <meta name='format-detection' content='telephone=no' />
-        <meta name='mobile-web-app-capable' content='yes' />
-        <meta name='apple-mobile-web-app-capable' content='yes' />
-        <meta name='apple-mobile-web-app-status-bar-style' content='default' />
-        <meta name='msapplication-navbutton-color' content='#4f46e5' />
+        
+        {/* Additional Meta Tags - Non-duplicated */}
         <meta name='contact' content='s.sidikoff@gmail.com' />
-        <meta name='copyright' content='SIDIKOFF DIGITAL' />
-        <meta name='og:site_name' content='SIDIKOFF DIGITAL' />
-        <meta name='twitter:site' content='@sidikoffdigital' />
-        <meta name='twitter:creator' content='@sidikoffdigital' />
         <meta name='geo.region' content='FR-75' />
         <meta name='geo.placename' content='Paris' />
         <meta name='geo.position' content='48.8566;2.3522' />
-        {/* Explicit Open Graph Tags for better social media sharing */}
-        <meta property='og:type' content='website' />
-        <meta property='og:site_name' content='SIDIKOFF DIGITAL' />
-        <meta property='og:locale' content='fr_FR' />
-        <meta property='og:image:type' content='image/png' />
-        <meta property='og:image:width' content='1200' />
-        <meta property='og:image:height' content='630' />
-        <meta property='og:image:alt' content='SIDIKOFF DIGITAL - Agence Web Parisienne' />
-        {/* Twitter Card specific tags */}
-        <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:domain' content='sidikoff.com' />
-        <meta name='twitter:url' content='https://www.sidikoff.com' />
-        {/* SEO titles */}
-        <meta property='og:title' content='Agence Web - SIDIKOFF DIGITAL' />
-        <meta name='twitter:title' content='SIDIKOFF DIGITAL | Agence Web' />
         {/* Google Verification */}
         {process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION && (
           <meta
@@ -184,9 +208,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'WebSite',
+              '@id': 'https://www.sidikoff.com/#website',
               name: 'SIDIKOFF DIGITAL',
               alternateName: 'SIDIKOFF DIGITAL - Agence Web',
               url: 'https://www.sidikoff.com',
+              description: 'SIDIKOFF DIGITAL, agence web fondée par Sardorbek SIDIKOV. Création de sites internet sur mesure, applications React/Next.js, stratégie SEO et transformation digitale à Paris.',
+              inLanguage: ['fr-FR', 'en-US', 'ru-RU'],
+              potentialAction: {
+                '@type': 'SearchAction',
+                target: {
+                  '@type': 'EntryPoint',
+                  urlTemplate: 'https://www.sidikoff.com/search?q={search_term_string}',
+                },
+                'query-input': 'required name=search_term_string',
+              },
               sameAs: [
                 'https://linkedin.com/company/sidikoff-digital',
                 'https://twitter.com/sidikoffdigital',
@@ -195,6 +230,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 '@type': 'Organization',
                 '@id': 'https://www.sidikoff.com/#organization',
                 name: 'SIDIKOFF DIGITAL',
+                url: 'https://www.sidikoff.com',
+                logo: {
+                  '@type': 'ImageObject',
+                  url: 'https://www.sidikoff.com/logo-sidikoff.svg',
+                  width: 600,
+                  height: 60,
+                },
+                contactPoint: {
+                  '@type': 'ContactPoint',
+                  telephone: '+33-6-26-93-27-34',
+                  contactType: 'customer service',
+                  areaServed: 'FR',
+                  availableLanguage: ['French', 'English', 'Russian'],
+                },
+                address: {
+                  '@type': 'PostalAddress',
+                  addressLocality: 'Paris',
+                  addressCountry: 'FR',
+                },
               },
             }),
           }}
@@ -219,14 +273,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           enableSystem
           disableTransitionOnChange>
           <DynamicManifest />
-          <LanguageProvider>
-            <TariffProvider>
-              <ClientLayout>{children}</ClientLayout>
-              {/* Schema components — moved out of <head> */}
-              <StructuredData type='all' />
-              <BrandStructuredData />
-            </TariffProvider>
-          </LanguageProvider>
+          <EcoProvider>
+            <LanguageProvider>
+              <TariffProvider>
+                <ClientLayout>{children}</ClientLayout>
+                {/* Schema components — moved out of <head> */}
+                <StructuredData type='all' />
+                <BrandStructuredData />
+              </TariffProvider>
+            </LanguageProvider>
+          </EcoProvider>
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>
