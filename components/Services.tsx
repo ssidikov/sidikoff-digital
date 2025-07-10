@@ -6,7 +6,7 @@ import { useLanguage } from '@/context/LanguageContext'
 import AnimatedSection from './AnimatedSection'
 import { Eye, MessageCircle } from 'lucide-react'
 import Image from 'next/image'
-import { useEcoMode, useEcoAnimation, getOptimalImageQuality } from '@/lib/eco-utils'
+import { useEcoAnimation, getOptimalImageQuality } from '@/lib/eco-utils'
 
 export default function Services() {
   const { t } = useLanguage()
@@ -51,11 +51,7 @@ export default function Services() {
         <div className='grid md:grid-cols-2 gap-8 md:gap-12 mb-12'>
           {services.map((service, index) => (
             <AnimatedSection key={index}>
-              <ServiceCard
-                service={service}
-                t={t}
-                shouldAnimate={shouldAnimate}
-              />
+              <ServiceCard service={service} t={t} shouldAnimate={shouldAnimate} />
             </AnimatedSection>
           ))}
         </div>

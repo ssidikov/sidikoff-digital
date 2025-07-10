@@ -94,7 +94,7 @@ const About: React.FC = () => {
           initial='hidden'
           animate={isInView ? 'visible' : 'hidden'}>
           <motion.h2
-            className='text-3xl lg:text-6xl font-bold bg-gradient-to-r from-gray-900 via-indigo-600 to-purple-600 dark:from-white dark:via-indigo-400 dark:to-purple-400 bg-clip-text text-transparent mb-8 leading-tight'
+            className='text-[clamp(2rem,_4vw_+_1rem,_5rem)] font-bold bg-gradient-to-r from-gray-900 via-indigo-600 to-purple-600 dark:from-white dark:via-indigo-400 dark:to-purple-400 bg-clip-text text-transparent mb-8 leading-tight'
             variants={itemVariants}>
             {t('about.title')}
           </motion.h2>
@@ -134,10 +134,10 @@ const About: React.FC = () => {
               <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
 
               <div className='relative z-10 text-left w-full'>
-                <h3 className='text-center md:text-left text-[clamp(1.2rem,_0.3214rem_+_4.6429vw,_4.5rem)] leading-[1] font-bold text-gray-900 dark:text-white mb-1 md:mb-4'>
+                <h3 className='text-center md:text-left text-[clamp(1.5rem,_2vw_+_1rem,_3.5rem)] leading-[1.1] font-bold text-gray-900 dark:text-white mb-2 md:mb-4'>
                   {t('about.intro.title')}
                 </h3>
-                <p className='text-base lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed'>
+                <p className='text-[clamp(0.9rem,_1.5vw_+_0.5rem,_1.5rem)] text-gray-600 dark:text-gray-300 leading-relaxed'>
                   {t('about.intro.description')}
                 </p>
               </div>
@@ -172,7 +172,7 @@ const About: React.FC = () => {
                 <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
                 {/* Text at top */}
                 <div className='relative z-10 text-center pt-10 px-8'>
-                  <p className='text-xl md:text-2xl font-bold text-gray-900 dark:text-white'>
+                  <p className='text-[clamp(1rem,_2vw_+_0.5rem,_1.5rem)] font-bold text-gray-900 dark:text-white'>
                     {t('about.founder.experienceYears')}
                   </p>
                 </div>
@@ -224,7 +224,7 @@ const About: React.FC = () => {
 
                 {/* Text at top */}
                 <div className='relative z-10 text-center pt-10 px-8'>
-                  <p className='text-xl md:text-2xl font-bold text-gray-900 dark:text-white'>
+                  <p className='text-[clamp(1rem,_2vw_+_0.5rem,_1.5rem)] font-bold text-gray-900 dark:text-white'>
                     {t('about.founder.educationDegrees')}
                   </p>
                 </div>
@@ -293,10 +293,10 @@ const About: React.FC = () => {
 
                 {/* Name and Title */}
                 <div className='text-center'>
-                  <h3 className='text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2'>
+                  <h3 className='text-[clamp(1.2rem,_2.5vw_+_0.5rem,_2.5rem)] font-bold text-gray-900 dark:text-white mb-2'>
                     {t('about.founder.name')}
                   </h3>
-                  <div className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full text-xs md:text-base font-semibold'>
+                  <div className='inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full text-[clamp(0.75rem,_1.5vw_+_0.25rem,_1rem)] font-semibold'>
                     <CheckCircle className='w-4 h-4 mr-2' />
                     {t('about.founder.title')}
                   </div>
@@ -312,7 +312,7 @@ const About: React.FC = () => {
           initial='hidden'
           animate={isInView ? 'visible' : 'hidden'}>
           <motion.h3
-            className='text-3xl sm:text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white'
+            className='text-[clamp(1.5rem,_3vw_+_1rem,_3rem)] font-bold text-center mb-16 text-gray-900 dark:text-white'
             variants={itemVariants}>
             {t('about.defining.title')}
           </motion.h3>
@@ -365,7 +365,7 @@ const About: React.FC = () => {
                         <div className='w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 dark:from-primary dark:to-primary/80 flex items-center justify-center shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:shadow-indigo-500/25 dark:group-hover:shadow-primary/25'>
                           <principle.icon className='w-6 h-6 text-white' />
                         </div>
-                        <h4 className='text-xl font-bold text-gray-900 dark:text-white flex-1'>
+                        <h4 className='text-[clamp(1rem,_2vw_+_0.5rem,_1.5rem)] font-bold text-gray-900 dark:text-white flex-1'>
                           {t(principle.titleKey)}
                         </h4>
                       </div>
@@ -389,7 +389,7 @@ const About: React.FC = () => {
           initial='hidden'
           animate={isInView ? 'visible' : 'hidden'}>
           <motion.h3
-            className='text-3xl sm:text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white'
+            className='text-[clamp(1.5rem,_3vw_+_1rem,_3rem)] font-bold text-center mb-16 text-gray-900 dark:text-white'
             variants={itemVariants}>
             {t('about.stats.title')}
           </motion.h3>
@@ -438,10 +438,10 @@ const About: React.FC = () => {
                     <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
 
                     <div className='relative z-10'>
-                      <div className='text-4xl lg:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3 transition-transform duration-300'>
+                      <div className='text-[clamp(2rem,_5vw_+_1rem,_4rem)] font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3 transition-transform duration-300'>
                         {t(stat.valueKey)}
                       </div>
-                      <div className='text-gray-600 dark:text-gray-300 font-medium group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300'>
+                      <div className='text-[clamp(0.9rem,_1.2vw_+_0.5rem,_1.2rem)] text-gray-600 dark:text-gray-300 font-medium group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300'>
                         {t(stat.labelKey)}
                       </div>
                     </div>
@@ -480,10 +480,10 @@ const About: React.FC = () => {
             <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
 
             <div className='relative z-10'>
-              <motion.h3 className='text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4'>
+              <motion.h3 className='text-[clamp(1.3rem,_2.5vw_+_0.5rem,_2.5rem)] font-bold text-gray-900 dark:text-white mb-4'>
                 {t('about.cta.title')}
               </motion.h3>
-              <motion.p className='text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto'>
+              <motion.p className='text-[clamp(1rem,_1.5vw_+_0.5rem,_1.5rem)] text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto'>
                 {t('about.cta.description')}
               </motion.p>
               <motion.div className='relative z-10 text-gray-600 dark:text-gray-300 leading-relaxed flex flex-col sm:flex-row gap-4 justify-center max-w-readable'>

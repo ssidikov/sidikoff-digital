@@ -56,18 +56,19 @@ export default function Analytics({
         connection.saveData === true)
 
     // Check if user has power saving mode enabled
-    const isPowerSaveMode = (navigator as unknown as { deviceMemory?: number }).deviceMemory && 
-                           (navigator as unknown as { deviceMemory?: number }).deviceMemory! < 4
+    const isPowerSaveMode =
+      (navigator as unknown as { deviceMemory?: number }).deviceMemory &&
+      (navigator as unknown as { deviceMemory?: number }).deviceMemory! < 4
 
     // Check if it's night time (reduce energy consumption)
     const hour = new Date().getHours()
     const isNightTime = hour >= 22 || hour <= 6
 
-    return { 
-      isSlowConnection: !!isSlowConnection, 
-      isPowerSaveMode: !!isPowerSaveMode, 
-      isNightTime, 
-      connection: connection || null 
+    return {
+      isSlowConnection: !!isSlowConnection,
+      isPowerSaveMode: !!isPowerSaveMode,
+      isNightTime,
+      connection: connection || null,
     }
   }, [])
 
@@ -181,7 +182,8 @@ export default function Analytics({
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
           }}>
           <p style={{ margin: '0 0 12px 0' }}>
-            🌱 Mode éco activé. Accepter l&apos;analytics minimal pour nous aider à améliorer le site ?
+            🌱 Mode éco activé. Accepter l&apos;analytics minimal pour nous aider à améliorer le
+            site ?
           </p>
           <div style={{ display: 'flex', gap: '8px' }}>
             <button

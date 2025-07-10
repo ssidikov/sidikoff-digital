@@ -27,6 +27,7 @@ const translations: Record<Language, TranslationMap> = {
     'nav.expertise': 'À propos',
     'nav.prices': 'Tarifs',
     'nav.services': 'Services',
+    'nav.faq': 'FAQ',
     'nav.contact': 'Nous contacter',
     'nav.projects': 'Projets',
 
@@ -406,6 +407,7 @@ const translations: Record<Language, TranslationMap> = {
     'nav.expertise': 'About',
     'nav.prices': 'Tariffs',
     'nav.services': 'Services',
+    'nav.faq': 'FAQ',
     'nav.contact': 'Contact',
     'nav.projects': 'Projects',
     'hero.badge': 'Premium Web Agency',
@@ -787,6 +789,7 @@ const translations: Record<Language, TranslationMap> = {
     'nav.expertise': 'О нас',
     'nav.prices': 'Тарифы',
     'nav.services': 'Услуги',
+    'nav.faq': 'Частые вопросы',
     'nav.contact': 'Контакты',
     'nav.projects': 'Проекты',
     'hero.badge': 'Премиум Веб-Агентство',

@@ -257,10 +257,11 @@ export default function Header() {
         <nav className='hidden md:flex items-center gap-6'>
           {[
             { href: `${getLocalePath('/')}#home`, key: 'nav.home', section: 'home' },
+            { href: `${getLocalePath('/')}#about`, key: 'nav.expertise', section: 'about' },
             { href: `${getLocalePath('/')}#services`, key: 'nav.services', section: 'services' },
             { href: `${getLocalePath('/')}#portfolio`, key: 'nav.portfolio', section: 'portfolio' },
-            { href: `${getLocalePath('/')}#about`, key: 'nav.expertise', section: 'about' },
             { href: `${getLocalePath('/')}#prices`, key: 'nav.prices', section: 'prices' },
+            { href: `${getLocalePath('/')}#faq`, key: 'nav.faq', section: 'faq' },
           ].map(({ href, key, section }) => (
             <motion.div key={section} className='relative'>
               <motion.a
@@ -311,6 +312,7 @@ export default function Header() {
               exit='hidden'>
               {[
                 { href: `${getLocalePath('/')}#home`, key: 'nav.home', section: 'home' },
+                { href: `${getLocalePath('/')}#about`, key: 'nav.expertise', section: 'about' },
                 {
                   href: `${getLocalePath('/')}#services`,
                   key: 'nav.services',
@@ -321,8 +323,8 @@ export default function Header() {
                   key: 'nav.portfolio',
                   section: 'portfolio',
                 },
-                { href: `${getLocalePath('/')}#about`, key: 'nav.expertise', section: 'about' },
                 { href: `${getLocalePath('/')}#prices`, key: 'nav.prices', section: 'prices' },
+                { href: `${getLocalePath('/')}#faq`, key: 'nav.faq', section: 'faq' },
               ].map(({ href, key, section }) => (
                 <motion.div key={section} variants={itemVariants}>
                   <motion.a

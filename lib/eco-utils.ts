@@ -117,8 +117,10 @@ export function useEcoAnimation() {
   return {
     shouldAnimate: !ecoSettings.enableReducedMotion,
     animationDuration: ecoSettings.enableReducedMotion ? 0 : undefined,
-    getAnimationProps: (normalProps: Record<string, unknown>, reducedProps: Record<string, unknown> = {}) =>
-      ecoSettings.enableReducedMotion ? reducedProps : normalProps,
+    getAnimationProps: (
+      normalProps: Record<string, unknown>,
+      reducedProps: Record<string, unknown> = {}
+    ) => (ecoSettings.enableReducedMotion ? reducedProps : normalProps),
   }
 }
 
