@@ -78,7 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Preload critical resources */}
         <link rel='preload' href='/logo-sidikoff.svg' as='image' />
         <link rel='preload' href='/favicon.svg' as='image' />
-        <link rel='preload' href='/opengraph-image.webp' as='image' type='image/webp' />
+        <link rel='preload' href='/opengraph-image.jpg' as='image' type='image/jpeg' />
 
         {/* Prefetch & Preconnect */}
         <link rel='dns-prefetch' href='//fonts.googleapis.com' />

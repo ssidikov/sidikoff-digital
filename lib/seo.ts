@@ -16,7 +16,7 @@ const defaultSEOConfig = {
   defaultTitle: 'Agence Web Paris - SIDIKOFF DIGITAL',
   defaultDescription:
     'Agence web parisienne spécialisée en création de sites internet, applications web et stratégie digitale. Développement moderne, design UX/UI, référencement SEO. Devis gratuit.',
-  defaultOgImage: 'https://www.sidikoff.com/opengraph-image.webp',
+  defaultOgImage: 'https://www.sidikoff.com/opengraph-image.jpg',
   defaultKeywords: [
     'agence web paris',
     'création site internet',
@@ -479,7 +479,7 @@ export function generateOrganizationSchema() {
     },
     image: {
       '@type': 'ImageObject',
-      url: 'https://www.sidikoff.com/opengraph-image.webp',
+      url: 'https://www.sidikoff.com/opengraph-image.jpg',
       width: 1200,
       height: 630,
       caption: 'SIDIKOFF DIGITAL - Agence Web Paris',
