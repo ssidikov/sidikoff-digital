@@ -216,7 +216,7 @@ export default function PerformanceMonitor({
       </div>
 
       <div className='mt-2 text-xs text-gray-400'>
-        {isEcoMode && '🌱 Eco Mode'} • Ctrl+Shift+P to toggle
+        Ctrl+Shift+P to toggle
       </div>
     </div>
   )

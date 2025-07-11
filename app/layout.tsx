@@ -31,6 +31,7 @@ export const metadata: Metadata = {
     title: 'Agence Web - SIDIKOFF DIGITAL',
     description:
       'SIDIKOFF DIGITAL, agence web fondée par Sardorbek SIDIKOV. Création de sites internet sur mesure, applications React/Next.js, stratégie SEO et transformation digitale à Paris.',
+    ogImage: 'https://www.sidikoff.com/opengraph-image.webp',
     keywords: [
       'SIDIKOFF DIGITAL',
       'Sardorbek SIDIKOV',

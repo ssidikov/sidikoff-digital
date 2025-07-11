@@ -37,27 +37,6 @@ export function EcoProvider({ children }: { children: ReactNode }) {
   return (
     <EcoContext.Provider value={ecoState}>
       {children}
-
-      {/* Eco mode indicator */}
-      {ecoState.isEcoMode && (
-        <div
-          style={{
-            position: 'fixed',
-            top: '10px',
-            left: '10px',
-            background: 'rgba(34, 197, 94, 0.9)',
-            color: 'white',
-            padding: '4px 8px',
-            borderRadius: '12px',
-            fontSize: '12px',
-            zIndex: 10000,
-            fontWeight: '500',
-            backdropFilter: 'blur(8px)',
-          }}
-          title="Mode éco activé - Consommation d'énergie réduite">
-          🌱 Éco
-        </div>
-      )}
     </EcoContext.Provider>
   )
 }
