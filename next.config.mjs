@@ -114,6 +114,24 @@ const nextConfig = {
   // Add headers for better caching
   async headers() {
     return [
+      // Disable caching for admin routes
+      {
+        source: '/admin/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0',
+          },
+          {
+            key: 'Pragma',
+            value: 'no-cache',
+          },
+          {
+            key: 'Expires',
+            value: '0',
+          },
+        ],
+      },
       {
         source: '/_next/static/(.*)',
         headers: [

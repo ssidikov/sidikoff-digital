@@ -177,22 +177,6 @@ export function useEcoFetch() {
   return { ecoFetch }
 }
 
-// Service Worker for eco optimizations
-export function registerEcoServiceWorker() {
-  if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker
-        .register('/eco-sw.js')
-        .then((registration) => {
-          console.log('🌱 Eco Service Worker registered:', registration)
-        })
-        .catch((error) => {
-          console.log('Service Worker registration failed:', error)
-        })
-    })
-  }
-}
-
 // Get optimal image quality based on network conditions
 export function getOptimalImageQuality(baseQuality: number = 75): number {
   if (typeof window === 'undefined') return baseQuality

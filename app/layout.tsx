@@ -6,14 +6,11 @@ import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { LanguageProvider } from '@/context/LanguageContext'
 import { TariffProvider } from '@/context/TariffContext'
-import { EcoProvider } from '@/context/EcoContext'
 import ClientLayout from '@/components/ClientLayout'
 import StructuredData from '@/components/StructuredData'
 import BrandStructuredData from '@/components/BrandStructuredData'
-import DynamicManifest from '@/components/DynamicManifest'
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo'
 import Script from 'next/script'
-import ServiceWorkerInit from '@/components/ServiceWorkerInit'
 import PerformanceMonitor from '@/components/PerformanceMonitor'
 import FontOptimizer from '@/components/FontOptimizer'
 import ResourcePreloader from '@/components/ResourcePreloader'
@@ -202,12 +199,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           defaultTheme='system'
           enableSystem
           disableTransitionOnChange>
-          <DynamicManifest />
-          <ServiceWorkerInit />
           <PerformanceMonitor showDebugInfo={process.env.NODE_ENV === 'development'} />
           <FontOptimizer />
           <ResourcePreloader />
-          <EcoProvider>
             <LanguageProvider>
               <TariffProvider>
                 <ClientLayout>{children}</ClientLayout>
@@ -216,7 +210,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <BrandStructuredData />
               </TariffProvider>
             </LanguageProvider>
-          </EcoProvider>
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>

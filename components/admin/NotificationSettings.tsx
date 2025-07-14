@@ -11,8 +11,7 @@ export default function NotificationSettings() {
   const [isLoading, setIsLoading] = useState(false)
 
   const checkNotificationSupport = useCallback(async () => {
-    const supported =
-      'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window
+    const supported = 'Notification' in window
     setIsSupported(supported)
 
     if (supported) {
@@ -21,12 +20,8 @@ export default function NotificationSettings() {
       // Initialize notification manager
       await notificationManager.initialize()
 
-      // Check if already subscribed
-      if ('serviceWorker' in navigator) {
-        const registration = await navigator.serviceWorker.ready
-        const subscription = await registration.pushManager.getSubscription()
-        setIsSubscribed(!!subscription)
-      }
+      // Since we disabled PWA, isSubscribed is always false
+      setIsSubscribed(false)
     }
   }, [notificationManager])
 
@@ -38,17 +33,21 @@ export default function NotificationSettings() {
     setIsLoading(true)
     try {
       // Request permission
-      const newPermission = await notificationManager.requestPermission()
-      setPermission(newPermission)
+      const granted = await notificationManager.requestPermission()
+      
+      // Update permission state based on actual Notification.permission
+      if ('Notification' in window) {
+        setPermission(Notification.permission)
+      }
 
-      if (newPermission === 'granted') {
+      if (granted) {
         // Subscribe to push notifications
         const subscription = await notificationManager.subscribeToPush()
         setIsSubscribed(!!subscription)
 
         if (subscription) {
           // Show success notification
-          await notificationManager.testNotification()
+          await notificationManager.sendTestNotification()
         }
       }
     } catch (error) {
@@ -86,7 +85,7 @@ export default function NotificationSettings() {
     setIsLoading(true)
     try {
       // Test local notification first
-      await notificationManager.testNotification()
+      await notificationManager.sendTestNotification()
 
       // Also test server-side push notification
       const response = await fetch('/api/admin/debug-notifications', {

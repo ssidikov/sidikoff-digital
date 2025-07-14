@@ -2,9 +2,6 @@ import { redirect } from 'next/navigation'
 import { getAdminSession } from '@/lib/admin-auth-server'
 import AdminSidebar, { MobileMenuProvider } from '@/components/admin/AdminSidebar'
 import AdminHeader from '@/components/admin/AdminHeader'
-import PWAInit from '@/components/admin/PWAInit'
-import AdminManifestOverride from '@/components/admin/AdminManifestOverride'
-import AndroidPWAEnhancements from '@/components/admin/AndroidPWAEnhancements'
 import ChunkErrorBoundary from '@/components/admin/ChunkErrorBoundary'
 import ChunkLoaderInit from '@/components/admin/ChunkLoaderInit'
 import { Toaster } from 'react-hot-toast'
@@ -16,21 +13,6 @@ export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
   title: 'SIDIKOFF Admin Dashboard',
   description: 'Admin dashboard for managing SIDIKOFF Digital website',
-  manifest: '/admin-manifest.json',
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: 'default',
-    title: 'SIDIKOFF Admin',
-  },
-  other: {
-    'mobile-web-app-capable': 'yes',
-    'apple-mobile-web-app-capable': 'yes',
-    'apple-mobile-web-app-status-bar-style': 'default',
-    'apple-mobile-web-app-title': 'SIDIKOFF Admin',
-    'application-name': 'SIDIKOFF Admin',
-    'msapplication-TileColor': '#4f46e5',
-    'theme-color': '#4f46e5',
-  },
 }
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -44,9 +26,6 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     <ChunkErrorBoundary>
       <ChunkLoaderInit />
       <MobileMenuProvider>
-        <AdminManifestOverride />
-        <PWAInit />
-        <AndroidPWAEnhancements />
         <div className='min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100'>
           <AdminSidebar user={user} />
           <div className='lg:pl-72'>

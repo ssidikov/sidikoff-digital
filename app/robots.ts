@@ -27,7 +27,6 @@ export default function robots(): MetadataRoute.Robots {
           '/images/',
           '/favicon.svg',
           '/logo-sidikoff.svg',
-          '/manifest.json',
         ],
         disallow: [
           '/api/',
