@@ -7,10 +7,12 @@ import {
   generateOrganizationSchema,
   generatePersonSchema,
   generateWebPageSchema,
+  generateBreadcrumbSchema,
+  generateFAQSchema,
 } from '@/lib/seo'
 
 interface StructuredDataProps {
-  type?: 'business' | 'website' | 'organization' | 'person' | 'webpage' | 'all'
+  type?: 'business' | 'website' | 'organization' | 'person' | 'webpage' | 'breadcrumb' | 'faq' | 'all'
   customData?: Record<string, unknown>
   pageData?: {
     name: string
@@ -20,12 +22,16 @@ interface StructuredDataProps {
     dateModified?: string
     locale: string
   }
+  breadcrumbs?: Array<{ name: string; url: string }>
+  faqs?: Array<{ question: string; answer: string }>
 }
 
 export default function StructuredData({
   type = 'all',
   customData,
   pageData,
+  breadcrumbs,
+  faqs,
 }: StructuredDataProps) {
   const schemas = []
 
@@ -47,6 +53,14 @@ export default function StructuredData({
 
   if ((type === 'webpage' || type === 'all') && pageData) {
     schemas.push(generateWebPageSchema(pageData))
+  }
+
+  if ((type === 'breadcrumb' || type === 'all') && breadcrumbs) {
+    schemas.push(generateBreadcrumbSchema(breadcrumbs))
+  }
+
+  if ((type === 'faq' || type === 'all') && faqs) {
+    schemas.push(generateFAQSchema(faqs))
   }
 
   if (customData) {

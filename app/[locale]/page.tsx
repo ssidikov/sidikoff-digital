@@ -13,6 +13,7 @@ import Prices from '@/components/Prices'
 import FAQ from '@/components/FAQ'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+import { getFAQData, SupportedLocale } from '@/lib/seo'
 import StructuredData from '@/components/StructuredData'
 
 const locales = ['fr', 'en', 'ru']
@@ -22,6 +23,14 @@ export default function LocalePage({ params }: { params: Promise<{ locale: strin
 
   const { locale } = resolvedParams
   const { setLanguage } = useLanguage()
+
+  const faqStructuredData = getFAQData(locale as SupportedLocale)
+
+  const breadcrumbsByLocale = {
+    fr: [{ name: 'Accueil', url: `https://www.sidikoff.com/${locale}` }],
+    en: [{ name: 'Home', url: `https://www.sidikoff.com/${locale}` }],
+    ru: [{ name: 'Главная', url: `https://www.sidikoff.com/${locale}` }],
+  } as Record<SupportedLocale, Array<{ name: string; url: string }>>
   useEffect(() => {
     if (!locales.includes(locale)) {
       notFound()
@@ -93,7 +102,11 @@ export default function LocalePage({ params }: { params: Promise<{ locale: strin
         <Contact />
       </main>
       <Footer />
-      <StructuredData type='all' />
+      <StructuredData
+        type='all'
+        breadcrumbs={breadcrumbsByLocale[locale as SupportedLocale] || breadcrumbsByLocale.fr}
+        faqs={faqStructuredData}
+      />
     </div>
   )
 }

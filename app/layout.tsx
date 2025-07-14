@@ -9,7 +9,7 @@ import { TariffProvider } from '@/context/TariffContext'
 import ClientLayout from '@/components/ClientLayout'
 import StructuredData from '@/components/StructuredData'
 import BrandStructuredData from '@/components/BrandStructuredData'
-import { generateMetadata as generateSEOMetadata } from '@/lib/seo'
+import { generateMetadata as generateSEOMetadata, pagesSEO } from '@/lib/seo'
 import Script from 'next/script'
 import PerformanceMonitor from '@/components/PerformanceMonitor'
 import FontOptimizer from '@/components/FontOptimizer'
@@ -24,36 +24,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.sidikoff.com'),
-  ...generateSEOMetadata({
-    title: 'Agence Web - SIDIKOFF DIGITAL',
-    description:
-      'SIDIKOFF DIGITAL, agence web fondée par Sardorbek SIDIKOV. Création de sites internet sur mesure, applications React/Next.js, stratégie SEO et transformation digitale à Paris.',
-    ogImage: 'https://www.sidikoff.com/opengraph-image.jpg',
-    keywords: [
-      'SIDIKOFF DIGITAL',
-      'Sardorbek SIDIKOV',
-      'agence web paris premium',
-      'création site internet paris',
-      'développement web paris',
-      'agence digitale parisienne',
-      'site web responsive paris',
-      'UX UI design paris',
-      'référencement SEO paris',
-      'application web react',
-      'e-commerce paris',
-      'développeur react paris',
-      'next.js agence paris',
-      'typescript développement',
-      'transformation digitale paris',
-    ],
-    locale: 'fr-FR',
-    alternateLanguages: {
-      fr: 'https://www.sidikoff.com/fr',
-      en: 'https://www.sidikoff.com/en',
-      ru: 'https://www.sidikoff.com/ru',
-    },
-    canonical: 'https://www.sidikoff.com/',
-  }),
+  ...generateSEOMetadata(pagesSEO.home.fr),
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -71,6 +42,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name='coverage' content='Worldwide' />
         <meta name='distribution' content='Global' />
         <meta name='rating' content='General' />
+
+        {/* SEO enhancement: Business info and trust signals */}
+        <meta name='author' content='Sardorbek SIDIKOV' />
+        <meta name='publisher' content='SIDIKOFF DIGITAL' />
+
+        {/* Robots & indexing */}
+        <meta
+          name='robots'
+          content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
+        />
 
         {/* Preload critical resources */}
         <link rel='preload' href='/logo-sidikoff.svg' as='image' />
@@ -202,14 +183,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <PerformanceMonitor showDebugInfo={process.env.NODE_ENV === 'development'} />
           <FontOptimizer />
           <ResourcePreloader />
-            <LanguageProvider>
-              <TariffProvider>
-                <ClientLayout>{children}</ClientLayout>
-                {/* Schema components — moved out of <head> */}
-                <StructuredData type='all' />
-                <BrandStructuredData />
-              </TariffProvider>
-            </LanguageProvider>
+          <LanguageProvider>
+            <TariffProvider>
+              <ClientLayout>{children}</ClientLayout>
+              {/* Schema components — moved out of <head> */}
+              <StructuredData type='all' />
+              <BrandStructuredData />
+            </TariffProvider>
+          </LanguageProvider>
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>

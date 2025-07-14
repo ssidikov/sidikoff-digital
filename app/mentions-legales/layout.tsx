@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
-import { generateMetadata as generateSEOMetadata, pagesSEO } from '@/lib/seo'
+import { generatePageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = generateSEOMetadata(pagesSEO.legal.fr)
+export const metadata: Metadata = generatePageMetadata('legal', 'fr')
 
 const legalSchema = {
   '@context': 'https://schema.org',

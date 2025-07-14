@@ -1,22 +1,33 @@
 import { Metadata } from 'next'
 
+// Supported locales for the multilingual site
+export const supportedLocales = ['fr', 'en', 'ru'] as const
+export type SupportedLocale = (typeof supportedLocales)[number]
+
+// Locale to hreflang mapping
+export const localeToHreflang: Record<SupportedLocale, string> = {
+  fr: 'fr-FR',
+  en: 'en-US',
+  ru: 'ru-RU',
+}
+
 export interface SEOData {
   title: string
   description: string
-  keywords?: string[]
+  keywords?: string[] // Deprecated for SEO but kept for internal structured data use
   ogImage?: string
   canonical?: string
   locale?: string
   alternateLanguages?: { [key: string]: string }
 }
 
-// Configuration SEO pour l'agence parisienne - Enhanced for 2024
+// Configuration SEO pour l'agence parisienne - Enhanced for 2025
 const defaultSEOConfig = {
   siteName: 'SIDIKOFF DIGITAL',
   defaultTitle: 'Agence Web Paris - SIDIKOFF DIGITAL',
   defaultDescription:
     'Agence web parisienne spécialisée en création de sites internet, applications web et stratégie digitale. Développement moderne, design UX/UI, référencement SEO. Devis gratuit.',
-  defaultOgImage: 'https://www.sidikoff.com/opengraph-image.jpg',
+  defaultOgImage: 'https://www.sidikoff.com/opengraph-image',
   defaultKeywords: [
     'agence web paris',
     'création site internet',
@@ -51,26 +62,118 @@ const defaultSEOConfig = {
   },
 }
 
+// Helper function to generate hreflang URLs for multilingual pages
+export function generateHreflangAlternates(
+  currentPath: string,
+  currentLocale: SupportedLocale
+): Record<string, string> {
+  const alternates: Record<string, string> = {}
+
+  supportedLocales.forEach((locale) => {
+    if (locale === currentLocale) {
+      // Add canonical for current locale
+      alternates['x-default'] = `${defaultSEOConfig.baseUrl}${currentPath}`
+    } else {
+      // Add alternate languages
+      const localizedPath =
+        locale === 'fr'
+          ? currentPath // French is default, no locale prefix
+          : `/${locale}${currentPath}`
+      alternates[localeToHreflang[locale]] = `${defaultSEOConfig.baseUrl}${localizedPath}`
+    }
+  })
+
+  return alternates
+}
+
+// Helper function to get SEO data for a specific page and locale
+export function getPageSEO(page: keyof typeof pagesSEO, locale: SupportedLocale = 'fr'): SEOData {
+  const seoData = pagesSEO[page][locale]
+  if (!seoData) {
+    throw new Error(`SEO data not found for page "${page}" and locale "${locale}"`)
+  }
+
+  return {
+    ...seoData,
+    locale: localeToHreflang[locale],
+  }
+}
+
+// Helper function to generate metadata for a specific page
+export function generatePageMetadata(
+  page: keyof typeof pagesSEO,
+  locale: SupportedLocale = 'fr'
+): Metadata {
+  const seoData = getPageSEO(page, locale)
+  return generateMetadata(seoData)
+}
+
+// Dynamic OG image utilities using file-based generation
+export function generateOGImageUrl(params: {
+  locale?: SupportedLocale
+  page?: keyof typeof pagesSEO
+}): string {
+  const { locale = 'fr', page } = params
+
+  // Use locale-specific OG images for different sections
+  if (page === 'projects') {
+    return `${defaultSEOConfig.baseUrl}/projects/opengraph-image`
+  }
+  
+  if (locale !== 'fr') {
+    return `${defaultSEOConfig.baseUrl}/${locale}/opengraph-image`
+  }
+
+  return `${defaultSEOConfig.baseUrl}/opengraph-image`
+}
+
+// Enhanced metadata generation with dynamic OG images
+export function generateMetadataWithDynamicOG(seoData: SEOData & {
+  page?: keyof typeof pagesSEO
+}): Metadata {
+  const dynamicOGImage = generateOGImageUrl({
+    locale: (seoData.locale?.split('-')[0] as SupportedLocale) || 'fr',
+    page: seoData.page,
+  })
+
+  return generateMetadata({
+    ...seoData,
+    ogImage: dynamicOGImage,
+  })
+}
+
+// Helper to update pagesSEO with dynamic OG images
+export function generatePageMetadataWithDynamicOG(
+  page: keyof typeof pagesSEO,
+  locale: SupportedLocale = 'fr'
+): Metadata {
+  const seoData = getPageSEO(page, locale)
+
+  return generateMetadataWithDynamicOG({
+    ...seoData,
+    page,
+  })
+}
+
 export function generateMetadata(seoData: SEOData): Metadata {
   const {
     title,
     description,
-    keywords = [],
     ogImage,
     canonical,
     locale = 'fr-FR',
     alternateLanguages = {},
   } = seoData
 
-  const fullTitle = title.includes(defaultSEOConfig.siteName)
-    ? title
-    : `${title} | ${defaultSEOConfig.siteName}`
+  // Always apply consistent title format: "Page Title | SIDIKOFF DIGITAL"
+  const fullTitle = `${title} | ${defaultSEOConfig.siteName}`
 
   const metadata: Metadata = {
     metadataBase: new URL(defaultSEOConfig.baseUrl),
     title: fullTitle,
     description,
-    keywords: [...defaultSEOConfig.defaultKeywords, ...keywords],
+    // Note: keywords meta tag is deprecated for SEO but kept for internal use in structured data
+    // keywords: [...defaultSEOConfig.defaultKeywords, ...keywords],
 
     // Open Graph
     openGraph: {
@@ -99,10 +202,10 @@ export function generateMetadata(seoData: SEOData): Metadata {
       images: [ogImage || defaultSEOConfig.defaultOgImage],
     },
 
-    // Canonical URL
+    // Canonical URL and hreflang alternates
     alternates: {
       canonical: canonical || defaultSEOConfig.baseUrl,
-      languages: alternateLanguages,
+      languages: Object.keys(alternateLanguages).length > 0 ? alternateLanguages : undefined,
     },
 
     // Robots
@@ -152,7 +255,7 @@ export function generateMetadata(seoData: SEOData): Metadata {
 export const pagesSEO = {
   home: {
     fr: {
-      title: 'Création de sites internet à Paris | SIDIKOFF DIGITAL - Agence Web',
+      title: 'Création de sites internet à Paris - Agence Web',
       description:
         'Création de sites internet professionnels à Paris : vitrine, e-commerce, applications web. Agence web experte en Next.js, SEO, UX/UI, développement sur mesure. Devis gratuit.',
       keywords: [
@@ -169,9 +272,14 @@ export const pagesSEO = {
         'développeur paris',
       ],
       canonical: 'https://www.sidikoff.com/',
+      alternateLanguages: {
+        'en-US': 'https://www.sidikoff.com/en',
+        'ru-RU': 'https://www.sidikoff.com/ru',
+        'x-default': 'https://www.sidikoff.com/',
+      },
     },
     en: {
-      title: 'Top Web Design Agency in Paris | SIDIKOFF DIGITAL | Custom Websites & Apps',
+      title: 'Top Web Design Agency in Paris - Custom Websites & Apps',
       description:
         'Expert web design and development agency in Paris. We build custom websites, e-commerce stores, and web applications with a focus on Next.js, React, and SEO. Get a free quote today.',
       keywords: [
@@ -184,10 +292,15 @@ export const pagesSEO = {
         'seo services paris',
         'freelance developer paris',
       ],
-      canonical: 'https://www.sidikoff.com/',
+      canonical: 'https://www.sidikoff.com/en',
+      alternateLanguages: {
+        'fr-FR': 'https://www.sidikoff.com/',
+        'ru-RU': 'https://www.sidikoff.com/ru',
+        'x-default': 'https://www.sidikoff.com/',
+      },
     },
     ru: {
-      title: 'Веб-агентство в Париже | SIDIKOFF DIGITAL | Разработка сайтов и веб-приложений',
+      title: 'Веб-агентство в Париже - Разработка сайтов и веб-приложений',
       description:
         'Профессиональная разработка сайтов, интернет-магазинов и веб-приложений в Париже. Экспертиза в Next.js, React, UX/UI дизайне и SEO. Закажите бесплатный расчет.',
       keywords: [
@@ -200,12 +313,17 @@ export const pagesSEO = {
         'seo-продвижение',
         'веб-приложения на заказ',
       ],
-      canonical: 'https://www.sidikoff.com/',
+      canonical: 'https://www.sidikoff.com/ru',
+      alternateLanguages: {
+        'fr-FR': 'https://www.sidikoff.com/',
+        'en-US': 'https://www.sidikoff.com/en',
+        'x-default': 'https://www.sidikoff.com/',
+      },
     },
   },
   services: {
     fr: {
-      title: 'Services & Tarifs | SIDIKOFF DIGITAL - Agence Web Paris',
+      title: 'Services & Tarifs - Agence Web Paris',
       description:
         'Découvrez nos services web : création de sites, applications, e-commerce, référencement SEO. Tarifs transparents et devis gratuit. Agence web à Paris.',
       keywords: [
@@ -215,9 +333,14 @@ export const pagesSEO = {
         'prix développement web',
       ],
       canonical: 'https://www.sidikoff.com/services',
+      alternateLanguages: {
+        'en-US': 'https://www.sidikoff.com/en/services',
+        'ru-RU': 'https://www.sidikoff.com/ru/services',
+        'x-default': 'https://www.sidikoff.com/services',
+      },
     },
     en: {
-      title: 'Web Development Services & Pricing | SIDIKOFF DIGITAL Paris',
+      title: 'Web Development Services & Pricing - Paris',
       description:
         'Our web development services include custom website design, e-commerce solutions, web apps, and SEO. View our transparent pricing and get a free quote from our Paris-based agency.',
       keywords: [
@@ -227,10 +350,15 @@ export const pagesSEO = {
         'seo packages paris',
         'react development services',
       ],
-      canonical: 'https://www.sidikoff.com/services',
+      canonical: 'https://www.sidikoff.com/en/services',
+      alternateLanguages: {
+        'fr-FR': 'https://www.sidikoff.com/services',
+        'ru-RU': 'https://www.sidikoff.com/ru/services',
+        'x-default': 'https://www.sidikoff.com/services',
+      },
     },
     ru: {
-      title: 'Услуги и Цены на Разработку Сайтов | SIDIKOFF DIGITAL',
+      title: 'Услуги и Цены на Разработку Сайтов',
       description:
         'Наши услуги: разработка сайтов под ключ, создание интернет-магазинов, веб-приложений и SEO-оптимизация. Прозрачные цены и бесплатный расчет стоимости.',
       keywords: [
@@ -240,12 +368,17 @@ export const pagesSEO = {
         'seo услуги стоимость',
         'разработка на react',
       ],
-      canonical: 'https://www.sidikoff.com/services',
+      canonical: 'https://www.sidikoff.com/ru/services',
+      alternateLanguages: {
+        'fr-FR': 'https://www.sidikoff.com/services',
+        'en-US': 'https://www.sidikoff.com/en/services',
+        'x-default': 'https://www.sidikoff.com/services',
+      },
     },
   },
   projects: {
     fr: {
-      title: 'Projets | SIDIKOFF DIGITAL - Nos Réalisations Web',
+      title: 'Projets - Nos Réalisations Web',
       description:
         'Découvrez nos projets web : sites vitrine, e-commerce, applications. Projets de SIDIKOFF DIGITAL, agence web à Paris. Exemples et références clients.',
       keywords: [
@@ -255,9 +388,14 @@ export const pagesSEO = {
         'références clients',
       ],
       canonical: 'https://www.sidikoff.com/projects',
+      alternateLanguages: {
+        'en-US': 'https://www.sidikoff.com/en/projects',
+        'ru-RU': 'https://www.sidikoff.com/ru/projects',
+        'x-default': 'https://www.sidikoff.com/projects',
+      },
     },
     en: {
-      title: 'Our Portfolio | Web Design & Development Projects | SIDIKOFF DIGITAL',
+      title: 'Our Portfolio - Web Design & Development Projects',
       description:
         'Explore our portfolio of custom websites, e-commerce platforms, and web applications. See the quality of work delivered by our Paris web agency.',
       keywords: [
@@ -267,10 +405,15 @@ export const pagesSEO = {
         'react project examples',
         'our work',
       ],
-      canonical: 'https://www.sidikoff.com/projects',
+      canonical: 'https://www.sidikoff.com/en/projects',
+      alternateLanguages: {
+        'fr-FR': 'https://www.sidikoff.com/projects',
+        'ru-RU': 'https://www.sidikoff.com/ru/projects',
+        'x-default': 'https://www.sidikoff.com/projects',
+      },
     },
     ru: {
-      title: 'Портфолио | Примеры Наших Работ | SIDIKOFF DIGITAL',
+      title: 'Портфолио - Примеры Наших Работ',
       description:
         'Изучите наше портфолио: примеры разработанных сайтов, интернет-магазинов и веб-приложений. Оцените качество работы нашего веб-агентства в Париже.',
       keywords: [
@@ -279,12 +422,17 @@ export const pagesSEO = {
         'кейсы по созданию сайтов',
         'разработанные проекты react',
       ],
-      canonical: 'https://www.sidikoff.com/projects',
+      canonical: 'https://www.sidikoff.com/ru/projects',
+      alternateLanguages: {
+        'fr-FR': 'https://www.sidikoff.com/projects',
+        'en-US': 'https://www.sidikoff.com/en/projects',
+        'x-default': 'https://www.sidikoff.com/projects',
+      },
     },
   },
   legal: {
     fr: {
-      title: 'Mentions légales | SIDIKOFF DIGITAL - Agence Web Paris',
+      title: 'Mentions légales - Agence Web Paris',
       description:
         "Mentions légales de SIDIKOFF DIGITAL, agence web parisienne. Protection des données personnelles, cookies et conditions d'utilisation.",
       keywords: [
@@ -294,9 +442,14 @@ export const pagesSEO = {
         'conditions utilisation',
       ],
       canonical: 'https://www.sidikoff.com/mentions-legales',
+      alternateLanguages: {
+        'en-US': 'https://www.sidikoff.com/en/mentions-legales',
+        'ru-RU': 'https://www.sidikoff.com/ru/mentions-legales',
+        'x-default': 'https://www.sidikoff.com/mentions-legales',
+      },
     },
     en: {
-      title: 'Privacy Policy & Legal Notice | SIDIKOFF DIGITAL',
+      title: 'Privacy Policy & Legal Notice',
       description:
         'Read the official privacy policy and legal notice for SIDIKOFF DIGITAL. Learn how we handle your data, our use of cookies, and terms of service.',
       keywords: [
@@ -306,10 +459,15 @@ export const pagesSEO = {
         'terms of service',
         'cookie policy',
       ],
-      canonical: 'https://www.sidikoff.com/mentions-legales',
+      canonical: 'https://www.sidikoff.com/en/mentions-legales',
+      alternateLanguages: {
+        'fr-FR': 'https://www.sidikoff.com/mentions-legales',
+        'ru-RU': 'https://www.sidikoff.com/ru/mentions-legales',
+        'x-default': 'https://www.sidikoff.com/mentions-legales',
+      },
     },
     ru: {
-      title: 'Политика конфиденциальности и правовая информация | SIDIKOFF DIGITAL',
+      title: 'Политика конфиденциальности и правовая информация',
       description:
         'Официальная политика конфиденциальности и правовая информация SIDIKOFF DIGITAL. Узнайте, как мы обрабатываем данные, используем cookie и наши условия предоставления услуг.',
       keywords: [
@@ -319,9 +477,106 @@ export const pagesSEO = {
         'условия обслуживания',
         'политика cookie',
       ],
-      canonical: 'https://www.sidikoff.com/mentions-legales',
+      canonical: 'https://www.sidikoff.com/ru/mentions-legales',
+      alternateLanguages: {
+        'fr-FR': 'https://www.sidikoff.com/mentions-legales',
+        'en-US': 'https://www.sidikoff.com/en/mentions-legales',
+        'x-default': 'https://www.sidikoff.com/mentions-legales',
+      },
     },
   },
+}
+
+// FAQ data for structured data - using same content as FAQ component
+export const faqData = {
+  fr: [
+    {
+      question: "Combien coûte la création d'un site web ?",
+      answer: "Le prix varie selon la complexité : site vitrine (800-2500€), site e-commerce (2500-8000€), application web (5000€+). Nous proposons un devis gratuit personnalisé selon vos besoins spécifiques."
+    },
+    {
+      question: "Combien de temps prend le développement ?",
+      answer: "Généralement 2-4 semaines pour un site vitrine, 4-8 semaines pour un e-commerce, et 8-16 semaines pour une application complexe. Le délai dépend de la complexité et de vos retours."
+    },
+    {
+      question: "Proposez-vous la maintenance ?",
+      answer: "Oui, nous offrons des forfaits de maintenance incluant mises à jour, sauvegardes, sécurité et support technique. Plans disponibles dès 50€/mois selon vos besoins."
+    },
+    {
+      question: "Le site sera-t-il optimisé pour mobile ?",
+      answer: "Absolument ! Tous nos sites sont responsive design et optimisés pour mobile, tablette et desktop. Nous testons sur différents appareils pour garantir une expérience parfaite."
+    },
+    {
+      question: "Incluez-vous le référencement SEO ?",
+      answer: "Oui, le SEO de base est inclus : optimisation technique, meta tags, sitemap, vitesse de chargement. Nous proposons aussi du SEO avancé en option."
+    }
+  ],
+  en: [
+    {
+      question: "How much does website creation cost?",
+      answer: "Prices vary by complexity: showcase site (€800-2500), e-commerce site (€2500-8000), web application (€5000+). We offer a free personalized quote based on your specific needs."
+    },
+    {
+      question: "How long does development take?",
+      answer: "Generally 2-4 weeks for a showcase site, 4-8 weeks for e-commerce, and 8-16 weeks for a complex application. Timeline depends on complexity and your feedback."
+    },
+    {
+      question: "Do you offer maintenance?",
+      answer: "Yes, we offer maintenance packages including updates, backups, security and technical support. Plans available from €50/month depending on your needs."
+    },
+    {
+      question: "Will the site be mobile optimized?",
+      answer: "Absolutely! All our sites are responsive design and optimized for mobile, tablet and desktop. We test on different devices to guarantee a perfect experience."
+    },
+    {
+      question: "Do you include SEO optimization?",
+      answer: "Yes, basic SEO is included: technical optimization, meta tags, sitemap, loading speed. We also offer advanced SEO as an option."
+    }
+  ],
+  ru: [
+    {
+      question: "Сколько стоит создание веб-сайта?",
+      answer: "Цены варьируются в зависимости от сложности: сайт-визитка (800-2500€), интернет-магазин (2500-8000€), веб-приложение (5000€+). Мы предлагаем бесплатную персональную смету в соответствии с вашими потребностями."
+    },
+    {
+      question: "Сколько времени занимает разработка?",
+      answer: "Обычно 2-4 недели для сайта-визитки, 4-8 недель для интернет-магазина и 8-16 недель для сложного приложения. Сроки зависят от сложности и ваших отзывов."
+    },
+    {
+      question: "Предлагаете ли вы обслуживание?",
+      answer: "Да, мы предлагаем пакеты обслуживания, включающие обновления, резервные копии, безопасность и техническую поддержку. Планы доступны от 50€/месяц в зависимости от ваших потребностей."
+    },
+    {
+      question: "Будет ли сайт оптимизирован для мобильных устройств?",
+      answer: "Конечно! Все наши сайты имеют адаптивный дизайн и оптимизированы для мобильных устройств, планшетов и компьютеров. Мы тестируем на разных устройствах для обеспечения идеального опыта."
+    },
+    {
+      question: "Включаете ли вы SEO-оптимизацию?",
+      answer: "Да, базовое SEO включено: техническая оптимизация, мета-теги, карта сайта, скорость загрузки. Мы также предлагаем продвинутое SEO как опцию."
+    }
+  ]
+}
+
+// Helper function to get FAQ data for structured data
+export function getFAQData(locale: SupportedLocale = 'fr') {
+  return faqData[locale] || faqData.fr
+}
+
+// Helper function to generate structured data for FAQ
+export function generateFAQStructuredData(locale: SupportedLocale = 'fr') {
+  const faqs = getFAQData(locale)
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  }
 }
 
 // Structured Data for Local Business (Paris) - Enhanced
