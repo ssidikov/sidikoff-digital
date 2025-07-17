@@ -1,7 +1,7 @@
 'use client'
 
 import React, { MouseEvent as ReactMouseEvent } from 'react'
-import { motion, useInView, useMotionTemplate, useMotionValue } from 'framer-motion'
+import { motion, useInView, useMotionValue, useMotionTemplate } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
 import { useLanguage } from '@/context/LanguageContext'

@@ -123,7 +123,7 @@ function ServiceCard({
         whileTap: { scale: 0.98 },
         initial: { opacity: 0, y: 20 },
         animate: { opacity: 1, y: 0 },
-        transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+        transition: { duration: 0.5 },
       }
     : {
         initial: { opacity: 1 },
@@ -140,7 +140,7 @@ function ServiceCard({
         <motion.div
           className='pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100'
           style={{ background }}
-          transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ duration: 0.3 }}
         />
       )}
       {/* Border glow effect */}

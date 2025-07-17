@@ -5,7 +5,6 @@ import { motion, AnimatePresence, useMotionTemplate, useMotionValue } from 'fram
 import { ChevronDown, MessageCircle, Phone } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 import Link from 'next/link'
-
 // FAQItem component to avoid hooks in map
 interface FAQItemProps {
   faq: { question: string; answer: string }

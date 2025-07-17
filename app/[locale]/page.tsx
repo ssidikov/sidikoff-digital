@@ -94,9 +94,9 @@ export default function LocalePage({ params }: { params: Promise<{ locale: strin
       <Header />
       <main>
         <Hero />
+        <About />
         <Services />
         <Portfolio />
-        <About />
         <Prices />
         <FAQ />
         <Contact />

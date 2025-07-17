@@ -43,22 +43,21 @@ const serviceSchema = generateServiceSchema({
 
 export default function HomePage() {
   const faqStructuredData = getFAQData('fr')
-  
+
   return (
     <>
-      <StructuredData 
-        type="all" 
+      <StructuredData
+        type='all'
         pageData={{
           name: 'SIDIKOFF DIGITAL - Agence Web à Paris',
-          description: 'Agence web parisienne spécialisée en création de sites internet, applications web et stratégie digitale',
+          description:
+            'Agence web parisienne spécialisée en création de sites internet, applications web et stratégie digitale',
           url: 'https://www.sidikoff.com/',
           datePublished: '2025-01-01',
           dateModified: new Date().toISOString().split('T')[0],
           locale: 'fr-FR',
         }}
-        breadcrumbs={[
-          { name: 'Accueil', url: 'https://www.sidikoff.com/' }
-        ]}
+        breadcrumbs={[{ name: 'Accueil', url: 'https://www.sidikoff.com/' }]}
         faqs={faqStructuredData}
         customData={serviceSchema}
       />
@@ -72,39 +71,29 @@ export default function HomePage() {
 
           {/* About section avec SEO amélioré */}
           <About />
-
-          {/* Portfolio avec lazy loading */}
-          <Suspense
-            fallback={<div className='h-96 bg-gray-100 animate-pulse rounded-lg mx-4' />}
-          >
-            <Portfolio />
-          </Suspense>
-
           {/* Services avec structured data */}
           <Suspense
-            fallback={<div className='h-screen bg-gray-100 animate-pulse rounded-lg mx-4' />}
-          >
+            fallback={<div className='h-screen bg-gray-100 animate-pulse rounded-lg mx-4' />}>
             <Services />
           </Suspense>
 
+          {/* Portfolio avec lazy loading */}
+          <Suspense fallback={<div className='h-96 bg-gray-100 animate-pulse rounded-lg mx-4' />}>
+            <Portfolio />
+          </Suspense>
+
           {/* Pricing avec optimisation conversion */}
-          <Suspense
-            fallback={<div className='h-96 bg-gray-100 animate-pulse rounded-lg mx-4' />}
-          >
+          <Suspense fallback={<div className='h-96 bg-gray-100 animate-pulse rounded-lg mx-4' />}>
             <Prices />
           </Suspense>
 
           {/* FAQ pour améliorer le SEO */}
-          <Suspense
-            fallback={<div className='h-96 bg-gray-100 animate-pulse rounded-lg mx-4' />}
-          >
+          <Suspense fallback={<div className='h-96 bg-gray-100 animate-pulse rounded-lg mx-4' />}>
             <FAQ />
           </Suspense>
 
           {/* Contact form optimisé */}
-          <Suspense
-            fallback={<div className='h-96 bg-gray-100 animate-pulse rounded-lg mx-4' />}
-          >
+          <Suspense fallback={<div className='h-96 bg-gray-100 animate-pulse rounded-lg mx-4' />}>
             <Contact />
           </Suspense>
         </main>
