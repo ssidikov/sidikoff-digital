@@ -18,10 +18,8 @@ import { useTariff } from '@/context/TariffContext'
 import { trackFormSubmission } from './Analytics'
 
 interface FormErrors {
-  firstName?: string
-  lastName?: string
+  name?: string
   email?: string
-  phone?: string
   tariff?: string
   message?: string
 }
@@ -161,11 +159,8 @@ export default function Contact() {
   const [error, setError] = useState<string | null>(null)
   const [tariff, setTariff] = useState('') // Локальное состояние для select
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    name: '',
     email: '',
-    phone: '',
-    company: '',
     message: '',
   })
   const [formErrors, setFormErrors] = useState<FormErrors>({})
@@ -208,16 +203,9 @@ export default function Contact() {
   )
 
   // Мемоизированные обработчики для каждого поля
-  const handleFirstNameChange = useCallback(
+  const handleNameChange = useCallback(
     (value: string) => {
-      handleInputChange('firstName', value)
-    },
-    [handleInputChange]
-  )
-
-  const handleLastNameChange = useCallback(
-    (value: string) => {
-      handleInputChange('lastName', value)
+      handleInputChange('name', value)
     },
     [handleInputChange]
   )
@@ -225,20 +213,6 @@ export default function Contact() {
   const handleEmailChange = useCallback(
     (value: string) => {
       handleInputChange('email', value)
-    },
-    [handleInputChange]
-  )
-
-  const handlePhoneChange = useCallback(
-    (value: string) => {
-      handleInputChange('phone', value)
-    },
-    [handleInputChange]
-  )
-
-  const handleCompanyChange = useCallback(
-    (value: string) => {
-      handleInputChange('company', value)
     },
     [handleInputChange]
   )
@@ -265,18 +239,18 @@ export default function Contact() {
     (formData: FormData): FormErrors => {
       const errors: FormErrors = {}
 
-      const firstName = formData.get('first-name') as string
+      const name = formData.get('name') as string
       // const lastName = formData.get('last-name') as string // Not used in validation
       const email = formData.get('email') as string
       // const phone = formData.get('phone-number') as string // Not used in validation
       // const selectedTariff = formData.get('selected-tariff') as string // Not used in validation
       // const message = formData.get('message') as string // Not used in validation
 
-      // First name validation
-      if (!firstName || firstName.trim().length === 0) {
-        errors.firstName = t('validation.firstName.required')
-      } else if (firstName.trim().length < 2) {
-        errors.firstName = t('validation.firstName.minLength')
+      // Name validation
+      if (!name || name.trim().length === 0) {
+        errors.name = t('validation.firstName.required')
+      } else if (name.trim().length < 2) {
+        errors.name = t('validation.firstName.minLength')
       }
 
       // // Last name validation
@@ -326,11 +300,8 @@ export default function Contact() {
 
       // Создаем FormData из состояния для валидации
       const formDataForValidation = new FormData()
-      formDataForValidation.append('first-name', formData.firstName)
-      formDataForValidation.append('last-name', formData.lastName)
+      formDataForValidation.append('name', formData.name)
       formDataForValidation.append('email', formData.email)
-      formDataForValidation.append('phone-number', formData.phone)
-      formDataForValidation.append('company', formData.company)
       formDataForValidation.append('selected-tariff', tariff)
       formDataForValidation.append('message', formData.message)
 
@@ -351,10 +322,8 @@ export default function Contact() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            name: `${formData.firstName} ${formData.lastName || ''}`.trim(),
+            name: formData.name,
             email: formData.email,
-            phone: formData.phone,
-            company: formData.company,
             message: formData.message,
             projectType: tariff,
             budget: null, // Can be added later if needed
@@ -367,18 +336,15 @@ export default function Contact() {
         if (response.ok) {
           // Track Google Ads conversion
           trackFormSubmission({
-            firstName: formData.firstName,
+            firstName: formData.name,
             email: formData.email,
           })
 
           setIsPopupOpen(true)
           // Сбрасываем все состояния формы
           setFormData({
-            firstName: '',
-            lastName: '',
+            name: '',
             email: '',
-            phone: '',
-            company: '',
             message: '',
           })
           setTariff('')
@@ -571,32 +537,18 @@ export default function Contact() {
               </div>
 
               <form id='contact-form' ref={formRef} onSubmit={handleSubmit} className='space-y-6'>
-                {/* Name Fields */}
-                <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-                  <FormInput
-                    id='first-name'
-                    name='first-name'
-                    type='text'
-                    label={t('contact.firstName')}
-                    placeholder={t('contact.placeholder.firstName')}
-                    value={formData.firstName}
-                    onChange={handleFirstNameChange}
-                    error={formErrors.firstName}
-                    autoComplete='given-name'
-                  />
-
-                  <FormInput
-                    id='last-name'
-                    name='last-name'
-                    type='text'
-                    label={t('contact.lastName')}
-                    placeholder={t('contact.placeholder.lastName')}
-                    value={formData.lastName}
-                    onChange={handleLastNameChange}
-                    error={formErrors.lastName}
-                    autoComplete='family-name'
-                  />
-                </div>
+                {/* Name Field - Full Width */}
+                <FormInput
+                  id='name'
+                  name='name'
+                  type='text'
+                  label={t('contact.firstName')}
+                  placeholder={t('contact.placeholder.firstName')}
+                  value={formData.name}
+                  onChange={handleNameChange}
+                  error={formErrors.name}
+                  autoComplete='name'
+                />
 
                 {/* Email */}
                 <FormInput
@@ -609,31 +561,6 @@ export default function Contact() {
                   onChange={handleEmailChange}
                   error={formErrors.email}
                   autoComplete='email'
-                />
-
-                {/* Phone */}
-                <FormInput
-                  id='phone-number'
-                  name='phone-number'
-                  type='tel'
-                  label={t('contact.phone')}
-                  placeholder={t('contact.placeholder.phone')}
-                  value={formData.phone}
-                  onChange={handlePhoneChange}
-                  error={formErrors.phone}
-                  autoComplete='tel'
-                />
-
-                {/* Company */}
-                <FormInput
-                  id='company'
-                  name='company'
-                  type='text'
-                  label={t('contact.company')}
-                  placeholder={t('contact.placeholder.company')}
-                  value={formData.company}
-                  onChange={handleCompanyChange}
-                  autoComplete='organization'
                 />
 
                 {/* Tariff Selection */}
