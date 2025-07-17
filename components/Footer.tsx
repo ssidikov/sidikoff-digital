@@ -55,7 +55,7 @@ export default function Footer() {
                 alt='SIDIKOFF DIGITAL - Agence Web Paris'
                 width={200}
                 height={60}
-                priority
+                loading='lazy'
                 className='w-full h-12 dark:invert'
                 style={{
                   width: 'auto',

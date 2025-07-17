@@ -140,6 +140,7 @@ function ProjectCard({
               src={project.image || '/placeholder.svg'}
               alt={project.title}
               fill
+              loading='lazy'
               className='object-cover object-top transition-all duration-300 group-hover:scale-105'
               sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
             />
