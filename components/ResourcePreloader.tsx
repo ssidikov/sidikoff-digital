@@ -30,27 +30,7 @@ export default function ResourcePreloader() {
           as: 'image',
           priority: 'high',
         },
-        // Критические стили
-        {
-          href: '/_next/static/css/app.css',
-          as: 'style',
-          priority: 'high',
-        },
-        // Шрифты
-        {
-          href: '/fonts/inter-var.woff2',
-          as: 'font',
-          type: 'font/woff2',
-          crossOrigin: 'anonymous',
-          priority: 'high',
-        },
-        // Изображения для hero секции
-        {
-          href: '/images/hero-bg.webp',
-          as: 'image',
-          priority: 'medium',
-        },
-        // Изображения услуг
+        // Изображения услуг (defer offscreen images - load with low priority)
         {
           href: '/images/services/web-site.webp',
           as: 'image',

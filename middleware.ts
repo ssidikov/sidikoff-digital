@@ -90,6 +90,17 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
+  // Special redirects for hash-based navigation
+  if (pathname === '/about') {
+    return NextResponse.redirect(new URL('/#about', request.url))
+  }
+  if (pathname === '/services') {
+    return NextResponse.redirect(new URL('/#services', request.url))
+  }
+  if (pathname === '/contact') {
+    return NextResponse.redirect(new URL('/#contact', request.url))
+  }
+
   // Special redirect for euclid project to homepage
   if (pathname === '/projects/euclid') {
     return NextResponse.redirect(new URL('/', request.url))

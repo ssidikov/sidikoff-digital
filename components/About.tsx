@@ -192,6 +192,7 @@ const About: React.FC = () => {
                       height={256}
                       sizes='(max-width: 768px) 192px, 256px'
                       quality={70}
+                      loading='lazy'
                       className='w-full h-48 object-contain drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300'
                     />
                   </motion.div>
@@ -245,7 +246,8 @@ const About: React.FC = () => {
                       width={256}
                       height={256}
                       sizes='(max-width: 768px) 192px, 256px'
-                      quality={95}
+                      quality={70}
+                      loading='lazy'
                       className='w-full h-48 object-contain drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300'
                     />
                   </motion.div>
