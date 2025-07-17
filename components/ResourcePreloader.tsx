@@ -19,7 +19,7 @@ export default function ResourcePreloader() {
 
     const preloadResources = () => {
       const resources: PreloadResource[] = [
-        // Критические изображения
+        // Только критические ресурсы для улучшения TTFB
         {
           href: '/logo-sidikoff.svg',
           as: 'image',
@@ -29,27 +29,6 @@ export default function ResourcePreloader() {
           href: '/favicon.svg',
           as: 'image',
           priority: 'high',
-        },
-        // Изображения услуг (defer offscreen images - load with low priority)
-        {
-          href: '/images/services/web-site.webp',
-          as: 'image',
-          priority: 'low',
-        },
-        {
-          href: '/images/services/redesign.webp',
-          as: 'image',
-          priority: 'low',
-        },
-        {
-          href: '/images/services/seo.webp',
-          as: 'image',
-          priority: 'low',
-        },
-        {
-          href: '/images/services/support.webp',
-          as: 'image',
-          priority: 'low',
         },
       ]
 
@@ -93,18 +72,31 @@ export default function ResourcePreloader() {
       })
     }
 
-    // Предварительная загрузка следующих страниц
+    // Предварительная загрузка следующих страниц (отключена для улучшения TTFB)
     const preloadNextPages = () => {
-      if (isEcoMode) return // Отключаем в eco-режиме
+      if (isEcoMode || networkInfo?.effectiveType === 'slow-2g' || networkInfo?.effectiveType === '2g') {
+        return // Отключаем на медленных соединениях
+      }
 
-      const nextPages = ['/projects', '/about', '/mentions-legales']
+      // Загружаем только после взаимодействия пользователя
+      const handleUserInteraction = () => {
+        const nextPages = ['/projects', '/#about', '/mentions-legales']
 
-      nextPages.forEach((page) => {
-        const link = document.createElement('link')
-        link.rel = 'prefetch'
-        link.href = page
-        document.head.appendChild(link)
-      })
+        nextPages.forEach((page) => {
+          const link = document.createElement('link')
+          link.rel = 'prefetch'
+          link.href = page
+          document.head.appendChild(link)
+        })
+
+        // Удаляем слушатели после первого взаимодействия
+        document.removeEventListener('mouseenter', handleUserInteraction)
+        document.removeEventListener('touchstart', handleUserInteraction)
+      }
+
+      // Добавляем слушатели для взаимодействия пользователя
+      document.addEventListener('mouseenter', handleUserInteraction, { once: true })
+      document.addEventListener('touchstart', handleUserInteraction, { once: true })
     }
 
     // DNS prefetch для внешних ресурсов
@@ -124,18 +116,19 @@ export default function ResourcePreloader() {
       })
     }
 
-    // Задержка в зависимости от условий
+    // Минимальная задержка для улучшения TTFB
     let delay = 0
-    if (isEcoMode) delay = 3000
-    else if (networkInfo?.effectiveType === 'slow-2g') delay = 5000
-    else if (networkInfo?.effectiveType === '2g') delay = 2000
+    if (isEcoMode) delay = 5000
+    else if (networkInfo?.effectiveType === 'slow-2g') delay = 8000
+    else if (networkInfo?.effectiveType === '2g') delay = 3000
+    else delay = 1000 // Небольшая задержка даже на быстрых соединениях
 
     const timer = setTimeout(() => {
       preloadResources()
       prefetchDNS()
 
       // Загружаем следующие страницы через дополнительную задержку
-      setTimeout(preloadNextPages, 2000)
+      setTimeout(preloadNextPages, 3000)
     }, delay)
 
     return () => clearTimeout(timer)

@@ -16,12 +16,23 @@ const nextConfig = {
   // Performance optimizations
   compress: true,
   poweredByHeader: false,
+  
+  // Улучшения для TTFB
+  httpAgentOptions: {
+    keepAlive: true,
+  },
+  
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
     optimizeCss: true,
     optimizePackageImports: ['framer-motion', 'lucide-react', '@vercel/analytics'],
+    // Дополнительные оптимизации для сервера
+    serverComponentsExternalPackages: ['sharp', 'onnxruntime-node'],
+    turbotrace: {
+      logLevel: 'error',
+    },
   },
   // Turbopack configuration (moved from experimental.turbo)
   turbopack: {
