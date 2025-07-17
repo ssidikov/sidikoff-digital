@@ -167,8 +167,8 @@ function ServiceCard({
               alt={t(service.titleKey)}
               fill
               className='object-contain filter dark:brightness-90'
-              sizes='256px, 100vw'
-              quality={getOptimalImageQuality(95)}
+              sizes='(max-width: 768px) 192px, 256px'
+              quality={getOptimalImageQuality(85)}
               priority={false}
               loading='lazy'
             />

@@ -188,8 +188,10 @@ const About: React.FC = () => {
                     <Image
                       src='/images/experience.webp'
                       alt='Experience'
-                      width={512}
-                      height={512}
+                      width={256}
+                      height={256}
+                      sizes='(max-width: 768px) 192px, 256px'
+                      quality={70}
                       className='w-full h-48 object-contain drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300'
                     />
                   </motion.div>
@@ -240,8 +242,10 @@ const About: React.FC = () => {
                     <Image
                       src='/images/master.webp'
                       alt='Master Degree'
-                      width={512}
-                      height={512}
+                      width={256}
+                      height={256}
+                      sizes='(max-width: 768px) 192px, 256px'
+                      quality={95}
                       className='w-full h-48 object-contain drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300'
                     />
                   </motion.div>
@@ -283,7 +287,8 @@ const About: React.FC = () => {
                       src='/founder.webp'
                       alt='Founder'
                       fill
-                      sizes='(max-width: 512px) 512px, 512px'
+                      sizes='(max-width: 768px) 128px, (max-width: 1024px) 256px, 288px'
+                      quality={75}
                       style={{ objectFit: 'cover' }}
                       className='rounded-full'
                       priority
