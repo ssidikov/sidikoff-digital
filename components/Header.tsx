@@ -82,8 +82,15 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [pathname, getCurrentLocale]) // Add getCurrentLocale to dependencies
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isExternal?: boolean) => {
     e.preventDefault()
+    
+    // If it's an external link (like blog), navigate directly
+    if (isExternal || !href.includes('#')) {
+      router.push(href)
+      return
+    }
+    
     // Extract hash (section) from href, e.g. /fr/#contact-form => contact-form
     const hashIndex = href.indexOf('#')
     const hasHash = hashIndex !== -1
@@ -111,9 +118,15 @@ export default function Header() {
     }
   }
 
-  const handleMobileNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleMobileNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isExternal?: boolean) => {
     e.preventDefault()
     setMenuOpen(false)
+
+    // If it's an external link (like blog), navigate directly
+    if (isExternal || !href.includes('#')) {
+      router.push(href)
+      return
+    }
 
     // Extract hash from href (could be /#section or /locale/#section)
     const hashIndex = href.indexOf('#')
@@ -261,12 +274,13 @@ export default function Header() {
             { href: `${getLocalePath('/')}#services`, key: 'nav.services', section: 'services' },
             { href: `${getLocalePath('/')}#portfolio`, key: 'nav.portfolio', section: 'portfolio' },
             { href: `${getLocalePath('/')}#prices`, key: 'nav.prices', section: 'prices' },
+            { href: `${getLocalePath('/blog')}`, key: 'nav.blog', section: 'blog', isExternal: true },
             { href: `${getLocalePath('/')}#faq`, key: 'nav.faq', section: 'faq' },
-          ].map(({ href, key, section }) => (
+          ].map(({ href, key, section, isExternal }) => (
             <motion.div key={section} className='relative'>
               <motion.a
                 href={href}
-                onClick={(e) => handleNavClick(e, href)}
+                onClick={(e) => handleNavClick(e, href, isExternal)}
                 className={`text-sm font-medium transition-all duration-200 cursor-pointer relative px-3 py-2 rounded-lg backdrop-blur-sm ${
                   activeSection === section
                     ? 'text-primary bg-primary/10 shadow-sm ring-1 ring-primary/20'
@@ -324,12 +338,13 @@ export default function Header() {
                   section: 'portfolio',
                 },
                 { href: `${getLocalePath('/')}#prices`, key: 'nav.prices', section: 'prices' },
+                { href: `${getLocalePath('/blog')}`, key: 'nav.blog', section: 'blog', isExternal: true },
                 { href: `${getLocalePath('/')}#faq`, key: 'nav.faq', section: 'faq' },
-              ].map(({ href, key, section }) => (
+              ].map(({ href, key, section, isExternal }) => (
                 <motion.div key={section} variants={itemVariants}>
                   <motion.a
                     href={href}
-                    onClick={(e) => handleMobileNavClick(e, href)}
+                    onClick={(e) => handleMobileNavClick(e, href, isExternal)}
                     className={`flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200 cursor-pointer backdrop-blur-sm ${
                       activeSection === section
                         ? 'bg-primary/15 text-primary border border-primary/30 shadow-sm'

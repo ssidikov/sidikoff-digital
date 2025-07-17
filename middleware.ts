@@ -48,7 +48,8 @@ export function middleware(request: NextRequest) {
     '/projects',
     '/mentions-legales',
     '/about',
-    '/contact'
+    '/contact',
+    '/blog'
   ]
 
   // Check for valid project paths - allow any numeric ID
@@ -81,6 +82,8 @@ export function middleware(request: NextRequest) {
     pathname.startsWith('/api/') ||
     pathname.startsWith('/images/') ||
     pathname.startsWith('/logo/') ||
+    pathname.startsWith('/studio') ||
+    pathname.startsWith('/blog') ||
     pathname.includes('.') ||
     pathname === '/robots.txt' ||
     pathname === '/sitemap.xml' ||

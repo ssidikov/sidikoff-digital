@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { projects } from '@/data/portfolio-data'
+import { getPostsForSitemap } from '@/lib/blog-api'
 
 const baseUrl = 'https://www.sidikoff.com'
 const currentDate = new Date().toISOString()
@@ -33,7 +34,7 @@ function staticPage({
   }
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static pages for each language
   const staticPages = [
     // Homepage for each language - HIGHEST PRIORITY (includes About section)
@@ -41,6 +42,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     staticPage({ path: '/fr', changeFrequency: 'daily', priority: 1.0 }),
     staticPage({ path: '/en', changeFrequency: 'daily', priority: 1.0 }),
     staticPage({ path: '/ru', changeFrequency: 'daily', priority: 1.0 }),
+
+    // Blog pages for each language - HIGH PRIORITY
+    staticPage({ path: '/blog', changeFrequency: 'daily', priority: 0.8 }), // Default (French)
+    staticPage({ path: '/fr/blog', changeFrequency: 'daily', priority: 0.8 }),
+    staticPage({ path: '/en/blog', changeFrequency: 'daily', priority: 0.8 }),
+    staticPage({ path: '/ru/blog', changeFrequency: 'daily', priority: 0.8 }),
 
     // Projects pages for each language - MEDIUM PRIORITY
     staticPage({ path: '/projects', changeFrequency: 'weekly', priority: 0.7 }), // Default (French)
@@ -54,6 +61,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
     staticPage({ path: '/en/mentions-legales', changeFrequency: 'yearly', priority: 0.3 }),
     staticPage({ path: '/ru/mentions-legales', changeFrequency: 'yearly', priority: 0.3 }),
   ]
+
+  // Get blog posts for sitemap
+  let blogPages: MetadataRoute.Sitemap = []
+  try {
+    const blogPosts = await getPostsForSitemap()
+    blogPages = blogPosts.flatMap((post) => [
+      // French blog posts (default)
+      {
+        url: `${baseUrl}/blog/${post.slug.fr.current}`,
+        lastModified: post._updatedAt,
+        changeFrequency: 'weekly' as const,
+        priority: 0.6,
+        alternates: {
+          languages: {
+            fr: `${baseUrl}/blog/${post.slug.fr.current}`,
+            en: `${baseUrl}/en/blog/${post.slug.en.current}`,
+          }
+        }
+      },
+      // English blog posts
+      {
+        url: `${baseUrl}/en/blog/${post.slug.en.current}`,
+        lastModified: post._updatedAt,
+        changeFrequency: 'weekly' as const,
+        priority: 0.6,
+        alternates: {
+          languages: {
+            fr: `${baseUrl}/blog/${post.slug.fr.current}`,
+            en: `${baseUrl}/en/blog/${post.slug.en.current}`,
+          }
+        }
+      }
+    ])
+  } catch (error) {
+    console.error('Error fetching blog posts for sitemap:', error)
+  }
   // Individual project pages for each language - LOWER PRIORITY than main pages
   const projectPages = projects.flatMap((project) => [
     // Default language (French) without prefix
@@ -74,5 +117,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ])
 
-  return [...staticPages, ...projectPages]
+  return [...staticPages, ...blogPages, ...projectPages]
 }

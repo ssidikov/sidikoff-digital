@@ -30,6 +30,14 @@ export default function ResourcePreloader() {
           as: 'image',
           priority: 'high',
         },
+        // Blog page resources (conditional loading)
+        ...(typeof window !== 'undefined' && window.location.pathname.includes('/blog') ? [
+          {
+            href: '/opengraph-image.jpg',
+            as: 'image',
+            priority: 'medium' as const,
+          }
+        ] : []),
       ]
 
       // Фильтруем ресурсы в зависимости от условий
@@ -80,7 +88,7 @@ export default function ResourcePreloader() {
 
       // Загружаем только после взаимодействия пользователя
       const handleUserInteraction = () => {
-        const nextPages = ['/projects', '/#about', '/mentions-legales']
+        const nextPages = ['/projects', '/#about', '/blog', '/mentions-legales']
 
         nextPages.forEach((page) => {
           const link = document.createElement('link')
