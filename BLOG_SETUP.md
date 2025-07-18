@@ -29,6 +29,10 @@ Add these variables to your `.env.local` file:
 NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id_here
 NEXT_PUBLIC_SANITY_DATASET=production
 SANITY_API_TOKEN=your_api_token_here
+
+# Studio Security (Basic Auth)
+STUDIO_AUTH_USERNAME=admin
+STUDIO_AUTH_PASSWORD=your_secure_password_here
 ```
 
 To get these values:
@@ -37,6 +41,7 @@ To get these values:
 2. `NEXT_PUBLIC_SANITY_PROJECT_ID` is in your project settings
 3. `NEXT_PUBLIC_SANITY_DATASET` is usually "production"
 4. `SANITY_API_TOKEN` can be created in API settings with read/write permissions
+5. Set secure credentials for Studio access protection
 
 ### 3. Initialize Sanity Studio
 

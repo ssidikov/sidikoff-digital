@@ -8,6 +8,39 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
   const userAgent = request.headers.get('user-agent') || ''
 
+  // Sanity Studio Basic Auth protection
+  if (pathname.startsWith('/studio')) {
+    const authHeader = request.headers.get('authorization')
+    
+    if (!authHeader) {
+      return new NextResponse('Authentication required', {
+        status: 401,
+        headers: {
+          'WWW-Authenticate': 'Basic realm="Sanity Studio"',
+        },
+      })
+    }
+
+    const auth = authHeader.split(' ')[1]
+    const [username, password] = Buffer.from(auth, 'base64').toString().split(':')
+
+    // Get credentials from environment variables
+    const validUsername = process.env.STUDIO_AUTH_USERNAME
+    const validPassword = process.env.STUDIO_AUTH_PASSWORD
+
+    if (username !== validUsername || password !== validPassword) {
+      return new NextResponse('Invalid credentials', {
+        status: 401,
+        headers: {
+          'WWW-Authenticate': 'Basic realm="Sanity Studio"',
+        },
+      })
+    }
+
+    // Authentication successful, continue to studio
+    return NextResponse.next()
+  }
+
   // Admin routes protection
   if (pathname.startsWith('/admin')) {
     // Allow login page
