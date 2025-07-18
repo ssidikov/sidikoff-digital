@@ -51,7 +51,9 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       <div className='container mx-auto px-4 py-8'>
         {/* Hero Section */}
         <section className='text-center mb-12'>
-          <h1 className='text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4'>
+          <h1
+            className='text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4'
+            style={{ lineHeight: 1.2 }}>
             Blog SIDIKOFF DIGITAL
           </h1>
           <p className='text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto'>
