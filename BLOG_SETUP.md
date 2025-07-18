@@ -3,6 +3,7 @@
 ## Prerequisites
 
 Before setting up the blog, make sure you have:
+
 1. A Sanity account (https://sanity.io)
 2. A new Sanity project created
 
@@ -11,6 +12,7 @@ Before setting up the blog, make sure you have:
 ### 1. Install Dependencies
 
 The required dependencies have been added to package.json:
+
 - `@sanity/client` - Sanity client for fetching data
 - `@sanity/image-url` - Image URL builder for Sanity
 - `@portabletext/react` - For rendering rich text content
@@ -30,6 +32,7 @@ SANITY_API_TOKEN=your_api_token_here
 ```
 
 To get these values:
+
 1. Go to your Sanity project dashboard
 2. `NEXT_PUBLIC_SANITY_PROJECT_ID` is in your project settings
 3. `NEXT_PUBLIC_SANITY_DATASET` is usually "production"
@@ -61,8 +64,9 @@ Visit: http://localhost:3000/studio
 ### 6. Create Initial Content
 
 In Sanity Studio, create:
+
 1. At least one Author
-2. Some Categories  
+2. Some Categories
 3. Your first Blog Post
 
 ### 7. Deploy Sanity Studio (Optional)
@@ -74,11 +78,13 @@ npm run sanity:deploy
 ## Blog Features
 
 ### Multilingual Support
+
 - French (primary) and English content
 - Localized slugs for SEO
 - Language-specific metadata
 
 ### SEO Optimized
+
 - Custom meta titles and descriptions
 - Open Graph images
 - Structured data (JSON-LD)
@@ -88,6 +94,7 @@ npm run sanity:deploy
 ### Content Types
 
 #### Post
+
 - Multilingual title and content
 - Featured image with alt text
 - Author and categories
@@ -96,17 +103,20 @@ npm run sanity:deploy
 - Featured post option
 
 #### Author
+
 - Name and bio (multilingual)
 - Profile image
 - Social media links
 - Position/title
 
 #### Category
+
 - Multilingual titles
 - Color coding
 - Descriptions
 
 ### Rich Content
+
 - Portable Text with custom components
 - Images with captions
 - Code blocks with syntax highlighting
@@ -114,6 +124,7 @@ npm run sanity:deploy
 - Custom links
 
 ### Performance
+
 - Optimized images with Next.js Image
 - Lazy loading
 - Resource preloading

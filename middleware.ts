@@ -17,7 +17,7 @@ export function middleware(request: NextRequest) {
 
     // Check for admin session cookie
     const adminSession = request.cookies.get('admin_session')
-    
+
     if (!adminSession) {
       // Redirect to login if no session
       return NextResponse.redirect(new URL('/admin/login', request.url))
@@ -49,7 +49,7 @@ export function middleware(request: NextRequest) {
     '/mentions-legales',
     '/about',
     '/contact',
-    '/blog'
+    '/blog',
   ]
 
   // Check for valid project paths - allow any numeric ID
@@ -60,20 +60,20 @@ export function middleware(request: NextRequest) {
 
   // Legacy project slug mappings - redirect old slug URLs to new ID URLs
   const legacyProjectSlugs: Record<string, string> = {
-    'kasa': '1',
-    'sport-see': '2', 
+    kasa: '1',
+    'sport-see': '2',
     'argent-bank': '3',
-    'hrnet': '4',
+    hrnet: '4',
     'petits-plats': '5',
-    'cookies': '6',
-    'fisheye': '7',
+    cookies: '6',
+    fisheye: '7',
     'game-on': '8',
-    'ohmyfood': '9',
-    'billed': '10',
-    'booki': '11',
+    ohmyfood: '9',
+    billed: '10',
+    booki: '11',
     'burger-house': '12',
     'learn-home': '13',
-    'euclid': '14'
+    euclid: '14',
   }
 
   // Static assets and API routes should pass through
@@ -112,13 +112,24 @@ export function middleware(request: NextRequest) {
   // Handle legacy project slug redirects for paths without locale
   const projectMatch = pathname.match(/^\/projects\/(.+)$/)
   if (projectMatch && legacyProjectSlugs[projectMatch[1]]) {
-    return NextResponse.redirect(new URL(`/projects/${legacyProjectSlugs[projectMatch[1]]}`, request.url))
+    return NextResponse.redirect(
+      new URL(`/projects/${legacyProjectSlugs[projectMatch[1]]}`, request.url)
+    )
   }
 
   // Handle locale-prefixed legacy redirects
   const localeProjectMatch = pathname.match(/^\/([a-z]{2})\/projects\/(.+)$/)
-  if (localeProjectMatch && locales.includes(localeProjectMatch[1]) && legacyProjectSlugs[localeProjectMatch[2]]) {
-    return NextResponse.redirect(new URL(`/${localeProjectMatch[1]}/projects/${legacyProjectSlugs[localeProjectMatch[2]]}`, request.url))
+  if (
+    localeProjectMatch &&
+    locales.includes(localeProjectMatch[1]) &&
+    legacyProjectSlugs[localeProjectMatch[2]]
+  ) {
+    return NextResponse.redirect(
+      new URL(
+        `/${localeProjectMatch[1]}/projects/${legacyProjectSlugs[localeProjectMatch[2]]}`,
+        request.url
+      )
+    )
   }
 
   // If pathname is missing locale, redirect to default locale (fr)
@@ -127,12 +138,12 @@ export function middleware(request: NextRequest) {
     if (pathname === '/') {
       return NextResponse.next() // Allow root path without redirect
     }
-    
+
     // For other paths, check if they're valid
     if (validPaths.includes(pathname) || isValidProjectPath(pathname)) {
       return NextResponse.next() // Allow valid paths without locale
     }
-    
+
     // For invalid paths, redirect to homepage
     return NextResponse.redirect(new URL('/', request.url))
   }
@@ -150,10 +161,14 @@ export function middleware(request: NextRequest) {
     }
 
     // Allow access to localized pages for both bots and regular users
-    if (pathWithoutLocale === '/' || validPaths.includes(pathWithoutLocale) || isValidProjectPath(pathWithoutLocale)) {
+    if (
+      pathWithoutLocale === '/' ||
+      validPaths.includes(pathWithoutLocale) ||
+      isValidProjectPath(pathWithoutLocale)
+    ) {
       return NextResponse.next()
     }
-    
+
     // For any other path with locale prefix, redirect to homepage with locale (for bots)
     return NextResponse.redirect(new URL(`/${locale}`, request.url))
   }

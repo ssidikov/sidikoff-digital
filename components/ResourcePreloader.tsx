@@ -31,13 +31,15 @@ export default function ResourcePreloader() {
           priority: 'high',
         },
         // Blog page resources (conditional loading)
-        ...(typeof window !== 'undefined' && window.location.pathname.includes('/blog') ? [
-          {
-            href: '/opengraph-image.jpg',
-            as: 'image',
-            priority: 'medium' as const,
-          }
-        ] : []),
+        ...(typeof window !== 'undefined' && window.location.pathname.includes('/blog')
+          ? [
+              {
+                href: '/opengraph-image.jpg',
+                as: 'image',
+                priority: 'medium' as const,
+              },
+            ]
+          : []),
       ]
 
       // Фильтруем ресурсы в зависимости от условий
@@ -82,7 +84,11 @@ export default function ResourcePreloader() {
 
     // Предварительная загрузка следующих страниц (отключена для улучшения TTFB)
     const preloadNextPages = () => {
-      if (isEcoMode || networkInfo?.effectiveType === 'slow-2g' || networkInfo?.effectiveType === '2g') {
+      if (
+        isEcoMode ||
+        networkInfo?.effectiveType === 'slow-2g' ||
+        networkInfo?.effectiveType === '2g'
+      ) {
         return // Отключаем на медленных соединениях
       }
 

@@ -9,7 +9,7 @@ export default defineType({
       name: 'name',
       title: 'Nom',
       type: 'string',
-      validation: (Rule) => Rule.required()
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'slug',
@@ -19,7 +19,7 @@ export default defineType({
         source: 'name',
         maxLength: 96,
       },
-      validation: (Rule) => Rule.required()
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'image',
@@ -33,8 +33,8 @@ export default defineType({
           name: 'alt',
           type: 'string',
           title: 'Texte alternatif',
-        }
-      ]
+        },
+      ],
     }),
     defineField({
       name: 'bio',
@@ -42,8 +42,8 @@ export default defineType({
       type: 'object',
       fields: [
         { name: 'fr', title: 'Français', type: 'blockContent' },
-        { name: 'en', title: 'English', type: 'blockContent' }
-      ]
+        { name: 'en', title: 'English', type: 'blockContent' },
+      ],
     }),
     defineField({
       name: 'position',
@@ -51,8 +51,8 @@ export default defineType({
       type: 'object',
       fields: [
         { name: 'fr', title: 'Français', type: 'string' },
-        { name: 'en', title: 'English', type: 'string' }
-      ]
+        { name: 'en', title: 'English', type: 'string' },
+      ],
     }),
     defineField({
       name: 'social',
@@ -61,9 +61,9 @@ export default defineType({
       fields: [
         { name: 'twitter', title: 'Twitter', type: 'url' },
         { name: 'linkedin', title: 'LinkedIn', type: 'url' },
-        { name: 'website', title: 'Site web', type: 'url' }
-      ]
-    })
+        { name: 'website', title: 'Site web', type: 'url' },
+      ],
+    }),
   ],
 
   preview: {

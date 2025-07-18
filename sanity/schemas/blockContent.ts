@@ -18,7 +18,7 @@ export default defineType({
       ],
       lists: [
         { title: 'Bullet', value: 'bullet' },
-        { title: 'Numbered', value: 'number' }
+        { title: 'Numbered', value: 'number' },
       ],
       marks: {
         decorators: [
@@ -36,18 +36,19 @@ export default defineType({
                 title: 'URL',
                 name: 'href',
                 type: 'url',
-                validation: (Rule) => Rule.uri({
-                  allowRelative: true,
-                  scheme: ['http', 'https', 'mailto', 'tel']
-                })
+                validation: (Rule) =>
+                  Rule.uri({
+                    allowRelative: true,
+                    scheme: ['http', 'https', 'mailto', 'tel'],
+                  }),
               },
               {
                 title: 'Ouvrir dans un nouvel onglet',
                 name: 'blank',
                 type: 'boolean',
-                initialValue: false
-              }
-            ]
+                initialValue: false,
+              },
+            ],
           },
         ],
       },
@@ -60,15 +61,15 @@ export default defineType({
           name: 'alt',
           type: 'string',
           title: 'Texte alternatif',
-          description: 'Important pour l\'accessibilité et le SEO.',
-          validation: (Rule) => Rule.required()
+          description: "Important pour l'accessibilité et le SEO.",
+          validation: (Rule) => Rule.required(),
         },
         {
           name: 'caption',
           type: 'string',
-          title: 'Légende'
-        }
-      ]
+          title: 'Légende',
+        },
+      ],
     },
     {
       type: 'object',
@@ -88,16 +89,16 @@ export default defineType({
               { title: 'Python', value: 'python' },
               { title: 'JSON', value: 'json' },
               { title: 'Bash', value: 'bash' },
-            ]
-          }
+            ],
+          },
         },
         {
           name: 'code',
           title: 'Code',
           type: 'text',
-          rows: 10
-        }
-      ]
+          rows: 10,
+        },
+      ],
     },
     {
       type: 'object',
@@ -113,22 +114,22 @@ export default defineType({
               { title: 'Info', value: 'info' },
               { title: 'Attention', value: 'warning' },
               { title: 'Erreur', value: 'error' },
-              { title: 'Succès', value: 'success' }
-            ]
+              { title: 'Succès', value: 'success' },
+            ],
           },
-          initialValue: 'info'
+          initialValue: 'info',
         },
         {
           name: 'title',
           title: 'Titre',
-          type: 'string'
+          type: 'string',
         },
         {
           name: 'content',
           title: 'Contenu',
-          type: 'blockContent'
-        }
-      ]
-    }
+          type: 'blockContent',
+        },
+      ],
+    },
   ],
 })

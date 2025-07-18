@@ -16,12 +16,12 @@ const nextConfig = {
   // Performance optimizations
   compress: true,
   poweredByHeader: false,
-  
+
   // Улучшения для TTFB
   httpAgentOptions: {
     keepAlive: true,
   },
-  
+
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,

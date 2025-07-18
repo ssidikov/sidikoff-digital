@@ -11,7 +11,7 @@ import {
   recentPostsQuery,
   searchPostsQuery,
 } from './sanity-queries'
-import type { Post, Category } from './types/blog'
+import type { Post, Category, LocalizedSlug } from './types/blog'
 
 const POSTS_PER_PAGE = 6
 
@@ -86,7 +86,7 @@ export async function getAllCategories(): Promise<Category[]> {
 }
 
 export async function getPostsForSitemap(): Promise<
-  Array<{ slug: any; _updatedAt: string; publishedAt: string }>
+  Array<{ slug: LocalizedSlug; _updatedAt: string; publishedAt: string }>
 > {
   return await client.fetch(postsSitemapQuery)
 }
@@ -100,16 +100,30 @@ export async function searchPosts(searchTerm: string): Promise<Post[]> {
   return await client.fetch<Post[]>(searchPostsQuery, { searchTerm: searchQuery })
 }
 
+// Define interfaces for content blocks
+interface ContentBlock {
+  _type: string
+  children?: ContentChild[]
+}
+
+interface ContentChild {
+  _type: string
+  text?: string
+}
+
 // Utility function to get reading time
-export function calculateReadingTime(content: any[]): number {
+export function calculateReadingTime(content: unknown[]): number {
   if (!content) return 0
-  
+
   const text = content
-    .filter((block) => block._type === 'block')
-    .map((block) => 
+    .filter(
+      (block: unknown): block is ContentBlock =>
+        typeof block === 'object' && block !== null && (block as ContentBlock)._type === 'block'
+    )
+    .map((block: ContentBlock) =>
       block.children
-        ?.filter((child: any) => child._type === 'span')
-        .map((span: any) => span.text)
+        ?.filter((child: ContentChild) => child._type === 'span')
+        .map((span: ContentChild) => span.text || '')
         .join('')
     )
     .join(' ')
@@ -122,7 +136,7 @@ export function calculateReadingTime(content: any[]): number {
 // Utility function to format date
 export function formatDate(dateString: string, locale: 'fr' | 'en' = 'fr'): string {
   const date = new Date(dateString)
-  
+
   const options: Intl.DateTimeFormatOptions = {
     year: 'numeric',
     month: 'long',

@@ -82,15 +82,19 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [pathname, getCurrentLocale]) // Add getCurrentLocale to dependencies
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isExternal?: boolean) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+    isExternal?: boolean
+  ) => {
     e.preventDefault()
-    
+
     // If it's an external link (like blog), navigate directly
     if (isExternal || !href.includes('#')) {
       router.push(href)
       return
     }
-    
+
     // Extract hash (section) from href, e.g. /fr/#contact-form => contact-form
     const hashIndex = href.indexOf('#')
     const hasHash = hashIndex !== -1
@@ -118,7 +122,11 @@ export default function Header() {
     }
   }
 
-  const handleMobileNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isExternal?: boolean) => {
+  const handleMobileNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+    isExternal?: boolean
+  ) => {
     e.preventDefault()
     setMenuOpen(false)
 
@@ -274,7 +282,12 @@ export default function Header() {
             { href: `${getLocalePath('/')}#services`, key: 'nav.services', section: 'services' },
             { href: `${getLocalePath('/')}#portfolio`, key: 'nav.portfolio', section: 'portfolio' },
             { href: `${getLocalePath('/')}#prices`, key: 'nav.prices', section: 'prices' },
-            { href: `${getLocalePath('/blog')}`, key: 'nav.blog', section: 'blog', isExternal: true },
+            {
+              href: `${getLocalePath('/blog')}`,
+              key: 'nav.blog',
+              section: 'blog',
+              isExternal: true,
+            },
             { href: `${getLocalePath('/')}#faq`, key: 'nav.faq', section: 'faq' },
           ].map(({ href, key, section, isExternal }) => (
             <motion.div key={section} className='relative'>
@@ -338,7 +351,12 @@ export default function Header() {
                   section: 'portfolio',
                 },
                 { href: `${getLocalePath('/')}#prices`, key: 'nav.prices', section: 'prices' },
-                { href: `${getLocalePath('/blog')}`, key: 'nav.blog', section: 'blog', isExternal: true },
+                {
+                  href: `${getLocalePath('/blog')}`,
+                  key: 'nav.blog',
+                  section: 'blog',
+                  isExternal: true,
+                },
                 { href: `${getLocalePath('/')}#faq`, key: 'nav.faq', section: 'faq' },
               ].map(({ href, key, section, isExternal }) => (
                 <motion.div key={section} variants={itemVariants}>

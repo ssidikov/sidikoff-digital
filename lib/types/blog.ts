@@ -14,8 +14,8 @@ export interface LocalizedText {
 }
 
 export interface LocalizedBlockContent {
-  fr: any[]
-  en: any[]
+  fr: unknown[]
+  en: unknown[]
 }
 
 export interface Author {

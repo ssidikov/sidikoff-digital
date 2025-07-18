@@ -77,8 +77,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           languages: {
             fr: `${baseUrl}/blog/${post.slug.fr.current}`,
             en: `${baseUrl}/en/blog/${post.slug.en.current}`,
-          }
-        }
+          },
+        },
       },
       // English blog posts
       {
@@ -90,9 +90,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           languages: {
             fr: `${baseUrl}/blog/${post.slug.fr.current}`,
             en: `${baseUrl}/en/blog/${post.slug.en.current}`,
-          }
-        }
-      }
+          },
+        },
+      },
     ])
   } catch (error) {
     console.error('Error fetching blog posts for sitemap:', error)
