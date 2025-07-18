@@ -28,12 +28,13 @@ const nextConfig = {
     parallelServerCompiles: true,
     optimizeCss: true,
     optimizePackageImports: ['framer-motion', 'lucide-react', '@vercel/analytics'],
-    // Дополнительные оптимизации для сервера
-    serverComponentsExternalPackages: ['sharp', 'onnxruntime-node'],
     turbotrace: {
       logLevel: 'error',
     },
   },
+
+  // Move serverComponentsExternalPackages out of experimental
+  serverExternalPackages: ['sharp', 'onnxruntime-node'],
   // Turbopack configuration (moved from experimental.turbo)
   turbopack: {
     resolveAlias: {

@@ -88,7 +88,18 @@ export async function getAllCategories(): Promise<Category[]> {
 export async function getPostsForSitemap(): Promise<
   Array<{ slug: LocalizedSlug; _updatedAt: string; publishedAt: string }>
 > {
-  return await client.fetch(postsSitemapQuery)
+  // Check if Sanity is properly configured
+  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
+    console.warn('Sanity project ID not configured, returning empty blog posts array')
+    return []
+  }
+  
+  try {
+    return await client.fetch(postsSitemapQuery)
+  } catch (error) {
+    console.warn('Failed to fetch posts for sitemap:', error)
+    return []
+  }
 }
 
 export async function getRecentPosts(): Promise<Post[]> {

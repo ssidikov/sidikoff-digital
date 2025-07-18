@@ -62,40 +62,46 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     staticPage({ path: '/ru/mentions-legales', changeFrequency: 'yearly', priority: 0.3 }),
   ]
 
-  // Get blog posts for sitemap
+  // Get blog posts for sitemap with error handling
   let blogPages: MetadataRoute.Sitemap = []
   try {
-    const blogPosts = await getPostsForSitemap()
-    blogPages = blogPosts.flatMap((post) => [
-      // French blog posts (default)
-      {
-        url: `${baseUrl}/blog/${post.slug.fr.current}`,
-        lastModified: post._updatedAt,
-        changeFrequency: 'weekly' as const,
-        priority: 0.6,
-        alternates: {
-          languages: {
-            fr: `${baseUrl}/blog/${post.slug.fr.current}`,
-            en: `${baseUrl}/en/blog/${post.slug.en.current}`,
+    // Only fetch blog posts if Sanity environment variables are available
+    if (process.env.NEXT_PUBLIC_SANITY_PROJECT_ID && process.env.NEXT_PUBLIC_SANITY_DATASET) {
+      const blogPosts = await getPostsForSitemap()
+      blogPages = blogPosts.flatMap((post) => [
+        // French blog posts (default)
+        {
+          url: `${baseUrl}/blog/${post.slug.fr.current}`,
+          lastModified: post._updatedAt,
+          changeFrequency: 'weekly' as const,
+          priority: 0.6,
+          alternates: {
+            languages: {
+              fr: `${baseUrl}/blog/${post.slug.fr.current}`,
+              en: `${baseUrl}/en/blog/${post.slug.en.current}`,
+            },
           },
         },
-      },
-      // English blog posts
-      {
-        url: `${baseUrl}/en/blog/${post.slug.en.current}`,
-        lastModified: post._updatedAt,
-        changeFrequency: 'weekly' as const,
-        priority: 0.6,
-        alternates: {
-          languages: {
-            fr: `${baseUrl}/blog/${post.slug.fr.current}`,
-            en: `${baseUrl}/en/blog/${post.slug.en.current}`,
+        // English blog posts
+        {
+          url: `${baseUrl}/en/blog/${post.slug.en.current}`,
+          lastModified: post._updatedAt,
+          changeFrequency: 'weekly' as const,
+          priority: 0.6,
+          alternates: {
+            languages: {
+              fr: `${baseUrl}/blog/${post.slug.fr.current}`,
+              en: `${baseUrl}/en/blog/${post.slug.en.current}`,
+            },
           },
         },
-      },
-    ])
+      ])
+    } else {
+      console.warn('Sanity environment variables not available, skipping blog posts in sitemap')
+    }
   } catch (error) {
-    console.error('Error fetching blog posts for sitemap:', error)
+    console.warn('Failed to fetch blog posts for sitemap:', error)
+    // Continue without blog posts if there's an error
   }
   // Individual project pages for each language - LOWER PRIORITY than main pages
   const projectPages = projects.flatMap((project) => [
