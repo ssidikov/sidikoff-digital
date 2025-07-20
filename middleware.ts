@@ -2,7 +2,9 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { projects } from '@/data/portfolio-data'
 
+// Supported locales for manual routing
 const locales = ['fr', 'en', 'ru']
+const defaultLocale = 'fr'
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
@@ -69,26 +71,15 @@ export function middleware(request: NextRequest) {
   // Check if the request is from a search engine bot
   const isBot = /bot|crawl|spider|facebook|twitter|linkedin|whatsapp|telegram/i.test(userAgent)
 
-  // Extract locale from pathname
-  const pathnameIsMissingLocale = locales.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+  // Check if pathname has a locale
+  const pathnameLocale = locales.find(
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   )
 
-  // List of valid paths (without locale prefix)
-  const validPaths = [
-    '/',
-    '/services',
-    '/projects',
-    '/mentions-legales',
-    '/about',
-    '/contact',
-    '/blog',
-  ]
-
-  // Check for valid project paths - allow any numeric ID
-  const isValidProjectPath = (path: string) => {
-    const segments = path.split('/')
-    return segments.length === 3 && segments[1] === 'projects' && segments[2]
+  // If no locale in pathname, it's French (default)
+  if (!pathnameLocale) {
+    // Allow French pages without locale prefix
+    // French content is served from root paths
   }
 
   // Legacy project slug mappings - redirect old slug URLs to new ID URLs
@@ -142,69 +133,18 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/', request.url))
   }
 
-  // Handle legacy project slug redirects for paths without locale
-  const projectMatch = pathname.match(/^\/projects\/(.+)$/)
-  if (projectMatch && legacyProjectSlugs[projectMatch[1]]) {
+  // Handle legacy project slug redirects for all locales
+  const projectMatch = pathname.match(/^(\/(?:en|ru))?\/projects\/(.+)$/)
+  if (projectMatch && legacyProjectSlugs[projectMatch[2]]) {
+    const localePrefix = projectMatch[1] || ''
     return NextResponse.redirect(
-      new URL(`/projects/${legacyProjectSlugs[projectMatch[1]]}`, request.url)
+      new URL(`${localePrefix}/projects/${legacyProjectSlugs[projectMatch[2]]}`, request.url)
     )
   }
 
-  // Handle locale-prefixed legacy redirects
-  const localeProjectMatch = pathname.match(/^\/([a-z]{2})\/projects\/(.+)$/)
-  if (
-    localeProjectMatch &&
-    locales.includes(localeProjectMatch[1]) &&
-    legacyProjectSlugs[localeProjectMatch[2]]
-  ) {
-    return NextResponse.redirect(
-      new URL(
-        `/${localeProjectMatch[1]}/projects/${legacyProjectSlugs[localeProjectMatch[2]]}`,
-        request.url
-      )
-    )
-  }
-
-  // If pathname is missing locale, redirect to default locale (fr)
-  if (pathnameIsMissingLocale) {
-    // Special handling for root path
-    if (pathname === '/') {
-      return NextResponse.next() // Allow root path without redirect
-    }
-
-    // For other paths, check if they're valid
-    if (validPaths.includes(pathname) || isValidProjectPath(pathname)) {
-      return NextResponse.next() // Allow valid paths without locale
-    }
-
-    // For invalid paths, redirect to homepage
-    return NextResponse.redirect(new URL('/', request.url))
-  }
-
-  // If pathname has locale prefix, check if it's a bot request
-  if (!pathnameIsMissingLocale) {
-    // Extract locale and remaining path
-    const segments = pathname.split('/')
-    const locale = segments[1]
-    const pathWithoutLocale = '/' + segments.slice(2).join('/')
-
-    // Validate locale
-    if (!locales.includes(locale)) {
-      return NextResponse.redirect(new URL('/', request.url))
-    }
-
-    // Allow access to localized pages for both bots and regular users
-    if (
-      pathWithoutLocale === '/' ||
-      validPaths.includes(pathWithoutLocale) ||
-      isValidProjectPath(pathWithoutLocale)
-    ) {
-      return NextResponse.next()
-    }
-
-    // For any other path with locale prefix, redirect to homepage with locale (for bots)
-    return NextResponse.redirect(new URL(`/${locale}`, request.url))
-  }
+  // Manual locale detection and routing for App Router
+  // Since we removed i18n config, handle locale routing manually
+  return NextResponse.next()
 }
 
 export const config = {

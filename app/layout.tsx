@@ -23,7 +23,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.sidikoff.com'),
+  metadataBase: new URL('https://sidikoff.com'),
   ...generateSEOMetadata(pagesSEO.home.fr),
 }
 
@@ -46,6 +46,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* SEO enhancement: Business info and trust signals */}
         <meta name='author' content='Sardorbek SIDIKOV' />
         <meta name='publisher' content='SIDIKOFF DIGITAL' />
+
+        {/* Hreflang tags for multilingual SEO */}
+        <link rel='alternate' hrefLang='fr' href='https://sidikoff.com/' />
+        <link rel='alternate' hrefLang='en' href='https://sidikoff.com/en' />
+        <link rel='alternate' hrefLang='ru' href='https://sidikoff.com/ru' />
+        <link rel='alternate' hrefLang='x-default' href='https://sidikoff.com/' />
 
         {/* Robots & indexing */}
         <meta

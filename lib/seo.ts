@@ -27,7 +27,7 @@ const defaultSEOConfig = {
   defaultTitle: 'Agence Web Paris - SIDIKOFF DIGITAL',
   defaultDescription:
     'Agence web parisienne spécialisée en création de sites internet, applications web et stratégie digitale. Développement moderne, design UX/UI, référencement SEO. Devis gratuit.',
-  defaultOgImage: 'https://www.sidikoff.com/opengraph-image',
+  defaultOgImage: 'https://sidikoff.com/opengraph-image',
   defaultKeywords: [
     'agence web paris',
     'création site internet',
@@ -45,7 +45,7 @@ const defaultSEOConfig = {
     'react développeur',
     'typescript développeur',
   ],
-  baseUrl: 'https://www.sidikoff.com',
+  baseUrl: 'https://sidikoff.com',
   social: {
     twitter: '@sidikoffdigital',
     linkedin: 'sidikoff-digital',
@@ -119,7 +119,7 @@ export function generateOGImageUrl(params: {
   if (page === 'projects') {
     return `${defaultSEOConfig.baseUrl}/projects/opengraph-image`
   }
-  
+
   if (locale !== 'fr') {
     return `${defaultSEOConfig.baseUrl}/${locale}/opengraph-image`
   }
@@ -128,9 +128,11 @@ export function generateOGImageUrl(params: {
 }
 
 // Enhanced metadata generation with dynamic OG images
-export function generateMetadataWithDynamicOG(seoData: SEOData & {
-  page?: keyof typeof pagesSEO
-}): Metadata {
+export function generateMetadataWithDynamicOG(
+  seoData: SEOData & {
+    page?: keyof typeof pagesSEO
+  }
+): Metadata {
   const dynamicOGImage = generateOGImageUrl({
     locale: (seoData.locale?.split('-')[0] as SupportedLocale) || 'fr',
     page: seoData.page,
@@ -271,11 +273,11 @@ export const pagesSEO = {
         'application web',
         'développeur paris',
       ],
-      canonical: 'https://www.sidikoff.com/',
+      canonical: 'https://sidikoff.com/',
       alternateLanguages: {
-        'en-US': 'https://www.sidikoff.com/en',
-        'ru-RU': 'https://www.sidikoff.com/ru',
-        'x-default': 'https://www.sidikoff.com/',
+        'en-US': 'https://sidikoff.com/en',
+        'ru-RU': 'https://sidikoff.com/ru',
+        'x-default': 'https://sidikoff.com/',
       },
     },
     en: {
@@ -292,11 +294,11 @@ export const pagesSEO = {
         'seo services paris',
         'freelance developer paris',
       ],
-      canonical: 'https://www.sidikoff.com/en',
+      canonical: 'https://sidikoff.com/en',
       alternateLanguages: {
-        'fr-FR': 'https://www.sidikoff.com/',
-        'ru-RU': 'https://www.sidikoff.com/ru',
-        'x-default': 'https://www.sidikoff.com/',
+        'fr-FR': 'https://sidikoff.com/',
+        'ru-RU': 'https://sidikoff.com/ru',
+        'x-default': 'https://sidikoff.com/',
       },
     },
     ru: {
@@ -313,11 +315,11 @@ export const pagesSEO = {
         'seo-продвижение',
         'веб-приложения на заказ',
       ],
-      canonical: 'https://www.sidikoff.com/ru',
+      canonical: 'https://sidikoff.com/ru',
       alternateLanguages: {
-        'fr-FR': 'https://www.sidikoff.com/',
-        'en-US': 'https://www.sidikoff.com/en',
-        'x-default': 'https://www.sidikoff.com/',
+        'fr-FR': 'https://sidikoff.com/',
+        'en-US': 'https://sidikoff.com/en',
+        'x-default': 'https://sidikoff.com/',
       },
     },
   },
@@ -332,11 +334,11 @@ export const pagesSEO = {
         'devis site internet',
         'prix développement web',
       ],
-      canonical: 'https://www.sidikoff.com/services',
+      canonical: 'https://sidikoff.com/services',
       alternateLanguages: {
-        'en-US': 'https://www.sidikoff.com/en/services',
-        'ru-RU': 'https://www.sidikoff.com/ru/services',
-        'x-default': 'https://www.sidikoff.com/services',
+        'en-US': 'https://sidikoff.com/en/services',
+        'ru-RU': 'https://sidikoff.com/ru/services',
+        'x-default': 'https://sidikoff.com/services',
       },
     },
     en: {
@@ -350,11 +352,11 @@ export const pagesSEO = {
         'seo packages paris',
         'react development services',
       ],
-      canonical: 'https://www.sidikoff.com/en/services',
+      canonical: 'https://sidikoff.com/en/services',
       alternateLanguages: {
-        'fr-FR': 'https://www.sidikoff.com/services',
-        'ru-RU': 'https://www.sidikoff.com/ru/services',
-        'x-default': 'https://www.sidikoff.com/services',
+        'fr-FR': 'https://sidikoff.com/services',
+        'ru-RU': 'https://sidikoff.com/ru/services',
+        'x-default': 'https://sidikoff.com/services',
       },
     },
     ru: {
@@ -368,11 +370,11 @@ export const pagesSEO = {
         'seo услуги стоимость',
         'разработка на react',
       ],
-      canonical: 'https://www.sidikoff.com/ru/services',
+      canonical: 'https://sidikoff.com/ru/services',
       alternateLanguages: {
-        'fr-FR': 'https://www.sidikoff.com/services',
-        'en-US': 'https://www.sidikoff.com/en/services',
-        'x-default': 'https://www.sidikoff.com/services',
+        'fr-FR': 'https://sidikoff.com/services',
+        'en-US': 'https://sidikoff.com/en/services',
+        'x-default': 'https://sidikoff.com/services',
       },
     },
   },
@@ -387,11 +389,11 @@ export const pagesSEO = {
         'exemples sites internet',
         'références clients',
       ],
-      canonical: 'https://www.sidikoff.com/projects',
+      canonical: 'https://sidikoff.com/projects',
       alternateLanguages: {
-        'en-US': 'https://www.sidikoff.com/en/projects',
-        'ru-RU': 'https://www.sidikoff.com/ru/projects',
-        'x-default': 'https://www.sidikoff.com/projects',
+        'en-US': 'https://sidikoff.com/en/projects',
+        'ru-RU': 'https://sidikoff.com/ru/projects',
+        'x-default': 'https://sidikoff.com/projects',
       },
     },
     en: {
@@ -405,11 +407,11 @@ export const pagesSEO = {
         'react project examples',
         'our work',
       ],
-      canonical: 'https://www.sidikoff.com/en/projects',
+      canonical: 'https://sidikoff.com/en/projects',
       alternateLanguages: {
-        'fr-FR': 'https://www.sidikoff.com/projects',
-        'ru-RU': 'https://www.sidikoff.com/ru/projects',
-        'x-default': 'https://www.sidikoff.com/projects',
+        'fr-FR': 'https://sidikoff.com/projects',
+        'ru-RU': 'https://sidikoff.com/ru/projects',
+        'x-default': 'https://sidikoff.com/projects',
       },
     },
     ru: {
@@ -422,11 +424,11 @@ export const pagesSEO = {
         'кейсы по созданию сайтов',
         'разработанные проекты react',
       ],
-      canonical: 'https://www.sidikoff.com/ru/projects',
+      canonical: 'https://sidikoff.com/ru/projects',
       alternateLanguages: {
-        'fr-FR': 'https://www.sidikoff.com/projects',
-        'en-US': 'https://www.sidikoff.com/en/projects',
-        'x-default': 'https://www.sidikoff.com/projects',
+        'fr-FR': 'https://sidikoff.com/projects',
+        'en-US': 'https://sidikoff.com/en/projects',
+        'x-default': 'https://sidikoff.com/projects',
       },
     },
   },
@@ -441,11 +443,11 @@ export const pagesSEO = {
         'cookies',
         'conditions utilisation',
       ],
-      canonical: 'https://www.sidikoff.com/mentions-legales',
+      canonical: 'https://sidikoff.com/mentions-legales',
       alternateLanguages: {
-        'en-US': 'https://www.sidikoff.com/en/mentions-legales',
-        'ru-RU': 'https://www.sidikoff.com/ru/mentions-legales',
-        'x-default': 'https://www.sidikoff.com/mentions-legales',
+        'en-US': 'https://sidikoff.com/en/mentions-legales',
+        'ru-RU': 'https://sidikoff.com/ru/mentions-legales',
+        'x-default': 'https://sidikoff.com/mentions-legales',
       },
     },
     en: {
@@ -459,11 +461,11 @@ export const pagesSEO = {
         'terms of service',
         'cookie policy',
       ],
-      canonical: 'https://www.sidikoff.com/en/mentions-legales',
+      canonical: 'https://sidikoff.com/en/mentions-legales',
       alternateLanguages: {
-        'fr-FR': 'https://www.sidikoff.com/mentions-legales',
-        'ru-RU': 'https://www.sidikoff.com/ru/mentions-legales',
-        'x-default': 'https://www.sidikoff.com/mentions-legales',
+        'fr-FR': 'https://sidikoff.com/mentions-legales',
+        'ru-RU': 'https://sidikoff.com/ru/mentions-legales',
+        'x-default': 'https://sidikoff.com/mentions-legales',
       },
     },
     ru: {
@@ -477,11 +479,11 @@ export const pagesSEO = {
         'условия обслуживания',
         'политика cookie',
       ],
-      canonical: 'https://www.sidikoff.com/ru/mentions-legales',
+      canonical: 'https://sidikoff.com/ru/mentions-legales',
       alternateLanguages: {
-        'fr-FR': 'https://www.sidikoff.com/mentions-legales',
-        'en-US': 'https://www.sidikoff.com/en/mentions-legales',
-        'x-default': 'https://www.sidikoff.com/mentions-legales',
+        'fr-FR': 'https://sidikoff.com/mentions-legales',
+        'en-US': 'https://sidikoff.com/en/mentions-legales',
+        'x-default': 'https://sidikoff.com/mentions-legales',
       },
     },
   },
@@ -492,69 +494,84 @@ export const faqData = {
   fr: [
     {
       question: "Combien coûte la création d'un site web ?",
-      answer: "Le prix varie selon la complexité : site vitrine (800-2500€), site e-commerce (2500-8000€), application web (5000€+). Nous proposons un devis gratuit personnalisé selon vos besoins spécifiques."
+      answer:
+        'Le prix varie selon la complexité : site vitrine (800-2500€), site e-commerce (2500-8000€), application web (5000€+). Nous proposons un devis gratuit personnalisé selon vos besoins spécifiques.',
     },
     {
-      question: "Combien de temps prend le développement ?",
-      answer: "Généralement 2-4 semaines pour un site vitrine, 4-8 semaines pour un e-commerce, et 8-16 semaines pour une application complexe. Le délai dépend de la complexité et de vos retours."
+      question: 'Combien de temps prend le développement ?',
+      answer:
+        'Généralement 2-4 semaines pour un site vitrine, 4-8 semaines pour un e-commerce, et 8-16 semaines pour une application complexe. Le délai dépend de la complexité et de vos retours.',
     },
     {
-      question: "Proposez-vous la maintenance ?",
-      answer: "Oui, nous offrons des forfaits de maintenance incluant mises à jour, sauvegardes, sécurité et support technique. Plans disponibles dès 50€/mois selon vos besoins."
+      question: 'Proposez-vous la maintenance ?',
+      answer:
+        'Oui, nous offrons des forfaits de maintenance incluant mises à jour, sauvegardes, sécurité et support technique. Plans disponibles dès 50€/mois selon vos besoins.',
     },
     {
-      question: "Le site sera-t-il optimisé pour mobile ?",
-      answer: "Absolument ! Tous nos sites sont responsive design et optimisés pour mobile, tablette et desktop. Nous testons sur différents appareils pour garantir une expérience parfaite."
+      question: 'Le site sera-t-il optimisé pour mobile ?',
+      answer:
+        'Absolument ! Tous nos sites sont responsive design et optimisés pour mobile, tablette et desktop. Nous testons sur différents appareils pour garantir une expérience parfaite.',
     },
     {
-      question: "Incluez-vous le référencement SEO ?",
-      answer: "Oui, le SEO de base est inclus : optimisation technique, meta tags, sitemap, vitesse de chargement. Nous proposons aussi du SEO avancé en option."
-    }
+      question: 'Incluez-vous le référencement SEO ?',
+      answer:
+        'Oui, le SEO de base est inclus : optimisation technique, meta tags, sitemap, vitesse de chargement. Nous proposons aussi du SEO avancé en option.',
+    },
   ],
   en: [
     {
-      question: "How much does website creation cost?",
-      answer: "Prices vary by complexity: showcase site (€800-2500), e-commerce site (€2500-8000), web application (€5000+). We offer a free personalized quote based on your specific needs."
+      question: 'How much does website creation cost?',
+      answer:
+        'Prices vary by complexity: showcase site (€800-2500), e-commerce site (€2500-8000), web application (€5000+). We offer a free personalized quote based on your specific needs.',
     },
     {
-      question: "How long does development take?",
-      answer: "Generally 2-4 weeks for a showcase site, 4-8 weeks for e-commerce, and 8-16 weeks for a complex application. Timeline depends on complexity and your feedback."
+      question: 'How long does development take?',
+      answer:
+        'Generally 2-4 weeks for a showcase site, 4-8 weeks for e-commerce, and 8-16 weeks for a complex application. Timeline depends on complexity and your feedback.',
     },
     {
-      question: "Do you offer maintenance?",
-      answer: "Yes, we offer maintenance packages including updates, backups, security and technical support. Plans available from €50/month depending on your needs."
+      question: 'Do you offer maintenance?',
+      answer:
+        'Yes, we offer maintenance packages including updates, backups, security and technical support. Plans available from €50/month depending on your needs.',
     },
     {
-      question: "Will the site be mobile optimized?",
-      answer: "Absolutely! All our sites are responsive design and optimized for mobile, tablet and desktop. We test on different devices to guarantee a perfect experience."
+      question: 'Will the site be mobile optimized?',
+      answer:
+        'Absolutely! All our sites are responsive design and optimized for mobile, tablet and desktop. We test on different devices to guarantee a perfect experience.',
     },
     {
-      question: "Do you include SEO optimization?",
-      answer: "Yes, basic SEO is included: technical optimization, meta tags, sitemap, loading speed. We also offer advanced SEO as an option."
-    }
+      question: 'Do you include SEO optimization?',
+      answer:
+        'Yes, basic SEO is included: technical optimization, meta tags, sitemap, loading speed. We also offer advanced SEO as an option.',
+    },
   ],
   ru: [
     {
-      question: "Сколько стоит создание веб-сайта?",
-      answer: "Цены варьируются в зависимости от сложности: сайт-визитка (800-2500€), интернет-магазин (2500-8000€), веб-приложение (5000€+). Мы предлагаем бесплатную персональную смету в соответствии с вашими потребностями."
+      question: 'Сколько стоит создание веб-сайта?',
+      answer:
+        'Цены варьируются в зависимости от сложности: сайт-визитка (800-2500€), интернет-магазин (2500-8000€), веб-приложение (5000€+). Мы предлагаем бесплатную персональную смету в соответствии с вашими потребностями.',
     },
     {
-      question: "Сколько времени занимает разработка?",
-      answer: "Обычно 2-4 недели для сайта-визитки, 4-8 недель для интернет-магазина и 8-16 недель для сложного приложения. Сроки зависят от сложности и ваших отзывов."
+      question: 'Сколько времени занимает разработка?',
+      answer:
+        'Обычно 2-4 недели для сайта-визитки, 4-8 недель для интернет-магазина и 8-16 недель для сложного приложения. Сроки зависят от сложности и ваших отзывов.',
     },
     {
-      question: "Предлагаете ли вы обслуживание?",
-      answer: "Да, мы предлагаем пакеты обслуживания, включающие обновления, резервные копии, безопасность и техническую поддержку. Планы доступны от 50€/месяц в зависимости от ваших потребностей."
+      question: 'Предлагаете ли вы обслуживание?',
+      answer:
+        'Да, мы предлагаем пакеты обслуживания, включающие обновления, резервные копии, безопасность и техническую поддержку. Планы доступны от 50€/месяц в зависимости от ваших потребностей.',
     },
     {
-      question: "Будет ли сайт оптимизирован для мобильных устройств?",
-      answer: "Конечно! Все наши сайты имеют адаптивный дизайн и оптимизированы для мобильных устройств, планшетов и компьютеров. Мы тестируем на разных устройствах для обеспечения идеального опыта."
+      question: 'Будет ли сайт оптимизирован для мобильных устройств?',
+      answer:
+        'Конечно! Все наши сайты имеют адаптивный дизайн и оптимизированы для мобильных устройств, планшетов и компьютеров. Мы тестируем на разных устройствах для обеспечения идеального опыта.',
     },
     {
-      question: "Включаете ли вы SEO-оптимизацию?",
-      answer: "Да, базовое SEO включено: техническая оптимизация, мета-теги, карта сайта, скорость загрузки. Мы также предлагаем продвинутое SEO как опцию."
-    }
-  ]
+      question: 'Включаете ли вы SEO-оптимизацию?',
+      answer:
+        'Да, базовое SEO включено: техническая оптимизация, мета-теги, карта сайта, скорость загрузки. Мы также предлагаем продвинутое SEO как опцию.',
+    },
+  ],
 }
 
 // Helper function to get FAQ data for structured data
@@ -584,7 +601,7 @@ export function generateLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': 'https://www.sidikoff.com/#business',
+    '@id': 'https://sidikoff.com/#business',
     name: defaultSEOConfig.business.name,
     alternateName: 'SIDIKOFF DIGITAL',
     description:
@@ -680,28 +697,28 @@ export function generateWebsiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    '@id': 'https://www.sidikoff.com/#website',
+    '@id': 'https://sidikoff.com/#website',
     url: defaultSEOConfig.baseUrl,
     name: 'SIDIKOFF DIGITAL',
     alternateName: 'SIDIKOFF DIGITAL - Agence Web Paris',
     description: defaultSEOConfig.defaultDescription,
     publisher: {
-      '@id': 'https://www.sidikoff.com/#organization',
+      '@id': 'https://sidikoff.com/#organization',
     },
     copyrightHolder: {
-      '@id': 'https://www.sidikoff.com/#organization',
+      '@id': 'https://sidikoff.com/#organization',
     },
     potentialAction: {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: 'https://www.sidikoff.com/search?q={search_term_string}',
+        urlTemplate: 'https://sidikoff.com/search?q={search_term_string}',
       },
       'query-input': 'required name=search_term_string',
     },
     inLanguage: ['fr-FR', 'en-US', 'ru-RU'],
     about: {
-      '@id': 'https://www.sidikoff.com/#organization',
+      '@id': 'https://sidikoff.com/#organization',
     },
   }
 }
@@ -711,7 +728,7 @@ export function generateOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    '@id': 'https://www.sidikoff.com/#organization',
+    '@id': 'https://sidikoff.com/#organization',
     name: 'SIDIKOFF DIGITAL',
     legalName: 'SIDIKOFF DIGITAL',
     alternateName: [
@@ -727,14 +744,14 @@ export function generateOrganizationSchema() {
     url: defaultSEOConfig.baseUrl,
     logo: {
       '@type': 'ImageObject',
-      url: 'https://www.sidikoff.com/logo-sidikoff.svg',
+      url: 'https://sidikoff.com/logo-sidikoff.svg',
       width: 400,
       height: 400,
       caption: 'SIDIKOFF DIGITAL Logo',
     },
     image: {
       '@type': 'ImageObject',
-      url: 'https://www.sidikoff.com/opengraph-image.jpg',
+      url: 'https://sidikoff.com/opengraph-image.jpg',
       width: 1200,
       height: 630,
       caption: 'SIDIKOFF DIGITAL - Agence Web Paris',
@@ -897,7 +914,7 @@ export function generateCreativeWorkSchema(work: {
     creator: {
       '@type': 'Organization',
       name: 'SIDIKOFF DIGITAL',
-      '@id': 'https://www.sidikoff.com/#organization',
+      '@id': 'https://sidikoff.com/#organization',
     },
     about: work.category || 'Web Development',
     keywords: work.technologies?.join(', ') || 'React, Next.js, TypeScript',
@@ -938,7 +955,7 @@ export function generatePersonSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    '@id': 'https://www.sidikoff.com/#founder',
+    '@id': 'https://sidikoff.com/#founder',
     name: defaultSEOConfig.business.founder,
     givenName: 'Sardorbek',
     familyName: 'SIDIKOV',
@@ -956,7 +973,7 @@ export function generatePersonSchema() {
     worksFor: {
       '@type': 'Organization',
       name: 'SIDIKOFF DIGITAL',
-      '@id': 'https://www.sidikoff.com/#organization',
+      '@id': 'https://sidikoff.com/#organization',
     },
     knowsAbout: [
       'Web Development',
@@ -991,15 +1008,15 @@ export function generateWebPageSchema(page: {
     inLanguage: page.locale,
     isPartOf: {
       '@type': 'WebSite',
-      '@id': 'https://www.sidikoff.com/#website',
+      '@id': 'https://sidikoff.com/#website',
     },
     about: {
       '@type': 'Organization',
-      '@id': 'https://www.sidikoff.com/#organization',
+      '@id': 'https://sidikoff.com/#organization',
     },
     publisher: {
       '@type': 'Organization',
-      '@id': 'https://www.sidikoff.com/#organization',
+      '@id': 'https://sidikoff.com/#organization',
     },
     ...(page.datePublished && { datePublished: page.datePublished }),
     ...(page.dateModified && { dateModified: page.dateModified }),

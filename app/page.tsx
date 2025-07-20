@@ -5,6 +5,7 @@ import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
 import StructuredData from '@/components/StructuredData'
+import DynamicHreflang from '@/components/DynamicHreflang'
 import { generateServiceSchema, generatePageMetadata, getFAQData } from '@/lib/seo'
 
 // Lazy load non-critical components to improve initial page load
@@ -46,18 +47,19 @@ export default function HomePage() {
 
   return (
     <>
+      <DynamicHreflang currentLocale="fr" />
       <StructuredData
         type='all'
         pageData={{
           name: 'SIDIKOFF DIGITAL - Agence Web à Paris',
           description:
             'Agence web parisienne spécialisée en création de sites internet, applications web et stratégie digitale',
-          url: 'https://www.sidikoff.com/',
+          url: 'https://sidikoff.com/',
           datePublished: '2025-01-01',
           dateModified: new Date().toISOString().split('T')[0],
           locale: 'fr-FR',
         }}
-        breadcrumbs={[{ name: 'Accueil', url: 'https://www.sidikoff.com/' }]}
+        breadcrumbs={[{ name: 'Accueil', url: 'https://sidikoff.com/' }]}
         faqs={faqStructuredData}
         customData={serviceSchema}
       />

@@ -15,8 +15,9 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import { getFAQData, SupportedLocale } from '@/lib/seo'
 import StructuredData from '@/components/StructuredData'
+import DynamicHreflang from '@/components/DynamicHreflang'
 
-const locales = ['fr', 'en', 'ru']
+const locales = ['en', 'ru'] // Only non-default locales
 
 export default function LocalePage({ params }: { params: Promise<{ locale: string }> }) {
   const resolvedParams = React.use(params)
@@ -27,10 +28,9 @@ export default function LocalePage({ params }: { params: Promise<{ locale: strin
   const faqStructuredData = getFAQData(locale as SupportedLocale)
 
   const breadcrumbsByLocale = {
-    fr: [{ name: 'Accueil', url: `https://www.sidikoff.com/${locale}` }],
-    en: [{ name: 'Home', url: `https://www.sidikoff.com/${locale}` }],
-    ru: [{ name: 'Главная', url: `https://www.sidikoff.com/${locale}` }],
-  } as Record<SupportedLocale, Array<{ name: string; url: string }>>
+    en: [{ name: 'Home', url: `https://sidikoff.com/en` }],
+    ru: [{ name: 'Главная', url: `https://sidikoff.com/ru` }],
+  } as Record<'en' | 'ru', Array<{ name: string; url: string }>>
   useEffect(() => {
     if (!locales.includes(locale)) {
       notFound()
@@ -38,59 +38,12 @@ export default function LocalePage({ params }: { params: Promise<{ locale: strin
     setLanguage(locale as 'fr' | 'en' | 'ru')
   }, [locale, setLanguage])
 
-  // Restore scroll position after language switch
-  useEffect(() => {
-    const restorePosition = () => {
-      const savedData = sessionStorage.getItem('languageSwitch')
-      if (savedData) {
-        try {
-          const { scrollY, hash, section, timestamp } = JSON.parse(savedData)
-
-          // Only restore if the switch was recent (within 5 seconds)
-          if (Date.now() - timestamp < 5000) {
-            if (hash && hash.startsWith('#')) {
-              // If we have a hash, scroll to that element
-              const element = document.querySelector(hash)
-              if (element) {
-                setTimeout(() => {
-                  element.scrollIntoView({ behavior: 'smooth' })
-                }, 100)
-              }
-            } else if (section) {
-              // If we have a section, scroll to that section
-              const element = document.getElementById(section)
-              if (element) {
-                setTimeout(() => {
-                  element.scrollIntoView({ behavior: 'smooth' })
-                }, 100)
-              }
-            } else if (scrollY > 0) {
-              // Otherwise restore exact scroll position
-              setTimeout(() => {
-                window.scrollTo({ top: scrollY, behavior: 'smooth' })
-              }, 100)
-            }
-          }
-
-          // Clean up the saved data
-          sessionStorage.removeItem('languageSwitch')
-        } catch (error) {
-          console.error('Error restoring scroll position:', error)
-          sessionStorage.removeItem('languageSwitch')
-        }
-      }
-    }
-
-    // Small delay to ensure page is rendered
-    const timer = setTimeout(restorePosition, 50)
-    return () => clearTimeout(timer)
-  }, [locale])
-
   if (!locales.includes(locale)) {
     notFound()
   }
   return (
     <div className='scroll-smooth min-h-screen antialiased'>
+      <DynamicHreflang currentLocale={locale as 'en' | 'ru'} />
       <Header />
       <main>
         <Hero />
@@ -104,7 +57,7 @@ export default function LocalePage({ params }: { params: Promise<{ locale: strin
       <Footer />
       <StructuredData
         type='all'
-        breadcrumbs={breadcrumbsByLocale[locale as SupportedLocale] || breadcrumbsByLocale.fr}
+        breadcrumbs={breadcrumbsByLocale[locale as 'en' | 'ru'] || breadcrumbsByLocale.en}
         faqs={faqStructuredData}
       />
     </div>

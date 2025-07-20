@@ -1136,40 +1136,6 @@ const translations: Record<Language, TranslationMap> = {
   },
 }
 
-// Функция для определения языка браузера и сопоставления с доступными языками
-const detectBrowserLanguage = (): Language => {
-  // Проверяем, что мы на клиенте
-  if (typeof window === 'undefined') {
-    return 'fr' // Дефолтный язык для SSR
-  }
-
-  if (navigator) {
-    // Получаем язык браузера (например: 'fr', 'en-US', 'ru-RU')
-    const browserLang = navigator.language.toLowerCase().split('-')[0]
-
-    // Также проверяем список всех языков браузера
-    const browserLanguages = navigator.languages || [navigator.language]
-
-    // Проверяем каждый язык из списка браузера
-    for (const lang of browserLanguages) {
-      const langCode = lang.toLowerCase().split('-')[0]
-      if (langCode === 'fr') return 'fr'
-      if (langCode === 'ru') return 'ru'
-      if (langCode === 'en') return 'en'
-    }
-
-    // Если не найден точный матч, используем первый язык
-    if (browserLang === 'fr') return 'fr'
-    if (browserLang === 'ru') return 'ru'
-
-    // По умолчанию используем английский для всех остальных языков
-    return 'en'
-  }
-
-  // Fallback для случаев без navigator
-  return 'fr'
-}
-
 const LanguageContext = createContext<LanguageContextType>({
   language: 'fr',
   setLanguage: () => {},
@@ -1204,10 +1170,12 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
       // Если есть сохраненный язык, используем его
       setLanguage(savedLanguage)
     } else {
-      // Если нет сохраненного языка, определяем язык браузера
-      const browserLanguage = detectBrowserLanguage()
-      setLanguage(browserLanguage)
-      localStorage.setItem('language', browserLanguage)
+      // SEO оптимизация: используем французский как язык по умолчанию
+      // вместо автоматического определения языка браузера.
+      // Это улучшает SEO, так как поисковые системы видят согласованный
+      // основной язык сайта при первом посещении.
+      setLanguage('fr')
+      localStorage.setItem('language', 'fr')
     }
 
     setIsInitialized(true)

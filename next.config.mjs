@@ -28,9 +28,6 @@ const nextConfig = {
     parallelServerCompiles: true,
     optimizeCss: true,
     optimizePackageImports: ['framer-motion', 'lucide-react', '@vercel/analytics'],
-    turbotrace: {
-      logLevel: 'error',
-    },
   },
 
   // Move serverComponentsExternalPackages out of experimental

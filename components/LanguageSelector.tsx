@@ -22,56 +22,10 @@ export default function LanguageSelector() {
 
     setIsOpen(false)
 
-    // Save current state for smooth transition
-    const currentScrollY = window.scrollY
-    const currentHash = window.location.hash
-    const currentSection = getCurrentActiveSection()
-
-    // Store restoration data in sessionStorage for persistence
-    sessionStorage.setItem(
-      'languageSwitch',
-      JSON.stringify({
-        scrollY: currentScrollY,
-        hash: currentHash,
-        section: currentSection,
-        timestamp: Date.now(),
-      })
-    )
-
-    // Update language context and localStorage - user stays on main site
+    // Update language context and localStorage - stay on current page
     setLanguage(lang)
-
-    // If user is currently on a localized path, redirect to main site
-    if (pathname.startsWith('/fr/') || pathname.startsWith('/en/') || pathname.startsWith('/ru/')) {
-      let currentPath = pathname.substring(3) // Remove /xx prefix
-      if (!currentPath.startsWith('/')) {
-        currentPath = '/' + currentPath
-      }
-      const fullNewPath = currentHash ? `${currentPath}${currentHash}` : currentPath
-      router.push(fullNewPath)
-    } else if (pathname === '/fr' || pathname === '/en' || pathname === '/ru') {
-      // If on localized homepage, go to main homepage
-      const fullNewPath = currentHash ? `/${currentHash}` : '/'
-      router.push(fullNewPath)
-    }
-    // If already on main site (no locale prefix), no navigation needed - just language change
   }
 
-  const getCurrentActiveSection = () => {
-    const sections = ['home', 'services', 'portfolio', 'about', 'prices', 'contact']
-    const scrollPosition = window.scrollY + 100
-
-    for (const section of sections) {
-      const element = document.getElementById(section)
-      if (element) {
-        const { offsetTop, offsetHeight } = element
-        if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-          return section
-        }
-      }
-    }
-    return null
-  }
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
