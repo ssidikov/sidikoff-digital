@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'
 
   return {
     rules: [
@@ -9,24 +9,32 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: '*',
         allow: [
           '/',
-          '/fr/',
           '/en/',
           '/ru/',
-          '/projects/',
-          '/mentions-legales/',
           '/about/',
-          '/fr/about/',
+          '/services/',
+          '/projects/',
+          '/contact/',
+          '/mentions-legales/',
           '/en/about/',
-          '/ru/about/',
-          '/fr/projects/',
+          '/en/services/',
           '/en/projects/',
+          '/en/contact/',
+          '/ru/about/',
+          '/ru/services/',
           '/ru/projects/',
-          '/fr/mentions-legales/',
-          '/en/mentions-legales/',
-          '/ru/mentions-legales/',
+          '/ru/contact/',
+          '/blog/',
+          '/en/blog/',
+          '/ru/blog/',
           '/images/',
+          '/fonts/',
+          '/_next/static/',
           '/favicon.svg',
           '/logo-sidikoff.svg',
+          '/opengraph-image.jpg',
+          '/sitemap.xml',
+          '/sitemap-0.xml'
         ],
         disallow: [
           '/api/',

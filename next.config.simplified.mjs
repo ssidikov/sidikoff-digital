@@ -1,0 +1,166 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: false,
+  },
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+  
+  // Performance optimizations
+  compress: true,
+  poweredByHeader: false,
+
+  // Улучшения для TTFB
+  generateEtags: true,
+  
+  // Оптимизация изображений
+  images: {
+    formats: ['image/webp', 'image/avif'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 31536000,
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        port: '',
+        pathname: '/images/**',
+      },
+    ],
+  },
+
+  // Заголовки безопасности
+  async headers() {
+    return [
+      // Security headers for all routes
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()',
+          },
+        ],
+      },
+      // Cache static assets
+      {
+        source: '/fonts/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/images/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ]
+  },
+
+  // Webpack configuration
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    // Simple fix for 'self is not defined' error
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'self': isServer ? 'globalThis' : 'self',
+      })
+    )
+
+    // Additional server-side fixes
+    if (isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+        crypto: false,
+        'self': false,
+        'window': false,
+      }
+      
+      // Add alias for problematic modules
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        'self': false,
+        'window': false,
+      }
+    }
+
+    // Add polyfills for browser-specific globals
+
+    // Оптимизация сборки
+    config.optimization = {
+      ...config.optimization,
+      moduleIds: 'deterministic',
+      splitChunks: {
+        chunks: 'all',
+        cacheGroups: {
+          default: false,
+          vendors: false,
+          framework: {
+            chunks: 'all',
+            name: 'framework',
+            test: /(?<!node_modules.*)[\\/]node_modules[\\/](react|react-dom|scheduler|prop-types|use-subscription)[\\/]/,
+            priority: 40,
+            enforce: true,
+          },
+          lib: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'lib',
+            priority: 30,
+            minChunks: 1,
+            reuseExistingChunk: true,
+          },
+        },
+      },
+    }
+
+    // Handle .mjs files properly
+    config.module.rules.push({
+      test: /\.mjs$/,
+      type: 'javascript/auto',
+    })
+
+    // Ignore Sanity-related warnings
+    config.ignoreWarnings = [
+      {
+        module: /node_modules\/sanity/,
+      },
+      {
+        module: /node_modules\/@sanity/,
+      },
+      {
+        module: /node_modules\/next-sanity/,
+      },
+      {
+        module: /node_modules\/@supabase\/realtime-js/,
+      },
+    ]
+
+    return config
+  },
+}
+
+export default nextConfig

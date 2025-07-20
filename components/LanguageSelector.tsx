@@ -3,14 +3,11 @@
 import { useState, useRef, useEffect } from 'react'
 import { Globe } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
-import { useRouter, usePathname } from 'next/navigation'
 
 export default function LanguageSelector() {
   const { language, setLanguage } = useLanguage()
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
-  const router = useRouter()
-  const pathname = usePathname()
   const toggleDropdown = () => {
     setIsOpen(!isOpen)
   }

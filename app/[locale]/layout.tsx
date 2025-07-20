@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { generatePageMetadata, SupportedLocale } from '@/lib/seo'
+import { generatePageMetadata, SupportedLocale } from '@/lib/enhanced-seo'
 import { Metadata } from 'next'
 
 type Props = {

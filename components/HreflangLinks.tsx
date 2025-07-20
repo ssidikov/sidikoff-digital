@@ -4,12 +4,10 @@ import { usePathname } from 'next/navigation'
 
 interface HreflangLinksProps {
   baseUrl?: string
-  currentLocale?: string
 }
 
 const HreflangLinks: React.FC<HreflangLinksProps> = ({ 
-  baseUrl = 'https://sidikoff.com',
-  currentLocale = 'fr'
+  baseUrl = 'https://sidikoff.com'
 }) => {
   const pathname = usePathname()
   

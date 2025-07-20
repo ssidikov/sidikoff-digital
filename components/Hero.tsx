@@ -32,11 +32,12 @@ export default function Hero() {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 1.2,
-        delay: 0.3,
+        duration: 0.8,
+        delay: 0.2,
       },
     },
   }
+
   return (
     <section
       id='home'

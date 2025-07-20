@@ -4,9 +4,14 @@ import { Suspense } from 'react'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
-import StructuredData from '@/components/StructuredData'
-import DynamicHreflang from '@/components/DynamicHreflang'
-import { generateServiceSchema, generatePageMetadata, getFAQData } from '@/lib/seo'
+import SEOHead from '@/components/SEOHead'
+import { 
+  generatePageMetadata, 
+  generateOrganizationSchema,
+  generateLocalBusinessSchema,
+  generateWebSiteSchema,
+  generateBreadcrumbSchema
+} from '@/lib/enhanced-seo'
 
 // Lazy load non-critical components to improve initial page load
 const Portfolio = dynamic(() => import('@/components/Portfolio'), {
@@ -35,34 +40,33 @@ const FAQ = dynamic(() => import('@/components/FAQ'), {
 
 export const metadata: Metadata = generatePageMetadata('home', 'fr')
 
-const serviceSchema = generateServiceSchema({
-  name: 'Création de Sites Web',
-  description: 'Services de création de sites web professionnels à Paris',
-  price: '€€',
-  areaServed: 'Paris, Île-de-France, France',
-})
-
 export default function HomePage() {
-  const faqStructuredData = getFAQData('fr')
+  // Generate structured data for the homepage
+  const organizationSchema = generateOrganizationSchema()
+  const localBusinessSchema = generateLocalBusinessSchema()
+  const websiteSchema = generateWebSiteSchema('fr')
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Accueil', url: 'https://sidikoff.com/' }
+  ])
+
+  const structuredData = [
+    organizationSchema,
+    localBusinessSchema,
+    websiteSchema,
+    breadcrumbSchema
+  ]
 
   return (
     <>
-      <DynamicHreflang currentLocale="fr" />
-      <StructuredData
-        type='all'
-        pageData={{
-          name: 'SIDIKOFF DIGITAL - Agence Web à Paris',
-          description:
-            'Agence web parisienne spécialisée en création de sites internet, applications web et stratégie digitale',
-          url: 'https://sidikoff.com/',
-          datePublished: '2025-01-01',
-          dateModified: new Date().toISOString().split('T')[0],
-          locale: 'fr-FR',
-        }}
-        breadcrumbs={[{ name: 'Accueil', url: 'https://sidikoff.com/' }]}
-        faqs={faqStructuredData}
-        customData={serviceSchema}
+      <SEOHead
+        title="SIDIKOFF DIGITAL - Agence Web à Paris | Création Sites Internet"
+        description="Agence web parisienne spécialisée en création de sites internet, applications web et stratégie digitale. Expertise Next.js, React, SEO."
+        canonical="https://sidikoff.com/"
+        locale="fr"
+        structuredData={structuredData}
+        keywords={['agence web paris', 'création site internet', 'développement web', 'next.js', 'react', 'seo']}
       />
+      
       <div className='scroll-smooth min-h-screen'>
         {/* Header avec navigation optimisée */}
         <Header />
@@ -73,6 +77,7 @@ export default function HomePage() {
 
           {/* About section avec SEO amélioré */}
           <About />
+          
           {/* Services avec structured data */}
           <Suspense
             fallback={<div className='h-screen bg-gray-100 animate-pulse rounded-lg mx-4' />}>

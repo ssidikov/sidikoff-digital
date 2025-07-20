@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import '@/polyfills/globals' // Import server polyfills first
+import '@/lib/globals'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -7,37 +9,64 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { LanguageProvider } from '@/context/LanguageContext'
 import { TariffProvider } from '@/context/TariffContext'
 import ClientLayout from '@/components/ClientLayout'
-import StructuredData from '@/components/StructuredData'
-import BrandStructuredData from '@/components/BrandStructuredData'
-import { generateMetadata as generateSEOMetadata, pagesSEO } from '@/lib/seo'
+import { generatePageMetadata, generateOrganizationSchema } from '@/lib/enhanced-seo'
 import Script from 'next/script'
 import PerformanceMonitor from '@/components/PerformanceMonitor'
 import FontOptimizer from '@/components/FontOptimizer'
 import ResourcePreloader from '@/components/ResourcePreloader'
-import { enhancedCriticalCSS } from '@/lib/critical-css'
 
 const inter = Inter({
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin', 'latin-ext', 'cyrillic'],
   display: 'swap',
   preload: true,
+  variable: '--font-inter',
 })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://sidikoff.com'),
-  ...generateSEOMetadata(pagesSEO.home.fr),
+  ...generatePageMetadata('home', 'fr'),
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+    yandex: process.env.YANDEX_VERIFICATION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang='fr' dir='ltr' suppressHydrationWarning>
-      <head>
-        {/* Critical CSS for LCP optimization */}
-        <style dangerouslySetInnerHTML={{ __html: enhancedCriticalCSS }} />
+  const organizationSchema = generateOrganizationSchema()
 
-        {/* Additional SEO Meta Tags - Non-duplicated */}
-        <meta name='language' content='French' />
-        <meta name='revisit-after' content='7 days' />
-        <meta name='classification' content='Business' />
+  return (
+    <html lang='fr' dir='ltr' suppressHydrationWarning className={inter.variable}>
+      <head>
+        {/* Preload critical resources */}
+        <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        
+        {/* Preconnect to external domains for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://cdn.sanity.io" />
+        <link rel="preconnect" href="https://vitals.vercel-analytics.com" />
+        
+        {/* DNS prefetch for performance */}
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        
+        {/* Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema)
+          }}
+        />
         <meta name='category' content='Web Development, Web Design, SEO' />
         <meta name='coverage' content='Worldwide' />
         <meta name='distribution' content='Global' />
@@ -192,9 +221,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <LanguageProvider>
             <TariffProvider>
               <ClientLayout>{children}</ClientLayout>
-              {/* Schema components — moved out of <head> */}
-              <StructuredData type='all' />
-              <BrandStructuredData />
             </TariffProvider>
           </LanguageProvider>
           <Analytics />

@@ -2,6 +2,12 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { projects } from '@/data/portfolio-data'
 
+// Polyfill for 'self is not defined' error
+if (typeof globalThis !== 'undefined' && typeof globalThis.self === 'undefined') {
+  // @ts-ignore
+  globalThis.self = globalThis
+}
+
 // Supported locales for manual routing
 const locales = ['fr', 'en', 'ru']
 const defaultLocale = 'fr'

@@ -1,0 +1,23 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /studio
+Disallow: /api
+Disallow: /_next
+Disallow: /404
+Disallow: /500
+
+# Googlebot
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+Disallow: /studio
+Disallow: /api
+Disallow: /_next
+
+# Host
+Host: https://sidikoff.com
+
+# Sitemaps
+Sitemap: https://sidikoff.com/sitemap.xml
