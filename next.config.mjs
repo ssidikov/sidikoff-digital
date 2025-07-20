@@ -1,10 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Basic configuration without Turbopack
-  experimental: {
-    turbo: false, // Disable Turbopack completely
-  },
-  
   // Simple transpilation for Sanity
   transpilePackages: ['@sanity/client'],
   

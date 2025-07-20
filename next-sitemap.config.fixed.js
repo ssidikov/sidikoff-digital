@@ -9,45 +9,43 @@ const config = {
     '/studio/*',
     '/api/*',
     '/404',
-    '/500',
-    '/en/404',
-    '/ru/404'
+    '/500'
   ],
   additionalPaths: async (config) => {
     const result = []
     
-    // Static pages with localization
+    // Static pages
     const staticPages = [
-      '/',
-      '/about',
-      '/services',
-      '/projects',
-      '/contact',
-      '/mentions-legales'
+      { path: '/', priority: 1.0 },
+      { path: '/about', priority: 0.8 },
+      { path: '/services', priority: 0.8 },
+      { path: '/projects', priority: 0.8 },
+      { path: '/contact', priority: 0.8 },
+      { path: '/mentions-legales', priority: 0.6 }
     ]
     
-    // Add French pages (default) - no prefix
-    staticPages.forEach(page => {
+    // Add French pages (default)
+    staticPages.forEach(({ path, priority }) => {
       result.push({
-        loc: page,
+        loc: path,
         changefreq: 'weekly',
-        priority: page === '/' ? 1.0 : 0.8,
+        priority,
         lastmod: new Date().toISOString(),
         alternateRefs: [
           {
-            href: `https://sidikoff.com${page}`,
+            href: `https://sidikoff.com${path}`,
             hreflang: 'fr'
           },
           {
-            href: `https://sidikoff.com/en${page}`,
+            href: `https://sidikoff.com/en${path}`,
             hreflang: 'en'
           },
           {
-            href: `https://sidikoff.com/ru${page}`,
+            href: `https://sidikoff.com/ru${path}`,
             hreflang: 'ru'
           },
           {
-            href: `https://sidikoff.com${page}`,
+            href: `https://sidikoff.com${path}`,
             hreflang: 'x-default'
           }
         ]
@@ -55,28 +53,28 @@ const config = {
     })
     
     // Add English pages
-    staticPages.forEach(page => {
-      if (page !== '/mentions-legales') { // This page is only in French
+    staticPages.forEach(({ path, priority }) => {
+      if (path !== '/mentions-legales') { // French only page
         result.push({
-          loc: `/en${page}`,
+          loc: `/en${path}`,
           changefreq: 'weekly',
-          priority: page === '/' ? 0.9 : 0.7,
+          priority: priority * 0.9,
           lastmod: new Date().toISOString(),
           alternateRefs: [
             {
-              href: `https://sidikoff.com${page}`,
+              href: `https://sidikoff.com${path}`,
               hreflang: 'fr'
             },
             {
-              href: `https://sidikoff.com/en${page}`,
+              href: `https://sidikoff.com/en${path}`,
               hreflang: 'en'
             },
             {
-              href: `https://sidikoff.com/ru${page}`,
+              href: `https://sidikoff.com/ru${path}`,
               hreflang: 'ru'
             },
             {
-              href: `https://sidikoff.com${page}`,
+              href: `https://sidikoff.com${path}`,
               hreflang: 'x-default'
             }
           ]
@@ -85,35 +83,35 @@ const config = {
     })
     
     // Add Russian pages
-    staticPages.forEach(page => {
-      if (page !== '/mentions-legales') { // This page is only in French
+    staticPages.forEach(({ path, priority }) => {
+      if (path !== '/mentions-legales') { // French only page
         result.push({
-          loc: `/ru${page}`,
+          loc: `/ru${path}`,
           changefreq: 'weekly',
-          priority: page === '/' ? 0.9 : 0.7,
+          priority: priority * 0.9,
           lastmod: new Date().toISOString(),
           alternateRefs: [
             {
-              href: `https://sidikoff.com${page}`,
+              href: `https://sidikoff.com${path}`,
               hreflang: 'fr'
             },
             {
-              href: `https://sidikoff.com/en${page}`,
+              href: `https://sidikoff.com/en${path}`,
               hreflang: 'en'
             },
             {
-              href: `https://sidikoff.com/ru${page}`,
+              href: `https://sidikoff.com/ru${path}`,
               hreflang: 'ru'
             },
             {
-              href: `https://sidikoff.com${page}`,
+              href: `https://sidikoff.com${path}`,
               hreflang: 'x-default'
             }
           ]
         })
       }
     })
-
+    
     return result
   },
   robotsTxtOptions: {
@@ -121,32 +119,13 @@ const config = {
       {
         userAgent: '*',
         allow: '/',
-        disallow: [
-          '/admin',
-          '/studio',
-          '/api',
-          '/_next',
-          '/404',
-          '/500'
-        ]
-      },
-      {
-        userAgent: 'Googlebot',
-        allow: '/',
-        disallow: [
-          '/admin',
-          '/studio',
-          '/api',
-          '/_next'
-        ]
+        disallow: ['/admin', '/studio', '/api']
       }
     ],
-    additionalSitemaps: [
-      'https://sidikoff.com/sitemap.xml'
-    ]
+    additionalSitemaps: []
   },
   transform: async (config, path) => {
-    // Custom transform for different page types
+    // Custom transform for specific paths
     let priority = 0.5
     let changefreq = 'weekly'
     
