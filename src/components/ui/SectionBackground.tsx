@@ -54,7 +54,7 @@ export function SectionBackground({ type, children, className = '' }: SectionBac
   return (
     <div className={`absolute inset-0 z-0 ${className}`}>
       <div
-        className={`absolute inset-0 w-full h-full pointer-events-none select-none ${config.bgClass} section-bg-extend`}
+        className={`absolute inset-0 w-full h-full pointer-events-none select-none ${config.bgClass}`}
       />
       {config.gradients.map((gradientClass, index) => (
         <div key={index} className={`absolute inset-0 ${gradientClass}`} />
@@ -79,9 +79,7 @@ export function SectionWrapper({
   children,
 }: SectionWrapperProps) {
   return (
-    <section
-      id={id}
-      className={`relative py-12 md:py-16 lg:py-20 overflow-hidden section-seamless ${className}`}>
+    <section id={id} className={`relative py-20 overflow-hidden ${className}`}>
       <SectionBackground type={backgroundType} />
       <div className='relative z-10'>{children}</div>
     </section>

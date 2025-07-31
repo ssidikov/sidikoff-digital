@@ -1,57 +1,51 @@
-/* Unified background styles for sections - Fixed for seamless backgrounds */
+/* Unified background styles for sections */
 
 .section-bg-hero {
   background-image: url('/images/bg-image.svg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: local;
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 100% auto;
   background-color: #f8fafc;
 }
 
 .section-bg-services {
   background-image: url('/images/bg-image-3.svg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: local;
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 100% auto;
   background-color: #f1f5f9;
 }
 
 .section-bg-portfolio {
   background-image: url('/images/bg-image-2.svg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: local;
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 100% auto;
   background-color: #fafafa;
   transform: scaleX(-1);
 }
 
 .section-bg-contact {
   background-image: url('/images/bg-image-2.svg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: local;
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 100% auto;
   background-color: #f8fafc;
 }
 
 .section-bg-faq {
   background-image: url('/images/bg-image-2.svg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: local;
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 100% auto;
   background-color: #f9fafb;
 }
 
 .section-bg-pricing {
   background-image: url('/images/bg-image-2.svg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: local;
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 100% auto;
   background-color: #f9f7f7;
 }
 
@@ -78,48 +72,4 @@
 
 .gradient-services-tertiary {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, transparent 50%, rgba(255, 255, 255, 0.9) 100%);
-}
-
-/* Mobile optimizations for seamless backgrounds */
-@media (max-width: 768px) {
-
-  .section-bg-hero,
-  .section-bg-services,
-  .section-bg-portfolio,
-  .section-bg-contact,
-  .section-bg-faq,
-  .section-bg-pricing {
-    background-size: cover;
-    background-position: center center;
-    background-attachment: scroll;
-    /* Better performance on mobile */
-    min-height: 100vh;
-    /* Ensure full coverage on mobile */
-  }
-}
-
-/* Tablet optimizations */
-@media (min-width: 769px) and (max-width: 1024px) {
-
-  .section-bg-hero,
-  .section-bg-services,
-  .section-bg-portfolio,
-  .section-bg-contact,
-  .section-bg-faq,
-  .section-bg-pricing {
-    background-attachment: scroll;
-    /* Better performance on tablets */
-  }
-}
-
-/* Additional utility classes for seamless sections */
-.section-seamless {
-  margin-bottom: -1px;
-  /* Eliminate any potential gaps */
-}
-
-.section-bg-extend {
-  background-size: 100% 105%;
-  /* Slightly extend to prevent gaps */
-  background-position: center top;
 }
