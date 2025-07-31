@@ -378,7 +378,6 @@ export const adminNotificationFR = ({
       <div class="email-container">
         <!-- Header -->
         <div class="email-header">
-          <img src="https://sidikoff.com/logo-sidikoff.webp" alt="SIDIKOFF DIGITALDigital" class="logo">
           <h1 class="email-title">📬 ${t.newRequest}</h1>
           <p class="email-subtitle">Nouvelle demande de contact reçue</p>
         </div>

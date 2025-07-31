@@ -22,6 +22,7 @@ export interface SEOConfig {
 export interface LocalBusiness {
   name: string
   url: string
+  email?: string
   address: {
     streetAddress: string
     addressLocality: string
@@ -39,21 +40,24 @@ export interface LocalBusiness {
 
 // Default SEO configuration
 export const DEFAULT_SEO = {
-  siteName: 'SIDIKOFF DIGITAL - Agence Web | Développement Site Web',
+  siteName: 'SIDIKOFF DIGITAL - Développeur Web Full Stack',
   siteUrl: 'https://sidikoff.com',
   defaultImage: '/images/og-default.jpg',
   twitterHandle: '@sidikoffdigital',
   locale: 'fr' as Locale,
   keywords: [
     'développeur web',
-    'full stack',
+    'full stack developer',
     'React',
     'Next.js',
     'TypeScript',
     'développement frontend',
     'développement backend',
-    'freelance',
-    'consultant',
+    'freelance développeur',
+    'consultant web',
+    'applications web',
+    'sites internet',
+    'développement sur mesure',
   ],
 }
 
@@ -69,6 +73,7 @@ export const businessLocations: LocalBusiness[] = [
       addressCountry: 'FR',
     },
     telephone: '+33626932734',
+    email: 's.sidikoff@gmail.com',
     geo: {
       latitude: '48.8566',
       longitude: '2.3522',
@@ -86,6 +91,7 @@ export const businessLocations: LocalBusiness[] = [
       addressCountry: 'FR',
     },
     telephone: '+33626932734',
+    email: 's.sidikoff@gmail.com',
     geo: {
       latitude: '43.6047',
       longitude: '1.4442',
@@ -95,37 +101,42 @@ export const businessLocations: LocalBusiness[] = [
   },
 ]
 
-// Main services
+// Main services offered
 export const mainServices = [
   {
     name: 'Développement Web Frontend',
-    description: 'Applications React, Next.js, Angular avec une expertise en performances et UX',
-    url: '/services/frontend',
+    description: 'Applications React, Next.js, avec expertise en performances et UX/UI',
+    url: '/#services',
     slug: 'frontend',
+    technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Vue.js'],
   },
   {
     name: 'Développement Web Backend',
-    description: 'APIs REST, GraphQL, bases de données et architecture serveur robuste',
-    url: '/services/backend',
+    description: 'APIs REST, Rest API, Node.js, bases de données et architecture serveur',
+    url: '/#services',
     slug: 'backend',
+    technologies: ['Node.js', 'Rest API'],
   },
   {
-    name: 'Développement Full Stack',
-    description: 'Solutions complètes Next.js, MERN stack et applications web modernes',
-    url: '/services/fullstack',
+    name: 'Développement Web Full Stack',
+    description: 'Solutions complètes de développement web avec Next.js et stack moderne',
+    url: '/#services',
     slug: 'fullstack',
+    technologies: ['Next.js', 'React', 'Node.js', 'TypeScript', 'Prisma'],
   },
   {
-    name: 'Optimisation SEO',
-    description: 'Amélioration du référencement naturel et performances web',
-    url: '/services/seo',
-    slug: 'seo',
+    name: 'Optimisation & Performance',
+    description: 'Optimisation SEO, performances web, et amélioration de la vitesse de chargement',
+    url: '/#services',
+    slug: 'optimization',
+    technologies: ['SEO', 'Core Web Vitals', 'Lighthouse', 'Analytics'],
   },
   {
     name: 'Consultation Technique',
     description: 'Audit de code, architecture et conseils en développement web',
-    url: '/services/consultation',
+    url: '/#services',
     slug: 'consultation',
+    technologies: ['Code Review', 'Architecture', 'Performance', 'Scalability'],
   },
 ]
 
@@ -200,13 +211,34 @@ export function generateFrenchSEOMetadata(locale: string): Metadata {
 
   const seoData = {
     title: isHomePage
-      ? 'SIDIKOFF DIGITAL - Développeur Web Full Stack à Paris et Toulouse | Expert React Next.js'
-      : `SIDIKOFF DIGITAL - Développeur Web Full Stack`,
+      ? 'SIDIKOFF DIGITAL - Création de Sites Web modernes | Agence Web'
+      : `SIDIKOFF DIGITAL - Agence Web`,
     description:
-      'Développeur Web Full Stack expert en React, Next.js, TypeScript. Services de développement web professionnel à Paris et Toulouse. Portfolio, consultation technique et solutions sur mesure.',
+      'Développeur Web Full Stack spécialisé en React, Next.js, TypeScript. Solutions de développement web modernes, applications sur mesure, optimisation SEO et consultation technique.',
     keywords: [
       'développeur web paris',
       'développeur web toulouse',
+      'agence web paris',
+      'agence web toulouse',
+      'agence web france',
+      'développeur web lyon',
+      'développeur web marseille',
+      'développeur web bordeaux',
+      'développeur web nice',
+      'développeur web nantes',
+      'développeur web lille',
+      'développeur web strasbourg',
+      'développeur web montpellier',
+      'développeur web rennes',
+      'développeur web toulon',
+      'développeur web mulhouse',
+      'développeur web parisien',
+      'développeur web toulousain',
+      'développeur web freelance',
+      'développeur web indépendant',
+      'développeur web expert',
+      'développeur web professionnel',
+      'développeur web france',
       'développeur full stack',
       'expert react',
       'next.js developer',
@@ -216,13 +248,17 @@ export function generateFrenchSEOMetadata(locale: string): Metadata {
       'développement frontend',
       'développement backend',
       'optimisation seo',
-      'applications web',
-      'sites web professionnels',
+      'site web',
+      'site web professionnel',
+      'applications web modernes',
+      'sites internet professionnels',
+      'développement sur mesure',
+      'solutions web innovantes',
     ],
     canonicalUrl: 'https://sidikoff.com/',
     locale: locale as Locale,
     alternateLanguages: {
-      fr: 'https://sidikoff.com/fr',
+      fr: 'https://sidikoff.com/',
       en: 'https://sidikoff.com/en',
       ru: 'https://sidikoff.com/ru',
     },
@@ -251,54 +287,60 @@ export function generateLanguageAlternates(
 // Create canonical URL
 export function createCanonicalUrl(path: string, locale: Locale): string {
   const cleanPath = path.startsWith('/') ? path.slice(1) : path
+
+  // French is the default locale, no prefix needed
+  if (locale === 'fr') {
+    return `${DEFAULT_SEO.siteUrl}${cleanPath ? '/' + cleanPath : ''}`
+  }
+
+  // Other locales get prefixes
   return `${DEFAULT_SEO.siteUrl}/${locale}${cleanPath ? '/' + cleanPath : ''}`
 }
 
 // Generate local business schema
-export function generateLocalBusinessSchema(location: LocalBusiness) {
+export function generateLocalBusinessSchema(business: LocalBusiness) {
   return {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': `${location.url}#LocalBusiness-${location.address.addressLocality}`,
-    name: location.name,
-    description: `Services de développement web professionnel à ${location.address.addressLocality}. Expert en React, Next.js, TypeScript pour des solutions web modernes et performantes.`,
-    url: location.url,
-    telephone: location.telephone,
+    '@type': 'ProfessionalService',
+    '@id': `${business.url}#LocalBusiness`,
+    name: business.name,
+    description: `Développeur Web Full Stack spécialisé en React, Next.js, TypeScript. Solutions de développement web modernes et performantes pour entreprises et startups.`,
+    url: business.url,
+    telephone: business.telephone,
+    email: business.email,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: location.address.streetAddress,
-      addressLocality: location.address.addressLocality,
-      postalCode: location.address.postalCode,
-      addressCountry: location.address.addressCountry,
+      addressCountry: business.address.addressCountry,
+      addressLocality: business.address.addressLocality,
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: location.geo.latitude,
-      longitude: location.geo.longitude,
+      latitude: business.geo.latitude,
+      longitude: business.geo.longitude,
     },
-    areaServed: location.areaServed.map((area) => ({
-      '@type': 'City',
+    areaServed: business.areaServed.map((area) => ({
+      '@type': 'Place',
       name: area,
     })),
-    hasMap: location.hasMap,
-    sameAs: ['https://github.com/sidikoff', 'https://linkedin.com/in/sidikoff'],
+    sameAs: [
+      'https://github.com/sidikoff',
+      'https://linkedin.com/in/sidikoff',
+      'https://twitter.com/sidikoffdigital',
+    ],
     serviceArea: {
-      '@type': 'GeoCircle',
-      geoMidpoint: {
-        '@type': 'GeoCoordinates',
-        latitude: location.geo.latitude,
-        longitude: location.geo.longitude,
-      },
-      geoRadius: '50',
+      '@type': 'Country',
+      name: 'France',
     },
     priceRange: '€€',
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5.0',
-      reviewCount: '25',
+      reviewCount: '20',
     },
     serviceType: mainServices.map((service) => service.name),
     knowsAbout: [
+      'Web Development',
+      'Frontend Development',
       'React Development',
       'Next.js Development',
       'TypeScript Programming',
@@ -307,22 +349,16 @@ export function generateLocalBusinessSchema(location: LocalBusiness) {
       'Backend Development',
       'SEO Optimization',
       'Web Performance',
+      'Modern Web Applications',
     ],
-    slogan: 'Développement web moderne et performant',
-    foundingDate: '2020',
-    employee: {
+    slogan: 'Votre transformation digitale commence ici',
+    foundingDate: '2025',
+    founder: {
       '@type': 'Person',
-      name: 'SIDIKOFF DIGITAL',
+      name: 'Sardorbek SIDIKOV',
       jobTitle: 'Développeur Web Full Stack',
-      worksFor: location.name,
-    },
-    makesOffer: {
-      '@type': 'Offer',
-      itemOffered: {
-        '@type': 'Service',
-        serviceType: 'Développement Web',
-        provider: location.name,
-      },
+      worksFor: business.name,
+      sameAs: ['https://github.com/ssidikov', 'https://linkedin.com/in/sardorbeksidikov'],
     },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
@@ -334,8 +370,8 @@ export function generateLocalBusinessSchema(location: LocalBusiness) {
           name: service.name,
           description: service.description,
           provider: {
-            '@type': 'LocalBusiness',
-            name: location.name,
+            '@type': 'ProfessionalService',
+            name: business.name,
           },
         },
       })),
@@ -349,7 +385,7 @@ export const organizationSchema = {
   '@type': 'Organization',
   '@id': 'https://sidikoff.com#Organization',
   name: 'SIDIKOFF DIGITAL',
-  legalName: 'SIDIKOFF DIGITAL - Développeur Web Full Stack',
+  legalName: 'SIDIKOFF DIGITAL - Création de Sites Web | Agence Web',
   url: 'https://sidikoff.com',
   logo: {
     '@type': 'ImageObject',
@@ -358,51 +394,41 @@ export const organizationSchema = {
     height: 100,
   },
   description:
-    'Expert en développement web full stack spécialisé en React, Next.js, TypeScript. Services professionnels à Paris et Toulouse.',
-  foundingDate: '2020',
+    'Expert en développement web full stack spécialisé en React, Next.js, TypeScript. Services professionnels en France, à Paris, Mulhouse, Strasbourg, Toulouse, Lyon.',
+  foundingDate: '2025',
   founder: {
     '@type': 'Person',
-    name: 'SIDIKOFF DIGITAL',
+    name: 'Sardorbek SIDIKOV',
     jobTitle: 'Développeur Web Full Stack',
-    url: 'https://sidikoff.com/about',
+    url: 'https://sidikoff.com/',
+    sameAs: ['https://github.com/ssidikov', 'https://linkedin.com/in/sardorbeksidikov'],
   },
   contactPoint: [
     {
       '@type': 'ContactPoint',
-      telephone: '+33123456789',
+      telephone: '+33626932734',
+      email: 's.sidikoff@gmail.com',
       contactType: 'Customer Service',
       areaServed: 'FR',
       availableLanguage: ['French', 'English', 'Russian'],
     },
   ],
-  address: [
-    {
-      '@type': 'PostalAddress',
-      streetAddress: '15 Rue de la République',
-      addressLocality: 'Paris',
-      postalCode: '75011',
-      addressCountry: 'FR',
-    },
-    {
-      '@type': 'PostalAddress',
-      streetAddress: '25 Rue du Taur',
-      addressLocality: 'Toulouse',
-      postalCode: '31000',
-      addressCountry: 'FR',
-    },
-  ],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '77 Ter Rue Michel Ange',
+    postalCode: '75016',
+    addressLocality: 'Paris',
+    addressRegion: 'Île-de-France',
+    addressCountry: 'FR',
+  },
   areaServed: [
     {
       '@type': 'Country',
       name: 'France',
     },
     {
-      '@type': 'City',
-      name: 'Paris',
-    },
-    {
-      '@type': 'City',
-      name: 'Toulouse',
+      '@type': 'Place',
+      name: 'Europe',
     },
   ],
   knowsAbout: [
@@ -414,6 +440,8 @@ export const organizationSchema = {
     'Backend Development',
     'SEO Optimization',
     'Web Performance Optimization',
+    'Modern Web Applications',
+    'API Development',
   ],
   serviceArea: {
     '@type': 'Country',
@@ -435,7 +463,11 @@ export const organizationSchema = {
       },
     })),
   },
-  sameAs: ['https://github.com/sidikoff', 'https://linkedin.com/in/sidikoff'],
+  sameAs: [
+    'https://github.com/ssidikov',
+    'https://linkedin.com/in/sardorbeksidikov',
+    'https://twitter.com/sidikoffdigital',
+  ],
 }
 
 // Structured data generators for better SEO
