@@ -9,9 +9,10 @@ import Section, { SectionHeader } from '@/components/ui/Section'
 interface ServicesProps {
   dictionary: Dictionary['services']
   locale: string
+  className?: string
 }
 
-export function Services({ dictionary: dict, locale }: ServicesProps) {
+export function Services({ dictionary: dict, locale, className }: ServicesProps) {
   const services = [
     {
       title: dict.web_creation.title,
@@ -50,6 +51,7 @@ export function Services({ dictionary: dict, locale }: ServicesProps) {
       background="pattern"
       padding="lg"
       contentWidth="wide"
+      className={className || ''}
       backgroundConfig={{
         image: '/images/bg-image-3.svg',
         backgroundColor: '#f1f5f9',
