@@ -1,0 +1,269 @@
+[
+  {
+    "id": "1",
+    "title": "Kasa",
+    "description": "A rental platform with a responsive design.",
+    "image": "/images/projects/kasa.webp",
+    "longDescription": "Kasa is a modern rental platform with an intuitive interface and fully responsive design. Users can easily search and book apartments using convenient navigation and dynamic dropdown menus. Built with React and SASS, Kasa delivers high performance and a stylish look on any device. It's the perfect choice for businesses looking to offer clients a seamless online rental experience.",
+    "technologies": [
+      "React",
+      "SASS"
+    ],
+    "link": "https://ssidikov.github.io/kasa/",
+    "category": "Web"
+  },
+  {
+    "id": "2",
+    "title": "SportSee",
+    "description": "A dashboard for analyzing fitness data.",
+    "image": "/images/projects/sport-see.webp",
+    "longDescription": "SportSee is an interactive dashboard for analyzing fitness data, designed for fitness companies and trainers. The system visualizes key activity metrics, integrates APIs, and builds charts using Recharts. With a modern tech stack (React, SASS, Axios) and thoughtful architecture, SportSee helps users track progress and make data-driven decisions. A great example for anyone looking to build an analytics platform for sports and wellness.",
+    "technologies": [
+      "React",
+      "React Router",
+      "Recharts",
+      "SASS",
+      "Axios"
+    ],
+    "link": "https://ssidikov.github.io/SportSee/",
+    "category": "Dashboard"
+  },
+  {
+    "id": "3",
+    "title": "ArgentBank",
+    "description": "A banking interface for account management.",
+    "image": "/images/projects/argent-bank.webp",
+    "longDescription": "ArgentBank is a secure and convenient banking platform for online account management. The system implements authentication, state management via Redux, and REST API integration. The interface is built with React for fast performance and excellent UX. ArgentBank is the ideal solution for financial companies looking to provide clients with modern online banking.",
+    "technologies": [
+      "React",
+      "Redux",
+      "React Router",
+      "REST API",
+      "Swagger"
+    ],
+    "link": "https://ssidikov.github.io/Argent-Bank/",
+    "category": "Finance"
+  },
+  {
+    "id": "4",
+    "title": "HRnet",
+    "description": "A modern application for managing employee records.",
+    "image": "/images/projects/hrNet.webp",
+    "longDescription": "HRnet is a modern HR application for managing employee records, allowing users to add, view, and edit staff easily. Built with React, Redux Toolkit, and Material-UI, it features a responsive interface, local storage, and form validation. HRnet is a great tool for HR departments looking to automate processes and boost efficiency.",
+    "technologies": [
+      "React",
+      "Redux Toolkit",
+      "Material-UI",
+      "SASS",
+      "Vite",
+      "date-fns"
+    ],
+    "link": "https://ssidikov.github.io/HRnet/",
+    "category": "HR"
+  },
+  {
+    "id": "5",
+    "title": "Les petits plats",
+    "description": "Development of a search algorithm for a cooking recipe platform with performance optimization.",
+    "image": "/images/projects/petits-plats.webp",
+    "longDescription": "Les petits plats is a recipe search platform with optimized algorithms and an intuitive interface. The project implements two search algorithms, compares their performance, and follows Green Code principles. Using JavaScript, Bootstrap, and functional programming, the site is fast and user-friendly for anyone looking for the best recipes online.",
+    "technologies": [
+      "JavaScript",
+      "Bootstrap",
+      "HTML",
+      "SASS",
+      "Functional Programming",
+      "Performance Analysis"
+    ],
+    "link": "https://ssidikov.github.io/PetitsPlats2.0/",
+    "category": "Recipe"
+  },
+  {
+    "id": "6",
+    "title": "Trendy Cookies",
+    "description": "A website for ordering trendy cookies.",
+    "image": "/images/projects/cookies.webp",
+    "longDescription": "Trendy Cookies is a stylish website for ordering trendy sweets, built with Angular. The platform is simple, responsive, and beautifully designed, making the ordering process quick and easy. Perfect for bakeries looking to boost online sales.",
+    "technologies": [
+      "Angular",
+      "CSS",
+      "HTML"
+    ],
+    "link": "https://ssidikov.github.io/cookies_angular/",
+    "category": "Ecommerce"
+  },
+  {
+    "id": "7",
+    "title": "Fisheye",
+    "description": "An accessible platform for photographers to showcase their portfolios.",
+    "image": "/images/projects/fisheye.webp",
+    "longDescription": "Fisheye is a web application that allows photographers to present their portfolios. It includes features like dynamic page rendering, LightBox for media, contact forms, and like management. The project focuses on accessibility, modularity, and using JavaScript design patterns.",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "JSON",
+      "AChecker"
+    ],
+    "link": "https://ssidikov.github.io/Front-End-Fisheye/",
+    "category": "Portfolio"
+  },
+  {
+    "id": "8",
+    "title": "GameOn Landing Page",
+    "description": "A dynamic landing page for a gaming conference and contest organization.",
+    "image": "/images/projects/game-on.webp",
+    "longDescription": "GameOn is a landing page for a small company specializing in organizing gaming conferences and contests. The project involves dynamic interactions, form validation, responsive design, and uses JavaScript to manipulate HTML and CSS.",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Flexbox"
+    ],
+    "link": "https://ssidikov.github.io/GameOn-website-FR/",
+    "category": "Landing"
+  },
+  {
+    "id": "9",
+    "title": "Ohmyfood Paris",
+    "description": "A dynamic page showcasing the menus of four Parisian restaurants with online booking and menu composition.",
+    "image": "/images/projects/ohmyfood.webp",
+    "longDescription": "This project involves developing a webpage presenting the menus of four renowned Parisian restaurants, with online booking functionality and menu composition. The site incorporates CSS animations to enhance user experience and was designed using a mobile-first approach.",
+    "technologies": [
+      "HTML",
+      "SASS",
+      "CSS Animations",
+      "Figma",
+      "Flexbox"
+    ],
+    "link": "https://ssidikov.github.io/OhMyFood/",
+    "category": "Restaurant"
+  },
+  {
+    "id": "10",
+    "title": "Billed Expense Feature",
+    "description": "Debugging and testing the employee expense submission feature for a SaaS HR solution.",
+    "image": "/images/projects/billed.webp",
+    "longDescription": "This project involved debugging and writing unit, integration, and end-to-end tests for the employee expense submission feature. Tasks included fixing bugs using Chrome Debugger, ensuring over 80% test coverage, and drafting a structured manual test plan for core functionalities.",
+    "technologies": [
+      "JavaScript",
+      "Jest",
+      "Chrome Debugger",
+      "End-to-End Testing"
+    ],
+    "link": "https://github.com/ssidikov/Billed-app-FR-Front/",
+    "category": "Testing"
+  },
+  {
+    "id": "11",
+    "title": "Booki - Travel Agency Homepage",
+    "description": "Developed a responsive homepage for a travel agency using HTML and CSS.",
+    "image": "/images/projects/booki.webp",
+    "longDescription": "In this project, I developed the homepage for a travel agency using HTML and CSS. The focus was on creating a responsive design compatible with various screen sizes and devices, using the Figma designs provided for mobile, tablet, and desktop versions.",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "Figma",
+      "Flexbox",
+      "Grid"
+    ],
+    "link": "https://ssidikov.github.io/Booki/",
+    "category": "Travel"
+  },
+  {
+    "id": "12",
+    "title": "Burger House - Landing Page",
+    "description": "Created a landing page with a burger order form.",
+    "image": "/images/projects/burger-house.webp",
+    "longDescription": "This project involves creating a landing page for a burger restaurant with an interactive order form. The page allows users to select and customize their burger order.",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Flexbox"
+    ],
+    "link": "https://ssidikov.github.io/burgers-landing/",
+    "category": "Restaurant"
+  },
+  {
+    "id": "13",
+    "title": "Learn Home - Tutoring App",
+    "description": "Defining the requirements and designing the solution for a tutoring app.",
+    "image": "/images/projects/learn-home.webp",
+    "longDescription": "This project involved defining the requirements and creating a technical solution for a tutoring application for the Learn@Home association. The goal was to identify the functional needs of the platform, design user stories, create use case diagrams, develop mockups using Figma, and build a Kanban board for project management. The project was executed using an agile methodology to ensure efficient planning and clear communication with the client and development team.",
+    "technologies": [
+      "Figma",
+      "Kanban",
+      "User Stories",
+      "Agile Methodology",
+      "UX/UI Design"
+    ],
+    "link": "#",
+    "category": "Education"
+  },
+  {
+    "id": "14",
+    "title": "Landing Page for Euclid - Project Systems",
+    "description": "Landing page for the company Euclid - Project Systems.",
+    "image": "/images/projects/euclid.webp",
+    "longDescription": "Developed a responsive landing page for the company Euclid - Project Systems, ensuring a modern and professional look.",
+    "technologies": [
+      "Figma",
+      "HTML",
+      "CSS",
+      "Flexbox"
+    ],
+    "link": "https://ssidikov.github.io/Evklid_website/",
+    "category": "Landing"
+  },
+  {
+    "id": "15",
+    "title": "Restaurant Chez Liqi",
+    "description": "Web site for the restaurant Chez Liqi, featuring a modern design and intuitive user interface.",
+    "image": "/images/projects/chez-liqi.webp",
+    "longDescription": "Restaurant Chez Liqi is a modern website for a restaurant, offering an intuitive user interface and responsive design. Users can easily navigate through the menu, make reservations, and discover the chef's specialties.",
+    "technologies": [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "TypeScript"
+    ],
+    "link": "https://chez-liqi.vercel.app/",
+    "category": "Restaurant",
+    "featured": true
+  },
+  {
+    "id": "16",
+    "title": "Portfolio Website",
+    "description": "My personal portfolio website showcasing my projects and skills.",
+    "image": "/images/projects/portfolio.webp",
+    "longDescription": "This is my personal portfolio website where I showcase my projects, skills, and experiences. It is designed to be responsive and user-friendly, allowing visitors to easily navigate through my work.",
+    "technologies": [
+      "Next.js",
+      "Tailwind CSS",
+      "React",
+      "TypeScript"
+    ],
+    "link": "https://sidikov.tech/",
+    "category": "Portfolio"
+  },
+  {
+    "id": "17",
+    "title": "Restaurant Le Moderne",
+    "description": "Le Moderne - Restaurant Management System",
+    "image": "/images/projects/resto.webp",
+    "longDescription": "Developed a modern web platform for a Parisian restaurant featuring a complete reservation management system. Includes secure admin dashboard with authentication and intuitive online booking interface.",
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "NextAuth",
+      "Tailwind CSS",
+      "Neon Database",
+      "Nodemailer"
+    ],
+    "link": "https://resto-parisien.vercel.app/",
+    "category": "Restaurant",
+    "featured": true
+  }
+]

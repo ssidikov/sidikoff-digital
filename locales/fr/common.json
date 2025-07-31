@@ -1,0 +1,368 @@
+{
+  "404": {
+    "title": "Page Non Trouvée",
+    "description": "La page que vous cherchez n'existe pas ou a été déplacée.",
+    "search_placeholder": "Rechercher sur notre site...",
+    "search_button": "Rechercher",
+    "go_home": "Retour Accueil",
+    "popular_pages": "Pages Populaires"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "pricing": "Tarifs",
+    "language": "Langue"
+  },
+  "hero": {
+    "badge": "Nouveau : Lancez votre projet web en 14 jours",
+    "title": "Des solutions web sur mesure pour digitaliser vos services",
+    "subtitle": "Sites web personnalisés, design professionnel, visibles et rentables, qui génèrent de vrais résultats pour votre entreprise — plus de trafic, plus de clients, plus d'impact.",
+    "cta_primary": "Discuter de Mon Projet",
+    "cta_secondary": "Voir Nos Réalisations",
+    "features": [
+      {
+        "title": "Résultats garantis",
+        "icon": "guarantee"
+      },
+      {
+        "title": "Réponse sous 24h",
+        "icon": "response"
+      },
+      {
+        "title": "Support technique réactif",
+        "icon": "support"
+      }
+    ]
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Des solutions web accessibles et sur mesure pour votre entreprise",
+    "web_creation": {
+      "title": "Création de sites web sur mesure",
+      "subtitle": "Création de Sites Web – De A à Z",
+      "features": [
+        "Sur mesure",
+        "Responsive"
+      ],
+      "description": "Transformez votre vision en réalité digitale avec notre expertise complète en développement web. Nous créons des sites web modernes, rapides et optimisés pour le référencement Google. De la conception UX/UI à la mise en ligne, chaque projet est développé sur mesure avec les dernières technologies (React, Next.js, WordPress). Obtenez un site professionnel qui convertit vos visiteurs en clients et booste votre chiffre d'affaires dès le premier mois."
+    },
+    "web_redesign": {
+      "title": "Refonte et redesign de sites web",
+      "features": [
+        "Modernisation",
+        "UX/UI"
+      ],
+      "description": "Votre site web actuel ne génère pas assez de ventes ? Notre service de refonte transforme votre présence en ligne en machine à convertir. Nous analysons votre taux de conversion, optimisons l'expérience utilisateur et modernisons le design pour doubler vos résultats. Interface mobile-first, vitesse de chargement optimisée, parcours utilisateur fluide - tout est pensé pour maximiser vos revenus et réduire le taux de rebond de 40%."
+    },
+    "seo_optimization": {
+      "title": "Optimisation SEO et référencement",
+      "features": [
+        "Google Ready",
+        "Analytics"
+      ],
+      "description": "Dominez la première page Google et multipliez votre trafic organique par 5 en 6 mois. Notre stratégie SEO complète inclut : audit technique approfondi, optimisation on-page, création de contenu optimisé, netlinking de qualité et suivi des performances. Nous ciblons les mots-clés rentables de votre secteur pour attirer des prospects qualifiés."
+    },
+    "maintenance": {
+      "title": "Maintenance and Support",
+      "features": [
+        "Support",
+        "Mises à jour"
+      ],
+      "description": "Protégez votre investissement digital avec notre service de maintenance premium. Sécurité renforcée, sauvegardes automatiques, mises à jour régulières, monitoring 24/7 et support prioritaire. Nous garantissons 99.9% de disponibilité et un temps de réponse inférieur à 2h. Évitez les pannes coûteuses et concentrez-vous sur votre business pendant que nous maintenons votre site en parfait état de fonctionnement."
+    },
+    "cta_banner": {
+      "background": "Transformons ensemble vos idées en réalité numérique",
+      "description": "Nous accompagnons votre croissance digitale avec des solutions innovantes et sur mesure. Contactez-nous pour une consultation gratuite et découvrez comment nous pouvons booster votre présence en ligne.",
+      "cta": "Démarrer votre projet"
+    },
+    "buttons": {
+      "request_quote": "Demander un devis",
+      "view_pricing": "Voir les tarifs"
+    }
+  },
+  "blog": {
+    "title": "Notre Blog",
+    "subtitle": "Insights, conseils et tendances en développement web et innovation digitale",
+    "all_posts": "Tous les articles",
+    "featured_posts": "Articles en vedette",
+    "latest_posts": "Derniers articles",
+    "read_more": "Lire plus",
+    "author": "Auteur",
+    "min_read": "min de lecture",
+    "published_on": "Publié le",
+    "related_posts": "Articles connexes",
+    "share_article": "Partager cet article",
+    "back_to_blog": "Retour au blog",
+    "no_posts": "Aucun article trouvé",
+    "loading": "Chargement des articles...",
+    "categories": "Catégories",
+    "search_placeholder": "Rechercher des articles...",
+    "cta": {
+      "title": "Prêt à démarrer votre projet digital ?",
+      "description": "Créons quelque chose d'extraordinaire ensemble. Contactez-nous pour une consultation gratuite et transformez votre vision en réalité.",
+      "button": "Obtenir un devis gratuit",
+      "secondary_button": "Voir nos services"
+    }
+  },
+  "faq": {
+    "title": "Questions Fréquemment Posées",
+    "subtitle": "Tout Ce Que Vous Devez Savoir",
+    "categories": {
+      "general": "Général",
+      "pricing": "Tarification",
+      "support": "Support"
+    },
+    "questions": {
+      "what_we_do": {
+        "question": "Quels services offrez-vous ?",
+        "answer": "Nous offrons des solutions numériques complètes incluant le développement web, le développement d'applications mobiles, le marketing numérique et le conseil technologique.",
+        "category": "general"
+      },
+      "timeline": {
+        "question": "Combien de temps prend un projet typique ?",
+        "answer": "Les délais de projet varient selon la portée et la complexité. Un site web simple prend généralement 4-6 semaines, tandis que les applications complexes peuvent prendre 3-6 mois. Nous proposons également un développement rapide en 14 jours.",
+        "category": "general"
+      },
+      "pricing_model": {
+        "question": "Comment structurez-vous vos tarifs ?",
+        "answer": "Nous offrons des modèles de tarification flexibles incluant des projets à prix fixe, des tarifs horaires et des accords de provision basés sur vos besoins spécifiques.",
+        "category": "pricing"
+      },
+      "support_included": {
+        "question": "Le support continu est-il inclus ?",
+        "answer": "Oui, nous fournissons des packages de support et maintenance continus pour assurer que vos solutions numériques continuent de performer de manière optimale.",
+        "category": "support"
+      },
+      "technologies": {
+        "question": "Quelles technologies utilisez-vous ?",
+        "answer": "Nous utilisons des technologies modernes incluant React, Next.js, Node.js et des plateformes cloud comme Vercel.",
+        "category": "general"
+      },
+      "consultation": {
+        "question": "Offrez-vous des consultations gratuites ?",
+        "answer": "Oui, nous offrons une consultation initiale gratuite pour discuter de vos exigences de projet et fournir des recommandations stratégiques.",
+        "category": "pricing"
+      }
+    },
+    "cta": {
+      "title": "Vous avez encore des questions ?",
+      "description": "Contactez notre équipe pour une consultation personnalisée sur votre projet.",
+      "button": "Nous Contacter"
+    }
+  },
+  "contact": {
+    "title": "Prenez Contact",
+    "subtitle": "Prêt à Commencer Votre Projet ?",
+    "description": "Contactez-nous aujourd'hui pour discuter de votre projet et voir comment nous pouvons vous aider à atteindre vos objectifs numériques.",
+    "quickContact": "Contact Rapide",
+    "social": "Suivez-nous",
+    "socialDesc": "Suivez-nous sur les réseaux sociaux pour les dernières mises à jour, insights et contenu en coulisses.",
+    "form": {
+      "title": "Envoyez-nous un message",
+      "name": {
+        "label": "Nom Complet",
+        "placeholder": "Entrez votre nom complet"
+      },
+      "email": {
+        "label": "Adresse Email",
+        "placeholder": "Entrez votre adresse email"
+      },
+      "phone": {
+        "label": "Numéro de Téléphone",
+        "placeholder": "Entrez votre numéro de téléphone"
+      },
+      "subject": {
+        "label": "Sujet",
+        "placeholder": "De quoi s'agit-il ?"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Parlez-nous de votre projet..."
+      },
+      "submit": "Envoyer le Message",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé avec succès !",
+      "success_description": "Votre message a été envoyé avec succès. Vous recevrez bientôt un email de confirmation et nous vous répondrons dans les plus brefs délais.",
+      "error": "Échec de l'envoi du message. Veuillez réessayer.",
+      "error_description": "Une erreur s'est produite lors de l'envoi de votre message. Veuillez vérifier vos informations et réessayer."
+    },
+    "info": {
+      "title": "Informations de Contact",
+      "localisations": "Localisations",
+      "locations": [
+        "Paris, France",
+        "Toulouse, France"
+      ],
+      "phone_label": "Téléphone",
+      "email_label": "Email",
+      "address": "Paris, France | Toulouse, France",
+      "phone": "+33 6 26 93 27 34",
+      "email": "s.sidikoff@gmail.com",
+      "hours": "Lundi - Vendredi: 9h00 - 18h00"
+    },
+    "channels": {
+      "title": "Connectez-vous avec Nous",
+      "email": "Email",
+      "emailDesc": "Envoyez-nous un email pour des demandes détaillées",
+      "whatsapp": "WhatsApp",
+      "whatsappDesc": "Messagerie rapide pour les questions urgentes",
+      "telegram": "Telegram",
+      "telegramDesc": "Connectez-vous via Telegram messenger",
+      "phone": "Téléphone",
+      "phoneDesc": "Appelez-nous directement pour un support immédiat"
+    }
+  },
+  "footer": {
+    "description": "Solutions numériques professionnelles qui génèrent de vrais résultats pour votre entreprise.",
+    "quick_links": "Liens Rapides",
+    "services_links": "Services",
+    "contact_info": "Infos Contact",
+    "social_media": "Suivez-nous",
+    "services": {
+      "web_creation": "Création de sites web",
+      "web_redesign": "Refonte / Redesign",
+      "seo_optimization": "SEO & Optimisation",
+      "maintenance": "Maintenance & Support",
+      "web_applications": "Applications web",
+      "ecommerce": "E-commerce"
+    }
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "try_again": "Réessayer",
+    "learn_more": "En Savoir Plus",
+    "view_all": "Voir Tout",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "close": "Fermer",
+    "open": "Ouvrir",
+    "badge_quality": "Garantie qualité",
+    "badge_response": "Réponse rapide",
+    "badge_support": "Support 7/7",
+    "footer_copyright": "Tous droits réservés | Agence web Paris - Toulouse | Développeur web freelance",
+    "legal_link": "Mentions légales"
+  },
+  "projects": {
+    "title": "Tous les Projets",
+    "filter_all": "Tous",
+    "filter_featured": "En vedette"
+  },
+  "pricing": {
+    "title": "Nos Offres",
+    "subtitle": "Transparentes & Adaptées",
+    "description": "Choisissez la solution qui correspond parfaitement à vos besoins et à votre budget. Tous nos projets incluent un design moderne, un développement professionnel et un support complet.",
+    "guarantee_badge": "Résultats garantis • Livraison garantie",
+    "plans": {
+      "essentiel": {
+        "name": "Essentiel",
+        "price": "à partir de 590 €",
+        "description": "Parfait pour lancer votre activité ou moderniser votre image en ligne",
+        "features": [
+          "Page unique claire et professionnelle",
+          "Design moderne qui rassure",
+          "Texte structuré et impactant",
+          "Optimisation SEO de base",
+          "Formulaire de contact intégré",
+          "Compatible mobile/tablette/ordinateur",
+          "🧩 Objectif : avoir une présence pro, rapidement, sans complexité"
+        ],
+        "cta": "Commencer"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "à partir de 900 €",
+        "description": "Solution complète pour les entreprises en croissance avec besoins avancés",
+        "features": [
+          "Site complet 4 à 6 pages (Accueil, Services, À propos, Contact, etc.)",
+          "Rédaction de contenus sur-mesure",
+          "Optimisation SEO avancée (Google Business, balises, structure)",
+          "Statistiques simples (Google Analytics)",
+          "Design premium avec animations modernes",
+          "Formation courte pour gérer votre site",
+          "Livraison en 14 jours ouvrés",
+          "🔥 Recommandé pour créer une vraie autorité en ligne et générer des leads"
+        ],
+        "cta": "Choisir Pro"
+      },
+      "entreprise": {
+        "name": "Entreprise",
+        "price": "Sur devis",
+        "description": "Solution haut de gamme adaptée à votre stratégie business",
+        "features": [
+          "Analyse personnalisée de vos objectifs et de votre marché",
+          "Développement spécifique (ex : réservation, espace client, boutique en ligne)",
+          "Design unique et totalement sur-mesure",
+          "Stratégie SEO complète (contenu, technique, sémantique)",
+          "Accompagnement digital sur 1 à 3 mois",
+          "Fonctionnalités avancées (automatisation, blog, podcast, etc.)",
+          "Support continu et conseils personnalisés",
+          "🎯 Objectif : transformer votre site en un outil de croissance et de conversion"
+        ],
+        "cta": "Nous contacter"
+      }
+    },
+    "maintenance": {
+      "title": "🔧 Maintenance mensuelle – Support continu",
+      "billing": "Tarif : à partir de 59€/mois",
+      "features": [
+        "Mises à jour techniques régulières",
+        "Modifications ou ajouts de sections/pages",
+        "Ajout ou modification de contenu (textes, images, etc.)",
+        "Support par WhatsApp, Telegram ou email",
+        "Sauvegardes régulières"
+      ],
+      "cta": "Demander un devis"
+    }
+  },
+  "legal": {
+    "title": "Mentions légales",
+    "company_info_title": "Informations sur l'entreprise",
+    "company_name_label": "Nom commercial",
+    "company_name": "SIDIKOFF DIGITAL",
+    "company_type_label": "Forme juridique",
+    "company_type": "Micro-entreprise",
+    "siren_label": "Numéro SIREN",
+    "siren": "943 266 213",
+    "address_label": "Adresse du siège social",
+    "address": "Paris, France",
+    "phone_label": "Téléphone",
+    "phone": "+33 6 26 93 27 34",
+    "email_label": "Email",
+    "email": "s.sidikoff@gmail.com",
+    "director_title": "Directeur de la publication",
+    "director_name": "Sardorbek SIDIKOV",
+    "hosting_title": "Hébergement",
+    "host_label": "Hébergeur",
+    "host": "Vercel Inc.",
+    "host_address_label": "Adresse",
+    "host_address": "340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis",
+    "host_website_label": "Site web",
+    "host_website": "vercel.com",
+    "ip_title": "Propriété intellectuelle",
+    "ip_text": "Ce site web et tous ses éléments (textes, images, logos, etc.) sont protégés par le droit d'auteur. Toute reproduction, même partielle, est interdite sans autorisation préalable.",
+    "data_title": "Protection des données personnelles",
+    "data_text": "Conformément au RGPD, vous disposez de droits sur vos données personnelles. Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes et ne sont pas transmises à des tiers. Vous pouvez exercer vos droits concernant vos données personnelles en contactant à l'adresse e-mail : s.sidikoff@gmail.com.",
+    "cookies_title": "Cookies",
+    "cookies_text": "Ce site utilise des cookies essentiels au fonctionnement du site. En continuant à naviguer sur ce site, vous acceptez leur utilisation."
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Découvrez nos réalisations web",
+    "filter": {
+      "all": "Tous",
+      "web": "Sites Web",
+      "mobile": "Mobile",
+      "design": "Design"
+    },
+    "projects": {},
+    "view_project": "Voir Tous les Projets",
+    "live_demo": "Démo Live",
+    "github": "Code Source"
+  }
+}

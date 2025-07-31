@@ -1,0 +1,369 @@
+{
+  "404": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "search_placeholder": "Search our site...",
+    "search_button": "Search",
+    "go_home": "Go Home",
+    "popular_pages": "Popular Pages"
+  },
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "pricing": "Pricing",
+    "language": "Language"
+  },
+  "hero": {
+    "badge": "New: Launch your project in 14 days",
+    "title": "Custom web solutions to digitize your services",
+    "subtitle": "Personalized websites, professional design, visible and profitable, that generate real results for your business — more traffic, more clients, more impact.",
+    "cta_primary": "Discuss the project",
+    "cta_secondary": "View Our Work",
+    "features": [
+      {
+        "title": "Guaranteed results",
+        "icon": "guarantee"
+      },
+      {
+        "title": "Response within 24h",
+        "icon": "response"
+      },
+      {
+        "title": "Responsive technical support",
+        "icon": "support"
+      }
+    ]
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Accessible and tailored web solutions for your business",
+    "web_creation": {
+      "title": "Custom Website Creation",
+      "subtitle": "Website Creation – From A to Z",
+      "features": [
+        "Tailored",
+        "Responsive"
+      ],
+      "description": "Transform your vision into digital reality with our full expertise in web development. We create modern, fast, and Google-optimized websites. From UX/UI design to launch, every project is custom-built with the latest technologies (React, Next.js, WordPress). Get a professional site that converts visitors into clients and boosts your revenue from the first month."
+    },
+    "web_redesign": {
+      "title": "Website Redesign",
+      "features": [
+        "Modernization",
+        "UX/UI"
+      ],
+      "description": "Is your current website not generating enough sales? Our redesign service turns your online presence into a conversion machine. We analyze your conversion rate, optimize user experience, and modernize the design to double your results. Mobile-first interface, optimized loading speed, smooth user journey – everything is designed to maximize your revenue and reduce bounce rate by 40%."
+    },
+    "seo_optimization": {
+      "title": "SEO & Visibility Optimization",
+      "features": [
+        "Google Ready",
+        "Analytics"
+      ],
+      "description": "Dominate Google's first page and multiply your organic traffic by 5 in 6 months. Our complete SEO strategy includes: in-depth technical audit, on-page optimization, optimized content creation, quality link building, and performance tracking. We target profitable keywords in your sector to attract qualified prospects."
+    },
+    "maintenance": {
+      "title": "Maintenance & Technical Support",
+      "features": [
+        "Updates",
+        "Support"
+      ],
+      "description": "Protect your digital investment with our premium maintenance service. Enhanced security, automatic backups, regular updates,24/7 monitoring, and priority support. We guarantee 99.9% uptime and response time under 2h. Avoid costly outages and focus on your business while we keep your site in perfect working order."
+    },
+    "cta_banner": {
+      "background": "Let's turn your ideas into digital reality together",
+      "description": "We support your digital growth with innovative and tailored solutions. Contact us for a free consultation and discover how we can boost your online presence.",
+      "cta": "Start your project"
+    },
+    "buttons": {
+      "request_quote": "Request a quote",
+      "view_pricing": "View pricing"
+    }
+  },
+  "blog": {
+    "title": "Our Blog",
+    "subtitle": "Insights, tips, and trends in web development and digital innovation",
+    "all_posts": "All Posts",
+    "featured_posts": "Featured Posts",
+    "latest_posts": "Latest Posts",
+    "read_more": "Read more",
+    "author": "Author",
+    "min_read": "min read",
+    "published_on": "Published on",
+    "related_posts": "Related Posts",
+    "share_article": "Share this article",
+    "back_to_blog": "Back to Blog",
+    "no_posts": "No blog posts found",
+    "loading": "Loading posts...",
+    "categories": "Categories",
+    "search_placeholder": "Search articles...",
+    "cta": {
+      "title": "Ready to start your digital project?",
+      "description": "Let's create something amazing together. Contact us for a free consultation and transform your vision into reality.",
+      "button": "Get a free quote",
+      "secondary_button": "View our services"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything You Need to Know",
+    "categories": {
+      "general": "General",
+      "pricing": "Pricing",
+      "support": "Support"
+    },
+    "questions": {
+      "what_we_do": {
+        "question": "What services do you offer?",
+        "answer": "We offer comprehensive digital solutions including web development, mobile app development, digital marketing, and technology consulting.",
+        "category": "general"
+      },
+      "timeline": {
+        "question": "How long does a typical project take?",
+        "answer": "Project timelines vary depending on scope and complexity. A simple website typically takes 4-6 weeks, while complex applications may take 3-6 months. We also offer a rapid 14-day development option.",
+        "category": "general"
+      },
+      "pricing_model": {
+        "question": "How do you structure your pricing?",
+        "answer": "We offer flexible pricing models including fixed-price projects, hourly rates, and retainer agreements based on your specific needs.",
+        "category": "pricing"
+      },
+      "support_included": {
+        "question": "Is ongoing support included?",
+        "answer": "Yes, we provide ongoing support and maintenance packages to ensure your digital solutions continue to perform optimally.",
+        "category": "support"
+      },
+      "technologies": {
+        "question": "What technologies do you use?",
+        "answer": "We use modern technologies including React, Next.js, Node.js, and cloud platforms like Vercel.",
+        "category": "general"
+      },
+      "consultation": {
+        "question": "Do you offer free consultations?",
+        "answer": "Yes, we offer a free initial consultation to discuss your project requirements and provide strategic recommendations.",
+        "category": "pricing"
+      }
+    },
+    "cta": {
+      "title": "Still have questions?",
+      "description": "Contact our team for personalized consultation about your project.",
+      "button": "Contact Us"
+    }
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Ready to Start Your Project?",
+    "description": "Contact us today to discuss your project and see how we can help you achieve your digital goals.",
+    "quickContact": "Quick Contact",
+    "social": "Follow Us",
+    "socialDesc": "Follow us on social media for the latest updates, insights, and behind-the-scenes content.",
+    "form": {
+      "title": "Send us a message",
+      "name": {
+        "label": "Full Name",
+        "placeholder": "Enter your full name"
+      },
+      "email": {
+        "label": "Email Address",
+        "placeholder": "Enter your email address"
+      },
+      "phone": {
+        "label": "Phone Number",
+        "placeholder": "Enter your phone number"
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "What is this about?"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Tell us about your project..."
+      },
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "success_description": "Your message has been sent successfully. You will receive a confirmation email shortly and we will respond to you as soon as possible.",
+      "error": "Failed to send message. Please try again.",
+      "error_description": "An error occurred while sending your message. Please check your information and try again."
+    },
+    "info": {
+      "title": "Contact Information",
+      "localisations": "Locations",
+      "locations": [
+        "Paris, France",
+        "Toulouse, France"
+      ],
+      "phone_label": "Phone",
+      "email_label": "Email",
+      "address": "Paris, France | Toulouse, France",
+      "phone": "+33 6 26 93 27 34",
+      "email": "s.sidikoff@gmail.com",
+      "hours": "Monday - Friday: 9:00 AM - 6:00 PM"
+    },
+    "channels": {
+      "title": "Connect With Us",
+      "email": "Email",
+      "emailDesc": "Send us an email for detailed inquiries",
+      "whatsapp": "WhatsApp",
+      "whatsappDesc": "Quick messaging for urgent matters",
+      "telegram": "Telegram",
+      "telegramDesc": "Connect via Telegram messenger",
+      "phone": "Phone",
+      "phoneDesc": "Call us directly for immediate support"
+    }
+  },
+  "footer": {
+    "description": "Professional digital solutions that drive real results for your business.",
+    "quick_links": "Quick Links",
+    "services_links": "Services",
+    "contact_info": "Contact Info",
+    "social_media": "Follow Us",
+    "services": {
+      "web_creation": "Website Creation",
+      "web_redesign": "Redesign / Redesign",
+      "seo_optimization": "SEO & Optimization",
+      "maintenance": "Maintenance & Support",
+      "web_applications": "Web Applications",
+      "ecommerce": "E-commerce"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "try_again": "Try Again",
+    "learn_more": "Learn More",
+    "view_all": "View All",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "open": "Open",
+    "badge_quality": "Guaranteed quality",
+    "badge_response": "Fast response",
+    "badge_support": "7/7 Support",
+    "footer_copyright": "All rights reserved | Web Agency Paris - Toulouse | Freelance web developer",
+    "legal_link": "Legal Notice"
+  },
+  "projects": {
+    "title": "All Projects",
+    "filter_all": "All",
+    "filter_featured": "Featured"
+  },
+  "pricing": {
+    "title": "Our Offers",
+    "subtitle": "Transparent & Tailored",
+    "description": "Choose the solution that perfectly matches your needs and budget. All our projects include modern design, professional development and complete support.",
+    "guarantee_badge": "Guaranteed results • Guaranteed delivery",
+    "plans": {
+      "essentiel": {
+        "name": "Essential",
+        "price": "from €590",
+        "description": "Perfect for launching your business or modernizing your online image",
+        "features": [
+          "Clear and professional single page",
+          "Modern design that reassures",
+          "Structured and impactful text (we help you write it)",
+          "Basic SEO optimization (Google & mobile)",
+          "Integrated contact form",
+          "Mobile/tablet/computer compatible",
+          "Delivery in 7 business days",
+          "🧩 Objective: have a professional presence, quickly, without complexity"
+        ],
+        "cta": "Get Started"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "from €900",
+        "description": "Complete solution for growing businesses with advanced needs",
+        "features": [
+          "Complete 4 to 6 page site (Home, Services, About, Contact, etc.)",
+          "Custom content writing",
+          "Advanced SEO optimization (Google Business, tags, structure)",
+          "Simple statistics (Google Analytics)",
+          "Premium design with modern animations",
+          "Short training to manage your site",
+          "Delivery in 14 business days",
+          "🔥 Recommended to create real online authority and generate leads"
+        ],
+        "cta": "Choose Pro"
+      },
+      "entreprise": {
+        "name": "Enterprise",
+        "price": "On quote",
+        "description": "High-end solution adapted to your business strategy",
+        "features": [
+          "Personalized analysis of your objectives and market",
+          "Specific development (e.g.: booking, customer area, online store)",
+          "Unique and completely custom design",
+          "Complete SEO strategy (content, technical, semantic)",
+          "Digital support for 1 to 3 months",
+          "Advanced features (automation, blog, podcast, etc.)",
+          "Ongoing support and personalized advice",
+          "🎯 Objective: transform your site into a growth and conversion tool"
+        ],
+        "cta": "Contact Us"
+      }
+    },
+    "maintenance": {
+      "title": "🔧 Monthly Maintenance – Ongoing Support",
+      "billing": "💶 Price: from €59/month",
+      "features": [
+        "Regular technical updates (CMS, plugins, security...)",
+        "Modifications or additions of sections/pages (within 2h/month limit)",
+        "Addition or modification of content (texts, images, etc.)",
+        "Support via WhatsApp, Telegram or email",
+        "Regular backups"
+      ],
+      "cta": "Request a quote"
+    }
+  },
+  "legal": {
+    "title": "Legal Notice",
+    "company_info_title": "Company Information",
+    "company_name_label": "Trade Name",
+    "company_name": "SIDIKOFF DIGITAL",
+    "company_type_label": "Legal Form",
+    "company_type": "Sole Proprietorship",
+    "siren_label": "SIREN Number",
+    "siren": "943 266 213",
+    "address_label": "Registered Office Address",
+    "address": "Paris, France",
+    "phone_label": "Phone",
+    "phone": "+33 6 26 93 27 34",
+    "email_label": "Email",
+    "email": "s.sidikoff@gmail.com",
+    "director_title": "Publication Director",
+    "director_name": "Sardorbek SIDIKOV",
+    "hosting_title": "Hosting",
+    "host_label": "Host",
+    "host": "Vercel Inc.",
+    "host_address_label": "Address",
+    "host_address": "340 S Lemon Ave #4133, Walnut, CA 91789, United States",
+    "host_website_label": "Website",
+    "host_website": "vercel.com",
+    "ip_title": "Intellectual Property",
+    "ip_text": "This website and all its elements (texts, images, logos, etc.) are protected by copyright. Any reproduction, even partial, is prohibited without prior authorization.",
+    "data_title": "Personal Data Protection",
+    "data_text": "In accordance with GDPR, you have rights over your personal data. Data collected via the contact form is used only to respond to your requests and is not shared with third parties. You can exercise your rights regarding your personal data by contacting: s.sidikoff@gmail.com.",
+    "cookies_title": "Cookies",
+    "cookies_text": "This site uses cookies essential for its operation. By continuing to browse this site, you accept their use."
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Discover our web projects",
+    "filter": {
+      "all": "All",
+      "web": "Websites",
+      "mobile": "Mobile",
+      "design": "Design"
+    },
+    "projects": {},
+    "view_project": "View All Projects",
+    "live_demo": "Live Demo",
+    "github": "Source Code"
+  }
+}

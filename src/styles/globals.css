@@ -1,0 +1,324 @@
+@import "tailwindcss";
+@import "../styles/section-backgrounds.css";
+
+:root {
+  /* New Color System - Only 4 colors allowed */
+  --background: #F9F7F7;
+  /* Primary background - light cream */
+  --foreground: #112D4E;
+  /* Primary text - dark navy */
+  --primary: #3F72AF;
+  /* Primary actions, links - medium blue */
+  --secondary: #DBE2EF;
+  /* Secondary backgrounds - light blue-gray */
+  --accent: #3F72AF;
+  /* Accent color - same as primary */
+  --muted: #DBE2EF;
+  /* Muted backgrounds - light blue-gray */
+  --border: #DBE2EF;
+  /* Borders - light blue-gray */
+  --card: #ffffff;
+  /* Card backgrounds - pure white for contrast */
+  --shadow: 0 4px 6px -1px rgb(17 45 78 / 0.1);
+  /* Shadow with primary color */
+
+  /* Semantic color mappings */
+  --text-primary: #112D4E;
+  --text-secondary: #3F72AF;
+  --bg-primary: #F9F7F7;
+  --bg-secondary: #DBE2EF;
+  --color-primary: #3F72AF;
+  --color-secondary: #DBE2EF;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground);
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.6s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Utility classes */
+.glass {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary), var(--foreground));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-elevated {
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.card-elevated:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px -5px rgb(0 0 0 / 0.1);
+}
+
+/* Accessibility styles */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Skip link styles */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--accent);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --background: #ffffff;
+    --foreground: #000000;
+    --border: #000000;
+    --accent: #0000ff;
+  }
+
+  [data-theme="dark"] {
+    --background: #000000;
+    --foreground: #ffffff;
+    --border: #ffffff;
+    --accent: #ffff00;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-fadeInUp,
+  .animate-slideIn,
+  .animate-pulse {
+    animation: none;
+  }
+}
+
+
+/* Custom component styles using our 4-color system */
+.btn-primary {
+  background-color: #3F72AF;
+  color: white;
+  border: 2px solid #3F72AF;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #112D4E;
+  border-color: #112D4E;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(63, 114, 175, 0.3);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #3F72AF;
+  border: 2px solid #3F72AF;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #3F72AF;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(63, 114, 175, 0.2);
+}
+
+.card {
+  background-color: white;
+  border: 1px solid #DBE2EF;
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(17, 45, 78, 0.1);
+  border-color: #3F72AF;
+}
+
+/* Section background utilities */
+.bg-primary {
+  background-color: #F9F7F7;
+}
+
+.bg-secondary {
+  background-color: #DBE2EF;
+}
+
+.text-primary {
+  color: #112D4E;
+}
+
+.text-secondary {
+  color: #3F72AF;
+}
+
+/* Glass morphism effects */
+.glass-header {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px) saturate(120%);
+  -webkit-backdrop-filter: blur(15px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+  background: rgba(17, 45, 78, 0.1);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(17, 45, 78, 0.2);
+}
+
+/* Text shadows for better readability on transparent backgrounds */
+.text-shadow-white {
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.text-shadow-dark {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  /* body {
+    background: white !important;
+    color: black !important;
+  } */
+
+  a[href]:after {
+    content: " ("attr(href) ")";
+  }
+}
+
+/* Custom gradient animation for Services section */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}

@@ -1,0 +1,75 @@
+/* Unified background styles for sections */
+
+.section-bg-hero {
+  background-image: url('/images/bg-image.svg');
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 100% auto;
+  background-color: #f8fafc;
+}
+
+.section-bg-services {
+  background-image: url('/images/bg-image-3.svg');
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 100% auto;
+  background-color: #f1f5f9;
+}
+
+.section-bg-portfolio {
+  background-image: url('/images/bg-image-2.svg');
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 100% auto;
+  background-color: #fafafa;
+  transform: scaleX(-1);
+}
+
+.section-bg-contact {
+  background-image: url('/images/bg-image-2.svg');
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 100% auto;
+  background-color: #f8fafc;
+}
+
+.section-bg-faq {
+  background-image: url('/images/bg-image-2.svg');
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 100% auto;
+  background-color: #f9fafb;
+}
+
+.section-bg-pricing {
+  background-image: url('/images/bg-image-2.svg');
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 100% auto;
+  background-color: #f9f7f7;
+}
+
+/* Gradient overlays */
+.gradient-hero {
+  background: linear-gradient(135deg, rgba(239, 246, 255, 0.9) 0%, rgba(207, 250, 254, 0.8) 50%, rgba(240, 253, 250, 0.7) 100%);
+}
+
+.gradient-hero-secondary {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.95) 0%, transparent 50%, rgba(239, 246, 255, 0.6) 100%);
+}
+
+.gradient-hero-tertiary {
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.9) 100%);
+}
+
+.gradient-services {
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(248, 250, 252, 0.8) 50%, rgba(239, 246, 255, 0.7) 100%);
+}
+
+.gradient-services-secondary {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.6) 50%, transparent 100%);
+}
+
+.gradient-services-tertiary {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, transparent 50%, rgba(255, 255, 255, 0.9) 100%);
+}

@@ -1,11 +1,11 @@
-import { defineType } from 'sanity'
+import { defineType, defineArrayMember } from 'sanity'
 
 export default defineType({
   title: 'Block Content',
   name: 'blockContent',
   type: 'array',
   of: [
-    {
+    defineArrayMember({
       title: 'Block',
       type: 'block',
       styles: [
@@ -38,98 +38,38 @@ export default defineType({
                 type: 'url',
                 validation: (Rule) =>
                   Rule.uri({
-                    allowRelative: true,
                     scheme: ['http', 'https', 'mailto', 'tel'],
                   }),
               },
               {
-                title: 'Ouvrir dans un nouvel onglet',
+                title: 'Open in new tab',
                 name: 'blank',
+                description: 'Read https://css-tricks.com/use-target_blank/',
                 type: 'boolean',
-                initialValue: false,
               },
             ],
           },
         ],
       },
-    },
-    {
+    }),
+    defineArrayMember({
       type: 'image',
       options: { hotspot: true },
       fields: [
         {
           name: 'alt',
           type: 'string',
-          title: 'Texte alternatif',
-          description: "Important pour l'accessibilité et le SEO.",
+          title: 'Alternative Text',
+          description: 'Important for SEO and accessibility.',
           validation: (Rule) => Rule.required(),
         },
         {
           name: 'caption',
           type: 'string',
-          title: 'Légende',
+          title: 'Caption',
+          description: 'Optional caption to display below the image',
         },
       ],
-    },
-    {
-      type: 'object',
-      name: 'codeBlock',
-      title: 'Code Block',
-      fields: [
-        {
-          name: 'language',
-          title: 'Langage',
-          type: 'string',
-          options: {
-            list: [
-              { title: 'JavaScript', value: 'javascript' },
-              { title: 'TypeScript', value: 'typescript' },
-              { title: 'HTML', value: 'html' },
-              { title: 'CSS', value: 'css' },
-              { title: 'Python', value: 'python' },
-              { title: 'JSON', value: 'json' },
-              { title: 'Bash', value: 'bash' },
-            ],
-          },
-        },
-        {
-          name: 'code',
-          title: 'Code',
-          type: 'text',
-          rows: 10,
-        },
-      ],
-    },
-    {
-      type: 'object',
-      name: 'callout',
-      title: 'Encadré',
-      fields: [
-        {
-          name: 'type',
-          title: 'Type',
-          type: 'string',
-          options: {
-            list: [
-              { title: 'Info', value: 'info' },
-              { title: 'Attention', value: 'warning' },
-              { title: 'Erreur', value: 'error' },
-              { title: 'Succès', value: 'success' },
-            ],
-          },
-          initialValue: 'info',
-        },
-        {
-          name: 'title',
-          title: 'Titre',
-          type: 'string',
-        },
-        {
-          name: 'content',
-          title: 'Contenu',
-          type: 'blockContent',
-        },
-      ],
-    },
+    }),
   ],
 })
