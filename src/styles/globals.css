@@ -126,6 +126,32 @@ body {
   box-shadow: 0 8px 25px -5px rgb(0 0 0 / 0.1);
 }
 
+/* Section background fixes */
+section {
+  isolation: isolate;
+  /* Creates new stacking context for better z-index management */
+}
+
+/* Prevent gaps between sections on all devices */
+section+section {
+  margin-top: -1px;
+}
+
+/* Ensure smooth scrolling and prevent background attachment issues on mobile */
+@supports (-webkit-overflow-scrolling: touch) {
+
+  .section-bg-hero,
+  .section-bg-services,
+  .section-bg-portfolio,
+  .section-bg-contact,
+  .section-bg-faq,
+  .section-bg-pricing {
+    background-attachment: scroll !important;
+    will-change: transform;
+    /* Optimize for mobile transforms */
+  }
+}
+
 /* Accessibility styles */
 .sr-only {
   position: absolute;
