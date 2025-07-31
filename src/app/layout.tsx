@@ -7,19 +7,30 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'),
-  title: 'SIDIKOFF DIGITAL- Agence Web & Développement',
+  title:
+    'Création de sites web | SIDIKOFF DIGITAL - Agence Web | Développement Web Paris, Lyon, Toulouse, Strasbourg',
   description:
-    'Agence web spécialisée dans la création de sites internet, applications web et mobiles. Expertise en React, Next.js, et développement sur mesure.',
+    'Agence web spécialisée dans la création de sites internet modernes et applications web. Services professionnels à Paris, Lyon, Toulouse, Strasbourg et toute la France. Expertise React, Next.js, SEO et développement sur mesure.',
   keywords: [
-    'agence web',
-    'développement web', 
+    'agence web france',
+    'développement web',
     'création site internet',
+    'agence web paris',
+    'agence web lyon',
+    'agence web toulouse',
+    'agence web strasbourg',
+    'développeur web france',
     'React',
     'Next.js',
-    'applications mobiles',
-    'SEO',
+    'applications web',
+    'SEO france',
     'optimisation web',
-    'développeur fullstack'
+    'développeur fullstack',
+    'sites web professionnels',
+    'développement sur mesure',
+    'agence digitale france',
+    'création site web paris',
+    'développeur freelance france',
   ],
   authors: [{ name: 'Sidikoff', url: 'https://sidikoff.com' }],
   creator: 'SIDIKOFF DIGITAL',
@@ -56,36 +67,40 @@ export const metadata: Metadata = {
     alternateLocale: ['en_US', 'ru_RU'],
     url: 'https://sidikoff.com',
     siteName: 'SIDIKOFF DIGITAL',
-    title: 'SIDIKOFF DIGITAL- Agence Web & Développement',
+    title:
+      'Création de sites web | SIDIKOFF DIGITAL - Agence Web | Développement Web Paris, Lyon, Toulouse, Strasbourg',
     description:
-      'Agence web spécialisée dans la création de sites internet, applications web et mobiles.',
+      'Agence web spécialisée dans la création de sites internet modernes et applications web. Services professionnels à Paris, Lyon, Toulouse, Strasbourg et toute la France. Expertise React, Next.js, SEO et développement sur mesure.',
     images: [
       {
         url: '/images/og-homepage.jpg',
         width: 1200,
         height: 630,
-        alt: 'SIDIKOFF DIGITAL - Agence Web & Développement'
-      }
-    ]
+        alt: 'SIDIKOFF DIGITAL - Agence Web France | Développement Paris, Lyon, Toulouse, Strasbourg',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@sidikoff',
     creator: '@sidikoff',
-    title: 'SIDIKOFF DIGITAL- Agence Web & Développement',
+    title: 'SIDIKOFF DIGITAL - Agence Web France | Paris, Lyon, Toulouse, Strasbourg',
     description:
-      'Agence web spécialisée dans la création de sites internet, applications web et mobiles.',
-    images: ['/images/og-homepage.jpg']
+      'Agence web française : création sites internet modernes, applications web. Services à Paris, Lyon, Toulouse, Strasbourg. React, Next.js, SEO.',
+    images: ['/images/og-homepage.jpg'],
   },
   alternates: {
     canonical: 'https://sidikoff.com',
     languages: {
-      'fr': 'https://sidikoff.com/fr',
-      'en': 'https://sidikoff.com/en', 
-      'ru': 'https://sidikoff.com/ru',
-      'x-default': 'https://sidikoff.com/fr'
-    }
-  }
+      'fr-FR': 'https://sidikoff.com/',
+      fr: 'https://sidikoff.com/',
+      'en-US': 'https://sidikoff.com/en',
+      en: 'https://sidikoff.com/en',
+      'ru-RU': 'https://sidikoff.com/ru',
+      ru: 'https://sidikoff.com/ru',
+      'x-default': 'https://sidikoff.com/',
+    },
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

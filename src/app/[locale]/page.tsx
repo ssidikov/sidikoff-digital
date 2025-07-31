@@ -1,9 +1,9 @@
 import Script from 'next/script'
-import { 
-  businessLocations, 
-  generateLocalBusinessSchema, 
+import {
+  businessLocations,
+  generateLocalBusinessSchema,
   organizationSchema,
-  generateFrenchSEOMetadata 
+  generateFrenchSEOMetadata,
 } from '@/lib/seo-utils'
 import { getDictionary } from '@/lib/dictionaries'
 import { Hero, Services, Pricing, Portfolio, FAQ, Contact } from '@/sections'
@@ -23,14 +23,20 @@ export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params
   const dict = await getDictionary(locale)
 
-  // Generate schemas for both locations
+  // Generate schemas for all French locations
   const parisLocation = businessLocations.find((loc) => loc.address.addressLocality === 'Paris')!
   const toulouseLocation = businessLocations.find(
     (loc) => loc.address.addressLocality === 'Toulouse'
   )!
+  const lyonLocation = businessLocations.find((loc) => loc.address.addressLocality === 'Lyon')!
+  const strasbourgLocation = businessLocations.find(
+    (loc) => loc.address.addressLocality === 'Strasbourg'
+  )!
 
   const parisSchema = generateLocalBusinessSchema(parisLocation)
   const toulouseSchema = generateLocalBusinessSchema(toulouseLocation)
+  const lyonSchema = generateLocalBusinessSchema(lyonLocation)
+  const strasbourgSchema = generateLocalBusinessSchema(strasbourgLocation)
 
   return (
     <>
@@ -48,6 +54,16 @@ export default async function HomePage({ params }: HomePageProps) {
         id='structured-data-toulouse'
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toulouseSchema) }}
+      />
+      <Script
+        id='structured-data-lyon'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(lyonSchema) }}
+      />
+      <Script
+        id='structured-data-strasbourg'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(strasbourgSchema) }}
       />
 
       <main>
