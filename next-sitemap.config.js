@@ -5,7 +5,7 @@ module.exports = {
   changefreq: 'weekly',
   priority: 0.7,
   sitemapSize: 5000,
-  exclude: ['/admin'], // исключить определённые страницы
+  exclude: ['/admin', '/studio'], // исключить определённые страницы
   alternateRefs: [
     {
       href: 'https://www.sidikoff.com/',

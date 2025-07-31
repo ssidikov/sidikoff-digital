@@ -101,45 +101,6 @@ export const businessLocations: LocalBusiness[] = [
   },
 ]
 
-// Main services offered
-export const mainServices = [
-  {
-    name: 'Développement Web Frontend',
-    description: 'Applications React, Next.js, avec expertise en performances et UX/UI',
-    url: '/#services',
-    slug: 'frontend',
-    technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Vue.js'],
-  },
-  {
-    name: 'Développement Web Backend',
-    description: 'APIs REST, Rest API, Node.js, bases de données et architecture serveur',
-    url: '/#services',
-    slug: 'backend',
-    technologies: ['Node.js', 'Rest API'],
-  },
-  {
-    name: 'Développement Web Full Stack',
-    description: 'Solutions complètes de développement web avec Next.js et stack moderne',
-    url: '/#services',
-    slug: 'fullstack',
-    technologies: ['Next.js', 'React', 'Node.js', 'TypeScript', 'Prisma'],
-  },
-  {
-    name: 'Optimisation & Performance',
-    description: 'Optimisation SEO, performances web, et amélioration de la vitesse de chargement',
-    url: '/#services',
-    slug: 'optimization',
-    technologies: ['SEO', 'Core Web Vitals', 'Lighthouse', 'Analytics'],
-  },
-  {
-    name: 'Consultation Technique',
-    description: 'Audit de code, architecture et conseils en développement web',
-    url: '/#services',
-    slug: 'consultation',
-    technologies: ['Code Review', 'Architecture', 'Performance', 'Scalability'],
-  },
-]
-
 // Generate SEO metadata
 export function generateSEOMetadata(config: SEOConfig): Metadata {
   const {
@@ -337,7 +298,13 @@ export function generateLocalBusinessSchema(business: LocalBusiness) {
       ratingValue: '5.0',
       reviewCount: '20',
     },
-    serviceType: mainServices.map((service) => service.name),
+    serviceType: [
+      'Développement Web Frontend',
+      'Développement Web Backend',
+      'Développement Web Full Stack',
+      'Optimisation & Performance',
+      'Consultation Technique',
+    ],
     knowsAbout: [
       'Web Development',
       'Frontend Development',
@@ -359,22 +326,6 @@ export function generateLocalBusinessSchema(business: LocalBusiness) {
       jobTitle: 'Développeur Web Full Stack',
       worksFor: business.name,
       sameAs: ['https://github.com/ssidikov', 'https://linkedin.com/in/sardorbeksidikov'],
-    },
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Services de Développement Web',
-      itemListElement: mainServices.map((service) => ({
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: service.name,
-          description: service.description,
-          provider: {
-            '@type': 'ProfessionalService',
-            name: business.name,
-          },
-        },
-      })),
     },
   }
 }
@@ -446,22 +397,6 @@ export const organizationSchema = {
   serviceArea: {
     '@type': 'Country',
     name: 'France',
-  },
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Services de Développement Web',
-    itemListElement: mainServices.map((service) => ({
-      '@type': 'Offer',
-      itemOffered: {
-        '@type': 'Service',
-        name: service.name,
-        description: service.description,
-        provider: {
-          '@type': 'Organization',
-          name: 'SIDIKOFF DIGITAL',
-        },
-      },
-    })),
   },
   sameAs: [
     'https://github.com/ssidikov',
