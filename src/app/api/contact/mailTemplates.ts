@@ -18,13 +18,13 @@ const translations = {
     userSubject: 'Confirmation de votre demande',
     userMessage:
       'Nous avons bien reçu votre demande. Notre équipe vous contactera prochainement pour en discuter.',
-    regards: "Cordialement,\nL'équipe Sidikoff",
+    regards: "Cordialement,\nL'équipe SIDIKOFF DIGITAL",
     adminSubject: 'Nouvelle demande reçue',
     newRequest: 'Nouvelle demande reçue',
     nameLabel: 'Nom',
     emailLabel: 'Email',
     messageLabel: 'Message',
-    autoNotification: 'Notification automatique Sidikoff',
+    autoNotification: 'Notification automatique SIDIKOFF DIGITAL',
     thankYou: 'Merci pour votre confiance',
     quickResponse: 'Réponse sous 24h garantie',
     professionalService: 'Service professionnel',
@@ -49,13 +49,13 @@ const translations = {
     userSubject: 'Подтверждение вашего запроса',
     userMessage:
       'Мы получили ваш запрос. Наша команда свяжется с вами в ближайшее время для обсуждения.',
-    regards: 'С уважением,\nКоманда Sidikoff',
+    regards: 'С уважением,\nКоманда SIDIKOFF DIGITAL',
     adminSubject: 'Получен новый запрос',
     newRequest: 'Получен новый запрос',
     nameLabel: 'Имя',
     emailLabel: 'Email',
     messageLabel: 'Сообщение',
-    autoNotification: 'Автоматическое уведомление Sidikoff',
+    autoNotification: 'Автоматическое уведомление SIDIKOFF DIGITAL',
     thankYou: 'Благодарим за доверие',
     quickResponse: 'Ответ в течение 24ч',
     professionalService: 'Профессиональный сервис',
@@ -77,7 +77,7 @@ const baseStyles = `
     
     /* Professional card design */
     .email-container {
-      max-width: 600px;
+      max-width: 800px;
       margin: 0 auto;
       background: #ffffff;
       border: 1px solid #e5e7eb;
@@ -310,7 +310,6 @@ export const userConfirmationFR = ({ name, locale = 'fr' }: UserConfirmationPara
       <div class="email-container">
         <!-- Header -->
         <div class="email-header">
-          <img src="https://sidikoff.com/logo-sidikoff.webp" alt="SIDIKOFF DIGITALDigital" class="logo">
           <h1 class="email-title">SIDIKOFF DIGITAL</h1>
           <p class="email-subtitle">Solutions Digitales Professionnelles</p>
         </div>
@@ -418,8 +417,12 @@ export const adminNotificationFR = ({
             ${t.autoNotification}
           </p>
           <p style="margin: 0; color: #9ca3af; font-size: 12px;">
-            ${new Date().toLocaleDateString(locale === 'fr' ? 'fr-FR' : locale === 'ru' ? 'ru-RU' : 'en-US')} - 
-            ${new Date().toLocaleTimeString(locale === 'fr' ? 'fr-FR' : locale === 'ru' ? 'ru-RU' : 'en-US')}
+            ${new Date().toLocaleDateString(
+              locale === 'fr' ? 'fr-FR' : locale === 'ru' ? 'ru-RU' : 'en-US'
+            )} - 
+            ${new Date().toLocaleTimeString(
+              locale === 'fr' ? 'fr-FR' : locale === 'ru' ? 'ru-RU' : 'en-US'
+            )}
           </p>
         </div>
       </div>
