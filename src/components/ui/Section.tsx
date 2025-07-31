@@ -19,6 +19,7 @@ interface SectionProps {
     repeat?: string
     opacity?: number
     transform?: string
+    filter?: string
   }
   'aria-labelledby'?: string
   variant?: 'default' | 'hero' | 'compact'
@@ -78,11 +79,12 @@ export default function Section({
               backgroundColor: config.backgroundColor || '#f8fafc',
               opacity: config.opacity || 1,
               transform: config.transform,
+              filter: config.filter,
             }}
           />
           {/* Gradient overlays for better text readability */}
-          <div className='absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-blue-50/10' />
-          <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/50' />
+          {/* <div className='absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-blue-50/10' />
+          <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/50' /> */}
         </div>
       )
     }

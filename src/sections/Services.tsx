@@ -18,28 +18,28 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
       title: dict.web_creation.title,
       subtitle: dict.web_creation.subtitle,
       description: dict.web_creation.description,
-      image: '/images/services/web-development-5.jpg',
+      image: '/images/services/web-development.jpg',
       alt: dict.web_creation.title,
       badges: dict.web_creation.features,
     },
     {
       title: dict.web_redesign.title,
       description: dict.web_redesign.description,
-      image: '/images/services/website-redesign-1.jpg',
+      image: '/images/services/website-redesign.jpg',
       alt: dict.web_redesign.title,
       badges: dict.web_redesign.features,
     },
     {
       title: dict.seo_optimization.title,
       description: dict.seo_optimization.description,
-      image: '/images/services/seo-8.jpg',
+      image: '/images/services/seo.jpg',
       alt: dict.seo_optimization.title,
       badges: dict.seo_optimization.features,
     },
     {
       title: dict.maintenance.title,
       description: dict.maintenance.description,
-      image: '/images/services/maintenance-support-4.jpg',
+      image: '/images/services/maintenance-support.jpg',
       alt: dict.maintenance.title,
       badges: dict.maintenance.features,
     },
@@ -47,24 +47,23 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
 
   return (
     <Section
-      id="services"
-      background="pattern"
-      padding="lg"
-      contentWidth="wide"
+      id='services'
+      background='pattern'
+      padding='lg'
+      contentWidth='wide'
       className={className || ''}
       backgroundConfig={{
         image: '/images/bg-image-3.svg',
         backgroundColor: '#f1f5f9',
         size: '100% auto',
         position: 'center top',
-        repeat: 'repeat-y'
-      }}
-    >
+        repeat: 'repeat-y',
+      }}>
       <SectionHeader
         title={dict.title}
         subtitle={dict.subtitle}
-        titleId="services-title"
-        className="text-left mb-16 mt-6"
+        titleId='services-title'
+        className='text-left mb-16 mt-6'
       />
 
       {/* Services Cards */}
