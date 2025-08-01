@@ -1,12 +1,12 @@
 import Script from 'next/script'
 
-import { 
-  businessLocations, 
-  generateLocalBusinessSchema, 
+import {
+  businessLocations,
+  generateLocalBusinessSchema,
   organizationSchema,
-  generateSEOMetadata, 
-  generateLanguageAlternates, 
-  createCanonicalUrl 
+  generateSEOMetadata,
+  generateLanguageAlternates,
+  createCanonicalUrl,
 } from '@/lib/seo-utils'
 import { defaultLocale } from '@/lib/i18n'
 import { Footer } from '@/components/Footer'
@@ -19,7 +19,7 @@ export async function generateMetadata() {
   const dict = await getDictionary(defaultLocale)
 
   return generateSEOMetadata({
-    title: dict.hero.title,
+    title: 'Création de Sites Web Professionnels | SIDIKOFF DIGITAL',
     description: dict.hero.subtitle,
     locale: defaultLocale,
     canonicalUrl: createCanonicalUrl('/', defaultLocale),
