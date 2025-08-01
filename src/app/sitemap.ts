@@ -24,15 +24,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified,
     changeFrequency: 'weekly',
     priority: 1.0,
-    alternates: {
-      languages: locales.reduce(
-        (acc, locale) => {
-          acc[locale] = `${baseUrl}/${locale}`
-          return acc
-        },
-        {} as Record<string, string>
-      ),
-    },
   })
 
   // Ajouter pages principales multilingues
@@ -43,15 +34,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified,
         changeFrequency: page.changeFreq,
         priority: locale === 'fr' ? page.priority : page.priority * 0.8, // Priorité française
-        alternates: {
-          languages: locales.reduce(
-            (acc, loc) => {
-              acc[loc] = `${baseUrl}/${loc}${page.path}`
-              return acc
-            },
-            {} as Record<string, string>
-          ),
-        },
       })
     })
   })
