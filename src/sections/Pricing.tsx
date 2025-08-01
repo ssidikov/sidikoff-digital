@@ -163,13 +163,16 @@ export default function Pricing({ locale }: PricingProps) {
       contentWidth="wide"
       aria-labelledby="pricing-title"
     >
-      <SectionHeader
-        title={dict?.pricing?.title || 'Nos Offres'}
-        subtitle={dict?.pricing?.subtitle || 'Transparentes & Adaptées'}
-        description={dict?.pricing?.description || 'Choisissez la solution qui correspond parfaitement à vos besoins et à votre budget. Tous nos projets incluent un design moderne, un développement professionnel et un support complet.'}
-        titleId="pricing-title"
-        className="text-left mb-16 mt-6"
-      />
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/8 to-pink-500/8"></div>
+      <div className="relative z-10">
+        <SectionHeader
+          title={dict?.pricing?.title || 'Nos Offres'}
+          subtitle={dict?.pricing?.subtitle || 'Transparentes & Adaptées'}
+          description={dict?.pricing?.description || 'Choisissez la solution qui correspond parfaitement à vos besoins et à votre budget. Tous nos projets incluent un design moderne, un développement professionnel et un support complet.'}
+          titleId="pricing-title"
+          className="text-left mb-16"
+        />
 
       {/* Badges de confiance */}
       <motion.div
@@ -252,6 +255,7 @@ export default function Pricing({ locale }: PricingProps) {
             </CTAButton>
           </div>
         </motion.div>
+      </div>
     </Section>
   )
 }

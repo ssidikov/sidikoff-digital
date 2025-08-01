@@ -52,12 +52,15 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
       padding='lg'
       contentWidth='wide'
       className={className || ''}>
-      <SectionHeader
-        title={dict.title}
-        subtitle={dict.subtitle}
-        titleId='services-title'
-        className='text-left mb-16 mt-6'
-      />
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-400/10 to-pink-400/10"></div>
+      <div className="relative z-10">
+        <SectionHeader
+          title={dict.title}
+          subtitle={dict.subtitle}
+          titleId='services-title'
+          className='text-left mb-16'
+        />
 
       {/* Services Cards */}
       <div className='space-y-16'>
@@ -263,6 +266,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
           </div>
         </div>
       </motion.div>
+      </div>
     </Section>
   )
 }

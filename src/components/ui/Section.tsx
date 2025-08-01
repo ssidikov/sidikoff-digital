@@ -23,9 +23,9 @@ const backgroundStyles = {
 }
 
 const variantStyles = {
-  default: 'py-20',
-  hero: 'min-h-screen w-full flex flex-col items-center justify-center',
-  compact: 'py-12',
+  default: '', // Убираем py-20 отсюда
+  hero: 'min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-r from-blue-600/5 to-purple-600/5',
+  compact: '', // Убираем py-12 отсюда
 }
 
 export default function Section({
@@ -39,6 +39,14 @@ export default function Section({
   contentWidth = 'wide',
   'aria-labelledby': ariaLabelledBy,
 }: SectionProps) {
+  // Определяем отступы для hero секции
+  const getPaddingClass = () => {
+    if (variant === 'hero') {
+      return 'pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-32 px-4 sm:px-6 lg:px-8'
+    }
+    return sectionStyles.padding[padding]
+  }
+
   const sectionClass = `
     ${variantStyles[variant]} 
     ${backgroundStyles[background]} 
@@ -49,7 +57,7 @@ export default function Section({
   return (
     <section id={id} className={sectionClass} aria-labelledby={ariaLabelledBy}>
       <div
-        className={`${sectionStyles.content[contentWidth]} ${sectionStyles.padding[padding]} ${containerClassName} relative z-10`}>
+        className={`${sectionStyles.content[contentWidth]} ${getPaddingClass()} ${containerClassName} relative z-10`}>
         {children}
       </div>
     </section>

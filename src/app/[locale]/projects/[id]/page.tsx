@@ -65,8 +65,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <Section
       id='portfolio'
       background='white'
-      className='px-4 sm:px-6 lg:px-8'>
-      <div className='container mx-auto px-4 py-36 relative'>
+      padding='xl'
+      contentWidth='wide'>
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-rose-400/8 to-orange-400/8"></div>
+      <div className='relative z-10'>
         <CTAButton
           href={getProjectsUrl(locale)}
           variant='secondary'

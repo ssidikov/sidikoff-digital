@@ -48,12 +48,15 @@ export default function Portfolio({ locale, dictionary }: PortfolioNewProps) {
       background='white'
       padding='lg'
       contentWidth='wide'>
-      <SectionHeader
-        title={dictionary?.title || 'Portfolio'}
-        subtitle={dictionary?.subtitle || ''}
-        titleId='portfolio-title'
-        className='text-left mb-16 mt-6'
-      />
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-r from-orange-300/8 to-blue-400/8"></div>
+      <div className="relative z-10">
+        <SectionHeader
+          title={dictionary?.title || 'Portfolio'}
+          subtitle={dictionary?.subtitle || ''}
+          titleId='portfolio-title'
+          className='text-left mb-16'
+        />
 
       {/* Filter Hashtags */}
       <motion.div
@@ -124,6 +127,7 @@ export default function Portfolio({ locale, dictionary }: PortfolioNewProps) {
           </svg>
         </Link>
       </motion.div>
+      </div>
     </Section>
   )
 }

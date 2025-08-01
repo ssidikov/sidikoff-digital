@@ -145,12 +145,15 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
       padding='lg'
       contentWidth='wide'
       className={className || ''}>
-      <SectionHeader
-        title={dictionary?.title || 'Prenez Contact'}
-        subtitle={dictionary?.subtitle || 'Prêt à Commencer Votre Projet ?'}
-        titleId='contact-title'
-        className='text-left mb-20'
-      />
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-bl from-green-400/8 to-blue-500/8"></div>
+      <div className="relative z-10">
+        <SectionHeader
+          title={dictionary?.title || 'Prenez Contact'}
+          subtitle={dictionary?.subtitle || 'Prêt à Commencer Votre Projet ?'}
+          titleId='contact-title'
+          className='text-left mb-20'
+        />
 
       <div className='grid lg:grid-cols-5 gap-8'>
         {/* Contact Form */}
@@ -580,6 +583,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </Section>
   )
