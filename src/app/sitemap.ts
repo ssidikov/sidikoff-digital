@@ -56,26 +56,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   })
 
-  // Ajouter pages de services (multilingues)
-  servicePages.forEach((page) => {
-    locales.forEach((locale) => {
-      sitemap.push({
-        url: `${baseUrl}/${locale}${page.path}`,
-        lastModified,
-        changeFrequency: page.changeFreq,
-        priority: locale === 'fr' ? page.priority : page.priority * 0.7,
-        alternates: {
-          languages: locales.reduce(
-            (acc, loc) => {
-              acc[loc] = `${baseUrl}/${loc}${page.path}`
-              return acc
-            },
-            {} as Record<string, string>
-          ),
-        },
-      })
-    })
-  })
-
   return sitemap.sort((a, b) => (b.priority || 0) - (a.priority || 0))
 }
