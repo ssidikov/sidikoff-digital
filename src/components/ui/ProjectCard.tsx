@@ -33,7 +33,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, locale }) => 
         height={384}
         className='w-full h-full object-cover object-top'
       />
-      <div className='absolute inset-0 pointer-events-none bg-gradient-to-t from-black/30 via-black/10 to-transparent opacity-40'></div>
     </div>
     <div className='flex flex-col justify-between min-h-[220px] lg:min-h-[260px] 3xl:min-h-[320px] gap-y-4 lg:gap-y-6 pt-6 sm:pl-8 lg:py-10 lg:px-8'>
       <div>

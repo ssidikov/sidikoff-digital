@@ -158,16 +158,9 @@ export default function Pricing({ locale }: PricingProps) {
   return (
     <Section
       id="pricing"
-      background="pattern"
+      background="white"
       padding="lg"
       contentWidth="wide"
-      backgroundConfig={{
-        image: '/images/bg-image-3.svg',
-        backgroundColor: '#f9f7f7',
-        size: '100% auto',
-        position: 'center top',
-        repeat: 'repeat-y'
-      }}
       aria-labelledby="pricing-title"
     >
       <SectionHeader

@@ -10,10 +10,10 @@ module.exports = {
   additionalPaths: async () => {
     const paths = []
     const routes = ['', '/contact', '/projects', '/services', '/mentions-legales', '/blog']
-    
-    routes.forEach(route => {
+
+    routes.forEach((route) => {
       const routePath = route || '/'
-      
+
       // French (default) - no prefix
       paths.push({
         loc: routePath === '/' ? '/' : route,
@@ -21,7 +21,7 @@ module.exports = {
         priority: 0.7,
         lastmod: new Date().toISOString(),
       })
-      
+
       // English version
       paths.push({
         loc: `/en${routePath === '/' ? '' : route}`,
@@ -29,7 +29,7 @@ module.exports = {
         priority: 0.7,
         lastmod: new Date().toISOString(),
       })
-      
+
       // Russian version
       paths.push({
         loc: `/ru${routePath === '/' ? '' : route}`,
@@ -38,7 +38,7 @@ module.exports = {
         lastmod: new Date().toISOString(),
       })
     })
-    
+
     return paths
   },
 }

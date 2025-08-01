@@ -31,20 +31,7 @@ export function Hero({ dict, common, locale }: HeroProps) {
   ]
 
   return (
-    <Section
-      id='hero'
-      variant='hero'
-      background='hero'
-      padding='sm'
-      contentWidth='normal'
-      backgroundConfig={{
-        image: '/images/hero/hero-m.svg',
-        backgroundColor: '#f8fafc',
-        size: '100% auto',
-        position: 'center top',
-        repeat: 'repeat',
-        transform: 'scaleX(-1)',
-      }}>
+    <Section id='hero' variant='hero' background='white' padding='sm' contentWidth='normal'>
       <div ref={ref} className='text-center max-w-6xl mx-auto'>
         {/* Badge */}
         <motion.div
@@ -112,9 +99,7 @@ export function Hero({ dict, common, locale }: HeroProps) {
                 <span className='w-6 h-6 text-black inline-flex items-center justify-center'>
                   <IconComponent />
                 </span>
-                <span className='text-sm font-medium bg-gradient-to-r from-black to-gray-700 bg-clip-text text-transparent'>
-                  {badge.text}
-                </span>
+                <span className='text-sm font-medium text-gray-900'>{badge.text}</span>
               </div>
             )
           })}

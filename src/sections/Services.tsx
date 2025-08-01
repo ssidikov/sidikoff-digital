@@ -48,17 +48,10 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
   return (
     <Section
       id='services'
-      background='pattern'
+      background='white'
       padding='lg'
       contentWidth='wide'
-      className={className || ''}
-      backgroundConfig={{
-        image: '/images/bg-image-3.svg',
-        backgroundColor: '#f1f5f9',
-        size: '100% auto',
-        position: 'center top',
-        repeat: 'repeat-y',
-      }}>
+      className={className || ''}>
       <SectionHeader
         title={dict.title}
         subtitle={dict.subtitle}
@@ -88,7 +81,6 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
                     className='object-cover w-full h-full'
                     priority={index < 2}
                   />
-                  <div className='absolute inset-0 bg-gradient-to-t from-black/20 to-transparent' />
                 </div>
               </div>
 
@@ -167,19 +159,12 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
             {/* Image at top */}
             <div className='relative h-48 w-full'>
               <Image
-                src='/images/services/cta-background-21.jpg'
+                src='/images/services/cta-background.jpg'
                 alt='CTA Background'
                 fill
                 className='object-cover'
                 priority={false}
-                onError={(e) => {
-                  if (process.env.NODE_ENV === 'development') {
-                    // CTA background image failed to load
-                  }
-                  e.currentTarget.style.display = 'none'
-                }}
               />
-              <div className='absolute inset-0 bg-gradient-to-t from-black/20 to-transparent' />
             </div>
 
             {/* Content at bottom */}
@@ -222,24 +207,17 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
 
         {/* Desktop Version */}
         <div className='hidden lg:block'>
-          <div className='relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 to-purple-700 min-h-[400px] flex items-center'>
+          <div className='relative overflow-hidden rounded-3xl bg-white min-h-[400px] flex items-center'>
             {/* Background Image */}
             <div className='absolute inset-0'>
               <Image
-                src='/images/services/cta-background-21.jpg'
+                src='/images/services/cta-background.jpg'
                 alt='CTA Background'
                 fill
                 className='object-cover'
                 priority={false}
               />
             </div>
-
-            {/* Pattern Overlay */}
-            <div className='absolute inset-0 opacity-10'>
-              <div className='absolute inset-0 bg-gradient-to-br from-white/20 to-transparent' />
-              <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-[length:20px_20px]' />
-            </div>
-
             {/* Content Grid */}
             <div className='relative z-10 w-full px-8 py-12'>
               <div className='flex justify-center lg:justify-end items-center max-w-7xl mx-auto'>

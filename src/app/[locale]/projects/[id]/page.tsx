@@ -64,14 +64,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <Section
       id='portfolio'
-      background='pattern'
-      backgroundConfig={{
-        image: '/images/bg-image-3.svg',
-        backgroundColor: '#fafafa',
-        size: '100% auto',
-        position: 'center top',
-        repeat: 'repeat-y',
-      }}
+      background='white'
       className='px-4 sm:px-6 lg:px-8'>
       <div className='container mx-auto px-4 py-36 relative'>
         <CTAButton

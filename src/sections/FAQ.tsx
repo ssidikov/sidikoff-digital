@@ -140,16 +140,9 @@ export const FAQ = ({ dictionary }: FAQProps) => {
   return (
     <Section
       id="faq"
-      background="pattern"
+      background="white"
       padding="lg"
       contentWidth="wide"
-      backgroundConfig={{
-        image: '/images/bg-image-3.svg',
-        backgroundColor: '#f9fafb',
-        size: '100% auto',
-        position: 'center top',
-        repeat: 'repeat-y'
-      }}
     >
       <SectionHeader
         title={dictionary?.title || 'Questions Fréquentes'}

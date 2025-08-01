@@ -61,9 +61,6 @@ export function BlogCard({ post, featured = false, locale, index }: BlogCardProp
             priority={featured || index < 4}
           />
 
-          {/* Gradient Overlay */}
-          <div className='absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
-
           {/* Category Badge */}
           {post.category && (
             <div className='absolute top-4 left-4'>
@@ -113,7 +110,7 @@ export function BlogCard({ post, featured = false, locale, index }: BlogCardProp
           {/* Author & Read More */}
           <div className='mt-6 flex items-center justify-between'>
             <div className='flex items-center space-x-3'>
-              <div className='w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center'>
+              <div className='w-10 h-10 bg-black rounded-full flex items-center justify-center'>
                 <span className='text-white font-bold text-sm'>SD</span>
               </div>
               <div>

@@ -67,7 +67,7 @@ export default function PricingCard({
       {/* Badge populaire */}
       {isPopular && (
         <div className='absolute -top-4 left-1/2 transform -translate-x-1/2'>
-          <div className='bg-gradient-to-r from-black to-[#112D4E] text-white px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg'>
+          <div className='bg-black text-white px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg'>
             <StarIcon className='w-4 h-4' />
             Populaire
           </div>

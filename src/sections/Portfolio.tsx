@@ -45,16 +45,9 @@ export default function Portfolio({ locale, dictionary }: PortfolioNewProps) {
   return (
     <Section
       id='portfolio'
-      background='pattern'
+      background='white'
       padding='lg'
-      contentWidth='wide'
-      backgroundConfig={{
-        image: '/images/bg-image-3.svg',
-        backgroundColor: '#fafafa',
-        size: '100% auto',
-        position: 'center top',
-        repeat: 'repeat-y',
-      }}>
+      contentWidth='wide'>
       <SectionHeader
         title={dictionary?.title || 'Portfolio'}
         subtitle={dictionary?.subtitle || ''}

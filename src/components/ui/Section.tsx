@@ -9,18 +9,7 @@ interface SectionProps {
   className?: string
   transform?: string
   containerClassName?: string
-  background?: 'white' | 'gray' | 'gradient' | 'hero' | 'pattern' | 'transparent'
-  backgroundImage?: string
-  backgroundConfig?: {
-    image?: string
-    backgroundColor?: string
-    size?: string
-    position?: string
-    repeat?: string
-    opacity?: number
-    transform?: string
-    filter?: string
-  }
+  background?: 'white' | 'gray' | 'transparent'
   'aria-labelledby'?: string
   variant?: 'default' | 'hero' | 'compact'
   padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl'
@@ -30,9 +19,6 @@ interface SectionProps {
 const backgroundStyles = {
   white: 'bg-white',
   gray: 'bg-gray-50',
-  gradient: 'bg-gradient-to-br from-[#F9F7F7] via-white to-[#F9F7F7]',
-  hero: 'bg-slate-50',
-  pattern: 'bg-gray-50',
   transparent: 'bg-transparent',
 }
 
@@ -48,8 +34,6 @@ export default function Section({
   className = '',
   containerClassName = '',
   background = 'white',
-  backgroundImage,
-  backgroundConfig,
   variant = 'default',
   padding = 'md',
   contentWidth = 'wide',
@@ -62,38 +46,8 @@ export default function Section({
     relative overflow-hidden
   `.trim()
 
-  const renderBackground = () => {
-    if (backgroundConfig || backgroundImage) {
-      const config = backgroundConfig || {}
-      const bgImage = backgroundImage || config.image || '/images/bg-image-3.svg'
-
-      return (
-        <div className='absolute inset-0 z-0'>
-          <div
-            className='absolute inset-0 w-full h-full pointer-events-none select-none'
-            style={{
-              backgroundImage: `url(${bgImage})`,
-              backgroundSize: config.size || '100% auto',
-              backgroundPosition: config.position || 'center top',
-              backgroundRepeat: config.repeat || 'repeat-y',
-              backgroundColor: config.backgroundColor || '#f8fafc',
-              opacity: config.opacity || 1,
-              transform: config.transform,
-              filter: config.filter,
-            }}
-          />
-          {/* Gradient overlays for better text readability */}
-          {/* <div className='absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-blue-50/10' />
-          <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/50' /> */}
-        </div>
-      )
-    }
-    return null
-  }
-
   return (
     <section id={id} className={sectionClass} aria-labelledby={ariaLabelledBy}>
-      {renderBackground()}
       <div
         className={`${sectionStyles.content[contentWidth]} ${sectionStyles.padding[padding]} ${containerClassName} relative z-10`}>
         {children}
