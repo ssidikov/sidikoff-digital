@@ -246,45 +246,6 @@ export const businessLocations: LocalBusiness[] = [
   },
 ]
 
-// Main services offered
-export const mainServices = [
-  {
-    name: 'Développement Web Frontend',
-    description: 'Applications React, Next.js, avec expertise en performances et UX/UI',
-    url: '/#services',
-    slug: 'frontend',
-    technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Vue.js'],
-  },
-  {
-    name: 'Développement Web Backend',
-    description: 'APIs REST, Rest API, Node.js, bases de données et architecture serveur',
-    url: '/#services',
-    slug: 'backend',
-    technologies: ['Node.js', 'Rest API'],
-  },
-  {
-    name: 'Développement Web Full Stack',
-    description: 'Solutions complètes de développement web avec Next.js et stack moderne',
-    url: '/#services',
-    slug: 'fullstack',
-    technologies: ['Next.js', 'React', 'Node.js', 'TypeScript', 'Prisma'],
-  },
-  {
-    name: 'Optimisation & Performance',
-    description: 'Optimisation SEO, performances web, et amélioration de la vitesse de chargement',
-    url: '/#services',
-    slug: 'optimization',
-    technologies: ['SEO', 'Core Web Vitals', 'Lighthouse', 'Analytics'],
-  },
-  {
-    name: 'Consultation Technique',
-    description: 'Audit de code, architecture et conseils en développement web',
-    url: '/#services',
-    slug: 'consultation',
-    technologies: ['Code Review', 'Architecture', 'Performance', 'Scalability'],
-  },
-]
-
 // Generate SEO metadata
 export function generateSEOMetadata(config: SEOConfig): Metadata {
   const {
