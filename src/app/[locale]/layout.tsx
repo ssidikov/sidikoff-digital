@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import { fallbackDictionary } from '@/lib/fallback-dictionary'
+import { generateLocalizedSEOMetadata } from '@/lib/seo-utils'
 
 import { Footer } from '@/components/Footer'
 import { getDictionary } from '@/lib/dictionaries'
@@ -13,15 +14,13 @@ interface RootLayoutProps {
   params: Promise<{ locale: Locale }>
 }
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'),
-    title: 'Web Agency - Professional Web Development',
-    description: 'Professional web development services for modern businesses',
-    other: {
-      'google-site-verification': 'your-verification-code',
-    },
-  }
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  return generateLocalizedSEOMetadata(locale)
 }
 
 export default async function LocaleLayout({ children, params }: RootLayoutProps) {

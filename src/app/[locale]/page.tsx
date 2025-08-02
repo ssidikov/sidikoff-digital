@@ -3,7 +3,7 @@ import {
   businessLocations,
   generateLocalBusinessSchema,
   organizationSchema,
-  generateFrenchSEOMetadata,
+  generateLocalizedSEOMetadata,
 } from '@/lib/seo-utils'
 import { getDictionary } from '@/lib/dictionaries'
 import { Hero, Services, Pricing, Portfolio, FAQ, Contact } from '@/sections'
@@ -16,7 +16,7 @@ interface HomePageProps {
 
 export async function generateMetadata({ params }: HomePageProps) {
   const { locale } = await params
-  return generateFrenchSEOMetadata(locale)
+  return generateLocalizedSEOMetadata(locale)
 }
 
 export default async function HomePage({ params }: HomePageProps) {

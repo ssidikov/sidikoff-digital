@@ -38,6 +38,7 @@ const SocialIcon = ({
 )
 
 export function Footer({ dictionary, locale }: FooterProps) {
+  // Fix navigation for SEO pages - always link to home page sections
   const quickLinks = [
     { name: dictionary.navigation?.home || 'Accueil', href: getLocalizedUrl('/', locale) },
     {

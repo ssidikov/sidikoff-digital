@@ -9,6 +9,7 @@ import Link from 'next/link'
 import { Dictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
 import { getLocalizedUrl } from '@/utils/navigation'
+import { scrollToElementWithRetry } from '@/utils/scroll'
 
 import { LanguageSwitcher } from './LanguageSwitcher'
 
@@ -150,13 +151,8 @@ export function Header({ dictionary, locale }: HeaderProps) {
     const hash = window.location.hash
     if (hash) {
       const id = hash.substring(1)
-      const element = document.getElementById(id)
-      if (element) {
-        // Use a timeout to ensure the page has rendered before scrolling
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' })
-        }, 100)
-      }
+      // Use the retry utility for more reliable scrolling
+      scrollToElementWithRetry(id, 100, 5, 300)
     }
   }, [pathname]) // Rerun when path changes
 
@@ -176,6 +172,34 @@ export function Header({ dictionary, locale }: HeaderProps) {
     }
     // Для других страниц проверяем точное соответствие URL
     return pathname === item.href
+  }
+
+  // Handle navigation click with smooth scroll for same page anchors
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: (typeof navigation)[0]) => {
+    const homeUrl = getLocalizedUrl('/', locale)
+    const isOnHomePage = pathname === homeUrl || pathname === homeUrl + '/'
+    
+    // If we're on the home page and clicking a section link
+    if (isOnHomePage && item.href.includes('#')) {
+      e.preventDefault()
+      const sectionId = item.href.split('#')[1]
+      
+      if (sectionId) {
+        const element = document.getElementById(sectionId)
+        
+        if (element) {
+          const headerOffset = 100
+          const elementPosition = element.getBoundingClientRect().top
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          })
+        }
+      }
+    }
+    // Otherwise, let the default Link behavior handle it
   }
 
   return (
@@ -225,6 +249,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
                 <div key={item.href}>
                   <Link
                     href={item.href}
+                    onClick={(e) => handleNavClick(e, item)}
                     className={`text-base font-medium transition-all duration-300 px-3 py-2 rounded-lg text-[#112D4E] focus:outline-none outline-none cursor-pointer ${
                       isActive(item) ? 'bg-black text-white' : 'hover:text-white hover:bg-black'
                     }`}
@@ -275,7 +300,10 @@ export function Header({ dictionary, locale }: HeaderProps) {
                   <div key={item.href}>
                     <Link
                       href={item.href}
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={(e) => {
+                        handleNavClick(e, item)
+                        setIsMenuOpen(false)
+                      }}
                       className={`block py-3 px-4 rounded-lg transition-all duration-300 text-[#112D4E] focus:outline-none focus:ring-0 focus:border-none outline-none cursor-pointer ${
                         isActive(item)
                           ? 'bg-black text-white'
