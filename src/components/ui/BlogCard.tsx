@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { formatDate } from '@/lib/i18n'
 import { Locale } from '@/lib/i18n'
 import { motion } from 'framer-motion'
+import { getBlogPostUrl } from '@/utils/navigation'
 
 import { BlogPost, urlFor } from '@/lib/sanity'
 
@@ -49,7 +50,7 @@ export function BlogCard({ post, featured = false, locale, index }: BlogCardProp
       className={`group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 ${
         featured ? 'lg:col-span-1' : ''
       }`}>
-      <Link href={`/${locale}/blog/${post.slug.current}`} className='block'>
+      <Link href={getBlogPostUrl(post.slug.current, locale)} className='block'>
         {/* Image Container */}
         <div className={`relative overflow-hidden ${featured ? 'h-72 lg:h-80' : 'h-56 lg:h-64'}`}>
           <Image

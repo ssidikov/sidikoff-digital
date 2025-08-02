@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { Dictionary } from '@/lib/dictionaries'
 import { formatDate, Locale } from '@/lib/i18n'
 import { motion } from 'framer-motion'
+import { getBlogUrl, getLocalizedUrl } from '@/utils/navigation'
 
 import { BlogPost, urlFor } from '@/lib/sanity'
 
@@ -133,7 +134,7 @@ export function BlogPostContent({ post, dictionary, locale }: BlogPostContentPro
               transition={{ duration: 0.6, delay: 0.2 }}
               className='mb-8'>
               <Link
-                href={`/${locale}/blog`}
+                href={getBlogUrl(locale)}
                 className='inline-flex items-center text-white/80 hover:text-white transition-colors group'>
                 <svg
                   className='w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform'
@@ -288,12 +289,12 @@ export function BlogPostContent({ post, dictionary, locale }: BlogPostContentPro
 
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               <Link
-                href={`/${locale}/contact`}
+                href={getLocalizedUrl('/contact', locale)}
                 className='bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1'>
                 {dictionary.cta.button}
               </Link>
               <Link
-                href={`/${locale}/blog`}
+                href={getBlogUrl(locale)}
                 className='bg-transparent text-white border-2 border-white/30 px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:-translate-y-1'>
                 {dictionary.back_to_blog}
               </Link>

@@ -22,6 +22,16 @@ export function getProjectsUrl(locale: Locale): string {
   return getLocalizedUrl('/projects', locale)
 }
 
+// Generate blog URL for specific locale
+export function getBlogUrl(locale: Locale): string {
+  return getLocalizedUrl('/blog', locale)
+}
+
+// Generate blog post URL for specific locale
+export function getBlogPostUrl(slug: string, locale: Locale): string {
+  return getLocalizedUrl(`/blog/${slug}`, locale)
+}
+
 export const mainNavigation: NavigationItem[] = [
   {
     label: 'Accueil',

@@ -39,6 +39,9 @@ export function Header({ dictionary, locale }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
 
+  // Check if we're on blog pages
+  const isBlogPage = pathname.includes('/blog')
+
   const navigation = [
     { label: dictionary.navigation.home, href: getLocalizedUrl('/', locale), section: '' },
     {
@@ -195,7 +198,9 @@ export function Header({ dictionary, locale }: HeaderProps) {
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className='fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-[120] w-full max-w-7xl px-4'>
         <nav className='relative z-[110] px-3.5 xs:px-4'>
-          <div className='flex items-center justify-between px-5 py-4 lg:px-4 3xl:p-4 transition-all duration-500 rounded-3xl backdrop-blur-xl bg-white/20 border-2 border-white/30 shadow-xl '>
+          <div className={`flex items-center justify-between px-5 py-4 lg:px-4 3xl:p-4 transition-all duration-500 rounded-3xl backdrop-blur-xl border-2 border-white/30 shadow-xl ${
+            isBlogPage ? 'bg-white/90' : 'bg-white/20'
+          }`}>
             {/* Logo */}
             <div>
               <Link

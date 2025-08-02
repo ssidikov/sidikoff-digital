@@ -8,6 +8,7 @@ import { CategoryFilter } from '@/components/ui/CategoryFilter'
 import { Dictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
 import { motion } from 'framer-motion'
+import { getLocalizedUrl } from '@/utils/navigation'
 
 import { BlogCard } from '@/components/ui/BlogCard'
 
@@ -205,7 +206,7 @@ export function BlogPageContent({ posts, categories, dictionary, locale }: BlogP
             {/* CTA Buttons */}
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               <Link
-                href={`/${locale}/contact`}
+                href={getLocalizedUrl('/contact', locale)}
                 className='group relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/25 transform hover:-translate-y-1'>
                 <span className='relative z-10 flex items-center justify-center'>
                   {dictionary.cta.button}
@@ -225,7 +226,7 @@ export function BlogPageContent({ posts, categories, dictionary, locale }: BlogP
               </Link>
 
               <Link
-                href={`/${locale}#services`}
+                href={getLocalizedUrl('/#services', locale)}
                 className='group relative bg-transparent text-white border-2 border-white/30 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:bg-white hover:text-gray-900 transform hover:-translate-y-1'>
                 <span className='relative z-10 flex items-center justify-center'>
                   {dictionary.cta.secondary_button}
