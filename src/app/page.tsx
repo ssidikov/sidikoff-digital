@@ -24,7 +24,7 @@ export async function generateMetadata() {
     locale: defaultLocale,
     canonicalUrl: createCanonicalUrl('/', defaultLocale),
     alternateLanguages: generateLanguageAlternates(
-      process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com',
+      '/',
       ['fr', 'en', 'ru']
     ),
     ogImage: '/images/og-homepage.jpg',
