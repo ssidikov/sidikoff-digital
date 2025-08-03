@@ -10,6 +10,7 @@ interface SectionProps {
   transform?: string
   containerClassName?: string
   background?: 'white' | 'gray' | 'transparent'
+  backgroundImage?: string
   'aria-labelledby'?: string
   variant?: 'default' | 'hero' | 'compact'
   padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl'
@@ -24,7 +25,7 @@ const backgroundStyles = {
 
 const variantStyles = {
   default: '', // Убираем py-20 отсюда
-  hero: 'min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-r from-blue-600/5 to-purple-600/5',
+  hero: 'min-h-screen w-full flex flex-col items-center justify-center',
   compact: '', // Убираем py-12 отсюда
 }
 
@@ -34,6 +35,7 @@ export default function Section({
   className = '',
   containerClassName = '',
   background = 'white',
+  backgroundImage,
   variant = 'default',
   padding = 'md',
   contentWidth = 'wide',
@@ -56,6 +58,23 @@ export default function Section({
 
   return (
     <section id={id} className={sectionClass} aria-labelledby={ariaLabelledBy}>
+      {/* Background Image */}
+      {backgroundImage && (
+        <>
+          <div
+            className='absolute inset-0 bg-cover bg-center bg-no-repeat'
+            style={{ backgroundImage: `url(${backgroundImage})` }}
+          />
+          {/* Dark overlay for better text readability */}
+          {/* <div className='absolute inset-0 bg-black/10' /> */}
+        </>
+      )}
+
+      {/* Gradient Overlay for Hero (only if no background image) */}
+      {variant === 'hero' && !backgroundImage && (
+        <div className='absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5' />
+      )}
+
       <div
         className={`${sectionStyles.content[contentWidth]} ${getPaddingClass()} ${containerClassName} relative z-10`}>
         {children}

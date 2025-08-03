@@ -28,9 +28,9 @@ export default function Portfolio({ locale, dictionary }: PortfolioNewProps) {
     if (tag === 'featured') {
       // Get featured text based on locale
       const featuredText = {
-        'fr': 'En vedette',
-        'en': 'Featured',
-        'ru': 'Рекомендуемые'
+        fr: 'En vedette',
+        en: 'Featured',
+        ru: 'Рекомендуемые',
       }
       return featuredText[locale] || 'Featured'
     }
@@ -46,11 +46,10 @@ export default function Portfolio({ locale, dictionary }: PortfolioNewProps) {
     <Section
       id='portfolio'
       background='white'
+      backgroundImage='/images/projects-bg.jpg'
       padding='lg'
       contentWidth='wide'>
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-orange-300/8 to-blue-400/8"></div>
-      <div className="relative z-10">
+      <div className='relative z-10'>
         <SectionHeader
           title={dictionary?.title || 'Portfolio'}
           subtitle={dictionary?.subtitle || ''}
@@ -58,75 +57,75 @@ export default function Portfolio({ locale, dictionary }: PortfolioNewProps) {
           className='text-left mb-16'
         />
 
-      {/* Filter Hashtags */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className='w-full mb-12'>
-        <div className='flex flex-wrap gap-2.5'>
-          {['featured', ...tags].map((tag, index) => (
-            <button
-              key={tag}
-              onClick={() => setActiveTag(tag)}
-              className={`text-lg md:text-xl cursor-pointer rounded-xl px-3 md:px-6 transition-all duration-300 outline-none focus:ring-0 h-12 md:h-[60px] ${
-                index === ['featured', ...tags].length - 1 ? 'mr-[30px]' : ''
-              } ${
-                activeTag === tag
-                  ? 'text-white bg-black border border-transparent hover:bg-transparent hover:text-black hover:border-black'
-                  : 'text-black border border-black hover:bg-black hover:text-white'
-              }`}
-              tabIndex={0}>
-              #{getButtonText(tag)}
-            </button>
+        {/* Filter Hashtags */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className='w-full mb-12'>
+          <div className='flex flex-wrap gap-2.5'>
+            {['featured', ...tags].map((tag, index) => (
+              <button
+                key={tag}
+                onClick={() => setActiveTag(tag)}
+                className={`text-lg md:text-xl cursor-pointer rounded-xl px-3 md:px-6 transition-all duration-300 outline-none focus:ring-0 h-12 md:h-[60px] ${
+                  index === ['featured', ...tags].length - 1 ? 'mr-[30px]' : ''
+                } ${
+                  activeTag === tag
+                    ? 'text-white bg-black border border-transparent hover:bg-transparent hover:text-black hover:border-black'
+                    : 'text-black border border-black hover:bg-black hover:text-white'
+                }`}
+                tabIndex={0}>
+                #{getButtonText(tag)}
+              </button>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Projects Grid */}
+        <motion.div
+          key={activeTag}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className='grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12'>
+          {filteredProjects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}>
+              <ProjectCard key={project.id} project={project} locale={locale} />
+            </motion.div>
           ))}
-        </div>
-      </motion.div>
+        </motion.div>
 
-      {/* Projects Grid */}
-      <motion.div
-        key={activeTag}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className='grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12'>
-        {filteredProjects.map((project, index) => (
-          <motion.div
-            key={project.id}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}>
-            <ProjectCard key={project.id} project={project} locale={locale} />
-          </motion.div>
-        ))}
-      </motion.div>
-
-      {/* View All Button */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        className='text-center'>
-        <Link
-          href={getProjectsUrl(locale)}
-          className='inline-flex items-center justify-center px-8 py-4 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-all duration-300 hover:scale-105 shadow-lg'>
-          {dictionary?.view_project || 'View All Projects'}
-          <svg
-            className='w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1'
-            fill='none'
-            stroke='currentColor'
-            viewBox='0 0 24 24'>
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              strokeWidth={2}
-              d='M17 8l4 4m0 0l-4 4m4-4H3'
-            />
-          </svg>
-        </Link>
-      </motion.div>
+        {/* View All Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className='text-center'>
+          <Link
+            href={getProjectsUrl(locale)}
+            className='inline-flex items-center justify-center px-8 py-4 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-all duration-300 hover:scale-105 shadow-lg'>
+            {dictionary?.view_project || 'View All Projects'}
+            <svg
+              className='w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1'
+              fill='none'
+              stroke='currentColor'
+              viewBox='0 0 24 24'>
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={2}
+                d='M17 8l4 4m0 0l-4 4m4-4H3'
+              />
+            </svg>
+          </Link>
+        </motion.div>
       </div>
     </Section>
   )

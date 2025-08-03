@@ -139,19 +139,20 @@ export const FAQ = ({ dictionary }: FAQProps) => {
 
   return (
     <Section
-      id="faq"
-      background="white"
-      padding="lg"
-      contentWidth="wide"
-    >
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/8 to-cyan-400/8"></div>
-      <div className="relative z-10">
+      id='faq'
+      background='white'
+      backgroundImage='/images/faq-bg.jpg'
+      padding='lg'
+      contentWidth='wide'>
+      <div className='relative z-10'>
         <SectionHeader
           title={dictionary?.title || 'Questions Fréquentes'}
-          subtitle={dictionary?.subtitle || 'Retrouvez les réponses aux questions les plus courantes sur nos services'}
-          titleId="faq-title"
-          className="text-left mb-10 md:mb-16"
+          subtitle={
+            dictionary?.subtitle ||
+            'Retrouvez les réponses aux questions les plus courantes sur nos services'
+          }
+          titleId='faq-title'
+          className='text-left mb-10 md:mb-16'
         />
 
         {/* Category Filter */}

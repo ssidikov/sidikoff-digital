@@ -31,15 +31,21 @@ export function Hero({ dict, common, locale }: HeroProps) {
   ]
 
   return (
-    <Section id='hero' variant='hero' background='white' padding='none' contentWidth='normal'>
+    <Section
+      id='hero'
+      variant='hero'
+      background='white'
+      backgroundImage='/images/hero/hero-bg.jpg'
+      padding='none'
+      contentWidth='normal'>
       <div ref={ref} className='text-center relative z-10'>
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className='inline-flex items-center px-4 py-2 rounded-full text-[12px] md:text-sm font-medium mb-8 bg-white/10 text-black/50 border border-black/20 backdrop-blur-sm mt-12 md:mt-24'>
-          <span className='w-2 h-2 bg-black/50 rounded-full mr-3 animate-pulse' />
+          className='inline-flex items-center px-4 py-2 rounded-full text-[12px] md:text-sm font-medium mb-8 bg-white/20 border border-white/30 backdrop-blur-sm mt-12 md:mt-24 '>
+          <span className='w-2 h-2 bg-white/90 rounded-full mr-3' />
           {dict.badge}
         </motion.div>
 
@@ -48,7 +54,7 @@ export function Hero({ dict, common, locale }: HeroProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className='text-4xl md:text-6xl lg:text-7xl font-bold text-[#1a232b] mb-6 leading-tight'>
+          className='text-4xl md:text-6xl lg:text-7xl font-bold text-black mb-6 leading-tight drop-shadow-lg'>
           <span className=''>{dict.title}</span>
         </motion.h1>
 
@@ -57,7 +63,7 @@ export function Hero({ dict, common, locale }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className='text-xl md:text-2xl text-[#3a4a5a] mb-12 max-w-3xl mx-auto leading-relaxed'>
+          className='text-xl md:text-2xl text-black/90 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-md'>
           {dict.subtitle}
         </motion.p>
 
@@ -95,11 +101,13 @@ export function Hero({ dict, common, locale }: HeroProps) {
           {badges.map((badge, index) => {
             const IconComponent = badge.icon
             return (
-              <div key={index} className='flex items-center space-x-3'>
+              <div
+                key={index}
+                className='flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20'>
                 <span className='w-6 h-6 text-black inline-flex items-center justify-center'>
                   <IconComponent />
                 </span>
-                <span className='text-sm font-medium text-gray-900'>{badge.text}</span>
+                <span className='text-sm font-medium text-black'>{badge.text}</span>
               </div>
             )
           })}

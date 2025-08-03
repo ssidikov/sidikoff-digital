@@ -157,39 +157,40 @@ export default function Pricing({ locale }: PricingProps) {
 
   return (
     <Section
-      id="pricing"
-      background="white"
-      padding="lg"
-      contentWidth="wide"
-      aria-labelledby="pricing-title"
-    >
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/8 to-pink-500/8"></div>
-      <div className="relative z-10">
+      id='pricing'
+      background='white'
+      backgroundImage='/images/prices-bg.jpg'
+      padding='lg'
+      contentWidth='wide'
+      aria-labelledby='pricing-title'>
+      <div className='relative z-10'>
         <SectionHeader
           title={dict?.pricing?.title || 'Nos Offres'}
           subtitle={dict?.pricing?.subtitle || 'Transparentes & Adaptées'}
-          description={dict?.pricing?.description || 'Choisissez la solution qui correspond parfaitement à vos besoins et à votre budget. Tous nos projets incluent un design moderne, un développement professionnel et un support complet.'}
-          titleId="pricing-title"
-          className="text-left mb-16"
+          description={
+            dict?.pricing?.description ||
+            'Choisissez la solution qui correspond parfaitement à vos besoins et à votre budget. Tous nos projets incluent un design moderne, un développement professionnel et un support complet.'
+          }
+          titleId='pricing-title'
+          className='text-left mb-16'
         />
 
-      {/* Badges de confiance */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        viewport={{ once: true }}
-        className='flex flex-wrap justify-center gap-4 mb-8'>
-        <div className='px-6 py-3 rounded-full shadow-md flex items-center gap-2 text-green-500 p-4 backdrop-blur-xl bg-white/20 border-2 border-white/30'>
-          <CheckIcon className='w-3 h-3 bg-green-200 rounded-full' />
-          <span className='text-sm font-medium text-gray-700'>
-            {dict?.pricing?.guarantee_badge || 'Résultats garantis • Livraison garantie'}
-          </span>
-        </div>
-      </motion.div>
+        {/* Badges de confiance */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+          className='flex flex-wrap justify-center gap-4 mb-8'>
+          <div className='px-6 py-3 rounded-full shadow-md flex items-center gap-2 text-green-500 p-4 backdrop-blur-xl bg-white/20 border-2 border-white/30'>
+            <CheckIcon className='w-3 h-3 bg-green-200 rounded-full' />
+            <span className='text-sm font-medium text-gray-700'>
+              {dict?.pricing?.guarantee_badge || 'Résultats garantis • Livraison garantie'}
+            </span>
+          </div>
+        </motion.div>
 
-      {/* Grille des cartes de tarification */}
+        {/* Grille des cartes de tarification */}
         <div className='grid lg:grid-cols-3 gap-8 lg:gap-6 max-w-8xl mx-auto'>
           {pricingPlans.map((plan, index) => (
             <div key={plan.name} className='h-full'>
