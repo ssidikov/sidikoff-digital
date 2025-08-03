@@ -34,7 +34,37 @@ export async function generateMetadata({ params }: SEOPageProps): Promise<Metada
 export async function generateStaticParams() {
   // Static list of all SEO location slugs for reliable build-time generation
   const seoSlugs = [
+    // Paris Districts (1-20)
+    'paris-1',
+    'paris-2',
+    'paris-3',
+    'paris-4',
+    'paris-5',
+    'paris-6',
+    'paris-7',
+    'paris-8',
+    'paris-9',
+    'paris-10',
+    'paris-11',
+    'paris-12',
+    'paris-13',
+    'paris-14',
+    'paris-15',
     'paris-16', // Custom location
+    'paris-17',
+    'paris-18',
+    'paris-19',
+    'paris-20',
+    // Lyon Districts (1-9)
+    'lyon-1',
+    'lyon-2',
+    'lyon-3',
+    'lyon-4',
+    'lyon-5',
+    'lyon-6',
+    'lyon-7',
+    'lyon-8',
+    'lyon-9',
     // French Regions
     'ile-de-france',
     'auvergne-rhone-alpes',
@@ -110,10 +140,12 @@ export default async function SEOLocationPage({ params }: SEOPageProps) {
   const locale = defaultLocale
   const dict = await getDictionary(locale)
 
-  // Create customized hero dictionary with location-specific badge
+  // Create customized hero dictionary with location-specific content
   const heroDict = {
     ...dict.hero,
     badge: location.badgeText[locale],
+    title: location.title[locale].replace(' | SIDIKOFF DIGITAL', ''), // Remove company name from H1
+    subtitle: `${location.keyword.charAt(0).toUpperCase() + location.keyword.slice(1)} : ${dict.hero.subtitle}`,
   }
 
   // Generate structured data for the location
@@ -174,7 +206,7 @@ export default async function SEOLocationPage({ params }: SEOPageProps) {
       ))}
 
       <main>
-        {/* Hero with custom badge */}
+        {/* Hero with custom badge, title and subtitle */}
         <Hero dict={heroDict} common={dict.common} locale={locale} />
 
         {/* Keep the same layout as the main site */}

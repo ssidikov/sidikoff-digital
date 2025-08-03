@@ -96,6 +96,7 @@ export const DEFAULT_SEO = {
     'création de site web nice',
     'création de site web toulon',
     'création de site web montpellier',
+    'création de site web villeurbanne',
     'création de site web lyon 1er arrondissement',
     'création de site web lyon 2ème arrondissement',
     'création de site web lyon 3ème arrondissement',
@@ -129,6 +130,7 @@ export const DEFAULT_SEO = {
     'création de site internet paris',
     'création de site internet toulouse',
     'création de site internet lyon',
+    'création de site internet villeurbanne',
     'création de site internet strasbourg',
     'création de site internet mulhouse',
     'création de site internet colmar',
@@ -136,6 +138,7 @@ export const DEFAULT_SEO = {
     'développement web paris',
     'développement web toulouse',
     'développement web lyon',
+    'développement web villeurbanne',
     'développement web strasbourg',
     'développement web mulhouse',
     'développement web colmar',
@@ -144,10 +147,12 @@ export const DEFAULT_SEO = {
     'développeur web freelance',
     'développeur web paris',
     'développeur web lyon',
+    'développeur web villeurbanne',
     'développeur web toulouse',
     'développeur web strasbourg',
     'agence web paris',
     'agence web lyon',
+    'agence web villeurbanne',
     'agence web toulouse',
     'agence web strasbourg',
     'agence web france',
@@ -433,20 +438,20 @@ function generateSEOLocation(
     region,
     keyword,
     title: {
-      fr: `Création de Sites Web ${name} | SIDIKOFF DIGITAL`,
-      en: `Website Creation ${name} | SIDIKOFF DIGITAL`,
+      fr: `Création de site web ${name} | SIDIKOFF DIGITAL`,
+      en: `Website creation ${name} | SIDIKOFF DIGITAL`,
       ru: `Создание сайтов ${name} | SIDIKOFF DIGITAL`,
     },
     description: {
       fr: isCity
-        ? `Développeur web professionnel à ${name} pour la création de sites internet modernes. Solutions React, Next.js, optimisation SEO et développement sur mesure.`
-        : `Agence web experte en ${name} pour la création de sites internet professionnels. Développement moderne, responsive et optimisé SEO dans toute la région.`,
+        ? `Création de site web ${name} : développeur web professionnel pour des sites internet modernes. Solutions React, Next.js, optimisation SEO et développement sur mesure.`
+        : `Création de site web région ${name} : agence web experte pour des sites internet professionnels. Développement moderne, responsive et optimisé SEO dans toute la région.`,
       en: isCity
-        ? `Professional web developer in ${name} for modern website creation. React, Next.js solutions, SEO optimization and custom development.`
-        : `Expert web agency in ${name} region for professional website creation. Modern, responsive and SEO-optimized development throughout the region.`,
+        ? `Website creation ${name}: professional web developer for modern websites. React, Next.js solutions, SEO optimization and custom development.`
+        : `Website creation ${name} region: expert web agency for professional websites. Modern, responsive and SEO-optimized development throughout the region.`,
       ru: isCity
-        ? `Профессиональный веб-разработчик в ${name} для создания современных сайтов. Решения React, Next.js, SEO-оптимизация и индивидуальная разработка.`
-        : `Экспертное веб-агентство в регионе ${name} для создания профессиональных сайтов. Современная, адаптивная и SEO-оптимизированная разработка по всему региону.`,
+        ? `Создание сайтов ${name}: профессиональный веб-разработчик для современных сайтов. Решения React, Next.js, SEO-оптимизация и индивидуальная разработка.`
+        : `Создание сайтов регион ${name}: экспертное веб-агентство для профессиональных сайтов. Современная, адаптивная и SEO-оптимизированная разработка по всему региону.`,
     },
     badgeText: {
       fr: isCity ? `Création de site web ${name}` : `Création de site web région ${name}`,
@@ -458,6 +463,322 @@ function generateSEOLocation(
 
 // Generate all SEO locations
 export const SEO_LOCATIONS: SEOLocation[] = [
+  // Paris Districts (1-20)
+  {
+    slug: 'paris-1',
+    city: 'Paris 1er arrondissement',
+    region: 'Île-de-France',
+    keyword: 'création de site web paris 1er arrondissement',
+    title: {
+      fr: 'Création de site web Paris 1er arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 1st District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Париж 1-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Paris 1er arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 1st district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 1-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Paris 1er arrondissement',
+      en: 'Website creation Paris 1st district',
+      ru: 'Создание сайтов Париж 1-й округ',
+    },
+  },
+  {
+    slug: 'paris-2',
+    city: 'Paris 2ème arrondissement',
+    region: 'Île-de-France',
+    keyword: 'création de site web paris 2ème arrondissement',
+    title: {
+      fr: 'Création de site web Paris 2ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 2nd District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Париж 2-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Paris 2ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 2nd district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 2-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Paris 2ème arrondissement',
+      en: 'Website creation Paris 2nd district',
+      ru: 'Создание сайтов Париж 2-й округ',
+    },
+  },
+  {
+    slug: 'paris-3',
+    city: 'Paris 3ème arrondissement',
+    region: 'Île-de-France',
+    keyword: 'création de site web paris 3ème arrondissement',
+    title: {
+      fr: 'Création de site web Paris 3ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 3rd District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Париж 3-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Paris 3ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 3rd district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 3-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Paris 3ème arrondissement',
+      en: 'Website creation Paris 3rd district',
+      ru: 'Создание сайтов Париж 3-й округ',
+    },
+  },
+  {
+    slug: 'paris-4',
+    city: 'Paris 4ème arrondissement',
+    region: 'Île-de-France',
+    keyword: 'création de site web paris 4ème arrondissement',
+    title: {
+      fr: 'Création de site web Paris 4ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 4th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Париж 4-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Paris 4ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 4th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 4-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Paris 4ème arrondissement',
+      en: 'Website creation Paris 4th district',
+      ru: 'Создание сайтов Париж 4-й округ',
+    },
+  },
+  {
+    slug: 'paris-5',
+    city: 'Paris 5ème arrondissement',
+    region: 'Île-de-France',
+    keyword: 'création de site web paris 5ème arrondissement',
+    title: {
+      fr: 'Création de site web Paris 5ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 5th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Париж 5-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Paris 5ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 5th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 5-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Paris 5ème arrondissement',
+      en: 'Website creation Paris 5th district',
+      ru: 'Создание сайтов Париж 5-й округ',
+    },
+  },
+  {
+    slug: 'paris-6',
+    city: 'Paris 6ème arrondissement',
+    region: 'Île-de-France',
+    keyword: 'création de site web paris 6ème arrondissement',
+    title: {
+      fr: 'Création de site web Paris 6ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 6th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Париж 6-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Paris 6ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 6th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 6-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Paris 6ème arrondissement',
+      en: 'Website creation Paris 6th district',
+      ru: 'Создание сайтов Париж 6-й округ',
+    },
+  },
+  {
+    slug: 'paris-7',
+    city: 'Paris 7ème arrondissement',
+    region: 'Île-de-France',
+    keyword: 'création de site web paris 7ème arrondissement',
+    title: {
+      fr: 'Création de site web Paris 7ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 7th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Париж 7-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Paris 7ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 7th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 7-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Paris 7ème arrondissement',
+      en: 'Website creation Paris 7th district',
+      ru: 'Создание сайтов Париж 7-й округ',
+    },
+  },
+  {
+    slug: 'paris-8',
+    city: 'Paris 8ème arrondissement',
+    region: 'Île-de-France',
+    keyword: 'création de site web paris 8ème arrondissement',
+    title: {
+      fr: 'Création de site web Paris 8ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 8th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Париж 8-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Paris 8ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 8th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 8-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Paris 8ème arrondissement',
+      en: 'Website creation Paris 8th district',
+      ru: 'Создание сайтов Париж 8-й округ',
+    },
+  },
+  {
+    slug: 'paris-9',
+    city: 'Paris 9ème arrondissement',
+    region: 'Île-de-France',
+    keyword: 'création de site web paris 9ème arrondissement',
+    title: {
+      fr: 'Création de site web Paris 9ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 9th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Париж 9-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Paris 9ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 9th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 9-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Paris 9ème arrondissement',
+      en: 'Website creation Paris 9th district',
+      ru: 'Создание сайтов Париж 9-й округ',
+    },
+  },
+  {
+    slug: 'paris-10',
+    city: 'Paris 10ème arrondissement',
+    region: 'Île-de-France',
+    keyword: 'création de site web paris 10ème arrondissement',
+    title: {
+      fr: 'Création de site web Paris 10ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 10th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Париж 10-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Paris 10ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 10th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 10-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Paris 10ème arrondissement',
+      en: 'Website creation Paris 10th district',
+      ru: 'Создание сайтов Париж 10-й округ',
+    },
+  },
+  {
+    slug: 'paris-11',
+    city: 'Paris 11ème arrondissement',
+    region: 'Île-de-France',
+    keyword: 'création de site web paris 11ème arrondissement',
+    title: {
+      fr: 'Création de site web Paris 11ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 11th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Париж 11-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Paris 11ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 11th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 11-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Paris 11ème arrondissement',
+      en: 'Website creation Paris 11th district',
+      ru: 'Создание сайтов Париж 11-й округ',
+    },
+  },
+  {
+    slug: 'paris-12',
+    city: 'Paris 12ème arrondissement',
+    region: 'Île-de-France',
+    keyword: 'création de site web paris 12ème arrondissement',
+    title: {
+      fr: 'Création de site web Paris 12ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 12th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Париж 12-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Paris 12ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 12th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 12-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Paris 12ème arrondissement',
+      en: 'Website creation Paris 12th district',
+      ru: 'Создание сайтов Париж 12-й округ',
+    },
+  },
+  {
+    slug: 'paris-13',
+    city: 'Paris 13ème arrondissement',
+    region: 'Île-de-France',
+    keyword: 'création de site web paris 13ème arrondissement',
+    title: {
+      fr: 'Création de site web Paris 13ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 13th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Париж 13-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Paris 13ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 13th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 13-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Paris 13ème arrondissement',
+      en: 'Website creation Paris 13th district',
+      ru: 'Создание сайтов Париж 13-й округ',
+    },
+  },
+  {
+    slug: 'paris-14',
+    city: 'Paris 14ème arrondissement',
+    region: 'Île-de-France',
+    keyword: 'création de site web paris 14ème arrondissement',
+    title: {
+      fr: 'Création de site web Paris 14ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 14th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Париж 14-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Paris 14ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 14th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 14-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Paris 14ème arrondissement',
+      en: 'Website creation Paris 14th district',
+      ru: 'Создание сайтов Париж 14-й округ',
+    },
+  },
+  {
+    slug: 'paris-15',
+    city: 'Paris 15ème arrondissement',
+    region: 'Île-de-France',
+    keyword: 'création de site web paris 15ème arrondissement',
+    title: {
+      fr: 'Création de site web Paris 15ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 15th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Париж 15-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Paris 15ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 15th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 15-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Paris 15ème arrondissement',
+      en: 'Website creation Paris 15th district',
+      ru: 'Создание сайтов Париж 15-й округ',
+    },
+  },
   // Custom high-priority locations (existing)
   {
     slug: 'paris-16',
@@ -465,19 +786,294 @@ export const SEO_LOCATIONS: SEOLocation[] = [
     region: 'Île-de-France',
     keyword: 'création de site web paris 16ème arrondissement',
     title: {
-      fr: 'Création de Sites Web Paris 16ème arrondissement | SIDIKOFF DIGITAL',
-      en: 'Website Creation Paris 16th District | SIDIKOFF DIGITAL',
+      fr: 'Création de site web Paris 16ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 16th District | SIDIKOFF DIGITAL',
       ru: 'Создание сайтов Париж 16-й округ | SIDIKOFF DIGITAL',
     },
     description: {
-      fr: 'Développeur web expert en création de sites internet modernes dans le 16ème arrondissement de Paris. Solutions professionnelles React, Next.js, SEO.',
-      en: 'Expert web developer for modern website creation in Paris 16th district. Professional React, Next.js, SEO solutions.',
-      ru: 'Эксперт веб-разработчик по созданию современных сайтов в 16-м округе Парижа. Профессиональные решения React, Next.js, SEO.',
+      fr: 'Création de site web Paris 16ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 16th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 16-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
     },
     badgeText: {
       fr: 'Création de site web Paris 16ème arrondissement',
       en: 'Website creation Paris 16th district',
       ru: 'Создание сайтов Париж 16-й округ',
+    },
+  },
+  {
+    slug: 'paris-17',
+    city: 'Paris 17ème arrondissement',
+    region: 'Île-de-France',
+    keyword: 'création de site web paris 17ème arrondissement',
+    title: {
+      fr: 'Création de site web Paris 17ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 17th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Париж 17-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Paris 17ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 17th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 17-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Paris 17ème arrondissement',
+      en: 'Website creation Paris 17th district',
+      ru: 'Создание сайтов Париж 17-й округ',
+    },
+  },
+  {
+    slug: 'paris-18',
+    city: 'Paris 18ème arrondissement',
+    region: 'Île-de-France',
+    keyword: 'création de site web paris 18ème arrondissement',
+    title: {
+      fr: 'Création de site web Paris 18ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 18th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Париж 18-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Paris 18ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 18th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 18-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Paris 18ème arrondissement',
+      en: 'Website creation Paris 18th district',
+      ru: 'Создание сайтов Париж 18-й округ',
+    },
+  },
+  {
+    slug: 'paris-19',
+    city: 'Paris 19ème arrondissement',
+    region: 'Île-de-France',
+    keyword: 'création de site web paris 19ème arrondissement',
+    title: {
+      fr: 'Création de site web Paris 19ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 19th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Париж 19-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Paris 19ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 19th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 19-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Paris 19ème arrondissement',
+      en: 'Website creation Paris 19th district',
+      ru: 'Создание сайтов Париж 19-й округ',
+    },
+  },
+  {
+    slug: 'paris-20',
+    city: 'Paris 20ème arrondissement',
+    region: 'Île-de-France',
+    keyword: 'création de site web paris 20ème arrondissement',
+    title: {
+      fr: 'Création de site web Paris 20ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Paris 20th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Париж 20-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Paris 20ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Paris 20th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Париж 20-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Paris 20ème arrondissement',
+      en: 'Website creation Paris 20th district',
+      ru: 'Создание сайтов Париж 20-й округ',
+    },
+  },
+
+  // Lyon Districts (1-9)
+  {
+    slug: 'lyon-1',
+    city: 'Lyon 1er arrondissement',
+    region: 'Auvergne-Rhône-Alpes',
+    keyword: 'création de site web lyon 1er arrondissement',
+    title: {
+      fr: 'Création de site web Lyon 1er arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Lyon 1st District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Лион 1-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Lyon 1er arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Lyon 1st district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Лион 1-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Lyon 1er arrondissement',
+      en: 'Website creation Lyon 1st district',
+      ru: 'Создание сайтов Лион 1-й округ',
+    },
+  },
+  {
+    slug: 'lyon-2',
+    city: 'Lyon 2ème arrondissement',
+    region: 'Auvergne-Rhône-Alpes',
+    keyword: 'création de site web lyon 2ème arrondissement',
+    title: {
+      fr: 'Création de site web Lyon 2ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Lyon 2nd District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Лион 2-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Lyon 2ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Lyon 2nd district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Лион 2-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Lyon 2ème arrondissement',
+      en: 'Website creation Lyon 2nd district',
+      ru: 'Создание сайтов Лион 2-й округ',
+    },
+  },
+  {
+    slug: 'lyon-3',
+    city: 'Lyon 3ème arrondissement',
+    region: 'Auvergne-Rhône-Alpes',
+    keyword: 'création de site web lyon 3ème arrondissement',
+    title: {
+      fr: 'Création de site web Lyon 3ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Lyon 3rd District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Лион 3-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Lyon 3ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Lyon 3rd district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Лион 3-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Lyon 3ème arrondissement',
+      en: 'Website creation Lyon 3rd district',
+      ru: 'Создание сайтов Лион 3-й округ',
+    },
+  },
+  {
+    slug: 'lyon-4',
+    city: 'Lyon 4ème arrondissement',
+    region: 'Auvergne-Rhône-Alpes',
+    keyword: 'création de site web lyon 4ème arrondissement',
+    title: {
+      fr: 'Création de site web Lyon 4ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Lyon 4th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Лион 4-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Lyon 4ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Lyon 4th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Лион 4-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Lyon 4ème arrondissement',
+      en: 'Website creation Lyon 4th district',
+      ru: 'Создание сайтов Лион 4-й округ',
+    },
+  },
+  {
+    slug: 'lyon-5',
+    city: 'Lyon 5ème arrondissement',
+    region: 'Auvergne-Rhône-Alpes',
+    keyword: 'création de site web lyon 5ème arrondissement',
+    title: {
+      fr: 'Création de site web Lyon 5ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Lyon 5th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Лион 5-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Lyon 5ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Lyon 5th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Лион 5-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Lyon 5ème arrondissement',
+      en: 'Website creation Lyon 5th district',
+      ru: 'Создание сайтов Лион 5-й округ',
+    },
+  },
+  {
+    slug: 'lyon-6',
+    city: 'Lyon 6ème arrondissement',
+    region: 'Auvergne-Rhône-Alpes',
+    keyword: 'création de site web lyon 6ème arrondissement',
+    title: {
+      fr: 'Création de site web Lyon 6ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Lyon 6th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Лион 6-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Lyon 6ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Lyon 6th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Лион 6-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Lyon 6ème arrondissement',
+      en: 'Website creation Lyon 6th district',
+      ru: 'Создание сайтов Лион 6-й округ',
+    },
+  },
+  {
+    slug: 'lyon-7',
+    city: 'Lyon 7ème arrondissement',
+    region: 'Auvergne-Rhône-Alpes',
+    keyword: 'création de site web lyon 7ème arrondissement',
+    title: {
+      fr: 'Création de site web Lyon 7ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Lyon 7th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Лион 7-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Lyon 7ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Lyon 7th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Лион 7-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Lyon 7ème arrondissement',
+      en: 'Website creation Lyon 7th district',
+      ru: 'Создание сайтов Лион 7-й округ',
+    },
+  },
+  {
+    slug: 'lyon-8',
+    city: 'Lyon 8ème arrondissement',
+    region: 'Auvergne-Rhône-Alpes',
+    keyword: 'création de site web lyon 8ème arrondissement',
+    title: {
+      fr: 'Création de site web Lyon 8ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Lyon 8th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Лион 8-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Lyon 8ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Lyon 8th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Лион 8-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Lyon 8ème arrondissement',
+      en: 'Website creation Lyon 8th district',
+      ru: 'Создание сайтов Лион 8-й округ',
+    },
+  },
+  {
+    slug: 'lyon-9',
+    city: 'Lyon 9ème arrondissement',
+    region: 'Auvergne-Rhône-Alpes',
+    keyword: 'création de site web lyon 9ème arrondissement',
+    title: {
+      fr: 'Création de site web Lyon 9ème arrondissement | SIDIKOFF DIGITAL',
+      en: 'Website creation Lyon 9th District | SIDIKOFF DIGITAL',
+      ru: 'Создание сайтов Лион 9-й округ | SIDIKOFF DIGITAL',
+    },
+    description: {
+      fr: 'Création de site web Lyon 9ème arrondissement : développeur web expert en sites internet modernes. Solutions professionnelles React, Next.js, SEO.',
+      en: 'Website creation Lyon 9th district: expert web developer for modern websites. Professional React, Next.js, SEO solutions.',
+      ru: 'Создание сайтов Лион 9-й округ: эксперт веб-разработчик по современным сайтам. Профессиональные решения React, Next.js, SEO.',
+    },
+    badgeText: {
+      fr: 'Création de site web Lyon 9ème arrondissement',
+      en: 'Website creation Lyon 9th district',
+      ru: 'Создание сайтов Лион 9-й округ',
     },
   },
 
