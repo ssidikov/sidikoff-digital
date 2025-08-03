@@ -42,7 +42,7 @@ export default async function TarifsPage({ params }: TarifsPageProps) {
   const dict = await getDictionary(locale)
 
   return (
-    <Section backgroundImage='/images/prices-bg.jpg' className='min-h-screen py-20'>
+    <Section backgroundImage='/images/prices-bg.webp' className='min-h-screen py-20'>
       <div className='container mx-auto px-4'>
         <div className='text-center mb-16'>
           <h1 className='text-4xl lg:text-5xl font-bold text-[#112D4E] mb-6'>

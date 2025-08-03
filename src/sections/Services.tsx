@@ -18,28 +18,28 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
       title: dict.web_creation.title,
       subtitle: dict.web_creation.subtitle,
       description: dict.web_creation.description,
-      image: '/images/services/web-development.jpg',
+      image: '/images/services/web-development.webp',
       alt: dict.web_creation.title,
       badges: dict.web_creation.features,
     },
     {
       title: dict.web_redesign.title,
       description: dict.web_redesign.description,
-      image: '/images/services/website-redesign.jpg',
+      image: '/images/services/website-redesign.webp',
       alt: dict.web_redesign.title,
       badges: dict.web_redesign.features,
     },
     {
       title: dict.seo_optimization.title,
       description: dict.seo_optimization.description,
-      image: '/images/services/seo.jpg',
+      image: '/images/services/seo.webp',
       alt: dict.seo_optimization.title,
       badges: dict.seo_optimization.features,
     },
     {
       title: dict.maintenance.title,
       description: dict.maintenance.description,
-      image: '/images/services/maintenance-support.jpg',
+      image: '/images/services/maintenance-support.webp',
       alt: dict.maintenance.title,
       badges: dict.maintenance.features,
     },
@@ -49,7 +49,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
     <Section
       id='services'
       background='white'
-      backgroundImage='/images/services/services-bg.jpg'
+      backgroundImage='/images/services/services-bg.webp'
       padding='lg'
       contentWidth='wide'
       className={className || ''}>
@@ -166,7 +166,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
               {/* Image at top */}
               <div className='relative h-48 w-full'>
                 <Image
-                  src='/images/services/cta-background.jpg'
+                  src='/images/services/cta-background.webp'
                   alt='CTA Background'
                   fill
                   className='object-cover'
@@ -218,7 +218,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
               {/* Background Image */}
               <div className='absolute inset-0'>
                 <Image
-                  src='/images/services/cta-background.jpg'
+                  src='/images/services/cta-background.webp'
                   alt='CTA Background'
                   fill
                   className='object-cover'

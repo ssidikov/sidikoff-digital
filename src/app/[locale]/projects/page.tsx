@@ -13,7 +13,7 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
     <Section
       id='portfolio'
       background='white'
-      backgroundImage='/images/projects-bg.jpg'
+      backgroundImage='/images/projects-bg.webp'
       padding='lg'
       contentWidth='wide'>
       <div className='relative z-10'>

@@ -142,7 +142,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
     <Section
       id='contact'
       background='white'
-      backgroundImage='/images/contact-bg.jpg'
+      backgroundImage='/images/contact-bg.webp'
       padding='lg'
       contentWidth='wide'
       className={className || ''}>

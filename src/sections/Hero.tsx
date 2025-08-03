@@ -35,7 +35,7 @@ export function Hero({ dict, common, locale }: HeroProps) {
       id='hero'
       variant='hero'
       background='white'
-      backgroundImage='/images/hero/hero-bg.jpg'
+      backgroundImage='/images/hero/hero-bg.webp'
       padding='none'
       contentWidth='normal'>
       <div ref={ref} className='text-center relative z-10'>
@@ -46,9 +46,11 @@ export function Hero({ dict, common, locale }: HeroProps) {
           transition={{ duration: 0.6 }}
           className='inline-flex items-center px-4 py-2 rounded-full text-[12px] md:text-sm font-medium mb-8 border border-white/50 mt-12 md:mt-24 transition-all duration-300'
           style={{
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%)',
+            background:
+              'linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%)',
             backdropFilter: 'blur(12px) saturate(110%)',
-            boxShadow: 'rgba(255, 255, 255, 0.2) 0px 4px 16px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
+            boxShadow:
+              'rgba(255, 255, 255, 0.2) 0px 4px 16px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
           }}>
           <span className='w-2 h-2 bg-white/90 rounded-full mr-3' />
           {dict.badge}
@@ -110,9 +112,11 @@ export function Hero({ dict, common, locale }: HeroProps) {
                 key={index}
                 className='flex items-center space-x-3 rounded-full px-4 py-2 border border-white/40 transition-all duration-300'
                 style={{
-                  background: 'linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%)',
+                  background:
+                    'linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%)',
                   backdropFilter: 'blur(12px) saturate(110%)',
-                  boxShadow: 'rgba(255, 255, 255, 0.2) 0px 4px 16px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
+                  boxShadow:
+                    'rgba(255, 255, 255, 0.2) 0px 4px 16px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
                 }}>
                 <span className='w-6 h-6 text-black inline-flex items-center justify-center'>
                   <IconComponent />

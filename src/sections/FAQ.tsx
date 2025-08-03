@@ -141,7 +141,7 @@ export const FAQ = ({ dictionary }: FAQProps) => {
     <Section
       id='faq'
       background='white'
-      backgroundImage='/images/faq-bg.jpg'
+      backgroundImage='/images/faq-bg.webp'
       padding='lg'
       contentWidth='wide'>
       <div className='relative z-10'>

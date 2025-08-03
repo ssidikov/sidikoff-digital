@@ -159,7 +159,7 @@ export default function Pricing({ locale }: PricingProps) {
     <Section
       id='pricing'
       background='white'
-      backgroundImage='/images/prices-bg.jpg'
+      backgroundImage='/images/prices-bg.webp'
       padding='lg'
       contentWidth='wide'
       aria-labelledby='pricing-title'>
@@ -385,10 +385,12 @@ export function PricingContent({ locale }: PricingProps) {
         <div
           className='px-6 py-3 rounded-full shadow-md flex items-center gap-2 text-green-500 p-4 border-2 transition-all duration-300'
           style={{
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%)',
+            background:
+              'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%)',
             backdropFilter: 'blur(20px) saturate(120%)',
             border: '2px solid rgba(255, 255, 255, 0.4)',
-            boxShadow: 'rgba(255, 255, 255, 0.2) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
+            boxShadow:
+              'rgba(255, 255, 255, 0.2) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
           }}>
           <CheckIcon className='w-3 h-3 bg-green-200 rounded-full' />
           <span className='text-sm font-medium text-gray-700'>
@@ -427,26 +429,31 @@ export function PricingContent({ locale }: PricingProps) {
         <div
           className='rounded-3xl p-8 max-w-4xl mx-auto shadow-2xl border-2 transition-all duration-500 hover:shadow-white/20 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/30 before:to-transparent before:opacity-60 before:pointer-events-none relative overflow-hidden'
           style={{
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%)',
+            background:
+              'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%)',
             backdropFilter: 'blur(20px) saturate(120%)',
             border: '2px solid rgba(255, 255, 255, 0.3)',
-            boxShadow: 'rgba(255, 255, 255, 0.2) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
+            boxShadow:
+              'rgba(255, 255, 255, 0.2) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
           }}>
           <h3 className='text-2xl font-bold text-[#112D4E] mb-4'>
             {dict?.pricing?.maintenance?.title || 'Maintenance et Support'}
           </h3>
           <p className='text-gray-600 mb-2 font-semibold'>
-            {dict?.pricing?.maintenance?.billing || 'Facturation horaire ou forfaitaire selon la demande'}
+            {dict?.pricing?.maintenance?.billing ||
+              'Facturation horaire ou forfaitaire selon la demande'}
           </p>
           <div className='text-gray-600 mb-6 leading-relaxed text-left max-w-2xl mx-auto'>
             <ul className='space-y-3'>
-              {(dict?.pricing?.maintenance?.features || [
-                'Mises à jour techniques régulières',
-                'Modifications ou ajouts de sections/pages',
-                'Ajout ou modification de contenu (textes, images, etc.)',
-                'Support par WhatsApp, Telegram ou email',
-                'Sauvegardes régulières',
-              ]).map((feature: string, index: number) => (
+              {(
+                dict?.pricing?.maintenance?.features || [
+                  'Mises à jour techniques régulières',
+                  'Modifications ou ajouts de sections/pages',
+                  'Ajout ou modification de contenu (textes, images, etc.)',
+                  'Support par WhatsApp, Telegram ou email',
+                  'Sauvegardes régulières',
+                ]
+              ).map((feature: string, index: number) => (
                 <li key={index} className='flex items-start gap-3'>
                   <CheckIcon className='w-5 h-5 text-green-500 mt-0.5 flex-shrink-0' />
                   <span>{feature}</span>
