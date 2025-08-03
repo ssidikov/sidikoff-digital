@@ -51,7 +51,7 @@ export function Footer({ dictionary, locale }: FooterProps) {
     },
     {
       name: dictionary.navigation?.pricing || 'Tarifs',
-      href: getLocalizedUrl('/#pricing', locale),
+      href: getLocalizedUrl('/tarifs', locale),
     },
     { name: dictionary.navigation?.faq || 'FAQ', href: getLocalizedUrl('/#faq', locale) },
     { name: dictionary.navigation?.blog || 'Blog', href: getLocalizedUrl('/blog', locale) },

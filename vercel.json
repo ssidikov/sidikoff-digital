@@ -1,0 +1,10 @@
+{
+  "env": {
+    "NEXT_PUBLIC_SITE_URL": "https://www.sidikoff.com"
+  },
+  "functions": {
+    "src/app/sitemap.ts": {
+      "memory": 1024
+    }
+  }
+}

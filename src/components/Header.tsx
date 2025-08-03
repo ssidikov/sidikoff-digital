@@ -57,8 +57,8 @@ export function Header({ dictionary, locale }: HeaderProps) {
     },
     {
       label: dictionary.navigation.pricing,
-      href: getLocalizedUrl('/#pricing', locale),
-      section: 'pricing',
+      href: getLocalizedUrl('/tarifs', locale),
+      section: 'tarifs',
     },
     {
       label: dictionary.navigation.faq,
