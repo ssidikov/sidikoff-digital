@@ -73,9 +73,39 @@ module.exports = {
       { slug: 'nancy' },
     ]
 
-    // Combine all SEO locations (custom + regions + cities)
+    // Combine all SEO locations (custom + Paris districts + Lyon districts + regions + cities)
     const SEO_LOCATIONS = [
+      // Paris Districts (1-20)
+      { slug: 'paris-1' },
+      { slug: 'paris-2' },
+      { slug: 'paris-3' },
+      { slug: 'paris-4' },
+      { slug: 'paris-5' },
+      { slug: 'paris-6' },
+      { slug: 'paris-7' },
+      { slug: 'paris-8' },
+      { slug: 'paris-9' },
+      { slug: 'paris-10' },
+      { slug: 'paris-11' },
+      { slug: 'paris-12' },
+      { slug: 'paris-13' },
+      { slug: 'paris-14' },
+      { slug: 'paris-15' },
       { slug: 'paris-16' }, // Custom high-priority location
+      { slug: 'paris-17' },
+      { slug: 'paris-18' },
+      { slug: 'paris-19' },
+      { slug: 'paris-20' },
+      // Lyon Districts (1-9)
+      { slug: 'lyon-1' },
+      { slug: 'lyon-2' },
+      { slug: 'lyon-3' },
+      { slug: 'lyon-4' },
+      { slug: 'lyon-5' },
+      { slug: 'lyon-6' },
+      { slug: 'lyon-7' },
+      { slug: 'lyon-8' },
+      { slug: 'lyon-9' },
       ...FRENCH_REGIONS,
       ...FRENCH_CITIES,
     ]
