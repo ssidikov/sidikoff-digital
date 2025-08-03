@@ -43,13 +43,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   })
 
-  // Ajouter page spéciale /tarifs pour le français
-  sitemap.push({
-    url: `${baseUrl}/tarifs`,
-    lastModified,
-    changeFrequency: 'monthly',
-    priority: 0.8,
-  })
-
   return sitemap.sort((a, b) => (b.priority || 0) - (a.priority || 0))
 }
