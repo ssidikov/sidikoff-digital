@@ -182,7 +182,16 @@ export default function Pricing({ locale }: PricingProps) {
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
           className='flex flex-wrap justify-center gap-4 mb-8'>
-          <div className='px-6 py-3 rounded-full shadow-md flex items-center gap-2 text-green-500 p-4 backdrop-blur-xl bg-white/20 border-2 border-white/30'>
+          <div
+            className='px-6 py-3 rounded-full shadow-md flex items-center gap-2 text-green-500 p-4 border-2 transition-all duration-300'
+            style={{
+              background:
+                'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%)',
+              backdropFilter: 'blur(20px) saturate(120%)',
+              border: '2px solid rgba(255, 255, 255, 0.4)',
+              boxShadow:
+                'rgba(255, 255, 255, 0.2) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
+            }}>
             <CheckIcon className='w-3 h-3 bg-green-200 rounded-full' />
             <span className='text-sm font-medium text-gray-700'>
               {dict?.pricing?.guarantee_badge || 'Résultats garantis • Livraison garantie'}
@@ -193,7 +202,7 @@ export default function Pricing({ locale }: PricingProps) {
         {/* Grille des cartes de tarification */}
         <div className='grid lg:grid-cols-3 gap-8 lg:gap-6 max-w-8xl mx-auto'>
           {pricingPlans.map((plan, index) => (
-            <div key={plan.name} className='h-full'>
+            <div key={plan.name} className='h-full '>
               <PricingCard
                 name={plan.name}
                 price={plan.price}
@@ -218,9 +227,14 @@ export default function Pricing({ locale }: PricingProps) {
           viewport={{ once: true }}
           className='text-center mt-16'>
           <div
-            className='rounded-2xl p-8 max-w-4xl mx-auto shadow-xl bg-white/20 border-2 border-white/30 '
+            className='rounded-3xl p-8 max-w-4xl mx-auto shadow-2xl border-2 transition-all duration-500 hover:shadow-white/20 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/30 before:to-transparent before:opacity-60 before:pointer-events-none relative overflow-hidden'
             style={{
-              backdropFilter: 'blur(16px) saturate(100%)',
+              background:
+                'linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.9) 100%)',
+              backdropFilter: 'blur(20px) saturate(120%)',
+              border: '2px solid rgba(255, 255, 255, 0.3)',
+              boxShadow:
+                'rgba(255, 255, 255, 0.2) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
             }}>
             <h3 className='text-2xl font-bold text-[#112D4E] mb-4'>
               {dict?.pricing?.maintenance?.title || 'Maintenance et Support'}

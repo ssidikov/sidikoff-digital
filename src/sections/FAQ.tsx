@@ -187,12 +187,14 @@ export const FAQ = ({ dictionary }: FAQProps) => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
-                  className='rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-white/30 shadow-lg'
+                  className='rounded-3xl pb-5 sm:pb-6 3xl:pb-8 border border-white/50 shadow-2xl transition-all duration-500 hover:shadow-white/20 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/30 before:to-transparent before:opacity-60 before:pointer-events-none relative overflow-hidden'
                   style={{
-                    background: 'rgba(255, 255, 255, 0.25)',
-                    backdropFilter: 'blur(16px) saturate(100%)',
-                    border: '1px solid rgba(255, 255, 255, 0.18)',
-                    boxShadow: 'rgba(0, 0, 0, 0.12) 0px 8px 32px',
+                    background:
+                      'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%)',
+                    backdropFilter: 'blur(20px) saturate(120%)',
+                    border: '2px solid rgba(255, 255, 255, 0.3)',
+                    boxShadow:
+                      'rgba(255, 255, 255, 0.2) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
                   }}>
                   <button
                     onClick={() => toggleItem(item.id)}
@@ -243,12 +245,14 @@ export const FAQ = ({ dictionary }: FAQProps) => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
-                  className='rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-white/30 shadow-lg'
+                  className='rounded-3xl pb-5 sm:pb-6 3xl:pb-8 border border-white/50 shadow-2xl transition-all duration-500 hover:shadow-white/20 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/30 before:to-transparent before:opacity-60 before:pointer-events-none relative overflow-hidden'
                   style={{
-                    background: 'rgba(255, 255, 255, 0.25)',
-                    backdropFilter: 'blur(16px) saturate(100%)',
-                    border: '1px solid rgba(255, 255, 255, 0.18)',
-                    boxShadow: 'rgba(0, 0, 0, 0.12) 0px 8px 32px',
+                    background:
+                      'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%)',
+                    backdropFilter: 'blur(20px) saturate(120%)',
+                    border: '2px solid rgba(255, 255, 255, 0.3)',
+                    boxShadow:
+                      'rgba(255, 255, 255, 0.2) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
                   }}>
                   <button
                     onClick={() => toggleItem(item.id)}

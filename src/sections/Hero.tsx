@@ -44,7 +44,12 @@ export function Hero({ dict, common, locale }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className='inline-flex items-center px-4 py-2 rounded-full text-[12px] md:text-sm font-medium mb-8 bg-white/20 border border-white/30 backdrop-blur-sm mt-12 md:mt-24 '>
+          className='inline-flex items-center px-4 py-2 rounded-full text-[12px] md:text-sm font-medium mb-8 border border-white/50 mt-12 md:mt-24 transition-all duration-300'
+          style={{
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%)',
+            backdropFilter: 'blur(12px) saturate(110%)',
+            boxShadow: 'rgba(255, 255, 255, 0.2) 0px 4px 16px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
+          }}>
           <span className='w-2 h-2 bg-white/90 rounded-full mr-3' />
           {dict.badge}
         </motion.div>
@@ -103,7 +108,12 @@ export function Hero({ dict, common, locale }: HeroProps) {
             return (
               <div
                 key={index}
-                className='flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20'>
+                className='flex items-center space-x-3 rounded-full px-4 py-2 border border-white/40 transition-all duration-300'
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%)',
+                  backdropFilter: 'blur(12px) saturate(110%)',
+                  boxShadow: 'rgba(255, 255, 255, 0.2) 0px 4px 16px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
+                }}>
                 <span className='w-6 h-6 text-black inline-flex items-center justify-center'>
                   <IconComponent />
                 </span>

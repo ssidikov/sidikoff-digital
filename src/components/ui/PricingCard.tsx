@@ -54,12 +54,13 @@ export default function PricingCard({
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true }}
       style={{
-        backdropFilter: 'blur(16px) saturate(100%)',
+        backdropFilter: 'blur(24px) saturate(120%)',
+        background: 'linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.9) 100%)',
       }}
-      className={`relative rounded-2xl transition-all duration-300 hover:shadow-2xl w-full h-full flex flex-col min-h-[600px] pb-5 sm:pb-6 3xl:pb-8 shadow-xl bg-white/50 border-2 border-white/60 ${
+      className={`relative rounded-3xl transition-all duration-500 hover:shadow-2xl w-full h-full flex flex-col min-h-[600px] pb-5 sm:pb-6 3xl:pb-8 shadow-2xl border-2 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/30 before:to-transparent before:opacity-50 before:pointer-events-none ${
         isHighlighted
-          ? 'border-black ring-4 ring-black/20'
-          : 'border-gray-200 hover:border-gray-400/50'
+          ? 'border-white/70 ring-4 ring-white/30 shadow-white/20'
+          : 'border-white/40 hover:border-white/60'
       }`}
       role='article'
       aria-labelledby={`pricing-${name.toLowerCase()}-title`}

@@ -70,7 +70,12 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className='gap-30px sm:gap-10 xl:gap-16 3xl:gap-20 rounded-2xl lg:rounded-22px 3xl:rounded-30px px-5 py-7 sm:p-30px lg:p-10 3xl:p-12 min-h-[600px] lg:min-h-[500px] backdrop-blur-xl bg-white/60 border-2 border-white/50 shadow-xl '>
+              className='gap-30px sm:gap-10 xl:gap-16 3xl:gap-20 rounded-3xl lg:rounded-24px 3xl:rounded-32px px-5 py-7 sm:p-30px lg:p-10 3xl:p-12 min-h-[600px] lg:min-h-[500px] transition-all duration-500 hover:shadow-2xl backdrop-blur-2xl border-2 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/40 before:to-transparent before:opacity-60 before:pointer-events-none shadow-2xl border-white/50'
+              style={{
+                backdropFilter: 'blur(24px) saturate(130%)',
+                background:
+                  'linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.15) 100%)',
+              }}>
               <div className='grid lg:grid-cols-2 gap-8 items-center h-full'>
                 {/* Right Image - First on mobile */}
                 <div className='relative order-1 lg:order-2 h-full flex items-center'>

@@ -1,0 +1,155 @@
+/* Liquid Glass Effects - Enhanced Glass Morphism */
+
+/* Contact Icon Containers */
+.liquid-glass-icon {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.2) 100%);
+  backdrop-filter: blur(15px) saturate(120%);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    rgba(255, 255, 255, 0.25) 0px 8px 32px,
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.liquid-glass-icon:hover {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%);
+  border-color: rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Form Elements */
+.liquid-glass-input {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 100%);
+  backdrop-filter: blur(12px) saturate(110%);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    rgba(255, 255, 255, 0.2) 0px 4px 16px,
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.liquid-glass-input:focus {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.5) 100%);
+  border-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px) saturate(130%);
+}
+
+.liquid-glass-input:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(14px) saturate(115%);
+}
+
+/* Cards with Enhanced Glass Effect */
+.liquid-glass-card {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.15) 50%,
+      rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(20px) saturate(120%);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    rgba(255, 255, 255, 0.25) 0px 8px 32px,
+    rgba(255, 255, 255, 0.1) 0px 16px 64px,
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      transparent 50%);
+  opacity: 0.6;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.liquid-glass-card:hover {
+  transform: scale(1.02);
+  box-shadow:
+    rgba(255, 255, 255, 0.3) 0px 12px 48px,
+    rgba(255, 255, 255, 0.15) 0px 24px 96px,
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Button Enhancement */
+.liquid-glass-button {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+  backdrop-filter: blur(10px) saturate(110%);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    rgba(255, 255, 255, 0.2) 0px 4px 16px,
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.liquid-glass-button:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 100%);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-1px);
+}
+
+/* Tech Tags */
+.liquid-glass-tag {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
+  backdrop-filter: blur(8px) saturate(105%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: rgba(255, 255, 255, 0.15) 0px 2px 8px;
+}
+
+.liquid-glass-tag:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Pricing Badge */
+.liquid-glass-badge {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    rgba(255, 255, 255, 0.2) 0px 8px 32px,
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Enhanced Animations */
+@keyframes liquid-float {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+
+  50% {
+    transform: translateY(-10px) scale(1.01);
+  }
+}
+
+.liquid-float-animation {
+  animation: liquid-float 6s ease-in-out infinite;
+}
+
+/* Enhanced Glass Morphism for different elements */
+.glass-ultra {
+  backdrop-filter: blur(25px) saturate(150%);
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0.1) 100%);
+}
+
+.glass-medium {
+  backdrop-filter: blur(15px) saturate(120%);
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.15) 100%);
+}
+
+.glass-light {
+  backdrop-filter: blur(10px) saturate(110%);
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.1) 100%);
+}

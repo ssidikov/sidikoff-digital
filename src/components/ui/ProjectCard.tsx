@@ -18,7 +18,13 @@ export interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, locale }) => (
-  <div className='group flex flex-col sm:flex-row lg:flex-col items-stretch rounded-3xl hover:shadow-2xl transition-all duration-300 p-6 lg:p-4 3xl:p-6 focus-visible:ring-2 focus-visible:ring-black outline-none relative backdrop-blur-xl bg-white/60 border-2 border-white/70 shadow-xl'>
+  <div
+    className='group flex flex-col sm:flex-row lg:flex-col items-stretch rounded-3xl hover:shadow-2xl transition-all duration-500 p-6 lg:p-4 3xl:p-6 focus-visible:ring-2 focus-visible:ring-white/50 outline-none relative border-2 border-white/50 shadow-2xl before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/40 before:to-transparent before:opacity-60 before:pointer-events-none overflow-hidden'
+    style={{
+      backdropFilter: 'blur(20px) saturate(120%)',
+      background: 'linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.15) 100%)',
+      boxShadow: 'rgba(255, 255, 255, 0.2) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
+    }}>
     <Link
       href={getProjectUrl(project.id, locale)}
       className='absolute inset-0 z-10'
@@ -47,7 +53,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, locale }) => 
         {project.technologies?.slice(0, 3).map((tech, techIndex) => (
           <span
             key={techIndex}
-            className='h-9 px-3 text-slate-500 font-semibold flex items-center justify-center py-2 md:px-6 md:py-6 rounded-full text-sm border border-gray-400/50 cursor-default'>
+            className='h-9 px-3 text-slate-700 font-semibold flex items-center justify-center py-2 md:px-6 md:py-6 rounded-full text-sm border border-white/60 cursor-default backdrop-blur-sm transition-all duration-300 hover:bg-white/40'
+            style={{
+              background: 'rgba(255, 255, 255, 0.3)',
+              backdropFilter: 'blur(8px)',
+            }}>
             {tech}
           </span>
         ))}

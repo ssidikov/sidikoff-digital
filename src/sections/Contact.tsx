@@ -160,7 +160,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
             <div
               className='bg-white shadow-gray-900/5 p-10 h-full rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-white/30 shadow-lg'
               style={{
-                background: 'rgba(255, 255, 255, 0.25)',
+                background: 'rgba(255, 255, 255, 0.8)',
                 backdropFilter: 'blur(16px) saturate(100%)',
                 border: '1px solid rgba(255, 255, 255, 0.18)',
                 boxShadow: 'rgba(0, 0, 0, 0.12) 0px 8px 32px',
@@ -186,7 +186,11 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className='w-full px-6 py-4 focus:bg-white focus:border-black focus:outline-none text-gray-900 placeholder-gray-400 bg-white/70 border-2 hover:border-black p-6 rounded-2xl transition-all duration-300 overflow-hidden border-gray-400/30'
+                      className='w-full px-6 py-4 focus:bg-white/90 focus:border-gray-500/40 focus:outline-none text-black placeholder-gray-500 border-2 border-gray-200 hover:border-gray-500/30 p-6 rounded-2xl transition-all duration-300 overflow-hidden backdrop-blur-sm'
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.4)',
+                        backdropFilter: 'blur(24px)',
+                      }}
                       placeholder={
                         dictionary?.form?.name?.placeholder || 'Entrez votre nom complet'
                       }
@@ -205,7 +209,11 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className='w-full px-6 py-4 focus:bg-white focus:border-black focus:outline-none text-gray-900 placeholder-gray-400 bg-white/70 border-2 hover:border-black p-6 rounded-2xl transition-all duration-300 overflow-hidden border-gray-400/30'
+                      className='w-full px-6 py-4 focus:bg-white/90 focus:border-gray-500/40 focus:outline-none text-black placeholder-gray-500 border-2 border-gray-200 hover:border-gray-500/30 p-6 rounded-2xl transition-all duration-300 overflow-hidden backdrop-blur-sm'
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.4)',
+                        backdropFilter: 'blur(24px)',
+                      }}
                       placeholder={
                         dictionary?.form?.email?.placeholder || 'Entrez votre adresse email'
                       }
@@ -225,7 +233,11 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                     rows={6}
                     value={formData.message}
                     onChange={handleChange}
-                    className='w-full px-6 py-4 resize-none focus:bg-white focus:border-black focus:outline-none text-gray-900 placeholder-gray-400 bg-white/70 border-2 hover:border-black p-6 rounded-2xl transition-all duration-300 overflow-hidden border-gray-400/30'
+                    className='w-full px-6 py-4 resize-none focus:bg-white/90 focus:border-gray-500/40 focus:outline-none text-black placeholder-gray-500 border-2 border-gray-200 hover:border-gray-500/30 p-6 rounded-2xl transition-all duration-300 overflow-hidden backdrop-blur-sm'
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.4)',
+                      backdropFilter: 'blur(12px)',
+                    }}
                     placeholder={
                       dictionary?.form?.message?.placeholder || 'Parlez-nous de votre projet...'
                     }
@@ -389,9 +401,9 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
           <div className='lg:col-span-2 space-y-6'>
             {/* Quick Contact */}
             <div
-              className='bg-white shadow-gray-900/5 p-8 rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-white/30 shadow-lg'
+              className='bg-white shadow-gray-900/8 p-8 rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-white/30 shadow-lg'
               style={{
-                background: 'rgba(255, 255, 255, 0.25)',
+                background: 'rgba(255, 255, 255, 0.5)',
                 backdropFilter: 'blur(16px) saturate(100%)',
                 border: '1px solid rgba(255, 255, 255, 0.18)',
                 boxShadow: 'rgba(0, 0, 0, 0.12) 0px 8px 32px',
@@ -407,7 +419,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                   href='mailto:s.sidikoff@gmail.com'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='group relative bg-gray-50/50 hover:bg-black border-2 hover:border-black p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 overflow-hidden border-white/70'
+                  className='group relative bg-white/70 hover:bg-black border-2 hover:border-black p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 overflow-hidden border-white/90'
                   tabIndex={0}>
                   <svg
                     width='32'
@@ -429,7 +441,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                   href='https://wa.me/+33626932734'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='group relative bg-gray-50/50 hover:bg-black border-2 hover:border-black p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 overflow-hidden border-white/70'
+                  className='group relative bg-white/70 hover:bg-black border-2 hover:border-black p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 overflow-hidden border-white/90'
                   tabIndex={0}>
                   <svg
                     width='32'
@@ -448,7 +460,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                   href='https://t.me/sardorbek_sidikov'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='group relative bg-gray-50/50 hover:bg-black border-2 hover:border-black p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 overflow-hidden border-white/70'
+                  className='group relative bg-white/70 hover:bg-black border-2 hover:border-black p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 overflow-hidden border-white/90'
                   tabIndex={0}>
                   <svg
                     width='32'
@@ -467,7 +479,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                   href='tel:+33 6 26 93 27 34'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='group relative bg-gray-50/50 hover:bg-black border-2 hover:border-black p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 overflow-hidden border-white/70'
+                  className='group relative bg-white/70 hover:bg-black border-2 hover:border-black p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 overflow-hidden border-white/90'
                   tabIndex={0}>
                   <svg
                     width='32'
@@ -489,12 +501,14 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
 
             {/* Contact Information */}
             <div
-              className='bg-white shadow-gray-900/5 p-8 rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-white/30 shadow-lg'
+              className='shadow-gray-900/5 p-8 rounded-3xl pb-5 sm:pb-6 3xl:pb-8 border border-white/50 shadow-2xl transition-all duration-500 hover:shadow-white/20 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/30 before:to-transparent before:opacity-60 before:pointer-events-none relative overflow-hidden'
               style={{
-                background: 'rgba(255, 255, 255, 0.25)',
-                backdropFilter: 'blur(16px) saturate(100%)',
-                border: '1px solid rgba(255, 255, 255, 0.18)',
-                boxShadow: 'rgba(0, 0, 0, 0.12) 0px 8px 32px',
+                background:
+                  'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%)',
+                backdropFilter: 'blur(20px) saturate(120%)',
+                border: '2px solid rgba(255, 255, 255, 0.3)',
+                boxShadow:
+                  'rgba(255, 255, 255, 0.2) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
               }}>
               <div className='flex items-center mb-6'>
                 <div className='w-2 h-6 bg-black rounded-full mr-3'></div>
@@ -504,7 +518,16 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
               </div>
               <div className='space-y-6'>
                 <div className='group flex items-start space-x-4 p-4 hover:bg-gray-50/20 transition-colors duration-200 border border-white/70 rounded-xl pb-5 sm:pb-6 3xl:pb-8'>
-                  <div className='flex-shrink-0 w-12 h-12 bg-white/70 border border-gray-500/20 group-hover:bg-black rounded-2xl flex items-center justify-center transition-colors duration-300'>
+                  <div
+                    className='flex-shrink-0 w-12 h-12 border border-white/40 group-hover:bg-black rounded-2xl flex items-center justify-center transition-all duration-300 backdrop-blur-sm'
+                    style={{
+                      background:
+                        'linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.2) 100%)',
+                      backdropFilter: 'blur(15px) saturate(120%)',
+                      border: '2px solid rgba(255, 255, 255, 0.4)',
+                      boxShadow:
+                        'rgba(255, 255, 255, 0.25) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.6)',
+                    }}>
                     <svg
                       width='20'
                       height='20'
@@ -512,7 +535,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                       fill='none'
                       stroke='currentColor'
                       strokeWidth='2'
-                      className='text-gray-600 group-hover:text-white transition-colors duration-300'>
+                      className='text-gray-600 transition-colors duration-300'>
                       <path d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z' />
                       <circle cx='12' cy='10' r='3' />
                     </svg>
@@ -529,7 +552,16 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                   </div>
                 </div>
                 <div className='group flex items-start space-x-4 p-4 hover:bg-gray-50/20 transition-colors duration-200 border border-white/70 rounded-xl pb-5 sm:pb-6 3xl:pb-8'>
-                  <div className='flex-shrink-0 w-12 h-12 bg-white/70 border border-gray-500/20 group-hover:bg-black rounded-2xl flex items-center justify-center transition-colors duration-300'>
+                  <div
+                    className='flex-shrink-0 w-12 h-12 border border-white/40 group-hover:bg-black rounded-2xl flex items-center justify-center transition-all duration-300 backdrop-blur-sm'
+                    style={{
+                      background:
+                        'linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.2) 100%)',
+                      backdropFilter: 'blur(15px) saturate(120%)',
+                      border: '2px solid rgba(255, 255, 255, 0.4)',
+                      boxShadow:
+                        'rgba(255, 255, 255, 0.25) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.6)',
+                    }}>
                     <svg
                       width='20'
                       height='20'
@@ -537,7 +569,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                       fill='none'
                       stroke='currentColor'
                       strokeWidth='2'
-                      className='text-gray-600 group-hover:text-white transition-colors duration-300'>
+                      className='text-gray-600transition-colors duration-300'>
                       <path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z' />
                     </svg>
                   </div>
@@ -555,7 +587,16 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                   </div>
                 </div>
                 <div className='group flex items-start space-x-4 p-4 hover:bg-gray-50/20 transition-colors duration-200 border border-white/70 rounded-xl pb-5 sm:pb-6 3xl:pb-8'>
-                  <div className='flex-shrink-0 w-12 h-12 bg-white/70 border border-gray-500/20 group-hover:bg-black rounded-2xl flex items-center justify-center transition-colors duration-300'>
+                  <div
+                    className='flex-shrink-0 w-12 h-12 border border-white/40 group-hover:bg-black rounded-2xl flex items-center justify-center transition-all duration-300 backdrop-blur-sm'
+                    style={{
+                      background:
+                        'linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.2) 100%)',
+                      backdropFilter: 'blur(15px) saturate(120%)',
+                      border: '2px solid rgba(255, 255, 255, 0.4)',
+                      boxShadow:
+                        'rgba(255, 255, 255, 0.25) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.6)',
+                    }}>
                     <svg
                       width='20'
                       height='20'
@@ -563,7 +604,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                       fill='none'
                       stroke='currentColor'
                       strokeWidth='2'
-                      className='text-gray-600 group-hover:text-white transition-colors duration-300'>
+                      className='text-gray-600 transition-colors duration-300'>
                       <path d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z' />
                       <polyline points='22,6 12,13 2,6' />
                     </svg>
