@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://www.sidikoff.com
-
-# Sitemaps
-Sitemap: https://www.sidikoff.com/sitemap.xml

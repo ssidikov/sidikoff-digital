@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
   const locales = ['fr', 'en', 'ru']
   const lastModified = new Date()
 
@@ -29,8 +29,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Ajouter pages principales multilingues
   mainPages.forEach((page) => {
     locales.forEach((locale) => {
+      const localePath = locale === 'fr' ? page.path : `/${locale}${page.path}`
       sitemap.push({
-        url: `${baseUrl}/${locale}${page.path}`,
+        url: `${baseUrl}${localePath}`,
         lastModified,
         changeFrequency: page.changeFreq,
         priority: locale === 'fr' ? page.priority : page.priority * 0.8, // Priorité française
