@@ -6,6 +6,21 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
   },
 
+  // Turbopack configuration (stable in Next.js 15)
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
+      },
+    },
+  },
+
+  // Compiler optimizations
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+
   // Internationalization
   trailingSlash: false,
 
@@ -25,13 +40,11 @@ const nextConfig: NextConfig = {
         pathname: '/images/**',
       },
     ],
-    unoptimized: process.env.NODE_ENV === 'development' ? false : false, // Keep optimized in production
+    unoptimized: false, // Always optimize images
   },
 
-  // Compression
+  // Performance optimizations
   compress: true,
-
-  // Power optimizations
   poweredByHeader: false,
 
   // Bundle analyzer

@@ -70,7 +70,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className='gap-30px sm:gap-10 xl:gap-16 3xl:gap-20 rounded-3xl lg:rounded-24px 3xl:rounded-32px px-5 py-7 sm:p-30px lg:p-10 3xl:p-12 min-h-[600px] lg:min-h-[500px] transition-all duration-500 hover:shadow-2xl backdrop-blur-2xl border-2 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/40 before:to-transparent before:opacity-60 before:pointer-events-none shadow-2xl border-white/50'
+              className='gap-8 sm:gap-10 xl:gap-16 3xl:gap-20 rounded-3xl px-5 py-7 sm:p-8 lg:p-10 3xl:p-12 min-h-[600px] lg:min-h-[500px] transition-all duration-500 hover:shadow-2xl backdrop-blur-2xl border-2 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/40 before:to-transparent before:opacity-60 before:pointer-events-none shadow-2xl border-white/50'
               style={{
                 backdropFilter: 'blur(24px) saturate(130%)',
                 background:
@@ -86,7 +86,8 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
                       width={900}
                       height={600}
                       className='object-cover w-full h-full'
-                      priority={index < 2}
+                      priority={false}
+                      loading='lazy'
                     />
                   </div>
                 </div>
@@ -168,15 +169,17 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
                 <Image
                   src='/images/services/cta-background.webp'
                   alt='CTA Background'
-                  fill
-                  className='object-cover'
-                  priority={false}
+                  width={400}
+                  height={200}
+                  sizes='(max-width: 768px) 100vw, 400px'
+                  className='object-cover w-full h-full'
+                  loading='lazy'
                 />
               </div>
 
               {/* Content at bottom */}
               <div className='p-6'>
-                <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight text-[32px] sm:text-[40px] lg:lg:text-6xl 3xl:text-[80px]'>
+                <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight lg:text-4xl 3xl:text-5xl'>
                   {dict.cta_banner.background}
                 </h3>
 
@@ -220,9 +223,13 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
                 <Image
                   src='/images/services/cta-background.webp'
                   alt='CTA Background'
-                  fill
-                  className='object-cover'
+                  width={1200}
+                  height={400}
+                  sizes='100vw'
+                  className='object-cover w-full h-full'
                   priority={false}
+                  quality={100}
+                  loading='lazy'
                 />
               </div>
               {/* Content Grid */}

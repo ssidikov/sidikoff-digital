@@ -23,10 +23,7 @@ export async function generateMetadata() {
     description: dict.hero.subtitle,
     locale: defaultLocale,
     canonicalUrl: createCanonicalUrl('/', defaultLocale),
-    alternateLanguages: generateLanguageAlternates(
-      '/',
-      ['fr', 'en', 'ru']
-    ),
+    alternateLanguages: generateLanguageAlternates('/', ['fr', 'en', 'ru']),
     ogImage: '/images/og-homepage.jpg',
     keywords: [
       'développeur web freelance',
@@ -47,7 +44,9 @@ export default async function HomePage() {
   const schemas = [
     organizationSchema, // Main organization with rating
     // Only the first location gets a rating, others don't to avoid duplication
-    ...businessLocations.map((location, index) => generateLocalBusinessSchema(location, index === 0)),
+    ...businessLocations.map((location, index) =>
+      generateLocalBusinessSchema(location, index === 0)
+    ),
     {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
@@ -70,7 +69,7 @@ export default async function HomePage() {
         },
         'query-input': 'required name=search_term_string',
       },
-      copyrightYear: new Date().getFullYear(),
+      copyrightYear: 2025,
       copyrightHolder: {
         '@type': 'Organization',
         '@id': 'https://sidikoff.com/#organization',

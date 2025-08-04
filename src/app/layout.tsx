@@ -107,6 +107,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='fr'>
       <head>
+        {/* Preconnect to external domains */}
+        <link rel='preconnect' href='https://www.googletagmanager.com' />
+        <link rel='preconnect' href='https://www.google-analytics.com' />
+        <link rel='preconnect' href='https://fonts.googleapis.com' />
+        <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
+        <link rel='dns-prefetch' href='https://cdn.sanity.io' />
+        <link rel='dns-prefetch' href='https://vitals.vercel-insights.com' />
+
+        {/* Favicon with proper sizes */}
         <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
         <link rel='icon' href='/favicon.ico' type='image/x-icon' />
         <link rel='shortcut icon' href='/favicon.ico' />

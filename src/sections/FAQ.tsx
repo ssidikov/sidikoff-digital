@@ -127,6 +127,11 @@ export const FAQ = ({ dictionary }: FAQProps) => {
           return item.category === selectedCategory
         })
 
+  // Calculate split points consistently to prevent hydration issues
+  const midPoint = Math.floor(filteredFAQ.length / 2)
+  const firstHalf = filteredFAQ.slice(0, midPoint)
+  const secondHalf = filteredFAQ.slice(midPoint)
+
   const toggleItem = (id: string) => {
     const newOpenItems = new Set(openItems)
     if (newOpenItems.has(id)) {
@@ -180,7 +185,7 @@ export const FAQ = ({ dictionary }: FAQProps) => {
         <div className='flex flex-col lg:flex-row gap-x-10 gap-y-2.5 h-auto'>
           <div className='space-y-2.5 w-full lg:w-1/2'>
             <AnimatePresence>
-              {filteredFAQ.slice(0, Math.ceil(filteredFAQ.length / 2)).map((item) => (
+              {firstHalf.map((item) => (
                 <motion.div
                   key={item.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -200,7 +205,7 @@ export const FAQ = ({ dictionary }: FAQProps) => {
                     onClick={() => toggleItem(item.id)}
                     className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8 cursor-pointer'>
                     <div className='flex items-center gap-3 3xl:gap-6'>
-                      <h3 className='font-medium text-left text-xl sm:text-22 3xl:text-30 leading-7 sm:leading-[22px] lg:leading-[30px] 3xl:leading-10'>
+                      <h3 className='font-medium text-left text-xl sm:text-2xl 3xl:text-3xl leading-7 sm:leading-8 lg:leading-9 3xl:leading-10'>
                         {item.question}
                       </h3>
                     </div>
@@ -238,7 +243,7 @@ export const FAQ = ({ dictionary }: FAQProps) => {
 
           <div className='space-y-2.5 w-full lg:w-1/2'>
             <AnimatePresence>
-              {filteredFAQ.slice(Math.ceil(filteredFAQ.length / 2)).map((item) => (
+              {secondHalf.map((item) => (
                 <motion.div
                   key={item.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -258,7 +263,7 @@ export const FAQ = ({ dictionary }: FAQProps) => {
                     onClick={() => toggleItem(item.id)}
                     className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8 cursor-pointer'>
                     <div className='flex items-center gap-3 3xl:gap-6'>
-                      <h3 className='font-medium text-left text-xl sm:text-22 3xl:text-30 leading-7 sm:leading-[22px] lg:leading-[30px] 3xl:leading-10'>
+                      <h3 className='font-medium text-left text-xl sm:text-2xl 3xl:text-3xl leading-7 sm:leading-8 lg:leading-9 3xl:leading-10'>
                         {item.question}
                       </h3>
                     </div>

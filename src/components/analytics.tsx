@@ -55,7 +55,7 @@ const Analytics = () => {
         <>
           <Script
             id="gtm-script"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             dangerouslySetInnerHTML={{
               __html: `
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -82,11 +82,11 @@ const Analytics = () => {
         <>
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
           <Script
             id="ga-script"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             dangerouslySetInnerHTML={{
               __html: `
                 window.dataLayer = window.dataLayer || [];
@@ -106,7 +106,7 @@ const Analytics = () => {
       {GOOGLE_ADS_ID && (
         <Script
           id="google-ads-script"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               gtag('config', '${GOOGLE_ADS_ID}');

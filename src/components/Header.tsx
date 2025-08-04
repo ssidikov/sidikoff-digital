@@ -233,11 +233,11 @@ export function Header({ dictionary, locale }: HeaderProps) {
                 style={{ outline: 'none !important', boxShadow: 'none !important' }}>
                 <Image
                   src='/logo-sidikoff.webp'
-                  alt='SIDIKOFF DIGITALDigital'
-                  width={180}
-                  height={45}
+                  alt='SIDIKOFF DIGITAL'
+                  width={145}
+                  height={40}
+                  sizes='(max-width: 1024px) 160px, 180px'
                   priority
-                  unoptimized
                   className='h-10 w-auto lg:h-12'
                 />
               </Link>
