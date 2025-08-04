@@ -59,7 +59,7 @@ interface PricingProps {
   className?: string
 }
 
-export default function Pricing({ locale }: PricingProps) {
+export default function Pricing({ locale, className }: PricingProps) {
   const [dict, setDict] = useState<Dictionary | null>(null)
 
   useEffect(() => {
@@ -163,6 +163,7 @@ export default function Pricing({ locale }: PricingProps) {
       backgroundImage='/images/prices-bg.webp'
       padding='lg'
       contentWidth='wide'
+      className={className || ''}
       aria-labelledby='pricing-title'>
       <div className='relative z-10'>
         <SectionHeader

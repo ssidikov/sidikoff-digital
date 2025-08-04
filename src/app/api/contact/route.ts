@@ -46,16 +46,16 @@ const getAdminTemplate = (locale: 'fr' | 'en' | 'ru' = 'fr') => {
 const getEmailSubjects = (locale: 'fr' | 'en' | 'ru' = 'fr') => {
   const subjects = {
     fr: {
-      user: 'Confirmation de votre demande - SIDIKOFF DIGITALDigital',
-      admin: 'Nouvelle demande reçue - SIDIKOFF DIGITALDigital',
+      user: 'Confirmation de votre demande - SIDIKOFF DIGITAL',
+      admin: 'Nouvelle demande reçue - SIDIKOFF DIGITAL',
     },
     en: {
-      user: 'Confirmation of your request - SIDIKOFF DIGITALDigital',
-      admin: 'New request received - SIDIKOFF DIGITALDigital',
+      user: 'Confirmation of your request - SIDIKOFF DIGITAL',
+      admin: 'New request received - SIDIKOFF DIGITAL',
     },
     ru: {
-      user: 'Подтверждение вашего запроса - SIDIKOFF DIGITALDigital',
-      admin: 'Получен новый запрос - SIDIKOFF DIGITALDigital',
+      user: 'Подтверждение вашего запроса - SIDIKOFF DIGITAL',
+      admin: 'Получен новый запрос - SIDIKOFF DIGITAL',
     },
   }
 

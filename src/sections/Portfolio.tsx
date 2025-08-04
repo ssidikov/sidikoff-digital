@@ -65,16 +65,6 @@ export default function Portfolio({
     }
 
     // Debug information for development
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Portfolio Debug:', {
-        totalProjects: projects.length,
-        activeTag,
-        filteredCount: filtered.length,
-        showAll,
-        maxProjects,
-        finalCount: showAll ? filtered.length : Math.min(filtered.length, maxProjects),
-      })
-    }
 
     return showAll ? filtered : filtered.slice(0, maxProjects)
   }
