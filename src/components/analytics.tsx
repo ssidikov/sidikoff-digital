@@ -2,6 +2,7 @@
 
 import Script from 'next/script'
 import { useEffect } from 'react'
+import { Analytics as VercelAnalytics } from '@vercel/analytics/react'
 
 // Declare gtag function for TypeScript
 declare global {
@@ -113,6 +114,9 @@ const Analytics = () => {
           }}
         />
       )}
+
+      {/* Vercel Analytics */}
+      <VercelAnalytics />
     </>
   )
 }

@@ -200,9 +200,9 @@ export const FAQ = ({ dictionary }: FAQProps) => {
                     onClick={() => toggleItem(item.id)}
                     className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8 cursor-pointer'>
                     <div className='flex items-center gap-3 3xl:gap-6'>
-                      <h4 className='font-medium text-left text-xl sm:text-22 3xl:text-30 leading-7 sm:leading-[22px] lg:leading-[30px] 3xl:leading-10'>
+                      <h3 className='font-medium text-left text-xl sm:text-22 3xl:text-30 leading-7 sm:leading-[22px] lg:leading-[30px] 3xl:leading-10'>
                         {item.question}
-                      </h4>
+                      </h3>
                     </div>
                     <span className='size-8 3xl:size-11 shrink-0 flex items-center justify-center rounded-full bg-white opacity-50 hover:opacity-100 transition-opacity duration-300'>
                       <motion.svg
@@ -258,9 +258,9 @@ export const FAQ = ({ dictionary }: FAQProps) => {
                     onClick={() => toggleItem(item.id)}
                     className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8 cursor-pointer'>
                     <div className='flex items-center gap-3 3xl:gap-6'>
-                      <h4 className='font-medium text-left text-xl sm:text-22 3xl:text-30 leading-7 sm:leading-[22px] lg:leading-[30px] 3xl:leading-10'>
+                      <h3 className='font-medium text-left text-xl sm:text-22 3xl:text-30 leading-7 sm:leading-[22px] lg:leading-[30px] 3xl:leading-10'>
                         {item.question}
-                      </h4>
+                      </h3>
                     </div>
                     <span className='size-8 3xl:size-11 shrink-0 flex items-center justify-center rounded-full bg-white opacity-50 hover:opacity-100 transition-opacity duration-300'>
                       <motion.svg

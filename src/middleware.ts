@@ -65,7 +65,7 @@ function enhanceResponse(response: NextResponse, pathname?: string) {
   const cspHeader = isStudio
     ? `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline';
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com;
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data: https://cdn.sanity.io;
     font-src 'self' data:;
@@ -77,10 +77,12 @@ function enhanceResponse(response: NextResponse, pathname?: string) {
   `
     : `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline';
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://googleads.g.doubleclick.net https://va.vercel-scripts.com;
     style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data:;
+    img-src 'self' blob: data: https://www.google-analytics.com https://ssl.google-analytics.com https://googleads.g.doubleclick.net;
     font-src 'self';
+    connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://ssl.google-analytics.com https://googleads.g.doubleclick.net https://vitals.vercel-insights.com;
+    frame-src https://www.googletagmanager.com;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
