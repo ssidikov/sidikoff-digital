@@ -10,7 +10,7 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: items.map(item => ({
+    itemListElement: items.map((item) => ({
       '@type': 'ListItem',
       position: item.position,
       name: item.name,
@@ -37,7 +37,7 @@ export function getPageBreadcrumbs(pathname: string, locale: Locale = 'fr') {
     if (segment === locale) return
 
     currentPath += `/${segment}`
-    
+
     let name = segment
     switch (segment) {
       case 'services':

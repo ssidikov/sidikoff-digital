@@ -1,9 +1,6 @@
-
 import enProjects from '../../locales/en/projects.json'
 import frProjects from '../../locales/fr/projects.json'
 import ruProjects from '../../locales/ru/projects.json'
-
-
 
 export type Project = {
   id: string

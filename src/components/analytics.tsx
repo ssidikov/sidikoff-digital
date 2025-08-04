@@ -27,7 +27,7 @@ export const trackEvent = (action: string, category: string, label?: string, val
 export const trackConversion = (conversionLabel?: string) => {
   const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID
   const defaultLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL
-  
+
   if (typeof window !== 'undefined' && window.gtag && adsId) {
     window.gtag('event', 'conversion', {
       send_to: `${adsId}/${conversionLabel || defaultLabel}`,
@@ -54,8 +54,8 @@ const Analytics = () => {
       {GTM_ID && (
         <>
           <Script
-            id="gtm-script"
-            strategy="lazyOnload"
+            id='gtm-script'
+            strategy='lazyOnload'
             dangerouslySetInnerHTML={{
               __html: `
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -69,8 +69,8 @@ const Analytics = () => {
           <noscript>
             <iframe
               src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-              height="0"
-              width="0"
+              height='0'
+              width='0'
               style={{ display: 'none', visibility: 'hidden' }}
             />
           </noscript>
@@ -82,11 +82,11 @@ const Analytics = () => {
         <>
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-            strategy="lazyOnload"
+            strategy='lazyOnload'
           />
           <Script
-            id="ga-script"
-            strategy="lazyOnload"
+            id='ga-script'
+            strategy='lazyOnload'
             dangerouslySetInnerHTML={{
               __html: `
                 window.dataLayer = window.dataLayer || [];
@@ -105,8 +105,8 @@ const Analytics = () => {
       {/* Google Ads */}
       {GOOGLE_ADS_ID && (
         <Script
-          id="google-ads-script"
-          strategy="lazyOnload"
+          id='google-ads-script'
+          strategy='lazyOnload'
           dangerouslySetInnerHTML={{
             __html: `
               gtag('config', '${GOOGLE_ADS_ID}');

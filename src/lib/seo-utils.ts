@@ -304,6 +304,11 @@ export interface SEOLocation {
   city: string
   region: string
   keyword: string
+  keywordByLocale?: {
+    fr: string
+    en: string
+    ru: string
+  }
   title: {
     fr: string
     en: string
@@ -745,6 +750,11 @@ function generateSEOLocation(
     city: name,
     region,
     keyword,
+    keywordByLocale: {
+      fr: isCity ? `création de site web ${name}` : `création de site web région ${name}`,
+      en: isCity ? `website creation ${name}` : `website creation ${name} region`,
+      ru: isCity ? `создание сайтов ${name}` : `создание сайтов регион ${name}`,
+    },
     title: {
       fr: `Création de site web ${name} | SIDIKOFF DIGITAL`,
       en: `Website creation ${name} | SIDIKOFF DIGITAL`,

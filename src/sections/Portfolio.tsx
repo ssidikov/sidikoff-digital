@@ -17,7 +17,13 @@ interface PortfolioNewProps {
   maxProjects?: number
 }
 
-export default function Portfolio({ locale, dictionary, className, showAll = false, maxProjects = 2 }: PortfolioNewProps) {
+export default function Portfolio({
+  locale,
+  dictionary,
+  className,
+  showAll = false,
+  maxProjects = 2,
+}: PortfolioNewProps) {
   const [activeTag, setActiveTag] = useState<string>(showAll ? 'all' : 'featured')
   const projects = getProjects(locale)
 
@@ -57,7 +63,7 @@ export default function Portfolio({ locale, dictionary, className, showAll = fal
     } else {
       filtered = projects.filter((item) => item.category === activeTag)
     }
-    
+
     // Debug information for development
     if (process.env.NODE_ENV === 'development') {
       console.log('Portfolio Debug:', {
@@ -66,10 +72,10 @@ export default function Portfolio({ locale, dictionary, className, showAll = fal
         filteredCount: filtered.length,
         showAll,
         maxProjects,
-        finalCount: showAll ? filtered.length : Math.min(filtered.length, maxProjects)
+        finalCount: showAll ? filtered.length : Math.min(filtered.length, maxProjects),
       })
     }
-    
+
     return showAll ? filtered : filtered.slice(0, maxProjects)
   }
 
@@ -104,7 +110,9 @@ export default function Portfolio({ locale, dictionary, className, showAll = fal
                 key={tag}
                 onClick={() => setActiveTag(tag)}
                 className={`text-lg md:text-xl cursor-pointer rounded-xl px-3 md:px-6 transition-all duration-300 outline-none focus:ring-0 h-12 md:h-[60px] ${
-                  index === (showAll ? ['all', ...tags] : ['featured', ...tags]).length - 1 ? 'mr-[30px]' : ''
+                  index === (showAll ? ['all', ...tags] : ['featured', ...tags]).length - 1
+                    ? 'mr-[30px]'
+                    : ''
                 } ${
                   activeTag === tag
                     ? 'text-white bg-black border border-transparent hover:bg-transparent hover:text-black hover:border-black'
@@ -124,9 +132,7 @@ export default function Portfolio({ locale, dictionary, className, showAll = fal
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className={`grid gap-6 lg:gap-8 mb-12 ${
-            showAll 
-              ? 'grid-cols-1 sm:grid-cols-2' 
-              : 'grid-cols-1 lg:grid-cols-2'
+            showAll ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 lg:grid-cols-2'
           }`}>
           {filteredProjects.map((project, index) => (
             <motion.div

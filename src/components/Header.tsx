@@ -81,7 +81,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
     const handleScroll = () => {
       // Определяем активную секцию в зависимости от текущей страницы
       const homeUrl = getLocalizedUrl('/', locale)
-      
+
       if (pathname === homeUrl || pathname === homeUrl + '/') {
         // На главной странице отслеживаем секции по скроллу
         const sections = ['services', 'portfolio', 'faq', 'pricing', 'contact']
@@ -175,7 +175,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
       document.addEventListener('keydown', handleEscape)
       return () => document.removeEventListener('keydown', handleEscape)
     }
-    
+
     return undefined
   }, [isMenuOpen])
 
@@ -210,23 +210,23 @@ export function Header({ dictionary, locale }: HeaderProps) {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: (typeof navigation)[0]) => {
     const homeUrl = getLocalizedUrl('/', locale)
     const isOnHomePage = pathname === homeUrl || pathname === homeUrl + '/'
-    
+
     // If we're on the home page and clicking a section link
     if (isOnHomePage && item.href.includes('#')) {
       e.preventDefault()
       const sectionId = item.href.split('#')[1]
-      
+
       if (sectionId) {
         const element = document.getElementById(sectionId)
-        
+
         if (element) {
           const headerOffset = 100
           const elementPosition = element.getBoundingClientRect().top
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-          
+
           window.scrollTo({
             top: offsetPosition,
-            behavior: 'smooth'
+            behavior: 'smooth',
           })
         }
       }
@@ -254,9 +254,10 @@ export function Header({ dictionary, locale }: HeaderProps) {
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className='fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-[120] w-full max-w-7xl px-4'>
         <nav className='relative z-[110] px-3.5 xs:px-4'>
-          <div className={`flex items-center justify-between px-5 py-4 lg:px-4 3xl:p-4 transition-all duration-500 rounded-3xl backdrop-blur-xl border-2 border-white/30 shadow-xl ${
-            isBlogPage ? 'bg-white/90' : 'bg-white/20'
-          }`}>
+          <div
+            className={`flex items-center justify-between px-5 py-4 lg:px-4 3xl:p-4 transition-all duration-500 rounded-3xl backdrop-blur-xl border-2 border-white/30 shadow-xl ${
+              isBlogPage ? 'bg-white/90' : 'bg-white/20'
+            }`}>
             {/* Logo */}
             <div>
               <Link

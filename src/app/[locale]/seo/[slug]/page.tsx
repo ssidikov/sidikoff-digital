@@ -8,6 +8,7 @@ import {
   businessLocations,
   generateLocalBusinessSchema,
   organizationSchema,
+  SEOLocation,
 } from '@/lib/seo-utils'
 import { getDictionary } from '@/lib/dictionaries'
 import { Hero, Services, Pricing, Portfolio, FAQ, Contact } from '@/sections'
@@ -297,12 +298,35 @@ export default async function LocalizedSEOLocationPage({ params }: SEOPageProps)
 
   const dict = await getDictionary(locale)
 
+  // Get localized keyword
+  const getLocalizedKeyword = (location: SEOLocation, locale: Locale) => {
+    if (location.keywordByLocale && location.keywordByLocale[locale]) {
+      return location.keywordByLocale[locale]
+    }
+    
+    // Fallback: generate based on city name and locale
+    const isCity = !location.city.includes('région')
+    const cityName = location.city.toLowerCase()
+    
+    switch (locale) {
+      case 'en':
+        return isCity ? `website creation ${cityName}` : `website creation ${cityName} region`
+      case 'ru':
+        return isCity ? `создание сайтов ${cityName}` : `создание сайтов регион ${cityName}`
+      case 'fr':
+      default:
+        return location.keyword
+    }
+  }
+
+  const localizedKeyword = getLocalizedKeyword(location, locale)
+
   // Create customized hero dictionary with location-specific content
   const heroDict = {
     ...dict.hero,
     badge: location.badgeText[locale],
     title: location.title[locale].replace(' | SIDIKOFF DIGITAL', ''), // Remove company name from H1
-    subtitle: `${location.keyword.charAt(0).toUpperCase() + location.keyword.slice(1)} : ${dict.hero.subtitle}`,
+    subtitle: `${localizedKeyword.charAt(0).toUpperCase() + localizedKeyword.slice(1)} : ${dict.hero.subtitle}`,
   }
 
   // Generate structured data for the location
