@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
-import { PricingContent } from '@/sections/Pricing'
-import Section from '@/components/ui/Section'
+import { Pricing } from '@/sections'
 import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
+import LocaleProvider from '@/components/LocaleProvider'
 
 interface TarifsPageProps {
   params: Promise<{ locale: Locale }>
@@ -39,23 +39,14 @@ export async function generateMetadata({ params }: TarifsPageProps): Promise<Met
 
 export default async function TarifsPage({ params }: TarifsPageProps) {
   const { locale } = await params
-  const dict = await getDictionary(locale)
 
   return (
-    <Section backgroundImage='/images/prices-bg.webp' className='min-h-screen py-20'>
-      <div className='container mx-auto px-4'>
-        <div className='text-center mb-16'>
-          <h1 className='text-4xl lg:text-5xl font-bold text-[#112D4E] mb-6'>
-            {dict?.pricing?.title || 'Nos Tarifs & Formules'}
-          </h1>
-          <p className='text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed'>
-            {dict?.pricing?.subtitle ||
-              'Des solutions transparentes et adaptées à vos besoins. Choisissez la formule qui correspond le mieux à votre projet et à votre budget.'}
-          </p>
-        </div>
-
-        <PricingContent locale={locale} />
+    <LocaleProvider locale={locale}>
+      <div className='min-h-screen'>
+        <main className='m-0 p-0'>
+          <Pricing locale={locale} className='pt-[140px]' />
+        </main>
       </div>
-    </Section>
+    </LocaleProvider>
   )
 }

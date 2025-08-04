@@ -12,10 +12,13 @@ import Section, { SectionHeader } from '@/components/ui/Section'
 interface PortfolioNewProps {
   locale: 'en' | 'fr' | 'ru'
   dictionary: Dictionary['portfolio']
+  className?: string
+  showAll?: boolean
+  maxProjects?: number
 }
 
-export default function Portfolio({ locale, dictionary }: PortfolioNewProps) {
-  const [activeTag, setActiveTag] = useState<string>('featured')
+export default function Portfolio({ locale, dictionary, className, showAll = false, maxProjects = 2 }: PortfolioNewProps) {
+  const [activeTag, setActiveTag] = useState<string>(showAll ? 'all' : 'featured')
   const projects = getProjects(locale)
 
   const tags = Array.from(
@@ -34,13 +37,43 @@ export default function Portfolio({ locale, dictionary }: PortfolioNewProps) {
       }
       return featuredText[locale] || 'Featured'
     }
+    if (tag === 'all') {
+      const allText = {
+        fr: 'Tous',
+        en: 'All',
+        ru: 'Все',
+      }
+      return allText[locale] || 'All'
+    }
     return tag
   }
 
-  const filteredProjects =
-    activeTag === 'featured'
-      ? projects.filter((item) => item.featured).slice(0, 2)
-      : projects.filter((item) => item.category === activeTag).slice(0, 2)
+  const getFilteredProjects = () => {
+    let filtered
+    if (activeTag === 'featured') {
+      filtered = projects.filter((item) => item.featured)
+    } else if (activeTag === 'all') {
+      filtered = projects
+    } else {
+      filtered = projects.filter((item) => item.category === activeTag)
+    }
+    
+    // Debug information for development
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Portfolio Debug:', {
+        totalProjects: projects.length,
+        activeTag,
+        filteredCount: filtered.length,
+        showAll,
+        maxProjects,
+        finalCount: showAll ? filtered.length : Math.min(filtered.length, maxProjects)
+      })
+    }
+    
+    return showAll ? filtered : filtered.slice(0, maxProjects)
+  }
+
+  const filteredProjects = getFilteredProjects()
 
   return (
     <Section
@@ -48,7 +81,8 @@ export default function Portfolio({ locale, dictionary }: PortfolioNewProps) {
       background='white'
       backgroundImage='/images/projects-bg.webp'
       padding='lg'
-      contentWidth='wide'>
+      contentWidth='wide'
+      className={className || ''}>
       <div className='relative z-10'>
         <SectionHeader
           title={dictionary?.title || 'Portfolio'}
@@ -65,12 +99,12 @@ export default function Portfolio({ locale, dictionary }: PortfolioNewProps) {
           transition={{ duration: 0.6, delay: 0.2 }}
           className='w-full mb-12'>
           <div className='flex flex-wrap gap-2.5'>
-            {['featured', ...tags].map((tag, index) => (
+            {(showAll ? ['all', ...tags] : ['featured', ...tags]).map((tag, index) => (
               <button
                 key={tag}
                 onClick={() => setActiveTag(tag)}
                 className={`text-lg md:text-xl cursor-pointer rounded-xl px-3 md:px-6 transition-all duration-300 outline-none focus:ring-0 h-12 md:h-[60px] ${
-                  index === ['featured', ...tags].length - 1 ? 'mr-[30px]' : ''
+                  index === (showAll ? ['all', ...tags] : ['featured', ...tags]).length - 1 ? 'mr-[30px]' : ''
                 } ${
                   activeTag === tag
                     ? 'text-white bg-black border border-transparent hover:bg-transparent hover:text-black hover:border-black'
@@ -89,7 +123,11 @@ export default function Portfolio({ locale, dictionary }: PortfolioNewProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className='grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12'>
+          className={`grid gap-6 lg:gap-8 mb-12 ${
+            showAll 
+              ? 'grid-cols-1 sm:grid-cols-2' 
+              : 'grid-cols-1 lg:grid-cols-2'
+          }`}>
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -102,30 +140,32 @@ export default function Portfolio({ locale, dictionary }: PortfolioNewProps) {
         </motion.div>
 
         {/* View All Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className='text-center'>
-          <Link
-            href={getProjectsUrl(locale)}
-            className='inline-flex items-center justify-center px-8 py-4 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-all duration-300 hover:scale-105 shadow-lg'>
-            {dictionary?.view_project || 'View All Projects'}
-            <svg
-              className='w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'>
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M17 8l4 4m0 0l-4 4m4-4H3'
-              />
-            </svg>
-          </Link>
-        </motion.div>
+        {!showAll && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className='text-center'>
+            <Link
+              href={getProjectsUrl(locale)}
+              className='inline-flex items-center justify-center px-8 py-4 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-all duration-300 hover:scale-105 shadow-lg'>
+              {dictionary?.view_project || 'View All Projects'}
+              <svg
+                className='w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'>
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2}
+                  d='M17 8l4 4m0 0l-4 4m4-4H3'
+                />
+              </svg>
+            </Link>
+          </motion.div>
+        )}
       </div>
     </Section>
   )

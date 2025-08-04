@@ -64,11 +64,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <Section
       id='portfolio'
-      background='white'
+      backgroundImage='/images/prices-bg.webp'
       padding='xl'
       contentWidth='wide'>
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-rose-400/8 to-orange-400/8"></div>
       <div className='relative z-10'>
         <CTAButton
           href={getProjectsUrl(locale)}
@@ -120,9 +118,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
               {/* Action Buttons */}
               <div className='flex flex-wrap gap-4'>
-                {(project.demo || project.link) && (
+                {project.link && (
                   <CTAButton
-                    href={project.demo || project.link}
+                    href={project.link}
                     variant='primary'
                     size='lg'
                     trackingAction='view_project_demo'
@@ -285,7 +283,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   </div>
                 )}
 
-                {(project.demo || project.link || project.github) && (
+                {project.link && (
                   <div className='flex items-start gap-4'>
                     <div className='w-2 h-2 bg-green-500 rounded-full mt-3 flex-shrink-0'></div>
                     <div className='w-full'>
@@ -297,9 +295,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                             : 'Ссылки проекта'}
                       </h4>
                       <div className='space-y-3'>
-                        {(project.demo || project.link) && (
+                        {project.link && (
                           <a
-                            href={project.demo || project.link}
+                            href={project.link}
                             target='_blank'
                             rel='noopener noreferrer'
                             className='flex items-center gap-3 p-3 bg-blue-50 border border-blue-200 rounded-xl hover:bg-blue-100 transition-colors duration-200 group'>

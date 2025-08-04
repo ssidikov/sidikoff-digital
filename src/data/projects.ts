@@ -15,7 +15,6 @@ export type Project = {
   link: string
   category: string
   featured?: boolean
-  demo?: string
   github?: string
 }
 

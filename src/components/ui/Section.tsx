@@ -118,9 +118,7 @@ export function SectionHeader({
         {title}
         {subtitle && <span className={clsx('block mt-2', sectionStyles.subtitle)}>{subtitle}</span>}
       </h2>
-      {description && (
-        <p className={clsx('max-w-3xl mx-auto', sectionStyles.description)}>{description}</p>
-      )}
+      {description && <p className={clsx('max-w-4xl', sectionStyles.description)}>{description}</p>}
     </motion.div>
   )
 }

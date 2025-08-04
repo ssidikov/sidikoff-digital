@@ -47,22 +47,22 @@ export function Header({ dictionary, locale }: HeaderProps) {
     { label: dictionary.navigation.home, href: getLocalizedUrl('/', locale), section: '' },
     {
       label: dictionary.navigation.services,
-      href: getLocalizedUrl('/#services', locale),
+      href: getLocalizedUrl('/services', locale),
       section: 'services',
     },
     {
       label: dictionary.navigation.portfolio,
-      href: getLocalizedUrl('/#portfolio', locale),
+      href: getLocalizedUrl('/projects', locale),
       section: 'portfolio',
     },
     {
       label: dictionary.navigation.pricing,
       href: getLocalizedUrl('/tarifs', locale),
-      section: 'tarifs',
+      section: 'pricing',
     },
     {
       label: dictionary.navigation.faq,
-      href: getLocalizedUrl('/#faq', locale),
+      href: getLocalizedUrl('/faq', locale),
       section: 'faq',
     },
     {
@@ -72,16 +72,18 @@ export function Header({ dictionary, locale }: HeaderProps) {
     },
     {
       label: dictionary.navigation.contact,
-      href: getLocalizedUrl('/#contact', locale),
+      href: getLocalizedUrl('/contact', locale),
       section: 'contact',
     },
   ]
 
   useEffect(() => {
     const handleScroll = () => {
-      // Определяем активную секцию только если мы на главной странице
+      // Определяем активную секцию в зависимости от текущей страницы
       const homeUrl = getLocalizedUrl('/', locale)
+      
       if (pathname === homeUrl || pathname === homeUrl + '/') {
+        // На главной странице отслеживаем секции по скроллу
         const sections = ['services', 'portfolio', 'faq', 'pricing', 'contact']
         let currentSection = ''
 
@@ -104,9 +106,39 @@ export function Header({ dictionary, locale }: HeaderProps) {
         }
 
         setActiveSection(currentSection)
+      } else if (pathname.includes('/tarifs')) {
+        // На странице тарифов определяем активную секцию по скроллу
+        const sections = ['pricing']
+        let currentSection = 'pricing' // По умолчанию активна секция pricing
+
+        // Ищем секцию, которая находится в viewport
+        for (const section of sections) {
+          const element = document.getElementById(section)
+          if (element) {
+            const rect = element.getBoundingClientRect()
+            if (rect.top <= window.innerHeight / 2 && rect.bottom >= 100) {
+              currentSection = section
+              break
+            }
+          }
+        }
+
+        setActiveSection(currentSection)
       } else {
-        // На других страницах нет активных секций
-        setActiveSection('')
+        // На других страницах определяем активность по URL
+        if (pathname.includes('/services')) {
+          setActiveSection('services')
+        } else if (pathname.includes('/contact')) {
+          setActiveSection('contact')
+        } else if (pathname.includes('/faq')) {
+          setActiveSection('faq')
+        } else if (pathname.includes('/blog')) {
+          setActiveSection('blog')
+        } else if (pathname.includes('/projects')) {
+          setActiveSection('portfolio')
+        } else {
+          setActiveSection('')
+        }
       }
     }
 

@@ -37,6 +37,7 @@ interface FAQDictionary {
 interface FAQProps {
   locale?: string
   dictionary?: FAQDictionary
+  className?: string
 }
 
 const faqData: FAQItem[] = [
@@ -79,7 +80,7 @@ const faqData: FAQItem[] = [
 
 const categories = ['tous', 'développement', 'maintenance', 'technique', 'design', 'gestion']
 
-export const FAQ = ({ dictionary }: FAQProps) => {
+export const FAQ = ({ dictionary, className }: FAQProps) => {
   const [selectedCategory, setSelectedCategory] = useState('tous')
   const [openItems, setOpenItems] = useState<Set<string>>(new Set())
 
@@ -147,6 +148,7 @@ export const FAQ = ({ dictionary }: FAQProps) => {
       id='faq'
       background='white'
       backgroundImage='/images/faq-bg.webp'
+      className={className || ''}
       padding='lg'
       contentWidth='wide'>
       <div className='relative z-10'>

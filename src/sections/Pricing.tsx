@@ -56,6 +56,7 @@ interface Dictionary {
 
 interface PricingProps {
   locale: string
+  className?: string
 }
 
 export default function Pricing({ locale }: PricingProps) {

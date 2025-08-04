@@ -1,36 +1,29 @@
-import { Services } from '@/sections'
+import { Pricing } from '@/sections'
 import { defaultLocale } from '@/lib/i18n'
-import { getDictionary } from '@/lib/dictionaries'
 import LocaleProvider from '@/components/LocaleProvider'
 import { Metadata } from 'next'
 import { generateBreadcrumbSchema, getPageBreadcrumbs } from '@/lib/breadcrumbs'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const dictionary = await getDictionary(defaultLocale)
-  const breadcrumbs = getPageBreadcrumbs('/services', defaultLocale)
+  const breadcrumbs = getPageBreadcrumbs('/tarifs', defaultLocale)
   const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs)
 
   return {
-    title: `${dictionary.services.title} | SIDIKOFF DIGITAL`,
-    description: dictionary.services.subtitle,
+    title: `Tarifs & Prix | SIDIKOFF DIGITAL`,
+    description:
+      "Découvrez nos tarifs transparents pour la création de sites web, développement d'applications et services digitaux.",
     other: {
       'script:ld+json': JSON.stringify(breadcrumbSchema),
     },
   }
 }
 
-export default async function ServicesPage() {
-  const dictionary = await getDictionary(defaultLocale)
-
+export default async function TarifsPage() {
   return (
     <LocaleProvider locale={defaultLocale}>
       <div className='min-h-screen'>
         <main className='m-0 p-0'>
-          <Services
-            dictionary={dictionary.services}
-            locale={defaultLocale}
-            className='pt-[140px]'
-          />
+          <Pricing locale={defaultLocale} className='pt-[140px]' />
         </main>
       </div>
     </LocaleProvider>
