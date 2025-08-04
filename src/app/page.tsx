@@ -45,8 +45,9 @@ export default async function HomePage() {
 
   // Generate structured data for homepage
   const schemas = [
-    organizationSchema,
-    ...businessLocations.map((location) => generateLocalBusinessSchema(location)),
+    organizationSchema, // Main organization with rating
+    // Only the first location gets a rating, others don't to avoid duplication
+    ...businessLocations.map((location, index) => generateLocalBusinessSchema(location, index === 0)),
     {
       '@context': 'https://schema.org',
       '@type': 'WebSite',

@@ -33,10 +33,10 @@ export default async function HomePage({ params }: HomePageProps) {
     (loc) => loc.address.addressLocality === 'Strasbourg'
   )!
 
-  const parisSchema = generateLocalBusinessSchema(parisLocation)
-  const toulouseSchema = generateLocalBusinessSchema(toulouseLocation)
-  const lyonSchema = generateLocalBusinessSchema(lyonLocation)
-  const strasbourgSchema = generateLocalBusinessSchema(strasbourgLocation)
+  const parisSchema = generateLocalBusinessSchema(parisLocation, true) // Main location with rating
+  const toulouseSchema = generateLocalBusinessSchema(toulouseLocation, false) // No rating
+  const lyonSchema = generateLocalBusinessSchema(lyonLocation, false) // No rating
+  const strasbourgSchema = generateLocalBusinessSchema(strasbourgLocation, false) // No rating
 
   return (
     <>

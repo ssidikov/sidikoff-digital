@@ -1,13 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/router'
-import Script from 'next/script'
 
-import { 
-  businessLocations, 
-  generateLocalBusinessSchema, 
-  organizationSchema,
-} from '@/lib/seo-utils'
 import { Locale } from '@/lib/i18n'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
@@ -37,22 +31,6 @@ export function HomeClient({ dictionary }: HomeClientProps) {
         </main>
         <Footer dictionary={dictionary} locale={locale} />
       </div>
-
-      {/* Structured Data */}
-      <Script
-        id='organization-schema'
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(organizationSchema),
-        }}
-      />
-      <Script
-        id='local-business-schema'
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(generateLocalBusinessSchema(businessLocations[0]!)),
-        }}
-      />
     </LocaleProvider>
   )
 }

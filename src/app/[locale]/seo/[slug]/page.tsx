@@ -170,8 +170,8 @@ export default async function LocalizedSEOLocationPage({ params }: SEOPageProps)
   // Generate structured data for the location
   const parisLocation = businessLocations.find((loc) => loc.address.addressLocality === 'Paris')!
   const schemas = [
-    organizationSchema,
-    generateLocalBusinessSchema(parisLocation),
+    organizationSchema, // Main organization with rating
+    generateLocalBusinessSchema(parisLocation, false), // No rating to avoid duplication
     {
       '@context': 'https://schema.org',
       '@type': 'WebPage',

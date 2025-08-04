@@ -1490,8 +1490,8 @@ export function createCanonicalUrl(path: string, locale: Locale): string {
 }
 
 // Generate local business schema
-export function generateLocalBusinessSchema(business: LocalBusiness) {
-  return {
+export function generateLocalBusinessSchema(business: LocalBusiness, includeRating: boolean = true) {
+  const baseSchema = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     '@id': `${business.url}#LocalBusiness`,
@@ -1524,11 +1524,6 @@ export function generateLocalBusinessSchema(business: LocalBusiness) {
       name: 'France',
     },
     priceRange: '€€',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5.0',
-      reviewCount: '20',
-    },
     serviceType: [
       'Développement Web Frontend',
       'Développement Web Backend',
@@ -1559,6 +1554,20 @@ export function generateLocalBusinessSchema(business: LocalBusiness) {
       sameAs: ['https://github.com/ssidikov', 'https://linkedin.com/in/sardorbeksidikov'],
     },
   }
+
+  // Only add aggregateRating to the main business location
+  if (includeRating) {
+    return {
+      ...baseSchema,
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '5.0',
+        reviewCount: '20',
+      },
+    }
+  }
+
+  return baseSchema
 }
 
 // Organization schema
