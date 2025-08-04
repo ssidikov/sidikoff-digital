@@ -370,12 +370,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'mayotte',
   ]
 
-  const seoPages = seoLocations.map((slug) => ({
-    url: `${baseUrl}/seo/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
-  }))
+  const seoPages = seoLocations.flatMap((slug) => [
+    // French version (default)
+    {
+      url: `${baseUrl}/seo/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    // English version
+    {
+      url: `${baseUrl}/en/seo/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    // Russian version
+    {
+      url: `${baseUrl}/ru/seo/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+  ])
 
   return [...staticPages, ...seoPages]
 }
