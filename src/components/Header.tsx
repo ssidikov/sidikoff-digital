@@ -236,14 +236,14 @@ export function Header({ dictionary, locale }: HeaderProps) {
 
   return (
     <>
-      {/* Mobile Menu Overlay */}
+      {/* Mobile & Tablet Menu Overlay */}
       {isMenuOpen && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className='fixed inset-0 bg-black/20 backdrop-blur-sm z-[100] md:hidden'
+          className='fixed inset-0 bg-black/20 backdrop-blur-sm z-[100] lg:hidden'
           onClick={() => setIsMenuOpen(false)}
         />
       )}
@@ -252,14 +252,14 @@ export function Header({ dictionary, locale }: HeaderProps) {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className='fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-[120] w-full max-w-7xl px-4'>
-        <nav className='relative z-[110] px-3.5 xs:px-4'>
+        className='fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-[120] w-full max-w-7xl px-3 sm:px-4'>
+        <nav className='relative z-[110] px-2 xs:px-3 sm:px-4'>
           <div
-            className={`flex items-center justify-between px-5 py-4 lg:px-4 3xl:p-4 transition-all duration-500 rounded-3xl backdrop-blur-xl border-2 border-white/30 shadow-xl ${
+            className={`flex items-center justify-between px-3 sm:px-4 lg:px-5 py-3 sm:py-4 lg:px-4 3xl:p-4 transition-all duration-500 rounded-2xl sm:rounded-3xl backdrop-blur-xl border-2 border-white/30 shadow-xl ${
               isBlogPage ? 'bg-white/90' : 'bg-white/20'
             }`}>
             {/* Logo */}
-            <div>
+            <div className='flex-shrink-0'>
               <Link
                 href={getLocalizedUrl('/', locale)}
                 className='flex items-center transition-all duration-300 focus:outline-none outline-none cursor-pointer'
@@ -269,21 +269,21 @@ export function Header({ dictionary, locale }: HeaderProps) {
                   alt='SIDIKOFF DIGITAL'
                   width={145}
                   height={40}
-                  sizes='(max-width: 1024px) 160px, 180px'
+                  sizes='(max-width: 640px) 120px, (max-width: 768px) 130px, (max-width: 1024px) 145px, 160px'
                   priority
-                  className='h-10 w-auto lg:h-12'
+                  className='h-8 w-auto sm:h-9 md:h-10 lg:h-12'
                 />
               </Link>
             </div>
 
             {/* Desktop Navigation */}
-            <div className='hidden md:flex items-center space-x-8'>
+            <div className='hidden lg:flex items-center space-x-6 xl:space-x-8'>
               {navigation.map((item) => (
                 <div key={item.href}>
                   <Link
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item)}
-                    className={`text-base font-medium transition-all duration-300 px-3 py-2 rounded-lg text-[#112D4E] focus:outline-none outline-none cursor-pointer ${
+                    className={`text-sm xl:text-base font-medium transition-all duration-300 px-2.5 xl:px-3 py-2 rounded-lg text-[#112D4E] focus:outline-none outline-none cursor-pointer ${
                       isActive(item) ? 'bg-black text-white' : 'hover:text-white hover:bg-black'
                     }`}
                     style={{ outline: 'none !important', boxShadow: 'none !important' }}>
@@ -296,31 +296,31 @@ export function Header({ dictionary, locale }: HeaderProps) {
               <LanguageSwitcher currentLocale={locale} dict={dictionary} />
             </div>
 
-            {/* Mobile Controls */}
-            <div className='md:hidden flex items-center space-x-2'>
-              {/* Mobile Language Switcher */}
+            {/* Mobile & Tablet Controls */}
+            <div className='lg:hidden flex items-center space-x-2'>
+              {/* Language Switcher */}
               <div className='scale-90'>
                 <LanguageSwitcher currentLocale={locale} dict={dictionary} />
               </div>
 
-              {/* Mobile Menu Button */}
+              {/* Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className='p-2 rounded-lg transition-all duration-300 bg-[#DBE2EF] text-[#112D4E] hover:bg-[#3F72AF] hover:text-white focus:outline-none outline-none cursor-pointer'
+                className='p-2 sm:p-2.5 rounded-lg transition-all duration-300 bg-[#DBE2EF] text-[#112D4E] hover:bg-[#3F72AF] hover:text-white focus:outline-none outline-none cursor-pointer focus:ring-2 focus:ring-white/30'
                 aria-label='Toggle menu'>
                 {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
               </button>
             </div>
           </div>
 
-          {/* Mobile Menu */}
+          {/* Mobile & Tablet Menu */}
           {isMenuOpen && (
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className='absolute top-24 left-3.5 xs:left-4 right-3.5 xs:right-4 md:hidden z-[110] rounded-3xl'
+              className='absolute top-[4.5rem] sm:top-20 left-3 xs:left-4 right-3 xs:right-4 lg:hidden z-[110] rounded-2xl sm:rounded-3xl'
               style={{
                 background: 'rgba(249, 247, 247, 0.5)',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
@@ -328,7 +328,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
                 WebkitBackdropFilter: 'blur(20px) saturate(180%)',
                 boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
               }}>
-              <div className='py-4 space-y-2 px-4'>
+              <div className='py-3 sm:py-4 space-y-1 sm:space-y-2 px-3 sm:px-4'>
                 {navigation.map((item) => (
                   <div key={item.href}>
                     <Link

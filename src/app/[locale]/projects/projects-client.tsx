@@ -88,7 +88,7 @@ export function ProjectsClient({ allProjects, locale, dict }: ProjectsClientProp
           </button>
         ))}
       </div>
-      <div className='grid lg:grid-cols-2 gap-5 sm:gap-[30px] lg:gap-16'>
+      <div className='grid xl:grid-cols-2 gap-5 sm:gap-[30px] lg:gap-16'>
         {filteredProjects.map((project) => (
           <ProjectCard key={project.id} project={project} locale={locale} />
         ))}

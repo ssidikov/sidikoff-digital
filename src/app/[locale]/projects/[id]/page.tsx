@@ -72,7 +72,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           href={getProjectsUrl(locale)}
           variant='secondary'
           size='sm'
-          className='text-gray-600 hover:text-gray-900 mb-8 border-none bg-transparent shadow-none px-0 h-auto justify-start group'
+          className='text-gray-600 hover:text-gray-900 mb-8 mt-8 border-none bg-transparent shadow-none px-0 h-auto justify-start group'
           trackingAction='back_to_projects'
           trackingCategory='project_detail'>
           <svg
