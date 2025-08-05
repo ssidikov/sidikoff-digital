@@ -68,8 +68,30 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       padding='xl'
       contentWidth='wide'>
       <div className='relative z-10'>
+        <CTAButton
+          href={getProjectsUrl(locale)}
+          variant='secondary'
+          size='sm'
+          className='text-gray-600 hover:text-gray-900 mb-8 mt-8 border-none bg-transparent shadow-none px-0 h-auto justify-start group'
+          trackingAction='back_to_projects'
+          trackingCategory='project_detail'>
+          <svg
+            className='w-5 h-5 mr-2 transition-transform group-hover:-translate-x-1'
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'>
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={2}
+              d='M15 19l-7-7 7-7'
+            />
+          </svg>
+          {dict.common?.back || 'Retour'} {dict.navigation?.portfolio || 'aux projets'}
+        </CTAButton>
+
         {/* Project Header */}
-        <div className='max-w-7xl mx-auto mb-12 mt-8'>
+        <div className='max-w-7xl mx-auto mb-12'>
           <div className='text-center mb-4'>
             <div className='flex justify-center flex-wrap gap-2 mb-6'>
               <span className='px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium'>
@@ -99,7 +121,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className='max-w-7xl mx-auto'>
           <div className='grid lg:grid-cols-2 gap-6 lg:h-[800px]'>
             {/* Left Card - Project Image (50% width, full height) */}
-            <div className='relative overflow-hidden rounded-3xl shadow-2xl border-2 border-white/50 lg:row-span-2 h-[500px] sm:h-[600px] md:h-[700px] lg:h-auto'>
+            <div className='relative overflow-hidden rounded-3xl shadow-2xl border-2 border-white/50 lg:row-span-2'>
               <div
                 className='absolute inset-0'
                 style={{
@@ -114,7 +136,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     src={project.image}
                     alt={project.title}
                     fill
-                    className='object-cover object-top'
+                    className='object-cover object-top h-full'
                     priority
                   />
                 </div>
@@ -176,7 +198,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             {/* Right Bottom Card - Technologies & Links */}
             <div
-              className='relative flex flex-col justify-between overflow-hidden rounded-3xl shadow-xl border-2 border-white/50 p-6 lg:p-8'
+              className='relative overflow-hidden rounded-3xl shadow-xl border-2 border-white/50 p-6 lg:p-8'
               style={{
                 backdropFilter: 'blur(20px) saturate(120%)',
                 background:
@@ -256,7 +278,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     href={project.github}
                     variant='secondary'
                     size='md'
-                    className='flex-1 min-w-[140px]'
+                    className='bg-gray-900 text-white hover:bg-gray-800 border-gray-900'
                     trackingAction='view_project_github'
                     trackingCategory='project_detail'>
                     <svg className='w-4 h-4 mr-2' fill='currentColor' viewBox='0 0 24 24'>
@@ -269,111 +291,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                         : 'Исходный код'}
                   </CTAButton>
                 )}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Back to Portfolio Button - Centered at Bottom */}
-        <div className='max-w-7xl mx-auto mt-16 text-center'>
-          <CTAButton
-            href={getProjectsUrl(locale)}
-            variant='secondary'
-            size='lg'
-            className='group'
-            trackingAction='back_to_projects'
-            trackingCategory='project_detail'>
-            <svg
-              className='w-5 h-5 mr-2 transition-transform group-hover:-translate-x-1'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'>
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M15 19l-7-7 7-7'
-              />
-            </svg>
-            {dict.common?.back || 'Retour'} {dict.navigation?.portfolio || 'aux projets'}
-          </CTAButton>
-        </div>
-
-        {/* Call to Action Banner */}
-        <div className='max-w-7xl mx-auto mt-16'>
-          <div
-            className='relative overflow-hidden rounded-3xl shadow-2xl border-2 border-white/50 p-8 lg:p-12'
-            style={{
-              backdropFilter: 'blur(20px) saturate(120%)',
-              background:
-                'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%)',
-              boxShadow:
-                'rgba(59, 130, 246, 0.2) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
-            }}>
-            <div className='text-center max-w-4xl mx-auto'>
-              <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
-                {locale === 'fr'
-                  ? 'Prêt à démarrer votre projet ?'
-                  : locale === 'en'
-                    ? 'Ready to start your project?'
-                    : 'Готовы начать свой проект?'}
-              </h2>
-              <p className='text-xl text-gray-600 mb-8 leading-relaxed'>
-                {locale === 'fr'
-                  ? "Créons ensemble quelque chose d'extraordinaire. Contactez-nous pour discuter de votre vision."
-                  : locale === 'en'
-                    ? "Let's create something extraordinary together. Contact us to discuss your vision."
-                    : 'Давайте создадим что-то необычное вместе. Свяжитесь с нами, чтобы обсудить ваше видение.'}
-              </p>
-              <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-                <CTAButton
-                  href={getLocalizedUrl('/contact', locale)}
-                  variant='primary'
-                  size='lg'
-                  trackingAction='contact_from_project'
-                  trackingCategory='project_detail'>
-                  <svg
-                    className='w-5 h-5 mr-2'
-                    fill='none'
-                    stroke='currentColor'
-                    viewBox='0 0 24 24'>
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth={2}
-                      d='M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z'
-                    />
-                  </svg>
-                  {locale === 'fr'
-                    ? 'Discutons de votre projet'
-                    : locale === 'en'
-                      ? 'Discuss your project'
-                      : 'Обсудить проект'}
-                </CTAButton>
-                <CTAButton
-                  href={getProjectsUrl(locale)}
-                  variant='secondary'
-                  size='lg'
-                  trackingAction='view_more_projects'
-                  trackingCategory='project_detail'>
-                  <svg
-                    className='w-5 h-5 mr-2'
-                    fill='none'
-                    stroke='currentColor'
-                    viewBox='0 0 24 24'>
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth={2}
-                      d='M19 11H5m14 0l-4 4m4-4l-4-4'
-                    />
-                  </svg>
-                  {locale === 'fr'
-                    ? "Voir d'autres projets"
-                    : locale === 'en'
-                      ? 'View other projects'
-                      : 'Посмотреть другие проекты'}
-                </CTAButton>
               </div>
             </div>
           </div>
