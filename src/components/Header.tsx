@@ -306,7 +306,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
               {/* Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className='p-2 sm:p-2.5 rounded-lg transition-all duration-300 bg-[#DBE2EF] text-[#112D4E] hover:bg-[#3F72AF] hover:text-white focus:outline-none outline-none cursor-pointer focus:ring-2 focus:ring-white/30'
+                className='flex items-center gap-2 p-2 text-sm font-medium rounded-lg transition-all duration-300 bg-[#DBE2EF]/30 border border-white/30 text-[#112D4E] hover:bg-black hover:text-white hover:border-black cursor-pointer'
                 aria-label='Toggle menu'>
                 {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
               </button>
@@ -320,7 +320,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className='absolute top-[4.5rem] sm:top-20 left-3 xs:left-4 right-3 xs:right-4 lg:hidden z-[110] rounded-2xl sm:rounded-3xl'
+              className='absolute top-24 left-3.5 xs:left-4 right-3.5 xs:right-4 lg:hidden z-[110] rounded-3xl'
               style={{
                 background: 'rgba(249, 247, 247, 0.5)',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
