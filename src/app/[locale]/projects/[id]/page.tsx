@@ -114,7 +114,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     src={project.image}
                     alt={project.title}
                     fill
-                    className='object-cover object-top'
+                    className='object-cover object-left-top'
                     priority
                   />
                 </div>
