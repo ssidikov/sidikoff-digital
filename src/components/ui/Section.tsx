@@ -36,7 +36,7 @@ const paddingStyles = {
   md: 'px-4 sm:px-4 lg:px-8 py-16',
   lg: 'px-4 sm:px-4 lg:px-24 py-20',
   xl: 'px-4 sm:px-4 lg:px-16 py-24',
-  hero: 'pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-32 px-4 sm:px-6 lg:px-8',
+  hero: 'pt-20 pb-10 sm:pt-10 sm:pb-20 lg:pt-16 lg:pb-32 px-4 sm:px-6 lg:px-8',
 } as const
 
 const contentStyles = {
