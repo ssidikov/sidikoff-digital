@@ -1,5 +1,3 @@
-
-
 // Performance monitoring utilities for better Lighthouse scores
 
 interface WebVitalsMetric {
@@ -13,7 +11,7 @@ export function reportWebVitals(metric: WebVitalsMetric) {
   if (process.env.NODE_ENV === 'development') {
     console.log('Web Vitals:', metric)
   }
-  
+
   // Send to analytics service in production
   if (process.env.NODE_ENV === 'production') {
     // Example: Send to Google Analytics, Vercel Analytics, etc.
@@ -28,21 +26,31 @@ export function reportWebVitals(metric: WebVitalsMetric) {
 
 // Preload critical resources
 export function preloadCriticalResources() {
-  // Preload fonts
-  const fontLink = document.createElement('link')
-  fontLink.rel = 'preload'
-  fontLink.href = '/fonts/inter-var.woff2'
-  fontLink.as = 'font'
-  fontLink.type = 'font/woff2'
-  fontLink.crossOrigin = 'anonymous'
-  document.head.appendChild(fontLink)
+  // Preload critical images
+  const criticalImages = [
+    '/images/hero/hero-bg.webp',
+    '/logo-sidikoff.webp',
+    '/images/og-homepage.jpg'
+  ]
+
+  criticalImages.forEach((imageSrc) => {
+    const imageLink = document.createElement('link')
+    imageLink.rel = 'preload'
+    imageLink.href = imageSrc
+    imageLink.as = 'image'
+    imageLink.type = 'image/webp'
+    document.head.appendChild(imageLink)
+  })
+
+  // Preload critical CSS (already handled by Next.js)
+  // Inter font is automatically optimized by next/font/google
 }
 
 // Lazy load images with intersection observer
 export function lazyLoadImages() {
   if ('IntersectionObserver' in window) {
     const imageObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const img = entry.target as HTMLImageElement
           if (img.dataset.src) {
@@ -55,7 +63,7 @@ export function lazyLoadImages() {
     })
 
     const lazyImages = document.querySelectorAll('img[data-src]')
-    lazyImages.forEach(img => imageObserver.observe(img))
+    lazyImages.forEach((img) => imageObserver.observe(img))
   }
 }
 
@@ -65,10 +73,10 @@ export function registerServiceWorker() {
     window.addEventListener('load', () => {
       navigator.serviceWorker
         .register('/sw.js')
-        .then(registration => {
+        .then((registration) => {
           console.log('SW registered: ', registration)
         })
-        .catch(registrationError => {
+        .catch((registrationError) => {
           console.log('SW registration failed: ', registrationError)
         })
     })
@@ -84,7 +92,7 @@ export function loadThirdPartyScripts() {
     // script.src = 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID'
     // script.async = true
     // document.head.appendChild(script)
-    
+
     // Remove event listeners after loading
     document.removeEventListener('scroll', loadAnalytics)
     document.removeEventListener('click', loadAnalytics)
