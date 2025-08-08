@@ -266,7 +266,9 @@ export function Footer({ dictionary, locale }: FooterProps) {
                   </Link>
                 ))}
               </div>
-              <span className='sr-only'>https://www.jesuiscreateurweb.fr</span>
+              <span className='sr-only'>
+                https://www.jesuiscreateurweb.fr, https://www.jesuisnumerique.fr
+              </span>
             </motion.div>
           </div>
         </div>
