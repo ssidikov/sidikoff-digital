@@ -255,7 +255,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
         className='fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-[120] w-full max-w-7xl px-3 sm:px-4'>
         <nav className='relative z-[110] px-2 xs:px-3 sm:px-4'>
           <div
-            className={`flex items-center justify-between px-3 sm:px-4 lg:px-5 py-3 sm:py-4 lg:px-4 3xl:p-4 transition-all duration-500 rounded-2xl sm:rounded-3xl backdrop-blur-xl border-2 border-white/30 shadow-xl ${
+            className={`flex items-center justify-between px-3 sm:px-4 py-3 sm:py-4 lg:px-4 3xl:p-4 transition-all duration-500 rounded-2xl sm:rounded-3xl backdrop-blur-xl border-2 border-white/30 shadow-xl ${
               isBlogPage ? 'bg-white/90' : 'bg-white/20'
             }`}>
             {/* Logo */}
