@@ -216,9 +216,9 @@ export function Footer({ dictionary, locale }: FooterProps) {
                       <PhoneIcon />
                     </div>
                     <a
-                      href='tel:+330625305923'
+                      href='tel:+33626932734'
                       className='text-gray-400 hover:text-white transition-colors duration-300 text-sm'>
-                      +33 06 25 30 59 23
+                      +33 6 26 93 27 34
                     </a>
                   </div>
 
