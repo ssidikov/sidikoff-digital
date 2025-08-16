@@ -113,7 +113,7 @@ export function SectionHeader({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className={clsx('text-center mb-16', className)}>
+      className={clsx('mb-16', className)}>
       <h2 id={titleId} className={sectionStyles.title}>
         {title}
         {subtitle && <span className={clsx('block mt-2', sectionStyles.subtitle)}>{subtitle}</span>}

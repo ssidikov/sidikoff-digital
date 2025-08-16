@@ -31,6 +31,7 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
             locale={locale}
             className='pt-[140px]'
             showAll={true}
+            useCarousel={true}
           />
         </main>
       </div>

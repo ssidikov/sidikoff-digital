@@ -1,0 +1,117 @@
+/* Portfolio Carousel Styles */
+
+.portfolio-carousel {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: visible;
+  background-color: #EEEEEE !important;
+}
+
+.portfolio-carousel-container {
+  margin-left: -2rem;
+  margin-right: -2rem;
+}
+
+.portfolio-carousel-item {
+  transform-origin: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+}
+
+.portfolio-carousel-item:hover {
+  transform: translateY(-5px);
+}
+
+.portfolio-carousel-item img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-carousel-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Smooth animations for touch devices */
+@media (max-width: 768px) {
+  .portfolio-carousel-container {
+    touch-action: pan-x;
+  }
+
+  .portfolio-carousel-item {
+    scroll-snap-align: start;
+  }
+}
+
+/* Solid white background for number badges */
+.portfolio-number-badge {
+  background: #FFFFFF;
+  border: 2px solid #E5E7EB;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Custom scrollbar for desktop */
+.portfolio-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.portfolio-carousel {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Loading animation */
+@keyframes portfolioFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.portfolio-carousel-item {
+  animation: portfolioFadeIn 0.6s ease-out;
+}
+
+/* Focus styles for accessibility */
+.portfolio-carousel-item:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.portfolio-number-badge:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Responsive design improvements */
+@media (max-width: 640px) {
+  .portfolio-carousel-item {
+    min-width: calc(100vw - 2rem);
+  }
+
+  .portfolio-carousel-item img {
+    border-radius: 1rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .portfolio-carousel-item {
+    min-width: 400px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .portfolio-carousel-item {
+    min-width: 500px;
+  }
+}
+
+/* Image container improvements */
+.portfolio-carousel-item .relative {
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -5,6 +5,9 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { getProjects } from '@/data/projects'
 import { ProjectCard } from '@/components/ui/ProjectCard'
+import PortfolioCarousel, {
+  convertProjectsToPortfolioItems,
+} from '@/components/ui/PortfolioCarousel'
 import { getProjectsUrl } from '@/utils/navigation'
 import { Dictionary } from '@/lib/dictionaries'
 import Section, { SectionHeader } from '@/components/ui/Section'
@@ -15,6 +18,7 @@ interface PortfolioNewProps {
   className?: string
   showAll?: boolean
   maxProjects?: number
+  useCarousel?: boolean
 }
 
 export default function Portfolio({
@@ -23,6 +27,7 @@ export default function Portfolio({
   className,
   showAll = false,
   maxProjects = 2,
+  useCarousel = false,
 }: PortfolioNewProps) {
   const [activeTag, setActiveTag] = useState<string>(showAll ? 'all' : 'featured')
   const projects = getProjects(locale)
@@ -71,11 +76,23 @@ export default function Portfolio({
 
   const filteredProjects = getFilteredProjects()
 
+  // If carousel mode is enabled, show the carousel component
+  if (useCarousel) {
+    const carouselItems = convertProjectsToPortfolioItems(projects)
+    return (
+      <PortfolioCarousel
+        items={carouselItems}
+        locale={locale}
+        title={dictionary?.title || 'Portfolio'}
+        subtitle={dictionary?.subtitle || ''}
+      />
+    )
+  }
+
   return (
     <Section
       id='portfolio'
       background='white'
-      backgroundImage='/images/projects-bg.webp'
       padding='lg'
       contentWidth='wide'
       className={className || ''}>

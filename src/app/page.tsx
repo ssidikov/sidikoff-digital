@@ -96,7 +96,7 @@ export default async function HomePage() {
         <main className='m-0 p-0'>
           <Hero dict={dict.hero} common={dict.common} locale={defaultLocale} />
           <Services dictionary={dict.services} locale={defaultLocale} />
-          <Portfolio dictionary={dict.portfolio} locale={defaultLocale} />
+          <Portfolio dictionary={dict.portfolio} locale={defaultLocale} useCarousel={true} />
           <Pricing locale={defaultLocale} />
           <FAQ dictionary={dict.faq} />
           <Contact dictionary={dict.contact} locale={defaultLocale} />

@@ -147,7 +147,7 @@ export default async function HomePage({ params }: HomePageProps) {
           </div>
         </section>
 
-        <Portfolio locale={locale} dictionary={dict.portfolio} />
+        <Portfolio locale={locale} dictionary={dict.portfolio} useCarousel={true} />
         <Pricing locale={locale} />
         <FAQ locale={locale} dictionary={dict.faq} />
         <Contact dictionary={dict.contact} locale={locale} className='' />
