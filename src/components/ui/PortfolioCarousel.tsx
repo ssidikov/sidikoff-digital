@@ -81,57 +81,194 @@ export default function PortfolioCarousel({
   const containerRef = useRef<HTMLDivElement>(null)
   const [touchStart, setTouchStart] = useState<number | null>(null)
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
+  const [touchStartTime, setTouchStartTime] = useState<number | null>(null)
+  const [isScrolling, setIsScrolling] = useState(false)
   const [mouseStart, setMouseStart] = useState<number | null>(null)
   const [isDragging, setIsDragging] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
+  const [dragOffset, setDragOffset] = useState(0)
+  const animationRef = useRef<number | null>(null)
+  const [deviceType, setDeviceType] = useState<'mobile' | 'tablet' | 'desktop'>('desktop')
 
-  const duplicatedItems = [...items, ...items, ...items]
+  // Убираем дублирование элементов для single-card режима
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024)
+    const checkDevice = () => {
+      const width = window.innerWidth
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+
+      if (width < 768) {
+        setDeviceType('mobile')
+      } else if (width < 1024 && isTouchDevice) {
+        setDeviceType('tablet')
+      } else {
+        setDeviceType('desktop')
+      }
     }
 
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
+    checkDevice()
+    window.addEventListener('resize', checkDevice)
+    return () => {
+      window.removeEventListener('resize', checkDevice)
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current)
+      }
+    }
   }, [])
 
   useEffect(() => {
     if (isPaused) return
 
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length)
+      if (deviceType === 'desktop') {
+        // Для десктопа прокручиваем горизонтально
+        const container = containerRef.current?.querySelector('.desktop-carousel-container')
+        if (container) {
+          const cardWidth = 520 // ширина карточки + gap
+          const scrollAmount = cardWidth
+          const currentScroll = container.scrollLeft
+          const maxScroll = container.scrollWidth - container.clientWidth
+
+          if (currentScroll + scrollAmount >= maxScroll) {
+            container.scrollTo({ left: 0, behavior: 'smooth' })
+          } else {
+            container.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+          }
+        }
+      } else {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length)
+      }
     }, 5000)
 
     return () => clearInterval(interval)
-  }, [isPaused, items.length])
+  }, [isPaused, items.length, deviceType])
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null)
     setTouchStart(e.targetTouches[0]?.clientX ?? null)
+    setTouchStartTime(Date.now())
+    setIsScrolling(false)
+    setDragOffset(0)
+
+    // Предотвращаем конфликты с браузерными жестами
+    if (e.touches.length === 1) {
+      // Предотвращаем скролл страницы, но только для touch устройств
+      e.preventDefault()
+    }
   }
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0]?.clientX ?? null)
+    if (!touchStart || !touchStartTime) return
+
+    const currentX = e.targetTouches[0]?.clientX ?? null
+    const currentY = e.targetTouches[0]?.clientY ?? null
+    if (!currentX || !currentY) return
+
+    setTouchEnd(currentX)
+    const distanceX = touchStart - currentX
+    const distanceY = (e.touches[0]?.clientY ?? 0) - (touchStartTime ? touchStartTime : 0)
+
+    // Определяем направление жеста
+    const threshold = deviceType === 'mobile' ? 5 : 10
+    const isHorizontalSwipe =
+      Math.abs(distanceX) > Math.abs(distanceY) && Math.abs(distanceX) > threshold
+
+    if (e.touches.length === 1 && isHorizontalSwipe) {
+      setIsScrolling(true)
+      setDragOffset(distanceX)
+      // Предотвращаем скролл страницы только для горизонтальных жестов
+      e.preventDefault()
+    }
+  }
+
+  const easeOutQuart = (t: number): number => {
+    return 1 - Math.pow(1 - t, 4)
+  }
+
+  const animateSwipe = (startOffset: number, targetOffset: number, duration: number = 300) => {
+    const startTime = Date.now()
+    const offsetDifference = targetOffset - startOffset
+
+    const animate = () => {
+      const elapsed = Date.now() - startTime
+      const progress = Math.min(elapsed / duration, 1)
+      const easedProgress = easeOutQuart(progress)
+
+      const currentOffset = startOffset + offsetDifference * easedProgress
+      setDragOffset(currentOffset)
+
+      if (progress < 1) {
+        animationRef.current = requestAnimationFrame(animate)
+      } else {
+        setDragOffset(0)
+        setIsScrolling(false)
+      }
+    }
+
+    animationRef.current = requestAnimationFrame(animate)
   }
 
   const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return
+    if (!touchStart || !touchEnd || !touchStartTime) return
 
     const distance = touchStart - touchEnd
-    const isLeftSwipe = distance > 50
-    const isRightSwipe = distance < -50
+    const touchDuration = Date.now() - touchStartTime
+    const velocity = Math.abs(distance) / touchDuration
+
+    // Адаптивная чувствительность в зависимости от устройства и скорости
+    const getMinDistance = () => {
+      if (deviceType === 'mobile') {
+        return velocity > 0.3 ? 25 : 40
+      } else if (deviceType === 'tablet') {
+        return velocity > 0.4 ? 35 : 55
+      } else {
+        return velocity > 0.5 ? 40 : 60
+      }
+    }
+
+    const minDistance = getMinDistance()
+    const isLeftSwipe = distance > minDistance
+    const isRightSwipe = distance < -minDistance
 
     if (isLeftSwipe || isRightSwipe) {
       setIsPaused(true)
-      if (isLeftSwipe) {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length)
+
+      if (deviceType === 'desktop') {
+        // Для десктопа прокручиваем горизонтально
+        const container = containerRef.current?.querySelector('.desktop-carousel-container')
+        if (container) {
+          const cardWidth = 520
+          const scrollAmount = isLeftSwipe ? cardWidth : -cardWidth
+          container.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+        }
+        setTimeout(() => setIsPaused(false), 1000)
       } else {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length)
+        // Для мобильных - single card режим
+        // Инерционная анимация
+        const momentumDistance = Math.min(velocity * 100, 150)
+        const totalDistance = distance + (distance > 0 ? momentumDistance : -momentumDistance)
+
+        animateSwipe(dragOffset, totalDistance)
+
+        setTimeout(() => {
+          if (isLeftSwipe) {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length)
+          } else {
+            setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length)
+          }
+          setIsPaused(false)
+        }, 200)
       }
-      setTimeout(() => setIsPaused(false), 1000)
+    } else {
+      // Возврат в исходное положение
+      if (Math.abs(dragOffset) > 0) {
+        animateSwipe(dragOffset, 0)
+      }
     }
+
+    // Сброс состояний
+    setTouchStart(null)
+    setTouchEnd(null)
+    setTouchStartTime(null)
   }
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -145,11 +282,24 @@ export default function PortfolioCarousel({
     const distance = mouseStart - e.clientX
     if (Math.abs(distance) > 50) {
       setIsPaused(true)
-      if (distance > 0) {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length)
+
+      if (deviceType === 'desktop') {
+        // Для десктопа прокручиваем горизонтально
+        const container = containerRef.current?.querySelector('.desktop-carousel-container')
+        if (container) {
+          const cardWidth = 520
+          const scrollAmount = distance > 0 ? cardWidth : -cardWidth
+          container.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+        }
       } else {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length)
+        // Для мобильных - single card режим
+        if (distance > 0) {
+          setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length)
+        } else {
+          setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length)
+        }
       }
+
       setTimeout(() => setIsPaused(false), 1000)
       setIsDragging(false)
       setMouseStart(null)
@@ -171,15 +321,137 @@ export default function PortfolioCarousel({
     window.open(url, '_blank')
   }
 
+  const renderCardContent = (item: PortfolioItem, isEven: boolean) => {
+    return (
+      <>
+        {isEven && (
+          <div className='absolute -top-10 left-1/2 transform -translate-x-1/2 z-20'>
+            <div className='relative'>
+              <div className='w-20 h-20 bg-[#EEEEEE] rounded-full flex items-center justify-center p-1'>
+                <div
+                  className='relative w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200 group-hover:border-blue-200 transition-all duration-300 cursor-pointer hover:bg-gray-50 portfolio-number-badge'
+                  onClick={() => handleNumberClick(item.id)}>
+                  <span className='text-lg font-bold text-gray-800 group-hover:hidden transition-all duration-300'>
+                    {item.number}
+                  </span>
+                  <svg
+                    className='w-5 h-5 text-blue-600 hidden group-hover:block transition-all duration-300'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'>
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth={2}
+                      d='M7 17L17 7M17 7H7M17 7V17'
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div className='bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 relative w-full h-[520px] md:h-[600px] flex flex-col'>
+          {isEven ? (
+            <>
+              <div className='p-4 md:p-7 pb-3 md:pb-5 text-center mt-10 md:mt-5 flex-shrink-0'>
+                <h3 className='text-lg md:text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300'>
+                  {item.title}
+                </h3>
+                <p className='text-gray-600 text-xs md:text-sm font-medium uppercase tracking-wide mb-2'>
+                  {item.category}
+                </p>
+              </div>
+              <div className='relative flex-1 w-[calc(100%-1rem)] md:w-[calc(100%-2rem)] overflow-hidden mx-auto mb-3 md:mb-5 rounded-2xl'>
+                <Image
+                  src={item.image || '/placeholder.svg'}
+                  alt={item.imageAlt}
+                  fill
+                  sizes='(max-width: 768px) 100vw, (max-width: 1024px) 440px, 480px'
+                  className='object-cover transition-transform duration-500'
+                />
+                <div className='absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className='relative flex-1 w-[calc(100%-1rem)] md:w-[calc(100%-2rem)] overflow-hidden mx-auto mt-3 md:mt-5 mb-3 md:mb-5 rounded-2xl'>
+                <Image
+                  src={item.image || '/placeholder.svg'}
+                  alt={item.imageAlt}
+                  fill
+                  sizes='(max-width: 768px) 100vw, (max-width: 1024px) 440px, 480px'
+                  className='object-cover transition-transform duration-500'
+                />
+                <div className='absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+              </div>
+              <div className='p-4 md:p-7 pt-3 md:pt-5 text-center mb-10 md:mb-5 flex-shrink-0'>
+                <h3 className='text-lg md:text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300'>
+                  {item.title}
+                </h3>
+                <p className='text-gray-600 text-xs md:text-sm font-medium uppercase tracking-wide mb-2'>
+                  {item.category}
+                </p>
+              </div>
+            </>
+          )}
+        </div>
+
+        {!isEven && (
+          <div className='absolute -bottom-10 left-1/2 transform -translate-x-1/2 z-20'>
+            <div className='relative'>
+              <div className='w-20 h-20 bg-[#EEEEEE] rounded-full flex items-center justify-center p-1'>
+                <div
+                  className='relative w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200 group-hover:border-blue-200 transition-all duration-300 cursor-pointer hover:bg-gray-50 portfolio-number-badge'
+                  onClick={() => handleNumberClick(item.id)}>
+                  <span className='text-lg font-bold text-gray-800 group-hover:hidden transition-all duration-300'>
+                    {item.number}
+                  </span>
+                  <svg
+                    className='w-5 h-5 text-blue-600 hidden group-hover:block transition-all duration-300'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'>
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth={2}
+                      d='M7 17L17 7M17 7H7M17 7V17'
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </>
+    )
+  }
+
   const goToPrevious = () => {
     setIsPaused(true)
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length)
+    if (deviceType === 'desktop') {
+      const container = containerRef.current?.querySelector('.desktop-carousel-container')
+      if (container) {
+        container.scrollBy({ left: -520, behavior: 'smooth' })
+      }
+    } else {
+      setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length)
+    }
     setTimeout(() => setIsPaused(false), 1000)
   }
 
   const goToNext = () => {
     setIsPaused(true)
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length)
+    if (deviceType === 'desktop') {
+      const container = containerRef.current?.querySelector('.desktop-carousel-container')
+      if (container) {
+        container.scrollBy({ left: 520, behavior: 'smooth' })
+      }
+    } else {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length)
+    }
     setTimeout(() => setIsPaused(false), 1000)
   }
 
@@ -207,21 +479,12 @@ export default function PortfolioCarousel({
           />
         </div>
 
-        <div className='relative py-8 px-4 pb-20 overflow-hidden'>
-          <div
-            className='absolute left-0 top-0 w-1/4 h-full z-30 cursor-pointer'
-            onClick={goToPrevious}
-            title='Previous'
-          />
-          <div
-            className='absolute right-0 top-0 w-1/4 h-full z-30 cursor-pointer'
-            onClick={goToNext}
-            title='Next'
-          />
-
+        <div
+          className='relative py-8 px-0 md:px-4 pb-20'
+          style={{ touchAction: deviceType === 'desktop' ? 'auto' : 'pan-y pinch-zoom' }}>
           <div
             ref={containerRef}
-            className={`flex md:gap-1 gap-5 transition-transform duration-1000 ease-in-out portfolio-carousel-container ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+            className={`portfolio-carousel-container ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -230,147 +493,74 @@ export default function PortfolioCarousel({
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseLeave}
             style={{
-              width: isMobile
-                ? `${duplicatedItems.length * (typeof window !== 'undefined' ? window.innerWidth : 350)}px`
-                : `${duplicatedItems.length * 485}px`,
-              transform: isMobile
-                ? `translateX(-${currentIndex * (typeof window !== 'undefined' ? window.innerWidth : 350)}px)`
-                : `translateX(calc(-${currentIndex * 485}px + 2rem))`,
-              paddingLeft: isMobile ? '0' : '2rem',
-              paddingRight: isMobile ? '0' : '2rem',
+              minHeight: '600px',
             }}>
-            {duplicatedItems.map((item, index) => {
-              const isEven = (index % items.length) % 2 === 0
-              return (
-                <div
-                  key={`${item.id}-${index}`}
-                  className='flex-shrink-0 w-[100vw] md:w-[440px] lg:w-[480px] relative group cursor-pointer portfolio-carousel-item'>
-                  {isEven && (
-                    <div className='absolute -top-10 left-1/2 transform -translate-x-1/2 z-20'>
-                      <div className='relative'>
-                        <div className='w-20 h-20 bg-[#EEEEEE] rounded-full flex items-center justify-center p-1'>
-                          <div
-                            className='relative w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200 group-hover:border-blue-200 transition-all duration-300 cursor-pointer hover:bg-gray-50 portfolio-number-badge'
-                            onClick={() => handleNumberClick(item.id)}>
-                            <span className='text-lg font-bold text-gray-800 group-hover:hidden transition-all duration-300'>
-                              {item.number}
-                            </span>
-                            <svg
-                              className='w-5 h-5 text-blue-600 hidden group-hover:block transition-all duration-300'
-                              fill='none'
-                              stroke='currentColor'
-                              viewBox='0 0 24 24'>
-                              <path
-                                strokeLinecap='round'
-                                strokeLinejoin='round'
-                                strokeWidth={2}
-                                d='M7 17L17 7M17 7H7M17 7V17'
-                              />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
+            {deviceType === 'desktop' ? (
+              // Desktop: показываем все карточки в ряд
+              <div className='desktop-carousel-container flex gap-6 overflow-x-auto overflow-y-hidden scrollbar-hide px-4 min-h-[700px] items-center pt-12 pb-12'>
+                {items.map((item, index) => {
+                  const isEven = index % 2 === 0
+                  return (
+                    <div
+                      key={`${item.id}-${index}`}
+                      className='flex-shrink-0 w-[440px] lg:w-[480px] relative group cursor-pointer portfolio-carousel-item'
+                      onClick={() => handleNumberClick(item.id)}>
+                      {renderCardContent(item, isEven)}
                     </div>
-                  )}
-
-                  <div className='bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 relative w-[100vw] md:w-[440px] lg:w-[480px] h-[520px] md:h-[600px] flex flex-col'>
-                    {isEven ? (
-                      <>
-                        <div className='p-4 md:p-7 pb-3 md:pb-5 text-center mt-10 md:mt-5 flex-shrink-0'>
-                          <h3 className='text-lg md:text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300'>
-                            {item.title}
-                          </h3>
-                          <p className='text-gray-600 text-xs md:text-sm font-medium uppercase tracking-wide mb-2'>
-                            {item.category}
-                          </p>
-                        </div>
-                        <div className='relative flex-1 w-[calc(100%-1rem)] md:w-[calc(100%-2rem)] overflow-hidden mx-auto mb-3 md:mb-5 rounded-2xl'>
-                          <Image
-                            src={item.image || '/placeholder.svg'}
-                            alt={item.imageAlt}
-                            fill
-                            sizes='(max-width: 768px) 100vw, (max-width: 1024px) 440px, 480px'
-                            className='object-cover transition-transform duration-500'
-                          />
-                          <div className='absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        <div className='relative flex-1 w-[calc(100%-1rem)] md:w-[calc(100%-2rem)] overflow-hidden mx-auto mt-3 md:mt-5 mb-3 md:mb-5 rounded-2xl'>
-                          <Image
-                            src={item.image || '/placeholder.svg'}
-                            alt={item.imageAlt}
-                            fill
-                            sizes='(max-width: 768px) 100vw, (max-width: 1024px) 440px, 480px'
-                            className='object-cover transition-transform duration-500'
-                          />
-                          <div className='absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
-                        </div>
-                        <div className='p-4 md:p-7 pt-3 md:pt-5 text-center mb-10 md:mb-5 flex-shrink-0'>
-                          <h3 className='text-lg md:text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300'>
-                            {item.title}
-                          </h3>
-                          <p className='text-gray-600 text-xs md:text-sm font-medium uppercase tracking-wide mb-2'>
-                            {item.category}
-                          </p>
-                        </div>
-                      </>
-                    )}
+                  )
+                })}
+              </div>
+            ) : (
+              // Mobile/Tablet: single card режим
+              items.map((item, index) => {
+                const isEven = index % 2 === 0
+                const isActive = index === currentIndex
+                return (
+                  <div
+                    key={`${item.id}-${index}`}
+                    className={`absolute w-[calc(100%-2rem)] md:w-[calc(90vw-2rem)] max-w-[440px] lg:max-w-[480px] portfolio-carousel-item transition-all duration-500 ${
+                      isActive ? 'opacity-100 z-10' : 'opacity-0 pointer-events-none z-0'
+                    } ${isScrolling && isActive ? 'transition-none' : ''}`}
+                    style={{
+                      left: '50%',
+                      transform:
+                        isActive && isScrolling
+                          ? `translateX(-50%) translateX(${-dragOffset * 0.8}px)`
+                          : isActive
+                            ? 'translateX(-50%)'
+                            : index < currentIndex
+                              ? 'translateX(-50%) translateX(-100%)'
+                              : 'translateX(-50%) translateX(100%)',
+                    }}>
+                    {renderCardContent(item, isEven)}
                   </div>
-
-                  {!isEven && (
-                    <div className='absolute -bottom-10 left-1/2 transform -translate-x-1/2 z-20'>
-                      <div className='relative'>
-                        <div className='w-20 h-20 bg-[#EEEEEE] rounded-full flex items-center justify-center p-1'>
-                          <div
-                            className='relative w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200 group-hover:border-blue-200 transition-all duration-300 cursor-pointer hover:bg-gray-50 portfolio-number-badge'
-                            onClick={() => handleNumberClick(item.id)}>
-                            <span className='text-lg font-bold text-gray-800 group-hover:hidden transition-all duration-300'>
-                              {item.number}
-                            </span>
-                            <svg
-                              className='w-5 h-5 text-blue-600 hidden group-hover:block transition-all duration-300'
-                              fill='none'
-                              stroke='currentColor'
-                              viewBox='0 0 24 24'>
-                              <path
-                                strokeLinecap='round'
-                                strokeLinejoin='round'
-                                strokeWidth={2}
-                                d='M7 17L17 7M17 7H7M17 7V17'
-                              />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              )
-            })}
+                )
+              })
+            )}
           </div>
 
           <div className='max-w-7xl mx-auto px-4 lg:px-8 mt-20'>
-            {/* Navigation Indicators */}
-            <div className='flex justify-center mt-8 gap-2'>
-              {items.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setIsPaused(true)
-                    setCurrentIndex(index)
-                    setTimeout(() => setIsPaused(false), 1000)
-                  }}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    currentIndex === index ? 'bg-black' : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
+            {deviceType !== 'desktop' && (
+              // Navigation Indicators только для мобильных
+              <div className='flex justify-center mt-8 gap-2'>
+                {items.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      setIsPaused(true)
+                      setCurrentIndex(index)
+                      setTimeout(() => setIsPaused(false), 1000)
+                    }}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      currentIndex === index ? 'bg-black' : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+            )}
 
-            {/* Navigation Controls */}
+            {/* Navigation Controls для всех устройств */}
             <div className='flex justify-center mt-6 gap-4'>
               <button
                 onClick={goToPrevious}

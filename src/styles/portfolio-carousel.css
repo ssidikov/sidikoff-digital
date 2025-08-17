@@ -5,11 +5,36 @@
   -webkit-overflow-scrolling: touch;
   overflow-x: visible;
   background-color: #EEEEEE !important;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .portfolio-carousel-container {
   margin-left: -2rem;
   margin-right: -2rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 600px;
+}
+
+/* Desktop: horizontal scroll layout */
+@media (min-width: 1025px) {
+  .portfolio-carousel-container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Hide scrollbar for desktop */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 .portfolio-carousel-item {
@@ -17,28 +42,40 @@
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   will-change: transform;
-}
-
-.portfolio-carousel-item:hover {
-  transform: translateY(-5px);
+  transition: transform 0.2s ease-out;
 }
 
 .portfolio-carousel-item img {
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.portfolio-carousel-item:hover img {
-  transform: scale(1.05);
-}
-
-/* Smooth animations for touch devices */
+/* Enhanced touch device support */
 @media (max-width: 768px) {
   .portfolio-carousel-container {
     touch-action: pan-x;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
   }
 
   .portfolio-carousel-item {
-    scroll-snap-align: start;
+    pointer-events: none;
+    width: calc(100% - 2rem) !important;
+    max-width: 400px !important;
+    box-sizing: border-box;
+  }
+
+  .portfolio-carousel-item * {
+    pointer-events: auto;
   }
 }
 
@@ -87,12 +124,17 @@
   outline-offset: 2px;
 }
 
+/* Single card mode animations */
+.portfolio-carousel-item {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.portfolio-carousel-item.transition-none {
+  transition: none !important;
+}
+
 /* Responsive design improvements */
 @media (max-width: 640px) {
-  .portfolio-carousel-item {
-    min-width: calc(100vw - 2rem);
-  }
-
   .portfolio-carousel-item img {
     border-radius: 1rem;
   }
@@ -114,4 +156,43 @@
 .portfolio-carousel-item .relative {
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Touch feedback improvements */
+.portfolio-carousel-container {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Improved momentum scrolling */
+@supports (overscroll-behavior-x: contain) {
+  .portfolio-carousel-container {
+    overscroll-behavior-x: contain;
+  }
+}
+
+/* Visual feedback during swipe */
+.portfolio-carousel-container.swiping {
+  transition: none !important;
+}
+
+/* Responsive touch targets */
+@media (max-width: 768px) {
+  .portfolio-number-badge {
+    min-width: 44px;
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+
+  .portfolio-carousel-item {
+    padding: 8px;
+  }
+}
+
+/* Prevent text selection during swipe */
+.portfolio-carousel-container:active {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
