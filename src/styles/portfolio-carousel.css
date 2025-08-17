@@ -50,21 +50,25 @@
 }
 
 /* Enhanced touch device support */
+.portfolio-carousel-container {
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
 @media (max-width: 768px) {
   .portfolio-carousel-container {
-    touch-action: pan-x;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
     margin-left: 0;
     margin-right: 0;
     padding-left: 0;
     padding-right: 0;
     overflow: hidden;
+    min-height: 620px !important;
   }
 
   .portfolio-carousel-item {
@@ -76,6 +80,15 @@
 
   .portfolio-carousel-item * {
     pointer-events: auto;
+  }
+
+  /* Убеждаемся что цифры полностью видны в мобильной версии */
+  .portfolio-carousel-item .absolute.-top-10 {
+    top: -2.5rem !important;
+  }
+
+  .portfolio-carousel-item .absolute.-bottom-10 {
+    bottom: -2.5rem !important;
   }
 }
 

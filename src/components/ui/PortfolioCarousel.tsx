@@ -148,12 +148,6 @@ export default function PortfolioCarousel({
     setTouchStartTime(Date.now())
     setIsScrolling(false)
     setDragOffset(0)
-
-    // Предотвращаем конфликты с браузерными жестами
-    if (e.touches.length === 1) {
-      // Предотвращаем скролл страницы, но только для touch устройств
-      e.preventDefault()
-    }
   }
 
   const handleTouchMove = (e: React.TouchEvent) => {
@@ -175,8 +169,6 @@ export default function PortfolioCarousel({
     if (e.touches.length === 1 && isHorizontalSwipe) {
       setIsScrolling(true)
       setDragOffset(distanceX)
-      // Предотвращаем скролл страницы только для горизонтальных жестов
-      e.preventDefault()
     }
   }
 
@@ -463,7 +455,7 @@ export default function PortfolioCarousel({
       contentWidth='full'
       className='portfolio-carousel py-20'>
       <div className='relative z-10'>
-        <div className='max-w-7xl mx-auto px-0 lg:px-8'>
+        <div className='max-w-8xl mx-auto px-4 sm:px-4 lg:px-24 relative z-10'>
           <SectionHeader
             title={title || 'Portfolio'}
             subtitle={
@@ -479,9 +471,7 @@ export default function PortfolioCarousel({
           />
         </div>
 
-        <div
-          className='relative py-8 px-0 md:px-4 pb-20'
-          style={{ touchAction: deviceType === 'desktop' ? 'auto' : 'pan-y pinch-zoom' }}>
+        <div className='relative px-0'>
           <div
             ref={containerRef}
             className={`portfolio-carousel-container ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
@@ -491,10 +481,7 @@ export default function PortfolioCarousel({
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseLeave}
-            style={{
-              minHeight: '600px',
-            }}>
+            onMouseLeave={handleMouseLeave}>
             {deviceType === 'desktop' ? (
               // Desktop: показываем все карточки в ряд
               <div className='desktop-carousel-container flex gap-6 overflow-x-auto overflow-y-hidden scrollbar-hide px-4 min-h-[700px] items-center pt-12 pb-12'>
@@ -539,7 +526,7 @@ export default function PortfolioCarousel({
             )}
           </div>
 
-          <div className='max-w-7xl mx-auto px-4 lg:px-8 mt-20'>
+          <div className='max-w-7xl mx-auto px-4 lg:px-8'>
             {deviceType !== 'desktop' && (
               // Navigation Indicators только для мобильных
               <div className='flex justify-center mt-8 gap-2'>
