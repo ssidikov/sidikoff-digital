@@ -3,7 +3,7 @@
     "id": "1",
     "title": "Kasa",
     "description": "Plateforme de location avec design responsive.",
-    "image": "/images/projects/kasa.webp",
+    "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "longDescription": "Kasa est une plateforme moderne de location avec une interface intuitive et un design entièrement responsive. Les utilisateurs peuvent facilement rechercher et réserver des appartements grâce à une navigation pratique et des menus déroulants dynamiques. Réalisé avec React et SASS, Kasa offre des performances élevées et un look élégant sur tous les appareils. C'est le choix idéal pour les entreprises souhaitant offrir à leurs clients une expérience de location en ligne fluide.",
     "technologies": [
       "React",
@@ -16,7 +16,7 @@
     "id": "2",
     "title": "SportSee",
     "description": "Tableau de bord pour l'analyse des données de fitness.",
-    "image": "/images/projects/sport-see.webp",
+    "image": "/images/projects/sportsee.webp",
     "longDescription": "SportSee est un tableau de bord interactif pour l'analyse des données de fitness, conçu pour les entreprises et coachs sportifs. Le système visualise les indicateurs clés d'activité, intègre des API et crée des graphiques avec Recharts. Grâce à une stack moderne (React, SASS, Axios) et une architecture réfléchie, SportSee aide les utilisateurs à suivre leur progression et à prendre des décisions basées sur les données. Un excellent exemple pour ceux qui souhaitent créer une plateforme d'analyse pour le sport et le bien-être.",
     "technologies": [
       "React",
@@ -32,7 +32,7 @@
     "id": "3",
     "title": "ArgentBank",
     "description": "Interface bancaire pour la gestion de comptes.",
-    "image": "/images/projects/argent-bank.webp",
+    "image": "https://images.unsplash.com/photo-1556742111-a301076d9d18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "longDescription": "ArgentBank est une plateforme bancaire sécurisée et pratique pour la gestion des comptes en ligne. Le système intègre l'authentification, la gestion d'état via Redux et l'intégration REST API. L'interface, développée avec React, offre rapidité et excellente UX. ArgentBank est la solution idéale pour les entreprises financières souhaitant proposer à leurs clients une banque en ligne moderne.",
     "technologies": [
       "React",
@@ -48,7 +48,7 @@
     "id": "4",
     "title": "HRnet",
     "description": "Application moderne pour la gestion des employés.",
-    "image": "/images/projects/hrNet.webp",
+    "image": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "longDescription": "HRnet est une application RH moderne pour la gestion des employés, permettant d'ajouter, consulter et éditer les données facilement. Réalisée avec React, Redux Toolkit et Material-UI, elle propose une interface responsive, stockage local et validation des formulaires. HRnet est un excellent outil pour les départements RH souhaitant automatiser les processus et améliorer l'efficacité.",
     "technologies": [
       "React",
@@ -65,7 +65,7 @@
     "id": "5",
     "title": "Les petits plats",
     "description": "Développement d'un algorithme de recherche pour une plateforme de recettes avec optimisation des performances.",
-    "image": "/images/projects/petits-plats.webp",
+    "image": "/images/projects/les-petit-plats.webp",
     "longDescription": "Les petits plats est une plateforme de recherche de recettes avec des algorithmes optimisés et une interface intuitive. Le projet implémente deux algorithmes de recherche, compare leurs performances et suit les principes Green Code. Grâce à JavaScript, Bootstrap et la programmation fonctionnelle, le site est rapide et convivial pour tous ceux qui recherchent les meilleures recettes en ligne.",
     "technologies": [
       "JavaScript",
@@ -82,7 +82,7 @@
     "id": "6",
     "title": "Trendy Cookies",
     "description": "Site web pour commander des cookies tendance.",
-    "image": "/images/projects/cookies.webp",
+    "image": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "longDescription": "Trendy Cookies est un site élégant pour commander des douceurs tendance, développé avec Angular. La plateforme est simple, responsive et bien conçue, rendant le processus de commande rapide et agréable. Parfait pour les pâtisseries souhaitant augmenter leurs ventes en ligne.",
     "technologies": [
       "Angular",
@@ -96,7 +96,7 @@
     "id": "7",
     "title": "Fisheye",
     "description": "Plateforme accessible pour les photographes afin de présenter leurs portfolios.",
-    "image": "/images/projects/fisheye.webp",
+    "image": "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "longDescription": "Fisheye est une application web permettant aux photographes de présenter leurs portfolios. Rendu dynamique, LightBox, formulaires de contact, gestion des likes. Accent sur l'accessibilité et la modularité.",
     "technologies": [
       "HTML",
@@ -112,7 +112,7 @@
     "id": "8",
     "title": "GameOn Landing Page",
     "description": "Landing page dynamique pour une société d'organisation de conférences et concours gaming.",
-    "image": "/images/projects/game-on.webp",
+    "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "longDescription": "GameOn est une landing page pour une société spécialisée dans l'organisation de conférences et concours gaming. Interactions dynamiques, validation de formulaire, design responsive, manipulation du DOM en JavaScript.",
     "technologies": [
       "HTML",
@@ -127,7 +127,7 @@
     "id": "9",
     "title": "Ohmyfood Paris",
     "description": "Page dynamique présentant les menus de quatre restaurants parisiens avec réservation en ligne.",
-    "image": "/images/projects/ohmyfood.webp",
+    "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "longDescription": "Développement d'une page web présentant les menus de quatre restaurants parisiens, réservation en ligne et composition de menu. Animations CSS et approche mobile-first.",
     "technologies": [
       "HTML",
@@ -143,7 +143,7 @@
     "id": "10",
     "title": "Billed Expense Feature",
     "description": "Débogage et tests de la fonctionnalité de notes de frais pour une solution RH SaaS.",
-    "image": "/images/projects/billed.webp",
+    "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "longDescription": "Débogage et rédaction de tests unitaires, d'intégration et end-to-end pour la fonctionnalité de notes de frais. Correction de bugs avec Chrome Debugger, couverture de tests >80%, plan de test manuel structuré.",
     "technologies": [
       "JavaScript",
@@ -158,7 +158,7 @@
     "id": "11",
     "title": "Booki - Page d'accueil",
     "description": "Développement d'une page d'accueil responsive pour une agence de voyage.",
-    "image": "/images/projects/booki.webp",
+    "image": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "longDescription": "Développement de la page d'accueil d'une agence de voyage en HTML et CSS. Accent sur le responsive et la compatibilité multi-écrans à partir de maquettes Figma.",
     "technologies": [
       "HTML",
@@ -174,7 +174,7 @@
     "id": "12",
     "title": "Burger House - Landing Page",
     "description": "Création d'une landing page avec formulaire de commande de burgers.",
-    "image": "/images/projects/burger-house.webp",
+    "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "longDescription": "Création d'une landing page pour un restaurant de burgers avec formulaire интерактивный. L'utilisateur peut choisir et personnaliser sa commande.",
     "technologies": [
       "HTML",
@@ -189,7 +189,7 @@
     "id": "13",
     "title": "Learn Home - Application de tutorat",
     "description": "Définition des besoins et conception de la solution pour une application de tutorat.",
-    "image": "/images/projects/learn-home.webp",
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "longDescription": "Ce projet a consisté à définir les besoins et à concevoir une solution technique pour une application de tutorat pour l'association Learn@Home. Identification des besoins, user stories, diagrammes de cas d'utilisation, maquettes Figma, Kanban. Méthodologie agile.",
     "technologies": [
       "Figma",
@@ -205,7 +205,7 @@
     "id": "14",
     "title": "Landing Page pour Euclid - Project Systems",
     "description": "Landing page pour la société Euclid - Project Systems.",
-    "image": "/images/projects/euclid.webp",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "longDescription": "Développement d'une landing page responsive pour la société Euclid - Project Systems, avec un look moderne et professionnel.",
     "technologies": [
       "Figma",
@@ -220,7 +220,7 @@
     "id": "15",
     "title": "Restaurant Chez Liqi",
     "description": "Site web pour le restaurant Chez Liqi, avec un design moderne et une interface utilisateur intuitive.",
-    "image": "/images/projects/chez-liqi.webp",
+    "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "longDescription": "Restaurant Chez Liqi est un site web moderne pour un restaurant, offrant une interface utilisateur intuitive et un design responsive. Les utilisateurs peuvent facilement naviguer à travers le menu, faire des réservations et découvrir les spécialités du chef.",
     "technologies": [
       "Next.js",
@@ -236,7 +236,7 @@
     "id": "16",
     "title": "Portfolio de Sardorbek SIDIKOV",
     "description": "Portfolio personnel de Sardorbek SIDIKOV, développeur web.",
-    "image": "/images/projects/portfolio.webp",
+    "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "longDescription": "Mon portfolio personnel, présentant mes projets et compétences en développement web. Conçu pour être responsive et facile à naviguer.",
     "technologies": [
       "Next.js",
@@ -251,7 +251,7 @@
     "id": "17",
     "title": "Restaurant Le Moderne",
     "description": "Le Moderne - Système de gestion de restaurant",
-    "image": "/images/projects/resto.webp",
+    "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "longDescription": "Plateforme web moderne pour restaurant parisien avec système complet de gestion des réservations. Comprend un panel d'administration sécurisé et une interface de réservation en ligne intuitive.",
     "technologies": [
       "Next.js",

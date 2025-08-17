@@ -9,13 +9,13 @@ interface OptimizedImageProps extends Omit<ImageProps, 'onLoad' | 'onError'> {
   className?: string
 }
 
-const OptimizedImage = ({ 
-  src, 
-  alt, 
-  fallback = '/images/placeholder.jpg',
+const OptimizedImage = ({
+  src,
+  alt,
+  fallback = '/images/projects-bg.webp',
   loading = 'lazy',
   className,
-  ...props 
+  ...props
 }: OptimizedImageProps) => {
   const [imgSrc, setImgSrc] = useState(src)
   const [isLoading, setIsLoading] = useState(true)
@@ -28,14 +28,17 @@ const OptimizedImage = ({
   const handleError = () => {
     setHasError(true)
     setIsLoading(false)
-    setImgSrc(fallback)
+    // Если это внешний URL, попробуем загрузить fallback
+    if (typeof src === 'string' && src.startsWith('http')) {
+      setImgSrc(fallback)
+    } else {
+      setImgSrc(fallback)
+    }
   }
 
   return (
     <div className={`relative ${className || ''}`}>
-      {isLoading && (
-        <div className="absolute inset-0 bg-gray-200 animate-pulse rounded" />
-      )}
+      {isLoading && <div className='absolute inset-0 bg-gray-200 animate-pulse rounded' />}
       <Image
         src={imgSrc}
         alt={alt}
@@ -52,4 +55,3 @@ const OptimizedImage = ({
 }
 
 export default OptimizedImage
-
