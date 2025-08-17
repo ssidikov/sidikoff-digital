@@ -87,14 +87,18 @@ export default function PortfolioCarousel({
   const [isDragging, setIsDragging] = useState(false)
   const [dragOffset, setDragOffset] = useState(0)
   const animationRef = useRef<number | null>(null)
-  const [deviceType, setDeviceType] = useState<'mobile' | 'tablet' | 'desktop'>('desktop')
+  const [deviceType, setDeviceType] = useState<'mobile' | 'tablet' | 'desktop'>('mobile')
 
   // Убираем дублирование элементов для single-card режима
 
   useEffect(() => {
     const checkDevice = () => {
+      if (typeof window === 'undefined') return
+
       const width = window.innerWidth
-      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+      const isTouchDevice =
+        'ontouchstart' in window ||
+        (typeof navigator !== 'undefined' && navigator?.maxTouchPoints > 0)
 
       if (width < 768) {
         setDeviceType('mobile')
@@ -105,10 +109,16 @@ export default function PortfolioCarousel({
       }
     }
 
-    checkDevice()
-    window.addEventListener('resize', checkDevice)
+    // Проверяем, что мы на клиенте
+    if (typeof window !== 'undefined') {
+      checkDevice()
+      window.addEventListener('resize', checkDevice)
+    }
+
     return () => {
-      window.removeEventListener('resize', checkDevice)
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', checkDevice)
+      }
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current)
       }
@@ -119,22 +129,28 @@ export default function PortfolioCarousel({
     if (isPaused) return
 
     const interval = setInterval(() => {
-      if (deviceType === 'desktop') {
-        // Для десктопа прокручиваем горизонтально
-        const container = containerRef.current?.querySelector('.desktop-carousel-container')
-        if (container) {
-          const cardWidth = 520 // ширина карточки + gap
-          const scrollAmount = cardWidth
-          const currentScroll = container.scrollLeft
-          const maxScroll = container.scrollWidth - container.clientWidth
+      try {
+        if (deviceType === 'desktop') {
+          // Для десктопа прокручиваем горизонтально
+          const container = containerRef.current?.querySelector('.desktop-carousel-container')
+          if (container) {
+            const cardWidth = 520 // ширина карточки + gap
+            const scrollAmount = cardWidth
+            const currentScroll = container.scrollLeft
+            const maxScroll = container.scrollWidth - container.clientWidth
 
-          if (currentScroll + scrollAmount >= maxScroll) {
-            container.scrollTo({ left: 0, behavior: 'smooth' })
-          } else {
-            container.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+            if (currentScroll + scrollAmount >= maxScroll) {
+              container.scrollTo({ left: 0, behavior: 'smooth' })
+            } else {
+              container.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+            }
           }
+        } else {
+          setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length)
         }
-      } else {
+      } catch (error) {
+        console.log('Carousel animation error:', error)
+        // Fallback для мобильных устройств
         setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length)
       }
     }, 5000)
@@ -226,11 +242,15 @@ export default function PortfolioCarousel({
 
       if (deviceType === 'desktop') {
         // Для десктопа прокручиваем горизонтально
-        const container = containerRef.current?.querySelector('.desktop-carousel-container')
-        if (container) {
-          const cardWidth = 520
-          const scrollAmount = isLeftSwipe ? cardWidth : -cardWidth
-          container.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+        try {
+          const container = containerRef.current?.querySelector('.desktop-carousel-container')
+          if (container) {
+            const cardWidth = 520
+            const scrollAmount = isLeftSwipe ? cardWidth : -cardWidth
+            container.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+          }
+        } catch (error) {
+          console.log('Touch scroll error:', error)
         }
         setTimeout(() => setIsPaused(false), 1000)
       } else {
