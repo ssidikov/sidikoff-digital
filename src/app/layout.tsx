@@ -105,7 +105,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='fr'>
+    <html lang='fr' suppressHydrationWarning>
       <head>
         {/* Preconnect to external domains */}
         <link rel='preconnect' href='https://www.googletagmanager.com' />
@@ -121,7 +121,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel='shortcut icon' href='/favicon.ico' />
         <link rel='apple-touch-icon' href='/favicon.svg' />
       </head>
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
         {children}
         <Analytics />
       </body>

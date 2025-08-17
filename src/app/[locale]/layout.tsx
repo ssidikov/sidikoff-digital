@@ -33,7 +33,7 @@ export default async function LocaleLayout({ children, params }: RootLayoutProps
     if (typeof dict !== 'object' || dict === null) {
       return (
         <LocaleProvider locale={locale}>
-          <div className='min-h-screen'>
+          <div className='min-h-screen' suppressHydrationWarning>
             <Header locale={locale} dictionary={fallbackDictionary} />
             <main className='m-0 p-0'>
               <div className='p-4'>
@@ -63,7 +63,7 @@ export default async function LocaleLayout({ children, params }: RootLayoutProps
 
     return (
       <LocaleProvider locale={locale}>
-        <div className='min-h-screen'>
+        <div className='min-h-screen' suppressHydrationWarning>
           <Header locale={locale} dictionary={dict} />
           <main className='m-0 p-0'>{children}</main>
           <Footer dictionary={dict} locale={locale} />
@@ -73,7 +73,7 @@ export default async function LocaleLayout({ children, params }: RootLayoutProps
   } catch {
     return (
       <LocaleProvider locale={locale}>
-        <div className='min-h-screen'>
+        <div className='min-h-screen' suppressHydrationWarning>
           <Header locale={locale} dictionary={fallbackDictionary} />
           <main className='m-0 p-0'>
             <div className='p-4'>

@@ -10,9 +10,6 @@ import { getBlogUrl, getLocalizedUrl } from '@/utils/navigation'
 
 import { BlogPost, urlFor } from '@/lib/sanity'
 
-
-
-
 interface BlogPostContentProps {
   post: BlogPost
   dictionary: Dictionary['blog']
@@ -115,6 +112,7 @@ export function BlogPostContent({ post, dictionary, locale }: BlogPostContentPro
             src={imageUrl}
             alt={post.mainImage?.alt || post.title}
             fill
+            sizes='100vw'
             className='object-cover'
             priority
           />

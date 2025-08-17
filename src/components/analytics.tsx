@@ -1,7 +1,7 @@
 'use client'
 
 import Script from 'next/script'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react'
 
 // Declare gtag function for TypeScript
@@ -14,6 +14,12 @@ declare global {
 
 // Google Analytics tracking
 export const trackEvent = (action: string, category: string, label?: string, value?: number) => {
+  // Don't track in development mode
+  if (process.env.NODE_ENV === 'development') {
+    console.log('Analytics Event:', { action, category, label, value })
+    return
+  }
+
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', action, {
       event_category: category,
@@ -25,6 +31,12 @@ export const trackEvent = (action: string, category: string, label?: string, val
 
 // Google Ads conversion tracking
 export const trackConversion = (conversionLabel?: string) => {
+  // Don't track in development mode
+  if (process.env.NODE_ENV === 'development') {
+    console.log('Conversion Event:', { conversionLabel })
+    return
+  }
+
   const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID
   const defaultLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL
 
@@ -40,13 +52,26 @@ const Analytics = () => {
   const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
   const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID
   const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID
+  const isDevelopment = process.env.NODE_ENV === 'development'
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
+    setIsClient(true)
     // Initialize dataLayer for GTM
     if (typeof window !== 'undefined') {
       window.dataLayer = window.dataLayer || []
     }
   }, [])
+
+  // Don't render anything on server side to prevent hydration issues
+  if (!isClient) {
+    return null
+  }
+
+  // Don't load analytics in development mode
+  if (isDevelopment) {
+    return <VercelAnalytics />
+  }
 
   return (
     <>

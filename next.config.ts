@@ -6,6 +6,19 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
   },
 
+  // Development server settings
+  ...(process.env.NODE_ENV === 'development' && {
+    webpack: (config, { dev, isServer }) => {
+      if (dev && !isServer) {
+        config.watchOptions = {
+          poll: 1000,
+          aggregateTimeout: 300,
+        }
+      }
+      return config
+    },
+  }),
+
   // Turbopack configuration (stable in Next.js 15)
   turbopack: {
     rules: {
