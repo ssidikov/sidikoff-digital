@@ -74,7 +74,7 @@ export function Hero({ dict, locale }: HeroProps) {
               initial={{ opacity: 0, x: 50 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 1, delay: 0.4 }}
-              className='relative w-full h-[200px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px]'>
+              className='relative w-full h-[200px] md:h-[250px] xl:h-[700px]'>
               <Image
                 src='/hero-illustration.svg'
                 alt='Hero Illustration'

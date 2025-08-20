@@ -284,7 +284,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item)}
                     className={`text-sm xl:text-base font-medium transition-all duration-300 px-2.5 xl:px-3 py-2 rounded-lg text-[#112D4E] focus:outline-none outline-none cursor-pointer ${
-                      isActive(item) ? 'bg-black text-white' : 'hover:text-white hover:bg-black'
+                      isActive(item) ? 'bg-[#3377FF] text-white' : 'hover:text-white hover:bg-[#3377FF]'
                     }`}
                     style={{ outline: 'none !important', boxShadow: 'none !important' }}>
                     {item.label}
@@ -306,7 +306,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
               {/* Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className='flex items-center gap-2 p-2 text-sm font-medium rounded-lg transition-all duration-300 bg-[#DBE2EF]/30 border border-white/30 text-[#112D4E] hover:bg-black hover:text-white hover:border-black cursor-pointer'
+                className='flex items-center gap-2 p-2 text-sm font-medium rounded-lg transition-all duration-300 bg-[#DBE2EF]/30 border border-white/30 text-[#112D4E] hover:bg-[#3377FF] hover:text-white hover:border-[#3377FF] cursor-pointer'
                 aria-label='Toggle menu'>
                 {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
               </button>
@@ -339,8 +339,8 @@ export function Header({ dictionary, locale }: HeaderProps) {
                       }}
                       className={`block py-3 px-4 rounded-lg transition-all duration-300 text-[#112D4E] focus:outline-none focus:ring-0 focus:border-none outline-none cursor-pointer ${
                         isActive(item)
-                          ? 'bg-black text-white'
-                          : 'hover:bg-[#DBE2EF]/50 hover:text-[#3F72AF]'
+                          ? 'bg-[#3377FF] text-white'
+                          : 'hover:bg-[#3377FF]/10 hover:text-[#3377FF]'
                       }`}>
                       {item.label}
                     </Link>
