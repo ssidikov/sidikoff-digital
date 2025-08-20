@@ -158,7 +158,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
               <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-[#112D4E] mb-6'>
                 {dictionary?.title || 'Contactez-Nous'}
               </h2>
-              <p className='text-xl text-[#3F72AF] mb-4'>
+              <p className='text-xl text-[#3377FF] mb-4 font-semibold'>
                 {dictionary?.subtitle || 'Prêt à Commencer Votre Projet ?'}
               </p>
             </div>
@@ -289,7 +289,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
               <button
                 type='submit'
                 disabled={isSubmitting}
-                className='w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed'>
+                className='w-full bg-[#3377FF] hover:bg-[#2563eb] text-white font-semibold py-3 px-6 md:py-4 md:px-8 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base'>
                 {isSubmitting ? (
                   <span className='flex items-center justify-center'>
                     <div className='animate-spin mr-2 h-4 w-4 border-2 border-white/30 border-t-white rounded-full'></div>

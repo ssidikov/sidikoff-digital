@@ -90,7 +90,7 @@ export function BlogCard({ post, featured = false, locale, index }: BlogCardProp
 
           {/* Title */}
           <h3
-            className={`mt-3 font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2 ${
+            className={`mt-3 font-bold text-gray-900 group-hover:text-[#3377FF] transition-colors duration-300 line-clamp-2 ${
               featured ? 'text-2xl lg:text-3xl leading-tight' : 'text-xl lg:text-2xl'
             }`}>
             {post.title}
@@ -120,7 +120,7 @@ export function BlogCard({ post, featured = false, locale, index }: BlogCardProp
               </div>
             </div>
 
-            <div className='flex items-center text-blue-600 font-medium text-sm group-hover:text-blue-700 transition-colors'>
+            <div className='flex items-center text-[#3377FF] font-medium text-sm group-hover:text-[#2563eb] transition-colors'>
               <span className='mr-2'>
                 {locale === 'fr' ? 'Lire plus' : locale === 'ru' ? 'Читать далее' : 'Read more'}
               </span>

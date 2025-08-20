@@ -92,7 +92,8 @@ const gradientStyles = {
     backgroundRepeat: 'no-repeat',
   },
   'project-detail': {
-    backgroundImage: 'linear-gradient(135deg, #EBF2FF 0%, #F0F9FF 25%, #FFFAE6 50%, #F8FAFC 75%, #EBF2FF 100%)',
+    backgroundImage:
+      'linear-gradient(135deg, #EBF2FF 0%, #F0F9FF 25%, #FFFAE6 50%, #F8FAFC 75%, #EBF2FF 100%)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
@@ -105,7 +106,7 @@ const paddingStyles = {
   md: 'px-4 sm:px-4 lg:px-8 py-16',
   lg: 'px-4 sm:px-4 lg:px-24 py-20',
   xl: 'px-4 sm:px-4 lg:px-16 py-24',
-  hero: 'pt-20 pb-10 sm:pt-10 sm:pb-20 lg:pt-16 lg:pb-32 px-4 sm:px-6 lg:px-8',
+  hero: 'pt-10 xl:pt-0 px-4 sm:px-6 lg:px-8',
 } as const
 
 const contentStyles = {

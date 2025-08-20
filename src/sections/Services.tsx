@@ -117,8 +117,8 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
                   <div className='flex flex-col sm:flex-row gap-4'>
                     <CTAButton
                       variant='primary'
-                      size='lg'
-                      className='3xl:w-1/2'
+                      size='md'
+                      className='w-full sm:w-auto flex-1 shadow-lg hover:shadow-xl transition-all duration-300'
                       onClick={() => {
                         const contactUrl = `/${locale === 'fr' ? '' : locale + '/'}contact`
                         window.location.href = contactUrl
@@ -128,8 +128,8 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
 
                     <CTAButton
                       variant='secondary'
-                      size='lg'
-                      className='3xl:w-1/2'
+                      size='md'
+                      className='w-full sm:w-auto flex-1'
                       onClick={() => {
                         const element = document.getElementById('pricing')
                         if (element) {

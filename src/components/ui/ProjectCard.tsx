@@ -20,7 +20,7 @@ export interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, locale }) => (
   <div
-    className={`group flex flex-col items-stretch p-6 lg:p-4 3xl:p-6 focus-visible:ring-2 focus-visible:ring-blue-500 outline-none relative overflow-hidden h-[480px] md:h-[520px] lg:h-[640px] xl:h-[664px] ${cardStyles.card}`}>
+    className={`group flex flex-col items-stretch p-6 lg:p-4 3xl:p-6 focus-visible:ring-2 focus-visible:ring-[#3377FF] outline-none relative overflow-hidden h-[480px] md:h-[520px] lg:h-[640px] xl:h-[664px] ${cardStyles.card}`}>
     <Link
       href={getProjectUrl(project.id, locale)}
       className='absolute inset-0 z-10'

@@ -258,6 +258,7 @@ export default function Pricing({ locale, className }: PricingProps) {
             <CTAButton
               variant='primary'
               size='md'
+              className='w-full shadow-lg hover:shadow-xl transition-all duration-300'
               onClick={() => handlePlanSelect('custom')}
               ariaLabel={dict?.pricing?.maintenance?.cta || 'Demander un devis'}>
               {dict?.pricing?.maintenance?.cta || 'Demander un devis'}
@@ -448,8 +449,8 @@ export function PricingContent({ locale }: PricingProps) {
           </div>
           <CTAButton
             variant='primary'
-            size='lg'
-            className='mt-5 sm:mt-10'
+            size='md'
+            className='mt-5 sm:mt-10 w-full shadow-lg hover:shadow-xl transition-all duration-300'
             onClick={() => {
               const contactUrl = `/${locale === 'fr' ? '' : locale + '/'}contact`
               window.location.href = contactUrl

@@ -54,7 +54,7 @@ export default function PricingCard({
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true }}
       className={`relative w-full h-full flex flex-col min-h-[600px] pb-5 sm:pb-6 3xl:pb-8 ${cardStyles.card} ${
-        isHighlighted ? 'ring-4 ring-blue-200' : ''
+        isHighlighted ? 'ring-4 ring-[#3377FF]/20' : ''
       }`}
       role='article'
       aria-labelledby={`pricing-${name.toLowerCase()}-title`}
@@ -119,7 +119,7 @@ export default function PricingCard({
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 + featureIndex * 0.05 }}
                   viewport={{ once: true }}
-                  className='text-center p-4 bg-gradient-to-r from-white/50 to-white/40 rounded-xl border border-blue-100'>
+                  className='text-center p-4 bg-gradient-to-r from-white/50 to-white/40 rounded-xl border border-[#3377FF]/10'>
                   <span className='text-base font-medium italic text-gray-700'>{feature.text}</span>
                 </motion.div>
               ))}

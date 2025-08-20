@@ -341,13 +341,13 @@ export default function PortfolioCarousel({
             <div className='relative'>
               <div className='w-20 h-20 bg-[#EEEEEE] rounded-full flex items-center justify-center p-1'>
                 <div
-                  className='relative w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200 group-hover:border-blue-200 transition-all duration-300 cursor-pointer hover:bg-gray-50 portfolio-number-badge'
+                  className='relative w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200 group-hover:border-[#3377FF]/30 transition-all duration-300 cursor-pointer hover:bg-gray-50 portfolio-number-badge'
                   onClick={() => handleNumberClick(item.id)}>
                   <span className='text-lg font-bold text-gray-800 group-hover:hidden transition-all duration-300'>
                     {item.number}
                   </span>
                   <svg
-                    className='w-5 h-5 text-blue-600 hidden group-hover:block transition-all duration-300'
+                    className='w-5 h-5 text-[#3377FF] hidden group-hover:block transition-all duration-300'
                     fill='none'
                     stroke='currentColor'
                     viewBox='0 0 24 24'>
@@ -368,7 +368,7 @@ export default function PortfolioCarousel({
           {isEven ? (
             <>
               <div className='p-4 md:p-7 pb-3 md:pb-5 text-center mt-10 md:mt-5 flex-shrink-0'>
-                <h3 className='text-lg md:text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300'>
+                <h3 className='text-lg md:text-xl font-bold text-gray-900 mb-2 group-hover:text-[#3377FF] transition-colors duration-300'>
                   {item.title}
                 </h3>
                 <p className='text-gray-600 text-xs md:text-sm font-medium uppercase tracking-wide mb-2'>
@@ -399,7 +399,7 @@ export default function PortfolioCarousel({
                 <div className='absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
               </div>
               <div className='p-4 md:p-7 pt-3 md:pt-5 text-center mb-10 md:mb-5 flex-shrink-0'>
-                <h3 className='text-lg md:text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300'>
+                <h3 className='text-lg md:text-xl font-bold text-gray-900 mb-2 group-hover:text-[#3377FF] transition-colors duration-300'>
                   {item.title}
                 </h3>
                 <p className='text-gray-600 text-xs md:text-sm font-medium uppercase tracking-wide mb-2'>
@@ -415,13 +415,13 @@ export default function PortfolioCarousel({
             <div className='relative'>
               <div className='w-20 h-20 bg-[#EEEEEE] rounded-full flex items-center justify-center p-1'>
                 <div
-                  className='relative w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200 group-hover:border-blue-200 transition-all duration-300 cursor-pointer hover:bg-gray-50 portfolio-number-badge'
+                  className='relative w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-200 group-hover:border-[#3377FF]/30 transition-all duration-300 cursor-pointer hover:bg-gray-50 portfolio-number-badge'
                   onClick={() => handleNumberClick(item.id)}>
                   <span className='text-lg font-bold text-gray-800 group-hover:hidden transition-all duration-300'>
                     {item.number}
                   </span>
                   <svg
-                    className='w-5 h-5 text-blue-600 hidden group-hover:block transition-all duration-300'
+                    className='w-5 h-5 text-[#3377FF] hidden group-hover:block transition-all duration-300'
                     fill='none'
                     stroke='currentColor'
                     viewBox='0 0 24 24'>

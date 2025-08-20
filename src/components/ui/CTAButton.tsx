@@ -55,21 +55,21 @@ const CTAButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, CTABut
       }
     }
     const baseClasses =
-      'inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 rounded-full h-16 lg:h-[77px] 3xl:h-[98px] px-6 lg:px-16 text-lg 3xl:text-22 cursor-pointer shadow-sm'
+      'inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 rounded-full cursor-pointer shadow-sm whitespace-nowrap'
 
     const variants = {
       primary:
-        'bg-black text-white hover:bg-transparent hover:text-black border border-black focus:ring-black',
+        'bg-[#3377FF] text-white hover:bg-[#2563eb] hover:text-white border border-[#3377FF] focus:ring-[#3377FF] shadow-lg hover:shadow-xl',
       secondary:
-        'bg-transparent text-black hover:bg-black hover:text-white border border-black focus:ring-black',
+        'bg-transparent text-[#3377FF] hover:bg-[#3377FF] hover:text-white border border-[#3377FF] focus:ring-[#3377FF]',
       outline:
-        'border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white focus:ring-blue-500',
+        'border-2 border-[#3377FF] text-[#3377FF] hover:bg-[#3377FF] hover:text-white focus:ring-[#3377FF]',
     }
 
     const sizes = {
-      sm: 'px-3 py-2 text-sm rounded-full',
-      md: 'px-4 py-2 text-base rounded-full',
-      lg: 'px-6 py-3 text-lg rounded-full',
+      sm: 'px-3 py-2 text-xs sm:text-sm rounded-full',
+      md: 'px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg rounded-full',
+      lg: 'px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 lg:px-12 lg:py-6 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full',
     }
 
     const classes = cn(baseClasses, variants[variant], sizes[size], className)
