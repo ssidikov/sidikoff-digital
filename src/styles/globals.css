@@ -231,17 +231,16 @@ body {
 }
 
 .card {
-  background-color: white;
-  border: 1px solid #DBE2EF;
-  border-radius: 16px;
+  border-radius: 8px;
+  background-color: #FCFCFC;
+  box-shadow: 0px 0px 30px rgba(81, 94, 125, 0.03);
+  border: 3px solid #ffffff;
   padding: 24px;
   transition: all 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(17, 45, 78, 0.1);
-  border-color: #3F72AF;
+  box-shadow: 0px 0px 40px rgba(81, 94, 125, 0.08);
 }
 
 /* Section background utilities */

@@ -31,13 +31,7 @@ export function Hero({ dict, common, locale }: HeroProps) {
   ]
 
   return (
-    <Section
-      id='hero'
-      variant='hero'
-      background='white'
-      backgroundImage='/images/hero/hero-bg.webp'
-      padding='none'
-      contentWidth='normal'>
+    <Section id='hero' variant='hero' background='transparent' padding='none' contentWidth='normal'>
       <div ref={ref} className='text-center relative z-10'>
         {/* Badge */}
         <motion.div

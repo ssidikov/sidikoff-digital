@@ -27,6 +27,7 @@
     "@vercel/analytics": "^1.5.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.6",
+    "lucide-react": "^0.540.0",
     "negotiator": "^1.0.0",
     "next": "15.4.1",
     "next-sanity": "^10.0.4",

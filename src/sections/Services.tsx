@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Dictionary } from '@/lib/dictionaries'
 import CTAButton from '@/components/ui/CTAButton'
 import Section, { SectionHeader } from '@/components/ui/Section'
+import { cardStyles } from '@/utils/styles'
 
 interface ServicesProps {
   dictionary: Dictionary['services']
@@ -48,8 +49,8 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
   return (
     <Section
       id='services'
-      background='white'
-      backgroundImage='/images/services/services-bg.webp'
+      variant='services'
+      background='transparent'
       padding='lg'
       contentWidth='wide'
       className={className || ''}>
@@ -70,12 +71,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className='gap-8 sm:gap-10 xl:gap-16 3xl:gap-20 rounded-3xl px-5 py-7 sm:p-8 lg:p-10 3xl:p-12 min-h-[600px] lg:min-h-[500px] transition-all duration-500 hover:shadow-2xl backdrop-blur-2xl border-2 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/40 before:to-transparent before:opacity-60 before:pointer-events-none shadow-2xl border-white/50'
-              style={{
-                backdropFilter: 'blur(24px) saturate(130%)',
-                background:
-                  'linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.15) 100%)',
-              }}>
+              className={`gap-8 sm:gap-10 xl:gap-16 3xl:gap-20 px-5 py-7 sm:p-8 lg:p-10 3xl:p-12 min-h-[600px] lg:min-h-[500px] ${cardStyles.card}`}>
               <div className='grid lg:grid-cols-2 gap-8 items-center h-full'>
                 {/* Right Image - First on mobile */}
                 <div className='relative order-1 lg:order-2 h-full flex items-center'>
@@ -163,7 +159,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className='bg-white rounded-2xl shadow-2xl overflow-hidden mx-auto max-w-md'>
+              className={`overflow-hidden mx-auto max-w-md ${cardStyles.card}`}>
               {/* Image at top */}
               <div className='relative h-48 w-full'>
                 <Image
@@ -242,14 +238,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: 0.2 }}
                       viewport={{ once: true }}
-                      className='bg-white rounded-2xl p-8 lg:p-12 shadow-2xl'
-                      style={{
-                        background: 'rgba(249, 247, 247, 0.8)',
-                        border: '1px solid rgba(255, 255, 255, 0.2)',
-                        backdropFilter: 'blur(20px) saturate(180%)',
-                        WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-                        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-                      }}>
+                      className={`p-8 lg:p-12 ${cardStyles.card}`}>
                       <h3 className='text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 lg:mb-8 leading-tight'>
                         {dict.cta_banner.background}
                       </h3>

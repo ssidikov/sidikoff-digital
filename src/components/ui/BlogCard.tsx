@@ -9,9 +9,7 @@ import { motion } from 'framer-motion'
 import { getBlogPostUrl } from '@/utils/navigation'
 
 import { BlogPost, urlFor } from '@/lib/sanity'
-
-
-
+import { cardStyles } from '@/utils/styles'
 
 interface BlogCardProps {
   post: BlogPost
@@ -47,7 +45,7 @@ export function BlogCard({ post, featured = false, locale, index }: BlogCardProp
       initial='hidden'
       whileInView='visible'
       viewport={{ once: true, amount: 0.3 }}
-      className={`group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 ${
+      className={`group relative overflow-hidden ${cardStyles.card} ${
         featured ? 'lg:col-span-1' : ''
       }`}>
       <Link href={getBlogPostUrl(post.slug.current, locale)} className='block'>

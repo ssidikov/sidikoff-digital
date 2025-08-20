@@ -190,20 +190,6 @@
       "error": "Failed to send message. Please try again.",
       "error_description": "An error occurred while sending your message. Please check your information and try again."
     },
-    "info": {
-      "title": "Contact Information",
-      "localisations": "Locations",
-      "locations": [
-        "Paris, France",
-        "Toulouse, France"
-      ],
-      "phone_label": "Phone",
-      "email_label": "Email",
-      "address": "Paris, France | Toulouse, France",
-      "phone": "+33 6 26 93 27 34",
-      "email": "s.sidikoff@gmail.com",
-      "hours": "Monday - Friday: 9:00 AM - 6:00 PM"
-    },
     "channels": {
       "title": "Connect With Us",
       "email": "Email",

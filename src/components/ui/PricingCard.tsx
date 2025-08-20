@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-
+import { cardStyles } from '@/utils/styles'
 import CTAButton from './CTAButton'
 
 // Simple SVG icons
@@ -53,14 +53,8 @@ export default function PricingCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true }}
-      style={{
-        backdropFilter: 'blur(24px) saturate(120%)',
-        background: 'linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.9) 100%)',
-      }}
-      className={`relative rounded-3xl transition-all duration-500 hover:shadow-2xl w-full h-full flex flex-col min-h-[600px] pb-5 sm:pb-6 3xl:pb-8 shadow-2xl border-2 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/30 before:to-transparent before:opacity-50 before:pointer-events-none ${
-        isHighlighted
-          ? 'border-white/70 ring-4 ring-white/30 shadow-white/20'
-          : 'border-white/40 hover:border-white/60'
+      className={`relative w-full h-full flex flex-col min-h-[600px] pb-5 sm:pb-6 3xl:pb-8 ${cardStyles.card} ${
+        isHighlighted ? 'ring-4 ring-blue-200' : ''
       }`}
       role='article'
       aria-labelledby={`pricing-${name.toLowerCase()}-title`}

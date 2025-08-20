@@ -13,7 +13,16 @@ interface SectionProps {
   background?: 'white' | 'gray' | 'transparent'
   backgroundImage?: string
   'aria-labelledby'?: string
-  variant?: 'default' | 'hero' | 'compact'
+  variant?:
+    | 'default'
+    | 'hero'
+    | 'services'
+    | 'portfolio'
+    | 'contact'
+    | 'faq'
+    | 'pricing'
+    | 'blog'
+    | 'compact'
   padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl'
   contentWidth?: 'narrow' | 'normal' | 'wide' | 'full'
 }
@@ -27,7 +36,59 @@ const backgroundStyles = {
 const variantStyles = {
   default: '',
   hero: 'min-h-screen w-full flex flex-col items-center justify-center',
+  services: 'py-20',
+  portfolio: 'py-20',
+  contact: 'py-20',
+  faq: 'py-20',
+  pricing: 'py-20',
+  blog: 'py-20',
   compact: '',
+} as const
+
+// Профессиональная система градиентов
+const gradientStyles = {
+  hero: {
+    backgroundImage: 'linear-gradient(235deg, #FFFAE6 3%, #EBF2FF 42%, #FFFAE6 98%)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  },
+  services: {
+    backgroundImage: 'linear-gradient(155deg, #F0F9FF 8%, #FFFAE6 35%, #F0F9FF 92%)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  },
+  portfolio: {
+    backgroundImage: 'linear-gradient(315deg, #FAFAFA 5%, #EBF2FF 28%, #F8FAFC 65%, #FFFAE6 95%)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  },
+  contact: {
+    backgroundImage: 'linear-gradient(125deg, #EBF2FF 12%, #E0E7FF 40%, #FFFAE6 88%)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  },
+  faq: {
+    backgroundImage: 'linear-gradient(45deg, #FAFAFA 15%, #FFFAE6 45%, #F0F9FF 85%)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  },
+  pricing: {
+    backgroundImage: 'linear-gradient(225deg, #FDF2F8 10%, #EBF2FF 35%, #FFFAE6 70%, #F0F9FF 95%)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  },
+  blog: {
+    backgroundImage: 'linear-gradient(165deg, #F8FAFC 18%, #EBF2FF 50%, #FFFAE6 82%)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  },
 } as const
 
 const paddingStyles = {
@@ -82,9 +143,12 @@ export default function Section({
         />
       )}
 
-      {/* Optional hero gradient overlay */}
-      {variant === 'hero' && !backgroundImage && (
-        <div className='absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5' />
+      {/* Gradient overlays for different sections */}
+      {!backgroundImage && variant && variant in gradientStyles && (
+        <div
+          className='absolute inset-0'
+          style={gradientStyles[variant as keyof typeof gradientStyles]}
+        />
       )}
 
       <div className={containerClasses}>{children}</div>

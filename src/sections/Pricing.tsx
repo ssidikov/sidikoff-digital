@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import CTAButton from '@/components/ui/CTAButton'
 import PricingCard from '@/components/ui/PricingCard'
 import Section, { SectionHeader } from '@/components/ui/Section'
+import { cardStyles } from '@/utils/styles'
 
 // Simple SVG icons
 const CheckIcon = ({ className }: { className?: string }) => (
@@ -159,8 +160,8 @@ export default function Pricing({ locale, className }: PricingProps) {
   return (
     <Section
       id='pricing'
-      background='white'
-      backgroundImage='/images/prices-bg.webp'
+      variant='pricing'
+      background='transparent'
       padding='lg'
       contentWidth='wide'
       className={className || ''}
@@ -228,16 +229,7 @@ export default function Pricing({ locale, className }: PricingProps) {
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
           className='text-center mt-16'>
-          <div
-            className='rounded-3xl p-8 max-w-4xl mx-auto shadow-2xl border-2 transition-all duration-500 hover:shadow-white/20 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/30 before:to-transparent before:opacity-60 before:pointer-events-none relative overflow-hidden'
-            style={{
-              background:
-                'linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.9) 100%)',
-              backdropFilter: 'blur(20px) saturate(120%)',
-              border: '2px solid rgba(255, 255, 255, 0.3)',
-              boxShadow:
-                'rgba(255, 255, 255, 0.2) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
-            }}>
+          <div className={`p-8 max-w-4xl mx-auto relative overflow-hidden ${cardStyles.card}`}>
             <h3 className='text-2xl font-bold text-[#112D4E] mb-4'>
               {dict?.pricing?.maintenance?.title || 'Maintenance et Support'}
             </h3>
@@ -428,16 +420,7 @@ export function PricingContent({ locale }: PricingProps) {
         transition={{ duration: 0.6, delay: 0.4 }}
         viewport={{ once: true }}
         className='text-center mt-16'>
-        <div
-          className='rounded-3xl p-8 max-w-4xl mx-auto shadow-2xl border-2 transition-all duration-500 hover:shadow-white/20 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/30 before:to-transparent before:opacity-60 before:pointer-events-none relative overflow-hidden'
-          style={{
-            background:
-              'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%)',
-            backdropFilter: 'blur(20px) saturate(120%)',
-            border: '2px solid rgba(255, 255, 255, 0.3)',
-            boxShadow:
-              'rgba(255, 255, 255, 0.2) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
-          }}>
+        <div className={`p-8 max-w-4xl mx-auto relative overflow-hidden ${cardStyles.card}`}>
           <h3 className='text-2xl font-bold text-[#112D4E] mb-4'>
             {dict?.pricing?.maintenance?.title || 'Maintenance et Support'}
           </h3>

@@ -19,9 +19,13 @@ export const buttonStyles = {
 }
 
 export const cardStyles = {
-  base: 'bg-white rounded-2xl shadow-lg border transition-all duration-300',
-  hover: 'hover:shadow-2xl hover:border-gray-300',
+  base: 'rounded-lg border-[3px] border-white transition-all duration-300',
+  background: 'bg-[#FCFCFC]',
+  shadow: 'shadow-[0px_0px_30px_rgba(81,94,125,0.03)]',
+  hover: 'hover:shadow-[0px_0px_40px_rgba(81,94,125,0.08)]',
   focus: 'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2',
+  // Комбинированный класс для удобства
+  card: 'rounded-lg bg-[#FCFCFC] shadow-[0px_0px_30px_rgba(81,94,125,0.03)] border-[3px] border-white transition-all duration-300 hover:shadow-[0px_0px_40px_rgba(81,94,125,0.08)]',
 }
 
 export const sectionStyles = {

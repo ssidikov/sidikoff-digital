@@ -3,6 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getProjectUrl } from '@/utils/navigation'
+import { cardStyles } from '@/utils/styles'
 
 export interface ProjectCardProps {
   project: {
@@ -19,12 +20,7 @@ export interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, locale }) => (
   <div
-    className='group flex flex-col items-stretch rounded-3xl hover:shadow-2xl transition-all duration-500 p-6 lg:p-4 3xl:p-6 focus-visible:ring-2 focus-visible:ring-white/50 outline-none relative border-2 border-white/50 shadow-2xl before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/40 before:to-transparent before:opacity-60 before:pointer-events-none overflow-hidden h-[480px] md:h-[520px] lg:h-[640px] xl:h-[664px]'
-    style={{
-      backdropFilter: 'blur(20px) saturate(120%)',
-      background: 'linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.15) 100%)',
-      boxShadow: 'rgba(255, 255, 255, 0.2) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
-    }}>
+    className={`group flex flex-col items-stretch p-6 lg:p-4 3xl:p-6 focus-visible:ring-2 focus-visible:ring-blue-500 outline-none relative overflow-hidden h-[480px] md:h-[520px] lg:h-[640px] xl:h-[664px] ${cardStyles.card}`}>
     <Link
       href={getProjectUrl(project.id, locale)}
       className='absolute inset-0 z-10'

@@ -470,6 +470,7 @@ export default function PortfolioCarousel({
   return (
     <Section
       id='portfolio'
+      variant='portfolio'
       background='transparent'
       padding='none'
       contentWidth='full'

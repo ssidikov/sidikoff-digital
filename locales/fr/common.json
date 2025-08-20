@@ -190,20 +190,6 @@
       "error": "Échec de l'envoi du message. Veuillez réessayer.",
       "error_description": "Une erreur s'est produite lors de l'envoi de votre message. Veuillez vérifier vos informations et réessayer."
     },
-    "info": {
-      "title": "Informations de Contact",
-      "localisations": "Localisations",
-      "locations": [
-        "Paris, France",
-        "Toulouse, France"
-      ],
-      "phone_label": "Téléphone",
-      "email_label": "Email",
-      "address": "Paris, France | Toulouse, France",
-      "phone": "+33 6 26 93 27 34",
-      "email": "s.sidikoff@gmail.com",
-      "hours": "Lundi - Vendredi: 9h00 - 18h00"
-    },
     "channels": {
       "title": "Connectez-vous avec Nous",
       "email": "Email",
