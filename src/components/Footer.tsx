@@ -22,13 +22,12 @@ export function Footer({ dictionary, locale }: FooterProps) {
       name: dictionary.navigation?.portfolio || 'Solutions',
       href: getLocalizedUrl('/#portfolio', locale),
     },
-    { name: dictionary.navigation?.blog || 'Mobile App', href: getLocalizedUrl('/blog', locale) },
+    { name: dictionary.navigation?.blog || 'Blog', href: getLocalizedUrl('/blog', locale) },
     { name: dictionary.navigation?.faq || 'About us', href: getLocalizedUrl('/#faq', locale) },
     {
       name: dictionary.navigation?.contact || 'Contact',
       href: getLocalizedUrl('/#contact', locale),
     },
-    { name: dictionary.navigation?.blog || 'Blog', href: getLocalizedUrl('/blog', locale) },
   ]
 
   const legalLinks = [
@@ -69,8 +68,8 @@ export function Footer({ dictionary, locale }: FooterProps) {
         {/* Right Side - Navigation */}
         <div className='lg:pl-16'>
           <nav className='space-y-4'>
-            {navigationLinks.map((link) => (
-              <div key={link.href}>
+            {navigationLinks.map((link, index) => (
+              <div key={`nav-${index}-${link.href}`}>
                 <Link
                   href={link.href}
                   className='text-lg hover:opacity-70 transition-opacity duration-200 block'>

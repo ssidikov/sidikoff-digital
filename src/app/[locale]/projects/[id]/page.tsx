@@ -63,8 +63,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <Section
-      id='portfolio'
-      backgroundImage='/images/prices-bg.webp'
+      id='project-detail'
+      variant='project-detail'
       padding='xl'
       contentWidth='wide'>
       <div className='relative z-10'>

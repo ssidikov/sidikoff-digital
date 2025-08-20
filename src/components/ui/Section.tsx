@@ -23,6 +23,7 @@ interface SectionProps {
     | 'pricing'
     | 'blog'
     | 'compact'
+    | 'project-detail'
   padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl'
   contentWidth?: 'narrow' | 'normal' | 'wide' | 'full'
 }
@@ -43,6 +44,7 @@ const variantStyles = {
   pricing: 'py-20',
   blog: 'py-20',
   compact: '',
+  'project-detail': 'min-h-screen py-20',
 } as const
 
 // Профессиональная система градиентов
@@ -85,6 +87,12 @@ const gradientStyles = {
   },
   blog: {
     backgroundImage: 'linear-gradient(165deg, #F8FAFC 18%, #EBF2FF 50%, #FFFAE6 82%)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  },
+  'project-detail': {
+    backgroundImage: 'linear-gradient(135deg, #EBF2FF 0%, #F0F9FF 25%, #FFFAE6 50%, #F8FAFC 75%, #EBF2FF 100%)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
