@@ -38,7 +38,7 @@ export function Hero({ dict, common, locale }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className='inline-flex items-center px-4 py-2 rounded-full text-[12px] md:text-sm font-medium mb-8 border border-white/50 mt-12 md:mt-24 transition-all duration-300'
+          className='inline-flex items-center px-4 py-2 rounded-full text-[12px] md:text-sm font-medium mb-8 border border-gray-400/50 mt-12 md:mt-24 transition-all duration-300'
           style={{
             background:
               'linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%)',
@@ -46,7 +46,7 @@ export function Hero({ dict, common, locale }: HeroProps) {
             boxShadow:
               'rgba(255, 255, 255, 0.2) 0px 4px 16px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
           }}>
-          <span className='w-2 h-2 bg-white/90 rounded-full mr-3' />
+          <span className='w-2 h-2 bg-green-400/50 rounded-full mr-3' />
           {dict.badge}
         </motion.div>
 
@@ -104,7 +104,7 @@ export function Hero({ dict, common, locale }: HeroProps) {
             return (
               <div
                 key={index}
-                className='flex items-center space-x-3 rounded-full px-4 py-2 border border-white/40 transition-all duration-300'
+                className='flex items-center space-x-3 rounded-full px-4 py-2 border border-gray-400/50 transition-all duration-300'
                 style={{
                   background:
                     'linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%)',

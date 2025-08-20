@@ -1,6 +1,4 @@
-
 import { Dictionary } from './dictionaries'
-
 
 export const fallbackDictionary: Dictionary = {
   common: {
@@ -184,17 +182,6 @@ export const fallbackDictionary: Dictionary = {
       error: 'Error sending message.',
       error_description: 'An error occurred while sending your message.',
     },
-    info: {
-      title: 'Contact Info',
-      localisations: 'Localisations',
-      locations: [],
-      phone_label: 'Phone',
-      email_label: 'Email',
-      address: 'Address',
-      phone: 'Phone',
-      email: 'Email',
-      hours: 'Hours',
-    },
     channels: {
       title: 'Contact Channels',
       email: 'Email',
@@ -210,7 +197,8 @@ export const fallbackDictionary: Dictionary = {
   pricing: {
     title: 'Our Pricing',
     subtitle: 'Transparent & Tailored',
-    description: 'Choose the solution that perfectly fits your needs and budget. All our projects include modern design, professional development, and complete support.',
+    description:
+      'Choose the solution that perfectly fits your needs and budget. All our projects include modern design, professional development, and complete support.',
     guarantee_badge: 'Guaranteed Results • Guaranteed Delivery',
     maintenance: {
       title: '🔧 Monthly Maintenance – Ongoing Support',
@@ -221,9 +209,9 @@ export const fallbackDictionary: Dictionary = {
         'Changes or additions to sections/pages',
         'Content additions or modifications (texts, images, etc.)',
         'Support via WhatsApp, Telegram or email',
-        'Regular backups'
+        'Regular backups',
       ],
-      cta: 'Request Quote'
+      cta: 'Request Quote',
     },
     plans: {
       essentiel: {
@@ -238,9 +226,9 @@ export const fallbackDictionary: Dictionary = {
           'Integrated contact form',
           'Mobile/tablet/computer compatible',
           'Delivery in 7 business days',
-          '🧩 Goal: get professional presence quickly without complexity'
+          '🧩 Goal: get professional presence quickly without complexity',
         ],
-        cta: 'Get Started'
+        cta: 'Get Started',
       },
       pro: {
         name: 'Pro',
@@ -254,9 +242,9 @@ export const fallbackDictionary: Dictionary = {
           'Premium design with modern animations',
           'Short training to manage your site',
           'Delivery in 14 business days',
-          '🔥 Recommended to create real online authority and generate leads'
+          '🔥 Recommended to create real online authority and generate leads',
         ],
-        cta: 'Choose Pro'
+        cta: 'Choose Pro',
       },
       entreprise: {
         name: 'Enterprise',
@@ -270,11 +258,11 @@ export const fallbackDictionary: Dictionary = {
           'Digital support for 1-3 months',
           'Advanced features (automation, blog, podcast, etc.)',
           'Ongoing support and personalized advice',
-          '🎯 Goal: transform your site into a growth and conversion tool'
+          '🎯 Goal: transform your site into a growth and conversion tool',
         ],
-        cta: 'Contact Us'
-      }
-    }
+        cta: 'Contact Us',
+      },
+    },
   },
   legal: {
     title: 'Legal Notice',

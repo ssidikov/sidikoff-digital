@@ -111,7 +111,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
           throw new Error(result.error || "Erreur lors de l'envoi du message")
         }
 
-        console.log('Email sent successfully:', result)
+        // Email sent successfully
 
         // Mark as successful
         setSubmitStatus('success')
@@ -177,7 +177,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                   </div>
                   <a
                     href='mailto:s.sidikoff@gmail.com'
-                    className='text-3xl text-gray-600 hover:text-gray-900 transition-colors duration-200 font-medium'>
+                    className='text-2xl text-gray-600 hover:text-gray-900 transition-colors duration-200 font-medium'>
                     s.sidikoff@gmail.com
                   </a>
                 </div>
@@ -192,7 +192,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                     href='https://wa.me/+33626932734'
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='text-3xl text-gray-600 hover:text-gray-900 transition-colors duration-200 font-medium'>
+                    className='text-2xl text-gray-600 hover:text-gray-900 transition-colors duration-200 font-medium'>
                     +33 6 26 93 27 34
                   </a>
                 </div>
@@ -207,7 +207,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                     href='https://t.me/sardorbek_sidikov'
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='text-3xl text-gray-600 hover:text-gray-900 transition-colors duration-200 font-medium'>
+                    className='text-2xl text-gray-600 hover:text-gray-900 transition-colors duration-200 font-medium'>
                     @sardorbek_sidikov
                   </a>
                 </div>
@@ -229,7 +229,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                   </div>
                   <a
                     href='tel:+33626932734'
-                    className='text-3xl text-gray-600 hover:text-gray-900 transition-colors duration-200 font-medium'>
+                    className='text-2xl text-gray-600 hover:text-gray-900 transition-colors duration-200 font-medium'>
                     +33 6 26 93 27 34
                   </a>
                 </div>

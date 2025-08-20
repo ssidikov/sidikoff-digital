@@ -337,7 +337,7 @@ export default function PortfolioCarousel({
     return (
       <>
         {isEven && (
-          <div className='absolute -top-10 left-1/2 transform -translate-x-1/2 z-20'>
+          <div className='absolute -top-10 left-1/2 transform -translate-x-1/2 z-20 '>
             <div className='relative'>
               <div className='w-20 h-20 bg-[#EEEEEE] rounded-full flex items-center justify-center p-1'>
                 <div
@@ -474,7 +474,7 @@ export default function PortfolioCarousel({
       background='transparent'
       padding='none'
       contentWidth='full'
-      className='portfolio-carousel py-20'>
+      className='portfolio-carousel py-20 pt-40'>
       <div className='relative z-10'>
         <div className='max-w-8xl mx-auto px-4 sm:px-4 lg:px-24 relative z-10'>
           <SectionHeader

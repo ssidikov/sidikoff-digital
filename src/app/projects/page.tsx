@@ -26,9 +26,7 @@ export default async function ProjectsPage() {
     <LocaleProvider locale={defaultLocale}>
       <div className='min-h-screen'>
         <main className='m-0 p-0'>
-          <div className='pt-[80px] md:pt-[100px] relative overflow-hidden bg-[#ECECEC]'>
-            <Portfolio dictionary={dictionary.portfolio} locale={defaultLocale} />
-          </div>
+          <Portfolio dictionary={dictionary.portfolio} locale={defaultLocale} />
         </main>
       </div>
     </LocaleProvider>

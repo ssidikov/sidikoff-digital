@@ -209,17 +209,6 @@ export interface Dictionary {
       error: string
       error_description: string
     }
-    info: {
-      title: string
-      localisations: string
-      locations: string[]
-      phone_label: string
-      email_label: string
-      address: string
-      phone: string
-      email: string
-      hours: string
-    }
     channels: {
       title: string
       email: string

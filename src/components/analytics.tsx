@@ -16,7 +16,7 @@ declare global {
 export const trackEvent = (action: string, category: string, label?: string, value?: number) => {
   // Don't track in development mode
   if (process.env.NODE_ENV === 'development') {
-    console.log('Analytics Event:', { action, category, label, value })
+    // Analytics event logged in development only
     return
   }
 
@@ -33,7 +33,7 @@ export const trackEvent = (action: string, category: string, label?: string, val
 export const trackConversion = (conversionLabel?: string) => {
   // Don't track in development mode
   if (process.env.NODE_ENV === 'development') {
-    console.log('Conversion Event:', { conversionLabel })
+    // Conversion event logged in development only
     return
   }
 

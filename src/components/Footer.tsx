@@ -2,9 +2,7 @@
 
 import Link from 'next/link'
 
-import { EmailIcon, PhoneIcon, LocationIcon, LinkedInIcon, GitHubIcon } from '@/components/ui/icons'
 import { Locale } from '@/lib/i18n'
-import { motion } from 'framer-motion'
 import { getLocalizedUrl } from '@/utils/navigation'
 
 import { Dictionary } from '@/lib/dictionaries'
@@ -41,78 +39,74 @@ export function Footer({ dictionary, locale }: FooterProps) {
   ]
 
   return (
-    <footer className='text-black py-16 px-6 lg:px-16' style={{ backgroundColor: '#FCFBFE' }}>
-      <div className='max-w-7xl mx-auto'>
-        {/* Main Content */}
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 mb-16'>
-          {/* Left Side - Company Info */}
-          <div className='space-y-8'>
-            <div>
-              <h2 className='text-4xl lg:text-5xl font-light leading-tight mb-4'>
-                {dictionary.footer?.description ||
-                  'Embrace the future of energy with our smart EV charging expertise.'}
-              </h2>
-            </div>
-
-            {/* Contact Info */}
-            <div className='space-y-2'>
-              <a
-                href='mailto:s.sidikoff@gmail.com'
-                className='text-lg hover:opacity-70 transition-opacity duration-200 block'>
-                s.sidikoff@gmail.com
-              </a>
-              <a
-                href='tel:+33626932734'
-                className='text-lg hover:opacity-70 transition-opacity duration-200 block'>
-                +33 6 26 93 27 34
-              </a>
-            </div>
+    <footer className='text-black py-16 px-6 lg:px-16 bg-[#FCFBFE]'>
+      {/* Main Content */}
+      <div className='grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 mb-16'>
+        {/* Left Side - Company Info */}
+        <div className='space-y-8'>
+          <div>
+            <h2 className='text-4xl lg:text-5xl font-light leading-tight mb-4'>
+              {dictionary.footer?.description ||
+                'Embrace the future of energy with our smart EV charging expertise.'}
+            </h2>
           </div>
 
-          {/* Right Side - Navigation */}
-          <div className='lg:pl-16'>
-            <nav className='space-y-4'>
-              {navigationLinks.map((link) => (
-                <div key={link.href}>
-                  <Link
-                    href={link.href}
-                    className='text-lg hover:opacity-70 transition-opacity duration-200 block'>
-                    {link.name}
-                  </Link>
-                </div>
+          {/* Contact Info */}
+          <div className='space-y-2'>
+            <a
+              href='mailto:s.sidikoff@gmail.com'
+              className='text-lg hover:opacity-70 transition-opacity duration-200 block'>
+              s.sidikoff@gmail.com
+            </a>
+            <a
+              href='tel:+33626932734'
+              className='text-lg hover:opacity-70 transition-opacity duration-200 block'>
+              +33 6 26 93 27 34
+            </a>
+          </div>
+        </div>
+
+        {/* Right Side - Navigation */}
+        <div className='lg:pl-16'>
+          <nav className='space-y-4'>
+            {navigationLinks.map((link) => (
+              <div key={link.href}>
+                <Link
+                  href={link.href}
+                  className='text-lg hover:opacity-70 transition-opacity duration-200 block'>
+                  {link.name}
+                </Link>
+              </div>
+            ))}
+          </nav>
+        </div>
+      </div>
+
+      {/* Large SIDIKOFF Text */}
+      <div className='mb-8'>
+        <h1 className='text-[clamp(3.5rem,-0.1429rem+18.2143vw,16.25rem)] font-bold leading-none tracking-wider text-[#EFEEF3]'>
+          SIDIKOFF
+        </h1>
+      </div>
+
+      {/* Bottom Section */}
+      <div className='border-t border-gray-200 pt-8'>
+        <div className='flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-6 lg:space-y-0'>
+          {/* Copyright and Legal */}
+          <div className='flex flex-col lg:flex-row lg:items-center lg:space-x-8 space-y-4 lg:space-y-0'>
+            <div className='text-sm text-gray-600'>
+              © 2025 Tous droits réservés | SIDIKOFF DIGITAL | Agence web Paris - Toulouse |
+              Développeur web freelance
+            </div>
+            <div className='flex space-x-6'>
+              {legalLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className='text-sm text-gray-600 hover:opacity-70 transition-opacity duration-200 uppercase'>
+                  {link.name}
+                </Link>
               ))}
-            </nav>
-          </div>
-        </div>
-
-        {/* Large SIDIKOFF Text */}
-        <div className='mb-8'>
-          <h1
-            className='text-[clamp(3.5rem,-0.1429rem+18.2143vw,16.25rem)] font-bold leading-none tracking-wider'
-            style={{ color: '#EFEEF3' }}>
-            SIDIKOFF
-          </h1>
-        </div>
-
-        {/* Bottom Section */}
-        <div className='border-t border-gray-200 pt-8'>
-          <div className='flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-6 lg:space-y-0'>
-            {/* Copyright and Legal */}
-            <div className='flex flex-col lg:flex-row lg:items-center lg:space-x-8 space-y-4 lg:space-y-0'>
-              <div className='text-sm text-gray-600'>
-                © 2025 Tous droits réservés | Agence web Paris - Toulouse | Développeur web
-                freelance
-              </div>
-              <div className='flex space-x-6'>
-                {legalLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className='text-sm text-gray-600 hover:opacity-70 transition-opacity duration-200 uppercase'>
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
             </div>
           </div>
         </div>
