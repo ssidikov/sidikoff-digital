@@ -104,7 +104,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
                           whileInView={{ opacity: 1, scale: 1 }}
                           transition={{ duration: 0.3, delay: 0.1 + badgeIndex * 0.1 }}
                           viewport={{ once: true }}
-                          className='inline-flex items-center justify-center px-6 py-4 md:px-8 rounded-full text-sm md:text-xl font-medium border border-gray-400/50 cursor-default'>
+                          className='inline-flex items-center justify-center px-5 py-3 md:px-8 rounded-full text-sm md:text-xl font-medium border border-gray-400/50 cursor-default'>
                           <span className='text-center'>{badge}</span>
                         </motion.span>
                       ))}

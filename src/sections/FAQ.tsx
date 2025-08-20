@@ -169,7 +169,7 @@ export const FAQ = ({ dictionary, className }: FAQProps) => {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`text-lg md:text-xl cursor-pointer rounded-xl px-3 md:px-6 transition-all duration-300 outline-none focus:ring-0 h-12 md:h-[60px] ${
+                className={`text-base cursor-pointer rounded-xl px-3 md:px-6 transition-all duration-300 outline-none focus:ring-0 h-12 md:h-[60px] ${
                   index === getCategories().length - 1 ? 'mr-[30px]' : ''
                 } ${
                   selectedCategory === category
@@ -184,8 +184,8 @@ export const FAQ = ({ dictionary, className }: FAQProps) => {
         </div>
 
         {/* FAQ Items */}
-        <div className='flex flex-col lg:flex-row gap-x-10 gap-y-2.5 h-auto'>
-          <div className='space-y-2.5 w-full lg:w-1/2'>
+        <div className='flex flex-col xl:flex-row gap-x-10 gap-y-2.5 h-auto'>
+          <div className='space-y-2.5 w-full xl:w-1/2'>
             <AnimatePresence>
               {firstHalf.map((item) => (
                 <motion.div
@@ -194,12 +194,12 @@ export const FAQ = ({ dictionary, className }: FAQProps) => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
-                  className='bg-white rounded-3xl pb-5 sm:pb-6 3xl:pb-8 border border-white/50 shadow-2xl transition-all duration-500 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/30 before:to-transparent before:opacity-60 before:pointer-events-none relative overflow-hidden'>
+                  className='bg-white rounded-md pb-5 border border-white/50 shadow-2xl transition-all duration-500 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/30 before:to-transparent before:opacity-60 before:pointer-events-none relative overflow-hidden'>
                   <button
                     onClick={() => toggleItem(item.id)}
-                    className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8 cursor-pointer'>
+                    className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:px-6 cursor-pointer'>
                     <div className='flex items-center gap-3 3xl:gap-6'>
-                      <h3 className='font-medium text-left text-xl sm:text-2xl 3xl:text-3xl leading-7 sm:leading-8 lg:leading-9 3xl:leading-10'>
+                      <h3 className='font-medium text-left text-base md:text-xl leading-7 sm:leading-8 lg:leading-9 3xl:leading-10'>
                         {item.question}
                       </h3>
                     </div>
@@ -235,7 +235,7 @@ export const FAQ = ({ dictionary, className }: FAQProps) => {
             </AnimatePresence>
           </div>
 
-          <div className='space-y-2.5 w-full lg:w-1/2'>
+          <div className='space-y-2.5 w-full xl:w-1/2'>
             <AnimatePresence>
               {secondHalf.map((item) => (
                 <motion.div
@@ -244,12 +244,12 @@ export const FAQ = ({ dictionary, className }: FAQProps) => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
-                  className='bg-white rounded-3xl pb-5 sm:pb-6 3xl:pb-8 border border-white/50 shadow-2xl transition-all duration-500 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/30 before:to-transparent before:opacity-60 before:pointer-events-none relative overflow-hidden'>
+                  className='bg-white rounded-md pb-5 border border-white/50 shadow-2xl transition-all duration-500 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/30 before:to-transparent before:opacity-60 before:pointer-events-none relative overflow-hidden'>
                   <button
                     onClick={() => toggleItem(item.id)}
-                    className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8 cursor-pointer'>
+                    className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:px-6 cursor-pointer'>
                     <div className='flex items-center gap-3 3xl:gap-6'>
-                      <h3 className='font-medium text-left text-xl sm:text-2xl 3xl:text-3xl leading-7 sm:leading-8 lg:leading-9 3xl:leading-10'>
+                      <h3 className='font-medium text-left text-base md:text-xl leading-7 sm:leading-8 lg:leading-9 3xl:leading-10'>
                         {item.question}
                       </h3>
                     </div>
