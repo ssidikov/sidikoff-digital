@@ -104,14 +104,14 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
                           whileInView={{ opacity: 1, scale: 1 }}
                           transition={{ duration: 0.3, delay: 0.1 + badgeIndex * 0.1 }}
                           viewport={{ once: true }}
-                          className='inline-flex items-center justify-center px-6 py-4 md:px-8 md:py-6 rounded-full text-sm md:text-xl font-medium border border-gray-400/50 cursor-default'>
+                          className='inline-flex items-center justify-center px-6 py-4 md:px-8 rounded-full text-sm md:text-xl font-medium border border-gray-400/50 cursor-default'>
                           <span className='text-center'>{badge}</span>
                         </motion.span>
                       ))}
                     </div>
                   </div>
 
-                  <p className='text-gray-600 text-lg leading-relaxed'>{service.description}</p>
+                  <p className='text-gray-600 text-base leading-relaxed'>{service.description}</p>
 
                   {/* Enhanced CTA Buttons */}
                   <div className='flex flex-col sm:flex-row gap-4'>

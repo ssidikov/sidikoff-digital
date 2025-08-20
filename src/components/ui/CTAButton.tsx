@@ -67,8 +67,8 @@ const CTAButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, CTABut
     }
 
     const sizes = {
-      sm: 'px-3 py-2 text-xs sm:text-sm rounded-full',
-      md: 'px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg rounded-full',
+      sm: 'px-4 py-2.5 text-xs text-base rounded-full',
+      md: 'px-4 py-4 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg rounded-full',
       lg: 'px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 lg:px-12 lg:py-6 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full',
     }
 
