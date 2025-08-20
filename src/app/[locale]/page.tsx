@@ -67,7 +67,7 @@ export default async function HomePage({ params }: HomePageProps) {
       />
 
       <main>
-        <Hero dict={dict.hero} common={dict.common} locale={locale} />
+        <Hero dict={dict.hero} locale={locale} />
         <Services dictionary={dict.services} locale={locale} />
 
         {/* Local SEO Section */}

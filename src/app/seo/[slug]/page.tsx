@@ -207,7 +207,7 @@ export default async function SEOLocationPage({ params }: SEOPageProps) {
 
       <main>
         {/* Hero with custom badge, title and subtitle */}
-        <Hero dict={heroDict} common={dict.common} locale={locale} />
+        <Hero dict={heroDict} locale={locale} />
 
         {/* Keep the same layout as the main site */}
         <Services dictionary={dict.services} locale={locale} />

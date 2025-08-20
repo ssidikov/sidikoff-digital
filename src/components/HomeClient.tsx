@@ -22,7 +22,7 @@ export function HomeClient({ dictionary }: HomeClientProps) {
       <div className='min-h-screen flex flex-col'>
         <Header locale={locale} dictionary={dictionary} />
         <main className='flex-1'>
-          <Hero dict={dictionary.hero} common={dictionary.common} locale={locale} />
+          <Hero dict={dictionary.hero} locale={locale} />
           <Services dictionary={dictionary.services} locale={locale} />
           <Portfolio dictionary={dictionary.portfolio} locale={locale} />
           <Pricing locale={locale} />
