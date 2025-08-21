@@ -91,7 +91,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
                 {/* Left Content - Second on mobile */}
                 <div className='space-y-6 xl:h-full flex flex-col justify-between order-2 lg:order-1 h-full'>
                   <div>
-                    <h3 className='text-2xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-8'>
+                    <h3 className='text-2xl xl:text-4xl font-bold text-gray-900 mb-4 md:mb-8'>
                       {service.title}
                     </h3>
 
@@ -104,14 +104,16 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
                           whileInView={{ opacity: 1, scale: 1 }}
                           transition={{ duration: 0.3, delay: 0.1 + badgeIndex * 0.1 }}
                           viewport={{ once: true }}
-                          className='inline-flex items-center justify-center px-5 py-3 md:px-8 rounded-full text-sm md:text-xl font-medium border border-gray-400/50 cursor-default'>
+                          className='inline-flex items-center justify-center px-5 py-3 xl:px-8 rounded-full text-sm xl:text-xl font-medium border border-gray-400/50 cursor-default'>
                           <span className='text-center'>{badge}</span>
                         </motion.span>
                       ))}
                     </div>
                   </div>
 
-                  <p className='text-gray-600 text-base leading-relaxed'>{service.description}</p>
+                  <p className='text-gray-600 text-sm xl:text-base leading-relaxed'>
+                    {service.description}
+                  </p>
 
                   {/* Enhanced CTA Buttons */}
                   <div className='flex flex-col sm:flex-row gap-4'>
@@ -145,56 +147,51 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
           ))}
         </div>
 
-        {/* CTA Banner */}
+        {/* CTA Banner - Full Screen Redesign */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className='mt-20'>
-          {/* Mobile Card Version */}
-          <div className='lg:hidden'>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className={`overflow-hidden mx-auto max-w-md ${cardStyles.card}`}>
-              {/* Image at top */}
-              <div className='relative h-48 w-full'>
-                <Image
-                  src='/images/services/cta-background.webp'
-                  alt='CTA Background'
-                  width={400}
-                  height={200}
-                  sizes='(max-width: 768px) 100vw, 400px'
-                  className='object-cover w-full h-full'
-                  loading='lazy'
-                />
-              </div>
+          {/* Full Screen Banner */}
+          <div className='relative w-full h-screen bg-[#3377FF] flex items-center justify-center overflow-hidden rounded-3xl'>
+            {/* Centered Content */}
+            <div className='text-center max-w-4xl mx-auto px-6 lg:px-8'>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className='text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 lg:mb-8 leading-tight'>
+                {dict.cta_banner.background}
+              </motion.h2>
 
-              {/* Content at bottom */}
-              <div className='p-6'>
-                <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight lg:text-4xl 3xl:text-5xl'>
-                  {dict.cta_banner.background}
-                </h3>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className='text-xl lg:text-2xl text-white/90 leading-relaxed mb-12 lg:mb-16 max-w-3xl mx-auto'>
+                {dict.cta_banner.description}
+              </motion.p>
 
-                <p className='text-gray-600 text-base leading-relaxed mb-6'>
-                  {dict.cta_banner.description}
-                </p>
-
-                <CTAButton
-                  variant='primary'
-                  size='lg'
-                  className='w-full mt-5 sm:mt-10'
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                viewport={{ once: true }}
+                className='flex justify-center'>
+                <button
                   onClick={() => {
                     const contactUrl = `/${locale === 'fr' ? '' : locale + '/'}contact`
                     window.location.href = contactUrl
-                  }}>
-                  <span className='flex items-center justify-center gap-3'>
+                  }}
+                  className='group relative bg-white text-[#3377FF] hover:bg-gray-50 hover:shadow-xl px-8 lg:px-12 py-4 lg:py-6 rounded-full text-lg lg:text-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:-translate-y-1'>
+                  <span className='flex items-center gap-3'>
                     <span>{dict.cta_banner.cta}</span>
                     <svg
-                      className='w-5 h-5 transition-transform duration-300 group-hover:translate-x-1'
+                      className='w-6 h-6 transition-transform duration-300 group-hover:translate-x-1'
                       fill='none'
                       stroke='currentColor'
                       viewBox='0 0 24 24'>
@@ -206,63 +203,10 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
                       />
                     </svg>
                   </span>
-                </CTAButton>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Desktop Version */}
-          <div className='hidden lg:block'>
-            <div className='relative overflow-hidden rounded-3xl bg-white min-h-[400px] flex items-center'>
-              {/* Background Image */}
-              <div className='absolute inset-0'>
-                <Image
-                  src='/images/services/cta-background.webp'
-                  alt='CTA Background'
-                  width={1200}
-                  height={400}
-                  sizes='100vw'
-                  className='object-cover w-full h-full'
-                  priority={false}
-                  quality={100}
-                  loading='lazy'
-                />
-              </div>
-              {/* Content Grid */}
-              <div className='relative z-10 w-full px-8 py-12'>
-                <div className='flex justify-center lg:justify-end items-center max-w-7xl mx-auto'>
-                  {/* CTA Card - Right on desktop */}
-                  <div className='w-full max-w-2xl lg:max-w-3xl'>
-                    <motion.div
-                      initial={{ opacity: 0, x: 20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.2 }}
-                      viewport={{ once: true }}
-                      className={`p-8 lg:p-12 ${cardStyles.card}`}>
-                      <h3 className='text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 lg:mb-8 leading-tight'>
-                        {dict.cta_banner.background}
-                      </h3>
-
-                      <p className='text-gray-600 text-lg lg:text-xl leading-relaxed mb-8'>
-                        {dict.cta_banner.description}
-                      </p>
-
-                      <CTAButton
-                        variant='primary'
-                        size='lg'
-                        className='w-full mt-5 sm:mt-10'
-                        onClick={() => {
-                          const contactUrl = `/${locale === 'fr' ? '' : locale + '/'}contact`
-                          window.location.href = contactUrl
-                        }}>
-                        <span className='flex items-center justify-center gap-3'>
-                          <span className='text-xl'>{dict.cta_banner.cta}</span>
-                        </span>
-                      </CTAButton>
-                    </motion.div>
-                  </div>
-                </div>
-              </div>
+                  {/* Hover effect underline */}
+                  <div className='absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-[#3377FF] transition-all duration-300 group-hover:w-full rounded-full'></div>
+                </button>
+              </motion.div>
             </div>
           </div>
         </motion.div>
