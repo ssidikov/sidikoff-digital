@@ -42,6 +42,7 @@ interface PortfolioCarouselProps {
   locale: 'en' | 'fr' | 'ru'
   title?: string
   subtitle?: string
+  className?: string
 }
 
 // Helper function to convert projects to portfolio items
@@ -75,6 +76,7 @@ export default function PortfolioCarousel({
   locale,
   title,
   subtitle,
+  className,
 }: PortfolioCarouselProps) {
   const [isPaused, setIsPaused] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -474,7 +476,7 @@ export default function PortfolioCarousel({
       background='transparent'
       padding='none'
       contentWidth='full'
-      className='portfolio-carousel py-20 pt-40'>
+      className={`portfolio-carousel py-20 ${className || ''}`}>
       <div className='relative z-10'>
         <div className='max-w-8xl mx-auto px-4 sm:px-4 xl:px-24 relative z-10'>
           <SectionHeader

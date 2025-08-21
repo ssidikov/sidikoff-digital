@@ -9,9 +9,10 @@ import { Dictionary } from '@/lib/dictionaries'
 interface PortfolioProps {
   locale: 'en' | 'fr' | 'ru'
   dictionary: Dictionary['portfolio']
+  className?: string
 }
 
-export default function Portfolio({ locale, dictionary }: PortfolioProps) {
+export default function Portfolio({ locale, dictionary, className }: PortfolioProps) {
   const projects = getProjects(locale)
   const carouselItems = convertProjectsToPortfolioItems(projects)
 
@@ -21,6 +22,7 @@ export default function Portfolio({ locale, dictionary }: PortfolioProps) {
       locale={locale}
       title={dictionary?.title || 'Portfolio'}
       subtitle={dictionary?.subtitle || ''}
+      {...(className && { className })}
     />
   )
 }

@@ -62,8 +62,21 @@ function enhanceResponse(response: NextResponse, pathname?: string) {
 
   // CSP Header for security
   const isStudio = pathname?.startsWith('/studio') || false
-  const cspHeader = isStudio
+  const isDevelopment = process.env.NODE_ENV === 'development'
+  // Relaxed CSP for development mode to avoid blocking issues
+  const cspHeader = isDevelopment
     ? `
+    default-src 'self' 'unsafe-inline' 'unsafe-eval';
+    script-src 'self' 'unsafe-eval' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' blob: data: https:;
+    font-src 'self' data: https:;
+    connect-src 'self' ws: wss: https:;
+    frame-src 'self';
+    object-src 'none';
+  `
+    : isStudio
+      ? `
     default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com;
     style-src 'self' 'unsafe-inline';
@@ -75,7 +88,7 @@ function enhanceResponse(response: NextResponse, pathname?: string) {
     form-action 'self';
     frame-ancestors 'none';
   `
-    : `
+      : `
     default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://googleads.g.doubleclick.net https://va.vercel-scripts.com;
     style-src 'self' 'unsafe-inline';
@@ -90,7 +103,10 @@ function enhanceResponse(response: NextResponse, pathname?: string) {
     upgrade-insecure-requests;
   `
 
-  response.headers.set('Content-Security-Policy', cspHeader.replace(/\s{2,}/g, ' ').trim())
+  // Only set CSP in production to avoid development issues
+  if (!isDevelopment) {
+    response.headers.set('Content-Security-Policy', cspHeader.replace(/\s{2,}/g, ' ').trim())
+  }
 
   return response
 }

@@ -3,7 +3,8 @@
   "version": "0.2.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev --turbopack --hostname 0.0.0.0",
+    "dev:mobile": "next dev --turbopack --hostname 0.0.0.0 --port 3000",
     "build": "next build",
     "build:turbo": "next build --turbopack",
     "start": "next start",

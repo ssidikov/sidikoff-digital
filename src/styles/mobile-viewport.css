@@ -1,0 +1,110 @@
+/* Mobile viewport units fix */
+/* Поддержка новых viewport units для стабильного отображения на мобильных */
+
+:root {
+  /* Fallback для старых браузеров */
+  --vh: 1vh;
+  --vw: 1vw;
+
+  /* Stable viewport height - не изменяется при скрытии/показе панелей браузера */
+  --svh: 1svh;
+  --lvh: 1lvh;
+  /* Large viewport - с видимыми панелями */
+  --dvh: 1dvh;
+  /* Dynamic viewport - изменяется с панелями */
+}
+
+/* Базовые классы для стабильного viewport */
+.min-h-screen-stable {
+  min-height: 100vh;
+  /* Fallback */
+  min-height: 100svh;
+  /* Stable viewport height */
+}
+
+.h-screen-stable {
+  height: 100vh;
+  /* Fallback */
+  height: 100svh;
+  /* Stable viewport height */
+}
+
+.min-h-screen-dynamic {
+  min-height: 100vh;
+  /* Fallback */
+  min-height: 100dvh;
+  /* Dynamic viewport height */
+}
+
+/* Hero section специфичные стили */
+.hero-height {
+  min-height: 100vh;
+  /* Fallback */
+  min-height: 100svh;
+  /* Stable viewport height */
+}
+
+/* Для устройств с маленьким экраном используем фиксированную высоту */
+@media (max-height: 650px) {
+  .hero-height {
+    min-height: 650px;
+  }
+}
+
+/* Дополнительные утилиты для мобильных */
+@media (max-width: 768px) {
+  .hero-height {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+
+  /* Prevent content jump on address bar hide/show */
+  .mobile-no-bounce {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Улучшенная поддержка для iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  .hero-height {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Фикс для старых браузеров без поддержки новых viewport units */
+@supports not (height: 100svh) {
+  .hero-height {
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
+
+  .min-h-screen-stable {
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
+
+  .h-screen-stable {
+    height: calc(var(--vh, 1vh) * 100);
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal overflow on mobile */
+body {
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Loading state для предотвращения layout shift */
+.hero-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

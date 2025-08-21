@@ -32,6 +32,8 @@ header {
 /* Hero section critical styles */
 .hero-section {
   min-height: 100vh;
+  min-height: 100svh;
+  /* Stable viewport height */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,6 +41,13 @@ header {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+/* Mobile viewport fix for devices with small height */
+@media (max-height: 650px) {
+  .hero-section {
+    min-height: 650px;
+  }
 }
 
 /* Logo critical styles */

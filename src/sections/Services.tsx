@@ -71,7 +71,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`gap-8 sm:gap-10 xl:gap-16 3xl:gap-20 px-5 py-7 sm:p-8 lg:p-10 3xl:p-12 min-h-[600px] lg:min-h-[500px] ${cardStyles.card}`}>
+              className={`gap-2 xl:gap-16 3xl:gap-20 px-5 py-7 p-8 lg:p-10 3xl:p-12 min-h-[600px] lg:min-h-[500px] ${cardStyles.card}`}>
               <div className='grid lg:grid-cols-2 gap-8 items-center h-full'>
                 {/* Right Image - First on mobile */}
                 <div className='relative order-1 lg:order-2 h-full flex items-center'>

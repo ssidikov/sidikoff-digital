@@ -36,15 +36,15 @@ const backgroundStyles = {
 
 const variantStyles = {
   default: '',
-  hero: 'min-h-screen w-full flex flex-col items-center justify-center',
-  services: 'py-20',
-  portfolio: 'py-20',
-  contact: 'py-20',
-  faq: 'py-20',
-  pricing: 'py-20',
-  blog: 'py-20',
+  hero: 'hero-height w-full flex flex-col items-center justify-center',
+  services: 'py-4',
+  portfolio: 'py-4',
+  contact: 'py-4',
+  faq: 'py-4',
+  pricing: 'py-4',
+  blog: 'py-4',
   compact: '',
-  'project-detail': 'min-h-screen py-20',
+  'project-detail': 'min-h-screen-stable py-4',
 } as const
 
 // Профессиональная система градиентов
@@ -103,10 +103,10 @@ const gradientStyles = {
 const paddingStyles = {
   none: '',
   sm: 'px-4 sm:px-6 py-12',
-  md: 'px-4 sm:px-4 xl:px-8 py-16',
-  lg: 'px-4 sm:px-4 xl:px-24 py-20',
-  xl: 'px-4 sm:px-4 xl:px-16 py-24',
-  hero: 'pt-16 xl:pt-0 lg:px-8',
+  md: 'px-4 sm:px-4 xl:px-8 py-8 lg:py-12',
+  lg: 'px-4 sm:px-4 xl:px-24 py-8 lg:py-12',
+  xl: 'px-4 sm:px-4 xl:px-16 py-8 lg:py-12',
+  hero: 'pt-28 xl:pt-0 lg:px-8',
 } as const
 
 const contentStyles = {
