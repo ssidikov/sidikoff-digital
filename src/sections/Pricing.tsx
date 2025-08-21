@@ -187,7 +187,7 @@ export default function Pricing({ locale, className }: PricingProps) {
           className='flex flex-wrap justify-center gap-4 mb-8'>
           <div className='px-6 py-3 rounded-full flex items-center gap-2 bg-blue-100/60 text-green-500 p-4'>
             <CheckIcon className='w-4 h-4 bg-green-200 rounded-full' />
-            <span className='text-sm md:text-base font-medium text-[#3377FF]'>
+            <span className='text-sm md:text-base font-medium text-accent'>
               {dict?.pricing?.guarantee_badge || 'Résultats garantis • Livraison garantie'}
             </span>
           </div>
@@ -370,7 +370,7 @@ export function PricingContent({ locale }: PricingProps) {
         className='flex flex-wrap justify-center gap-4 mb-8'>
         <div className='px-6 py-3 rounded-full shadow-md flex items-center gap-2 bg-[#EBF2FF] text-green-500 p-4 transition-all duration-300'>
           <CheckIcon className='w-3 h-3 bg-green-200 rounded-full' />
-          <span className='text-base font-medium text-[#3377FF]'>
+          <span className='text-base font-medium text-accent'>
             {dict?.pricing?.guarantee_badge || 'Résultats garantis • Livraison garantie'}
           </span>
         </div>

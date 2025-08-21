@@ -155,7 +155,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
           viewport={{ once: true }}
           className='mt-20'>
           {/* Full Screen Banner */}
-          <div className='relative w-full py-8 md:h-screen bg-[#3377FF] flex items-center justify-center overflow-hidden rounded-md'>
+          <div className='relative w-full py-8 md:h-screen bg-accent flex items-center justify-center overflow-hidden rounded-md'>
             {/* Centered Content */}
             <div className='text-center max-w-4xl mx-auto px-6 lg:px-8'>
               <motion.h2
@@ -185,7 +185,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
                 <CTAButton
                   variant='outline'
                   size='lg'
-                  className='bg-white text-[#3377FF] hover:bg-white hover:text-[#3377FF]! hover:shadow-xl border-white hover:border-gray-100 transform'
+                  className='banner-button-white transform hover:text-[#3377FF]!'
                   onClick={() => {
                     const contactUrl = `/${locale === 'fr' ? '' : locale + '/'}contact`
                     window.location.href = contactUrl

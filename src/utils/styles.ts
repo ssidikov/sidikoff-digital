@@ -23,7 +23,7 @@ export const cardStyles = {
   background: 'bg-[#FCFCFC]',
   shadow: 'shadow-[0px_0px_30px_rgba(81,94,125,0.03)]',
   hover: 'hover:shadow-[0px_0px_40px_rgba(81,94,125,0.08)]',
-  focus: 'focus:outline-none focus:ring-2 focus:ring-[#3377FF] focus:ring-offset-2',
+  focus: 'focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2',
   // Комбинированный класс для удобства
   card: 'rounded-lg bg-[#FCFCFC] shadow-[0px_0px_30px_rgba(81,94,125,0.03)] border-[3px] border-white transition-all duration-300 hover:shadow-[0px_0px_40px_rgba(81,94,125,0.08)]',
 }
@@ -32,7 +32,7 @@ export const sectionStyles = {
   base: 'py-20 px-4 sm:px-6 lg:px-8',
   container: 'container mx-auto px-4',
   title: 'text-3xl md:text-4xl lg:text-5xl font-bold text-[#112D4E] mb-6',
-  subtitle: 'text-[#3377FF] mb-4 text-lg md:text-xl font-semibold',
+  subtitle: 'text-accent mb-4 text-lg md:text-xl font-semibold',
   description: 'text-gray-600 text-lg md:text-xl leading-relaxed',
   // Hero section specific padding (accounts for fixed header)
   hero: {
@@ -66,7 +66,7 @@ export const animationStyles = {
 // Color palette
 export const colors = {
   primary: '#112D4E',
-  secondary: '#3F72AF',
+  secondary: 'var(--accent)',
   accent: '#F9F7F7',
   text: {
     primary: '#112D4E',

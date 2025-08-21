@@ -1,0 +1,91 @@
+/* Tailwind CSS utility classes for accent colors */
+/* Import this file in globals.css to use these classes */
+
+@layer utilities {
+
+  /* Background utilities */
+  .bg-accent {
+    background-color: var(--accent);
+  }
+
+  .bg-accent-light {
+    background-color: var(--accent-light);
+  }
+
+  .bg-accent-dark {
+    background-color: var(--accent-dark);
+  }
+
+  .bg-accent-alpha-10 {
+    background-color: var(--accent-alpha-10);
+  }
+
+  .bg-accent-alpha-20 {
+    background-color: var(--accent-alpha-20);
+  }
+
+  .bg-accent-alpha-50 {
+    background-color: var(--accent-alpha-50);
+  }
+
+  /* Text utilities */
+  .text-accent {
+    color: var(--accent);
+  }
+
+  .text-accent-light {
+    color: var(--accent-light);
+  }
+
+  .text-accent-dark {
+    color: var(--accent-dark);
+  }
+
+  /* Border utilities */
+  .border-accent {
+    border-color: var(--accent);
+  }
+
+  .border-accent-light {
+    border-color: var(--accent-light);
+  }
+
+  .border-accent-dark {
+    border-color: var(--accent-dark);
+  }
+
+  /* Hover utilities */
+  .hover\:bg-accent:hover {
+    background-color: var(--accent);
+  }
+
+  .hover\:bg-accent-light:hover {
+    background-color: var(--accent-light);
+  }
+
+  .hover\:bg-accent-dark:hover {
+    background-color: var(--accent-dark);
+  }
+
+  .hover\:text-accent:hover {
+    color: var(--accent);
+  }
+
+  .hover\:border-accent:hover {
+    border-color: var(--accent);
+  }
+
+  /* Focus utilities */
+  .focus\:ring-accent:focus {
+    --tw-ring-color: var(--accent);
+  }
+
+  .focus\:border-accent:focus {
+    border-color: var(--accent);
+  }
+
+  /* Ring utilities */
+  .ring-accent {
+    --tw-ring-color: var(--accent);
+  }
+}

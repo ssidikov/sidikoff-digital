@@ -30,7 +30,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <div className='mt-8 pt-6 border-t'>
               <Link
                 href='/projects'
-                className='text-[#3377FF] hover:text-[#2563eb] transition-colors'>
+                className='text-accent hover:text-accent-dark transition-colors'>
                 ← Back to Projects
               </Link>
             </div>

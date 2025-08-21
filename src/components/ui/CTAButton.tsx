@@ -59,11 +59,11 @@ const CTAButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, CTABut
 
     const variants = {
       primary:
-        'bg-[#3377FF] text-white hover:bg-[#2563eb] hover:text-white border border-[#3377FF] focus:ring-[#3377FF] shadow-lg hover:shadow-xl',
+        'bg-accent text-white hover:bg-[var(--accent-dark)] hover:text-white border border-accent focus:ring-accent shadow-lg hover:shadow-xl',
       secondary:
-        'bg-transparent text-[#3377FF] hover:bg-[#3377FF] hover:text-white border border-[#3377FF] focus:ring-[#3377FF]',
+        'bg-transparent text-accent border border-accent hover:bg-accent hover:!text-white focus:ring-accent cta-button-secondary',
       outline:
-        'border-2 border-[#3377FF] text-[#3377FF] hover:bg-[#3377FF] hover:text-white focus:ring-[#3377FF]',
+        'border-2 border-accent text-accent hover:bg-accent hover:!text-white focus:ring-accent cta-button-outline',
     }
 
     const sizes = {

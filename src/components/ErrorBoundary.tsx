@@ -39,12 +39,12 @@ export class ErrorBoundary extends Component<Props, State> {
               Oops! Quelque chose s&apos;est mal passé
             </h1>
             <p className='text-gray-600 mb-6'>
-              Une erreur inattendue s&apos;est produite. Veuillez rafraîchir la page ou réessayer plus
-              tard.
+              Une erreur inattendue s&apos;est produite. Veuillez rafraîchir la page ou réessayer
+              plus tard.
             </p>
             <button
               onClick={() => window.location.reload()}
-              className='bg-[#3377FF] text-white px-6 py-3 rounded-lg hover:bg-[#2563eb] transition-colors'>
+              className='bg-accent text-white px-6 py-3 rounded-lg hover:bg-accent-dark transition-colors'>
               Rafraîchir la page
             </button>
           </div>

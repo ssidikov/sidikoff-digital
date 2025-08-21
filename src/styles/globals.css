@@ -1,9 +1,10 @@
 @import "tailwindcss";
 @import "../styles/section-backgrounds.css";
 @import "../styles/mobile-viewport.css";
+@import "../styles/tailwind-accent.css";
 
 :root {
-  /* New Color System - Only 4 colors allowed */
+  /* Primary Color System */
   --background: #F9F7F7;
   /* Primary background - light cream */
   --foreground: #112D4E;
@@ -12,8 +13,6 @@
   /* Primary actions, links - medium blue */
   --secondary: #DBE2EF;
   /* Secondary backgrounds - light blue-gray */
-  --accent: #3F72AF;
-  /* Accent color - same as primary */
   --muted: #DBE2EF;
   /* Muted backgrounds - light blue-gray */
   --border: #DBE2EF;
@@ -23,13 +22,29 @@
   --shadow: 0 4px 6px -1px rgb(17 45 78 / 0.1);
   /* Shadow with primary color */
 
+  /* Accent Color System */
+  --accent: #3377FF;
+  /* Main accent color - used for hover states, active elements */
+  --accent-light: #5B9BFF;
+  /* Lighter variant for subtle hover effects */
+  --accent-dark: #1A5CE6;
+  /* Darker variant for pressed states */
+  --accent-alpha-10: rgba(51, 119, 255, 0.1);
+  /* 10% opacity for subtle backgrounds */
+  --accent-alpha-20: rgba(51, 119, 255, 0.2);
+  /* 20% opacity for hover backgrounds */
+  --accent-alpha-50: rgba(51, 119, 255, 0.5);
+  /* 50% opacity for overlays */
+
   /* Semantic color mappings */
-  --text-primary: #112D4E;
-  --text-secondary: #3F72AF;
-  --bg-primary: #F9F7F7;
-  --bg-secondary: #DBE2EF;
-  --color-primary: #3F72AF;
-  --color-secondary: #DBE2EF;
+  --text-primary: var(--foreground);
+  --text-secondary: var(--accent);
+  --text-accent: var(--accent);
+  --bg-primary: var(--background);
+  --bg-secondary: var(--secondary);
+  --bg-accent: var(--accent);
+  --bg-accent-light: var(--accent-alpha-10);
+  --bg-accent-hover: var(--accent-alpha-20);
 }
 
 body {
@@ -196,11 +211,11 @@ body {
 }
 
 
-/* Custom component styles using our 4-color system */
+/* Custom component styles using CSS variables */
 .btn-primary {
-  background-color: #3F72AF;
+  background-color: var(--accent);
   color: white;
-  border: 2px solid #3F72AF;
+  border: 2px solid var(--accent);
   padding: 12px 24px;
   border-radius: 12px;
   font-weight: 600;
@@ -208,16 +223,16 @@ body {
 }
 
 .btn-primary:hover {
-  background-color: #112D4E;
-  border-color: #112D4E;
+  background-color: var(--accent-dark);
+  border-color: var(--accent-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(63, 114, 175, 0.3);
+  box-shadow: 0 8px 25px var(--accent-alpha-50);
 }
 
 .btn-secondary {
   background-color: transparent;
-  color: #3F72AF;
-  border: 2px solid #3F72AF;
+  color: var(--accent);
+  border: 2px solid var(--accent);
   padding: 12px 24px;
   border-radius: 12px;
   font-weight: 600;
@@ -225,10 +240,50 @@ body {
 }
 
 .btn-secondary:hover {
-  background-color: #3F72AF;
-  color: white;
+  background-color: var(--accent);
+  color: white !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(63, 114, 175, 0.2);
+  box-shadow: 0 8px 25px var(--accent-alpha-20);
+}
+
+/* CTA Button hover states with higher specificity */
+.cta-button-secondary:hover {
+  background-color: var(--accent) !important;
+  color: white !important;
+}
+
+.cta-button-outline:hover {
+  background-color: var(--accent) !important;
+  color: white;
+}
+
+/* Special banner button that doesn't change colors on hover */
+.banner-button-white {
+  background-color: white !important;
+  color: var(--accent) !important;
+  border-color: white !important;
+}
+
+.banner-button-white:hover {
+  background-color: white !important;
+  color: var(--accent) !important;
+  border-color: #e5e7eb !important;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1) !important;
+}
+
+/* Override CTA button outline variant for banner button */
+.banner-button-white.cta-button-outline:hover {
+  background-color: white !important;
+  color: var(--accent) !important;
+  border-color: #e5e7eb !important;
+}
+
+/* Additional override with higher specificity */
+button.banner-button-white:hover,
+a.banner-button-white:hover {
+  background-color: white !important;
+  color: var(--accent) !important;
+  border-color: #e5e7eb !important;
 }
 
 .card {
@@ -246,19 +301,52 @@ body {
 
 /* Section background utilities */
 .bg-primary {
-  background-color: #F9F7F7;
+  background-color: var(--bg-primary);
 }
 
 .bg-secondary {
-  background-color: #DBE2EF;
+  background-color: var(--bg-secondary);
 }
 
 .text-primary {
-  color: #112D4E;
+  color: var(--text-primary);
 }
 
 .text-secondary {
-  color: #3F72AF;
+  color: var(--text-secondary);
+}
+
+/* Accent color utilities */
+.bg-accent {
+  background-color: var(--bg-accent);
+}
+
+.bg-accent-light {
+  background-color: var(--bg-accent-light);
+}
+
+.bg-accent-hover {
+  background-color: var(--bg-accent-hover);
+}
+
+.text-accent {
+  color: var(--text-accent);
+}
+
+.border-accent {
+  border-color: var(--accent);
+}
+
+.hover\:bg-accent:hover {
+  background-color: var(--accent);
+}
+
+.hover\:text-accent:hover {
+  color: var(--accent);
+}
+
+.hover\:border-accent:hover {
+  border-color: var(--accent);
 }
 
 /* Glass morphism effects */

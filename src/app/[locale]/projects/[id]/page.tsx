@@ -68,7 +68,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className='max-w-7xl mx-auto mb-12 pt-24 lg:pt-32'>
           <div className='text-center mb-4'>
             <div className='flex justify-center flex-wrap gap-2 mb-6'>
-              <span className='px-4 py-2 bg-[#3377FF]/10 text-[#3377FF] rounded-full text-sm font-medium'>
+              <span className='px-4 py-2 bg-accent-alpha-10 text-accent rounded-full text-sm font-medium'>
                 {project.category}
               </span>
               {project.featured && (
@@ -129,9 +129,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   'rgba(255, 255, 255, 0.2) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
               }}>
               <div className='flex items-center gap-3 mb-6'>
-                <div className='w-12 h-12 bg-[#3377FF]/10 rounded-xl flex items-center justify-center'>
+                <div className='w-12 h-12 bg-accent-alpha-10 rounded-xl flex items-center justify-center'>
                   <svg
-                    className='w-6 h-6 text-[#3377FF]'
+                    className='w-6 h-6 text-accent'
                     fill='none'
                     stroke='currentColor'
                     viewBox='0 0 24 24'>

@@ -54,7 +54,7 @@ export default function PricingCard({
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true }}
       className={`relative w-full h-full flex flex-col min-h-[600px] pb-5 sm:pb-6 3xl:pb-8 ${cardStyles.card} ${
-        isHighlighted ? 'ring-4 ring-[#3377FF]/20' : ''
+        isHighlighted ? 'border-2 border-accent' : ''
       }`}
       role='article'
       aria-labelledby={`pricing-${name.toLowerCase()}-title`}
@@ -62,7 +62,7 @@ export default function PricingCard({
       {/* Badge populaire */}
       {isPopular && (
         <div className='absolute -top-4 left-1/2 transform -translate-x-1/2'>
-          <div className='bg-black text-white px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg'>
+          <div className='bg-accent text-white px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg'>
             <StarIcon className='w-4 h-4' />
             Populaire
           </div>
@@ -119,7 +119,7 @@ export default function PricingCard({
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 + featureIndex * 0.05 }}
                   viewport={{ once: true }}
-                  className='text-center p-4 bg-gradient-to-r from-white/50 to-white/40 rounded-xl border border-[#3377FF]/10'>
+                  className='text-center p-4 bg-gradient-to-r from-white/50 to-white/40 rounded-xl border border-accent-alpha-10'>
                   <span className='text-base font-medium italic text-gray-700'>{feature.text}</span>
                 </motion.div>
               ))}
