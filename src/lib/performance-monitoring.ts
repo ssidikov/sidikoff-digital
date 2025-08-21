@@ -24,11 +24,14 @@ export function initPerformanceMonitoring() {
     // Largest Contentful Paint
     const lcpObserver = new PerformanceObserver((list) => {
       const entries = list.getEntries()
-      const lastEntry = entries[entries.length - 1] as PerformanceEntry & { renderTime: number; loadTime: number }
-      
+      const lastEntry = entries[entries.length - 1] as PerformanceEntry & {
+        renderTime: number
+        loadTime: number
+      }
+
       // Log LCP for analytics
       console.log('LCP:', lastEntry.renderTime || lastEntry.loadTime)
-      
+
       // You can send this to your analytics service
       // sendToAnalytics('lcp', lastEntry.renderTime || lastEntry.loadTime)
     })
@@ -64,12 +67,12 @@ export function initPerformanceMonitoring() {
   // Monitor page load metrics
   window.addEventListener('load', () => {
     const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming
-    
+
     const metrics: PageLoadMetrics = {
       loadTime: navigation.loadEventEnd - navigation.loadEventStart,
       domContentLoaded: navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart,
       firstPaint: 0,
-      firstContentfulPaint: 0
+      firstContentfulPaint: 0,
     }
 
     // Get paint metrics
@@ -97,10 +100,10 @@ export function measureRenderTime<T extends (...args: unknown[]) => unknown>(
     const start = performance.now()
     const result = fn(...args)
     const end = performance.now()
-    
+
     console.log(`${componentName} render time: ${end - start}ms`)
     // sendToAnalytics('componentRender', { name: componentName, time: end - start })
-    
+
     return result
   }) as T
 }
@@ -118,7 +121,7 @@ export function monitorBundleLoading() {
       }
     })
   })
-  
+
   observer.observe({ entryTypes: ['resource'] })
 }
 
@@ -132,13 +135,17 @@ export function preferReducedMotion(): boolean {
 export function monitorMemoryUsage() {
   if (typeof window === 'undefined') return
 
-  const memory = (performance as unknown as { memory?: { usedJSHeapSize: number; totalJSHeapSize: number; jsHeapSizeLimit: number } }).memory
+  const memory = (
+    performance as unknown as {
+      memory?: { usedJSHeapSize: number; totalJSHeapSize: number; jsHeapSizeLimit: number }
+    }
+  ).memory
   if (!memory) return
-  
+
   console.log('Memory Usage:', {
     used: Math.round(memory.usedJSHeapSize / 1048576) + ' MB',
     total: Math.round(memory.totalJSHeapSize / 1048576) + ' MB',
-    limit: Math.round(memory.jsHeapSizeLimit / 1048576) + ' MB'
+    limit: Math.round(memory.jsHeapSizeLimit / 1048576) + ' MB',
   })
 }
 
@@ -149,19 +156,22 @@ export function throttle<T extends (...args: unknown[]) => void>(
 ): (...args: Parameters<T>) => void {
   let timeoutId: NodeJS.Timeout | null = null
   let lastExecTime = 0
-  
+
   return (...args: Parameters<T>) => {
     const currentTime = Date.now()
-    
+
     if (currentTime - lastExecTime > delay) {
       func(...args)
       lastExecTime = currentTime
     } else {
       if (timeoutId) clearTimeout(timeoutId)
-      timeoutId = setTimeout(() => {
-        func(...args)
-        lastExecTime = Date.now()
-      }, delay - (currentTime - lastExecTime))
+      timeoutId = setTimeout(
+        () => {
+          func(...args)
+          lastExecTime = Date.now()
+        },
+        delay - (currentTime - lastExecTime)
+      )
     }
   }
 }
@@ -173,13 +183,13 @@ export function monitorImageLoading() {
   const images = document.querySelectorAll('img')
   images.forEach((img, index) => {
     const start = performance.now()
-    
+
     img.onload = () => {
       const end = performance.now()
       console.log(`Image ${index} loaded in ${end - start}ms`)
       // sendToAnalytics('imageLoad', { index, time: end - start, src: img.src })
     }
-    
+
     img.onerror = () => {
       console.error(`Failed to load image ${index}: ${img.src}`)
       // sendToAnalytics('imageError', { index, src: img.src })
@@ -189,7 +199,6 @@ export function monitorImageLoading() {
 
 // Placeholder for analytics integration
 // function sendToAnalytics(event: string, data: any) {
-//   // Integration with Google Analytics, Vercel Analytics, etc.
-//   // gtag('event', event, data)
+//   // Future analytics integration can be added here
 //   // analytics.track(event, data)
 // }

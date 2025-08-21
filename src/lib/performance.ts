@@ -14,13 +14,7 @@ export function reportWebVitals(metric: WebVitalsMetric) {
 
   // Send to analytics service in production
   if (process.env.NODE_ENV === 'production') {
-    // Example: Send to Google Analytics, Vercel Analytics, etc.
-    // gtag('event', metric.name, {
-    //   value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
-    //   event_category: 'Web Vitals',
-    //   event_label: metric.id,
-    //   non_interaction: true,
-    // })
+    // Future analytics implementation can be added here
   }
 }
 
@@ -87,11 +81,7 @@ export function registerServiceWorker() {
 export function loadThirdPartyScripts() {
   // Load analytics scripts after user interaction
   const loadAnalytics = () => {
-    // Example: Load Google Analytics
-    // const script = document.createElement('script')
-    // script.src = 'https://www.google-analytics.com/gtag/js?id=GA_MEASUREMENT_ID'
-    // script.async = true
-    // document.head.appendChild(script)
+    // Future analytics implementation can be added here
 
     // Remove event listeners after loading
     document.removeEventListener('scroll', loadAnalytics)

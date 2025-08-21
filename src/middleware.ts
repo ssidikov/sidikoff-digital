@@ -90,11 +90,11 @@ function enhanceResponse(response: NextResponse, pathname?: string) {
   `
       : `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://googleads.g.doubleclick.net https://va.vercel-scripts.com;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://va.vercel-scripts.com;
     style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data: https://www.google-analytics.com https://ssl.google-analytics.com https://googleads.g.doubleclick.net https://www.googletagmanager.com https://www.google.com;
+    img-src 'self' blob: data:;
     font-src 'self';
-    connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://ssl.google-analytics.com https://googleads.g.doubleclick.net https://vitals.vercel-insights.com https://www.google.com https://region1.google-analytics.com https://region1.analytics.google.com;
+    connect-src 'self' https://vitals.vercel-insights.com;
     frame-src 'none';
     object-src 'none';
     base-uri 'self';

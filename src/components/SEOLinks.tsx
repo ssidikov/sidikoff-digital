@@ -39,7 +39,6 @@ export default function SEOLinks({ locale }: SEOLinksProps) {
 
       {/* DNS Prefetch for external resources */}
       <link rel='dns-prefetch' href='//fonts.googleapis.com' />
-      <link rel='dns-prefetch' href='//www.google-analytics.com' />
 
       {/* Preconnect for faster loading */}
       <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
