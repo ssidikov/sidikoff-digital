@@ -1815,7 +1815,7 @@ export function generateLocalBusinessSchema(
   const baseSchema = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    '@id': `${business.url}#LocalBusiness`,
+    '@id': `${business.url}#LocalBusiness-${business.address.addressLocality.toLowerCase().replace(/\s+/g, '-')}`,
     name: business.name,
     description: `Développeur Web Full Stack spécialisé en React, Next.js, TypeScript. Solutions de développement web modernes et performantes pour entreprises et startups.`,
     url: business.url,
@@ -1871,7 +1871,11 @@ export function generateLocalBusinessSchema(
       '@type': 'Person',
       name: 'Sardorbek SIDIKOV',
       jobTitle: 'Développeur Web Full Stack',
-      worksFor: business.name,
+      worksFor: {
+        '@type': 'Organization',
+        '@id': `${business.url}#LocalBusiness-${business.address.addressLocality.toLowerCase().replace(/\s+/g, '-')}`,
+        name: business.name,
+      },
       sameAs: ['https://github.com/ssidikov', 'https://linkedin.com/in/sardorbeksidikov'],
     },
   }
