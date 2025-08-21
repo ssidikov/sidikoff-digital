@@ -1836,8 +1836,8 @@ export function generateLocalBusinessSchema(
       name: area,
     })),
     sameAs: [
-      'https://github.com/sidikoff',
-      'https://linkedin.com/in/sidikoff',
+      'https://github.com/ssidikov',
+      'https://linkedin.com/in/sardorbeksidikov',
       'https://twitter.com/sidikoffdigital',
     ],
     serviceArea: {
