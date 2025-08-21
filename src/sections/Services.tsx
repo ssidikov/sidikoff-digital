@@ -155,7 +155,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
           viewport={{ once: true }}
           className='mt-20'>
           {/* Full Screen Banner */}
-          <div className='relative w-full h-screen bg-[#3377FF] flex items-center justify-center overflow-hidden rounded-3xl'>
+          <div className='relative w-full py-8 md:h-screen bg-[#3377FF] flex items-center justify-center overflow-hidden rounded-md'>
             {/* Centered Content */}
             <div className='text-center max-w-4xl mx-auto px-6 lg:px-8'>
               <motion.h2
@@ -163,7 +163,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className='text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 lg:mb-8 leading-tight'>
+                className='text-2xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 lg:mb-8 leading-tight'>
                 {dict.cta_banner.background}
               </motion.h2>
 
@@ -172,7 +172,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: true }}
-                className='text-xl lg:text-2xl text-white/90 leading-relaxed mb-12 lg:mb-16 max-w-3xl mx-auto'>
+                className='text-base lg:text-2xl text-white/90 leading-relaxed mb-12 lg:mb-16 max-w-3xl mx-auto'>
                 {dict.cta_banner.description}
               </motion.p>
 
@@ -182,12 +182,14 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
                 transition={{ duration: 0.6, delay: 0.6 }}
                 viewport={{ once: true }}
                 className='flex justify-center'>
-                <button
+                <CTAButton
+                  variant='outline'
+                  size='lg'
+                  className='bg-white text-[#3377FF] hover:bg-white hover:text-[#3377FF]! hover:shadow-xl border-white hover:border-gray-100 transform'
                   onClick={() => {
                     const contactUrl = `/${locale === 'fr' ? '' : locale + '/'}contact`
                     window.location.href = contactUrl
-                  }}
-                  className='group relative bg-white text-[#3377FF] hover:bg-gray-50 hover:shadow-xl px-8 lg:px-12 py-4 lg:py-6 rounded-full text-lg lg:text-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:-translate-y-1'>
+                  }}>
                   <span className='flex items-center gap-3'>
                     <span>{dict.cta_banner.cta}</span>
                     <svg
@@ -203,9 +205,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
                       />
                     </svg>
                   </span>
-                  {/* Hover effect underline */}
-                  <div className='absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-[#3377FF] transition-all duration-300 group-hover:w-full rounded-full'></div>
-                </button>
+                </CTAButton>
               </motion.div>
             </div>
           </div>

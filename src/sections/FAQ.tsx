@@ -78,10 +78,7 @@ const faqData: FAQItem[] = [
   },
 ]
 
-const categories = ['tous', 'développement', 'maintenance', 'technique', 'design', 'gestion']
-
 export const FAQ = ({ dictionary, className }: FAQProps) => {
-  const [selectedCategory, setSelectedCategory] = useState('tous')
   const [openItems, setOpenItems] = useState<Set<string>>(new Set())
 
   // Get FAQ data from dictionary or fallback to static data
@@ -99,39 +96,10 @@ export const FAQ = ({ dictionary, className }: FAQProps) => {
 
   const faqItems = getFAQData()
 
-  // Get categories from dictionary or use defaults
-  const getCategories = () => {
-    if (dictionary?.categories) {
-      return [
-        'tous',
-        dictionary.categories.general || 'général',
-        dictionary.categories.pricing || 'tarification',
-        dictionary.categories.support || 'support',
-      ]
-    }
-    return categories
-  }
-
-  const filteredFAQ =
-    selectedCategory === 'tous'
-      ? faqItems
-      : faqItems.filter((item) => {
-          if (dictionary?.categories) {
-            // Map English categories to display categories
-            const categoryMap: { [key: string]: string } = {
-              general: dictionary.categories.general || 'général',
-              pricing: dictionary.categories.pricing || 'tarification',
-              support: dictionary.categories.support || 'support',
-            }
-            return categoryMap[item.category] === selectedCategory
-          }
-          return item.category === selectedCategory
-        })
-
   // Calculate split points consistently to prevent hydration issues
-  const midPoint = Math.floor(filteredFAQ.length / 2)
-  const firstHalf = filteredFAQ.slice(0, midPoint)
-  const secondHalf = filteredFAQ.slice(midPoint)
+  const midPoint = Math.floor(faqItems.length / 2)
+  const firstHalf = faqItems.slice(0, midPoint)
+  const secondHalf = faqItems.slice(midPoint)
 
   const toggleItem = (id: string) => {
     const newOpenItems = new Set(openItems)
@@ -161,27 +129,6 @@ export const FAQ = ({ dictionary, className }: FAQProps) => {
           titleId='faq-title'
           className='text-left mb-10 md:mb-16'
         />
-
-        {/* Category Filter */}
-        <div className='w-full mb-12'>
-          <div className='flex flex-wrap gap-2.5'>
-            {getCategories().map((category, index) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`text-base cursor-pointer rounded-xl px-3 md:px-6 transition-all duration-300 outline-none focus:ring-0 h-12 md:h-[60px] ${
-                  index === getCategories().length - 1 ? 'mr-[30px]' : ''
-                } ${
-                  selectedCategory === category
-                    ? 'text-white bg-black border border-transparent hover:bg-transparent hover:text-black hover:border-black'
-                    : 'text-black border border-black hover:bg-black hover:text-white'
-                }`}
-                tabIndex={0}>
-                #{category.charAt(0).toUpperCase() + category.slice(1)}
-              </button>
-            ))}
-          </div>
-        </div>
 
         {/* FAQ Items */}
         <div className='flex flex-col xl:flex-row gap-x-10 gap-y-2.5 h-auto'>
