@@ -62,14 +62,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const dict = await getDictionary(locale)
 
   return (
-    <Section
-      id='project-detail'
-      variant='project-detail'
-      padding='xl'
-      contentWidth='wide'>
+    <Section id='project-detail' variant='project-detail' padding='xl' contentWidth='wide'>
       <div className='relative z-10'>
         {/* Project Header */}
-        <div className='max-w-7xl mx-auto mb-12 mt-8'>
+        <div className='max-w-7xl mx-auto mb-12 pt-24 lg:pt-32'>
           <div className='text-center mb-4'>
             <div className='flex justify-center flex-wrap gap-2 mb-6'>
               <span className='px-4 py-2 bg-[#3377FF]/10 text-[#3377FF] rounded-full text-sm font-medium'>
