@@ -30,7 +30,7 @@ export function preloadCriticalResources() {
   const criticalImages = [
     '/images/hero/hero-bg.webp',
     '/logo-sidikoff.webp',
-    '/images/og-homepage.jpg'
+    '/images/og-homepage.jpg',
   ]
 
   criticalImages.forEach((imageSrc) => {
@@ -89,7 +89,7 @@ export function loadThirdPartyScripts() {
   const loadAnalytics = () => {
     // Example: Load Google Analytics
     // const script = document.createElement('script')
-    // script.src = 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID'
+    // script.src = 'https://www.google-analytics.com/gtag/js?id=GA_MEASUREMENT_ID'
     // script.async = true
     // document.head.appendChild(script)
 

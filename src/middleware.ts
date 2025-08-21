@@ -78,7 +78,7 @@ function enhanceResponse(response: NextResponse, pathname?: string) {
     : isStudio
       ? `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline';
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data: https://cdn.sanity.io;
     font-src 'self' data:;
@@ -95,7 +95,7 @@ function enhanceResponse(response: NextResponse, pathname?: string) {
     img-src 'self' blob: data: https://www.google-analytics.com https://ssl.google-analytics.com https://googleads.g.doubleclick.net https://www.googletagmanager.com https://www.google.com;
     font-src 'self';
     connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://ssl.google-analytics.com https://googleads.g.doubleclick.net https://vitals.vercel-insights.com https://www.google.com https://region1.google-analytics.com https://region1.analytics.google.com;
-    frame-src https://www.googletagmanager.com;
+    frame-src 'none';
     object-src 'none';
     base-uri 'self';
     form-action 'self';
