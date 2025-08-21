@@ -103,9 +103,9 @@ const gradientStyles = {
 const paddingStyles = {
   none: '',
   sm: 'px-4 sm:px-6 py-12',
-  md: 'px-4 sm:px-4 lg:px-8 py-16',
-  lg: 'px-4 sm:px-4 lg:px-24 py-20',
-  xl: 'px-4 sm:px-4 lg:px-16 py-24',
+  md: 'px-4 sm:px-4 xl:px-8 py-16',
+  lg: 'px-4 sm:px-4 xl:px-24 py-20',
+  xl: 'px-4 sm:px-4 xl:px-16 py-24',
   hero: 'pt-12 xl:pt-0 px-4 sm:px-6 lg:px-8',
 } as const
 

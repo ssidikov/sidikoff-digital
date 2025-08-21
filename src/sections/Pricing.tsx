@@ -185,18 +185,9 @@ export default function Pricing({ locale, className }: PricingProps) {
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
           className='flex flex-wrap justify-center gap-4 mb-8'>
-          <div
-            className='px-6 py-3 rounded-full shadow-md flex items-center gap-2 text-green-500 p-4 border-2 transition-all duration-300'
-            style={{
-              background:
-                'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%)',
-              backdropFilter: 'blur(20px) saturate(120%)',
-              border: '2px solid rgba(255, 255, 255, 0.4)',
-              boxShadow:
-                'rgba(255, 255, 255, 0.2) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
-            }}>
-            <CheckIcon className='w-3 h-3 bg-green-200 rounded-full' />
-            <span className='text-sm font-medium text-gray-700'>
+          <div className='px-6 py-3 rounded-full flex items-center gap-2 bg-blue-100/60 text-green-500 p-4'>
+            <CheckIcon className='w-4 h-4 bg-green-200 rounded-full' />
+            <span className='text-sm md:text-base font-medium text-[#3377FF]'>
               {dict?.pricing?.guarantee_badge || 'Résultats garantis • Livraison garantie'}
             </span>
           </div>
@@ -377,18 +368,9 @@ export function PricingContent({ locale }: PricingProps) {
         transition={{ duration: 0.5, delay: 0.2 }}
         viewport={{ once: true }}
         className='flex flex-wrap justify-center gap-4 mb-8'>
-        <div
-          className='px-6 py-3 rounded-full shadow-md flex items-center gap-2 text-green-500 p-4 border-2 transition-all duration-300'
-          style={{
-            background:
-              'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%)',
-            backdropFilter: 'blur(20px) saturate(120%)',
-            border: '2px solid rgba(255, 255, 255, 0.4)',
-            boxShadow:
-              'rgba(255, 255, 255, 0.2) 0px 8px 32px, inset 0 1px 0 rgba(255, 255, 255, 0.5)',
-          }}>
+        <div className='px-6 py-3 rounded-full shadow-md flex items-center gap-2 bg-[#EBF2FF] text-green-500 p-4 transition-all duration-300'>
           <CheckIcon className='w-3 h-3 bg-green-200 rounded-full' />
-          <span className='text-sm font-medium text-gray-700'>
+          <span className='text-base font-medium text-[#3377FF]'>
             {dict?.pricing?.guarantee_badge || 'Résultats garantis • Livraison garantie'}
           </span>
         </div>

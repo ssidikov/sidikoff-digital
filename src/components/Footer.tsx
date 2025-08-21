@@ -90,23 +90,26 @@ export function Footer({ dictionary, locale }: FooterProps) {
 
       {/* Bottom Section */}
       <div className='border-t border-gray-200 pt-8'>
-        <div className='flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-6 lg:space-y-0'>
+        <div className='flex flex-col lg:flex-row justify-between items-center lg:items-center space-y-6 lg:space-y-0'>
           {/* Copyright and Legal */}
-          <div className='flex flex-col lg:flex-row lg:items-center lg:space-x-8 space-y-4 lg:space-y-0'>
-            <div className='text-sm text-gray-600'>
-              © 2025 Tous droits réservés | SIDIKOFF DIGITAL | Agence web Paris - Toulouse |
-              Développeur web freelance
-            </div>
-            <div className='flex space-x-6'>
-              {legalLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className='text-sm text-gray-600 hover:opacity-70 transition-opacity duration-200 uppercase'>
-                  {link.name}
-                </Link>
-              ))}
-            </div>
+
+          <div className='hidden lg:block text-sm text-gray-600'>
+            © Copyright 2025 | SIDIKOFF DIGITAL | Agence web | Création de sites web | Développeur
+            web freelance
+          </div>
+          <div className='lg:hidden text-sm text-center text-gray-600'>
+            Agence web | Création de sites web <br /> Développeur web freelance
+          </div>
+          <div className='space-x-6 text-center'>
+            {legalLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className='text-sm text-gray-600 hover:opacity-70 transition-opacity duration-200 uppercase'>
+                {link.name}
+                <p className='md:hidden'>© Copyright 2025 | SIDIKOFF DIGITAL</p>
+              </Link>
+            ))}
           </div>
         </div>
       </div>

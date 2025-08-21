@@ -476,7 +476,7 @@ export default function PortfolioCarousel({
       contentWidth='full'
       className='portfolio-carousel py-20 pt-40'>
       <div className='relative z-10'>
-        <div className='max-w-8xl mx-auto px-4 sm:px-4 lg:px-24 relative z-10'>
+        <div className='max-w-8xl mx-auto px-4 sm:px-4 xl:px-24 relative z-10'>
           <SectionHeader
             title={title || 'Portfolio'}
             subtitle={
