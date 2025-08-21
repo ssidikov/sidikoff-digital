@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { cn } from '@/utils/styles'
-import useAnalytics from '@/hooks/useAnalytics'
+import { useAnalytics } from '@/hooks/useAnalytics'
 
 interface CTAButtonProps {
   href?: string
