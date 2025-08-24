@@ -22,7 +22,6 @@ interface SectionProps {
     | 'faq'
     | 'pricing'
     | 'blog'
-    | 'compact'
     | 'project-detail'
   padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl'
   contentWidth?: 'narrow' | 'normal' | 'wide' | 'full'
@@ -43,7 +42,6 @@ const variantStyles = {
   faq: 'py-4',
   pricing: 'py-4',
   blog: '',
-  compact: '',
   'project-detail': 'min-h-screen-stable py-4',
 } as const
 
