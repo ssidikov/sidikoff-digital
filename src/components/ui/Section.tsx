@@ -42,7 +42,7 @@ const variantStyles = {
   contact: 'py-4',
   faq: 'py-4',
   pricing: 'py-4',
-  blog: 'py-4',
+  blog: '',
   compact: '',
   'project-detail': 'min-h-screen-stable py-4',
 } as const
