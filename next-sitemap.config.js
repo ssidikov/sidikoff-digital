@@ -1,4 +1,58 @@
 /** @type {import('next-sitemap').IConfig} */
+
+// Import SEO locations from our seo-utils
+const path = require('path')
+const fs = require('fs')
+
+// Function to extract all slugs from SEO_LOCATIONS
+function getAllSEOSlugs() {
+  try {
+    // Read the seo-utils file content
+    const seoUtilsPath = path.join(__dirname, 'src/lib/seo-utils.ts')
+    const content = fs.readFileSync(seoUtilsPath, 'utf8')
+
+    // Extract all slug values using regex
+    const slugMatches = content.match(/slug:\s*['"`]([^'"`]+)['"`]/g)
+
+    if (slugMatches) {
+      return slugMatches
+        .map((match) => {
+          const slugMatch = match.match(/slug:\s*['"`]([^'"`]+)['"`]/)
+          return slugMatch ? slugMatch[1] : null
+        })
+        .filter(Boolean)
+    }
+
+    return []
+  } catch (error) {
+    console.warn('Could not extract SEO slugs, falling back to basic list:', error.message)
+    // Fallback to basic cities if extraction fails
+    return [
+      'paris',
+      'marseille',
+      'lyon',
+      'toulouse',
+      'nice',
+      'nantes',
+      'montpellier',
+      'strasbourg',
+      'bordeaux',
+      'lille',
+      'rennes',
+      'reims',
+      'toulon',
+      'saint-etienne',
+      'le-havre',
+      'grenoble',
+      'dijon',
+      'angers',
+      'nimes',
+      'la-rochelle',
+      'noisy-le-grand',
+    ]
+  }
+}
+
 module.exports = {
   siteUrl: 'https://www.sidikoff.com',
   generateRobotsTxt: true,
@@ -11,161 +65,77 @@ module.exports = {
     const paths = []
     const routes = ['', '/contact', '/projects', '/services', '/mentions-legales', '/blog']
 
-    // French Regions - All 18 regions of France
-    const FRENCH_REGIONS = [
-      { slug: 'ile-de-france' },
-      { slug: 'auvergne-rhone-alpes' },
-      { slug: 'nouvelle-aquitaine' },
-      { slug: 'occitanie' },
-      { slug: 'hauts-de-france' },
-      { slug: 'grand-est' },
-      { slug: 'provence-alpes-cote-azur' },
-      { slug: 'bretagne' },
-      { slug: 'pays-de-la-loire' },
-      { slug: 'normandie' },
-      { slug: 'bourgogne-franche-comte' },
-      { slug: 'centre-val-de-loire' },
-      { slug: 'corse' },
-      { slug: 'guadeloupe' },
-      { slug: 'martinique' },
-      { slug: 'guyane' },
-      { slug: 'la-reunion' },
-      { slug: 'mayotte' },
-    ]
+    // Get all SEO slugs dynamically from seo-utils.ts
+    const allSEOSlugs = getAllSEOSlugs()
+    console.log(`Found ${allSEOSlugs.length} SEO locations for sitemap generation`)
 
-    // Major French Cities - 36 largest cities
-    const FRENCH_CITIES = [
-      { slug: 'paris' },
-      { slug: 'marseille' },
-      { slug: 'lyon' },
-      { slug: 'toulouse' },
-      { slug: 'nice' },
-      { slug: 'nantes' },
-      { slug: 'montpellier' },
-      { slug: 'strasbourg' },
-      { slug: 'bordeaux' },
-      { slug: 'lille' },
-      { slug: 'rennes' },
-      { slug: 'reims' },
-      { slug: 'saint-etienne' },
-      { slug: 'toulon' },
-      { slug: 'le-havre' },
-      { slug: 'grenoble' },
-      { slug: 'dijon' },
-      { slug: 'angers' },
-      { slug: 'nimes' },
-      { slug: 'villeurbanne' },
-      { slug: 'saint-denis-reunion' },
-      { slug: 'aix-en-provence' },
-      { slug: 'clermont-ferrand' },
-      { slug: 'brest' },
-      { slug: 'limoges' },
-      { slug: 'tours' },
-      { slug: 'amiens' },
-      { slug: 'perpignan' },
-      { slug: 'metz' },
-      { slug: 'besancon' },
-      { slug: 'boulogne-billancourt' },
-      { slug: 'orleans' },
-      { slug: 'mulhouse' },
-      { slug: 'rouen' },
-      { slug: 'caen' },
-      { slug: 'nancy' },
-    ]
+    // Generate paths for all supported locales and routes
+    const locales = ['en', 'ru'] // Removed 'fr' since it's the default locale without prefix
+    const priorities = {
+      default: { '': 1.0, '/contact': 0.9, '/projects': 0.9, '/services': 0.9, '/seo': 0.8 },
+      en: { '': 0.8, '/contact': 0.7, '/projects': 0.7, '/services': 0.7, '/seo': 0.6 },
+      ru: { '': 0.8, '/contact': 0.7, '/projects': 0.7, '/services': 0.7, '/seo': 0.6 },
+    }
 
-    // Combine all SEO locations (custom + Paris districts + Lyon districts + regions + cities)
-    const SEO_LOCATIONS = [
-      // Paris Districts (1-20)
-      { slug: 'paris-1' },
-      { slug: 'paris-2' },
-      { slug: 'paris-3' },
-      { slug: 'paris-4' },
-      { slug: 'paris-5' },
-      { slug: 'paris-6' },
-      { slug: 'paris-7' },
-      { slug: 'paris-8' },
-      { slug: 'paris-9' },
-      { slug: 'paris-10' },
-      { slug: 'paris-11' },
-      { slug: 'paris-12' },
-      { slug: 'paris-13' },
-      { slug: 'paris-14' },
-      { slug: 'paris-15' },
-      { slug: 'paris-16' }, // Custom high-priority location
-      { slug: 'paris-17' },
-      { slug: 'paris-18' },
-      { slug: 'paris-19' },
-      { slug: 'paris-20' },
-      // Lyon Districts (1-9)
-      { slug: 'lyon-1' },
-      { slug: 'lyon-2' },
-      { slug: 'lyon-3' },
-      { slug: 'lyon-4' },
-      { slug: 'lyon-5' },
-      { slug: 'lyon-6' },
-      { slug: 'lyon-7' },
-      { slug: 'lyon-8' },
-      { slug: 'lyon-9' },
-      ...FRENCH_REGIONS,
-      ...FRENCH_CITIES,
-    ]
-
-    // Standard routes
+    // Add French (default) routes without locale prefix
     routes.forEach((route) => {
-      const routePath = route || '/'
-
-      // French (default) - no prefix
+      const priority = priorities['default'][route] || 0.7
       paths.push({
-        loc: routePath === '/' ? '/' : route,
-        changefreq: 'weekly',
-        priority: 0.7,
-        lastmod: new Date().toISOString(),
-      })
-
-      // English version
-      paths.push({
-        loc: `/en${routePath === '/' ? '' : route}`,
-        changefreq: 'weekly',
-        priority: 0.7,
-        lastmod: new Date().toISOString(),
-      })
-
-      // Russian version
-      paths.push({
-        loc: `/ru${routePath === '/' ? '' : route}`,
-        changefreq: 'weekly',
-        priority: 0.7,
+        loc: route || '/',
+        changefreq: route === '/blog' ? 'daily' : 'weekly',
+        priority: priority,
         lastmod: new Date().toISOString(),
       })
     })
 
-    // SEO location pages
-    SEO_LOCATIONS.forEach((location) => {
-      // French (default) - no prefix
+    // Add French SEO pages without locale prefix
+    allSEOSlugs.forEach((slug) => {
+      const priority = priorities['default']['/seo'] || 0.8
       paths.push({
-        loc: `/seo/${location.slug}`,
+        loc: `/seo/${slug}`,
         changefreq: 'monthly',
-        priority: 0.8, // Higher priority for SEO pages
+        priority: priority,
         lastmod: new Date().toISOString(),
       })
+    })
 
-      // English version
-      paths.push({
-        loc: `/en/seo/${location.slug}`,
-        changefreq: 'monthly',
-        priority: 0.8,
-        lastmod: new Date().toISOString(),
+    // Add other locales with prefixes
+    locales.forEach((locale) => {
+      // Main routes for en and ru
+      routes.forEach((route) => {
+        const path = `/${locale}${route}`
+        const priority = priorities[locale][route] || 0.7
+        paths.push({
+          loc: path,
+          changefreq: route === '/blog' ? 'daily' : 'weekly',
+          priority: priority,
+          lastmod: new Date().toISOString(),
+        })
       })
 
-      // Russian version
-      paths.push({
-        loc: `/ru/seo/${location.slug}`,
-        changefreq: 'monthly',
-        priority: 0.8,
-        lastmod: new Date().toISOString(),
+      // SEO location pages for en and ru
+      allSEOSlugs.forEach((slug) => {
+        const path = `/${locale}/seo/${slug}`
+        const priority = priorities[locale]['/seo'] || 0.6
+        paths.push({
+          loc: path,
+          changefreq: 'monthly',
+          priority: priority,
+          lastmod: new Date().toISOString(),
+        })
       })
     })
 
     return paths
+  },
+  robotsTxtOptions: {
+    policies: [
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/admin', '/studio'],
+      },
+    ],
+    additionalSitemaps: [],
   },
 }

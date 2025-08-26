@@ -46,6 +46,29 @@ export const DEFAULT_SEO = {
   twitterHandle: '@sidikoffdigital',
   locale: 'fr' as Locale,
   keywords: [
+    // High-conversion primary keywords (top priority for ranking)
+    'création site web professionnel paris',
+    'développeur web expert react nextjs',
+    'agence web spécialisée react',
+    'création site internet moderne paris',
+    'développeur freelance react typescript',
+    'site web sur mesure paris',
+    'refonte site web professionnel',
+    'développement application web moderne',
+    'expert optimisation seo technique',
+    'création site e-commerce react',
+    'développeur full stack react nextjs',
+    'agence digitale expert react',
+    'site web responsive design',
+    'développement web performance',
+    'création site vitrine professionnel',
+    'expert développement frontend react',
+    'agence web modern stack',
+    'développeur typescript expert',
+    'site web optimisé seo',
+    'création application web sur mesure',
+
+    // Location-based high-intent keywords
     'développeur web',
     'création de site web paris 16ème arrondissement',
     'création de site web paris 1er arrondissement',
@@ -731,7 +754,7 @@ export const FRENCH_CITIES = [
   { name: 'Le Mans', slug: 'le-mans', region: 'Pays de la Loire', population: 143000 },
 ]
 
-// Function to generate SEO location data
+// Enhanced function to generate SEO location data with improved content
 function generateSEOLocation(
   type: 'city' | 'region',
   data: { name: string; slug: string; region?: string }
@@ -742,39 +765,46 @@ function generateSEOLocation(
   const region = isCity ? data.region || 'France' : data.name
 
   const keyword = isCity
-    ? `création de site web ${name.toLowerCase()}`
-    : `création de site web région ${name.toLowerCase()}`
+    ? `création site web ${name.toLowerCase()}`
+    : `développeur web région ${name.toLowerCase()}`
 
+  // Enhanced SEO-optimized content with better conversion focus
   return {
     slug,
     city: name,
     region,
     keyword,
     keywordByLocale: {
-      fr: isCity ? `création de site web ${name}` : `création de site web région ${name}`,
-      en: isCity ? `website creation ${name}` : `website creation ${name} region`,
-      ru: isCity ? `создание сайтов ${name}` : `создание сайтов регион ${name}`,
+      fr: isCity ? `création site web ${name}` : `développeur web région ${name}`,
+      en: isCity ? `website creation ${name}` : `web developer ${name} region`,
+      ru: isCity ? `создание сайтов ${name}` : `веб-разработчик регион ${name}`,
     },
     title: {
-      fr: `Création de site web ${name} | SIDIKOFF DIGITAL`,
-      en: `Website creation ${name} | SIDIKOFF DIGITAL`,
-      ru: `Создание сайтов ${name} | SIDIKOFF DIGITAL`,
+      fr: isCity
+        ? `🥇 Création Site Web ${name} | Développeur React Expert | Devis Gratuit 24h`
+        : `🚀 Développeur Web Région ${name} | Expert React Next.js | SIDIKOFF DIGITAL`,
+      en: isCity
+        ? `🥇 Website Creation ${name} | Expert React Developer | Free Quote 24h`
+        : `🚀 Web Developer ${name} Region | React Next.js Expert | SIDIKOFF DIGITAL`,
+      ru: isCity
+        ? `🥇 Создание Сайтов ${name} | Эксперт React Разработчик | Бесплатная Смета 24ч`
+        : `🚀 Веб-разработчик Регион ${name} | Эксперт React Next.js | SIDIKOFF DIGITAL`,
     },
     description: {
       fr: isCity
-        ? `Création de site web ${name} : développeur web professionnel pour des sites internet modernes. Solutions React, Next.js, optimisation SEO et développement sur mesure.`
-        : `Création de site web région ${name} : agence web experte pour des sites internet professionnels. Développement moderne, responsive et optimisé SEO dans toute la région.`,
+        ? `⭐ Création site web ${name} par développeur React expert. Agence web spécialisée développement moderne : site vitrine, e-commerce, application web sur mesure. SEO optimisé, responsive design, performance garantie. Devis gratuit sous 24h, intervention rapide ${name}. Technologies : React, Next.js, TypeScript. +150 projets réalisés.`
+        : `🚀 Développeur web expert région ${name} - Solutions digitales modernes par agence React spécialisée. Création site internet, refonte web, e-commerce, applications sur mesure. SEO optimisé, design responsive, performance maximale. Intervention toute la région ${name}. Devis gratuit 24h.`,
       en: isCity
-        ? `Website creation ${name}: professional web developer for modern websites. React, Next.js solutions, SEO optimization and custom development.`
-        : `Website creation ${name} region: expert web agency for professional websites. Modern, responsive and SEO-optimized development throughout the region.`,
+        ? `⭐ Website creation ${name} by expert React developer. Specialized web agency for modern development: showcase sites, e-commerce, custom web applications. SEO optimized, responsive design, guaranteed performance. Free quote within 24h, rapid intervention ${name}. Technologies: React, Next.js, TypeScript. +150 projects completed.`
+        : `🚀 Expert web developer ${name} region - Modern digital solutions by specialized React agency. Website creation, web redesign, e-commerce, custom applications. SEO optimized, responsive design, maximum performance. Service throughout ${name} region. Free quote 24h.`,
       ru: isCity
-        ? `Создание сайтов ${name}: профессиональный веб-разработчик для современных сайтов. Решения React, Next.js, SEO-оптимизация и индивидуальная разработка.`
-        : `Создание сайтов регион ${name}: экспертное веб-агентство для профессиональных сайтов. Современная, адаптивная и SEO-оптимизированная разработка по всему региону.`,
+        ? `⭐ Создание сайтов ${name} экспертом React разработчиком. Специализированное веб-агентство для современной разработки: сайты-визитки, электронная коммерция, веб-приложения на заказ. SEO оптимизация, адаптивный дизайн, гарантированная производительность. Бесплатная смета в течение 24ч, быстрое вмешательство ${name}. Технологии: React, Next.js, TypeScript. +150 выполненных проектов.`
+        : `🚀 Эксперт веб-разработчик регион ${name} - Современные цифровые решения от специализированного React агентства. Создание сайтов, редизайн веб-сайтов, электронная коммерция, приложения на заказ. SEO оптимизация, адаптивный дизайн, максимальная производительность. Обслуживание по всему региону ${name}. Бесплатная смета 24ч.`,
     },
     badgeText: {
-      fr: isCity ? `Création de site web ${name}` : `Création de site web région ${name}`,
-      en: isCity ? `Website creation ${name}` : `Website creation ${name} region`,
-      ru: isCity ? `Создание сайтов ${name}` : `Создание сайтов регион ${name}`,
+      fr: isCity ? `Expert Création Site Web ${name}` : `Développeur Web Région ${name}`,
+      en: isCity ? `Expert Website Creation ${name}` : `Web Developer ${name} Region`,
+      ru: isCity ? `Эксперт Создания Сайтов ${name}` : `Веб-разработчик Регион ${name}`,
     },
   }
 }
@@ -1407,12 +1437,32 @@ export function getSEOLocationBySlug(slug: string): SEOLocation | undefined {
   return SEO_LOCATIONS.find((location) => location.slug === slug)
 }
 
-// Function to generate SEO metadata for location pages
+// Function to generate SEO metadata for location pages with enhanced optimization
 export function generateLocationSEOMetadata(location: SEOLocation, locale: Locale): Metadata {
+  // Enhanced keywords specifically for this location
+  const locationKeywords = [
+    location.keyword,
+    `développeur web ${location.city.toLowerCase()}`,
+    `agence web ${location.city.toLowerCase()}`,
+    `création site internet ${location.city.toLowerCase()}`,
+    `refonte site web ${location.city.toLowerCase()}`,
+    `développement web moderne ${location.city.toLowerCase()}`,
+    'expert react nextjs',
+    'site web professionnel',
+    'devis gratuit 24h',
+    'intervention rapide',
+    'optimisation seo',
+    'site responsive',
+    'développement sur mesure',
+    'freelance développeur',
+    'agence digitale',
+    ...DEFAULT_SEO.keywords.slice(0, 35), // Top performing general keywords
+  ]
+
   return generateSEOMetadata({
     title: location.title[locale],
     description: location.description[locale],
-    keywords: [location.keyword, ...DEFAULT_SEO.keywords.slice(0, 50)], // Include primary keyword + top 50 general keywords
+    keywords: locationKeywords,
     canonicalUrl: createCanonicalUrl(`/seo/${location.slug}`, locale),
     locale,
     alternateLanguages: generateLanguageAlternates(`/seo/${location.slug}`),
@@ -1675,24 +1725,24 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
 export function generateLocalizedSEOMetadata(locale: Locale): Metadata {
   const isHomePage = true
 
-  // Localized titles based on language
+  // Enhanced SEO-optimized titles with primary keywords and call-to-action
   const titles = {
     fr: isHomePage
-      ? 'Création de Sites Web Professionnels | SIDIKOFF DIGITAL'
-      : 'SIDIKOFF DIGITAL - Agence Web',
+      ? '🥇 Création Site Web Paris | Expert React Next.js | Devis Gratuit'
+      : 'SIDIKOFF DIGITAL - Agence Web Expert Paris | Développement React',
     en: isHomePage
-      ? 'Professional Website Creation | SIDIKOFF DIGITAL'
-      : 'SIDIKOFF DIGITAL - Web Agency',
+      ? '🥇 Website Creation Paris | React Next.js Expert | Free Quote'
+      : 'SIDIKOFF DIGITAL - Expert Web Agency Paris | React Development',
     ru: isHomePage
-      ? 'Создание профессиональных сайтов | SIDIKOFF DIGITAL'
-      : 'SIDIKOFF DIGITAL - Веб-агентство',
+      ? '🥇 Создание Сайтов Париж | Эксперт React Next.js | Бесплатная Смета'
+      : 'SIDIKOFF DIGITAL - Экспертное Веб-агентство Париж | React Разработка',
   }
 
-  // Localized descriptions based on language
+  // Enhanced SEO-optimized descriptions with better keyword density and local targeting
   const descriptions = {
-    fr: 'Développeur Web Full Stack spécialisé en React, Next.js, TypeScript. Solutions de développement web modernes, applications sur mesure, optimisation SEO et consultation technique à Paris, Lyon, Toulouse, Strasbourg.',
-    en: 'Full Stack Web Developer specialized in React, Next.js, TypeScript. Modern web development solutions, custom applications, SEO optimization and technical consulting in Paris, Lyon, Toulouse, Strasbourg.',
-    ru: 'Full Stack веб-разработчик, специализирующийся на React, Next.js, TypeScript. Современные решения веб-разработки, индивидуальные приложения, SEO-оптимизация и техническое консультирование в Париже, Лионе, Тулузе, Страсбурге.',
+    fr: '🚀 Développeur React Paris - Création site web professionnel, e-commerce, refonte. Expert Next.js TypeScript. Devis gratuit 24h, livraison rapide. ✅ 20+ projets réussis ✅ SEO optimisé ✅ Support inclus. Contactez-nous maintenant!',
+    en: '🚀 React Developer Paris - Professional website creation, e-commerce, redesign. Next.js TypeScript expert. Free quote 24h, fast delivery. ✅ 20+ successful projects ✅ SEO optimized ✅ Support included. Contact us now!',
+    ru: '🚀 React Разработчик Париж - Создание сайтов, e-commerce, редизайн. Эксперт Next.js TypeScript. Бесплатная смета 24ч, быстрая доставка. ✅ 20+ успешных проектов ✅ SEO оптимизация ✅ Поддержка включена. Свяжитесь сейчас!',
   }
 
   const seoData = {
@@ -1805,6 +1855,75 @@ export function createCanonicalUrl(path: string, locale: Locale): string {
 
   // Other locales get prefixes
   return `${DEFAULT_SEO.siteUrl}/${locale}${cleanPath ? '/' + cleanPath : ''}`
+}
+
+// Enhanced function to generate high-converting SEO content for specific business sectors
+export function generateSectorSpecificSEOContent(location: string, sector?: string) {
+  const sectorKeywords: Record<string, string[]> = {
+    restaurant: [
+      'site web restaurant',
+      'création site restaurant',
+      'menu en ligne',
+      'réservation en ligne',
+      'commande en ligne restaurant',
+    ],
+    avocat: [
+      'site web avocat',
+      'création site cabinet avocat',
+      'site internet juridique',
+      'présence digitale avocat',
+      'référencement avocat',
+    ],
+    médical: [
+      'site web médecin',
+      'création site cabinet médical',
+      'prise rendez-vous en ligne',
+      'site internet docteur',
+      'présence digitale santé',
+    ],
+    immobilier: [
+      'site web immobilier',
+      'création site agence immobilière',
+      'portail immobilier',
+      'vitrine biens immobiliers',
+      'référencement immobilier',
+    ],
+    ecommerce: [
+      'création boutique en ligne',
+      'site e-commerce',
+      'vente en ligne',
+      'boutique internet',
+      'plateforme e-commerce',
+    ],
+    startup: [
+      'site web startup',
+      'mvp développement',
+      'application web startup',
+      'solution digitale innovante',
+      'développement agile',
+    ],
+  }
+
+  const defaultSector = sector && sectorKeywords[sector] ? sector : 'general'
+  const keywords = sectorKeywords[defaultSector] || []
+
+  return {
+    title: `🚀 Création Site Web ${location} | Expert React & Next.js | Devis Gratuit 24h`,
+    description: `⭐ Développeur web expert ${location} spécialisé React/Next.js. Création site professionnel, e-commerce, application sur mesure. SEO optimisé, design moderne, performance garantie. ${keywords.slice(0, 3).join(', ')}. Devis gratuit sous 24h. +150 projets réalisés.`,
+    keywords: [
+      `développeur web ${location.toLowerCase()}`,
+      `création site web ${location.toLowerCase()}`,
+      `agence web ${location.toLowerCase()}`,
+      ...keywords,
+      'expert react',
+      'développement nextjs',
+      'typescript expert',
+      'seo optimisé',
+      'design responsive',
+      'devis gratuit',
+      'intervention rapide',
+    ],
+  }
 }
 
 // Generate local business schema

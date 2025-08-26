@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts()
-  const locales: Locale[] = ['fr', 'en', 'ru']
+  const locales: Locale[] = ['en', 'ru'] // Exclude 'fr' as French pages are served without prefix
   
   const params = []
   

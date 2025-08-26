@@ -7,31 +7,52 @@ export interface NavigationItem {
   children?: NavigationItem[]
 }
 
-// Generate locale-aware URL
+// Route label mappings for breadcrumb generation
+const ROUTE_LABELS: Record<string, string> = {
+  contact: 'Contact',
+  projects: 'Projets',
+  blog: 'Blog',
+  about: 'À propos',
+  services: 'Services',
+  'mentions-legales': 'Mentions légales',
+} as const
+
+/**
+ * Generate locale-aware URL
+ */
 export function getLocalizedUrl(path: string, locale: Locale): string {
   return addLocaleToPathname(path, locale)
 }
 
-// Generate project URL for specific locale
+/**
+ * Generate project URL for specific locale
+ */
 export function getProjectUrl(projectId: string, locale: Locale): string {
   return getLocalizedUrl(`/projects/${projectId}`, locale)
 }
 
-// Generate projects list URL for specific locale
+/**
+ * Generate projects list URL for specific locale
+ */
 export function getProjectsUrl(locale: Locale): string {
   return getLocalizedUrl('/projects', locale)
 }
 
-// Generate blog URL for specific locale
+/**
+ * Generate blog URL for specific locale
+ */
 export function getBlogUrl(locale: Locale): string {
   return getLocalizedUrl('/blog', locale)
 }
 
-// Generate blog post URL for specific locale
+/**
+ * Generate blog post URL for specific locale
+ */
 export function getBlogPostUrl(slug: string, locale: Locale): string {
   return getLocalizedUrl(`/blog/${slug}`, locale)
 }
 
+// Navigation configurations
 export const mainNavigation: NavigationItem[] = [
   {
     label: 'Accueil',
@@ -77,34 +98,24 @@ export const footerNavigation = {
     { label: 'Politique de confidentialité', href: '/privacy' },
     { label: 'CGV', href: '/terms' },
   ],
-}
+} as const
 
-export const breadcrumbGenerator = (pathname: string, locale?: string) => {
+/**
+ * Generate breadcrumb navigation based on pathname
+ */
+export function breadcrumbGenerator(pathname: string, locale?: string) {
   const segments = pathname.split('/').filter(Boolean)
   const breadcrumbs = [{ label: 'Accueil', href: locale ? `/${locale}` : '/' }]
 
   let currentPath = locale ? `/${locale}` : ''
 
   segments.forEach((segment) => {
-    if (segment === locale) return // Skip locale segment
+    // Skip locale segment
+    if (segment === locale) return
 
     currentPath += `/${segment}`
 
-    let label = segment.charAt(0).toUpperCase() + segment.slice(1)
-
-    // Custom labels for common routes
-    const labelMap: Record<string, string> = {
-      contact: 'Contact',
-      projects: 'Projets',
-      blog: 'Blog',
-      about: 'À propos',
-      services: 'Services',
-      'mentions-legales': 'Mentions légales',
-    }
-
-    if (labelMap[segment]) {
-      label = labelMap[segment]
-    }
+    const label = ROUTE_LABELS[segment] || segment.charAt(0).toUpperCase() + segment.slice(1)
 
     breadcrumbs.push({
       label,
@@ -115,7 +126,10 @@ export const breadcrumbGenerator = (pathname: string, locale?: string) => {
   return breadcrumbs
 }
 
-export const getLocalizedPath = (path: string, locale: string, currentLocale?: string) => {
+/**
+ * Get localized path by adding/replacing locale
+ */
+export function getLocalizedPath(path: string, locale: string, currentLocale?: string): string {
   // Remove current locale from path if present
   if (currentLocale && path.startsWith(`/${currentLocale}`)) {
     path = path.replace(`/${currentLocale}`, '')
@@ -125,9 +139,12 @@ export const getLocalizedPath = (path: string, locale: string, currentLocale?: s
   return locale === 'fr' ? path || '/' : `/${locale}${path || ''}`
 }
 
-export const isActiveLink = (href: string, pathname: string) => {
+/**
+ * Check if a link is currently active based on pathname
+ */
+export function isActiveLink(href: string, pathname: string): boolean {
   if (href === '/') {
-    return pathname === '/' || pathname === '/fr' || pathname === '/en' || pathname === '/ru'
+    return ['/', '/en', '/ru'].includes(pathname)
   }
 
   return pathname.includes(href)

@@ -151,7 +151,7 @@ export default function PortfolioCarousel({
           setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length)
         }
       } catch (error) {
-        console.log('Carousel animation error:', error)
+        console.debug('Carousel animation error:', error)
         // Fallback для мобильных устройств
         setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length)
       }
@@ -252,7 +252,7 @@ export default function PortfolioCarousel({
             container.scrollBy({ left: scrollAmount, behavior: 'smooth' })
           }
         } catch (error) {
-          console.log('Touch scroll error:', error)
+          console.debug('Touch scroll error:', error)
         }
         setTimeout(() => setIsPaused(false), 1000)
       } else {

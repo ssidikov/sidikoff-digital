@@ -11,14 +11,16 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "type-check": "tsc --noEmit",
-    "build:check": "npm run type-check && npm run lint && npm run build",
-    "preview": "npm run build && npm run start",
-    "clean": "rm -rf .next out dist",
-    "analyze": "ANALYZE=true npm run build",
+    "build:check": "pnpm type-check && pnpm lint && pnpm build",
+    "preview": "pnpm build && pnpm start",
+    "clean": "rimraf .next out dist",
+    "analyze": "ANALYZE=true pnpm build",
     "sanity": "sanity start",
     "sanity:build": "sanity build",
     "sanity:deploy": "sanity deploy",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap",
+    "test": "echo \"No tests specified\" && exit 0",
+    "prepare": "husky install || true"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.6.1",

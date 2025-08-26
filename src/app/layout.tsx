@@ -3,14 +3,18 @@ import type { Metadata } from 'next'
 import Analytics from '@/components/analytics'
 import '@/styles/globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
 
-export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'),
-  title:
-    'Création de sites web | SIDIKOFF DIGITAL - Agence Web | Développement Web Paris, Lyon, Toulouse, Strasbourg',
-  description:
-    'Agence web spécialisée dans la création de sites internet modernes et applications web. Services professionnels à Paris, Lyon, Toulouse, Strasbourg et toute la France. Expertise React, Next.js, SEO et développement sur mesure.',
+// SEO Configuration
+const SITE_CONFIG = {
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com',
+  name: 'SIDIKOFF DIGITAL',
+  title: 'Création de sites web | SIDIKOFF DIGITAL - Agence Web | Développement Web Paris, Lyon, Toulouse, Strasbourg',
+  description: 'Agence web spécialisée dans la création de sites internet modernes et applications web. Services professionnels à Paris, Lyon, Toulouse, Strasbourg et toute la France. Expertise React, Next.js, SEO et développement sur mesure.',
   keywords: [
     'agence web france',
     'développement web',
@@ -32,10 +36,30 @@ export const metadata: Metadata = {
     'création site web paris',
     'développeur freelance france',
   ],
-  authors: [{ name: 'Sidikoff', url: 'https://sidikoff.com' }],
-  creator: 'SIDIKOFF DIGITAL',
-  publisher: 'SIDIKOFF DIGITAL',
+  image: '/images/og-homepage.jpg',
+  twitter: '@sidikoff',
+} as const
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_CONFIG.url),
+  title: SITE_CONFIG.title,
+  description: SITE_CONFIG.description,
+  keywords: [...SITE_CONFIG.keywords],
+  authors: [{ name: 'Sidikoff', url: SITE_CONFIG.url }],
+  creator: SITE_CONFIG.name,
+  publisher: SITE_CONFIG.name,
   category: 'technology',
+  other: {
+    'geo.region': 'FR-75',
+    'geo.placename': 'Paris',
+    'geo.position': '48.8566;2.3522',
+    'ICBM': '48.8566, 2.3522',
+    'theme-color': '#112D4E',
+    'msapplication-TileColor': '#112D4E',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'default',
+    'format-detection': 'telephone=no',
+  },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '16x16', type: 'image/x-icon' },
@@ -65,15 +89,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'fr_FR',
     alternateLocale: ['en_US', 'ru_RU'],
-    url: 'https://sidikoff.com',
-    siteName: 'SIDIKOFF DIGITAL',
-    title:
-      'Création de sites web | SIDIKOFF DIGITAL - Agence Web | Développement Web Paris, Lyon, Toulouse, Strasbourg',
-    description:
-      'Agence web spécialisée dans la création de sites internet modernes et applications web. Services professionnels à Paris, Lyon, Toulouse, Strasbourg et toute la France. Expertise React, Next.js, SEO et développement sur mesure.',
+    url: SITE_CONFIG.url,
+    siteName: SITE_CONFIG.name,
+    title: SITE_CONFIG.title,
+    description: SITE_CONFIG.description,
     images: [
       {
-        url: '/images/og-homepage.jpg',
+        url: SITE_CONFIG.image,
         width: 1200,
         height: 630,
         alt: 'SIDIKOFF DIGITAL - Agence Web France | Développement Paris, Lyon, Toulouse, Strasbourg',
@@ -82,38 +104,42 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@sidikoff',
-    creator: '@sidikoff',
+    site: SITE_CONFIG.twitter,
+    creator: SITE_CONFIG.twitter,
     title: 'SIDIKOFF DIGITAL - Agence Web France | Paris, Lyon, Toulouse, Strasbourg',
     description:
       'Agence web française : création sites internet modernes, applications web. Services à Paris, Lyon, Toulouse, Strasbourg. React, Next.js, SEO.',
-    images: ['/images/og-homepage.jpg'],
+    images: [SITE_CONFIG.image],
   },
   alternates: {
-    canonical: 'https://sidikoff.com',
+    canonical: SITE_CONFIG.url,
     languages: {
-      'fr-FR': 'https://sidikoff.com/',
-      fr: 'https://sidikoff.com/',
-      'en-US': 'https://sidikoff.com/en',
-      en: 'https://sidikoff.com/en',
-      'ru-RU': 'https://sidikoff.com/ru',
-      ru: 'https://sidikoff.com/ru',
-      'x-default': 'https://sidikoff.com/',
+      'fr-FR': `${SITE_CONFIG.url}/`,
+      fr: `${SITE_CONFIG.url}/`,
+      'en-US': `${SITE_CONFIG.url}/en`,
+      en: `${SITE_CONFIG.url}/en`,
+      'ru-RU': `${SITE_CONFIG.url}/ru`,
+      ru: `${SITE_CONFIG.url}/ru`,
+      'x-default': `${SITE_CONFIG.url}/`,
     },
   },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+interface RootLayoutProps {
+  children: React.ReactNode
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang='fr' suppressHydrationWarning>
       <head>
-        {/* Preconnect to external domains */}
+        {/* Preconnect to external domains for performance */}
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
         <link rel='dns-prefetch' href='https://cdn.sanity.io' />
         <link rel='dns-prefetch' href='https://vitals.vercel-insights.com' />
 
-        {/* Favicon with proper sizes */}
+        {/* Favicon configuration */}
         <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
         <link rel='icon' href='/favicon.ico' type='image/x-icon' />
         <link rel='shortcut icon' href='/favicon.ico' />

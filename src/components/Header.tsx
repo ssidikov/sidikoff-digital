@@ -1,49 +1,74 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { usePathname } from 'next/navigation'
-
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
-import { Dictionary } from '@/lib/dictionaries'
-import { Locale } from '@/lib/i18n'
+import { type Dictionary } from '@/lib/dictionaries'
+import { type Locale } from '@/lib/i18n'
 import { getLocalizedUrl } from '@/utils/navigation'
 import { scrollToElementWithRetry } from '@/utils/scroll'
-
 import { LanguageSwitcher } from './LanguageSwitcher'
-
-import { motion } from 'framer-motion'
 
 interface HeaderProps {
   dictionary: Dictionary
   locale: Locale
 }
 
+interface NavigationItem {
+  label: string
+  href: string
+  section: string
+}
+
+// Constants for scroll behavior and layout
+const SCROLL_CONFIG = {
+  headerOffset: 100,
+  scrollThreshold: 100,
+  viewportMiddle: 0.5,
+  retryAttempts: 5,
+  retryDelay: 300,
+} as const
+
+const SECTIONS = ['services', 'portfolio', 'faq', 'pricing', 'contact'] as const
+
+// Animation configurations
+const HEADER_ANIMATION = {
+  initial: { y: -100, opacity: 0 },
+  animate: { y: 0, opacity: 1 },
+  transition: { duration: 0.6, ease: 'easeOut' },
+} as const
+
+const MENU_OVERLAY_ANIMATION = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+  transition: { duration: 0.2 },
+} as const
+
+// Icon components
 const MenuIcon = () => (
-  <svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2'>
-    <line x1='3' y1='6' x2='21' y2='6' />
-    <line x1='3' y1='12' x2='21' y2='12' />
-    <line x1='3' y1='18' x2='21' y2='18' />
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <line x1="3" y1="6" x2="21" y2="6" />
+    <line x1="3" y1="12" x2="21" y2="12" />
+    <line x1="3" y1="18" x2="21" y2="18" />
   </svg>
 )
 
 const CloseIcon = () => (
-  <svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2'>
-    <line x1='18' y1='6' x2='6' y2='18' />
-    <line x1='6' y1='6' x2='18' y2='18' />
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <line x1="18" y1="6" x2="6" y2="18" />
+    <line x1="6" y1="6" x2="18" y2="18" />
   </svg>
 )
 
-export function Header({ dictionary, locale }: HeaderProps) {
-  const pathname = usePathname()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('')
-
-  // Check if we're on blog pages
-  const isBlogPage = pathname.includes('/blog')
-
-  const navigation = [
+/**
+ * Creates navigation items array based on dictionary and locale
+ */
+function createNavigationItems(dictionary: Dictionary, locale: Locale): NavigationItem[] {
+  return [
     { label: dictionary.navigation.home, href: getLocalizedUrl('/', locale), section: '' },
     {
       label: dictionary.navigation.services,
@@ -76,138 +101,79 @@ export function Header({ dictionary, locale }: HeaderProps) {
       section: 'contact',
     },
   ]
+}
 
-  useEffect(() => {
-    const handleScroll = () => {
-      // Определяем активную секцию в зависимости от текущей страницы
-      const homeUrl = getLocalizedUrl('/', locale)
+/**
+ * Determines the active section based on scroll position and viewport
+ */
+function getActiveSectionFromScroll(): string {
+  if (window.scrollY < SCROLL_CONFIG.scrollThreshold) {
+    return ''
+  }
 
-      if (pathname === homeUrl || pathname === homeUrl + '/') {
-        // На главной странице отслеживаем секции по скроллу
-        const sections = ['services', 'portfolio', 'faq', 'pricing', 'contact']
-        let currentSection = ''
-
-        // Если пользователь в самом верху страницы, активна главная
-        if (window.scrollY < 100) {
-          currentSection = ''
-        } else {
-          // Ищем секцию, которая находится в viewport
-          for (const section of sections) {
-            const element = document.getElementById(section)
-            if (element) {
-              const rect = element.getBoundingClientRect()
-              // Секция активна если её верх выше середины экрана, а низ ниже
-              if (rect.top <= window.innerHeight / 2 && rect.bottom >= 100) {
-                currentSection = section
-                break
-              }
-            }
-          }
-        }
-
-        setActiveSection(currentSection)
-      } else if (pathname.includes('/tarifs')) {
-        // На странице тарифов определяем активную секцию по скроллу
-        const sections = ['pricing']
-        let currentSection = 'pricing' // По умолчанию активна секция pricing
-
-        // Ищем секцию, которая находится в viewport
-        for (const section of sections) {
-          const element = document.getElementById(section)
-          if (element) {
-            const rect = element.getBoundingClientRect()
-            if (rect.top <= window.innerHeight / 2 && rect.bottom >= 100) {
-              currentSection = section
-              break
-            }
-          }
-        }
-
-        setActiveSection(currentSection)
-      } else {
-        // На других страницах определяем активность по URL
-        if (pathname.includes('/services')) {
-          setActiveSection('services')
-        } else if (pathname.includes('/contact')) {
-          setActiveSection('contact')
-        } else if (pathname.includes('/faq')) {
-          setActiveSection('faq')
-        } else if (pathname.includes('/blog')) {
-          setActiveSection('blog')
-        } else if (pathname.includes('/projects')) {
-          setActiveSection('portfolio')
-        } else {
-          setActiveSection('')
-        }
+  for (const section of SECTIONS) {
+    const element = document.getElementById(section)
+    if (element) {
+      const rect = element.getBoundingClientRect()
+      // Section is active if its top is above middle of screen and bottom is below threshold
+      if (rect.top <= window.innerHeight * SCROLL_CONFIG.viewportMiddle && rect.bottom >= SCROLL_CONFIG.scrollThreshold) {
+        return section
       }
     }
+  }
+  
+  return ''
+}
 
-    // Вызываем сразу при монтировании
-    handleScroll()
+/**
+ * Determines active section based on current pathname
+ */
+function getActiveSectionFromPath(pathname: string): string {
+  if (pathname.includes('/services')) return 'services'
+  if (pathname.includes('/contact')) return 'contact'
+  if (pathname.includes('/faq')) return 'faq'
+  if (pathname.includes('/blog')) return 'blog'
+  if (pathname.includes('/projects')) return 'portfolio'
+  return ''
+}
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [pathname, locale])
+/**
+ * Header component with responsive navigation and scroll-based active states
+ * Features smooth scrolling, mobile menu, and accessibility support
+ */
+export function Header({ dictionary, locale }: HeaderProps) {
+  const pathname = usePathname()
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
 
-  // Управляем скроллом body при открытии/закрытии меню
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
-    }
+  // Memoized computed values
+  const isBlogPage = useMemo(() => pathname.includes('/blog'), [pathname])
+  const navigation = useMemo(() => createNavigationItems(dictionary, locale), [dictionary, locale])
 
-    // Cleanup при размонтировании компонента
-    return () => {
-      document.body.style.overflow = 'unset'
-    }
-  }, [isMenuOpen])
-
-  // Закрытие меню по ESC
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isMenuOpen) {
-        setIsMenuOpen(false)
-      }
-    }
-
-    if (isMenuOpen) {
-      document.addEventListener('keydown', handleEscape)
-      return () => document.removeEventListener('keydown', handleEscape)
-    }
-
-    return undefined
-  }, [isMenuOpen])
-
-  useEffect(() => {
-    const hash = window.location.hash
-    if (hash) {
-      const id = hash.substring(1)
-      // Use the retry utility for more reliable scrolling
-      scrollToElementWithRetry(id, 100, 5, 300)
-    }
-  }, [pathname]) // Rerun when path changes
-
-  const isActive = (item: (typeof navigation)[0]) => {
-    // Для главной страницы проверяем активную секцию
+  /**
+   * Determines if a navigation item is currently active
+   */
+  const isActive = useCallback((item: NavigationItem): boolean => {
     const homeUrl = getLocalizedUrl('/', locale)
     const isOnHomePage = pathname === homeUrl || pathname === homeUrl + '/'
 
     if (isOnHomePage) {
       if (item.section === '') {
-        // Home активен когда нет активной секции (пользователь вверху страницы)
+        // Home is active when no section is active (user is at top of page)
         return activeSection === ''
-      } else {
-        // Секция активна когда она соответствует текущей активной секции
-        return activeSection === item.section
       }
+      // Section is active when it matches current active section
+      return activeSection === item.section
     }
-    // Для других страниц проверяем точное соответствие URL
+    
+    // For other pages, check exact URL match
     return pathname === item.href
-  }
+  }, [pathname, locale, activeSection])
 
-  // Handle navigation click with smooth scroll for same page anchors
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: (typeof navigation)[0]) => {
+  /**
+   * Handles navigation click with smooth scroll for same-page anchors
+   */
+  const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, item: NavigationItem) => {
     const homeUrl = getLocalizedUrl('/', locale)
     const isOnHomePage = pathname === homeUrl || pathname === homeUrl + '/'
 
@@ -218,11 +184,9 @@ export function Header({ dictionary, locale }: HeaderProps) {
 
       if (sectionId) {
         const element = document.getElementById(sectionId)
-
         if (element) {
-          const headerOffset = 100
           const elementPosition = element.getBoundingClientRect().top
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+          const offsetPosition = elementPosition + window.pageYOffset - SCROLL_CONFIG.headerOffset
 
           window.scrollTo({
             top: offsetPosition,
@@ -231,27 +195,88 @@ export function Header({ dictionary, locale }: HeaderProps) {
         }
       }
     }
-    // Otherwise, let the default Link behavior handle it
-  }
+    // Close mobile menu after navigation
+    setIsMenuOpen(false)
+  }, [pathname, locale])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const homeUrl = getLocalizedUrl('/', locale)
+      const isOnHomePage = pathname === homeUrl || pathname === homeUrl + '/'
+
+      if (isOnHomePage) {
+        // On homepage, track sections by scroll position
+        setActiveSection(getActiveSectionFromScroll())
+      } else if (pathname.includes('/tarifs')) {
+        // On pricing page, determine active section by scroll
+        const pricingElement = document.getElementById('pricing')
+        if (pricingElement) {
+          const rect = pricingElement.getBoundingClientRect()
+          const isActive = rect.top <= window.innerHeight * SCROLL_CONFIG.viewportMiddle && rect.bottom >= SCROLL_CONFIG.scrollThreshold
+          setActiveSection(isActive ? 'pricing' : 'pricing')
+        } else {
+          setActiveSection('pricing')
+        }
+      } else {
+        // On other pages, determine activity by URL
+        setActiveSection(getActiveSectionFromPath(pathname))
+      }
+    }
+
+    // Call immediately on mount
+    handleScroll()
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [pathname, locale])
+
+  // Manage body scroll when menu is open/closed
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : 'unset'
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isMenuOpen])
+
+  // Handle ESC key to close menu
+  useEffect(() => {
+    if (!isMenuOpen) return
+
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [isMenuOpen])
+
+  // Handle hash-based scrolling on route change
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash) {
+      const id = hash.substring(1)
+      // Use retry utility for more reliable scrolling
+      scrollToElementWithRetry(id, SCROLL_CONFIG.headerOffset, SCROLL_CONFIG.retryAttempts, SCROLL_CONFIG.retryDelay)
+    }
+  }, [pathname])
 
   return (
     <>
       {/* Mobile & Tablet Menu Overlay */}
       {isMenuOpen && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className='fixed inset-0 bg-black/20 backdrop-blur-sm z-[100] lg:hidden'
+          {...MENU_OVERLAY_ANIMATION}
+          className="fixed inset-0 z-[100] bg-black/20 backdrop-blur-sm lg:hidden"
           onClick={() => setIsMenuOpen(false)}
         />
       )}
 
       <motion.header
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        {...HEADER_ANIMATION}
         className='fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-[120] w-full max-w-7xl px-3 sm:px-4'>
         <nav className='relative z-[110] px-2 xs:px-3 sm:px-4'>
           <div

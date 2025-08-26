@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 import { Locale } from '@/lib/i18n'
-import { createCanonicalUrl, createHreflangAlternates } from '@/lib/canonical'
+import { createCanonicalUrl, generateLanguageAlternates } from '@/lib/seo-utils'
 
 interface SEOLinksProps {
   locale: Locale
@@ -15,7 +15,7 @@ export default function SEOLinks({ locale }: SEOLinksProps) {
   const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/'
 
   const canonicalUrl = createCanonicalUrl(pathWithoutLocale, locale)
-  const hreflangAlternates = createHreflangAlternates(pathWithoutLocale)
+  const hreflangAlternates = generateLanguageAlternates(pathWithoutLocale)
 
   return (
     <>

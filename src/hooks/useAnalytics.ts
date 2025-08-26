@@ -2,59 +2,112 @@
 
 import { useCallback } from 'react'
 
-// Custom hook for analytics tracking (currently using only Vercel Analytics)
+interface AnalyticsEvent {
+  action: string
+  category: string
+  label?: string
+  value?: number
+}
+
+interface PageViewData {
+  url: string
+  title?: string
+  referrer?: string
+}
+
+/**
+ * Custom hook for analytics tracking with type safety and privacy compliance
+ */
 export const useAnalytics = () => {
-  // Track page view - placeholder for future analytics implementation
-  const trackPageView = useCallback((url: string, title?: string) => {
+  /**
+   * Track page view with enhanced data
+   */
+  const trackPageView = useCallback((data: PageViewData) => {
+    if (process.env.NODE_ENV !== 'production') {
+      console.debug('Page view tracked:', data)
+      return
+    }
+
     // Future analytics implementation can be added here
-    console.log('Page view tracked:', { url, title })
+    // For now, we rely on Vercel Analytics automatic tracking
   }, [])
 
-  // Track custom event - placeholder for future analytics implementation
-  const trackEvent = useCallback(
-    (action: string, category: string, label?: string, value?: number) => {
-      // Future analytics implementation can be added here
-      console.log('Event tracked:', { action, category, label, value })
-    },
-    []
-  )
+  /**
+   * Track custom event with type safety
+   */
+  const trackEvent = useCallback((event: AnalyticsEvent) => {
+    if (process.env.NODE_ENV !== 'production') {
+      console.debug('Event tracked:', event)
+      return
+    }
 
-  // Track contact form submission
+    // Future analytics implementation can be added here
+    // Could integrate with GA4, Mixpanel, or other analytics services
+  }, [])
+
+  // Specific tracking functions for common use cases
   const trackContactSubmission = useCallback(
     (method: string) => {
-      trackEvent('contact_form_submit', 'engagement', method)
+      trackEvent({
+        action: 'contact_form_submit',
+        category: 'engagement',
+        label: method,
+      })
     },
     [trackEvent]
   )
 
-  // Track project view
   const trackProjectView = useCallback(
     (projectName: string) => {
-      trackEvent('project_view', 'portfolio', projectName)
+      trackEvent({
+        action: 'project_view',
+        category: 'portfolio',
+        label: projectName,
+      })
     },
     [trackEvent]
   )
 
-  // Track service interest
   const trackServiceInterest = useCallback(
     (serviceName: string) => {
-      trackEvent('service_interest', 'services', serviceName)
+      trackEvent({
+        action: 'service_interest',
+        category: 'services',
+        label: serviceName,
+      })
     },
     [trackEvent]
   )
 
-  // Track pricing plan view
   const trackPricingView = useCallback(
     (planName: string) => {
-      trackEvent('pricing_view', 'pricing', planName)
+      trackEvent({
+        action: 'pricing_view',
+        category: 'pricing',
+        label: planName,
+      })
     },
     [trackEvent]
   )
 
-  // Track FAQ interaction
   const trackFAQInteraction = useCallback(
     (question: string) => {
-      trackEvent('faq_interaction', 'engagement', question)
+      trackEvent({
+        action: 'faq_interaction',
+        category: 'engagement',
+        label: question.substring(0, 50), // Limit length for privacy
+      })
+    },
+    [trackEvent]
+  )
+
+  const trackLanguageChange = useCallback(
+    (fromLang: string, toLang: string) => {
+      trackEvent({
+        action: 'language_change',
+        category: 'user_preference',
+        label: `${fromLang}_to_${toLang}`,
+      })
     },
     [trackEvent]
   )
@@ -67,5 +120,6 @@ export const useAnalytics = () => {
     trackServiceInterest,
     trackPricingView,
     trackFAQInteraction,
+    trackLanguageChange,
   }
 }

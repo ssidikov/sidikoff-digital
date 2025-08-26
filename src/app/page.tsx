@@ -9,41 +9,46 @@ import {
   createCanonicalUrl,
 } from '@/lib/seo-utils'
 import { defaultLocale } from '@/lib/i18n'
-import { Footer } from '@/components/Footer'
 import { getDictionary } from '@/lib/dictionaries'
+import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Hero, Services, Pricing, Portfolio, FAQ, Contact } from '@/sections'
 import LocaleProvider from '@/components/LocaleProvider'
+
+const SEO_CONFIG = {
+  title: 'Création de Sites Web Professionnels | SIDIKOFF DIGITAL',
+  keywords: [
+    'développeur web freelance',
+    'création site internet',
+    'développement React',
+    'Next.js expert',
+    'typescript développeur',
+    'consultant digital',
+  ],
+  ogImage: '/images/og-homepage.jpg',
+} as const
 
 export async function generateMetadata() {
   const dict = await getDictionary(defaultLocale)
 
   return generateSEOMetadata({
-    title: 'Création de Sites Web Professionnels | SIDIKOFF DIGITAL',
+    title: SEO_CONFIG.title,
     description: dict.hero.subtitle,
     locale: defaultLocale,
     canonicalUrl: createCanonicalUrl('/', defaultLocale),
     alternateLanguages: generateLanguageAlternates('/', ['fr', 'en', 'ru']),
-    ogImage: '/images/og-homepage.jpg',
-    keywords: [
-      'développeur web freelance',
-      'création site internet',
-      'développement React',
-      'Next.js expert',
-      'typescript développeur',
-      'consultant digital',
-    ],
+    ogImage: SEO_CONFIG.ogImage,
+    keywords: [...SEO_CONFIG.keywords],
   })
 }
 
-export default async function HomePage() {
-  // Serve French content directly at root
-  const dict = await getDictionary(defaultLocale)
-
-  // Generate structured data for homepage
-  const schemas = [
-    organizationSchema, // Main organization with rating
-    // Only the first location gets a rating, others don't to avoid duplication
+/**
+ * Generates structured data schemas for the homepage
+ */
+function generateHomePageSchemas() {
+  return [
+    organizationSchema,
+    // Only the first location gets a rating to avoid duplication
     ...businessLocations.map((location, index) =>
       generateLocalBusinessSchema(location, index === 0)
     ),
@@ -76,6 +81,12 @@ export default async function HomePage() {
       },
     },
   ]
+}
+
+export default async function HomePage() {
+  // Serve French content directly at root
+  const dict = await getDictionary(defaultLocale)
+  const schemas = generateHomePageSchemas()
 
   return (
     <LocaleProvider locale={defaultLocale}>

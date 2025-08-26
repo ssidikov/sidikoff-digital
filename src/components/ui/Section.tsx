@@ -2,13 +2,13 @@
 
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
+
 import { sectionStyles } from '@/utils/styles'
 
 interface SectionProps {
   children: React.ReactNode
   id?: string
   className?: string
-  transform?: string
   containerClassName?: string
   background?: 'white' | 'gray' | 'transparent'
   backgroundImage?: string
@@ -27,13 +27,13 @@ interface SectionProps {
   contentWidth?: 'narrow' | 'normal' | 'wide' | 'full'
 }
 
-const backgroundStyles = {
+const BACKGROUND_STYLES = {
   white: 'bg-white',
   gray: 'bg-gray-50',
   transparent: 'bg-transparent',
 } as const
 
-const variantStyles = {
+const VARIANT_STYLES = {
   default: '',
   hero: 'hero-height w-full flex flex-col items-center justify-center',
   services: 'py-4',
@@ -45,8 +45,8 @@ const variantStyles = {
   'project-detail': 'min-h-screen-stable py-4',
 } as const
 
-// Профессиональная система градиентов
-const gradientStyles = {
+// Professional gradient system for different sections
+const GRADIENT_STYLES = {
   hero: {
     backgroundImage: 'linear-gradient(235deg, #FFFAE6 3%, #EBF2FF 42%, #FFFAE6 98%)',
     backgroundSize: 'cover',
@@ -98,22 +98,26 @@ const gradientStyles = {
   },
 } as const
 
-const paddingStyles = {
+const PADDING_STYLES = {
   none: '',
-  sm: 'px-4 sm:px-6 py-12',
-  md: 'px-4 sm:px-4 xl:px-8 py-8 lg:py-12',
-  lg: 'px-4 sm:px-4 xl:px-24 py-8 lg:py-12',
-  xl: 'px-4 sm:px-4 xl:px-16 py-8 lg:py-12',
-  hero: 'pt-28 xl:pt-0 lg:px-8',
+  sm: 'px-4 py-12 sm:px-6',
+  md: 'px-4 py-8 sm:px-4 lg:py-12 xl:px-8',
+  lg: 'px-4 py-8 sm:px-4 lg:py-12 xl:px-24',
+  xl: 'px-4 py-8 sm:px-4 lg:py-12 xl:px-16',
+  hero: 'pt-28 lg:px-8 xl:pt-0',
 } as const
 
-const contentStyles = {
-  narrow: 'max-w-4xl mx-auto',
-  normal: 'max-w-6xl mx-auto',
-  wide: 'max-w-8xl mx-auto',
+const CONTENT_STYLES = {
+  narrow: 'mx-auto max-w-4xl',
+  normal: 'mx-auto max-w-6xl',
+  wide: 'mx-auto max-w-8xl',
   full: 'w-full',
 } as const
 
+/**
+ * Section component with built-in styling variants and gradient backgrounds
+ * Supports responsive padding, content width control, and accessibility features
+ */
 export default function Section({
   children,
   id,
@@ -127,34 +131,36 @@ export default function Section({
   'aria-labelledby': ariaLabelledBy,
 }: SectionProps) {
   const sectionClasses = clsx(
-    variantStyles[variant],
-    backgroundStyles[background],
-    className,
-    'relative overflow-hidden'
+    VARIANT_STYLES[variant],
+    BACKGROUND_STYLES[background],
+    'relative overflow-hidden',
+    className
   )
 
   const containerClasses = clsx(
-    contentStyles[contentWidth],
-    variant === 'hero' ? paddingStyles.hero : paddingStyles[padding],
-    containerClassName,
-    'relative z-10'
+    CONTENT_STYLES[contentWidth],
+    variant === 'hero' ? PADDING_STYLES.hero : PADDING_STYLES[padding],
+    'relative z-10',
+    containerClassName
   )
+
+  const hasGradient = !backgroundImage && variant && variant in GRADIENT_STYLES
 
   return (
     <section id={id} className={sectionClasses} aria-labelledby={ariaLabelledBy}>
       {/* Background image */}
       {backgroundImage && (
         <div
-          className='absolute inset-0 bg-cover bg-center bg-no-repeat'
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${backgroundImage})` }}
         />
       )}
 
       {/* Gradient overlays for different sections */}
-      {!backgroundImage && variant && variant in gradientStyles && (
+      {hasGradient && (
         <div
-          className='absolute inset-0'
-          style={gradientStyles[variant as keyof typeof gradientStyles]}
+          className="absolute inset-0"
+          style={GRADIENT_STYLES[variant as keyof typeof GRADIENT_STYLES]}
         />
       )}
 
@@ -171,6 +177,10 @@ interface SectionHeaderProps {
   titleId?: string
 }
 
+/**
+ * SectionHeader component for consistent section title styling
+ * Includes optional subtitle and description with motion animations
+ */
 export function SectionHeader({
   title,
   subtitle,
@@ -184,10 +194,11 @@ export function SectionHeader({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className={clsx('mb-16', className)}>
+      className={clsx('mb-16', className)}
+    >
       <h2 id={titleId} className={sectionStyles.title}>
         {title}
-        {subtitle && <span className={clsx('block mt-2', sectionStyles.subtitle)}>{subtitle}</span>}
+        {subtitle && <span className={clsx('mt-2 block', sectionStyles.subtitle)}>{subtitle}</span>}
       </h2>
       {description && <p className={clsx('max-w-4xl', sectionStyles.description)}>{description}</p>}
     </motion.div>

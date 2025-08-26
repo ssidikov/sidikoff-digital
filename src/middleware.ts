@@ -1,39 +1,67 @@
 import { NextRequest, NextResponse } from 'next/server'
-
 import { locales, defaultLocale } from './lib/i18n'
+
+// Constants for better maintainability
+const STATIC_PATHS = ['/_next', '/api', '/favicon', '/robots', '/sitemap', '/studio'] as const
+
+const SECURITY_HEADERS = {
+  'X-DNS-Prefetch-Control': 'on',
+  'X-XSS-Protection': '1; mode=block',
+  'X-Frame-Options': 'SAMEORIGIN',
+  'X-Content-Type-Options': 'nosniff',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+} as const
+
+/**
+ * Checks if the path should skip middleware processing
+ */
+function shouldSkipMiddleware(pathname: string): boolean {
+  return STATIC_PATHS.some((path) => pathname.startsWith(path)) || pathname.includes('.')
+}
+
+/**
+ * Checks if pathname has a valid locale prefix (excluding French as it's default)
+ */
+function hasLocalePrefix(pathname: string): boolean {
+  const nonDefaultLocales = locales.filter(locale => locale !== defaultLocale)
+  return nonDefaultLocales.some((locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`)
+}
+
+/**
+ * Validates studio authentication
+ */
+function validateStudioAuth(request: NextRequest): boolean {
+  const token = request.cookies.get('studio-auth')?.value
+  const validToken = process.env.STUDIO_AUTH_TOKEN
+  return Boolean(token && validToken && token === validToken)
+}
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   // Studio authentication check
   if (pathname.startsWith('/studio') && pathname !== '/studio') {
-    const token = request.cookies.get('studio-auth')?.value
-    const validToken = process.env.STUDIO_AUTH_TOKEN
-
-    if (!token || token !== validToken) {
+    if (!validateStudioAuth(request)) {
       return NextResponse.redirect(new URL('/studio', request.url))
     }
   }
 
   // Skip middleware for static files and API routes
-  if (
-    pathname.startsWith('/_next') ||
-    pathname.startsWith('/api') ||
-    pathname.includes('.') ||
-    pathname.startsWith('/favicon') ||
-    pathname.startsWith('/robots') ||
-    pathname.startsWith('/sitemap') ||
-    pathname.startsWith('/studio')
-  ) {
+  if (shouldSkipMiddleware(pathname)) {
     return enhanceResponse(NextResponse.next(), pathname)
   }
 
   // Check if there is any supported locale in the pathname
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  )
+  const pathnameHasLocale = hasLocalePrefix(pathname)
 
-  // If pathname already has a locale, continue
+  // Redirect French URLs to non-prefixed versions to avoid duplicates
+  if (pathname.startsWith('/fr/') || pathname === '/fr') {
+    const newPath = pathname === '/fr' ? '/' : pathname.replace('/fr', '')
+    return NextResponse.redirect(new URL(newPath, request.url), 301)
+  }
+
+  // If pathname already has a locale (en/ru), continue
   if (pathnameHasLocale) {
     return enhanceResponse(NextResponse.next(), pathname)
   }
@@ -51,45 +79,53 @@ export function middleware(request: NextRequest) {
   return enhanceResponse(NextResponse.next(), pathname)
 }
 
+/**
+ * Enhances response with security headers and CSP
+ */
 function enhanceResponse(response: NextResponse, pathname?: string) {
-  // Security headers for better security score
-  response.headers.set('X-DNS-Prefetch-Control', 'on')
-  response.headers.set('X-XSS-Protection', '1; mode=block')
-  response.headers.set('X-Frame-Options', 'SAMEORIGIN')
-  response.headers.set('X-Content-Type-Options', 'nosniff')
-  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
-  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
+  // Apply security headers
+  Object.entries(SECURITY_HEADERS).forEach(([key, value]) => {
+    response.headers.set(key, value)
+  })
 
   // CSP Header for security
-  const isStudio = pathname?.startsWith('/studio') || false
+  const isStudio = pathname?.startsWith('/studio') ?? false
   const isDevelopment = process.env.NODE_ENV === 'development'
-  // Relaxed CSP for development mode to avoid blocking issues
-  const cspHeader = isDevelopment
-    ? `
-    default-src 'self' 'unsafe-inline' 'unsafe-eval';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline';
-    style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data: https:;
-    font-src 'self' data: https:;
-    connect-src 'self' ws: wss: https:;
-    frame-src 'self';
-    object-src 'none';
-  `
-    : isStudio
-      ? `
-    default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline';
-    style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data: https://cdn.sanity.io;
-    font-src 'self' data:;
-    connect-src 'self' https://71pz7dxk.api.sanity.io;
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-    frame-ancestors 'none';
-  `
-      : `
-    default-src 'self';
+
+  // Only set CSP in production to avoid development issues
+  if (!isDevelopment) {
+    const cspHeader = generateCSPHeader(isStudio)
+    response.headers.set('Content-Security-Policy', cspHeader)
+  }
+
+  return response
+}
+
+/**
+ * Generates Content Security Policy header based on context
+ */
+function generateCSPHeader(isStudio: boolean): string {
+  const baseCSP = "default-src 'self';"
+
+  if (isStudio) {
+    return `
+      ${baseCSP}
+      script-src 'self' 'unsafe-eval' 'unsafe-inline';
+      style-src 'self' 'unsafe-inline';
+      img-src 'self' blob: data: https://cdn.sanity.io;
+      font-src 'self' data:;
+      connect-src 'self' https://71pz7dxk.api.sanity.io;
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+      frame-ancestors 'none';
+    `
+      .replace(/\s{2,}/g, ' ')
+      .trim()
+  }
+
+  return `
+    ${baseCSP}
     script-src 'self' 'unsafe-eval' 'unsafe-inline' https://va.vercel-scripts.com;
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data:;
@@ -102,13 +138,8 @@ function enhanceResponse(response: NextResponse, pathname?: string) {
     frame-ancestors 'none';
     upgrade-insecure-requests;
   `
-
-  // Only set CSP in production to avoid development issues
-  if (!isDevelopment) {
-    response.headers.set('Content-Security-Policy', cspHeader.replace(/\s{2,}/g, ' ').trim())
-  }
-
-  return response
+    .replace(/\s{2,}/g, ' ')
+    .trim()
 }
 
 export const config = {

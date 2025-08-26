@@ -1,6 +1,8 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /studio
 
 # Host
 Host: https://www.sidikoff.com

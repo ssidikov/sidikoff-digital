@@ -1,9 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useCallback, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+
 import CTAButton from '@/components/ui/CTAButton'
 import Section, { SectionHeader } from '@/components/ui/Section'
+import { type Locale } from '@/lib/i18n'
 
 interface FAQItem {
   id: string
@@ -12,35 +14,44 @@ interface FAQItem {
   category: string
 }
 
+interface FAQCategories {
+  general?: string
+  pricing?: string
+  support?: string
+}
+
+interface FAQQuestionItem {
+  question?: string
+  answer?: string
+  category?: string
+}
+
+interface FAQQuestions {
+  [key: string]: FAQQuestionItem
+}
+
+interface FAQCTA {
+  title?: string
+  description?: string
+  button?: string
+}
+
 interface FAQDictionary {
   title?: string
   subtitle?: string
-  categories?: {
-    general?: string
-    pricing?: string
-    support?: string
-  }
-  questions?: {
-    [key: string]: {
-      question?: string
-      answer?: string
-      category?: string
-    }
-  }
-  cta?: {
-    title?: string
-    description?: string
-    button?: string
-  }
+  categories?: FAQCategories
+  questions?: FAQQuestions
+  cta?: FAQCTA
 }
 
 interface FAQProps {
-  locale?: string
+  locale?: Locale
   dictionary?: FAQDictionary
   className?: string
 }
 
-const faqData: FAQItem[] = [
+// Default FAQ data for fallback
+const DEFAULT_FAQ_DATA: FAQItem[] = [
   {
     id: '1',
     question: 'Combien de temps faut-il pour développer un site web ?',
@@ -76,13 +87,37 @@ const faqData: FAQItem[] = [
       'Oui, nous mettons en place des systèmes de gestion de contenu (CMS) intuitifs qui vous permettent de modifier facilement textes, images et pages sans connaissances techniques.',
     category: 'gestion',
   },
-]
+] as const
 
-export const FAQ = ({ dictionary, className }: FAQProps) => {
+// Animation configurations
+const ANIMATION_CONFIG = {
+  item: {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 },
+    transition: { duration: 0.3 },
+  },
+  content: {
+    initial: { maxHeight: 0 },
+    animate: (isOpen: boolean) => ({ maxHeight: isOpen ? 200 : 0 }),
+    transition: { duration: 0.3 },
+  },
+  icon: {
+    animate: (isOpen: boolean) => ({ rotate: isOpen ? 180 : 0 }),
+    transition: { duration: 0.3 },
+  },
+} as const
+
+/**
+ * FAQ section component with expandable items and responsive layout
+ * Features smooth animations, accessibility, and analytics tracking
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const FAQ = ({ dictionary, className, locale: _locale }: FAQProps) => {
   const [openItems, setOpenItems] = useState<Set<string>>(new Set())
 
-  // Get FAQ data from dictionary or fallback to static data
-  const getFAQData = (): FAQItem[] => {
+  // Memoized FAQ data transformation
+  const faqItems = useMemo((): FAQItem[] => {
     if (dictionary?.questions) {
       return Object.entries(dictionary.questions).map(([, item], index) => ({
         id: (index + 1).toString(),
@@ -91,34 +126,38 @@ export const FAQ = ({ dictionary, className }: FAQProps) => {
         category: item.category || 'general',
       }))
     }
-    return faqData
-  }
+    return DEFAULT_FAQ_DATA
+  }, [dictionary?.questions])
 
-  const faqItems = getFAQData()
-
-  // Calculate split points consistently to prevent hydration issues
-  const midPoint = Math.floor(faqItems.length / 2)
-  const firstHalf = faqItems.slice(0, midPoint)
-  const secondHalf = faqItems.slice(midPoint)
-
-  const toggleItem = (id: string) => {
-    const newOpenItems = new Set(openItems)
-    if (newOpenItems.has(id)) {
-      newOpenItems.delete(id)
-    } else {
-      newOpenItems.add(id)
+  // Memoized column distribution
+  const { firstHalf, secondHalf } = useMemo(() => {
+    const midPoint = Math.floor(faqItems.length / 2)
+    return {
+      firstHalf: faqItems.slice(0, midPoint),
+      secondHalf: faqItems.slice(midPoint),
     }
-    setOpenItems(newOpenItems)
-  }
+  }, [faqItems])
+
+  const toggleItem = useCallback((id: string) => {
+    setOpenItems((prev) => {
+      const newSet = new Set(prev)
+      if (newSet.has(id)) {
+        newSet.delete(id)
+      } else {
+        newSet.add(id)
+      }
+      return newSet
+    })
+  }, [])
 
   return (
     <Section
       id='faq'
       variant='faq'
       background='transparent'
-      className={className || ''}
       padding='lg'
-      contentWidth='wide'>
+      contentWidth='wide'
+      {...(className && { className })}>
       <div className='relative z-10'>
         <SectionHeader
           title={dictionary?.title || 'Questions Fréquentes'}
@@ -127,120 +166,53 @@ export const FAQ = ({ dictionary, className }: FAQProps) => {
             'Retrouvez les réponses aux questions les plus courantes sur nos services'
           }
           titleId='faq-title'
-          className='text-left mb-10 md:mb-16'
+          className='mb-10 text-left md:mb-16'
         />
 
-        {/* FAQ Items */}
-        <div className='flex flex-col xl:flex-row gap-x-10 gap-y-2.5 h-auto'>
-          <div className='space-y-2.5 w-full xl:w-1/2'>
+        {/* FAQ Items in Two Columns */}
+        <div className='flex h-auto flex-col gap-x-10 gap-y-2.5 xl:flex-row'>
+          {/* First Column */}
+          <div className='w-full space-y-2.5 xl:w-1/2'>
             <AnimatePresence>
               {firstHalf.map((item) => (
-                <motion.div
+                <FAQCard
                   key={item.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                  className='bg-white rounded-md pb-5 border border-white/50 shadow-2xl transition-all duration-500 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/30 before:to-transparent before:opacity-60 before:pointer-events-none relative overflow-hidden'>
-                  <button
-                    onClick={() => toggleItem(item.id)}
-                    className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:px-6 cursor-pointer'>
-                    <div className='flex items-center gap-3 3xl:gap-6'>
-                      <h3 className='font-medium text-left text-base md:text-xl leading-7 sm:leading-8 lg:leading-9 3xl:leading-10'>
-                        {item.question}
-                      </h3>
-                    </div>
-                    <span className='size-8 3xl:size-11 shrink-0 flex items-center justify-center rounded-full bg-white opacity-50 hover:opacity-100 transition-opacity duration-300'>
-                      <motion.svg
-                        animate={{ rotate: openItems.has(item.id) ? 180 : 0 }}
-                        transition={{ duration: 0.3 }}
-                        className='w-5 h-5 3xl:w-7 3xl:h-7 transition-transform duration-300'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'
-                        xmlns='http://www.w3.org/2000/svg'>
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth='2'
-                          d='M19 9l-7 7-7-7'
-                        />
-                      </motion.svg>
-                    </span>
-                  </button>
-                  <motion.div
-                    initial={{ maxHeight: 0 }}
-                    animate={{ maxHeight: openItems.has(item.id) ? 200 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    style={{ overflow: 'hidden' }}>
-                    <p className='pb-2 3xl:pb-4 px-5 sm:px-6 3xl:px-8 text-lg mt-4'>
-                      {item.answer}
-                    </p>
-                  </motion.div>
-                </motion.div>
+                  item={item}
+                  isOpen={openItems.has(item.id)}
+                  onToggle={toggleItem}
+                />
               ))}
             </AnimatePresence>
           </div>
 
-          <div className='space-y-2.5 w-full xl:w-1/2'>
+          {/* Second Column */}
+          <div className='w-full space-y-2.5 xl:w-1/2'>
             <AnimatePresence>
               {secondHalf.map((item) => (
-                <motion.div
+                <FAQCard
                   key={item.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                  className='bg-white rounded-md pb-5 border border-white/50 shadow-2xl transition-all duration-500 before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/30 before:to-transparent before:opacity-60 before:pointer-events-none relative overflow-hidden'>
-                  <button
-                    onClick={() => toggleItem(item.id)}
-                    className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:px-6 cursor-pointer'>
-                    <div className='flex items-center gap-3 3xl:gap-6'>
-                      <h3 className='font-medium text-left text-base md:text-xl leading-7 sm:leading-8 lg:leading-9 3xl:leading-10'>
-                        {item.question}
-                      </h3>
-                    </div>
-                    <span className='size-8 3xl:size-11 shrink-0 flex items-center justify-center rounded-full bg-white opacity-50 hover:opacity-100 transition-opacity duration-300'>
-                      <motion.svg
-                        animate={{ rotate: openItems.has(item.id) ? 180 : 0 }}
-                        transition={{ duration: 0.3 }}
-                        className='w-5 h-5 3xl:w-7 3xl:h-7 transition-transform duration-300'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'
-                        xmlns='http://www.w3.org/2000/svg'>
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth='2'
-                          d='M19 9l-7 7-7-7'
-                        />
-                      </motion.svg>
-                    </span>
-                  </button>
-                  <motion.div
-                    initial={{ maxHeight: 0 }}
-                    animate={{ maxHeight: openItems.has(item.id) ? 200 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    style={{ overflow: 'hidden' }}>
-                    <p className='pb-2 3xl:pb-4 px-5 sm:px-6 3xl:px-8 text-lg mt-4'>
-                      {item.answer}
-                    </p>
-                  </motion.div>
-                </motion.div>
+                  item={item}
+                  isOpen={openItems.has(item.id)}
+                  onToggle={toggleItem}
+                />
               ))}
             </AnimatePresence>
           </div>
         </div>
 
         {/* Contact CTA */}
-        <div className='text-center mt-16'>
-          <p className='text-gray-600 mb-6'>
+        <div className='mt-16 text-center'>
+          <p className='mb-6 text-gray-600'>
             {dictionary?.cta?.description || 'Vous ne trouvez pas la réponse à votre question ?'}
           </p>
-          <CTAButton href='#contact' variant='primary'>
+          <CTAButton
+            href='#contact'
+            variant='primary'
+            trackingAction='faq_contact'
+            trackingCategory='faq'
+            ariaLabel={dictionary?.cta?.button || 'Contactez-nous'}>
             {dictionary?.cta?.button || 'Contactez-nous'}
-            <svg className='ml-2 w-5 h-5' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+            <svg className='ml-2 h-5 w-5' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
               <path
                 strokeLinecap='round'
                 strokeLinejoin='round'
@@ -254,5 +226,52 @@ export const FAQ = ({ dictionary, className }: FAQProps) => {
     </Section>
   )
 }
+
+/**
+ * Individual FAQ card component with expand/collapse functionality
+ */
+interface FAQCardProps {
+  item: FAQItem
+  isOpen: boolean
+  onToggle: (id: string) => void
+}
+
+const FAQCard = ({ item, isOpen, onToggle }: FAQCardProps) => (
+  <motion.div
+    {...ANIMATION_CONFIG.item}
+    className='relative overflow-hidden rounded-md border border-white/50 bg-white pb-5 shadow-2xl transition-all duration-500 before:pointer-events-none before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/30 before:to-transparent before:opacity-60'>
+    <button
+      onClick={() => onToggle(item.id)}
+      className='flex w-full cursor-pointer items-center justify-between px-5 pt-5 transition-all duration-[10000] sm:px-6'
+      aria-expanded={isOpen}
+      aria-controls={`faq-content-${item.id}`}>
+      <div className='flex items-center gap-3 3xl:gap-6'>
+        <h3 className='text-left text-base font-medium leading-7 sm:leading-8 md:text-xl lg:leading-9 3xl:leading-10'>
+          {item.question}
+        </h3>
+      </div>
+      <span className='flex size-8 shrink-0 items-center justify-center rounded-full bg-white opacity-50 transition-opacity duration-300 hover:opacity-100 3xl:size-11'>
+        <motion.svg
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={ANIMATION_CONFIG.icon.transition}
+          className='h-5 w-5 transition-transform duration-300 3xl:h-7 3xl:w-7'
+          fill='none'
+          stroke='currentColor'
+          viewBox='0 0 24 24'
+          xmlns='http://www.w3.org/2000/svg'>
+          <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M19 9l-7 7-7-7' />
+        </motion.svg>
+      </span>
+    </button>
+    <motion.div
+      id={`faq-content-${item.id}`}
+      initial={{ maxHeight: 0 }}
+      animate={{ maxHeight: isOpen ? 200 : 0 }}
+      transition={ANIMATION_CONFIG.content.transition}
+      style={{ overflow: 'hidden' }}>
+      <p className='mt-4 px-5 pb-2 text-lg sm:px-6 3xl:px-8 3xl:pb-4'>{item.answer}</p>
+    </motion.div>
+  </motion.div>
+)
 
 export default FAQ

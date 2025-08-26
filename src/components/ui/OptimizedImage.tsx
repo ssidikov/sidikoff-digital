@@ -1,44 +1,55 @@
 'use client'
 
-import { useState } from 'react'
-import Image, { ImageProps } from 'next/image'
+import { useState, useCallback } from 'react'
+import Image, { type ImageProps } from 'next/image'
 
 interface OptimizedImageProps extends Omit<ImageProps, 'onLoad' | 'onError'> {
   fallback?: string
   loading?: 'lazy' | 'eager'
   className?: string
+  showLoader?: boolean
 }
 
+const DEFAULT_FALLBACK = '/images/projects-bg.webp'
+
+/**
+ * OptimizedImage component with error handling, loading states, and fallback support
+ * Provides smooth loading experience with placeholder animation
+ */
 const OptimizedImage = ({
   src,
   alt,
-  fallback = '/images/projects-bg.webp',
+  fallback = DEFAULT_FALLBACK,
   loading = 'lazy',
-  className,
+  className = '',
+  showLoader = true,
   ...props
 }: OptimizedImageProps) => {
   const [imgSrc, setImgSrc] = useState(src)
   const [isLoading, setIsLoading] = useState(true)
   const [hasError, setHasError] = useState(false)
 
-  const handleLoad = () => {
+  const handleLoad = useCallback(() => {
     setIsLoading(false)
-  }
+  }, [])
 
-  const handleError = () => {
+  const handleError = useCallback(() => {
     setHasError(true)
     setIsLoading(false)
-    // Если это внешний URL, попробуем загрузить fallback
-    if (typeof src === 'string' && src.startsWith('http')) {
-      setImgSrc(fallback)
-    } else {
+    
+    // Use fallback image for both external URLs and local images
+    if (imgSrc !== fallback) {
       setImgSrc(fallback)
     }
-  }
+  }, [fallback, imgSrc])
 
   return (
-    <div className={`relative ${className || ''}`}>
-      {isLoading && <div className='absolute inset-0 bg-gray-200 animate-pulse rounded' />}
+    <div className={`relative ${className}`}>
+      {/* Loading placeholder */}
+      {isLoading && showLoader && (
+        <div className="absolute inset-0 animate-pulse rounded bg-gray-200" />
+      )}
+      
       <Image
         src={imgSrc}
         alt={alt}
@@ -47,7 +58,7 @@ const OptimizedImage = ({
         onError={handleError}
         className={`transition-opacity duration-300 ${
           isLoading ? 'opacity-0' : 'opacity-100'
-        } ${hasError ? 'filter grayscale' : ''}`}
+        } ${hasError ? 'grayscale' : ''}`}
         {...props}
       />
     </div>

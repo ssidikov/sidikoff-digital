@@ -11,6 +11,7 @@ import {
 } from '@/lib/seo-utils'
 import { getDictionary } from '@/lib/dictionaries'
 import { Hero, Services, Pricing, Portfolio, FAQ, Contact } from '@/sections'
+import { SEOContent } from '@/components/SEOContent'
 import { defaultLocale } from '@/lib/i18n'
 
 interface SEOPageProps {
@@ -140,15 +141,15 @@ export default async function SEOLocationPage({ params }: SEOPageProps) {
   const locale = defaultLocale
   const dict = await getDictionary(locale)
 
-  // Create customized hero dictionary with location-specific content
+  // Create customized hero dictionary with location-specific content and enhanced SEO
   const heroDict = {
     ...dict.hero,
     badge: location.badgeText[locale],
     title: location.title[locale].replace(' | SIDIKOFF DIGITAL', ''), // Remove company name from H1
-    subtitle: `${location.keyword.charAt(0).toUpperCase() + location.keyword.slice(1)} : ${dict.hero.subtitle}`,
+    subtitle: `Solutions digitales modernes pour ${location.city} : ${dict.hero.subtitle}`,
   }
 
-  // Generate structured data for the location
+  // Generate enhanced structured data for the location with more SEO signals
   const parisLocation = businessLocations.find((loc) => loc.address.addressLocality === 'Paris')!
   const schemas = [
     organizationSchema, // Main organization with rating
@@ -167,27 +168,108 @@ export default async function SEOLocationPage({ params }: SEOPageProps) {
       },
       about: {
         '@type': 'Service',
-        name: `Création de sites web à ${location.city}`,
+        name: `Création de sites web professionnels à ${location.city}`,
         description: location.description[locale],
-        areaServed: {
-          '@type': 'Place',
-          name: location.city,
-        },
+        serviceType: 'Développement Web',
         provider: {
           '@type': 'Organization',
           '@id': 'https://sidikoff.com/#organization',
+        },
+        areaServed: {
+          '@type': 'Place',
+          name: location.city,
+          containedInPlace: {
+            '@type': 'Place',
+            name: location.region,
+          },
+        },
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: 'Services de développement web',
+          itemListElement: [
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Création de site web React',
+                description: 'Développement de sites web modernes avec React et Next.js',
+              },
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Refonte de site web',
+                description: 'Modernisation et optimisation de sites existants',
+              },
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Optimisation SEO',
+                description: 'Amélioration du référencement naturel et des performances',
+              },
+            },
+          ],
         },
       },
       mainEntity: {
         '@type': 'LocalBusiness',
         '@id': `https://sidikoff.com/seo/${location.slug}#localbusiness`,
-        name: `SIDIKOFF DIGITAL - ${location.city}`,
+        name: `SIDIKOFF DIGITAL - Développeur Web ${location.city}`,
         description: location.description[locale],
-        areaServed: {
+        serviceArea: {
           '@type': 'Place',
           name: location.city,
+          containedInPlace: {
+            '@type': 'Place',
+            name: location.region,
+          },
+        },
+        priceRange: '€€€',
+        paymentAccepted: 'CB, Virement, Chèque',
+        currenciesAccepted: 'EUR',
+        openingHours: 'Mo-Ve 09:00-18:00',
+        contactPoint: {
+          '@type': 'ContactPoint',
+          telephone: '+33626932734',
+          contactType: 'Devis et information',
+          availableLanguage: ['French', 'English', 'Russian'],
+          email: 's.sidikoff@gmail.com',
         },
       },
+    },
+    // Enhanced FAQ for local SEO
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: `Combien coûte la création d'un site web à ${location.city} ?`,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: `Le prix de création d'un site web à ${location.city} varie selon vos besoins : site vitrine dès 590€, e-commerce dès 2000€, application web sur mesure dès 5000€. Devis gratuit sous 24h.`,
+          },
+        },
+        {
+          '@type': 'Question',
+          name: `Pourquoi choisir un développeur React à ${location.city} ?`,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: `React permet de créer des sites web modernes, rapides et optimisés SEO. Notre expertise à ${location.city} garantit des solutions performantes et évolutives.`,
+          },
+        },
+        {
+          '@type': 'Question',
+          name: `Proposez-vous la maintenance de site web à ${location.city} ?`,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: `Oui, nous proposons des contrats de maintenance pour tous nos sites web à ${location.city} : mises à jour sécurité, sauvegardes, optimisations performance.`,
+          },
+        },
+      ],
     },
   ]
 
@@ -208,6 +290,9 @@ export default async function SEOLocationPage({ params }: SEOPageProps) {
       <main>
         {/* Hero with custom badge, title and subtitle */}
         <Hero dict={heroDict} locale={locale} />
+
+        {/* Enhanced SEO content section specific to the location */}
+        <SEOContent location={location} locale={locale} />
 
         {/* Keep the same layout as the main site */}
         <Services dictionary={dict.services} locale={locale} />

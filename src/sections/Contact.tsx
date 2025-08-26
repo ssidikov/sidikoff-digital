@@ -1,9 +1,46 @@
 'use client'
 
 import React, { useState, useCallback, useEffect } from 'react'
+import { Mail, CheckCircle, AlertCircle } from 'lucide-react'
+
 import Section from '@/components/ui/Section'
 import { cardStyles } from '@/utils/styles'
-import { Mail, CheckCircle, AlertCircle } from 'lucide-react'
+import { type Locale } from '@/lib/i18n'
+
+interface ContactFormField {
+  label?: string
+  placeholder?: string
+}
+
+interface ContactForm {
+  title?: string
+  name?: ContactFormField
+  email?: ContactFormField
+  message?: ContactFormField
+  submit?: string
+  sending?: string
+  success?: string
+  success_description?: string
+  error?: string
+  error_description?: string
+}
+
+interface ContactInfo {
+  title?: string
+  localisations?: string
+  locations?: string[]
+  phone_label?: string
+  email_label?: string
+  phone?: string
+  email?: string
+}
+
+interface ContactChannels {
+  email?: string
+  whatsapp?: string
+  telegram?: string
+  phone?: string
+}
 
 interface ContactDictionary {
   title?: string
@@ -11,56 +48,59 @@ interface ContactDictionary {
   quickContact?: string
   social?: string
   socialDesc?: string
-  form?: {
-    title?: string
-    name?: { label?: string; placeholder?: string }
-    email?: { label?: string; placeholder?: string }
-    message?: { label?: string; placeholder?: string }
-    submit?: string
-    sending?: string
-    success?: string
-    success_description?: string
-    error?: string
-    error_description?: string
-  }
-  info?: {
-    title?: string
-    localisations?: string
-    locations?: string[]
-    phone_label?: string
-    email_label?: string
-    phone?: string
-    email?: string
-  }
-  channels?: {
-    email?: string
-    whatsapp?: string
-    telegram?: string
-    phone?: string
-  }
+  form?: ContactForm
+  info?: ContactInfo
+  channels?: ContactChannels
 }
 
 interface ContactProps {
   className?: string
   dictionary?: ContactDictionary
-  locale?: string
+  locale?: Locale
 }
 
+interface FormData {
+  name: string
+  email: string
+  message: string
+}
+
+type SubmitStatus = 'idle' | 'success' | 'error'
+
+// Contact information constants
+const CONTACT_INFO = {
+  email: 's.sidikoff@gmail.com',
+  phone: '+33626932734',
+  telegram: '@sardorbek_sidikov',
+  whatsapp: 'https://wa.me/+33626932734',
+  telegramUrl: 'https://t.me/sardorbek_sidikov',
+} as const
+
+// Email validation regex
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+// Status reset timeout in milliseconds
+const STATUS_RESET_TIMEOUT = 5000
+
+/**
+ * Contact section component with form and contact information
+ * Features validation, status feedback, and accessibility
+ */
 const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle')
 
-  // Reset submit status after 3 seconds
+  // Reset submit status after timeout
   useEffect(() => {
     if (submitStatus !== 'idle') {
       const timer = setTimeout(() => {
         setSubmitStatus('idle')
-      }, 5000)
+      }, STATUS_RESET_TIMEOUT)
       return () => clearTimeout(timer)
     }
 
@@ -80,8 +120,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
         }
 
         // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        if (!emailRegex.test(formData.email)) {
+        if (!EMAIL_REGEX.test(formData.email)) {
           throw new Error('Adresse email invalide')
         }
 
@@ -94,14 +133,13 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
           userAgent: navigator.userAgent,
         }
 
-        // Here you can add your actual form submission logic
-        // For example, sending to your backend API:
+        // Submit to backend API
         const response = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             ...submitData,
-            locale: locale || 'fr', // Use dynamic locale
+            locale: locale || 'fr',
           }),
         })
 
@@ -111,20 +149,12 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
           throw new Error(result.error || "Erreur lors de l'envoi du message")
         }
 
-        // Email sent successfully
-
-        // Mark as successful
+        // Mark as successful and reset form
         setSubmitStatus('success')
-
-        // Reset form
         setFormData({ name: '', email: '', message: '' })
-
-        // Remove alert and let the UI notification handle success message
       } catch (error) {
         console.error('Form submission error:', error)
         setSubmitStatus('error')
-
-        // Error will be shown in UI notification below the button
       } finally {
         setIsSubmitting(false)
       }
@@ -186,9 +216,10 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                     <Mail className='w-6 h-6 lg:w-8 lg:h-8 text-white' />
                   </div>
                   <a
-                    href='mailto:s.sidikoff@gmail.com'
-                    className='text-lg lg:text-xl xl:text-2xl text-gray-600 hover:text-accent transition-colors duration-200 font-medium break-all'>
-                    s.sidikoff@gmail.com
+                    href={`mailto:${CONTACT_INFO.email}`}
+                    className="break-all text-lg font-medium text-gray-600 transition-colors duration-200 hover:text-accent lg:text-xl xl:text-2xl"
+                  >
+                    {CONTACT_INFO.email}
                   </a>
                 </div>
 
@@ -202,11 +233,12 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                     </svg>
                   </div>
                   <a
-                    href='https://wa.me/+33626932734'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='text-lg lg:text-xl xl:text-2xl text-gray-600 hover:text-accent transition-colors duration-200 font-medium'>
-                    +33 6 26 93 27 34
+                    href={CONTACT_INFO.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg font-medium text-gray-600 transition-colors duration-200 hover:text-accent lg:text-xl xl:text-2xl"
+                  >
+                    {CONTACT_INFO.phone}
                   </a>
                 </div>
 
@@ -220,11 +252,12 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                     </svg>
                   </div>
                   <a
-                    href='https://t.me/sardorbek_sidikov'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='text-lg lg:text-xl xl:text-2xl text-gray-600 hover:text-accent transition-colors duration-200 font-medium'>
-                    @sardorbek_sidikov
+                    href={CONTACT_INFO.telegramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg font-medium text-gray-600 transition-colors duration-200 hover:text-accent lg:text-xl xl:text-2xl"
+                  >
+                    {CONTACT_INFO.telegram}
                   </a>
                 </div>
 
@@ -244,9 +277,10 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                     </svg>
                   </div>
                   <a
-                    href='tel:+33626932734'
-                    className='text-lg lg:text-xl xl:text-2xl text-gray-600 hover:text-accent transition-colors duration-200 font-medium'>
-                    +33 6 26 93 27 34
+                    href={`tel:${CONTACT_INFO.phone}`}
+                    className="text-lg font-medium text-gray-600 transition-colors duration-200 hover:text-accent lg:text-xl xl:text-2xl"
+                  >
+                    {CONTACT_INFO.phone}
                   </a>
                 </div>
               </div>

@@ -1,4 +1,3 @@
 // Custom hooks exports
-export * from './useForm'
-export * from './usePerformance'
+export * from './useAnalytics'
 export * from './useViewportHeight'

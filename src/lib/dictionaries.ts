@@ -29,6 +29,7 @@ export interface Dictionary {
     subtitle: string
     cta_primary: string
     cta_secondary: string
+    trust_indicators?: string[]
     features: Array<{ title: string; icon: string }>
   }
   services: {
@@ -298,17 +299,34 @@ export interface Dictionary {
   }
 }
 
-// Cache for dictionaries
-const dictionaryCache = new Map<Locale, Dictionary>()
+// Cache for dictionaries with TTL
+interface CacheEntry {
+  data: Dictionary
+  timestamp: number
+}
 
-// Dictionary loading function - server only with caching
+const CACHE_TTL = 5 * 60 * 1000 // 5 minutes in development, could be longer in production
+const dictionaryCache = new Map<Locale, CacheEntry>()
+
+/**
+ * Dictionary loading functions with proper error handling
+ */
 const dictionaries = {
   fr: () => import('../../locales/fr/common.json').then((module) => module.default as Dictionary),
   en: () => import('../../locales/en/common.json').then((module) => module.default as Dictionary),
   ru: () => import('../../locales/ru/common.json').then((module) => module.default as Dictionary),
 } as const
 
-// Get dictionary for a locale - server only with optimization
+/**
+ * Checks if cache entry is still valid
+ */
+function isCacheValid(entry: CacheEntry): boolean {
+  return Date.now() - entry.timestamp < CACHE_TTL
+}
+
+/**
+ * Get dictionary for a locale with enhanced caching and error handling
+ */
 export async function getDictionary(locale: Locale): Promise<Dictionary> {
   // Locale validation
   if (!isValidLocale(locale)) {
@@ -316,22 +334,26 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
     notFound()
   }
 
-  // Check cache
-  if (dictionaryCache.has(locale)) {
-    return dictionaryCache.get(locale)!
+  // Check cache with TTL
+  const cachedEntry = dictionaryCache.get(locale)
+  if (cachedEntry && isCacheValid(cachedEntry)) {
+    return cachedEntry.data
   }
 
   try {
     const dictionary = await dictionaries[locale]()
 
-    // Cache result
-    dictionaryCache.set(locale, dictionary)
+    // Cache result with timestamp
+    dictionaryCache.set(locale, {
+      data: dictionary,
+      timestamp: Date.now(),
+    })
 
     return dictionary
   } catch (error) {
     console.error(`Failed to load dictionary for locale: ${locale}`, error)
 
-    // Fallback to default locale
+    // Fallback to default locale if available
     if (locale !== defaultLocale) {
       console.warn(`Falling back to default locale: ${defaultLocale}`)
       return getDictionary(defaultLocale)
@@ -341,15 +363,18 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
   }
 }
 
-// Clear cache (for testing or hot reload)
+/**
+ * Clear cache (for testing or hot reload)
+ */
 export function clearDictionaryCache(): void {
   dictionaryCache.clear()
 }
 
-// Preload dictionaries (optional)
+/**
+ * Preload dictionaries for better performance
+ */
 export async function preloadDictionaries(): Promise<void> {
   const locales: Locale[] = ['en', 'fr', 'ru']
-
   await Promise.allSettled(locales.map((locale) => getDictionary(locale)))
 }
 

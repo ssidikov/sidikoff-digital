@@ -1,7 +1,7 @@
 
+'use client'
+
 import Image from 'next/image'
-
-
 
 interface BackgroundImageProps {
   src: string
@@ -14,6 +14,10 @@ interface BackgroundImageProps {
   zIndex?: number
 }
 
+/**
+ * BackgroundImage component with gradient and pattern overlays
+ * Supports flipping, priority loading, and customizable z-index layering
+ */
 export function BackgroundImage({
   src,
   alt,
@@ -24,31 +28,39 @@ export function BackgroundImage({
   priority = false,
   zIndex = 0,
 }: BackgroundImageProps) {
+  // Generate dynamic Tailwind classes safely
+  const baseZIndex = `z-[${zIndex}]`
+  const gradientZIndex = `z-[${zIndex + 10}]`
+  const patternZIndex = `z-[${zIndex + 20}]`
+
+  const imageTransform = flipped ? { transform: 'scaleX(-1)' } : undefined
+
   return (
     <>
       {/* Main Background Image */}
-      <div
-        className={`absolute inset-0 z-${zIndex}`}
-        style={flipped ? { transform: 'scaleX(-1)' } : undefined}>
+      <div className={`absolute inset-0 ${baseZIndex}`} style={imageTransform}>
         <Image
           src={src}
           alt={alt}
           fill
-          className={`object-cover w-full h-full pointer-events-none select-none ${className}`}
+          className={`pointer-events-none select-none object-cover ${className}`}
           priority={priority}
-          sizes='100vw'
+          sizes="100vw"
         />
       </div>
 
       {/* Gradient Overlay */}
       {gradient && (
-        <div className={`absolute inset-0 z-${zIndex + 10}`} style={{ background: gradient }} />
+        <div
+          className={`absolute inset-0 ${gradientZIndex}`}
+          style={{ background: gradient }}
+        />
       )}
 
       {/* Pattern Overlay */}
       {pattern && (
         <div
-          className={`absolute inset-0 z-${zIndex + 20} bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.02)_1px,transparent_0)] bg-[length:20px_20px] opacity-50`}
+          className={`absolute inset-0 ${patternZIndex} bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.02)_1px,transparent_0)] bg-[length:20px_20px] opacity-50`}
         />
       )}
     </>

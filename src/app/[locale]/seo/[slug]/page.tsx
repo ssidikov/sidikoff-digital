@@ -85,7 +85,7 @@ export async function generateStaticParams() {
     ...FRENCH_REGIONS.map(region => region.slug),
   ]
 
-  const locales: Locale[] = ['fr', 'en', 'ru']
+  const locales: Locale[] = ['en', 'ru'] // Exclude 'fr' as French pages are served without prefix
   const paths: { slug: string; locale: Locale }[] = []
 
   seoSlugs.forEach((slug) => {
