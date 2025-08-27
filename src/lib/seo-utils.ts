@@ -2208,7 +2208,7 @@ export function generateReviewStructuredData(
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': 'https://sidikoff.com/#organization',
-    review: reviews.map((review, index) => ({
+    review: reviews.map((review) => ({
       '@type': 'Review',
       author: {
         '@type': 'Person',
