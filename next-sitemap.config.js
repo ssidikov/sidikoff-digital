@@ -3,6 +3,10 @@
 // Import SEO locations from our seo-utils
 import path from 'path'
 import fs from 'fs'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 // Function to extract all slugs from SEO_LOCATIONS
 function getAllSEOSlugs() {
@@ -53,7 +57,7 @@ function getAllSEOSlugs() {
   }
 }
 
-module.exports = {
+export default {
   siteUrl: 'https://www.sidikoff.com',
   generateRobotsTxt: true,
   changefreq: 'weekly',

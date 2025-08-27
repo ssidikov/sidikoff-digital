@@ -40,13 +40,16 @@ export function StarRating({
     const isFilled = starNumber <= rating
     const isPartial = starNumber - 0.5 <= rating && starNumber > rating
 
+    const motionProps = animated
+      ? {
+          initial: { opacity: 0, scale: 0 },
+          animate: { opacity: 1, scale: 1 },
+          transition: { duration: 0.3, delay: index * 0.1 },
+        }
+      : {}
+
     return (
-      <motion.div
-        key={index}
-        initial={animated ? { opacity: 0, scale: 0 } : false}
-        animate={animated ? { opacity: 1, scale: 1 } : false}
-        transition={animated ? { duration: 0.3, delay: index * 0.1 } : false}
-        className='relative'>
+      <motion.div key={index} {...motionProps} className='relative'>
         <svg
           className={`${sizeClasses[size]} text-gray-300 transition-colors duration-200`}
           fill='currentColor'
