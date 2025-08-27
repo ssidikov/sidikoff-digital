@@ -1,8 +1,8 @@
 /** @type {import('next-sitemap').IConfig} */
 
 // Import SEO locations from our seo-utils
-const path = require('path')
-const fs = require('fs')
+import path from 'path'
+import fs from 'fs'
 
 // Function to extract all slugs from SEO_LOCATIONS
 function getAllSEOSlugs() {
