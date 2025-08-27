@@ -356,5 +356,14 @@
     "view_project": "View All Projects",
     "live_demo": "Live Demo",
     "github": "Source Code"
+  },
+  "testimonials": {
+    "title": "Client Testimonials",
+    "subtitle": "What our clients say about us",
+    "cta": {
+      "title": "Ready to join our satisfied clients?",
+      "description": "Contact us today and see how we can help your business grow.",
+      "button": "Start project"
+    }
   }
 }

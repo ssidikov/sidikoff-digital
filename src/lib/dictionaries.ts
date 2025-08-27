@@ -115,6 +115,15 @@ export interface Dictionary {
     filter_all: string
     filter_featured: string
   }
+  testimonials: {
+    title: string
+    subtitle: string
+    cta: {
+      title: string
+      description: string
+      button: string
+    }
+  }
   faq: {
     title: string
     subtitle: string

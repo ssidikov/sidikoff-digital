@@ -355,5 +355,14 @@
     "view_project": "Voir Tous les Projets",
     "live_demo": "Démo Live",
     "github": "Code Source"
+  },
+  "testimonials": {
+    "title": "Témoignages clients",
+    "subtitle": "Ce que nos clients disent de nous",
+    "cta": {
+      "title": "Prêt à rejoindre nos clients satisfaits ?",
+      "description": "Contactez-nous dès aujourd'hui et découvrez comment nous pouvons aider votre entreprise à croître.",
+      "button": "Démarrer un projet"
+    }
   }
 }

@@ -2191,3 +2191,54 @@ export function generateArticleStructuredData(article: {
     url: article.url,
   }
 }
+
+/**
+ * Generate structured data for customer reviews/testimonials
+ */
+export function generateReviewStructuredData(
+  reviews: Array<{
+    author: string
+    reviewBody: string
+    rating: number
+    projectName: string
+    datePublished?: string
+  }>
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': 'https://sidikoff.com/#organization',
+    review: reviews.map((review, index) => ({
+      '@type': 'Review',
+      author: {
+        '@type': 'Person',
+        name: review.author,
+      },
+      reviewBody: review.reviewBody,
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: review.rating,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      itemReviewed: {
+        '@type': 'Service',
+        name: review.projectName,
+        provider: {
+          '@type': 'Organization',
+          '@id': 'https://sidikoff.com/#organization',
+        },
+      },
+      datePublished: review.datePublished || new Date().toISOString().split('T')[0],
+    })),
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: (
+        reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length
+      ).toFixed(1),
+      reviewCount: reviews.length,
+      bestRating: 5,
+      worstRating: 1,
+    },
+  }
+}

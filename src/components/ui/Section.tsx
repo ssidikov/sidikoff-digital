@@ -18,6 +18,7 @@ interface SectionProps {
     | 'hero'
     | 'services'
     | 'portfolio'
+    | 'testimonials'
     | 'contact'
     | 'faq'
     | 'pricing'
@@ -38,6 +39,7 @@ const VARIANT_STYLES = {
   hero: 'hero-height w-full flex flex-col items-center justify-center',
   services: 'py-4',
   portfolio: 'py-4',
+  testimonials: 'py-4',
   contact: 'py-4',
   faq: 'py-4',
   pricing: 'py-4',
@@ -151,7 +153,7 @@ export default function Section({
       {/* Background image */}
       {backgroundImage && (
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className='absolute inset-0 bg-cover bg-center bg-no-repeat'
           style={{ backgroundImage: `url(${backgroundImage})` }}
         />
       )}
@@ -159,7 +161,7 @@ export default function Section({
       {/* Gradient overlays for different sections */}
       {hasGradient && (
         <div
-          className="absolute inset-0"
+          className='absolute inset-0'
           style={GRADIENT_STYLES[variant as keyof typeof GRADIENT_STYLES]}
         />
       )}
@@ -194,8 +196,7 @@ export function SectionHeader({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className={clsx('mb-16', className)}
-    >
+      className={clsx('mb-16', className)}>
       <h2 id={titleId} className={sectionStyles.title}>
         {title}
         {subtitle && <span className={clsx('mt-2 block', sectionStyles.subtitle)}>{subtitle}</span>}

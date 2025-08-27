@@ -6,7 +6,7 @@ import {
   generateLocalizedSEOMetadata,
 } from '@/lib/seo-utils'
 import { getDictionary } from '@/lib/dictionaries'
-import { Hero, Services, Pricing, Portfolio, FAQ, Contact } from '@/sections'
+import { Hero, Services, Pricing, Portfolio, Testimonials, FAQ, Contact } from '@/sections'
 
 import { Locale } from '@/lib/i18n'
 
@@ -149,6 +149,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
         <Portfolio locale={locale} dictionary={dict.portfolio} />
         <Pricing locale={locale} />
+        <Testimonials locale={locale} dictionary={dict.testimonials} />
         <FAQ locale={locale} dictionary={dict.faq} />
         <Contact dictionary={dict.contact} locale={locale} className='' />
       </main>

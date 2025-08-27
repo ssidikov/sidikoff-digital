@@ -12,7 +12,7 @@ import { defaultLocale } from '@/lib/i18n'
 import { getDictionary } from '@/lib/dictionaries'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
-import { Hero, Services, Pricing, Portfolio, FAQ, Contact } from '@/sections'
+import { Hero, Services, Pricing, Portfolio, Testimonials, FAQ, Contact } from '@/sections'
 import LocaleProvider from '@/components/LocaleProvider'
 
 const SEO_CONFIG = {
@@ -109,6 +109,7 @@ export default async function HomePage() {
           <Services dictionary={dict.services} locale={defaultLocale} />
           <Portfolio dictionary={dict.portfolio} locale={defaultLocale} />
           <Pricing locale={defaultLocale} />
+          <Testimonials dictionary={dict.testimonials} locale={defaultLocale} />
           <FAQ dictionary={dict.faq} />
           <Contact dictionary={dict.contact} locale={defaultLocale} />
         </main>

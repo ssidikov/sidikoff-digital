@@ -146,6 +146,15 @@ export const fallbackDictionary: Dictionary = {
     live_demo: 'Live Demo',
     github: 'GitHub',
   },
+  testimonials: {
+    title: 'Client Testimonials',
+    subtitle: 'What our clients say about us',
+    cta: {
+      title: 'Ready to join our satisfied clients?',
+      description: 'Contact us today and see how we can help your business grow.',
+      button: 'Start project',
+    },
+  },
   contact: {
     title: 'Contact',
     subtitle: 'Get in touch',
