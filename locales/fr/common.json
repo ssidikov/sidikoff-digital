@@ -84,9 +84,227 @@
       "description": "Nous accompagnons votre croissance digitale avec des solutions innovantes et sur mesure. Contactez-nous pour une consultation gratuite et découvrez comment nous pouvons booster votre présence en ligne.",
       "cta": "Démarrer votre projet"
     },
+    "web_creation_landing": {
+      "meta_title": "Création de Sites Web Sur Mesure - Développement Professionnel",
+      "meta_description": "Création de sites web modernes, rapides et optimisés SEO. De la conception UX/UI à la mise en ligne avec React, Next.js, Tailwind CSS. Convertissez vos visiteurs en clients dès le premier mois.",
+      "keywords": [
+        "création site web",
+        "développement web",
+        "site sur mesure",
+        "UX/UI design",
+        "React",
+        "Next.js",
+        "SEO"
+      ],
+      "hero": {
+        "badge": "Service Premium",
+        "title": "Créons Votre Site Web Professionnel Sur Mesure",
+        "description": "Transformez votre vision en réalité digitale avec notre expertise complète en développement web. Nous créons des sites modernes, rapides et optimisés pour convertir vos visiteurs en clients.",
+        "benefits": [
+          "Design unique et professionnel",
+          "Technologies modernes (React, Next.js)",
+          "Optimisation SEO avancée pour Google",
+          "Site responsive 100% mobile-friendly",
+          "Livraison rapide en 7-14 jours",
+          "Support et formation inclus"
+        ],
+        "cta_primary": "Demander un Devis Gratuit",
+        "cta_secondary": "Découvrir Notre Processus",
+        "image_alt": "Création de site web professionnel"
+      },
+      "stats": [
+        {
+          "number": "50+",
+          "title": "Projets Réalisés",
+          "description": "Sites web créés pour des clients satisfaits"
+        },
+        {
+          "number": "98%",
+          "title": "Taux de Satisfaction",
+          "description": "Clients recommandent nos services"
+        },
+        {
+          "number": "7-14j",
+          "title": "Délai de Livraison",
+          "description": "Site web professionnel livré rapidement"
+        }
+      ],
+      "process": {
+        "title": "Notre Processus de Création",
+        "description": "Une méthode éprouvée pour créer des sites web qui performent et convertissent vos visiteurs en clients.",
+        "steps": [
+          {
+            "title": "Analyse & Stratégie",
+            "description": "Nous analysons vos besoins, votre marché et vos objectifs pour définir la stratégie digitale optimale."
+          },
+          {
+            "title": "Design & Maquettes",
+            "description": "Création du design personnalisé et des maquettes UX/UI pour valider l'expérience utilisateur."
+          },
+          {
+            "title": "Développement",
+            "description": "Développement avec les technologies modernes : React, Next.js, optimisation SEO et performance."
+          },
+          {
+            "title": "Test & Lancement",
+            "description": "Tests complets, formation et mise en ligne de votre site web professionnel."
+          }
+        ]
+      },
+      "features": {
+        "title": "Pourquoi Choisir Notre Service ?",
+        "description": "Nous combinons expertise technique et compréhension business pour créer des sites web qui génèrent des résultats concrets.",
+        "items": [
+          {
+            "icon": "responsive",
+            "title": "Design Responsive",
+            "description": "Site parfaitement adapté à tous les appareils : mobile, tablette et desktop."
+          },
+          {
+            "icon": "performance",
+            "title": "Performance Optimisée",
+            "description": "Temps de chargement ultra-rapide et optimisation pour une expérience utilisateur fluide."
+          },
+          {
+            "icon": "seo",
+            "title": "SEO Intégré",
+            "description": "Optimisation complète pour les moteurs de recherche dès la conception."
+          },
+          {
+            "icon": "security",
+            "title": "Sécurité Renforcée",
+            "description": "Protection avancée contre les attaques et sauvegardes automatiques."
+          },
+          {
+            "icon": "support",
+            "title": "Support Dédié",
+            "description": "Accompagnement personnalisé et support technique prioritaire."
+          },
+          {
+            "icon": "design",
+            "title": "Design Unique",
+            "description": "Création graphique sur mesure qui reflète parfaitement votre identité de marque."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Prêt à Lancer Votre Projet Web ?",
+        "description": "Obtenez un devis gratuit et personnalisé pour votre site web professionnel. Consultation gratuite incluse.",
+        "primary_button": "Obtenir un Devis Gratuit"
+      }
+    },
+    "web_redesign_landing": {
+      "meta_title": "Refonte de Site Web - Modernisation et Redesign Professionnel",
+      "meta_description": "Modernisez votre site web existant avec notre service de refonte. UX/UI optimisé, performance améliorée, conversion doublée. Transformez votre présence en ligne.",
+      "keywords": [
+        "refonte site web",
+        "redesign",
+        "modernisation site",
+        "UX/UI",
+        "conversion",
+        "performance"
+      ],
+      "hero": {
+        "badge": "Transformation Digitale",
+        "title": "Modernisez Votre Site Web Existant",
+        "description": "Votre site ne convertit pas assez ? Notre service de refonte transforme votre présence en ligne en machine à vendre. Doublez vos conversions avec un design moderne et une UX optimisée.",
+        "benefits": [
+          "Analyse complète de votre site actuel",
+          "Design moderne et responsive",
+          "Optimisation de l'expérience utilisateur (UX/UI)",
+          "Amélioration des performances et vitesse",
+          "Migration sécurisée de vos contenus",
+          "Formation à la nouvelle interface"
+        ],
+        "cta_primary": "Analyser Mon Site Gratuitement",
+        "cta_secondary": "Voir Nos Transformations",
+        "image_alt": "Refonte de site web professionnel"
+      },
+      "stats": [
+        {
+          "number": "150%",
+          "title": "Amélioration Moyenne",
+          "description": "des conversions après refonte"
+        },
+        {
+          "number": "40%",
+          "title": "Réduction du Taux",
+          "description": "de rebond en moyenne"
+        },
+        {
+          "number": "2-3 sem",
+          "title": "Délai de Refonte",
+          "description": "pour un site transformé"
+        }
+      ],
+      "process": {
+        "title": "Notre Processus de Refonte",
+        "description": "Une méthode structurée pour transformer votre site existant en un outil de conversion performant.",
+        "steps": [
+          {
+            "title": "Audit Complet",
+            "description": "Analyse technique, UX et performances de votre site actuel pour identifier les points d'amélioration."
+          },
+          {
+            "title": "Stratégie UX",
+            "description": "Conception de la nouvelle expérience utilisateur basée sur vos objectifs et les attentes de vos visiteurs."
+          },
+          {
+            "title": "Redesign",
+            "description": "Création du nouveau design moderne, responsive et optimisé pour la conversion."
+          },
+          {
+            "title": "Migration",
+            "description": "Migration sécurisée de vos contenus et mise en ligne de votre site transformé."
+          }
+        ]
+      },
+      "features": {
+        "title": "Pourquoi Choisir Notre Service de Refonte ?",
+        "description": "Nous transformons votre site existant en un outil de conversion puissant avec une approche data-driven.",
+        "items": [
+          {
+            "icon": "design",
+            "title": "Design Moderne",
+            "description": "Interface contemporaine qui inspire confiance et engage vos visiteurs."
+          },
+          {
+            "icon": "performance",
+            "title": "Performance Boostée",
+            "description": "Site 3x plus rapide avec des temps de chargement optimisés."
+          },
+          {
+            "icon": "responsive",
+            "title": "Mobile-First",
+            "description": "Expérience parfaite sur tous les appareils, priorité au mobile."
+          },
+          {
+            "icon": "seo",
+            "title": "SEO Préservé",
+            "description": "Migration sans perte de référencement, voire amélioration."
+          },
+          {
+            "icon": "support",
+            "title": "Formation Incluse",
+            "description": "Accompagnement pour maîtriser votre nouveau site."
+          },
+          {
+            "icon": "security",
+            "title": "Migration Sécurisée",
+            "description": "Sauvegarde complète et migration sans risque de perte."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Prêt à Transformer Votre Site Web ?",
+        "description": "Obtenez une analyse gratuite de votre site actuel et découvrez son potentiel d'amélioration.",
+        "primary_button": "Analyser Mon Site Gratuitement"
+      }
+    },
     "buttons": {
       "request_quote": "Demander un devis",
-      "view_pricing": "Voir les tarifs"
+      "view_pricing": "Voir les tarifs",
+      "learn_more": "En savoir plus"
     }
   },
   "blog": {
@@ -363,6 +581,208 @@
       "title": "Prêt à rejoindre nos clients satisfaits ?",
       "description": "Contactez-nous dès aujourd'hui et découvrez comment nous pouvons aider votre entreprise à croître.",
       "button": "Démarrer un projet"
+    },
+    "seo_optimization_landing": {
+      "meta_title": "Optimisation SEO et Référencement - Première Page Google Garantie",
+      "meta_description": "Service d'optimisation SEO professionnel. Dominez la première page Google, multipliez votre trafic organique par 5 en 6 mois. Audit SEO gratuit et stratégie personnalisée.",
+      "keywords": [
+        "optimisation SEO",
+        "référencement naturel",
+        "première page Google",
+        "audit SEO",
+        "trafic organique",
+        "mots-clés"
+      ],
+      "hero": {
+        "badge": "SEO Expert",
+        "title": "Dominez Google et Multipliez Votre Trafic par 5",
+        "description": "Notre expertise SEO transforme votre site en machine à générer du trafic qualifié. Positionnement première page Google, augmentation du trafic organique, et conversion optimisée.",
+        "benefits": [
+          "Audit SEO complet gratuit",
+          "Stratégie personnalisée par secteur",
+          "Suivi des performances en temps réel",
+          "Résultats visibles en 3 mois",
+          "Support expert dédié"
+        ],
+        "cta_primary": "Audit SEO Gratuit",
+        "cta_secondary": "Voir Nos Résultats",
+        "image_alt": "Optimisation SEO et référencement professionnel"
+      },
+      "stats": [
+        {
+          "number": "300%",
+          "title": "Augmentation Trafic",
+          "description": "Croissance moyenne du trafic organique en 6 mois"
+        },
+        {
+          "number": "85%",
+          "title": "Première Page",
+          "description": "De nos mots-clés positionnés en première page Google"
+        },
+        {
+          "number": "24h",
+          "title": "Temps de Réponse",
+          "description": "Support expert et suivi personnalisé"
+        }
+      ],
+      "process": {
+        "title": "Notre Méthode SEO Éprouvée",
+        "description": "Une approche structurée et data-driven pour maximiser votre visibilité sur Google",
+        "steps": [
+          {
+            "title": "Audit SEO Complet",
+            "description": "Analyse technique, contenu, concurrence et opportunités de mots-clés rentables"
+          },
+          {
+            "title": "Stratégie Personnalisée",
+            "description": "Plan d'action sur mesure basé sur votre secteur et objectifs business"
+          },
+          {
+            "title": "Optimisation On-Page",
+            "description": "Amélioration technique, contenu optimisé et structure parfaite pour Google"
+          },
+          {
+            "title": "Suivi & Reporting",
+            "description": "Monitoring des positions, trafic et conversions avec rapports mensuels"
+          }
+        ]
+      },
+      "features": {
+        "title": "Pourquoi Choisir Notre Expertise SEO",
+        "description": "Des résultats mesurables et durables pour propulser votre business en ligne",
+        "items": [
+          {
+            "title": "Audit Technique Approfondi",
+            "description": "Analyse complète de votre site : vitesse, mobile, structure, erreurs techniques"
+          },
+          {
+            "title": "Recherche de Mots-Clés Rentables",
+            "description": "Identification des termes à fort potentiel commercial dans votre secteur"
+          },
+          {
+            "title": "Optimisation de Contenu",
+            "description": "Création et optimisation de contenu qui convertit et plaît à Google"
+          },
+          {
+            "title": "Netlinking de Qualité",
+            "description": "Stratégie de liens entrants naturels et puissants pour booster votre autorité"
+          },
+          {
+            "title": "Suivi des Performances",
+            "description": "Tableaux de bord en temps réel et rapports détaillés mensuels"
+          },
+          {
+            "title": "Support Expert Dédié",
+            "description": "Accompagnement personnalisé par des experts SEO certifiés"
+          }
+        ]
+      },
+      "cta": {
+        "title": "Propulsez Votre Site en Première Page Google",
+        "description": "Rejoignez nos clients qui ont multiplié leur chiffre d'affaires grâce à notre expertise SEO. Audit gratuit et devis personnalisé sous 24h.",
+        "primary_button": "Obtenir Mon Audit SEO Gratuit"
+      }
+    },
+    "maintenance_landing": {
+      "meta_title": "Maintenance et Support Site Web - Service Premium 24/7",
+      "meta_description": "Service de maintenance site web professionnel. Sécurité renforcée, sauvegardes automatiques, support 24/7, 99.9% de disponibilité garantie. Protégez votre investissement digital.",
+      "keywords": [
+        "maintenance site web",
+        "support technique",
+        "sécurité site",
+        "sauvegarde",
+        "monitoring",
+        "disponibilité"
+      ],
+      "hero": {
+        "badge": "Support Premium",
+        "title": "Maintenance Premium pour Protéger Votre Investissement Digital",
+        "description": "Service de maintenance tout-en-un pour garantir la sécurité, performance et disponibilité de votre site web. Support expert 24/7 et tranquillité d'esprit totale.",
+        "benefits": [
+          "Monitoring 24/7 automatique",
+          "Sauvegardes quotidiennes sécurisées",
+          "Mises à jour de sécurité",
+          "Support prioritaire sous 2h",
+          "99.9% de disponibilité garantie"
+        ],
+        "cta_primary": "Protéger Mon Site",
+        "cta_secondary": "Voir Nos Plans",
+        "image_alt": "Maintenance et support site web professionnel"
+      },
+      "stats": [
+        {
+          "number": "99.9%",
+          "title": "Disponibilité",
+          "description": "Temps de fonctionnement garanti pour votre site"
+        },
+        {
+          "number": "2h",
+          "title": "Temps de Réponse",
+          "description": "Support prioritaire et résolution rapide"
+        },
+        {
+          "number": "50+",
+          "title": "Sites Maintenus",
+          "description": "Clients qui nous font confiance quotidiennement"
+        }
+      ],
+      "process": {
+        "title": "Notre Service de Maintenance Complet",
+        "description": "Une protection proactive pour maintenir votre site en parfait état de fonctionnement",
+        "steps": [
+          {
+            "title": "Monitoring Continu",
+            "description": "Surveillance 24/7 de la disponibilité, sécurité et performances de votre site"
+          },
+          {
+            "title": "Maintenance Préventive",
+            "description": "Mises à jour régulières, optimisations et résolution proactive des problèmes"
+          },
+          {
+            "title": "Support Prioritaire",
+            "description": "Assistance technique immédiate et résolution rapide en cas de problème"
+          },
+          {
+            "title": "Rapports Mensuels",
+            "description": "Compte-rendu détaillé des actions effectuées et état de santé de votre site"
+          }
+        ]
+      },
+      "features": {
+        "title": "Votre Site Web en Sécurité Totale",
+        "description": "Un service complet pour la tranquillité d'esprit et la performance optimale",
+        "items": [
+          {
+            "title": "Sauvegardes Automatiques",
+            "description": "Sauvegardes quotidiennes sécurisées avec restauration rapide en un clic"
+          },
+          {
+            "title": "Sécurité Renforcée",
+            "description": "Protection anti-malware, firewall et mises à jour de sécurité constantes"
+          },
+          {
+            "title": "Optimisation Performance",
+            "description": "Surveillance et amélioration continue de la vitesse de chargement"
+          },
+          {
+            "title": "Mises à Jour Régulières",
+            "description": "CMS, plugins et thèmes toujours à jour pour sécurité et compatibilité"
+          },
+          {
+            "title": "Support Technique Expert",
+            "description": "Équipe dédiée disponible 7j/7 pour résoudre tout problème rapidement"
+          },
+          {
+            "title": "Monitoring Proactif",
+            "description": "Détection automatique des problèmes avant qu'ils n'affectent vos visiteurs"
+          }
+        ]
+      },
+      "cta": {
+        "title": "Protégez Votre Site Web Dès Aujourd'hui",
+        "description": "Évitez les pannes coûteuses et concentrez-vous sur votre business. Notre équipe d'experts s'occupe de tout pour maintenir votre site en parfait état.",
+        "primary_button": "Choisir Mon Plan Maintenance"
+      }
     }
   }
 }

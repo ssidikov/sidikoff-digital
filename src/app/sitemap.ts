@@ -204,6 +204,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPagesConfig: StaticPageConfig[] = [
     { path: '', changeFrequency: 'weekly', priority: PRIORITY_CONFIG.HOMEPAGE },
     { path: '/services', changeFrequency: 'weekly', priority: PRIORITY_CONFIG.HIGH_PRIORITY },
+    { path: '/services/creation-sites-web', changeFrequency: 'weekly', priority: PRIORITY_CONFIG.MEDIUM_HIGH_PRIORITY },
+    { path: '/services/refonte-sites-web', changeFrequency: 'weekly', priority: PRIORITY_CONFIG.MEDIUM_HIGH_PRIORITY },
+    { path: '/services/optimisation-seo', changeFrequency: 'weekly', priority: PRIORITY_CONFIG.MEDIUM_HIGH_PRIORITY },
+    { path: '/services/maintenance-support', changeFrequency: 'weekly', priority: PRIORITY_CONFIG.MEDIUM_HIGH_PRIORITY },
     { path: '/projects', changeFrequency: 'weekly', priority: PRIORITY_CONFIG.HIGH_PRIORITY },
     { path: '/tarifs', changeFrequency: 'monthly', priority: PRIORITY_CONFIG.MEDIUM_HIGH_PRIORITY },
     { path: '/faq', changeFrequency: 'monthly', priority: PRIORITY_CONFIG.MEDIUM_PRIORITY },

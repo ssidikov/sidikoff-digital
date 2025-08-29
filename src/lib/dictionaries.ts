@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import 'server-only'
 
 import { type Locale, isValidLocale, defaultLocale } from './i18n'
+import { fallbackDictionary } from './fallback-dictionary'
 
 // Define the Dictionary type based on your actual JSON structure
 export interface Dictionary {
@@ -64,6 +65,48 @@ export interface Dictionary {
     buttons: {
       request_quote: string
       view_pricing: string
+      learn_more: string
+    }
+    web_creation_landing?: {
+      meta_title: string
+      meta_description: string
+      keywords: string[]
+      hero: {
+        badge: string
+        title: string
+        description: string
+        benefits: string[]
+        cta_primary: string
+        cta_secondary: string
+        image_alt: string
+      }
+      stats: Array<{
+        number: string
+        title: string
+        description: string
+      }>
+      process: {
+        title: string
+        description: string
+        steps: Array<{
+          title: string
+          description: string
+        }>
+      }
+      features: {
+        title: string
+        description: string
+        items: Array<{
+          icon: string
+          title: string
+          description: string
+        }>
+      }
+      cta: {
+        title: string
+        description: string
+        primary_button: string
+      }
     }
   }
   blog: {
@@ -306,6 +349,168 @@ export interface Dictionary {
     cookies_title: string
     cookies_text: string
   }
+  web_creation_landing: {
+    meta_title: string
+    meta_description: string
+    keywords: string[]
+    hero: {
+      badge: string
+      title: string
+      description: string
+      benefits: string[]
+      cta_primary: string
+      cta_secondary: string
+      image_alt: string
+    }
+    stats: Array<{
+      number: string
+      title: string
+      description: string
+    }>
+    process: {
+      title: string
+      description: string
+      steps: Array<{
+        title: string
+        description: string
+      }>
+    }
+    features: {
+      title: string
+      description: string
+      items: Array<{
+        icon: string
+        title: string
+        description: string
+      }>
+    }
+    cta: {
+      title: string
+      description: string
+      primary_button: string
+    }
+  }
+  web_redesign_landing: {
+    meta_title: string
+    meta_description: string
+    keywords: string[]
+    hero: {
+      badge: string
+      title: string
+      description: string
+      benefits: string[]
+      cta_primary: string
+      cta_secondary: string
+      image_alt: string
+    }
+    stats: Array<{
+      number: string
+      title: string
+      description: string
+    }>
+    process: {
+      title: string
+      description: string
+      steps: Array<{
+        title: string
+        description: string
+      }>
+    }
+    features: {
+      title: string
+      description: string
+      items: Array<{
+        icon: string
+        title: string
+        description: string
+      }>
+    }
+    cta: {
+      title: string
+      description: string
+      primary_button: string
+    }
+  }
+  seo_optimization_landing: {
+    meta_title: string
+    meta_description: string
+    keywords: string[]
+    hero: {
+      badge: string
+      title: string
+      description: string
+      benefits: string[]
+      cta_primary: string
+      cta_secondary: string
+      image_alt: string
+    }
+    stats: Array<{
+      number: string
+      title: string
+      description: string
+    }>
+    process: {
+      title: string
+      description: string
+      steps: Array<{
+        title: string
+        description: string
+      }>
+    }
+    features: {
+      title: string
+      description: string
+      items: Array<{
+        title: string
+        description: string
+      }>
+    }
+    cta: {
+      title: string
+      description: string
+      primary_button: string
+    }
+  }
+  maintenance_landing: {
+    meta_title: string
+    meta_description: string
+    keywords: string[]
+    hero: {
+      badge: string
+      title: string
+      description: string
+      benefits: string[]
+      cta_primary: string
+      cta_secondary: string
+      image_alt: string
+    }
+    stats: Array<{
+      number: string
+      title: string
+      description: string
+    }>
+    process: {
+      title: string
+      description: string
+      steps: Array<{
+        title: string
+        description: string
+      }>
+    }
+    features: {
+      title: string
+      description: string
+      items: Array<{
+        title: string
+        description: string
+      }>
+    }
+    cta: {
+      title: string
+      description: string
+      primary_button: string
+    }
+  }
 }
 
 // Cache for dictionaries with TTL
@@ -321,9 +526,9 @@ const dictionaryCache = new Map<Locale, CacheEntry>()
  * Dictionary loading functions with proper error handling
  */
 const dictionaries = {
-  fr: () => import('../../locales/fr/common.json').then((module) => module.default as Dictionary),
-  en: () => import('../../locales/en/common.json').then((module) => module.default as Dictionary),
-  ru: () => import('../../locales/ru/common.json').then((module) => module.default as Dictionary),
+  fr: () => import('../../locales/fr/common.json').then((module) => module.default),
+  en: () => import('../../locales/en/common.json').then((module) => module.default),
+  ru: () => import('../../locales/ru/common.json').then((module) => module.default),
 } as const
 
 /**
@@ -350,8 +555,79 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
   }
 
   try {
-    const dictionary = await dictionaries[locale]()
-
+    const localeData = await dictionaries[locale]()
+    
+    // Check if landing data is nested in services or testimonials
+    const typedLocaleData = localeData as Record<string, unknown>;
+    const servicesData = typedLocaleData.services as Record<string, unknown>;
+    const testimonialsData = typedLocaleData.testimonials as Record<string, unknown>;
+    
+    // Extract landing pages from services if they exist there
+    const extractedData = { ...typedLocaleData };
+    if (servicesData) {
+      // Move landing pages from services to top level
+      if (servicesData.web_creation_landing) {
+        extractedData.web_creation_landing = servicesData.web_creation_landing;
+      }
+      if (servicesData.web_redesign_landing) {
+        extractedData.web_redesign_landing = servicesData.web_redesign_landing;
+      }
+      if (servicesData.seo_optimization_landing) {
+        extractedData.seo_optimization_landing = servicesData.seo_optimization_landing;
+      }
+      if (servicesData.maintenance_landing) {
+        extractedData.maintenance_landing = servicesData.maintenance_landing;
+      }
+    }
+    
+    // Extract landing pages from testimonials if they exist there (fallback for incorrect JSON structure)
+    if (testimonialsData) {
+      if (testimonialsData.seo_optimization_landing) {
+        extractedData.seo_optimization_landing = testimonialsData.seo_optimization_landing;
+      }
+      if (testimonialsData.maintenance_landing) {
+        extractedData.maintenance_landing = testimonialsData.maintenance_landing;
+      }
+      if (testimonialsData.web_creation_landing) {
+        extractedData.web_creation_landing = testimonialsData.web_creation_landing;
+      }
+      if (testimonialsData.web_redesign_landing) {
+        extractedData.web_redesign_landing = testimonialsData.web_redesign_landing;
+      }
+    }
+    
+    // Start with locale data and fill missing with fallback
+    const mergedDictionary = JSON.parse(JSON.stringify(extractedData)) // Deep clone processed locale data
+    
+    // Deep merge function - target has priority, source fills missing values
+    function mergeDeep(target: unknown, source: unknown): unknown {
+      if (typeof target !== 'object' || target === null || Array.isArray(target) ||
+          typeof source !== 'object' || source === null || Array.isArray(source)) {
+        return target !== undefined ? target : source
+      }
+      
+      const targetObj = target as Record<string, unknown>
+      const sourceObj = source as Record<string, unknown>
+      
+      // Start with target and fill missing from source
+      const result = { ...targetObj }
+      
+      for (const key in sourceObj) {
+        if (!(key in result)) {
+          // Key missing in target, take from source
+          result[key] = sourceObj[key]
+        } else if (result[key] && typeof result[key] === 'object' && !Array.isArray(result[key]) &&
+                   sourceObj[key] && typeof sourceObj[key] === 'object' && !Array.isArray(sourceObj[key])) {
+          // Both have the key and both are objects, merge recursively
+          result[key] = mergeDeep(result[key], sourceObj[key])
+        }
+        // If target has the key, keep target value (target has priority)
+      }
+      return result
+    }
+    
+    const dictionary: Dictionary = mergeDeep(mergedDictionary, fallbackDictionary) as Dictionary
+    
     // Cache result with timestamp
     dictionaryCache.set(locale, {
       data: dictionary,

@@ -84,9 +84,212 @@
       "description": "We support your digital growth with innovative and tailored solutions. Contact us for a free consultation and discover how we can boost your online presence.",
       "cta": "Start your project"
     },
+    "web_creation_landing": {
+      "meta_title": "Custom Website Creation - Professional Web Development",
+      "meta_description": "Create modern, fast and SEO-optimized websites. From UX/UI design to launch with React, Next.js, Tailwind CSS. Convert your visitors into customers from the first month.",
+      "keywords": ["website creation", "web development", "custom website", "UX/UI design", "React", "Next.js", "SEO"],
+      "hero": {
+        "badge": "Premium Service",
+        "title": "Let's Create Your Professional Custom Website",
+        "description": "Transform your vision into digital reality with our comprehensive web development expertise. We create modern, fast and optimized sites to convert your visitors into customers.",
+        "benefits": [
+          "Unique and professional design adapted to your brand",
+          "Modern technologies (React, Next.js, Tailwind CSS)",
+          "Advanced SEO optimization for Google",
+          "100% mobile-friendly responsive site",
+          "Fast delivery in 7-14 days",
+          "Support and training included"
+        ],
+        "cta_primary": "Request a Free Quote",
+        "cta_secondary": "Discover Our Process",
+        "image_alt": "Professional website creation"
+      },
+      "stats": [
+        {
+          "number": "50+",
+          "title": "Projects Completed",
+          "description": "Websites created for satisfied clients"
+        },
+        {
+          "number": "98%",
+          "title": "Satisfaction Rate",
+          "description": "Clients recommend our services"
+        },
+        {
+          "number": "7-14d",
+          "title": "Delivery Time",
+          "description": "Professional website delivered quickly"
+        }
+      ],
+      "process": {
+        "title": "Our Creation Process",
+        "description": "A proven method to create websites that perform and convert your visitors into customers.",
+        "steps": [
+          {
+            "title": "Analysis & Strategy",
+            "description": "We analyze your needs, market and objectives to define the optimal digital strategy."
+          },
+          {
+            "title": "Design & Mockups",
+            "description": "Creation of custom design and UX/UI mockups to validate the user experience."
+          },
+          {
+            "title": "Development",
+            "description": "Development with modern technologies: React, Next.js, SEO optimization and performance."
+          },
+          {
+            "title": "Testing & Launch",
+            "description": "Complete testing, training and launch of your professional website."
+          }
+        ]
+      },
+      "features": {
+        "title": "Why Choose Our Service?",
+        "description": "We combine technical expertise and business understanding to create websites that generate concrete results.",
+        "items": [
+          {
+            "icon": "responsive",
+            "title": "Responsive Design",
+            "description": "Site perfectly adapted to all devices: mobile, tablet and desktop."
+          },
+          {
+            "icon": "performance",
+            "title": "Optimized Performance",
+            "description": "Ultra-fast loading times and optimization for a smooth user experience."
+          },
+          {
+            "icon": "seo",
+            "title": "Built-in SEO",
+            "description": "Complete search engine optimization from design phase."
+          },
+          {
+            "icon": "security",
+            "title": "Enhanced Security",
+            "description": "Advanced protection against attacks and automatic backups."
+          },
+          {
+            "icon": "support",
+            "title": "Dedicated Support",
+            "description": "Personalized support and priority technical assistance."
+          },
+          {
+            "icon": "design",
+            "title": "Unique Design",
+            "description": "Custom graphic creation that perfectly reflects your brand identity."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Ready to Launch Your Web Project?",
+        "description": "Get a free and personalized quote for your professional website. Free consultation included.",
+        "primary_button": "Get a Free Quote"
+      }
+    },
+    "web_redesign_landing": {
+      "meta_title": "Website Redesign - Professional Modernization and Makeover",
+      "meta_description": "Modernize your existing website with our redesign service. Optimized UX/UI, improved performance, doubled conversion. Transform your online presence.",
+      "keywords": ["website redesign", "website makeover", "site modernization", "UX/UI", "conversion", "performance"],
+      "hero": {
+        "badge": "Digital Transformation",
+        "title": "Modernize Your Existing Website",
+        "description": "Your site doesn't convert enough? Our redesign service transforms your online presence into a selling machine. Double your conversions with modern design and optimized UX.",
+        "benefits": [
+          "Complete analysis of your current site",
+          "Modern and responsive design",
+          "User experience optimization (UX/UI)",
+          "Performance and speed improvements",
+          "Secure content migration",
+          "Training on the new interface"
+        ],
+        "cta_primary": "Analyze My Site for Free",
+        "cta_secondary": "See Our Transformations",
+        "image_alt": "Professional website redesign"
+      },
+      "stats": [
+        {
+          "number": "150%",
+          "title": "Average Improvement",
+          "description": "in conversions after redesign"
+        },
+        {
+          "number": "40%",
+          "title": "Bounce Rate",
+          "description": "reduction on average"
+        },
+        {
+          "number": "2-3 wks",
+          "title": "Redesign Timeline",
+          "description": "for a transformed site"
+        }
+      ],
+      "process": {
+        "title": "Our Redesign Process",
+        "description": "A structured method to transform your existing site into a high-performing conversion tool.",
+        "steps": [
+          {
+            "title": "Complete Audit",
+            "description": "Technical, UX and performance analysis of your current site to identify improvement opportunities."
+          },
+          {
+            "title": "UX Strategy",
+            "description": "Design of the new user experience based on your goals and visitor expectations."
+          },
+          {
+            "title": "Redesign",
+            "description": "Creation of new modern, responsive design optimized for conversion."
+          },
+          {
+            "title": "Migration",
+            "description": "Secure content migration and launch of your transformed website."
+          }
+        ]
+      },
+      "features": {
+        "title": "Why Choose Our Redesign Service?",
+        "description": "We transform your existing site into a powerful conversion tool with a data-driven approach.",
+        "items": [
+          {
+            "icon": "design",
+            "title": "Modern Design",
+            "description": "Contemporary interface that inspires trust and engages your visitors."
+          },
+          {
+            "icon": "performance",
+            "title": "Boosted Performance",
+            "description": "Site 3x faster with optimized loading times."
+          },
+          {
+            "icon": "responsive",
+            "title": "Mobile-First",
+            "description": "Perfect experience on all devices, mobile priority."
+          },
+          {
+            "icon": "seo",
+            "title": "SEO Preserved",
+            "description": "Migration without SEO loss, even improvement."
+          },
+          {
+            "icon": "support",
+            "title": "Training Included",
+            "description": "Support to master your new website."
+          },
+          {
+            "icon": "security",
+            "title": "Secure Migration",
+            "description": "Complete backup and risk-free migration."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Ready to Transform Your Website?",
+        "description": "Get a free analysis of your current site and discover its improvement potential.",
+        "primary_button": "Analyze My Site for Free"
+      }
+    },
     "buttons": {
       "request_quote": "Request a quote",
-      "view_pricing": "View pricing"
+      "view_pricing": "View pricing",
+      "learn_more": "Learn more"
     }
   },
   "blog": {
@@ -364,6 +567,194 @@
       "title": "Ready to join our satisfied clients?",
       "description": "Contact us today and see how we can help your business grow.",
       "button": "Start project"
+    },
+    "seo_optimization_landing": {
+      "meta_title": "SEO Optimization & Search Rankings - Guaranteed First Page Results",
+      "meta_description": "Professional SEO optimization service. Dominate Google's first page, multiply your organic traffic by 5 in 6 months. Free SEO audit and personalized strategy.",
+      "keywords": ["SEO optimization", "search engine optimization", "Google first page", "SEO audit", "organic traffic", "keywords"],
+      "hero": {
+        "badge": "SEO Expert",
+        "title": "Dominate Google and Multiply Your Traffic by 5",
+        "description": "Our SEO expertise transforms your website into a qualified traffic generation machine. First page Google positioning, organic traffic increase, and optimized conversion.",
+        "benefits": [
+          "Complete free SEO audit",
+          "Industry-specific personalized strategy",
+          "Real-time performance tracking",
+          "Visible results in 3 months",
+          "Dedicated expert support"
+        ],
+        "cta_primary": "Free SEO Audit",
+        "cta_secondary": "See Our Results",
+        "image_alt": "Professional SEO optimization and search ranking"
+      },
+      "stats": [
+        {
+          "number": "300%",
+          "title": "Traffic Increase",
+          "description": "Average organic traffic growth in 6 months"
+        },
+        {
+          "number": "85%",
+          "title": "First Page",
+          "description": "Of our keywords ranked on Google's first page"
+        },
+        {
+          "number": "24h",
+          "title": "Response Time",
+          "description": "Expert support and personalized tracking"
+        }
+      ],
+      "process": {
+        "title": "Our Proven SEO Method",
+        "description": "A structured and data-driven approach to maximize your Google visibility",
+        "steps": [
+          {
+            "title": "Complete SEO Audit",
+            "description": "Technical analysis, content, competition and profitable keyword opportunities"
+          },
+          {
+            "title": "Personalized Strategy",
+            "description": "Custom action plan based on your industry and business objectives"
+          },
+          {
+            "title": "On-Page Optimization",
+            "description": "Technical improvements, optimized content and perfect structure for Google"
+          },
+          {
+            "title": "Tracking & Reporting",
+            "description": "Position monitoring, traffic and conversions with monthly reports"
+          }
+        ]
+      },
+      "features": {
+        "title": "Why Choose Our SEO Expertise",
+        "description": "Measurable and lasting results to propel your online business",
+        "items": [
+          {
+            "title": "In-Depth Technical Audit",
+            "description": "Complete site analysis: speed, mobile, structure, technical errors"
+          },
+          {
+            "title": "Profitable Keyword Research",
+            "description": "Identification of high commercial potential terms in your industry"
+          },
+          {
+            "title": "Content Optimization",
+            "description": "Creation and optimization of content that converts and pleases Google"
+          },
+          {
+            "title": "Quality Link Building",
+            "description": "Natural and powerful inbound link strategy to boost your authority"
+          },
+          {
+            "title": "Performance Tracking",
+            "description": "Real-time dashboards and detailed monthly reports"
+          },
+          {
+            "title": "Dedicated Expert Support",
+            "description": "Personalized guidance by certified SEO experts"
+          }
+        ]
+      },
+      "cta": {
+        "title": "Propel Your Site to Google's First Page",
+        "description": "Join our clients who have multiplied their revenue thanks to our SEO expertise. Free audit and personalized quote within 24h.",
+        "primary_button": "Get My Free SEO Audit"
+      }
+    },
+    "maintenance_landing": {
+      "meta_title": "Website Maintenance & Support - 24/7 Premium Service",
+      "meta_description": "Professional website maintenance service. Enhanced security, automatic backups, 24/7 support, 99.9% guaranteed uptime. Protect your digital investment.",
+      "keywords": ["website maintenance", "technical support", "website security", "backup", "monitoring", "uptime"],
+      "hero": {
+        "badge": "Premium Support",
+        "title": "Premium Maintenance to Protect Your Digital Investment",
+        "description": "All-in-one maintenance service to guarantee the security, performance and availability of your website. Expert 24/7 support and complete peace of mind.",
+        "benefits": [
+          "Automatic 24/7 monitoring",
+          "Secure daily backups",
+          "Security updates",
+          "Priority support within 2h",
+          "99.9% guaranteed uptime"
+        ],
+        "cta_primary": "Protect My Site",
+        "cta_secondary": "View Our Plans",
+        "image_alt": "Professional website maintenance and support"
+      },
+      "stats": [
+        {
+          "number": "99.9%",
+          "title": "Uptime",
+          "description": "Guaranteed operating time for your website"
+        },
+        {
+          "number": "2h",
+          "title": "Response Time",
+          "description": "Priority support and rapid resolution"
+        },
+        {
+          "number": "50+",
+          "title": "Sites Maintained",
+          "description": "Clients who trust us daily"
+        }
+      ],
+      "process": {
+        "title": "Our Complete Maintenance Service",
+        "description": "Proactive protection to keep your site in perfect working condition",
+        "steps": [
+          {
+            "title": "Continuous Monitoring",
+            "description": "24/7 monitoring of your site's availability, security and performance"
+          },
+          {
+            "title": "Preventive Maintenance",
+            "description": "Regular updates, optimizations and proactive problem resolution"
+          },
+          {
+            "title": "Priority Support",
+            "description": "Immediate technical assistance and rapid resolution in case of problems"
+          },
+          {
+            "title": "Monthly Reports",
+            "description": "Detailed report of actions performed and health status of your site"
+          }
+        ]
+      },
+      "features": {
+        "title": "Your Website in Total Security",
+        "description": "A complete service for peace of mind and optimal performance",
+        "items": [
+          {
+            "title": "Automatic Backups",
+            "description": "Secure daily backups with one-click rapid restoration"
+          },
+          {
+            "title": "Enhanced Security",
+            "description": "Anti-malware protection, firewall and constant security updates"
+          },
+          {
+            "title": "Performance Optimization",
+            "description": "Continuous monitoring and improvement of loading speed"
+          },
+          {
+            "title": "Regular Updates",
+            "description": "CMS, plugins and themes always up to date for security and compatibility"
+          },
+          {
+            "title": "Expert Technical Support",
+            "description": "Dedicated team available 7/7 to solve any problem quickly"
+          },
+          {
+            "title": "Proactive Monitoring",
+            "description": "Automatic problem detection before they affect your visitors"
+          }
+        ]
+      },
+      "cta": {
+        "title": "Protect Your Website Today",
+        "description": "Avoid costly outages and focus on your business. Our expert team takes care of everything to keep your site in perfect condition.",
+        "primary_button": "Choose My Maintenance Plan"
+      }
     }
   }
 }

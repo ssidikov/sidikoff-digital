@@ -42,6 +42,13 @@ const getContactUrl = (locale: Locale): string => {
 }
 
 /**
+ * Generate service landing page URL based on locale and service type
+ */
+const getServiceUrl = (locale: Locale, service: string): string => {
+  return locale === 'fr' ? `/services/${service}` : `/${locale}/services/${service}`
+}
+
+/**
  * Scroll to pricing section smoothly
  */
 const scrollToPricing = (): void => {
@@ -64,6 +71,10 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
       image: '/images/services/web-development.webp',
       alt: dict.web_creation.title,
       badges: dict.web_creation.features,
+      isWebCreation: true, // Add flag to identify web creation service
+      isWebRedesign: false,
+      isSeoOptimization: false,
+      isMaintenance: false,
     },
     {
       title: dict.web_redesign.title,
@@ -71,6 +82,10 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
       image: '/images/services/website-redesign.webp',
       alt: dict.web_redesign.title,
       badges: dict.web_redesign.features,
+      isWebCreation: false,
+      isWebRedesign: true, // Add flag to identify web redesign service
+      isSeoOptimization: false,
+      isMaintenance: false,
     },
     {
       title: dict.seo_optimization.title,
@@ -78,6 +93,10 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
       image: '/images/services/seo.webp',
       alt: dict.seo_optimization.title,
       badges: dict.seo_optimization.features,
+      isWebCreation: false,
+      isWebRedesign: false,
+      isSeoOptimization: true, // Add flag to identify SEO service
+      isMaintenance: false,
     },
     {
       title: dict.maintenance.title,
@@ -85,10 +104,18 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
       image: '/images/services/maintenance-support.webp',
       alt: dict.maintenance.title,
       badges: dict.maintenance.features,
+      isWebCreation: false,
+      isWebRedesign: false,
+      isSeoOptimization: false,
+      isMaintenance: true, // Add flag to identify maintenance service
     },
   ] as const
 
   const contactUrl = getContactUrl(locale)
+  const webCreationUrl = getServiceUrl(locale, 'creation-sites-web')
+  const webRedesignUrl = getServiceUrl(locale, 'refonte-sites-web')
+  const seoOptimizationUrl = getServiceUrl(locale, 'optimisation-seo')
+  const maintenanceUrl = getServiceUrl(locale, 'maintenance-support')
 
   return (
     <Section
@@ -171,16 +198,62 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
                       {dict.buttons.request_quote}
                     </CTAButton>
 
-                    <CTAButton
-                      variant='secondary'
-                      size='md'
-                      className='w-full flex-1 sm:w-auto'
-                      onClick={scrollToPricing}
-                      trackingAction='view_pricing'
-                      trackingCategory='services'
-                      ariaLabel={dict.buttons.view_pricing}>
-                      {dict.buttons.view_pricing}
-                    </CTAButton>
+                    {service.isWebCreation ? (
+                      <CTAButton
+                        variant='secondary'
+                        size='md'
+                        href={webCreationUrl}
+                        className='w-full flex-1 sm:w-auto'
+                        trackingAction='learn_more'
+                        trackingCategory='services'
+                        ariaLabel={dict.buttons.learn_more}>
+                        {dict.buttons.learn_more}
+                      </CTAButton>
+                    ) : service.isWebRedesign ? (
+                      <CTAButton
+                        variant='secondary'
+                        size='md'
+                        href={webRedesignUrl}
+                        className='w-full flex-1 sm:w-auto'
+                        trackingAction='learn_more'
+                        trackingCategory='services'
+                        ariaLabel={dict.buttons.learn_more}>
+                        {dict.buttons.learn_more}
+                      </CTAButton>
+                    ) : service.isSeoOptimization ? (
+                      <CTAButton
+                        variant='secondary'
+                        size='md'
+                        href={seoOptimizationUrl}
+                        className='w-full flex-1 sm:w-auto'
+                        trackingAction='learn_more'
+                        trackingCategory='services'
+                        ariaLabel={dict.buttons.learn_more}>
+                        {dict.buttons.learn_more}
+                      </CTAButton>
+                    ) : service.isMaintenance ? (
+                      <CTAButton
+                        variant='secondary'
+                        size='md'
+                        href={maintenanceUrl}
+                        className='w-full flex-1 sm:w-auto'
+                        trackingAction='learn_more'
+                        trackingCategory='services'
+                        ariaLabel={dict.buttons.learn_more}>
+                        {dict.buttons.learn_more}
+                      </CTAButton>
+                    ) : (
+                      <CTAButton
+                        variant='secondary'
+                        size='md'
+                        className='w-full flex-1 sm:w-auto'
+                        onClick={scrollToPricing}
+                        trackingAction='view_pricing'
+                        trackingCategory='services'
+                        ariaLabel={dict.buttons.view_pricing}>
+                        {dict.buttons.view_pricing}
+                      </CTAButton>
+                    )}
                   </div>
                 </div>
               </div>
