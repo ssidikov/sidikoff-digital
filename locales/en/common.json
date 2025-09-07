@@ -79,6 +79,14 @@
       ],
       "description": "Protect your digital investment with our premium maintenance service. Enhanced security, automatic backups, regular updates,24/7 monitoring, and priority support. We guarantee 99.9% uptime and response time under 2h. Avoid costly outages and focus on your business while we keep your site in perfect working order."
     },
+    "restaurant": {
+      "title": "Restaurant Websites",
+      "features": [
+        "Reservations",
+        "Digital Menu"
+      ],
+      "description": "Transform your restaurant with a website that generates 24/7 reservations. Attractive digital menu, online booking system, takeaway orders, Google Maps integration - everything your restaurant needs to attract more customers and increase revenue. Complete solution with training included."
+    },
     "cta_banner": {
       "background": "Let's turn your ideas into digital reality together",
       "description": "We support your digital growth with innovative and tailored solutions. Contact us for a free consultation and discover how we can boost your online presence.",
@@ -87,7 +95,15 @@
     "web_creation_landing": {
       "meta_title": "Custom Website Creation - Professional Web Development",
       "meta_description": "Create modern, fast and SEO-optimized websites. From UX/UI design to launch with React, Next.js, Tailwind CSS. Convert your visitors into customers from the first month.",
-      "keywords": ["website creation", "web development", "custom website", "UX/UI design", "React", "Next.js", "SEO"],
+      "keywords": [
+        "website creation",
+        "web development",
+        "custom website",
+        "UX/UI design",
+        "React",
+        "Next.js",
+        "SEO"
+      ],
       "hero": {
         "badge": "Premium Service",
         "title": "Let's Create Your Professional Custom Website",
@@ -188,7 +204,14 @@
     "web_redesign_landing": {
       "meta_title": "Website Redesign - Professional Modernization and Makeover",
       "meta_description": "Modernize your existing website with our redesign service. Optimized UX/UI, improved performance, doubled conversion. Transform your online presence.",
-      "keywords": ["website redesign", "website makeover", "site modernization", "UX/UI", "conversion", "performance"],
+      "keywords": [
+        "website redesign",
+        "website makeover",
+        "site modernization",
+        "UX/UI",
+        "conversion",
+        "performance"
+      ],
       "hero": {
         "badge": "Digital Transformation",
         "title": "Modernize Your Existing Website",
@@ -571,7 +594,14 @@
     "seo_optimization_landing": {
       "meta_title": "SEO Optimization & Search Rankings - Guaranteed First Page Results",
       "meta_description": "Professional SEO optimization service. Dominate Google's first page, multiply your organic traffic by 5 in 6 months. Free SEO audit and personalized strategy.",
-      "keywords": ["SEO optimization", "search engine optimization", "Google first page", "SEO audit", "organic traffic", "keywords"],
+      "keywords": [
+        "SEO optimization",
+        "search engine optimization",
+        "Google first page",
+        "SEO audit",
+        "organic traffic",
+        "keywords"
+      ],
       "hero": {
         "badge": "SEO Expert",
         "title": "Dominate Google and Multiply Your Traffic by 5",
@@ -665,7 +695,14 @@
     "maintenance_landing": {
       "meta_title": "Website Maintenance & Support - 24/7 Premium Service",
       "meta_description": "Professional website maintenance service. Enhanced security, automatic backups, 24/7 support, 99.9% guaranteed uptime. Protect your digital investment.",
-      "keywords": ["website maintenance", "technical support", "website security", "backup", "monitoring", "uptime"],
+      "keywords": [
+        "website maintenance",
+        "technical support",
+        "website security",
+        "backup",
+        "monitoring",
+        "uptime"
+      ],
       "hero": {
         "badge": "Premium Support",
         "title": "Premium Maintenance to Protect Your Digital Investment",
@@ -755,6 +792,425 @@
         "description": "Avoid costly outages and focus on your business. Our expert team takes care of everything to keep your site in perfect condition.",
         "primary_button": "Choose My Maintenance Plan"
       }
+    }
+  },
+  "restaurant_landing": {
+    "meta_title": "Restaurant Website Design - Increase Your Bookings",
+    "meta_description": "Professional restaurant website design. Online reservations, digital menu, ordering system. Starting at €899. All-inclusive monthly support from €29/month.",
+    "keywords": [
+      "restaurant website design",
+      "restaurant web development",
+      "online restaurant booking",
+      "digital menu",
+      "restaurant online ordering"
+    ],
+    "hero": {
+      "badge": "Restaurant Specialist",
+      "title": "Restaurant Website Design - Increase Your Bookings",
+      "subtitle": "Transform Your Restaurant with a Professional Website",
+      "description": "Increase your reservations by 40% with a modern, optimized website. Online bookings, attractive menu, takeaway orders - everything your restaurant needs to thrive.",
+      "benefits": [
+        "24/7 automatic online reservations",
+        "Digital menu with appetizing photos",
+        "Integrated takeaway ordering",
+        "Optimized Google Maps visibility",
+        "Mobile-friendly for all devices",
+        "Complete technical support included"
+      ],
+      "cta_primary": "Get Free Quote",
+      "cta_secondary": "View Restaurant Portfolio",
+      "image_alt": "Modern restaurant website with reservations"
+    },
+    "problems": {
+      "title": "Modern Restaurant Challenges",
+      "subtitle": "Optimize your digital presence to attract more customers",
+      "pain_points": [
+        {
+          "icon": "phone",
+          "title": "Reservation management",
+          "description": "Phone overloaded during peak hours → Automated reservation system 24/7 with instant confirmations"
+        },
+        {
+          "icon": "trending_down",
+          "title": "Online visibility",
+          "description": "Hard to find on Google Maps → Optimized local SEO and complete business listing"
+        },
+        {
+          "icon": "smartphone",
+          "title": "Additional sales",
+          "description": "Orders limited to opening hours → Online sales platform active 24/7"
+        },
+        {
+          "icon": "star",
+          "title": "Dish presentation",
+          "description": "Unattractive paper menu → Digital menu with professional photos and detailed descriptions"
+        }
+      ]
+    },
+    "solution": {
+      "title": "Complete Web Solution For Your Restaurant",
+      "subtitle": "Everything your restaurant needs to attract more customers and simplify operations",
+      "features": [
+        {
+          "icon": "calendar",
+          "title": "Automatic Reservations",
+          "description": "24/7 booking system with automatic confirmation and customer reminders"
+        },
+        {
+          "icon": "menu",
+          "title": "Attractive Digital Menu",
+          "description": "HD photos of your dishes, appetizing descriptions, easy price updates"
+        },
+        {
+          "icon": "shopping_bag",
+          "title": "Takeaway Orders",
+          "description": "Integrated ordering platform with online payment and notifications"
+        },
+        {
+          "icon": "map",
+          "title": "Google Maps Visibility",
+          "description": "Local optimization to appear in 'restaurants near me' searches"
+        },
+        {
+          "icon": "smartphone",
+          "title": "100% Mobile",
+          "description": "Site perfectly adapted to smartphones, tablets, computers"
+        },
+        {
+          "icon": "share2",
+          "title": "Social Media",
+          "description": "Instagram, Facebook, Google Business integration for more visibility"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Restaurant Website Creation Pricing",
+      "subtitle": "Complete and transparent solutions, tailored to your budget and ambitions",
+      "packages": [
+        {
+          "name": "Starter",
+          "price": "799",
+          "currency": "€",
+          "period": "one-time",
+          "description": "Start with a showcase + reservations",
+          "delivery_time": "3-4 weeks",
+          "features": [
+            "5 pages (Home, Menu, Reservations, About, Contact)",
+            "Online reservation system",
+            "Automatic email confirmation",
+            "Custom digital menu integration",
+            "Gallery of photos",
+            "Google Maps +  contact form",
+            "Basic local SEO (title, meta, sitemap)",
+            "Speed optimization",
+            "1h training + video guide"
+          ],
+          "is_popular": false
+        },
+        {
+          "name": "Professional",
+          "price": "1299",
+          "currency": "€",
+          "period": "one-time",
+          "description": "Most popular - Online sales included",
+          "delivery_time": "4-6 weeks",
+          "features": [
+            "Everything in Starter",
+            "Click & Collect + time slots + order status",
+            "Online payment system",
+            "Blog/News + 2 SEO articles",
+            "Advanced local SEO",
+            "Reserve integration with Google/TheFork/Zenchef",
+            "GA4 Analytics + event tracking"
+          ],
+          "is_popular": true
+        },
+        {
+          "name": "Premium",
+          "price": "1999",
+          "currency": "€",
+          "period": "one-time",
+          "description": "High-end custom solution",
+          "delivery_time": "6-8 weeks",
+          "features": [
+            "Everything in Professional",
+            "100% custom design",
+            "Unlimited revision before validation",
+            "Specific features",
+            "Multi-languages included"
+          ],
+          "is_popular": false
+        }
+      ],
+      "payment_terms": {
+        "title": "Payment terms",
+        "terms": [
+          "50% on order, 50% on delivery",
+          "Timelines subject to ready content",
+          "All inclusive, no hidden fees"
+        ]
+      },
+      "support_plans": {
+        "title": "Monthly Support & Maintenance",
+        "subtitle": "Complete peace of mind for your online restaurant",
+        "commitment": "3-month minimum commitment, then month-to-month (14-day notice)",
+        "plans": [
+          {
+            "name": "Basic",
+            "price": "24",
+            "currency": "€",
+            "period": "/month",
+            "description": "Essential to stay online",
+            "features": [
+              "🏠 Hosting + domain",
+              "💾 Daily automatic backups",
+              "🔄 CMS/plugin updates + monitoring",
+              "🛡️ Anti-hack security + antispam",
+              "✉️ Email support 48h + 0.5h work/month"
+            ]
+          },
+          {
+            "name": "Professional",
+            "price": "49",
+            "currency": "€",
+            "period": "/month",
+            "description": "Simplified daily management",
+            "features": [
+              "✅ Everything in Basic",
+              "🍽️ Unlimited menu/price/hours changes (15min max)",
+              "📝 1h content/month (banners, photos, sections)",
+              "🔍 Technical SEO + 1 local page/quarter",
+              "⚡ Priority support 24h"
+            ]
+          },
+          {
+            "name": "Premium",
+            "price": "79",
+            "currency": "€",
+            "period": "/month",
+            "description": "Complete strategic support",
+            "features": [
+              "✅ Everything in Professional",
+              "⚙️ 2h content/month or 1 mini-feature/quarter",
+              "📞 1 marketing consultation/month by phone",
+              "☎️ Phone support during business hours"
+            ]
+          }
+        ],
+        "additional_work": {
+          "title": "Out-of-package work",
+          "rate": "€60/hour",
+          "description": "For requests exceeding package limits"
+        }
+      },
+      "included_excluded": {
+        "included": {
+          "title": "✅ Included in all packages",
+          "items": [
+            "🍪 GDPR compliance (cookies, privacy)",
+            "📚 1h training + video guides",
+            "🚀 Launch + quality testing"
+          ]
+        },
+        "excluded": {
+          "title": "❌ Not included",
+          "items": [
+            "💳 Stripe/PayPal commissions (billed by providers)",
+            "🔌 Premium plugin licenses (if specific needs)",
+            "✍️ Extensive copywriting + professional shooting (except options)"
+          ]
+        },
+        "dependencies": {
+          "title": "⚠️ Third-party services",
+          "note": "Reserve with Google/TheFork/Zenchef require your active accounts. Some features may require their paid subscriptions."
+        }
+      }
+    },
+    "portfolio": {
+      "title": "Our Restaurant Achievements",
+      "subtitle": "Discover how we transformed these restaurants",
+      "projects": [
+        {
+          "name": "Gourmet Bistro",
+          "type": "French Cuisine",
+          "image": "/images/portfolio/restaurants/bistrot-gourmet.jpg",
+          "results": [
+            "+65% online reservations",
+            "+40% takeaway orders",
+            "500+ new customers/month"
+          ]
+        },
+        {
+          "name": "Bella Pizzeria",
+          "type": "Pizzeria",
+          "image": "/images/portfolio/restaurants/pizzeria-bella.jpg",
+          "results": [
+            "+80% online orders",
+            "+25% average basket",
+            "200+ 5-star reviews"
+          ]
+        },
+        {
+          "name": "Sushi Zen",
+          "type": "Japanese Restaurant",
+          "image": "/images/portfolio/restaurants/sushi-zen.jpg",
+          "results": [
+            "+90% mobile reservations",
+            "+50% new customers",
+            "15% reduction service time"
+          ]
+        },
+        {
+          "name": "Harbor Brasserie",
+          "type": "Brasserie",
+          "image": "/images/portfolio/restaurants/brasserie-port.jpg",
+          "results": [
+            "+45% reservations",
+            "+30% Google visibility",
+            "1000+ Instagram followers"
+          ]
+        },
+        {
+          "name": "Gourmet Café",
+          "type": "Café-Restaurant",
+          "image": "/images/portfolio/restaurants/cafe-gourmand.jpg",
+          "results": [
+            "+55% breakfast orders",
+            "+35% brunch reservations",
+            "300+ positive reviews"
+          ]
+        },
+        {
+          "name": "Golden Table",
+          "type": "Fine Dining",
+          "image": "/images/portfolio/restaurants/table-or.jpg",
+          "results": [
+            "+70% high season reservations",
+            "+20% average basket",
+            "Booked 3 weeks in advance"
+          ]
+        }
+      ]
+    },
+    "process": {
+      "title": "Our Specialized Restaurant Process",
+      "subtitle": "A proven approach to maximize your return on investment",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Restaurant Audit",
+          "description": "Analysis of your positioning, local competition, specific needs",
+          "duration": "2-3 days"
+        },
+        {
+          "number": "02",
+          "title": "Design & Menu",
+          "description": "Design creation, menu integration with photos, reservation system",
+          "duration": "1-2 weeks"
+        },
+        {
+          "number": "03",
+          "title": "Development",
+          "description": "Features programming, order testing, mobile optimization",
+          "duration": "2-3 weeks"
+        },
+        {
+          "number": "04",
+          "title": "Launch & Training",
+          "description": "Go live, team training, analytics configuration",
+          "duration": "1 week"
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "What Our Restaurant Owners Say",
+      "subtitle": "Authentic testimonials from owners who transformed their business",
+      "reviews": [
+        {
+          "name": "Sophie Laurent",
+          "position": "Owner",
+          "restaurant": "Bistro des Halles",
+          "location": "Lyon",
+          "content": "Our website has completely transformed our business! Online reservations increased by 300% in just 3 months. The booking system works 24/7 and we never miss a customer call anymore. Best investment ever made.",
+          "rating": 5,
+          "image": "/images/testimonials/sophie-laurent.jpg"
+        },
+        {
+          "name": "Antoine Moreau",
+          "position": "Chef & Owner",
+          "restaurant": "La Piccola Italia",
+          "location": "Nice",
+          "content": "The online ordering system has revolutionized our takeaway service. We now handle 60% more orders with less stress. Customers love how easy it is to order, and we save hours on phone management.",
+          "rating": 5,
+          "image": "/images/testimonials/antoine-moreau.jpg"
+        },
+        {
+          "name": "Camille Dubois",
+          "position": "Restaurant Manager",
+          "restaurant": "Le Jardin Secret",
+          "location": "Marseille",
+          "content": "Since launching our new website, we're constantly fully booked! Local SEO optimization brought us tons of new customers. The professional photos of our dishes really make the difference.",
+          "rating": 5,
+          "image": "/images/testimonials/camille-dubois.jpg"
+        }
+      ]
+    },
+    "faq": {
+      "title": "Restaurant Website FAQ - Your Questions Answered",
+      "subtitle": "Everything you need to know about creating a professional restaurant website",
+      "questions": [
+        {
+          "question": "How much does a restaurant website cost?",
+          "answer": "Our restaurant websites start from €799 incl. VAT for a complete solution with online reservations, digital menu, and mobile optimization. Professional package €1299 includes online sales + Click&Collect. Monthly support plans from €24/month include hosting, maintenance, and all technical updates. No hidden fees, transparent pricing. Delivery 3-8 weeks depending on complexity."
+        },
+        {
+          "question": "Do I need technical knowledge to manage my restaurant website?",
+          "answer": "Absolutely not! We handle all technical aspects - hosting, security, updates, backups. With our monthly support plans, you get a dedicated team managing everything. You focus on your restaurant, we handle the website."
+        },
+        {
+          "question": "How long does it take to build a restaurant website?",
+          "answer": "4-6 weeks for a complete restaurant website with online reservations and ordering system. We provide weekly updates and you can track progress in real-time. Rush delivery available in 2-3 weeks for urgent projects."
+        },
+        {
+          "question": "Can customers make reservations and order food online?",
+          "answer": "Yes! All our restaurant websites include automatic online reservations (24/7), takeaway/delivery ordering system with payment processing, and customer management. No commissions - you keep 100% of sales unlike UberEats (30% commission)."
+        },
+        {
+          "question": "Will my restaurant website work on mobile phones?",
+          "answer": "Absolutely! 85% of restaurant customers search on mobile. Your website will be perfectly optimized for smartphones, tablets, and desktops. Mobile-first design ensures fast loading and easy navigation for hungry customers."
+        },
+        {
+          "question": "What's included in monthly support plans?",
+          "answer": "Everything technical is handled by our team: premium hosting, daily backups, security updates, menu modifications, price changes, photo updates, SEO optimization, Google reviews management, and priority support. You never worry about technical issues again."
+        },
+        {
+          "question": "Can I update my menu and prices myself?",
+          "answer": "Yes, with our simple admin panel! But with monthly support plans, our team can handle all updates for you - menu changes, new dishes, seasonal specials, price adjustments. Choose self-service or full-service management."
+        },
+        {
+          "question": "How will customers find my restaurant online?",
+          "answer": "We optimize for local SEO: Google My Business integration, local directory listings, 'restaurants near me' searches, Google Maps visibility. Your restaurant will appear when hungry customers search in your area."
+        },
+        {
+          "question": "Do you charge commissions on online orders?",
+          "answer": "Zero commissions! Unlike delivery platforms (UberEats 30%, DoorDash 25%), you keep 100% of your sales. Only standard payment processing fees apply (1.4%). Your profits stay in your pocket."
+        },
+        {
+          "question": "What if I need changes or new features later?",
+          "answer": "With monthly support plans, minor modifications are included. Need major changes? Our development team handles everything - new features, design updates, additional pages. Technical implementation is our specialty, not yours."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Transform Your Restaurant?",
+      "description": "Join hundreds of restaurant owners who boosted their business with a professional website. Free quote within 24h.",
+      "primary_button": "Get My Free Quote",
+      "secondary_button": "Schedule a Call",
+      "features": [
+        "Free 30min consultation",
+        "Detailed quote within 24h",
+        "No commitment before signing"
+      ]
     }
   }
 }

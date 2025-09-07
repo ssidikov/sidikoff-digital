@@ -12,7 +12,7 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params
-  
+
   if (!isValidLocale(locale)) {
     notFound()
   }
@@ -38,9 +38,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `/${locale}/services/maintenance-support`,
       languages: {
-        'fr': '/services/maintenance-support',
-        'en': '/en/services/maintenance-support',
-        'ru': '/ru/services/maintenance-support',
+        fr: '/services/maintenance-support',
+        en: '/en/services/maintenance-support',
+        ru: '/ru/services/maintenance-support',
       },
     },
   }
@@ -48,27 +48,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function MaintenanceLandingPage({ params }: PageProps) {
   const { locale } = await params
-  
+
   if (!isValidLocale(locale)) {
     notFound()
   }
 
   const dictionary = await getDictionary(locale)
-  
+
   const breadcrumbs = {
     items: [
-      { 
-        label: dictionary.navigation.home, 
-        href: locale === 'fr' ? '/' : `/${locale}` 
+      {
+        label: dictionary.navigation.home,
+        href: locale === 'fr' ? '/' : `/${locale}`,
       },
-      { 
-        label: dictionary.navigation.services, 
-        href: locale === 'fr' ? '/#services' : `/${locale}/#services` 
+      {
+        label: dictionary.navigation.services,
+        href: locale === 'fr' ? '/#services' : `/${locale}/#services`,
       },
-      { 
-        label: dictionary.services.maintenance.title
-      }
-    ]
+      {
+        label: dictionary.services.maintenance.title,
+      },
+    ],
   }
 
   const jsonLd = {
@@ -92,7 +92,7 @@ export default async function MaintenanceLandingPage({ params }: PageProps) {
   return (
     <>
       <script
-        type="application/ld+json"
+        type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <MaintenanceLandingContent

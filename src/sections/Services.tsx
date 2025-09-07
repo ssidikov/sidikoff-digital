@@ -75,6 +75,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
       isWebRedesign: false,
       isSeoOptimization: false,
       isMaintenance: false,
+      isRestaurant: false,
     },
     {
       title: dict.web_redesign.title,
@@ -86,6 +87,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
       isWebRedesign: true, // Add flag to identify web redesign service
       isSeoOptimization: false,
       isMaintenance: false,
+      isRestaurant: false,
     },
     {
       title: dict.seo_optimization.title,
@@ -97,6 +99,19 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
       isWebRedesign: false,
       isSeoOptimization: true, // Add flag to identify SEO service
       isMaintenance: false,
+      isRestaurant: false,
+    },
+    {
+      title: dict.restaurant.title,
+      description: dict.restaurant.description,
+      image: '/images/services/resto.webp',
+      alt: dict.restaurant.title,
+      badges: dict.restaurant.features,
+      isWebCreation: false,
+      isWebRedesign: false,
+      isSeoOptimization: false,
+      isMaintenance: false,
+      isRestaurant: true, // Add flag to identify restaurant service
     },
     {
       title: dict.maintenance.title,
@@ -108,6 +123,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
       isWebRedesign: false,
       isSeoOptimization: false,
       isMaintenance: true, // Add flag to identify maintenance service
+      isRestaurant: false,
     },
   ] as const
 
@@ -115,6 +131,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
   const webCreationUrl = getServiceUrl(locale, 'creation-sites-web')
   const webRedesignUrl = getServiceUrl(locale, 'refonte-sites-web')
   const seoOptimizationUrl = getServiceUrl(locale, 'optimisation-seo')
+  const restaurantUrl = getServiceUrl(locale, 'restaurant-websites')
   const maintenanceUrl = getServiceUrl(locale, 'maintenance-support')
 
   return (
@@ -225,6 +242,17 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
                         variant='secondary'
                         size='md'
                         href={seoOptimizationUrl}
+                        className='w-full flex-1 sm:w-auto'
+                        trackingAction='learn_more'
+                        trackingCategory='services'
+                        ariaLabel={dict.buttons.learn_more}>
+                        {dict.buttons.learn_more}
+                      </CTAButton>
+                    ) : service.isRestaurant ? (
+                      <CTAButton
+                        variant='secondary'
+                        size='md'
+                        href={restaurantUrl}
                         className='w-full flex-1 sm:w-auto'
                         trackingAction='learn_more'
                         trackingCategory='services'

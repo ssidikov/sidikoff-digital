@@ -56,7 +56,12 @@ export function getPageBreadcrumbs(pathname: string, locale: Locale = 'fr') {
         name = locale === 'fr' ? 'Tarifs' : locale === 'en' ? 'Pricing' : 'Цены'
         break
       case 'creation-sites-web':
-        name = locale === 'fr' ? 'Création de Sites Web' : locale === 'en' ? 'Website Creation' : 'Создание Сайтов'
+        name =
+          locale === 'fr'
+            ? 'Création de Sites Web'
+            : locale === 'en'
+              ? 'Website Creation'
+              : 'Создание Сайтов'
         break
       case 'faq':
         name = locale === 'fr' ? 'FAQ' : locale === 'en' ? 'FAQ' : 'Вопросы и ответы'
@@ -81,7 +86,10 @@ export function getPageBreadcrumbs(pathname: string, locale: Locale = 'fr') {
   return breadcrumbs
 }
 
-export function getInternalBreadcrumbs(pathname: string, locale: Locale = 'fr'): InternalBreadcrumbItem[] {
+export function getInternalBreadcrumbs(
+  pathname: string,
+  locale: Locale = 'fr'
+): InternalBreadcrumbItem[] {
   const breadcrumbs: InternalBreadcrumbItem[] = [
     {
       position: 1,
@@ -111,7 +119,12 @@ export function getInternalBreadcrumbs(pathname: string, locale: Locale = 'fr'):
         name = locale === 'fr' ? 'Tarifs' : locale === 'en' ? 'Pricing' : 'Цены'
         break
       case 'creation-sites-web':
-        name = locale === 'fr' ? 'Création de Sites Web' : locale === 'en' ? 'Website Creation' : 'Создание Сайтов'
+        name =
+          locale === 'fr'
+            ? 'Création de Sites Web'
+            : locale === 'en'
+              ? 'Website Creation'
+              : 'Создание Сайтов'
         break
       case 'faq':
         name = 'FAQ'

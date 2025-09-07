@@ -1,0 +1,319 @@
+{
+  "restaurant_landing": {
+    "meta_title": "Création Site Web Restaurant - Augmentez vos Réservations",
+    "meta_description": "Site web professionnel pour restaurant. Réservations en ligne, menu digital, commandes. Tarif dès 899€. Support mensuel tout inclus dès 29€/mois.",
+    "keywords": [
+      "site web restaurant",
+      "création site restaurant",
+      "restaurant en ligne",
+      "réservation restaurant",
+      "menu digital"
+    ],
+    "hero": {
+      "badge": "Spécialiste Restaurant",
+      "title": "Transformez Votre Restaurant avec un Site Web Qui Génère des Réservations",
+      "description": "Augmentez vos réservations de 40% avec un site web moderne et optimisé. Réservations en ligne, menu attractif, commandes à emporter - tout ce dont votre restaurant a besoin pour prospérer.",
+      "benefits": [
+        "Réservations en ligne 24h/7j automatiques",
+        "Menu digital avec photos appétissantes",
+        "Commandes à emporter intégrées",
+        "Visibilité Google Maps optimisée",
+        "Site mobile-friendly pour tous appareils",
+        "Support technique complet inclus"
+      ],
+      "cta_primary": "Obtenir un Devis Gratuit",
+      "cta_secondary": "Voir Portfolio Restaurant",
+      "image_alt": "Site web restaurant moderne avec réservations"
+    },
+    "problems": {
+      "title": "Pourquoi Votre Restaurant Perd des Clients Chaque Jour",
+      "subtitle": "Sans présence en ligne professionnelle, vous manquez 70% des nouveaux clients",
+      "pain_points": [
+        {
+          "icon": "phone",
+          "title": "Clients Frustrés",
+          "description": "Vos clients ne trouvent pas vos horaires, menu ou moyen de réserver facilement"
+        },
+        {
+          "icon": "trending_down",
+          "title": "Réservations Perdues",
+          "description": "Pas de système de réservation en ligne = clients qui vont chez la concurrence"
+        },
+        {
+          "icon": "smartphone",
+          "title": "Mobile Négligé",
+          "description": "80% des recherches restaurant se font sur mobile - votre site n'est pas adapté"
+        },
+        {
+          "icon": "star",
+          "title": "Visibilité Google",
+          "description": "Mauvais référencement = invisibilité face aux restaurants concurrents"
+        }
+      ]
+    },
+    "solution": {
+      "title": "La Solution Complète pour Votre Restaurant",
+      "description": "Un site web professionnel qui transforme les visiteurs en clients fidèles",
+      "features": [
+        {
+          "icon": "calendar",
+          "title": "Réservations Automatiques",
+          "description": "Système de réservation 24h/7j qui synchronise avec votre planning"
+        },
+        {
+          "icon": "menu",
+          "title": "Menu Digital Attractif",
+          "description": "Photos professionnelles, descriptions alléchantes, prix clairs"
+        },
+        {
+          "icon": "shopping_bag",
+          "title": "Commandes en Ligne",
+          "description": "Livraison et click & collect intégrés à votre site"
+        },
+        {
+          "icon": "map",
+          "title": "Localisation Optimisée",
+          "description": "Google Maps, horaires, contact - tout pour être trouvé facilement"
+        },
+        {
+          "icon": "share",
+          "title": "Réseaux Sociaux",
+          "description": "Instagram, Facebook intégrés pour partager vos plats"
+        },
+        {
+          "icon": "zap",
+          "title": "Vitesse Optimale",
+          "description": "Chargement ultra-rapide pour une expérience parfaite"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Tarifs Transparents pour Votre Restaurant",
+      "description": "Choisissez la formule adaptée à vos besoins. Aucun frais caché, tout est inclus.",
+      "packages": [
+        {
+          "name": "Starter Restaurant",
+          "price": "899",
+          "period": "Une fois",
+          "description": "Site vitrine professionnel pour démarrer",
+          "features": [
+            "Site responsive 5 pages",
+            "Menu digital avec photos",
+            "Formulaire de contact",
+            "Google Maps intégré",
+            "Optimisation SEO de base",
+            "Formation incluse"
+          ],
+          "popular": false
+        },
+        {
+          "name": "Restaurant Pro",
+          "price": "1499",
+          "period": "Une fois",
+          "description": "Solution complète avec réservations",
+          "features": [
+            "Tout du pack Starter",
+            "Système de réservation en ligne",
+            "Commandes à emporter",
+            "Galerie photos avancée",
+            "Blog intégré",
+            "Réseaux sociaux connectés",
+            "Analytics avancés"
+          ],
+          "popular": true
+        },
+        {
+          "name": "Restaurant Premium",
+          "price": "2299",
+          "period": "Une fois",
+          "description": "Solution haut de gamme personnalisée",
+          "features": [
+            "Tout du pack Pro",
+            "Design 100% sur mesure",
+            "Multi-langues",
+            "Système de fidélité",
+            "Intégrations personnalisées",
+            "Formation équipe complète",
+            "Support prioritaire 3 mois"
+          ],
+          "popular": false
+        }
+      ],
+      "support_title": "Support Mensuel Tout Inclus",
+      "support_description": "Votre tranquillité d'esprit : hébergement, domaine, mises à jour, tout est géré pour vous",
+      "support_plans": [
+        {
+          "name": "Support Essentiel",
+          "price": "29",
+          "period": "mois",
+          "features": [
+            "Hébergement haute performance",
+            "Nom de domaine inclus",
+            "Sauvegardes automatiques",
+            "Mises à jour de sécurité",
+            "Support email 48h"
+          ]
+        },
+        {
+          "name": "Support Professionnel",
+          "price": "59",
+          "period": "mois",
+          "features": [
+            "Tout du Support Essentiel",
+            "Mises à jour contenu menu",
+            "Optimisation SEO continue",
+            "Rapports mensuels",
+            "Support prioritaire 24h"
+          ]
+        },
+        {
+          "name": "Support Premium",
+          "price": "99",
+          "period": "mois",
+          "features": [
+            "Tout du Support Pro",
+            "Stratégie marketing digital",
+            "Gestion réseaux sociaux",
+            "Campagnes Google Ads",
+            "Consultation mensuelle"
+          ]
+        }
+      ]
+    },
+    "portfolio": {
+      "title": "Nos Réalisations Restaurant",
+      "description": "Découvrez comment nous avons transformé la présence en ligne de restaurants comme le vôtre",
+      "restaurants": [
+        {
+          "name": "Bistrot Le Gourmet",
+          "type": "Cuisine Française",
+          "description": "Site élégant avec réservations en ligne",
+          "image": "bistrot-gourmet.webp",
+          "results": "+65% réservations en 3 mois"
+        },
+        {
+          "name": "Pizzeria Bella Vista",
+          "type": "Pizzeria",
+          "description": "Commandes en ligne et livraison",
+          "image": "pizzeria-bella.webp",
+          "results": "+40% commandes à emporter"
+        },
+        {
+          "name": "Sushi Zen",
+          "type": "Restaurant Japonais",
+          "description": "Design moderne et épuré",
+          "image": "sushi-zen.webp",
+          "results": "+80% visibilité Google"
+        },
+        {
+          "name": "Brasserie du Port",
+          "type": "Brasserie",
+          "description": "Site traditionnel avec menu digital",
+          "image": "brasserie-port.webp",
+          "results": "+50% nouveaux clients"
+        },
+        {
+          "name": "Café Gourmand",
+          "type": "Café-Restaurant",
+          "description": "Site polyvalent café et restaurant",
+          "image": "cafe-gourmand.webp",
+          "results": "+35% fréquentation"
+        },
+        {
+          "name": "La Table d'Or",
+          "type": "Gastronomique",
+          "description": "Site haut de gamme avec galerie",
+          "image": "table-or.webp",
+          "results": "+90% réservations premium"
+        }
+      ]
+    },
+    "process": {
+      "title": "Notre Processus Spécialisé Restaurant",
+      "description": "Une méthode éprouvée pour créer le site web parfait pour votre restaurant en 14 jours",
+      "steps": [
+        {
+          "title": "Consultation Restaurant",
+          "description": "Analyse de votre restaurant, clientèle cible, concurrence locale et objectifs spécifiques"
+        },
+        {
+          "title": "Design Sur Mesure",
+          "description": "Création de maquettes personnalisées reflétant l'ambiance unique de votre restaurant"
+        },
+        {
+          "title": "Développement Spécialisé",
+          "description": "Intégration des fonctionnalités restaurant : réservations, menu, commandes en ligne"
+        },
+        {
+          "title": "Lancement & Formation",
+          "description": "Mise en ligne, formation de votre équipe et accompagnement pour maximiser les résultats"
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Ce Que Disent Nos Clients Restaurateurs",
+      "items": [
+        {
+          "name": "Marie Dubois",
+          "restaurant": "Le Petit Bistrot",
+          "location": "Lyon",
+          "text": "Depuis le nouveau site, nos réservations ont doublé ! Le système en ligne fonctionne parfaitement et nos clients adorent pouvoir réserver 24h/24.",
+          "rating": 5,
+          "result": "+100% réservations"
+        },
+        {
+          "name": "Giuseppe Rossi",
+          "restaurant": "Mama Mia Pizzeria",
+          "location": "Marseille",
+          "text": "Les commandes en ligne ont révolutionné notre activité. Plus de 40% de notre chiffre d'affaires vient maintenant du site web !",
+          "rating": 5,
+          "result": "+40% CA en ligne"
+        },
+        {
+          "name": "Sophie Martin",
+          "restaurant": "Le Jardin Secret",
+          "location": "Nice",
+          "text": "L'équipe Sidikoff a parfaitement compris notre vision. Le site reflète l'élégance de notre restaurant et attire une nouvelle clientèle.",
+          "rating": 5,
+          "result": "+60% nouveaux clients"
+        }
+      ]
+    },
+    "faq": {
+      "title": "Questions Fréquentes - Restaurant",
+      "items": [
+        {
+          "question": "Combien de temps pour avoir mon site restaurant ?",
+          "answer": "Votre site restaurant est livré en 10-14 jours ouvrés. Nous respectons toujours nos délais car nous comprenons l'importance de votre activité."
+        },
+        {
+          "question": "Le système de réservation est-il facile à utiliser ?",
+          "answer": "Absolument ! Vos clients réservent en 3 clics et vous recevez automatiquement les confirmations. Aucune formation technique nécessaire."
+        },
+        {
+          "question": "Puis-je modifier mon menu facilement ?",
+          "answer": "Oui, nous vous formons à la gestion simple de votre menu. Vous pouvez ajouter/modifier plats et prix en quelques minutes."
+        },
+        {
+          "question": "Que comprend exactement le support mensuel ?",
+          "answer": "Hébergement professionnel, nom de domaine, sauvegardes, sécurité, mises à jour. Vous n'avez plus rien à gérer techniquement."
+        },
+        {
+          "question": "Mon site sera-t-il visible sur Google ?",
+          "answer": "Nous optimisons votre référencement local pour que votre restaurant apparaisse quand les clients cherchent près de chez eux."
+        },
+        {
+          "question": "Puis-je avoir plusieurs langues sur mon site ?",
+          "answer": "Oui, disponible avec les packs Pro et Premium. Idéal pour les restaurants en zones touristiques."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Prêt à Transformer Votre Restaurant ?",
+      "description": "Rejoignez les centaines de restaurateurs qui ont doublé leurs réservations grâce à leur nouveau site web.",
+      "primary_button": "Obtenir mon Devis Gratuit",
+      "secondary_button": "Programmer un Appel",
+      "guarantee": "Satisfait ou remboursé - 30 jours"
+    }
+  }
+}

@@ -1,0 +1,319 @@
+{
+  "restaurant_landing": {
+    "meta_title": "Restaurant Website Design - Increase Your Bookings",
+    "meta_description": "Professional restaurant website design. Online reservations, digital menu, ordering system. Starting at €899. All-inclusive monthly support from €29/month.",
+    "keywords": [
+      "restaurant website design",
+      "restaurant web development",
+      "online restaurant booking",
+      "digital menu",
+      "restaurant online ordering"
+    ],
+    "hero": {
+      "badge": "Restaurant Specialist",
+      "title": "Transform Your Restaurant with a Website That Generates Bookings",
+      "description": "Increase your reservations by 40% with a modern, optimized website. Online bookings, attractive menu, takeaway orders - everything your restaurant needs to thrive.",
+      "benefits": [
+        "24/7 automatic online reservations",
+        "Digital menu with appetizing photos",
+        "Integrated takeaway ordering",
+        "Optimized Google Maps visibility",
+        "Mobile-friendly for all devices",
+        "Complete technical support included"
+      ],
+      "cta_primary": "Get Free Quote",
+      "cta_secondary": "View Restaurant Portfolio",
+      "image_alt": "Modern restaurant website with reservations"
+    },
+    "problems": {
+      "title": "Why Your Restaurant Loses Customers Every Day",
+      "subtitle": "Without professional online presence, you're missing 70% of new customers",
+      "pain_points": [
+        {
+          "icon": "phone",
+          "title": "Frustrated Customers",
+          "description": "Your customers can't easily find your hours, menu, or way to book"
+        },
+        {
+          "icon": "trending_down",
+          "title": "Lost Reservations",
+          "description": "No online booking system = customers going to competitors"
+        },
+        {
+          "icon": "smartphone",
+          "title": "Mobile Neglected",
+          "description": "80% of restaurant searches happen on mobile - your site isn't adapted"
+        },
+        {
+          "icon": "star",
+          "title": "Google Visibility",
+          "description": "Poor SEO = invisibility against competing restaurants"
+        }
+      ]
+    },
+    "solution": {
+      "title": "The Complete Solution for Your Restaurant",
+      "description": "A professional website that converts visitors into loyal customers",
+      "features": [
+        {
+          "icon": "calendar",
+          "title": "Automatic Reservations",
+          "description": "24/7 booking system that syncs with your schedule"
+        },
+        {
+          "icon": "menu",
+          "title": "Attractive Digital Menu",
+          "description": "Professional photos, enticing descriptions, clear pricing"
+        },
+        {
+          "icon": "shopping_bag",
+          "title": "Online Ordering",
+          "description": "Delivery and click & collect integrated into your site"
+        },
+        {
+          "icon": "map",
+          "title": "Optimized Location",
+          "description": "Google Maps, hours, contact - everything to be found easily"
+        },
+        {
+          "icon": "share",
+          "title": "Social Media",
+          "description": "Instagram, Facebook integrated to share your dishes"
+        },
+        {
+          "icon": "zap",
+          "title": "Optimal Speed",
+          "description": "Ultra-fast loading for perfect experience"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Transparent Pricing for Your Restaurant",
+      "description": "Choose the package that fits your needs. No hidden fees, everything included.",
+      "packages": [
+        {
+          "name": "Restaurant Starter",
+          "price": "899",
+          "period": "One-time",
+          "description": "Professional showcase site to get started",
+          "features": [
+            "5-page responsive website",
+            "Digital menu with photos",
+            "Contact form",
+            "Google Maps integration",
+            "Basic SEO optimization",
+            "Training included"
+          ],
+          "popular": false
+        },
+        {
+          "name": "Restaurant Pro",
+          "price": "1499",
+          "period": "One-time",
+          "description": "Complete solution with reservations",
+          "features": [
+            "Everything in Starter",
+            "Online reservation system",
+            "Takeaway ordering",
+            "Advanced photo gallery",
+            "Integrated blog",
+            "Social media connected",
+            "Advanced analytics"
+          ],
+          "popular": true
+        },
+        {
+          "name": "Restaurant Premium",
+          "price": "2299",
+          "period": "One-time",
+          "description": "High-end customized solution",
+          "features": [
+            "Everything in Pro",
+            "100% custom design",
+            "Multi-language",
+            "Loyalty system",
+            "Custom integrations",
+            "Complete team training",
+            "3-month priority support"
+          ],
+          "popular": false
+        }
+      ],
+      "support_title": "All-Inclusive Monthly Support",
+      "support_description": "Your peace of mind: hosting, domain, updates, everything managed for you",
+      "support_plans": [
+        {
+          "name": "Essential Support",
+          "price": "29",
+          "period": "month",
+          "features": [
+            "High-performance hosting",
+            "Domain name included",
+            "Automatic backups",
+            "Security updates",
+            "48h email support"
+          ]
+        },
+        {
+          "name": "Professional Support",
+          "price": "59",
+          "period": "month",
+          "features": [
+            "Everything in Essential",
+            "Menu content updates",
+            "Continuous SEO optimization",
+            "Monthly reports",
+            "24h priority support"
+          ]
+        },
+        {
+          "name": "Premium Support",
+          "price": "99",
+          "period": "month",
+          "features": [
+            "Everything in Pro",
+            "Digital marketing strategy",
+            "Social media management",
+            "Google Ads campaigns",
+            "Monthly consultation"
+          ]
+        }
+      ]
+    },
+    "portfolio": {
+      "title": "Our Restaurant Achievements",
+      "description": "Discover how we transformed the online presence of restaurants like yours",
+      "restaurants": [
+        {
+          "name": "Bistrot Le Gourmet",
+          "type": "French Cuisine",
+          "description": "Elegant site with online reservations",
+          "image": "bistrot-gourmet.webp",
+          "results": "+65% bookings in 3 months"
+        },
+        {
+          "name": "Pizzeria Bella Vista",
+          "type": "Pizzeria",
+          "description": "Online ordering and delivery",
+          "image": "pizzeria-bella.webp",
+          "results": "+40% takeaway orders"
+        },
+        {
+          "name": "Sushi Zen",
+          "type": "Japanese Restaurant",
+          "description": "Modern and clean design",
+          "image": "sushi-zen.webp",
+          "results": "+80% Google visibility"
+        },
+        {
+          "name": "Brasserie du Port",
+          "type": "Brasserie",
+          "description": "Traditional site with digital menu",
+          "image": "brasserie-port.webp",
+          "results": "+50% new customers"
+        },
+        {
+          "name": "Café Gourmand",
+          "type": "Café-Restaurant",
+          "description": "Versatile café and restaurant site",
+          "image": "cafe-gourmand.webp",
+          "results": "+35% foot traffic"
+        },
+        {
+          "name": "La Table d'Or",
+          "type": "Fine Dining",
+          "description": "Premium site with gallery",
+          "image": "table-or.webp",
+          "results": "+90% premium bookings"
+        }
+      ]
+    },
+    "process": {
+      "title": "Our Specialized Restaurant Process",
+      "description": "A proven method to create the perfect website for your restaurant in 14 days",
+      "steps": [
+        {
+          "title": "Restaurant Consultation",
+          "description": "Analysis of your restaurant, target customers, local competition and specific goals"
+        },
+        {
+          "title": "Custom Design",
+          "description": "Creation of personalized mockups reflecting your restaurant's unique atmosphere"
+        },
+        {
+          "title": "Specialized Development",
+          "description": "Integration of restaurant features: reservations, menu, online ordering"
+        },
+        {
+          "title": "Launch & Training",
+          "description": "Go-live, team training and support to maximize results"
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "What Our Restaurant Clients Say",
+      "items": [
+        {
+          "name": "Marie Dubois",
+          "restaurant": "Le Petit Bistrot",
+          "location": "Lyon",
+          "text": "Since the new website, our reservations have doubled! The online system works perfectly and our customers love being able to book 24/7.",
+          "rating": 5,
+          "result": "+100% reservations"
+        },
+        {
+          "name": "Giuseppe Rossi",
+          "restaurant": "Mama Mia Pizzeria",
+          "location": "Marseille",
+          "text": "Online ordering has revolutionized our business. More than 40% of our revenue now comes from the website!",
+          "rating": 5,
+          "result": "+40% online revenue"
+        },
+        {
+          "name": "Sophie Martin",
+          "restaurant": "Le Jardin Secret",
+          "location": "Nice",
+          "text": "The Sidikoff team perfectly understood our vision. The site reflects our restaurant's elegance and attracts new clientele.",
+          "rating": 5,
+          "result": "+60% new customers"
+        }
+      ]
+    },
+    "faq": {
+      "title": "Restaurant FAQs",
+      "items": [
+        {
+          "question": "How long to get my restaurant website?",
+          "answer": "Your restaurant website is delivered in 10-14 business days. We always meet our deadlines because we understand the importance of your business."
+        },
+        {
+          "question": "Is the reservation system easy to use?",
+          "answer": "Absolutely! Your customers book in 3 clicks and you automatically receive confirmations. No technical training required."
+        },
+        {
+          "question": "Can I easily modify my menu?",
+          "answer": "Yes, we train you on simple menu management. You can add/modify dishes and prices in just minutes."
+        },
+        {
+          "question": "What exactly does monthly support include?",
+          "answer": "Professional hosting, domain name, backups, security, updates. You no longer have anything technical to manage."
+        },
+        {
+          "question": "Will my site be visible on Google?",
+          "answer": "We optimize your local SEO so your restaurant appears when customers search nearby."
+        },
+        {
+          "question": "Can I have multiple languages on my site?",
+          "answer": "Yes, available with Pro and Premium packages. Ideal for restaurants in tourist areas."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Transform Your Restaurant?",
+      "description": "Join hundreds of restaurateurs who have doubled their reservations with their new website.",
+      "primary_button": "Get My Free Quote",
+      "secondary_button": "Schedule a Call",
+      "guarantee": "Satisfied or money back - 30 days"
+    }
+  }
+}

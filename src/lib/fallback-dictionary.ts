@@ -100,16 +100,21 @@ export const fallbackDictionary: Dictionary = {
     seo_optimization: {
       title: 'SEO Optimization',
       features: [],
-      description: 'Improve your SEO.',
+      description: 'We optimize your SEO.',
     },
     maintenance: {
       title: 'Maintenance',
       features: [],
-      description: 'Website maintenance.',
+      description: 'We maintain your website.',
+    },
+    restaurant: {
+      title: 'Restaurant Websites',
+      features: [],
+      description: 'We create restaurant websites.',
     },
     cta_banner: {
-      background: '',
-      description: 'Get in touch for a quote.',
+      background: 'default-bg.jpg',
+      description: 'Get started today',
       cta: 'Contact Us',
     },
     buttons: {
@@ -307,241 +312,265 @@ export const fallbackDictionary: Dictionary = {
   },
   web_creation_landing: {
     meta_title: 'Custom Website Creation - Professional Web Development',
-    meta_description: 'Create your professional website with our custom development service. Responsive design, SEO optimization, and modern technologies.',
+    meta_description:
+      'Create your professional website with our custom development service. Responsive design, SEO optimization, and modern technologies.',
     keywords: ['website creation', 'web development', 'responsive design', 'SEO', 'custom website'],
     hero: {
       badge: 'Custom Development',
       title: 'Create Your Professional Website',
-      description: 'Stand out from the competition with a unique and optimized website. Our team creates custom sites that convert visitors into customers.',
+      description:
+        'Stand out from the competition with a unique and optimized website. Our team creates custom sites that convert visitors into customers.',
       benefits: [
         'Complete custom design and development',
         'Full SEO optimization from launch',
         'Responsive on all devices',
         'Modern and fast technologies',
         'Technical support and training',
-        'Performance and security guarantees'
+        'Performance and security guarantees',
       ],
       cta_primary: 'Get a Free Quote',
       cta_secondary: 'View Our Portfolio',
-      image_alt: 'Professional website creation'
+      image_alt: 'Professional website creation',
     },
     stats: [
       {
         number: '100+',
         title: 'Websites Created',
-        description: 'for satisfied clients'
+        description: 'for satisfied clients',
       },
       {
         number: '98%',
         title: 'Client Satisfaction',
-        description: 'rating across all projects'
+        description: 'rating across all projects',
       },
       {
         number: '15 days',
         title: 'Average Delivery',
-        description: 'from design to launch'
-      }
+        description: 'from design to launch',
+      },
     ],
     process: {
       title: 'Our Development Process',
-      description: 'A proven method to create a website that meets your goals and exceeds your expectations.',
+      description:
+        'A proven method to create a website that meets your goals and exceeds your expectations.',
       steps: [
         {
           title: 'Analysis & Strategy',
-          description: 'We study your business, target audience, and competition to define the optimal strategy.'
+          description:
+            'We study your business, target audience, and competition to define the optimal strategy.',
         },
         {
           title: 'Design & UX/UI',
-          description: 'Creation of wireframes and custom design focused on user experience and conversion.'
+          description:
+            'Creation of wireframes and custom design focused on user experience and conversion.',
         },
         {
           title: 'Development',
-          description: 'Custom coding with modern technologies, ensuring performance and security.'
+          description: 'Custom coding with modern technologies, ensuring performance and security.',
         },
         {
           title: 'Launch & Support',
-          description: 'Site deployment, training, and ongoing support to ensure your success.'
-        }
-      ]
+          description: 'Site deployment, training, and ongoing support to ensure your success.',
+        },
+      ],
     },
     features: {
       title: 'Why Choose Our Service?',
-      description: 'We create websites that not only look great but also perform exceptionally well.',
+      description:
+        'We create websites that not only look great but also perform exceptionally well.',
       items: [
         {
           icon: 'design',
           title: 'Custom Design',
-          description: 'Unique design that reflects your brand identity and stands out from the competition.'
+          description:
+            'Unique design that reflects your brand identity and stands out from the competition.',
         },
         {
           icon: 'performance',
           title: 'Optimized Performance',
-          description: 'Fast loading times and superior performance on all devices.'
+          description: 'Fast loading times and superior performance on all devices.',
         },
         {
           icon: 'seo',
           title: 'SEO Ready',
-          description: 'Technical and content optimization for better search engine visibility.'
+          description: 'Technical and content optimization for better search engine visibility.',
         },
         {
           icon: 'responsive',
           title: 'Mobile-First',
-          description: 'Perfect experience on smartphones, tablets, and desktops.'
+          description: 'Perfect experience on smartphones, tablets, and desktops.',
         },
         {
           icon: 'security',
           title: 'Security',
-          description: 'Advanced security measures to protect your site and user data.'
+          description: 'Advanced security measures to protect your site and user data.',
         },
         {
           icon: 'support',
           title: 'Ongoing Support',
-          description: 'Technical assistance and updates to keep your site running smoothly.'
-        }
-      ]
+          description: 'Technical assistance and updates to keep your site running smoothly.',
+        },
+      ],
     },
     cta: {
       title: 'Ready to Launch Your Web Project?',
-      description: 'Get a free and personalized quote for your professional website. Free consultation included.',
-      primary_button: 'Get a Free Quote'
-    }
+      description:
+        'Get a free and personalized quote for your professional website. Free consultation included.',
+      primary_button: 'Get a Free Quote',
+    },
   },
   web_redesign_landing: {
     meta_title: 'Website Redesign - Professional Modernization and Makeover',
-    meta_description: 'Modernize your existing website with our redesign service. Optimized UX/UI, improved performance, doubled conversion. Transform your online presence.',
-    keywords: ['website redesign', 'website makeover', 'site modernization', 'UX/UI', 'conversion', 'performance'],
+    meta_description:
+      'Modernize your existing website with our redesign service. Optimized UX/UI, improved performance, doubled conversion. Transform your online presence.',
+    keywords: [
+      'website redesign',
+      'website makeover',
+      'site modernization',
+      'UX/UI',
+      'conversion',
+      'performance',
+    ],
     hero: {
       badge: 'Digital Transformation',
       title: 'Modernize Your Existing Website',
-      description: 'Your site doesn\'t convert enough? Our redesign service transforms your online presence into a selling machine. Double your conversions with modern design and optimized UX.',
+      description:
+        "Your site doesn't convert enough? Our redesign service transforms your online presence into a selling machine. Double your conversions with modern design and optimized UX.",
       benefits: [
         'Complete analysis of your current site',
         'Modern and responsive design',
         'User experience optimization (UX/UI)',
         'Performance and speed improvements',
         'Secure content migration',
-        'Training on the new interface'
+        'Training on the new interface',
       ],
       cta_primary: 'Analyze My Site for Free',
       cta_secondary: 'See Our Transformations',
-      image_alt: 'Professional website redesign'
+      image_alt: 'Professional website redesign',
     },
     stats: [
       {
         number: '150%',
         title: 'Average Improvement',
-        description: 'in conversions after redesign'
+        description: 'in conversions after redesign',
       },
       {
         number: '40%',
         title: 'Bounce Rate',
-        description: 'reduction on average'
+        description: 'reduction on average',
       },
       {
         number: '2-3 wks',
         title: 'Redesign Timeline',
-        description: 'for a transformed site'
-      }
+        description: 'for a transformed site',
+      },
     ],
     process: {
       title: 'Our Redesign Process',
-      description: 'A structured method to transform your existing site into a high-performing conversion tool.',
+      description:
+        'A structured method to transform your existing site into a high-performing conversion tool.',
       steps: [
         {
           title: 'Complete Audit',
-          description: 'Technical, UX and performance analysis of your current site to identify improvement opportunities.'
+          description:
+            'Technical, UX and performance analysis of your current site to identify improvement opportunities.',
         },
         {
           title: 'UX Strategy',
-          description: 'Design of the new user experience based on your goals and visitor expectations.'
+          description:
+            'Design of the new user experience based on your goals and visitor expectations.',
         },
         {
           title: 'Redesign',
-          description: 'Creation of new modern, responsive design optimized for conversion.'
+          description: 'Creation of new modern, responsive design optimized for conversion.',
         },
         {
           title: 'Migration',
-          description: 'Secure content migration and launch of your transformed website.'
-        }
-      ]
+          description: 'Secure content migration and launch of your transformed website.',
+        },
+      ],
     },
     features: {
       title: 'Why Choose Our Redesign Service?',
-      description: 'We transform your existing site into a powerful conversion tool with a data-driven approach.',
+      description:
+        'We transform your existing site into a powerful conversion tool with a data-driven approach.',
       items: [
         {
           icon: 'design',
           title: 'Modern Design',
-          description: 'Contemporary interface that inspires trust and engages your visitors.'
+          description: 'Contemporary interface that inspires trust and engages your visitors.',
         },
         {
           icon: 'performance',
           title: 'Boosted Performance',
-          description: 'Site 3x faster with optimized loading times.'
+          description: 'Site 3x faster with optimized loading times.',
         },
         {
           icon: 'responsive',
           title: 'Mobile-First',
-          description: 'Perfect experience on all devices, mobile priority.'
+          description: 'Perfect experience on all devices, mobile priority.',
         },
         {
           icon: 'seo',
           title: 'SEO Preserved',
-          description: 'Migration without SEO loss, even improvement.'
+          description: 'Migration without SEO loss, even improvement.',
         },
         {
           icon: 'support',
           title: 'Training Included',
-          description: 'Support to master your new website.'
+          description: 'Support to master your new website.',
         },
         {
           icon: 'security',
           title: 'Secure Migration',
-          description: 'Complete backup and risk-free migration.'
-        }
-      ]
+          description: 'Complete backup and risk-free migration.',
+        },
+      ],
     },
     cta: {
       title: 'Ready to Transform Your Website?',
-      description: 'Get a free analysis of your current site and discover its improvement potential.',
-      primary_button: 'Analyze My Site for Free'
-    }
+      description:
+        'Get a free analysis of your current site and discover its improvement potential.',
+      primary_button: 'Analyze My Site for Free',
+    },
   },
   seo_optimization_landing: {
     meta_title: 'SEO Optimization & Search Rankings - Guaranteed Results',
-    meta_description: 'Professional SEO optimization service. Dominate search rankings and multiply organic traffic. Free audit and personalized strategy.',
+    meta_description:
+      'Professional SEO optimization service. Dominate search rankings and multiply organic traffic. Free audit and personalized strategy.',
     keywords: ['SEO optimization', 'search rankings', 'organic traffic', 'SEO audit'],
     hero: {
       badge: 'SEO Expert',
       title: 'Dominate Search Rankings and Multiply Your Traffic',
-      description: 'Transform your website into a traffic generation machine with our proven SEO expertise.',
+      description:
+        'Transform your website into a traffic generation machine with our proven SEO expertise.',
       benefits: [
         'Complete free SEO audit',
         'Personalized strategy',
         'Real-time tracking',
         'Visible results in 3 months',
-        'Expert support'
+        'Expert support',
       ],
       cta_primary: 'Free SEO Audit',
       cta_secondary: 'See Results',
-      image_alt: 'Professional SEO optimization'
+      image_alt: 'Professional SEO optimization',
     },
     stats: [
       {
         number: '300%',
         title: 'Traffic Increase',
-        description: 'Average organic traffic growth'
+        description: 'Average organic traffic growth',
       },
       {
         number: '85%',
         title: 'First Page',
-        description: 'Keywords ranked on first page'
+        description: 'Keywords ranked on first page',
       },
       {
         number: '24h',
         title: 'Response Time',
-        description: 'Expert support response'
-      }
+        description: 'Expert support response',
+      },
     ],
     process: {
       title: 'Our Proven SEO Method',
@@ -549,21 +578,21 @@ export const fallbackDictionary: Dictionary = {
       steps: [
         {
           title: 'Complete SEO Audit',
-          description: 'Technical analysis and keyword opportunities'
+          description: 'Technical analysis and keyword opportunities',
         },
         {
           title: 'Custom Strategy',
-          description: 'Tailored action plan for your industry'
+          description: 'Tailored action plan for your industry',
         },
         {
           title: 'On-Page Optimization',
-          description: 'Technical improvements and content optimization'
+          description: 'Technical improvements and content optimization',
         },
         {
           title: 'Tracking & Reporting',
-          description: 'Performance monitoring with detailed reports'
-        }
-      ]
+          description: 'Performance monitoring with detailed reports',
+        },
+      ],
     },
     features: {
       title: 'Why Choose Our SEO Expertise',
@@ -571,39 +600,40 @@ export const fallbackDictionary: Dictionary = {
       items: [
         {
           title: 'Technical Audit',
-          description: 'Complete site analysis and optimization'
+          description: 'Complete site analysis and optimization',
         },
         {
           title: 'Keyword Research',
-          description: 'Profitable terms identification'
+          description: 'Profitable terms identification',
         },
         {
           title: 'Content Optimization',
-          description: 'Converting content creation'
+          description: 'Converting content creation',
         },
         {
           title: 'Link Building',
-          description: 'Authority boosting strategy'
+          description: 'Authority boosting strategy',
         },
         {
           title: 'Performance Tracking',
-          description: 'Real-time monitoring dashboards'
+          description: 'Real-time monitoring dashboards',
         },
         {
           title: 'Expert Support',
-          description: 'Dedicated SEO specialists'
-        }
-      ]
+          description: 'Dedicated SEO specialists',
+        },
+      ],
     },
     cta: {
       title: 'Propel Your Site to First Page',
       description: 'Join clients who multiplied their revenue with our SEO expertise.',
-      primary_button: 'Get Free SEO Audit'
-    }
+      primary_button: 'Get Free SEO Audit',
+    },
   },
   maintenance_landing: {
     meta_title: 'Website Maintenance & Support - 24/7 Premium Service',
-    meta_description: 'Professional website maintenance with enhanced security, automatic backups, and 24/7 support. Protect your digital investment.',
+    meta_description:
+      'Professional website maintenance with enhanced security, automatic backups, and 24/7 support. Protect your digital investment.',
     keywords: ['website maintenance', 'technical support', 'security', 'backups'],
     hero: {
       badge: 'Premium Support',
@@ -614,28 +644,28 @@ export const fallbackDictionary: Dictionary = {
         'Secure daily backups',
         'Security updates',
         'Priority support within 2h',
-        '99.9% uptime guarantee'
+        '99.9% uptime guarantee',
       ],
       cta_primary: 'Protect My Site',
       cta_secondary: 'View Plans',
-      image_alt: 'Professional website maintenance'
+      image_alt: 'Professional website maintenance',
     },
     stats: [
       {
         number: '99.9%',
         title: 'Uptime',
-        description: 'Guaranteed site availability'
+        description: 'Guaranteed site availability',
       },
       {
         number: '2h',
         title: 'Response Time',
-        description: 'Priority support resolution'
+        description: 'Priority support resolution',
       },
       {
         number: '50+',
         title: 'Sites Maintained',
-        description: 'Trusted by clients daily'
-      }
+        description: 'Trusted by clients daily',
+      },
     ],
     process: {
       title: 'Our Complete Maintenance Service',
@@ -643,21 +673,21 @@ export const fallbackDictionary: Dictionary = {
       steps: [
         {
           title: 'Continuous Monitoring',
-          description: '24/7 availability and security monitoring'
+          description: '24/7 availability and security monitoring',
         },
         {
           title: 'Preventive Maintenance',
-          description: 'Regular updates and proactive fixes'
+          description: 'Regular updates and proactive fixes',
         },
         {
           title: 'Priority Support',
-          description: 'Immediate assistance when needed'
+          description: 'Immediate assistance when needed',
         },
         {
           title: 'Monthly Reports',
-          description: 'Detailed performance reports'
-        }
-      ]
+          description: 'Detailed performance reports',
+        },
+      ],
     },
     features: {
       title: 'Your Website in Total Security',
@@ -665,34 +695,95 @@ export const fallbackDictionary: Dictionary = {
       items: [
         {
           title: 'Automatic Backups',
-          description: 'Secure daily backups with one-click restore'
+          description: 'Secure daily backups with one-click restore',
         },
         {
           title: 'Enhanced Security',
-          description: 'Anti-malware protection and firewall'
+          description: 'Anti-malware protection and firewall',
         },
         {
           title: 'Performance Optimization',
-          description: 'Speed monitoring and improvements'
+          description: 'Speed monitoring and improvements',
         },
         {
           title: 'Regular Updates',
-          description: 'CMS and plugins always up to date'
+          description: 'CMS and plugins always up to date',
         },
         {
           title: 'Expert Support',
-          description: 'Dedicated team available 7/7'
+          description: 'Dedicated team available 7/7',
         },
         {
           title: 'Proactive Monitoring',
-          description: 'Problem detection before impact'
-        }
-      ]
+          description: 'Problem detection before impact',
+        },
+      ],
     },
     cta: {
       title: 'Protect Your Website Today',
       description: 'Avoid costly outages and focus on your business.',
-      primary_button: 'Choose Maintenance Plan'
-    }
+      primary_button: 'Choose Maintenance Plan',
+    },
+  },
+  restaurant_landing: {
+    meta_title: 'Restaurant Website Creation',
+    meta_description: 'Professional restaurant websites with online reservations.',
+    keywords: ['restaurant', 'website', 'online'],
+    hero: {
+      badge: 'Professional Service',
+      title: 'Restaurant Website Creation',
+      description: 'Get your restaurant online with professional website',
+      benefits: ['Online reservations', 'Digital menu', 'Professional design'],
+      cta_primary: 'Get Started',
+      cta_secondary: 'View Portfolio',
+      image_alt: 'Restaurant website example',
+    },
+    problems: {
+      title: 'Restaurant Challenges',
+      subtitle: 'Common problems we solve',
+      pain_points: [],
+    },
+    solution: {
+      title: 'Our Solution',
+      description: 'Professional restaurant websites',
+      features: [],
+    },
+    process: {
+      title: 'Our Process',
+      description: 'How we work',
+      steps: [],
+    },
+    portfolio: {
+      title: 'Our Work',
+      subtitle: 'Recent projects',
+      projects: [],
+    },
+    testimonials: {
+      title: 'Client Reviews',
+      subtitle: 'What our clients say',
+      reviews: [],
+    },
+    pricing: {
+      title: 'Pricing',
+      description: 'Transparent pricing for restaurant websites',
+      packages: [],
+      support_plans: {
+        title: 'Support Plans',
+        subtitle: 'Ongoing support',
+        plans: [],
+      },
+    },
+    faq: {
+      title: 'FAQ',
+      subtitle: 'Frequently asked questions',
+      questions: [],
+    },
+    cta: {
+      title: 'Ready to Start?',
+      description: 'Contact us today',
+      primary_button: 'Get Started',
+      secondary_button: 'Learn More',
+      guarantee: '30-day money back guarantee',
+    },
   },
 }

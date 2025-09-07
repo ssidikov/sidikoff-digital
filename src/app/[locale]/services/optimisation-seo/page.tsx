@@ -12,7 +12,7 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params
-  
+
   if (!isValidLocale(locale)) {
     notFound()
   }
@@ -38,9 +38,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `/${locale}/services/optimisation-seo`,
       languages: {
-        'fr': '/services/optimisation-seo',
-        'en': '/en/services/optimisation-seo',
-        'ru': '/ru/services/optimisation-seo',
+        fr: '/services/optimisation-seo',
+        en: '/en/services/optimisation-seo',
+        ru: '/ru/services/optimisation-seo',
       },
     },
   }
@@ -48,27 +48,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function SeoOptimizationLandingPage({ params }: PageProps) {
   const { locale } = await params
-  
+
   if (!isValidLocale(locale)) {
     notFound()
   }
 
   const dictionary = await getDictionary(locale)
-  
+
   const breadcrumbs = {
     items: [
-      { 
-        label: dictionary.navigation.home, 
-        href: locale === 'fr' ? '/' : `/${locale}` 
+      {
+        label: dictionary.navigation.home,
+        href: locale === 'fr' ? '/' : `/${locale}`,
       },
-      { 
-        label: dictionary.navigation.services, 
-        href: locale === 'fr' ? '/#services' : `/${locale}/#services` 
+      {
+        label: dictionary.navigation.services,
+        href: locale === 'fr' ? '/#services' : `/${locale}/#services`,
       },
-      { 
-        label: dictionary.services.seo_optimization.title
-      }
-    ]
+      {
+        label: dictionary.services.seo_optimization.title,
+      },
+    ],
   }
 
   const jsonLd = {
@@ -92,7 +92,7 @@ export default async function SeoOptimizationLandingPage({ params }: PageProps) 
   return (
     <>
       <script
-        type="application/ld+json"
+        type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <SeoOptimizationLandingContent

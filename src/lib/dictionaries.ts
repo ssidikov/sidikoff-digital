@@ -57,6 +57,11 @@ export interface Dictionary {
       features: string[]
       description: string
     }
+    restaurant: {
+      title: string
+      features: string[]
+      description: string
+    }
     cta_banner: {
       background: string
       description: string
@@ -511,6 +516,106 @@ export interface Dictionary {
       primary_button: string
     }
   }
+  restaurant_landing: {
+    meta_title: string
+    meta_description: string
+    keywords: string[]
+    hero: {
+      badge: string
+      title: string
+      description: string
+      benefits: string[]
+      cta_primary: string
+      cta_secondary: string
+      image_alt: string
+    }
+    problems: {
+      title: string
+      subtitle: string
+      pain_points: Array<{
+        icon: string
+        title: string
+        description: string
+      }>
+    }
+    solution: {
+      title: string
+      description: string
+      features: Array<{
+        icon: string
+        title: string
+        description: string
+      }>
+    }
+    pricing: {
+      title: string
+      description: string
+      packages: Array<{
+        name: string
+        price: string
+        period: string
+        description: string
+        features: string[]
+        popular: boolean
+      }>
+      support_plans: {
+        title: string
+        subtitle: string
+        plans: Array<{
+          name: string
+          price: string
+          period: string
+          features: string[]
+        }>
+      }
+    }
+    portfolio: {
+      title: string
+      subtitle: string
+      projects: Array<{
+        name: string
+        type: string
+        image: string
+        results: string[]
+      }>
+    }
+    process: {
+      title: string
+      description: string
+      steps: Array<{
+        title: string
+        description: string
+      }>
+    }
+    testimonials: {
+      title: string
+      subtitle: string
+      reviews: Array<{
+        name: string
+        position: string
+        restaurant: string
+        location: string
+        content: string
+        rating: number
+        image: string
+      }>
+    }
+    faq: {
+      title: string
+      subtitle: string
+      questions: Array<{
+        question: string
+        answer: string
+      }>
+    }
+    cta: {
+      title: string
+      description: string
+      primary_button: string
+      secondary_button: string
+      guarantee: string
+    }
+  }
 }
 
 // Cache for dictionaries with TTL
@@ -556,68 +661,80 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
 
   try {
     const localeData = await dictionaries[locale]()
-    
+
     // Check if landing data is nested in services or testimonials
-    const typedLocaleData = localeData as Record<string, unknown>;
-    const servicesData = typedLocaleData.services as Record<string, unknown>;
-    const testimonialsData = typedLocaleData.testimonials as Record<string, unknown>;
-    
+    const typedLocaleData = localeData as Record<string, unknown>
+    const servicesData = typedLocaleData.services as Record<string, unknown>
+    const testimonialsData = typedLocaleData.testimonials as Record<string, unknown>
+
     // Extract landing pages from services if they exist there
-    const extractedData = { ...typedLocaleData };
+    const extractedData = { ...typedLocaleData }
     if (servicesData) {
       // Move landing pages from services to top level
       if (servicesData.web_creation_landing) {
-        extractedData.web_creation_landing = servicesData.web_creation_landing;
+        extractedData.web_creation_landing = servicesData.web_creation_landing
       }
       if (servicesData.web_redesign_landing) {
-        extractedData.web_redesign_landing = servicesData.web_redesign_landing;
+        extractedData.web_redesign_landing = servicesData.web_redesign_landing
       }
       if (servicesData.seo_optimization_landing) {
-        extractedData.seo_optimization_landing = servicesData.seo_optimization_landing;
+        extractedData.seo_optimization_landing = servicesData.seo_optimization_landing
       }
       if (servicesData.maintenance_landing) {
-        extractedData.maintenance_landing = servicesData.maintenance_landing;
+        extractedData.maintenance_landing = servicesData.maintenance_landing
       }
     }
-    
+
     // Extract landing pages from testimonials if they exist there (fallback for incorrect JSON structure)
     if (testimonialsData) {
       if (testimonialsData.seo_optimization_landing) {
-        extractedData.seo_optimization_landing = testimonialsData.seo_optimization_landing;
+        extractedData.seo_optimization_landing = testimonialsData.seo_optimization_landing
       }
       if (testimonialsData.maintenance_landing) {
-        extractedData.maintenance_landing = testimonialsData.maintenance_landing;
+        extractedData.maintenance_landing = testimonialsData.maintenance_landing
       }
       if (testimonialsData.web_creation_landing) {
-        extractedData.web_creation_landing = testimonialsData.web_creation_landing;
+        extractedData.web_creation_landing = testimonialsData.web_creation_landing
       }
       if (testimonialsData.web_redesign_landing) {
-        extractedData.web_redesign_landing = testimonialsData.web_redesign_landing;
+        extractedData.web_redesign_landing = testimonialsData.web_redesign_landing
       }
     }
-    
+
     // Start with locale data and fill missing with fallback
     const mergedDictionary = JSON.parse(JSON.stringify(extractedData)) // Deep clone processed locale data
-    
+
     // Deep merge function - target has priority, source fills missing values
     function mergeDeep(target: unknown, source: unknown): unknown {
-      if (typeof target !== 'object' || target === null || Array.isArray(target) ||
-          typeof source !== 'object' || source === null || Array.isArray(source)) {
+      if (
+        typeof target !== 'object' ||
+        target === null ||
+        Array.isArray(target) ||
+        typeof source !== 'object' ||
+        source === null ||
+        Array.isArray(source)
+      ) {
         return target !== undefined ? target : source
       }
-      
+
       const targetObj = target as Record<string, unknown>
       const sourceObj = source as Record<string, unknown>
-      
+
       // Start with target and fill missing from source
       const result = { ...targetObj }
-      
+
       for (const key in sourceObj) {
         if (!(key in result)) {
           // Key missing in target, take from source
           result[key] = sourceObj[key]
-        } else if (result[key] && typeof result[key] === 'object' && !Array.isArray(result[key]) &&
-                   sourceObj[key] && typeof sourceObj[key] === 'object' && !Array.isArray(sourceObj[key])) {
+        } else if (
+          result[key] &&
+          typeof result[key] === 'object' &&
+          !Array.isArray(result[key]) &&
+          sourceObj[key] &&
+          typeof sourceObj[key] === 'object' &&
+          !Array.isArray(sourceObj[key])
+        ) {
           // Both have the key and both are objects, merge recursively
           result[key] = mergeDeep(result[key], sourceObj[key])
         }
@@ -625,9 +742,9 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
       }
       return result
     }
-    
+
     const dictionary: Dictionary = mergeDeep(mergedDictionary, fallbackDictionary) as Dictionary
-    
+
     // Cache result with timestamp
     dictionaryCache.set(locale, {
       data: dictionary,

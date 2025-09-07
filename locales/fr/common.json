@@ -79,6 +79,14 @@
       ],
       "description": "Protégez votre investissement digital avec notre service de maintenance premium. Sécurité renforcée, sauvegardes automatiques, mises à jour régulières, monitoring 24/7 et support prioritaire. Nous garantissons 99.9% de disponibilité et un temps de réponse inférieur à 2h. Évitez les pannes coûteuses et concentrez-vous sur votre business pendant que nous maintenons votre site en parfait état de fonctionnement."
     },
+    "restaurant": {
+      "title": "Sites Web pour Restaurants",
+      "features": [
+        "Réservations",
+        "Menu Digital"
+      ],
+      "description": "Transformez votre restaurant avec un site web qui génère des réservations 24h/7j. Menu digital attractif, système de réservation en ligne, commandes à emporter, intégration Google Maps - tout ce dont votre restaurant a besoin pour attirer plus de clients et augmenter le chiffre d'affaires. Solution complète avec formation incluse."
+    },
     "cta_banner": {
       "background": "Transformons ensemble vos idées en réalité numérique",
       "description": "Nous accompagnons votre croissance digitale avec des solutions innovantes et sur mesure. Contactez-nous pour une consultation gratuite et découvrez comment nous pouvons booster votre présence en ligne.",
@@ -783,6 +791,425 @@
         "description": "Évitez les pannes coûteuses et concentrez-vous sur votre business. Notre équipe d'experts s'occupe de tout pour maintenir votre site en parfait état.",
         "primary_button": "Choisir Mon Plan Maintenance"
       }
+    }
+  },
+  "restaurant_landing": {
+    "meta_title": "Création Site Web Restaurant - Augmentez vos Réservations",
+    "meta_description": "Site web professionnel pour restaurant. Réservations en ligne, menu digital, commandes. Tarif dès 799€ TTC. Support mensuel tout inclus dès 24€/mois. Solutions transparentes et complètes.",
+    "keywords": [
+      "site web restaurant",
+      "création site restaurant",
+      "restaurant en ligne",
+      "réservation restaurant",
+      "menu digital"
+    ],
+    "hero": {
+      "badge": "Spécialiste Restaurant",
+      "title": "Création Site Internet Restaurant | Réservation En Ligne",
+      "subtitle": "Boostez Votre Restaurant avec un Site Web Professionnel",
+      "description": "Attirez plus de clients avec un site moderne incluant réservations automatiques, menu attractif et commandes en ligne. Solution complète clé en main.",
+      "benefits": [
+        "Réservations 24h/7j automatiques",
+        "Menu digital photos HD",
+        "Commandes à emporter intégrées",
+        "Référencement Google Maps",
+        "Design mobile-responsive",
+        "Support technique complet"
+      ],
+      "cta_primary": "Devis Gratuit en 24h",
+      "cta_secondary": "Voir Nos Réalisations",
+      "image_alt": "Site web restaurant moderne avec réservations"
+    },
+    "problems": {
+      "title": "Les Défis du Restaurant Moderne",
+      "subtitle": "Optimisez votre présence digitale pour attirer plus de clients",
+      "pain_points": [
+        {
+          "icon": "phone",
+          "title": "Gestion des réservations",
+          "description": "Téléphone saturé aux heures de pointe → Système de réservation automatisé 24h/7j avec confirmations instantanées"
+        },
+        {
+          "icon": "trending_down",
+          "title": "Visibilité en ligne",
+          "description": "Difficile à trouver sur Google Maps → Référencement local optimisé et fiche établissement complète"
+        },
+        {
+          "icon": "smartphone",
+          "title": "Ventes additionnelles",
+          "description": "Commandes limitées aux heures d'ouverture → Plateforme de vente en ligne active 24h/24"
+        },
+        {
+          "icon": "star",
+          "title": "Présentation des plats",
+          "description": "Menu papier peu attractif → Carte numérique avec photos professionnelles et descriptions détaillées"
+        }
+      ]
+    },
+    "solution": {
+      "title": "La Solution Web Complète Pour Votre Restaurant",
+      "subtitle": "Tout ce dont votre restaurant a besoin pour attirer plus de clients et simplifier vos opérations",
+      "features": [
+        {
+          "icon": "calendar",
+          "title": "Réservations Automatiques",
+          "description": "Système de réservation 24h/7j avec confirmation automatique et rappels clients"
+        },
+        {
+          "icon": "menu",
+          "title": "Menu Digital Attractif",
+          "description": "Photos HD de vos plats, descriptions appetissantes, mise à jour facile des prix"
+        },
+        {
+          "icon": "shopping_bag",
+          "title": "Commandes à Emporter",
+          "description": "Plateforme de commande intégrée avec paiement en ligne et notifications"
+        },
+        {
+          "icon": "map",
+          "title": "Visibilité Google Maps",
+          "description": "Optimisation locale pour apparaître dans les recherches 'restaurant près de moi'"
+        },
+        {
+          "icon": "smartphone",
+          "title": "100% Mobile",
+          "description": "Site parfaitement adapté aux smartphones, tablettes, ordinateurs"
+        },
+        {
+          "icon": "share2",
+          "title": "Réseaux Sociaux",
+          "description": "Intégration Instagram, Facebook, Google Business pour plus de visibilité"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Tarifs Création Site Restaurant",
+      "subtitle": "Solutions complètes et transparentes, adaptées à votre budget et ambitions",
+      "packages": [
+        {
+          "name": "Starter",
+          "price": "799",
+          "currency": "€",
+          "period": "one-time",
+          "description": "Pour débuter avec une vitrine + réservations",
+          "delivery_time": "3-4 semaines",
+          "features": [
+            "5 pages (Accueil, Menu, Réservations, À propos, Contact)",
+            "Système réservation en ligne",
+            "Confirmation par e-mail automatique",
+            "Intégration menu numérique personnalisé",
+            "Galerie photos optimisées",
+            "Google Maps + formulaire contact ",
+            "SEO local de base (title, meta, sitemap)",
+            "Optimisation vitesse",
+            "Formation 1h + guide vidéo"
+          ],
+          "is_popular": false
+        },
+        {
+          "name": "Professional",
+          "price": "1299",
+          "currency": "€",
+          "period": "one-time",
+          "description": "Le plus populaire - Vente en ligne incluse",
+          "delivery_time": "4-6 semaines",
+          "features": [
+            "Tout du pack Starter",
+            "Click & Collect + tyme-slots + statuts commandes",
+            "Système de paiement en ligne",
+            "Blog/Actualités + 2 articles SEO",
+            "SEO local avancé",
+            "Intégration Reserve avec Google/TheFork/Zenchef",
+            "Analytics GA4 + suivi événements"
+          ],
+          "is_popular": true
+        },
+        {
+          "name": "Premium",
+          "price": "1999",
+          "currency": "€",
+          "period": "one-time",
+          "description": "Solution haut de gamme sur-mesure",
+          "delivery_time": "6-8 semaines",
+          "features": [
+            "Tout du pack Professional",
+            "Design 100% personnalisé",
+            "Revision illimitée avant validation",
+            "Fonctionnalités spécifiques",
+            "Multi-langues inclus"
+          ],
+          "is_popular": false
+        }
+      ],
+      "payment_terms": {
+        "title": "Conditions de paiement",
+        "terms": [
+          "50% à la commande, 50% à la livraison",
+          "Délais sous réserve de contenu prêt",
+          "Tout inclus, aucun frais caché"
+        ]
+      },
+      "support_plans": {
+        "title": "Support & Maintenance Mensuelle",
+        "subtitle": "Sérénité totale pour votre restaurant en ligne",
+        "commitment": "Engagement minimum 3 mois, puis sans engagement (préavis 14 jours)",
+        "plans": [
+          {
+            "name": "Basic",
+            "price": "24",
+            "currency": "€",
+            "period": "/mois",
+            "description": "L'essentiel pour rester en ligne",
+            "features": [
+              "Hébergement inclus",
+              "Nom de domaine inclus",
+              "Maintenance technique",
+              "Mises à jour les prix des plats",
+              "Support email 48h"
+            ]
+          },
+          {
+            "name": "Professional",
+            "price": "49",
+            "currency": "€",
+            "period": "/mois",
+            "description": "Gestion quotidienne simplifiée",
+            "features": [
+              "Tout du plan Basic",
+              "Modifications menu/prix/horaires illimitées",
+              "1h contenu/mois (bannières, photos, sections)",
+              "SEO technique + 1 page locale/trimestre",
+              "Support prioritaire 24h"
+            ]
+          },
+          {
+            "name": "Premium",
+            "price": "79",
+            "currency": "€",
+            "period": "/mois",
+            "description": "Accompagnement stratégique complet",
+            "features": [
+              "Tout du plan Professional",
+              "2h contenu/mois ou 1 mini-fonctionnalité/trimestre",
+              "1 article SEO/mois",
+              "Support rapide WhatsApp/Telegram"
+            ]
+          }
+        ],
+        "additional_work": {
+          "title": "Travaux hors forfait",
+          "rate": "60€/heure",
+          "description": "Pour les demandes dépassant les limites des forfaits"
+        }
+      },
+      "included_excluded": {
+        "included": {
+          "title": "✅ Inclus dans tous les forfaits",
+          "items": [
+            "🍪 Conformité RGPD (cookies, confidentialité)",
+            "📚 Formation 1h + guides vidéo",
+            "🚀 Mise en ligne + tests qualité"
+          ]
+        },
+        "excluded": {
+          "title": "❌ Non inclus",
+          "items": [
+            "💳 Commissions Stripe/PayPal (facturées par les providers)",
+            "🔌 Licences plugins premium (si besoin spécifique)",
+            "✍️ Rédaction importante + shooting professionnel (sauf options)"
+          ]
+        },
+        "dependencies": {
+          "title": "⚠️ Services tiers",
+          "note": "Reserve with Google/TheFork/Zenchef nécessitent vos comptes actifs. Certaines fonctions peuvent nécessiter leurs abonnements payants."
+        }
+      }
+    },
+    "portfolio": {
+      "title": "Nos Réalisations Restaurant",
+      "subtitle": "Découvrez comment nous avons transformé ces restaurants",
+      "projects": [
+        {
+          "name": "Bistrot Gourmet",
+          "type": "Cuisine Française",
+          "image": "/images/portfolio/restaurants/bistrot-gourmet.jpg",
+          "results": [
+            "+65% réservations en ligne",
+            "+40% commandes à emporter",
+            "500+ nouveaux clients/mois"
+          ]
+        },
+        {
+          "name": "Pizzeria Bella",
+          "type": "Pizzeria",
+          "image": "/images/portfolio/restaurants/pizzeria-bella.jpg",
+          "results": [
+            "+80% commandes en ligne",
+            "+25% panier moyen",
+            "200+ avis 5 étoiles"
+          ]
+        },
+        {
+          "name": "Sushi Zen",
+          "type": "Restaurant Japonais",
+          "image": "/images/portfolio/restaurants/sushi-zen.jpg",
+          "results": [
+            "+90% réservations mobile",
+            "+50% nouveaux clients",
+            "15% réduction temps service"
+          ]
+        },
+        {
+          "name": "Brasserie du Port",
+          "type": "Brasserie",
+          "image": "/images/portfolio/restaurants/brasserie-port.jpg",
+          "results": [
+            "+45% réservations",
+            "+30% visibilité Google",
+            "1000+ followers Instagram"
+          ]
+        },
+        {
+          "name": "Café Gourmand",
+          "type": "Café-Restaurant",
+          "image": "/images/portfolio/restaurants/cafe-gourmand.jpg",
+          "results": [
+            "+55% commandes petit-déj",
+            "+35% réservations brunch",
+            "300+ avis positifs"
+          ]
+        },
+        {
+          "name": "Table d'Or",
+          "type": "Gastronomique",
+          "image": "/images/portfolio/restaurants/table-or.jpg",
+          "results": [
+            "+70% réservations haute saison",
+            "+20% panier moyen",
+            "Réservé 3 semaines à l'avance"
+          ]
+        }
+      ]
+    },
+    "process": {
+      "title": "Notre Processus Spécialisé Restaurant",
+      "subtitle": "Une approche rodée pour maximiser votre retour sur investissement",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Audit Restaurant",
+          "description": "Analyse de votre positionnement, concurrence locale, besoins spécifiques",
+          "duration": "2-3 jours"
+        },
+        {
+          "number": "02",
+          "title": "Design & Menu",
+          "description": "Création du design, intégration menu avec photos, système réservation",
+          "duration": "1-2 semaines"
+        },
+        {
+          "number": "03",
+          "title": "Développement",
+          "description": "Programmation fonctionnalités, tests commandes, optimisation mobile",
+          "duration": "2-3 semaines"
+        },
+        {
+          "number": "04",
+          "title": "Lancement & Formation",
+          "description": "Mise en ligne, formation équipe, configuration analytics",
+          "duration": "1 semaine"
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Ce Que Disent Nos Restaurateurs",
+      "subtitle": "Témoignages authentiques de propriétaires qui ont transformé leur business",
+      "reviews": [
+        {
+          "name": "Sophie Laurent",
+          "position": "Propriétaire",
+          "restaurant": "Bistro des Halles",
+          "location": "Lyon",
+          "content": "Notre site web a complètement transformé notre business ! Les réservations en ligne ont augmenté de 300% en seulement 3 mois. Le système de réservation fonctionne 24h/24 et nous ne ratons plus jamais un appel client.",
+          "rating": 5,
+          "image": "/images/testimonials/sophie-laurent.jpg"
+        },
+        {
+          "name": "Antoine Moreau",
+          "position": "Chef & Propriétaire",
+          "restaurant": "La Piccola Italia",
+          "location": "Nice",
+          "content": "Le système de commande en ligne a révolutionné notre service de plats à emporter. Nous gérons maintenant 60% de commandes en plus avec moins de stress. Les clients adorent la facilité de commande.",
+          "rating": 5,
+          "image": "/images/testimonials/antoine-moreau.jpg"
+        },
+        {
+          "name": "Camille Dubois",
+          "position": "Directrice Restaurant",
+          "restaurant": "Le Jardin Secret",
+          "location": "Marseille",
+          "content": "Depuis le lancement de notre nouveau site, nous affichons complet en permanence ! L'optimisation SEO locale nous a apporté énormément de nouveaux clients. Les photos professionnelles de nos plats font vraiment la différence.",
+          "rating": 5,
+          "image": "/images/testimonials/camille-dubois.jpg"
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ Site Web Restaurant - Vos Questions Répondues",
+      "subtitle": "Tout ce que vous devez savoir sur la création d'un site web professionnel pour restaurant",
+      "questions": [
+        {
+          "question": "Combien coûte un site web pour restaurant ?",
+          "answer": "Nos sites web restaurant démarrent à 799€ TTC pour une solution complète avec réservations en ligne, menu numérique et optimisation mobile. Tarif Professional 1299€ inclut vente en ligne + Click&Collect. Plans de support mensuel dès 24€/mois incluant hébergement, maintenance et mises à jour. Aucun frais caché, tarification transparente. Délais 3-8 semaines selon complexité."
+        },
+        {
+          "question": "Ai-je besoin de connaissances techniques pour gérer mon site restaurant ?",
+          "answer": "Absolument pas ! Nous gérons tous les aspects techniques - hébergement, sécurité, mises à jour, sauvegardes. Avec nos plans de support mensuel, vous avez une équipe dédiée qui s'occupe de tout. Vous vous concentrez sur votre restaurant, nous gérons le site web."
+        },
+        {
+          "question": "Combien de temps faut-il pour créer un site web de restaurant ?",
+          "answer": "4-6 semaines pour un site web restaurant complet avec réservations en ligne et système de commande. Nous fournissons des mises à jour hebdomadaires et vous pouvez suivre les progrès en temps réel. Livraison express possible en 2-3 semaines pour projets urgents."
+        },
+        {
+          "question": "Les clients peuvent-ils réserver et commander en ligne ?",
+          "answer": "Oui ! Tous nos sites restaurant incluent réservations automatiques en ligne (24h/24), système de commande à emporter/livraison avec traitement des paiements, et gestion clientèle. Aucune commission - vous gardez 100% des ventes contrairement à UberEats (30% de commission)."
+        },
+        {
+          "question": "Mon site restaurant fonctionnera-t-il sur téléphone mobile ?",
+          "answer": "Absolument ! 85% des clients restaurant recherchent sur mobile. Votre site sera parfaitement optimisé pour smartphones, tablettes et ordinateurs. Design mobile-first garantit chargement rapide et navigation facile pour clients affamés."
+        },
+        {
+          "question": "Qu'est-ce qui est inclus dans les plans de support mensuel ?",
+          "answer": "Tout l'aspect technique est géré par notre équipe : hébergement premium, sauvegardes quotidiennes, mises à jour sécurité, modifications menu, changements prix, ajout photos, optimisation SEO, gestion avis Google, et support prioritaire. Plus jamais de soucis techniques."
+        },
+        {
+          "question": "Puis-je modifier mes menus et prix moi-même ?",
+          "answer": "Oui, avec notre interface simple ! Mais avec nos plans de support mensuel, notre équipe peut gérer toutes les mises à jour pour vous - changements menu, nouveaux plats, spécialités saisonnières, ajustements prix. Choisissez auto-service ou gestion complète."
+        },
+        {
+          "question": "Comment les clients trouveront-ils mon restaurant en ligne ?",
+          "answer": "Nous optimisons le référencement local : intégration Google My Business, inscription annuaires locaux, recherches 'restaurants près de moi', visibilité Google Maps. Votre restaurant apparaîtra quand les clients affamés cherchent dans votre secteur."
+        },
+        {
+          "question": "Prenez-vous des commissions sur les commandes en ligne ?",
+          "answer": "Zéro commission ! Contrairement aux plateformes de livraison (UberEats 30%, Deliveroo 25%), vous gardez 100% de vos ventes. Seuls les frais de traitement paiement standard s'appliquent (1,4%). Vos profits restent dans votre poche."
+        },
+        {
+          "question": "Et si j'ai besoin de modifications ou nouvelles fonctionnalités plus tard ?",
+          "answer": "Avec les plans de support mensuel, les modifications mineures sont incluses. Besoin de gros changements ? Notre équipe de développement gère tout - nouvelles fonctionnalités, mises à jour design, pages supplémentaires. L'implémentation technique est notre spécialité, pas la vôtre."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Prêt à Transformer Votre Restaurant ?",
+      "description": "Rejoignez les centaines de restaurateurs qui ont boosté leur business avec un site web professionnel. Devis gratuit sous 24h.",
+      "primary_button": "Obtenir mon Devis Gratuit",
+      "secondary_button": "Programmer un Appel",
+      "features": [
+        "Consultation gratuite 30min",
+        "Devis détaillé sous 24h",
+        "Pas d'engagement avant signature"
+      ]
     }
   }
 }
