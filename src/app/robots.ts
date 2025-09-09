@@ -14,7 +14,6 @@ export default function robots(): MetadataRoute.Robots {
           '/admin/',
           '/private/',
           '/studio/',
-          '/fr/', // Блокируем французские URL с префиксом для предотвращения дублирования
           '*.json',
           '/tmp/',
           '/_vercel/',
@@ -26,13 +25,13 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: 'Googlebot',
         allow: '/',
-        disallow: ['/api/', '/admin/', '/studio/', '/private/', '/fr/'],
+        disallow: ['/api/', '/admin/', '/studio/', '/private/'],
         crawlDelay: 1,
       },
       {
         userAgent: 'Bingbot',
         allow: '/',
-        disallow: ['/api/', '/admin/', '/studio/', '/private/', '/fr/'],
+        disallow: ['/api/', '/admin/', '/studio/', '/private/'],
         crawlDelay: 1,
       },
       // Block specific bad bots
