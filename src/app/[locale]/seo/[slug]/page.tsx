@@ -8,7 +8,6 @@ import {
   businessLocations,
   generateLocalBusinessSchema,
   organizationSchema,
-  SEOLocation,
   FRENCH_REGIONS,
   FRENCH_CITIES,
 } from '@/lib/seo-utils'
