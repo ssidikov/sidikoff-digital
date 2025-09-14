@@ -436,6 +436,83 @@ export interface Dictionary {
       primary_button: string
     }
   }
+  seo_local: {
+    hero: {
+      title: string
+      description: string
+      cta_primary: string
+      cta_secondary: string
+    }
+    statistics: {
+      websites_created: string
+      satisfied_clients: string
+      average_delivery: string
+      support_included: string
+    }
+    services: {
+      title: string
+      description: string
+      showcase: {
+        title: string
+        description: string
+        price: string
+      }
+      ecommerce: {
+        title: string
+        description: string
+        price: string
+      }
+      webapp: {
+        title: string
+        description: string
+        price: string
+      }
+      seo: {
+        title: string
+        description: string
+        price: string
+      }
+      redesign: {
+        title: string
+        description: string
+        price: string
+      }
+      maintenance: {
+        title: string
+        description: string
+        price: string
+      }
+    }
+    advantages: {
+      title: string
+      description: string
+      fast_delivery: {
+        title: string
+        description: string
+      }
+      guaranteed_quality: {
+        title: string
+        description: string
+      }
+      complete_support: {
+        title: string
+        description: string
+      }
+    }
+    portfolio: {
+      title: string
+      description: string
+    }
+    cta: {
+      title: string
+      description: string
+      primary_button: string
+      secondary_button: string
+      consultation_free: string
+      quote_24h: string
+      no_commitment: string
+    }
+  }
   seo_optimization_landing: {
     meta_title: string
     meta_description: string

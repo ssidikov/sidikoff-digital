@@ -13,8 +13,8 @@ import {
   FRENCH_CITIES,
 } from '@/lib/seo-utils'
 import { getDictionary } from '@/lib/dictionaries'
-import { Hero, Services, Pricing, Portfolio, FAQ, Contact } from '@/sections'
 import { Locale } from '@/lib/i18n'
+import LocalSEOContent from '@/components/LocalSEOContent'
 
 interface SEOPageProps {
   params: Promise<{ slug: string; locale: Locale }>
@@ -80,9 +80,9 @@ export async function generateStaticParams() {
     'lyon-8',
     'lyon-9',
     // All French cities from seo-utils
-    ...FRENCH_CITIES.map(city => city.slug),
+    ...FRENCH_CITIES.map((city) => city.slug),
     // French Regions
-    ...FRENCH_REGIONS.map(region => region.slug),
+    ...FRENCH_REGIONS.map((region) => region.slug),
   ]
 
   const locales: Locale[] = ['en', 'ru'] // Exclude 'fr' as French pages are served without prefix
@@ -109,37 +109,6 @@ export default async function LocalizedSEOLocationPage({ params }: SEOPageProps)
   }
 
   const dict = await getDictionary(locale)
-
-  // Get localized keyword
-  const getLocalizedKeyword = (location: SEOLocation, locale: Locale) => {
-    if (location.keywordByLocale && location.keywordByLocale[locale]) {
-      return location.keywordByLocale[locale]
-    }
-    
-    // Fallback: generate based on city name and locale
-    const isCity = !location.city.includes('région')
-    const cityName = location.city.toLowerCase()
-    
-    switch (locale) {
-      case 'en':
-        return isCity ? `website creation ${cityName}` : `website creation ${cityName} region`
-      case 'ru':
-        return isCity ? `создание сайтов ${cityName}` : `создание сайтов регион ${cityName}`
-      case 'fr':
-      default:
-        return location.keyword
-    }
-  }
-
-  const localizedKeyword = getLocalizedKeyword(location, locale)
-
-  // Create customized hero dictionary with location-specific content
-  const heroDict = {
-    ...dict.hero,
-    badge: location.badgeText[locale],
-    title: location.title[locale].replace(' | SIDIKOFF DIGITAL', ''), // Remove company name from H1
-    subtitle: `${localizedKeyword.charAt(0).toUpperCase() + localizedKeyword.slice(1)} : ${dict.hero.subtitle}`,
-  }
 
   // Generate structured data for the location
   const parisLocation = businessLocations.find((loc) => loc.address.addressLocality === 'Paris')!
@@ -198,17 +167,8 @@ export default async function LocalizedSEOLocationPage({ params }: SEOPageProps)
         />
       ))}
 
-      <main>
-        {/* Hero with custom badge, title and subtitle */}
-        <Hero dict={heroDict} locale={locale} />
-
-        {/* Keep the same layout as the main site */}
-        <Services dictionary={dict.services} locale={locale} />
-        <Portfolio dictionary={dict.portfolio} locale={locale} />
-        <Pricing locale={locale} />
-        <FAQ dictionary={dict.faq} />
-        <Contact dictionary={dict.contact} locale={locale} />
-      </main>
+      {/* Unique local SEO content instead of generic sections */}
+      <LocalSEOContent location={location} locale={locale} dictionary={dict} />
     </>
   )
 }

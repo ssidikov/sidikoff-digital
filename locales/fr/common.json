@@ -793,6 +793,83 @@
       }
     }
   },
+  "seo_local": {
+    "hero": {
+      "title": "Création de site web à {city}",
+      "description": "Développeur web expert à {city}. Je crée des sites internet professionnels, modernes et performants pour faire grandir votre entreprise.",
+      "cta_primary": "Obtenir un devis gratuit",
+      "cta_secondary": "Appelez maintenant"
+    },
+    "statistics": {
+      "websites_created": "Sites web créés",
+      "satisfied_clients": "Clients satisfaits",
+      "average_delivery": "Délai moyen",
+      "support_included": "Support inclus"
+    },
+    "services": {
+      "title": "Mes services de création de sites web",
+      "description": "Développeur web professionnel à {city}, je vous accompagne dans la création de votre site internet. Des sites vitrines aux boutiques e-commerce, chaque projet est unique et adapté à vos besoins.",
+      "showcase": {
+        "title": "Site vitrine",
+        "description": "Site web professionnel pour présenter votre entreprise, vos services et vos valeurs. Design moderne et responsive.",
+        "price": "À partir de 590€"
+      },
+      "ecommerce": {
+        "title": "Boutique e-commerce",
+        "description": "Vendez vos produits en ligne avec une boutique sécurisée, paiement en ligne et gestion des commandes.",
+        "price": "À partir de 1490€"
+      },
+      "webapp": {
+        "title": "Application web",
+        "description": "Application web sur-mesure pour automatiser vos processus métier et optimiser votre productivité.",
+        "price": "Sur devis"
+      },
+      "seo": {
+        "title": "Référencement SEO",
+        "description": "Optimisation pour apparaître en premier sur Google. Référencement local {city} inclus.",
+        "price": "À partir de 290€/mois"
+      },
+      "redesign": {
+        "title": "Refonte de site",
+        "description": "Modernisation de votre site existant : nouveau design, amélioration des performances et SEO.",
+        "price": "À partir de 590€"
+      },
+      "maintenance": {
+        "title": "Maintenance",
+        "description": "Mises à jour, sauvegardes automatiques, sécurité et support technique pour votre site web.",
+        "price": "49€/mois"
+      }
+    },
+    "advantages": {
+      "title": "Pourquoi me choisir pour votre site web ?",
+      "description": "Développeur web freelance expérimenté, je vous garantis un service personnalisé et des résultats concrets.",
+      "fast_delivery": {
+        "title": "Livraison rapide",
+        "description": "Votre site web livré en 2-3 semaines maximum. Suivi personnalisé et communication transparente tout au long du projet."
+      },
+      "guaranteed_quality": {
+        "title": "Qualité garantie",
+        "description": "Sites web modernes, performants et optimisés SEO. Garantie de satisfaction et révisions incluses."
+      },
+      "complete_support": {
+        "title": "Accompagnement complet",
+        "description": "Formation à l'utilisation de votre site, conseils marketing et support technique après livraison."
+      }
+    },
+    "portfolio": {
+      "title": "Mes dernières créations de sites web",
+      "description": "Découvrez une sélection de sites web que j'ai créés. Chaque projet est unique et adapté aux besoins spécifiques de mes clients."
+    },
+    "cta": {
+      "title": "Transformons votre idée en succès digital",
+      "description": "Prêt à créer le site web qui fera grandir votre entreprise ? Contactez-moi pour un devis personnalisé et gratuit.",
+      "primary_button": "Obtenir un devis gratuit",
+      "secondary_button": "Voir mes réalisations",
+      "consultation_free": "Consultation gratuite 30min",
+      "quote_24h": "Devis détaillé sous 24h",
+      "no_commitment": "Aucun engagement"
+    }
+  },
   "restaurant_landing": {
     "meta_title": "Création Site Web Restaurant - Augmentez vos Réservations",
     "meta_description": "Site web professionnel pour restaurant. Réservations en ligne, menu digital, commandes. Tarif dès 799€ TTC. Support mensuel tout inclus dès 24€/mois. Solutions transparentes et complètes.",
