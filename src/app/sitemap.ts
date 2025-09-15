@@ -253,6 +253,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: PRIORITY_CONFIG.MEDIUM_HIGH_PRIORITY,
     },
     {
+      path: '/services/creation-site-internet-lyon',
+      changeFrequency: 'weekly',
+      priority: PRIORITY_CONFIG.MEDIUM_HIGH_PRIORITY,
+    },
+    {
+      path: '/services/creation-site-internet-paris',
+      changeFrequency: 'weekly',
+      priority: PRIORITY_CONFIG.MEDIUM_HIGH_PRIORITY,
+    },
+    {
+      path: '/services/creation-site-internet-paris-16',
+      changeFrequency: 'weekly',
+      priority: PRIORITY_CONFIG.MEDIUM_HIGH_PRIORITY,
+    },
+    {
+      path: '/services/creation-site-internet-toulouse',
+      changeFrequency: 'weekly',
+      priority: PRIORITY_CONFIG.MEDIUM_HIGH_PRIORITY,
+    },
+    {
+      path: '/services/creation-site-internet-cafe-paris',
+      changeFrequency: 'weekly',
+      priority: PRIORITY_CONFIG.MEDIUM_HIGH_PRIORITY,
+    },
+    {
+      path: '/services/restaurant-websites',
+      changeFrequency: 'weekly',
+      priority: PRIORITY_CONFIG.MEDIUM_HIGH_PRIORITY,
+    },
+    {
       path: '/services/refonte-sites-web',
       changeFrequency: 'weekly',
       priority: PRIORITY_CONFIG.MEDIUM_HIGH_PRIORITY,

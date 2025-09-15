@@ -57,7 +57,7 @@ function getAllSEOSlugs() {
   }
 }
 
-export default {
+const nextSitemapConfig = {
   siteUrl: 'https://www.sidikoff.com',
   generateRobotsTxt: true,
   changefreq: 'weekly',
@@ -67,7 +67,26 @@ export default {
   generateIndexSitemap: false,
   additionalPaths: async () => {
     const paths = []
-    const routes = ['', '/contact', '/projects', '/services', '/mentions-legales', '/blog']
+    const routes = [
+      '',
+      '/contact',
+      '/projects',
+      '/services',
+      '/services/creation-sites-web',
+      '/services/creation-site-internet-lyon',
+      '/services/creation-site-internet-paris',
+      '/services/creation-site-internet-paris-16',
+      '/services/creation-site-internet-toulouse',
+      '/services/creation-site-internet-cafe-paris',
+      '/services/restaurant-websites',
+      '/services/refonte-sites-web',
+      '/services/optimisation-seo',
+      '/services/maintenance-support',
+      '/mentions-legales',
+      '/blog',
+      '/tarifs',
+      '/faq',
+    ]
 
     // Get all SEO slugs dynamically from seo-utils.ts
     const allSEOSlugs = getAllSEOSlugs()
@@ -143,3 +162,5 @@ export default {
     additionalSitemaps: [],
   },
 }
+
+export default nextSitemapConfig
