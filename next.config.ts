@@ -107,6 +107,40 @@ const nextConfig: NextConfig = {
   // Redirects to handle www vs non-www and other canonical URLs
   async redirects() {
     return [
+      // Redirect HTTP to HTTPS for non-www
+      {
+        source: '/(.*)',
+        has: [
+          {
+            type: 'host',
+            value: 'sidikoff.com',
+          },
+          {
+            type: 'header',
+            key: 'x-forwarded-proto',
+            value: 'http',
+          },
+        ],
+        destination: 'https://www.sidikoff.com/:path*',
+        permanent: true,
+      },
+      // Redirect HTTP to HTTPS for www
+      {
+        source: '/(.*)',
+        has: [
+          {
+            type: 'host',
+            value: 'www.sidikoff.com',
+          },
+          {
+            type: 'header',
+            key: 'x-forwarded-proto',
+            value: 'http',
+          },
+        ],
+        destination: 'https://www.sidikoff.com/:path*',
+        permanent: true,
+      },
       // Redirect non-www to www
       {
         source: '/(.*)',
@@ -117,6 +151,38 @@ const nextConfig: NextConfig = {
           },
         ],
         destination: 'https://www.sidikoff.com/:path*',
+        permanent: true,
+      },
+      // Redirect old project URLs to new structure if they exist
+      {
+        source: '/projects/booki',
+        destination: '/projects/11',
+        permanent: true,
+      },
+      {
+        source: '/projects/euclid',
+        destination: '/projects/14',
+        permanent: true,
+      },
+      {
+        source: '/projects/cookies',
+        destination: '/projects/6',
+        permanent: true,
+      },
+      {
+        source: '/projects/billed',
+        destination: '/projects/10',
+        permanent: true,
+      },
+      // Handle OpenGraph image redirects
+      {
+        source: '/opengraph-image',
+        destination: '/images/og-homepage.jpg',
+        permanent: true,
+      },
+      {
+        source: '/twitter-image',
+        destination: '/images/og-homepage.jpg',
         permanent: true,
       },
     ]

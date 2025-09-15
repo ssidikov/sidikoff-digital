@@ -55,13 +55,14 @@ export function middleware(request: NextRequest) {
   // Check if there is any supported locale in the pathname
   const pathnameHasLocale = hasLocalePrefix(pathname)
 
-  // Redirect French URLs to non-prefixed versions to avoid duplicates
+  // Handle French redirects properly to avoid redirect chains
   if (pathname.startsWith('/fr/') || pathname === '/fr') {
     const newPath = pathname === '/fr' ? '/' : pathname.replace('/fr', '')
-    return NextResponse.redirect(new URL(newPath, request.url), 301)
+    const redirectUrl = new URL(newPath, request.url)
+    return NextResponse.redirect(redirectUrl, 301)
   }
 
-  // If pathname already has a locale (en/ru), continue
+  // If pathname already has a locale (en/ru), continue normally
   if (pathnameHasLocale) {
     return enhanceResponse(NextResponse.next(), pathname)
   }

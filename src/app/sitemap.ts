@@ -76,9 +76,18 @@ function createSitemapEntry(
 function generateStaticPagesForLocale(locale: Locale, pages: StaticPageConfig[]): SitemapEntry[] {
   const localePrefix = locale === 'fr' ? '' : `/${locale}`
 
-  return pages.map(({ path, changeFrequency, priority }) =>
-    createSitemapEntry(`${BASE_URL}${localePrefix}${path}`, changeFrequency, priority)
-  )
+  return pages
+    .filter(({ path }) => {
+      // For non-French locales, exclude the homepage to avoid redirect issues
+      if (locale !== 'fr' && path === '') {
+        return false
+      }
+      return true
+    })
+    .map(({ path, changeFrequency, priority }) => {
+      const fullPath = `${localePrefix}${path}`
+      return createSitemapEntry(`${BASE_URL}${fullPath}`, changeFrequency, priority)
+    })
 }
 
 /**
