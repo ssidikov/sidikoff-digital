@@ -108,8 +108,26 @@ function generateSeoLocationPages(locations: SeoLocation[]): SitemapEntry[] {
  * Generates individual project pages for all locales
  */
 function generateProjectPages(): SitemapEntry[] {
-  const projectIds = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17']
-  
+  const projectIds = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
+    '13',
+    '14',
+    '15',
+    '16',
+    '17',
+  ]
+
   return projectIds.flatMap((id) => [
     // French version (highest priority)
     createSitemapEntry(`${BASE_URL}/projects/${id}`, 'monthly', PRIORITY_CONFIG.MEDIUM_PRIORITY),
