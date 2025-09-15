@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { locales, defaultLocale } from './lib/i18n'
 
 // Constants for better maintainability
-const STATIC_PATHS = ['/_next', '/api', '/favicon', '/robots', '/sitemap', '/studio'] as const
+const STATIC_PATHS = ['/_next', '/api', '/favicon', '/robots', '/sitemap', '/studio', '/fonts'] as const
 
 const SECURITY_HEADERS = {
   'X-DNS-Prefetch-Control': 'on',
@@ -24,8 +24,31 @@ function shouldSkipMiddleware(pathname: string): boolean {
  * Checks if pathname has a valid locale prefix (excluding French as it's default)
  */
 function hasLocalePrefix(pathname: string): boolean {
-  const nonDefaultLocales = locales.filter(locale => locale !== defaultLocale)
-  return nonDefaultLocales.some((locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`)
+  const nonDefaultLocales = locales.filter((locale) => locale !== defaultLocale)
+  return nonDefaultLocales.some(
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+  )
+}
+
+/**
+ * Checks if pathname has double locale prefixes that need to be fixed
+ */
+function hasDoubleLocalePrefix(pathname: string): boolean {
+  const localePattern = /^\/([a-z]{2})\/([a-z]{2})\//
+  return localePattern.test(pathname)
+}
+
+/**
+ * Fixes double locale prefixes by removing the first occurrence
+ */
+function fixDoubleLocalePrefix(pathname: string): string {
+  const match = pathname.match(/^\/([a-z]{2})\/([a-z]{2})\/(.*)$/)
+  if (match) {
+    const [, , secondLocale, rest] = match
+    // Keep the second locale and remove the first
+    return `/${secondLocale}/${rest}`
+  }
+  return pathname
 }
 
 /**
@@ -50,6 +73,13 @@ export function middleware(request: NextRequest) {
   // Skip middleware for static files and API routes
   if (shouldSkipMiddleware(pathname)) {
     return enhanceResponse(NextResponse.next(), pathname)
+  }
+
+  // Fix double locale prefixes (e.g., /ru/ru/blog -> /ru/blog)
+  if (hasDoubleLocalePrefix(pathname)) {
+    const fixedPath = fixDoubleLocalePrefix(pathname)
+    const redirectUrl = new URL(fixedPath, request.url)
+    return NextResponse.redirect(redirectUrl, 301)
   }
 
   // Check if there is any supported locale in the pathname

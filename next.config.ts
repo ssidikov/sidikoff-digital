@@ -185,6 +185,69 @@ const nextConfig: NextConfig = {
         destination: '/images/og-homepage.jpg',
         permanent: true,
       },
+      // Service page redirects
+      {
+        source: '/services/fullstack',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/services/frontend',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/services/backend',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/services/consultation',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/services/optimization',
+        destination: '/services/optimisation-seo',
+        permanent: true,
+      },
+      // Locale-specific service redirects
+      {
+        source: '/:locale(en|ru)/services/fullstack',
+        destination: '/:locale/services',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|ru)/services/frontend',
+        destination: '/:locale/services',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|ru)/services/backend',
+        destination: '/:locale/services',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|ru)/services/consultation',
+        destination: '/:locale/services',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|ru)/services/optimization',
+        destination: '/:locale/services/optimisation-seo',
+        permanent: true,
+      },
+      // Portfolio redirects
+      {
+        source: '/portfolio',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|ru)/portfolio',
+        destination: '/:locale/projects',
+        permanent: true,
+      },
     ]
   },
 
