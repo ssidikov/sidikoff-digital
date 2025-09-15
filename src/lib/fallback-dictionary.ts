@@ -789,78 +789,90 @@ export const fallbackDictionary: Dictionary = {
   seo_local: {
     hero: {
       title: 'Website Creation in {city}',
-      description: 'Expert web developer in {city}. I create professional, modern and high-performance websites to grow your business.',
+      description:
+        'Expert web developer in {city}. I create professional, modern and high-performance websites to grow your business.',
       cta_primary: 'Get a free quote',
-      cta_secondary: 'Call now'
+      cta_secondary: 'Call now',
     },
     statistics: {
       websites_created: 'Websites created',
       satisfied_clients: 'Satisfied clients',
       average_delivery: 'Average delivery',
-      support_included: 'Support included'
+      support_included: 'Support included',
     },
     services: {
       title: 'My web development services',
-      description: 'Professional web developer in {city}, I support you in creating your website. From showcase sites to e-commerce stores, each project is unique and adapted to your needs.',
+      description:
+        'Professional web developer in {city}, I support you in creating your website. From showcase sites to e-commerce stores, each project is unique and adapted to your needs.',
       showcase: {
         title: 'Showcase website',
-        description: 'Professional website to present your company, services and values. Modern and responsive design.',
-        price: 'From €590'
+        description:
+          'Professional website to present your company, services and values. Modern and responsive design.',
+        price: 'From €590',
       },
       ecommerce: {
         title: 'E-commerce store',
-        description: 'Sell your products online with a secure store, online payment and order management.',
-        price: 'From €1490'
+        description:
+          'Sell your products online with a secure store, online payment and order management.',
+        price: 'From €1490',
       },
       webapp: {
         title: 'Web application',
-        description: 'Custom web application to automate your business processes and optimize your productivity.',
-        price: 'On quote'
+        description:
+          'Custom web application to automate your business processes and optimize your productivity.',
+        price: 'On quote',
       },
       seo: {
         title: 'SEO optimization',
         description: 'Optimization to appear first on Google. Local SEO {city} included.',
-        price: 'From €290/month'
+        price: 'From €290/month',
       },
       redesign: {
         title: 'Website redesign',
-        description: 'Modernization of your existing site: new design, performance improvement and SEO.',
-        price: 'From €590'
+        description:
+          'Modernization of your existing site: new design, performance improvement and SEO.',
+        price: 'From €590',
       },
       maintenance: {
         title: 'Maintenance',
         description: 'Updates, automatic backups, security and technical support for your website.',
-        price: '€49/month'
-      }
+        price: '€49/month',
+      },
     },
     advantages: {
       title: 'Why choose me for your website?',
-      description: 'Experienced freelance web developer, I guarantee you personalized service and concrete results.',
+      description:
+        'Experienced freelance web developer, I guarantee you personalized service and concrete results.',
       fast_delivery: {
         title: 'Fast delivery',
-        description: 'Your website delivered in 2-3 weeks maximum. Personalized follow-up and transparent communication throughout the project.'
+        description:
+          'Your website delivered in 2-3 weeks maximum. Personalized follow-up and transparent communication throughout the project.',
       },
       guaranteed_quality: {
         title: 'Guaranteed quality',
-        description: 'Modern, high-performance and SEO-optimized websites. Satisfaction guarantee and revisions included.'
+        description:
+          'Modern, high-performance and SEO-optimized websites. Satisfaction guarantee and revisions included.',
       },
       complete_support: {
         title: 'Complete support',
-        description: 'Training on using your site, marketing advice and technical support after delivery.'
-      }
+        description:
+          'Training on using your site, marketing advice and technical support after delivery.',
+      },
     },
     portfolio: {
       title: 'My latest website creations',
-      description: 'Discover a selection of websites I have created. Each project is unique and adapted to the specific needs of my clients.'
+      description:
+        'Discover a selection of websites I have created. Each project is unique and adapted to the specific needs of my clients.',
     },
     cta: {
       title: 'Transform your idea into digital success',
-      description: 'Ready to create the website that will grow your business? Contact me for a personalized and free quote.',
+      description:
+        'Ready to create the website that will grow your business? Contact me for a personalized and free quote.',
       primary_button: 'Get a free quote',
       secondary_button: 'See my work',
       consultation_free: 'Free 30min consultation',
       quote_24h: 'Detailed quote within 24h',
-      no_commitment: 'No commitment'
-    }
+      no_commitment: 'No commitment',
+    },
   },
 }

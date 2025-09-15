@@ -268,6 +268,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: PRIORITY_CONFIG.MEDIUM_HIGH_PRIORITY,
     },
     {
+      path: '/services/creation-site-internet-boulogne-billancourt',
+      changeFrequency: 'weekly',
+      priority: PRIORITY_CONFIG.MEDIUM_HIGH_PRIORITY,
+    },
+    {
       path: '/services/creation-site-internet-toulouse',
       changeFrequency: 'weekly',
       priority: PRIORITY_CONFIG.MEDIUM_HIGH_PRIORITY,

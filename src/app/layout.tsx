@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import Analytics from '@/components/analytics'
 import '@/styles/globals.css'
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
@@ -13,8 +13,10 @@ const inter = Inter({
 const SITE_CONFIG = {
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com',
   name: 'SIDIKOFF DIGITAL',
-  title: 'Création de sites web | SIDIKOFF DIGITAL - Agence Web | Développement Web Paris, Lyon, Toulouse, Strasbourg',
-  description: 'Agence web spécialisée dans la création de sites internet modernes et applications web. Services professionnels à Paris, Lyon, Toulouse, Strasbourg et toute la France. Expertise React, Next.js, SEO et développement sur mesure.',
+  title:
+    'Création de sites web | SIDIKOFF DIGITAL - Agence Web | Développement Web Paris, Lyon, Toulouse, Strasbourg',
+  description:
+    'Agence web spécialisée dans la création de sites internet modernes et applications web. Services professionnels à Paris, Lyon, Toulouse, Strasbourg et toute la France. Expertise React, Next.js, SEO et développement sur mesure.',
   keywords: [
     'agence web france',
     'développement web',
@@ -53,7 +55,7 @@ export const metadata: Metadata = {
     'geo.region': 'FR-75',
     'geo.placename': 'Paris',
     'geo.position': '48.8566;2.3522',
-    'ICBM': '48.8566, 2.3522',
+    ICBM: '48.8566, 2.3522',
     'theme-color': '#112D4E',
     'msapplication-TileColor': '#112D4E',
     'apple-mobile-web-app-capable': 'yes',
