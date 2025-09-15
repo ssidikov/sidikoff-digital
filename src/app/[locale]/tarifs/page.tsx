@@ -3,6 +3,7 @@ import { Pricing } from '@/sections'
 import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
 import LocaleProvider from '@/components/LocaleProvider'
+import SEOLinks from '@/components/SEOLinks'
 
 interface TarifsPageProps {
   params: Promise<{ locale: Locale }>
@@ -41,12 +42,15 @@ export default async function TarifsPage({ params }: TarifsPageProps) {
   const { locale } = await params
 
   return (
-    <LocaleProvider locale={locale}>
-      <div className='min-h-screen'>
-        <main className='m-0 p-0'>
-          <Pricing locale={locale} className='pt-[80px] md:pt-[100px]' />
-        </main>
-      </div>
-    </LocaleProvider>
+    <>
+      <SEOLinks locale={locale} />
+      <LocaleProvider locale={locale}>
+        <div className='min-h-screen'>
+          <main className='m-0 p-0'>
+            <Pricing locale={locale} className='pt-[80px] md:pt-[100px]' />
+          </main>
+        </div>
+      </LocaleProvider>
+    </>
   )
 }

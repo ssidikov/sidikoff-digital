@@ -13,6 +13,7 @@ import {
 } from '@/lib/seo-utils'
 import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
+import SEOLinks from '@/components/SEOLinks'
 import LocalSEOContent from '@/components/LocalSEOContent'
 
 interface SEOPageProps {
@@ -154,6 +155,7 @@ export default async function LocalizedSEOLocationPage({ params }: SEOPageProps)
 
   return (
     <>
+      <SEOLinks locale={locale} />
       {/* Structured Data */}
       {schemas.map((schema, index) => (
         <Script

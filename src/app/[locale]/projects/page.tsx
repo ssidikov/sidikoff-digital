@@ -3,6 +3,7 @@ import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
 import LocaleProvider from '@/components/LocaleProvider'
 import { Metadata } from 'next'
+import SEOLinks from '@/components/SEOLinks'
 
 interface ProjectsPageProps {
   params: Promise<{ locale: Locale }>
@@ -23,12 +24,15 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
   const dictionary = await getDictionary(locale)
 
   return (
-    <LocaleProvider locale={locale}>
-      <div className='min-h-screen'>
-        <main className='m-0 p-0'>
-          <Portfolio dictionary={dictionary.portfolio} locale={locale} className='pt-[140px]' />
-        </main>
-      </div>
-    </LocaleProvider>
+    <>
+      <SEOLinks locale={locale} />
+      <LocaleProvider locale={locale}>
+        <div className='min-h-screen'>
+          <main className='m-0 p-0'>
+            <Portfolio dictionary={dictionary.portfolio} locale={locale} className='pt-[140px]' />
+          </main>
+        </div>
+      </LocaleProvider>
+    </>
   )
 }

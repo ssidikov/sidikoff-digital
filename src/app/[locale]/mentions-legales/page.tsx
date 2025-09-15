@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
 import { getDictionary } from '@/lib/dictionaries'
+import SEOLinks from '@/components/SEOLinks'
 
 interface Props {
   params: Promise<{ locale: Locale }>
@@ -23,7 +24,9 @@ export default async function MentionsLegalesPage({ params }: Props) {
   const dict = await getDictionary(locale)
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-[#F9F7FF] via-[#F9F7FF] to-[#DBE2EF]'>
+    <>
+      <SEOLinks locale={locale} />
+      <div className='min-h-screen bg-gradient-to-br from-[#F9F7FF] via-[#F9F7FF] to-[#DBE2EF]'>
       <div className='container mx-auto px-4 py-40'>
         <div className='max-w-4xl mx-auto'>
           {/* Header */}
@@ -182,5 +185,6 @@ export default async function MentionsLegalesPage({ params }: Props) {
         </div>
       </div>
     </div>
+    </>
   )
 }
