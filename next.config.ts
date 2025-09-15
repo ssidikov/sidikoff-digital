@@ -174,6 +174,27 @@ const nextConfig: NextConfig = {
         destination: '/projects/10',
         permanent: true,
       },
+      // Additional old project slug redirects
+      {
+        source: '/projects/fisheye',
+        destination: '/projects/7',
+        permanent: true,
+      },
+      {
+        source: '/projects/ohmyfood',
+        destination: '/projects/9',
+        permanent: true,
+      },
+      {
+        source: '/projects/learn-home',
+        destination: '/projects/13',
+        permanent: true,
+      },
+      {
+        source: '/projects/kasa',
+        destination: '/projects/1',
+        permanent: true,
+      },
       // Handle OpenGraph image redirects
       {
         source: '/opengraph-image',

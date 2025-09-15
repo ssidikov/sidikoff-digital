@@ -105,6 +105,22 @@ function generateSeoLocationPages(locations: SeoLocation[]): SitemapEntry[] {
 }
 
 /**
+ * Generates individual project pages for all locales
+ */
+function generateProjectPages(): SitemapEntry[] {
+  const projectIds = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17']
+  
+  return projectIds.flatMap((id) => [
+    // French version (highest priority)
+    createSitemapEntry(`${BASE_URL}/projects/${id}`, 'monthly', PRIORITY_CONFIG.MEDIUM_PRIORITY),
+    // English version
+    createSitemapEntry(`${BASE_URL}/en/projects/${id}`, 'monthly', PRIORITY_CONFIG.LOW_PRIORITY),
+    // Russian version
+    createSitemapEntry(`${BASE_URL}/ru/projects/${id}`, 'monthly', PRIORITY_CONFIG.LOW_PRIORITY),
+  ])
+}
+
+/**
  * Gets priority-based Paris districts configuration
  */
 function getParisDistrictsConfig(): SeoLocation[] {
@@ -285,5 +301,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Generate SEO pages for all locations
   const seoPages = generateSeoLocationPages(allSeoLocations)
 
-  return [...allStaticPages, ...seoPages]
+  // Generate individual project pages
+  const projectPages = generateProjectPages()
+
+  return [...allStaticPages, ...seoPages, ...projectPages]
 }

@@ -2,7 +2,15 @@ import { NextRequest, NextResponse } from 'next/server'
 import { locales, defaultLocale } from './lib/i18n'
 
 // Constants for better maintainability
-const STATIC_PATHS = ['/_next', '/api', '/favicon', '/robots', '/sitemap', '/studio', '/fonts'] as const
+const STATIC_PATHS = [
+  '/_next',
+  '/api',
+  '/favicon',
+  '/robots',
+  '/sitemap',
+  '/studio',
+  '/fonts',
+] as const
 
 const SECURITY_HEADERS = {
   'X-DNS-Prefetch-Control': 'on',
