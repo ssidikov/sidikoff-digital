@@ -195,6 +195,32 @@ const nextConfig: NextConfig = {
         destination: '/projects/1',
         permanent: true,
       },
+      // Locale-specific old project redirects
+      {
+        source: '/:locale(en|fr|ru)/projects/ohmyfood',
+        destination: '/:locale/projects/9',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|fr|ru)/projects/fisheye',
+        destination: '/:locale/projects/7',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|fr|ru)/projects/learn-home',
+        destination: '/:locale/projects/13',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|fr|ru)/projects/kasa',
+        destination: '/:locale/projects/1',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|fr|ru)/projects/billed',
+        destination: '/:locale/projects/10',
+        permanent: true,
+      },
       // Handle OpenGraph image redirects
       {
         source: '/opengraph-image',
