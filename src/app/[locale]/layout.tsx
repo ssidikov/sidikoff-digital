@@ -8,6 +8,7 @@ import { getDictionary } from '@/lib/dictionaries'
 import { Header } from '@/components/Header'
 import { Locale } from '@/lib/i18n'
 import LocaleProvider from '@/components/LocaleProvider'
+import SEOLinks from '@/components/SEOLinks'
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -33,6 +34,7 @@ export default async function LocaleLayout({ children, params }: RootLayoutProps
     if (typeof dict !== 'object' || dict === null) {
       return (
         <LocaleProvider locale={locale}>
+          <SEOLinks locale={locale} />
           <div className='min-h-screen' suppressHydrationWarning>
             <Header locale={locale} dictionary={fallbackDictionary} />
             <main className='m-0 p-0'>
@@ -63,6 +65,7 @@ export default async function LocaleLayout({ children, params }: RootLayoutProps
 
     return (
       <LocaleProvider locale={locale}>
+        <SEOLinks locale={locale} />
         <div className='min-h-screen' suppressHydrationWarning>
           <Header locale={locale} dictionary={dict} />
           <main className='m-0 p-0'>{children}</main>
@@ -73,6 +76,7 @@ export default async function LocaleLayout({ children, params }: RootLayoutProps
   } catch {
     return (
       <LocaleProvider locale={locale}>
+        <SEOLinks locale={locale} />
         <div className='min-h-screen' suppressHydrationWarning>
           <Header locale={locale} dictionary={fallbackDictionary} />
           <main className='m-0 p-0'>

@@ -24,16 +24,17 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   }
 
   const projectUrl = getProjectUrl(id, locale)
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
 
   return {
     title: `${project.title} | SIDIKOFF DIGITAL- Projets`,
     description: project.description,
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}${projectUrl}`,
+      canonical: `${baseUrl}${projectUrl}`,
       languages: {
-        fr: getProjectUrl(id, 'fr'),
-        en: getProjectUrl(id, 'en'),
-        ru: getProjectUrl(id, 'ru'),
+        fr: `${baseUrl}${getProjectUrl(id, 'fr')}`,
+        en: `${baseUrl}${getProjectUrl(id, 'en')}`,
+        ru: `${baseUrl}${getProjectUrl(id, 'ru')}`,
       },
     },
     openGraph: {

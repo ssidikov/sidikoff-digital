@@ -11,7 +11,7 @@ const inter = Inter({
 
 // SEO Configuration
 const SITE_CONFIG = {
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com',
   name: 'SIDIKOFF DIGITAL',
   title: 'Création de sites web | SIDIKOFF DIGITAL - Agence Web | Développement Web Paris, Lyon, Toulouse, Strasbourg',
   description: 'Agence web spécialisée dans la création de sites internet modernes et applications web. Services professionnels à Paris, Lyon, Toulouse, Strasbourg et toute la France. Expertise React, Next.js, SEO et développement sur mesure.',

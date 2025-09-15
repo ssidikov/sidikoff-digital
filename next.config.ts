@@ -104,6 +104,24 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
 
+  // Redirects to handle www vs non-www and other canonical URLs
+  async redirects() {
+    return [
+      // Redirect non-www to www
+      {
+        source: '/(.*)',
+        has: [
+          {
+            type: 'host',
+            value: 'sidikoff.com',
+          },
+        ],
+        destination: 'https://www.sidikoff.com/:path*',
+        permanent: true,
+      },
+    ]
+  },
+
   // Headers for security and performance
   async headers() {
     return [

@@ -41,7 +41,7 @@ export interface LocalBusiness {
 // Default SEO configuration
 export const DEFAULT_SEO = {
   siteName: 'SIDIKOFF DIGITAL - Développeur Web Full Stack',
-  siteUrl: 'https://sidikoff.com',
+  siteUrl: 'https://www.sidikoff.com',
   defaultImage: '/images/og-default.jpg',
   twitterHandle: '@sidikoffdigital',
   locale: 'fr' as Locale,
@@ -1475,7 +1475,7 @@ export function generateLocationSEOMetadata(location: SEOLocation, locale: Local
 export const businessLocations: LocalBusiness[] = [
   {
     name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Paris',
-    url: 'https://sidikoff.com',
+    url: 'https://www.sidikoff.com',
     address: {
       streetAddress: '77 Ter Rue Michel Ange',
       addressLocality: 'Paris',
@@ -1526,7 +1526,7 @@ export const businessLocations: LocalBusiness[] = [
   },
   {
     name: 'SIDIKOFF DIGITAL - Développeur Web à Toulouse',
-    url: 'https://sidikoff.com',
+    url: 'https://www.sidikoff.com',
     address: {
       streetAddress: '22 Bd Maréchal Leclerc',
       addressLocality: 'Toulouse',
@@ -1587,7 +1587,7 @@ export const businessLocations: LocalBusiness[] = [
   },
   {
     name: 'SIDIKOFF DIGITAL - Développeur Web à Lyon',
-    url: 'https://sidikoff.com',
+    url: 'https://www.sidikoff.com',
     address: {
       streetAddress: '25 Rue de la République',
       addressLocality: 'Lyon',
@@ -1622,7 +1622,7 @@ export const businessLocations: LocalBusiness[] = [
   },
   {
     name: 'SIDIKOFF DIGITAL - Développeur Web à Strasbourg',
-    url: 'https://sidikoff.com',
+    url: 'https://www.sidikoff.com',
     address: {
       streetAddress: '15 Place Kléber',
       addressLocality: 'Strasbourg',
@@ -1815,12 +1815,12 @@ export function generateLocalizedSEOMetadata(locale: Locale): Metadata {
               'профессиональные сайты',
               'современные веб-приложения',
             ],
-    canonicalUrl: 'https://sidikoff.com/',
+    canonicalUrl: 'https://www.sidikoff.com/',
     locale: locale as Locale,
     alternateLanguages: {
-      fr: 'https://sidikoff.com/',
-      en: 'https://sidikoff.com/en',
-      ru: 'https://sidikoff.com/ru',
+      fr: 'https://www.sidikoff.com/',
+      en: 'https://www.sidikoff.com/en',
+      ru: 'https://www.sidikoff.com/ru',
     },
     ogImage: '/images/og-homepage.jpg',
     ogType: 'website' as const,
@@ -2018,13 +2018,13 @@ export function generateLocalBusinessSchema(
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  '@id': 'https://sidikoff.com#Organization',
+  '@id': 'https://www.sidikoff.com#Organization',
   name: 'SIDIKOFF DIGITAL',
   legalName: 'SIDIKOFF DIGITAL - Création de Sites Web | Agence Web',
-  url: 'https://sidikoff.com',
+  url: 'https://www.sidikoff.com',
   logo: {
     '@type': 'ImageObject',
-    url: 'https://sidikoff.com/images/logo-sidikoff.svg',
+    url: 'https://www.sidikoff.com/images/logo-sidikoff.svg',
     width: 300,
     height: 100,
   },
@@ -2035,7 +2035,7 @@ export const organizationSchema = {
     '@type': 'Person',
     name: 'Sardorbek SIDIKOV',
     jobTitle: 'Développeur Web Full Stack',
-    url: 'https://sidikoff.com/',
+    url: 'https://www.sidikoff.com/',
     sameAs: ['https://github.com/ssidikov', 'https://linkedin.com/in/sardorbeksidikov'],
   },
   contactPoint: [
@@ -2207,7 +2207,7 @@ export function generateReviewStructuredData(
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    '@id': 'https://sidikoff.com/#organization',
+    '@id': 'https://www.sidikoff.com/#organization',
     review: reviews.map((review) => ({
       '@type': 'Review',
       author: {
@@ -2226,7 +2226,7 @@ export function generateReviewStructuredData(
         name: review.projectName,
         provider: {
           '@type': 'Organization',
-          '@id': 'https://sidikoff.com/#organization',
+          '@id': 'https://www.sidikoff.com/#organization',
         },
       },
       datePublished: review.datePublished || new Date().toISOString().split('T')[0],

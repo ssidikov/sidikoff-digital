@@ -117,14 +117,14 @@ export default async function LocalizedSEOLocationPage({ params }: SEOPageProps)
     {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
-      '@id': `https://sidikoff.com/${locale === 'fr' ? '' : locale + '/'}seo/${location.slug}#webpage`,
+      '@id': `https://www.sidikoff.com/${locale === 'fr' ? '' : locale + '/'}seo/${location.slug}#webpage`,
       name: location.title[locale],
       description: location.description[locale],
-      url: `https://sidikoff.com/${locale === 'fr' ? '' : locale + '/'}seo/${location.slug}`,
+      url: `https://www.sidikoff.com/${locale === 'fr' ? '' : locale + '/'}seo/${location.slug}`,
       inLanguage: locale === 'fr' ? 'fr-FR' : locale === 'en' ? 'en-US' : 'ru-RU',
       isPartOf: {
         '@type': 'WebSite',
-        '@id': 'https://sidikoff.com/#website',
+        '@id': 'https://www.sidikoff.com/#website',
       },
       about: {
         '@type': 'Service',
@@ -136,12 +136,12 @@ export default async function LocalizedSEOLocationPage({ params }: SEOPageProps)
         },
         provider: {
           '@type': 'Organization',
-          '@id': 'https://sidikoff.com/#organization',
+          '@id': 'https://www.sidikoff.com/#organization',
         },
       },
       mainEntity: {
         '@type': 'LocalBusiness',
-        '@id': `https://sidikoff.com/${locale === 'fr' ? '' : locale + '/'}seo/${location.slug}#localbusiness`,
+        '@id': `https://www.sidikoff.com/${locale === 'fr' ? '' : locale + '/'}seo/${location.slug}#localbusiness`,
         name: `SIDIKOFF DIGITAL - ${location.city}`,
         description: location.description[locale],
         areaServed: {
