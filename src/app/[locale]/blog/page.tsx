@@ -1,4 +1,3 @@
-
 import { Suspense } from 'react'
 import { Metadata } from 'next'
 
@@ -17,7 +16,7 @@ interface BlogPageProps {
 export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
   const resolvedParams = await params
   const { locale } = resolvedParams
-  
+
   const dict = await getDictionary(locale)
 
   return {
@@ -43,27 +42,27 @@ export default async function BlogPage({ params }: BlogPageProps) {
   const [posts, categories, dict] = await Promise.all([
     getBlogPosts(),
     getBlogCategories(),
-    getDictionary(locale)
+    getDictionary(locale),
   ])
 
   return (
     <>
       <SEOLinks locale={locale} />
-      <div className="min-h-screen bg-gray-50">
-      <Suspense fallback={
-        <div className="flex items-center justify-center min-h-screen">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
-        </div>
-      }>
-        <BlogPageContent
-          posts={posts}
-          categories={categories}
-          dictionary={dict.blog}
-          locale={locale}
-        />
-      </Suspense>
-    </div>
+      <div className='min-h-screen bg-gray-50'>
+        <Suspense
+          fallback={
+            <div className='flex items-center justify-center min-h-screen'>
+              <div className='animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600'></div>
+            </div>
+          }>
+          <BlogPageContent
+            posts={posts}
+            categories={categories}
+            dictionary={dict.blog}
+            locale={locale}
+          />
+        </Suspense>
+      </div>
     </>
   )
 }
-
