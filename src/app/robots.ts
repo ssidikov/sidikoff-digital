@@ -7,7 +7,10 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
+        allow: [
+          '/',
+          '/fr/', // Allow /fr/ paths since they redirect to canonical URLs
+        ],
         disallow: [
           '/api/',
           '/_next/',
@@ -37,13 +40,19 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: 'Googlebot',
-        allow: '/',
+        allow: [
+          '/',
+          '/fr/', // Allow /fr/ paths for Googlebot
+        ],
         disallow: ['/api/', '/admin/', '/studio/', '/private/'],
         crawlDelay: 1,
       },
       {
         userAgent: 'Bingbot',
-        allow: '/',
+        allow: [
+          '/',
+          '/fr/', // Allow /fr/ paths for Bingbot
+        ],
         disallow: ['/api/', '/admin/', '/studio/', '/private/'],
         crawlDelay: 1,
       },
