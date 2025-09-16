@@ -67,7 +67,5 @@ export default async function BarbershopWebsitesPage({ params }: Props) {
 
   const dictionary = await getDictionary(locale as Locale)
 
-  return (
-    <BarbershopLandingContent dictionary={dictionary} locale={locale} />
-  )
+  return <BarbershopLandingContent dictionary={dictionary} locale={locale} />
 }
