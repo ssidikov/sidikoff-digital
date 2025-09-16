@@ -208,7 +208,7 @@ export default function FreelanceLandingContent({
               className='relative'>
               <div className='aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl'>
                 <Image
-                  src='/images/freelance-hero.webp'
+                  src='/images/projects/freelance-hero.webp'
                   alt={t.hero.image_alt}
                   fill
                   className='object-cover'
@@ -362,7 +362,7 @@ export default function FreelanceLandingContent({
                 className='bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow'>
                 <div className='aspect-[4/3] relative'>
                   <Image
-                    src={`/images/portfolio/freelances/${project.image}`}
+                    src={`/images/projects/${project.image}`}
                     alt={project.name}
                     fill
                     className='object-cover'
@@ -419,8 +419,13 @@ export default function FreelanceLandingContent({
                 </div>
                 <p className='text-gray-700 mb-6 italic'>&ldquo;{review.content}&rdquo;</p>
                 <div className='flex items-center space-x-3'>
-                  <div className='w-12 h-12 bg-blue-200 rounded-full flex items-center justify-center'>
-                    <span className='text-blue-600 font-semibold'>{review.name.charAt(0)}</span>
+                  <div className='w-12 h-12 relative rounded-full overflow-hidden'>
+                    <Image
+                      src={`/images/testimonials/${review.image}`}
+                      alt={review.name}
+                      fill
+                      className='object-cover'
+                    />
                   </div>
                   <div>
                     <p className='font-semibold text-gray-900'>{review.name}</p>
