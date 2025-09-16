@@ -38,7 +38,7 @@ interface Breadcrumbs {
 interface BoulangerieLandingContentProps {
   dictionary: Dictionary
   locale: string
-  breadcrumbs: Breadcrumbs
+  breadcrumbs?: Breadcrumbs
 }
 
 interface PainPoint {
@@ -96,7 +96,6 @@ interface FAQ {
 export default function BoulangerieLandingContent({
   dictionary,
   locale,
-  breadcrumbs,
 }: BoulangerieLandingContentProps) {
   const t = dictionary.boulangerie_landing
   const [openFAQ, setOpenFAQ] = useState<number | null>(null)
@@ -142,30 +141,8 @@ export default function BoulangerieLandingContent({
 
   return (
     <div className='min-h-screen bg-gradient-to-b from-amber-50 to-white'>
-      {/* Breadcrumbs */}
-      <nav className='bg-white/80 backdrop-blur-sm border-b border-amber-100 mt-16 md:mt-20'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3'>
-          <ol className='flex items-center space-x-2 text-sm'>
-            {breadcrumbs.items.map((item, index) => (
-              <li key={index} className='flex items-center'>
-                {index > 0 && <ArrowRight className='w-4 h-4 mx-2 text-amber-400' />}
-                {item.href ? (
-                  <Link
-                    href={item.href}
-                    className='text-amber-600 hover:text-amber-800 transition-colors'>
-                    {item.label}
-                  </Link>
-                ) : (
-                  <span className='text-amber-800 font-medium'>{item.label}</span>
-                )}
-              </li>
-            ))}
-          </ol>
-        </div>
-      </nav>
-
       {/* Hero Section */}
-      <section className='relative pt-16 pb-24 overflow-hidden'>
+      <section className='relative pt-24 md:pt-32 pb-24 overflow-hidden'>
         <div className='absolute inset-0 bg-gradient-to-br from-amber-100 via-orange-50 to-red-50 opacity-60'></div>
         <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>

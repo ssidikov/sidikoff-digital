@@ -67,15 +67,7 @@ export default async function BoulangerieWebsitesPage({ params }: Props) {
 
   const dictionary = await getDictionary(locale as Locale)
 
-  const breadcrumbs = {
-    items: [
-      { label: dictionary.navigation.home, href: `/${locale}` },
-      { label: dictionary.navigation.services, href: `/${locale}/services` },
-      { label: 'Sites Web Boulangerie' },
-    ],
-  }
-
   return (
-    <BoulangerieLandingContent dictionary={dictionary} locale={locale} breadcrumbs={breadcrumbs} />
+    <BoulangerieLandingContent dictionary={dictionary} locale={locale} />
   )
 }
