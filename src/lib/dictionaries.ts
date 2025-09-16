@@ -1057,6 +1057,95 @@ export interface Dictionary {
       guarantee: string
     }
   }
+  doctor_landing: {
+    meta_title: string
+    meta_description: string
+    keywords: string[]
+    hero: {
+      badge: string
+      title: string
+      description: string
+      benefits: string[]
+      cta_primary: string
+      cta_secondary: string
+      image_alt: string
+    }
+    problems: {
+      title: string
+      description: string
+      pain_points: Array<{
+        icon: string
+        title: string
+        description: string
+      }>
+    }
+    solution: {
+      title: string
+      description: string
+      features: Array<{
+        icon: string
+        title: string
+        description: string
+      }>
+    }
+    process: {
+      title: string
+      description: string
+      steps: Array<{
+        title: string
+        description: string
+      }>
+    }
+    portfolio: {
+      title: string
+      description: string
+      projects: Array<{
+        name: string
+        type: string
+        image: string
+        results: string[]
+      }>
+    }
+    testimonials: {
+      title: string
+      subtitle: string
+      reviews: Array<{
+        name: string
+        position: string
+        company: string
+        location: string
+        content: string
+        rating: number
+        image: string
+      }>
+    }
+    pricing: {
+      title: string
+      description: string
+      packages: Array<{
+        name: string
+        price: string
+        period: string
+        description: string
+        delivery_time?: string
+        features: string[]
+        is_popular?: boolean
+      }>
+    }
+    faq: {
+      title: string
+      description: string
+      questions: Array<{
+        question: string
+        answer: string
+      }>
+    }
+    cta: {
+      title: string
+      description: string
+      button: string
+    }
+  }
 }
 
 // Cache for dictionaries with TTL

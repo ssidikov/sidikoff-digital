@@ -2377,5 +2377,260 @@
         "Sans engagement"
       ]
     }
+  },
+  "doctor_landing": {
+    "meta_title": "Création Site Internet Médecin | Prise Rendez-vous | Sidikoff Digital",
+    "meta_description": "Site web professionnel pour médecins avec prise de rendez-vous en ligne. SEO local, design rassurant, conformité RGPD. Devis gratuit.",
+    "keywords": ["création site internet médecin", "site web docteur", "prise rendez-vous en ligne", "site médical", "cabinet médical", "SEO médecin", "site dentiste", "dermatologue"],
+    "hero": {
+      "badge": "Sites Web Médicaux",
+      "title": "Site internet professionnel pour médecins avec prise de rendez-vous",
+      "description": "Offrez à votre cabinet médical une présence en ligne moderne qui facilite la prise de rendez-vous et renforce la confiance de vos patients.",
+      "image_alt": "Cabinet médical moderne avec équipement professionnel",
+      "benefits": [
+        "Visibilité locale optimisée (SEO)",
+        "Prise de rendez-vous en ligne sécurisée",
+        "Design rassurant et professionnel",
+        "Conformité RGPD et sécurité des données"
+      ],
+      "cta_primary": "Demander un devis gratuit",
+      "cta_secondary": "Voir nos réalisations"
+    },
+    "problems": {
+      "title": "Les défis des cabinets médicaux aujourd'hui",
+      "description": "Les patients recherchent leurs médecins en ligne et attendent une expérience moderne et sécurisée.",
+      "pain_points": [
+        {
+          "icon": "clock",
+          "title": "Gestion des appels chronophage",
+          "description": "Votre secrétariat passe trop de temps au téléphone pour gérer les prises de rendez-vous."
+        },
+        {
+          "icon": "users",
+          "title": "Visibilité locale insuffisante",
+          "description": "Vos patients potentiels ne trouvent pas votre cabinet dans les recherches locales Google."
+        },
+        {
+          "icon": "shield",
+          "title": "Confiance difficile à établir",
+          "description": "Sans présence web professionnelle, les nouveaux patients hésitent à choisir votre cabinet."
+        }
+      ]
+    },
+    "solution": {
+      "title": "Nos solutions spécialisées pour cabinets médicaux",
+      "description": "Nous créons des sites web médicaux qui optimisent votre gestion et renforcent votre crédibilité professionnelle.",
+      "features": [
+        {
+          "icon": "stethoscope",
+          "title": "Site vitrine médical",
+          "description": "Présentez votre cabinet, vos spécialités, votre équipe et vos horaires avec un design rassurant."
+        },
+        {
+          "icon": "calendar",
+          "title": "Prise de rendez-vous en ligne",
+          "description": "Système sécurisé avec calendrier interactif, notifications email et SMS automatiques."
+        },
+        {
+          "icon": "search",
+          "title": "SEO local optimisé",
+          "description": "Apparaissez en première page pour 'médecin [votre ville]' et dans Google Maps."
+        },
+        {
+          "icon": "file-text",
+          "title": "Blog médical",
+          "description": "Publiez des conseils santé pour renforcer votre expertise et améliorer votre référencement."
+        },
+        {
+          "icon": "smartphone",
+          "title": "Design responsive",
+          "description": "Site parfaitement adapté aux smartphones, tablettes et ordinateurs."
+        },
+        {
+          "icon": "shield",
+          "title": "Sécurité et RGPD",
+          "description": "Conformité totale aux réglementations médicales et protection des données patients."
+        }
+      ]
+    },
+    "process": {
+      "title": "Notre processus de création spécialisé",
+      "description": "Une approche sur mesure adaptée aux spécificités du secteur médical",
+      "steps": [
+        {
+          "title": "Analyse de votre pratique",
+          "description": "Nous étudions votre spécialité, votre patientèle et vos besoins spécifiques."
+        },
+        {
+          "title": "Design médical sur mesure",
+          "description": "Création d'une identité visuelle rassurante qui inspire confiance et professionnalisme."
+        },
+        {
+          "title": "Développement sécurisé",
+          "description": "Site rapide, conforme RGPD avec système de prise de rendez-vous intégré."
+        },
+        {
+          "title": "Formation complète",
+          "description": "Apprenez à gérer votre site, vos rendez-vous et à attirer plus de patients."
+        }
+      ]
+    },
+    "portfolio": {
+      "title": "Sites médicaux que nous avons créés",
+      "description": "Découvrez comment nous avons aidé des praticiens à développer leur patientèle en ligne",
+      "projects": [
+        {
+          "name": "Dr. Martin Généraliste",
+          "type": "Cabinet Médecine Générale",
+          "image": "doctor-general-practice.webp",
+          "results": [
+            "+200% rendez-vous en ligne",
+            "+85% nouveaux patients"
+          ]
+        },
+        {
+          "name": "Cabinet Dentaire Sourire",
+          "type": "Dentisterie Esthétique",
+          "image": "doctor-dental-clinic.webp",
+          "results": [
+            "+150% consultations esthétiques",
+            "+120% visibilité locale"
+          ]
+        },
+        {
+          "name": "Dr. Dubois Dermatologue",
+          "type": "Dermatologie Spécialisée",
+          "image": "doctor-dermatology.webp",
+          "results": [
+            "+180% consultations privées",
+            "+90% délai de réservation réduit"
+          ]
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Ce que disent nos clients médecins",
+      "subtitle": "Témoignages authentiques de praticiens satisfaits",
+      "reviews": [
+        {
+          "name": "Dr. Sophie Martin",
+          "position": "Médecin Généraliste",
+          "company": "Cabinet Martin",
+          "location": "Paris 15e",
+          "content": "Mon site créé par Sidikoff Digital a révolutionné la gestion de mon cabinet. Les patients prennent rendez-vous en ligne et j'ai gagné énormément de temps !",
+          "rating": 5,
+          "image": "dr-sophie-martin.webp"
+        },
+        {
+          "name": "Dr. Pierre Lemoine",
+          "position": "Dentiste",
+          "company": "Clinique Sourire",
+          "location": "Lyon 6e",
+          "content": "Excellent travail ! Le site est professionnel, rassurant et le référencement local fonctionne parfaitement. Je recommande vivement.",
+          "rating": 5,
+          "image": "dr-pierre-lemoine.webp"
+        },
+        {
+          "name": "Dr. Marie Dubois",
+          "position": "Dermatologue",
+          "company": "Centre Dermatologique",
+          "location": "Marseille 8e",
+          "content": "L'équipe a parfaitement compris mes besoins. Le design inspire confiance et le système de rendez-vous est très pratique pour mes patients.",
+          "rating": 5,
+          "image": "dr-marie-dubois.webp"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Forfaits adaptés aux professionnels de santé",
+      "description": "Solutions complètes avec prise de rendez-vous intégrée et conformité RGPD",
+      "packages": [
+        {
+          "name": "Cabinet Essential",
+          "price": "€1,299",
+          "period": "projet complet",
+          "delivery_time": "Livré en 2-3 semaines",
+          "description": "Parfait pour démarrer votre présence en ligne professionnelle",
+          "features": [
+            "Site vitrine 5 pages (Accueil, Services, Équipe, Horaires, Contact)",
+            "Design médical rassurant et moderne",
+            "Formulaire de contact sécurisé",
+            "SEO de base optimisé",
+            "Version mobile responsive",
+            "Hébergement sécurisé 1 an inclus",
+            "Formation à la gestion du site"
+          ]
+        },
+        {
+          "name": "Cabinet Pro",
+          "price": "€1,899",
+          "period": "projet complet",
+          "delivery_time": "Livré en 3-4 semaines",
+          "is_popular": true,
+          "description": "Solution complète avec prise de rendez-vous en ligne",
+          "features": [
+            "Tout du forfait Essential",
+            "Système de prise de rendez-vous en ligne",
+            "Calendrier interactif personnalisé",
+            "Notifications email et SMS automatiques",
+            "Gestion des créneaux et spécialités",
+            "Pages services détaillées illimitées",
+            "SEO local avancé + Google Maps",
+            "Blog médical intégré",
+            "Conformité RGPD complète"
+          ]
+        },
+        {
+          "name": "Cabinet Master",
+          "price": "€2,799",
+          "period": "projet complet",
+          "delivery_time": "Livré en 4-5 semaines",
+          "description": "Solution premium pour cabinets multi-spécialités",
+          "features": [
+            "Tout du forfait Pro",
+            "Gestion multi-praticiens",
+            "Espace patient sécurisé",
+            "Système de paiement en ligne",
+            "Intégration logiciel cabinet existant",
+            "Téléconsultation intégrée",
+            "Analytics médicaux avancés",
+            "Formation équipe complète",
+            "Support prioritaire 6 mois",
+            "Maintenance et mises à jour 1 an"
+          ]
+        }
+      ]
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "description": "Réponses aux questions les plus courantes sur nos sites médicaux",
+      "questions": [
+        {
+          "question": "Le site sera-t-il conforme aux réglementations médicales ?",
+          "answer": "Absolument ! Tous nos sites respectent le RGPD, l'Ordre des Médecins et les réglementations sur les données de santé. La sécurité et la confidentialité sont nos priorités."
+        },
+        {
+          "question": "Comment fonctionne la prise de rendez-vous en ligne ?",
+          "answer": "Le système permet aux patients de voir vos créneaux disponibles en temps réel, choisir leur motif de consultation et recevoir des confirmations automatiques. Vous gardez le contrôle total sur votre planning."
+        },
+        {
+          "question": "Puis-je intégrer mon logiciel cabinet existant ?",
+          "answer": "Oui, dans notre forfait Master, nous proposons l'intégration avec les principaux logiciels médicaux (Doctolib, MédiClick, etc.) pour synchroniser vos rendez-vous."
+        },
+        {
+          "question": "Le référencement local est-il vraiment efficace ?",
+          "answer": "Nos sites médicaux apparaissent systématiquement en première page pour les recherches locales. Nous optimisons votre fiche Google My Business et votre présence dans les annuaires médicaux."
+        },
+        {
+          "question": "Que se passe-t-il pour la maintenance et les mises à jour ?",
+          "answer": "Nous assurons la maintenance technique, les sauvegardes automatiques et les mises à jour de sécurité. Votre site reste toujours performant et sécurisé."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Prêt à moderniser votre cabinet médical ?",
+      "description": "Rejoignez les centaines de praticiens qui ont développé leur patientèle avec un site web professionnel.",
+      "button": "Obtenir mon devis gratuit"
+    }
   }
 }

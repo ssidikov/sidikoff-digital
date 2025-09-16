@@ -1983,4 +1983,259 @@ export const fallbackDictionary: Dictionary = {
       features: ['Free consultation', 'Personalized quote within 24h', 'No commitment'],
     },
   },
+  doctor_landing: {
+    meta_title: 'Medical Website Creation | Online Appointments | Sidikoff Digital',
+    meta_description: 'Professional website for doctors with online appointment booking. Local SEO, reassuring design, GDPR compliance. Free quote.',
+    keywords: ['medical website creation', 'doctor website', 'online appointment booking', 'medical site', 'medical practice', 'doctor SEO', 'dentist website', 'dermatologist'],
+    hero: {
+      badge: 'Medical Websites',
+      title: 'Professional medical website with online appointment booking',
+      description: 'Give your medical practice a modern online presence that facilitates appointment booking and builds patient trust.',
+      image_alt: 'Modern medical office with professional equipment',
+      benefits: [
+        'Optimized local visibility (SEO)',
+        'Secure online appointment booking',
+        'Reassuring and professional design',
+        'GDPR compliance and data security'
+      ],
+      cta_primary: 'Request free quote',
+      cta_secondary: 'View our work'
+    },
+    problems: {
+      title: 'Challenges facing medical practices today',
+      description: 'Patients search for doctors online and expect a modern, secure experience.',
+      pain_points: [
+        {
+          icon: 'clock',
+          title: 'Time-consuming call management',
+          description: 'Your reception spends too much time on the phone managing appointments.'
+        },
+        {
+          icon: 'users',
+          title: 'Insufficient local visibility',
+          description: 'Potential patients cannot find your practice in local Google searches.'
+        },
+        {
+          icon: 'shield',
+          title: 'Difficult to establish trust',
+          description: 'Without professional web presence, new patients hesitate to choose your practice.'
+        }
+      ]
+    },
+    solution: {
+      title: 'Our specialized solutions for medical practices',
+      description: 'We create medical websites that optimize your management and strengthen your professional credibility.',
+      features: [
+        {
+          icon: 'stethoscope',
+          title: 'Medical showcase website',
+          description: 'Present your practice, specialties, team and hours with reassuring design.'
+        },
+        {
+          icon: 'calendar',
+          title: 'Online appointment booking',
+          description: 'Secure system with interactive calendar, automatic email and SMS notifications.'
+        },
+        {
+          icon: 'search',
+          title: 'Optimized local SEO',
+          description: 'Appear on first page for "doctor [your city]" and in Google Maps.'
+        },
+        {
+          icon: 'file-text',
+          title: 'Medical blog',
+          description: 'Publish health advice to strengthen your expertise and improve SEO.'
+        },
+        {
+          icon: 'smartphone',
+          title: 'Responsive design',
+          description: 'Site perfectly adapted to smartphones, tablets and computers.'
+        },
+        {
+          icon: 'shield',
+          title: 'Security and GDPR',
+          description: 'Full compliance with medical regulations and patient data protection.'
+        }
+      ]
+    },
+    process: {
+      title: 'Our specialized creation process',
+      description: 'A custom approach adapted to medical sector specificities',
+      steps: [
+        {
+          title: 'Practice analysis',
+          description: 'We study your specialty, patient base and specific needs.'
+        },
+        {
+          title: 'Custom medical design',
+          description: 'Create reassuring visual identity that inspires trust and professionalism.'
+        },
+        {
+          title: 'Secure development',
+          description: 'Fast, GDPR-compliant site with integrated appointment booking system.'
+        },
+        {
+          title: 'Complete training',
+          description: 'Learn to manage your site, appointments and attract more patients.'
+        }
+      ]
+    },
+    portfolio: {
+      title: 'Medical websites we have created',
+      description: 'Discover how we helped practitioners grow their patient base online',
+      projects: [
+        {
+          name: 'Dr. Martin General Practice',
+          type: 'General Medicine Office',
+          image: 'doctor-general-practice.webp',
+          results: [
+            '+200% online appointments',
+            '+85% new patients'
+          ]
+        },
+        {
+          name: 'Smile Dental Clinic',
+          type: 'Aesthetic Dentistry',
+          image: 'doctor-dental-clinic.webp',
+          results: [
+            '+150% aesthetic consultations',
+            '+120% local visibility'
+          ]
+        },
+        {
+          name: 'Dr. Dubois Dermatologist',
+          type: 'Specialized Dermatology',
+          image: 'doctor-dermatology.webp',
+          results: [
+            '+180% private consultations',
+            '+90% reduced booking delay'
+          ]
+        }
+      ]
+    },
+    testimonials: {
+      title: 'What our medical clients say',
+      subtitle: 'Authentic testimonials from satisfied practitioners',
+      reviews: [
+        {
+          name: 'Dr. Sophie Martin',
+          position: 'General Practitioner',
+          company: 'Martin Practice',
+          location: 'Paris 15th',
+          content: 'My website created by Sidikoff Digital revolutionized my practice management. Patients book online and I saved enormous time!',
+          rating: 5,
+          image: 'dr-sophie-martin.webp'
+        },
+        {
+          name: 'Dr. Pierre Lemoine',
+          position: 'Dentist',
+          company: 'Smile Clinic',
+          location: 'Lyon 6th',
+          content: 'Excellent work! The site is professional, reassuring and local SEO works perfectly. I highly recommend.',
+          rating: 5,
+          image: 'dr-pierre-lemoine.webp'
+        },
+        {
+          name: 'Dr. Marie Dubois',
+          position: 'Dermatologist',
+          company: 'Dermatology Center',
+          location: 'Marseille 8th',
+          content: 'The team perfectly understood my needs. The design inspires confidence and the appointment system is very convenient for patients.',
+          rating: 5,
+          image: 'dr-marie-dubois.webp'
+        }
+      ]
+    },
+    pricing: {
+      title: 'Packages adapted to healthcare professionals',
+      description: 'Complete solutions with integrated appointment booking and GDPR compliance',
+      packages: [
+        {
+          name: 'Practice Essential',
+          price: '€1,299',
+          period: 'complete project',
+          delivery_time: 'Delivered in 2-3 weeks',
+          description: 'Perfect to start your professional online presence',
+          features: [
+            '5-page showcase site (Home, Services, Team, Hours, Contact)',
+            'Reassuring and modern medical design',
+            'Secure contact form',
+            'Basic optimized SEO',
+            'Responsive mobile version',
+            'Secure hosting 1 year included',
+            'Site management training'
+          ]
+        },
+        {
+          name: 'Practice Pro',
+          price: '€1,899',
+          period: 'complete project',
+          delivery_time: 'Delivered in 3-4 weeks',
+          is_popular: true,
+          description: 'Complete solution with online appointment booking',
+          features: [
+            'Everything from Essential package',
+            'Online appointment booking system',
+            'Personalized interactive calendar',
+            'Automatic email and SMS notifications',
+            'Time slots and specialties management',
+            'Unlimited detailed service pages',
+            'Advanced local SEO + Google Maps',
+            'Integrated medical blog',
+            'Complete GDPR compliance'
+          ]
+        },
+        {
+          name: 'Practice Master',
+          price: '€2,799',
+          period: 'complete project',
+          delivery_time: 'Delivered in 4-5 weeks',
+          description: 'Premium solution for multi-specialty practices',
+          features: [
+            'Everything from Pro package',
+            'Multi-practitioner management',
+            'Secure patient portal',
+            'Online payment system',
+            'Existing practice software integration',
+            'Integrated telemedicine',
+            'Advanced medical analytics',
+            'Complete team training',
+            'Priority support 6 months',
+            'Maintenance and updates 1 year'
+          ]
+        }
+      ]
+    },
+    faq: {
+      title: 'Frequently asked questions',
+      description: 'Answers to most common questions about our medical websites',
+      questions: [
+        {
+          question: 'Will the site comply with medical regulations?',
+          answer: 'Absolutely! All our sites comply with GDPR, Medical Board regulations and health data regulations. Security and confidentiality are our priorities.'
+        },
+        {
+          question: 'How does online appointment booking work?',
+          answer: 'The system allows patients to see your available slots in real time, choose their consultation reason and receive automatic confirmations. You keep total control over your schedule.'
+        },
+        {
+          question: 'Can I integrate my existing practice software?',
+          answer: 'Yes, in our Master package, we offer integration with main medical software (Doctolib, MediClick, etc.) to synchronize your appointments.'
+        },
+        {
+          question: 'Is local SEO really effective?',
+          answer: 'Our medical sites systematically appear on first page for local searches. We optimize your Google My Business listing and presence in medical directories.'
+        },
+        {
+          question: 'What about maintenance and updates?',
+          answer: 'We handle technical maintenance, automatic backups and security updates. Your site stays always performant and secure.'
+        }
+      ]
+    },
+    cta: {
+      title: 'Ready to modernize your medical practice?',
+      description: 'Join hundreds of practitioners who have grown their patient base with a professional website.',
+      button: 'Get my free quote'
+    }
+  }
 }
