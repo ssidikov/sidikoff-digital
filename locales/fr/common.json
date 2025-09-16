@@ -1835,7 +1835,13 @@
   "freelance_landing": {
     "meta_title": "Création de Site Internet pour Freelances | Vitrine Professionnelle",
     "meta_description": "Sites web sur mesure pour freelances et indépendants. Portfolio, blog, SEO optimisé. Attirez plus de clients avec une présence digitale professionnelle.",
-    "keywords": ["création site internet freelance", "site web pour consultant indépendant", "portfolio freelance", "développeur web indépendant", "site vitrine freelance"],
+    "keywords": [
+      "création site internet freelance",
+      "site web pour consultant indépendant",
+      "portfolio freelance",
+      "développeur web indépendant",
+      "site vitrine freelance"
+    ],
     "hero": {
       "badge": "Spécialistes Freelances",
       "title": "Sites Web Professionnels pour Freelances",

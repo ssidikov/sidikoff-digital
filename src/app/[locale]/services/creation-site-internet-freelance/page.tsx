@@ -67,7 +67,5 @@ export default async function FreelanceWebsitesPage({ params }: Props) {
 
   const dictionary = await getDictionary(locale as Locale)
 
-  return (
-    <FreelanceLandingContent dictionary={dictionary} locale={locale} />
-  )
+  return <FreelanceLandingContent dictionary={dictionary} locale={locale} />
 }

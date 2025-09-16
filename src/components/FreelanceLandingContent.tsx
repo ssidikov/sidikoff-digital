@@ -164,15 +164,13 @@ export default function FreelanceLandingContent({
                   <Briefcase className='w-4 h-4 mr-2 text-blue-600' />
                   {t.hero.badge}
                 </div>
-                
+
                 <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight'>
                   {t.hero.title}
                 </h1>
-                
-                <p className='text-xl text-gray-600 leading-relaxed'>
-                  {t.hero.description}
-                </p>
-                
+
+                <p className='text-xl text-gray-600 leading-relaxed'>{t.hero.description}</p>
+
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                   {t.hero.benefits?.map((benefit: string, index: number) => (
                     <motion.div
@@ -187,7 +185,7 @@ export default function FreelanceLandingContent({
                   ))}
                 </div>
               </div>
-              
+
               <div className='flex flex-col sm:flex-row gap-4'>
                 <Link
                   href={contactUrl}
@@ -202,7 +200,7 @@ export default function FreelanceLandingContent({
                 </Link>
               </div>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -210,15 +208,15 @@ export default function FreelanceLandingContent({
               className='relative'>
               <div className='aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl'>
                 <Image
-                  src="/images/freelance-hero.webp"
+                  src='/images/freelance-hero.webp'
                   alt={t.hero.image_alt}
                   fill
-                  className="object-cover"
+                  className='object-cover'
                   priority
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent'></div>
               </div>
-              
+
               <div className='absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg border border-blue-100'>
                 <div className='flex items-center space-x-3'>
                   <div className='w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center'>
@@ -247,9 +245,7 @@ export default function FreelanceLandingContent({
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>
               {t.problems.title}
             </h2>
-            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-              {t.problems.subtitle}
-            </p>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.problems.subtitle}</p>
           </motion.div>
 
           <div className='grid md:grid-cols-3 gap-8'>
@@ -264,12 +260,8 @@ export default function FreelanceLandingContent({
                 <div className='w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6'>
                   {getIconComponent(painPoint.icon, 'w-8 h-8 text-red-600')}
                 </div>
-                <h3 className='text-xl font-semibold text-gray-900 mb-4'>
-                  {painPoint.title}
-                </h3>
-                <p className='text-gray-600'>
-                  {painPoint.description}
-                </p>
+                <h3 className='text-xl font-semibold text-gray-900 mb-4'>{painPoint.title}</h3>
+                <p className='text-gray-600'>{painPoint.description}</p>
               </motion.div>
             ))}
           </div>
@@ -288,9 +280,7 @@ export default function FreelanceLandingContent({
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>
               {t.solution.title}
             </h2>
-            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-              {t.solution.description}
-            </p>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.solution.description}</p>
           </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -305,12 +295,8 @@ export default function FreelanceLandingContent({
                 <div className='w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4'>
                   {getIconComponent(feature.icon, 'w-6 h-6 text-blue-600')}
                 </div>
-                <h3 className='text-lg font-semibold text-gray-900 mb-3'>
-                  {feature.title}
-                </h3>
-                <p className='text-gray-600'>
-                  {feature.description}
-                </p>
+                <h3 className='text-lg font-semibold text-gray-900 mb-3'>{feature.title}</h3>
+                <p className='text-gray-600'>{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -326,12 +312,8 @@ export default function FreelanceLandingContent({
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className='text-center mb-16'>
-            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>
-              {t.process.title}
-            </h2>
-            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-              {t.process.description}
-            </p>
+            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>{t.process.title}</h2>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.process.description}</p>
           </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
@@ -346,12 +328,8 @@ export default function FreelanceLandingContent({
                 <div className='w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold'>
                   {index + 1}
                 </div>
-                <h3 className='text-lg font-semibold text-gray-900 mb-3'>
-                  {step.title}
-                </h3>
-                <p className='text-gray-600'>
-                  {step.description}
-                </p>
+                <h3 className='text-lg font-semibold text-gray-900 mb-3'>{step.title}</h3>
+                <p className='text-gray-600'>{step.description}</p>
               </motion.div>
             ))}
           </div>
@@ -370,9 +348,7 @@ export default function FreelanceLandingContent({
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>
               {t.portfolio.title}
             </h2>
-            <p className='text-xl text-gray-600'>
-              {t.portfolio.subtitle}
-            </p>
+            <p className='text-xl text-gray-600'>{t.portfolio.subtitle}</p>
           </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -394,12 +370,8 @@ export default function FreelanceLandingContent({
                 </div>
                 <div className='p-6'>
                   <div className='flex items-center justify-between mb-2'>
-                    <h3 className='text-lg font-semibold text-gray-900'>
-                      {project.name}
-                    </h3>
-                    <span className='text-sm text-blue-600 font-medium'>
-                      {project.type}
-                    </span>
+                    <h3 className='text-lg font-semibold text-gray-900'>{project.name}</h3>
+                    <span className='text-sm text-blue-600 font-medium'>{project.type}</span>
                   </div>
                   <div className='space-y-2'>
                     {project.results.map((result: string, idx: number) => (
@@ -428,9 +400,7 @@ export default function FreelanceLandingContent({
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>
               {t.testimonials.title}
             </h2>
-            <p className='text-xl text-gray-600'>
-              {t.testimonials.subtitle}
-            </p>
+            <p className='text-xl text-gray-600'>{t.testimonials.subtitle}</p>
           </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -447,14 +417,10 @@ export default function FreelanceLandingContent({
                     <Star key={i} className='w-5 h-5 text-yellow-400 fill-current' />
                   ))}
                 </div>
-                <p className='text-gray-700 mb-6 italic'>
-                  &ldquo;{review.content}&rdquo;
-                </p>
+                <p className='text-gray-700 mb-6 italic'>&ldquo;{review.content}&rdquo;</p>
                 <div className='flex items-center space-x-3'>
                   <div className='w-12 h-12 bg-blue-200 rounded-full flex items-center justify-center'>
-                    <span className='text-blue-600 font-semibold'>
-                      {review.name.charAt(0)}
-                    </span>
+                    <span className='text-blue-600 font-semibold'>{review.name.charAt(0)}</span>
                   </div>
                   <div>
                     <p className='font-semibold text-gray-900'>{review.name}</p>
@@ -479,12 +445,8 @@ export default function FreelanceLandingContent({
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className='text-center mb-16'>
-            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>
-              {t.pricing.title}
-            </h2>
-            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-              {t.pricing.description}
-            </p>
+            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>{t.pricing.title}</h2>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.pricing.description}</p>
           </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -496,9 +458,7 @@ export default function FreelanceLandingContent({
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className={`bg-white rounded-xl shadow-md p-8 border-2 ${
-                  pkg.is_popular
-                    ? 'border-blue-600 relative'
-                    : 'border-blue-100'
+                  pkg.is_popular ? 'border-blue-600 relative' : 'border-blue-100'
                 } hover:shadow-lg transition-shadow`}>
                 {pkg.is_popular && (
                   <div className='absolute -top-4 left-1/2 transform -translate-x-1/2'>
@@ -507,26 +467,18 @@ export default function FreelanceLandingContent({
                     </span>
                   </div>
                 )}
-                
+
                 <div className='text-center mb-8'>
-                  <h3 className='text-2xl font-bold text-gray-900 mb-2'>
-                    {pkg.name}
-                  </h3>
-                  <div className='text-4xl font-bold text-gray-900 mb-2'>
-                    {pkg.price}
-                  </div>
+                  <h3 className='text-2xl font-bold text-gray-900 mb-2'>{pkg.name}</h3>
+                  <div className='text-4xl font-bold text-gray-900 mb-2'>{pkg.price}</div>
                   <p className='text-gray-600'>{pkg.period}</p>
                   {pkg.delivery_time && (
-                    <p className='text-sm text-gray-500 mt-2'>
-                      Livraison en {pkg.delivery_time}
-                    </p>
+                    <p className='text-sm text-gray-500 mt-2'>Livraison en {pkg.delivery_time}</p>
                   )}
                 </div>
-                
-                <p className='text-gray-600 mb-6 text-center'>
-                  {pkg.description}
-                </p>
-                
+
+                <p className='text-gray-600 mb-6 text-center'>{pkg.description}</p>
+
                 <ul className='space-y-3 mb-8'>
                   {pkg.features.map((feature: string, idx: number) => (
                     <li key={idx} className='flex items-start space-x-3'>
@@ -535,7 +487,7 @@ export default function FreelanceLandingContent({
                     </li>
                   ))}
                 </ul>
-                
+
                 <Link
                   href={contactUrl}
                   className={`block w-full text-center py-3 rounded-lg font-semibold transition-colors ${
@@ -560,12 +512,8 @@ export default function FreelanceLandingContent({
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className='text-center mb-16'>
-            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>
-              {t.faq.title}
-            </h2>
-            <p className='text-xl text-gray-600'>
-              {t.faq.subtitle}
-            </p>
+            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>{t.faq.title}</h2>
+            <p className='text-xl text-gray-600'>{t.faq.subtitle}</p>
           </motion.div>
 
           <div className='space-y-4'>
@@ -580,9 +528,7 @@ export default function FreelanceLandingContent({
                 <button
                   onClick={() => toggleFAQ(index)}
                   className='w-full px-6 py-4 text-left flex items-center justify-between hover:bg-blue-100 rounded-xl transition-colors'>
-                  <span className='font-semibold text-gray-900 pr-4'>
-                    {faq.question}
-                  </span>
+                  <span className='font-semibold text-gray-900 pr-4'>{faq.question}</span>
                   {openFAQ === index ? (
                     <ChevronUp className='w-5 h-5 text-blue-600 flex-shrink-0' />
                   ) : (
@@ -591,9 +537,7 @@ export default function FreelanceLandingContent({
                 </button>
                 {openFAQ === index && (
                   <div className='px-6 pb-4'>
-                    <p className='text-gray-600 leading-relaxed'>
-                      {faq.answer}
-                    </p>
+                    <p className='text-gray-600 leading-relaxed'>{faq.answer}</p>
                   </div>
                 )}
               </motion.div>
@@ -611,13 +555,9 @@ export default function FreelanceLandingContent({
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className='space-y-8'>
-            <h2 className='text-3xl md:text-4xl font-bold mb-6'>
-              {t.cta.title}
-            </h2>
-            <p className='text-xl text-blue-100 max-w-2xl mx-auto'>
-              {t.cta.description}
-            </p>
-            
+            <h2 className='text-3xl md:text-4xl font-bold mb-6'>{t.cta.title}</h2>
+            <p className='text-xl text-blue-100 max-w-2xl mx-auto'>{t.cta.description}</p>
+
             <div className='grid md:grid-cols-3 gap-6 my-12'>
               {t.cta.features?.map((feature: string, index: number) => (
                 <div key={index} className='flex items-center justify-center space-x-2'>
@@ -626,7 +566,7 @@ export default function FreelanceLandingContent({
                 </div>
               ))}
             </div>
-            
+
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               <Link
                 href={contactUrl}
