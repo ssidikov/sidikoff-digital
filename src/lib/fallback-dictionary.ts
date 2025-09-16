@@ -875,4 +875,271 @@ export const fallbackDictionary: Dictionary = {
       no_commitment: 'No commitment',
     },
   },
+  boulangerie_landing: {
+    meta_title: 'Professional Website Creation for Bakeries & Pastry Shops | Local SEO',
+    meta_description: 'Specialized in creating websites for bakeries and pastry shops. Attract more customers with a professional online presence and local SEO.',
+    keywords: ['bakery website creation', 'pastry shop website', 'local bakery SEO', 'bakery online presence'],
+    hero: {
+      badge: 'Bakery Specialists',
+      title: 'Professional Websites for Bakeries & Pastry Shops',
+      description: 'Attract more customers and increase your sales with a website designed specifically for artisan bakers.',
+      benefits: [
+        'Showcase your delicious products',
+        'Attract new local customers',
+        'Online ordering system',
+        'Google Maps optimization'
+      ],
+      cta_primary: 'Get my website',
+      cta_secondary: 'View examples',
+      image_alt: 'Beautiful bakery website example'
+    },
+    problems: {
+      title: 'Common Challenges for Bakeries',
+      subtitle: 'Are you facing these problems?',
+      pain_points: [
+        {
+          icon: 'eye-off',
+          title: 'Lack of online visibility',
+          description: 'Your bakery doesn\'t appear in Google searches when customers look for fresh bread nearby.'
+        },
+        {
+          icon: 'users',
+          title: 'Difficulty attracting new customers',
+          description: 'You rely only on foot traffic and word of mouth to get customers.'
+        },
+        {
+          icon: 'clock',
+          title: 'Time lost answering calls',
+          description: 'You spend hours on the phone answering questions about prices, hours, and availability.'
+        }
+      ]
+    },
+    solution: {
+      title: 'Our Specialized Solutions',
+      description: 'We create websites specifically designed for bakeries and pastry shops.',
+      features: [
+        {
+          icon: 'search',
+          title: 'Local SEO optimization',
+          description: 'Appear first when customers search for bakeries in your area.'
+        },
+        {
+          icon: 'shopping-cart',
+          title: 'Online ordering system',
+          description: 'Let customers order their favorite pastries online for pickup.'
+        },
+        {
+          icon: 'image',
+          title: 'Product showcase',
+          description: 'Beautiful photo galleries to make your customers\' mouths water.'
+        },
+        {
+          icon: 'map-pin',
+          title: 'Store locator',
+          description: 'Help customers easily find your bakery with integrated maps.'
+        },
+        {
+          icon: 'calendar',
+          title: 'Hours and availability',
+          description: 'Display your hours, special schedules, and product availability.'
+        },
+        {
+          icon: 'star',
+          title: 'Customer reviews',
+          description: 'Show testimonials and reviews to build trust with new customers.'
+        }
+      ]
+    },
+    process: {
+      title: 'Our Creation Process',
+      description: 'A proven method specifically for bakeries',
+      steps: [
+        {
+          title: 'Analysis of your bakery',
+          description: 'We study your products, target audience, and local competition.'
+        },
+        {
+          title: 'Custom design',
+          description: 'We create a unique design that reflects your brand and appeals to your customers.'
+        },
+        {
+          title: 'Technical development',
+          description: 'We develop a fast, secure website optimized for search engines.'
+        },
+        {
+          title: 'Launch and training',
+          description: 'We put your site online and train you to manage it independently.'
+        }
+      ]
+    },
+    portfolio: {
+      title: 'Our Bakery Projects',
+      subtitle: 'Discover our work for local bakeries',
+      projects: [
+        {
+          name: 'Artisan Bakery',
+          type: 'Showcase Website',
+          image: 'boulangerie-artisan.webp',
+          results: [
+            '+60% Google Maps visibility',
+            '+40% new customers'
+          ]
+        },
+        {
+          name: 'Gourmet Pastry',
+          type: 'E-commerce Website',
+          image: 'patisserie-gourmande.webp',
+          results: [
+            '+80% online orders',
+            '+25% revenue'
+          ]
+        },
+        {
+          name: 'Golden Bread',
+          type: 'Multilingual Website',
+          image: 'pain-dore.webp',
+          results: [
+            'International clientele',
+            '+50% reservations'
+          ]
+        }
+      ]
+    },
+    testimonials: {
+      title: 'What Our Bakery Clients Say',
+      subtitle: 'Real testimonials from satisfied bakers',
+      reviews: [
+        {
+          name: 'Marie Dubois',
+          position: 'Owner',
+          boulangerie: 'Boulangerie des Délices',
+          location: 'Lyon',
+          content: 'Since launching our website, we\'ve seen a 40% increase in our clientele. Online orders have revolutionized our business!',
+          rating: 5,
+          image: 'marie-dubois.webp'
+        },
+        {
+          name: 'Pierre Martin',
+          position: 'Master Baker',
+          boulangerie: 'Au Pain Doré',
+          location: 'Toulouse',
+          content: 'Professional, efficient, and understanding of our business. Our site perfectly showcases our artisanal products.',
+          rating: 5,
+          image: 'pierre-martin.webp'
+        },
+        {
+          name: 'Sophie Laurent',
+          position: 'Pastry Chef',
+          boulangerie: 'Pâtisserie Gourmande',
+          location: 'Nice',
+          content: 'The online ordering system has simplified our organization and increased our sales. I highly recommend it!',
+          rating: 5,
+          image: 'sophie-laurent.webp'
+        }
+      ]
+    },
+    pricing: {
+      title: 'Packages Tailored for Bakeries',
+      description: 'Transparent pricing adapted to your needs and budget',
+      packages: [
+        {
+          name: 'Showcase',
+          price: '€899',
+          period: 'one-time',
+          description: 'Perfect for presenting your bakery and attracting local customers',
+          delivery_time: '2 weeks',
+          features: [
+            'Professional showcase website',
+            'Photo gallery of your products',
+            'Contact information and hours',
+            'Google Maps integration',
+            'Mobile optimization',
+            '1 year of maintenance included'
+          ]
+        },
+        {
+          name: 'Professional',
+          price: '€1,499',
+          period: 'one-time',
+          description: 'Complete solution with online ordering',
+          delivery_time: '3 weeks',
+          is_popular: true,
+          features: [
+            'Everything in Showcase',
+            'Online ordering system',
+            'Inventory management',
+            'Customer account area',
+            'Local SEO optimization',
+            'Integration with social media',
+            '1 year of maintenance and support'
+          ]
+        },
+        {
+          name: 'Premium',
+          price: '€2,299',
+          period: 'one-time',
+          description: 'Complete solution for multiple locations',
+          delivery_time: '4 weeks',
+          features: [
+            'Everything in Professional',
+            'Multi-location management',
+            'Advanced analytics',
+            'Marketing automation',
+            'Custom mobile application',
+            'Priority support',
+            '2 years of maintenance included'
+          ]
+        }
+      ]
+    },
+    faq: {
+      title: 'Frequently Asked Questions',
+      subtitle: 'Everything you need to know about creating a bakery website',
+      questions: [
+        {
+          question: 'How long does it take to create a bakery website?',
+          answer: 'Depending on the chosen package, it takes between 2 to 4 weeks to create and launch your website. We work with you to define a delivery schedule that suits you.'
+        },
+        {
+          question: 'Can I manage my website content myself?',
+          answer: 'Absolutely! We create user-friendly websites with an intuitive administration interface. We also provide training so you can update your products, prices, and content independently.'
+        },
+        {
+          question: 'Is the online ordering system secure?',
+          answer: 'Yes, we use the latest security technologies to protect your customers\' data and transactions. All payments are processed securely through certified platforms.'
+        },
+        {
+          question: 'What happens if I have technical problems?',
+          answer: 'We provide technical support included in all our packages. You can contact us by email or phone, and we respond within 24 hours maximum.'
+        },
+        {
+          question: 'Can you help with product photography?',
+          answer: 'Yes, we can recommend professional photographers specialized in food photography, or guide you to take quality photos of your products yourself.'
+        },
+        {
+          question: 'Is the website optimized for mobile phones?',
+          answer: 'All our websites are 100% responsive and optimized for mobile phones and tablets. More than 60% of your customers will visit your site from their phone.'
+        },
+        {
+          question: 'Do you handle local SEO?',
+          answer: 'Yes, local SEO is included in our Professional and Premium packages. We optimize your site to appear in local searches and on Google Maps.'
+        },
+        {
+          question: 'Can I integrate my social media accounts?',
+          answer: 'Absolutely! We can integrate your Facebook, Instagram accounts and other social media to increase your online visibility.'
+        }
+      ]
+    },
+    cta: {
+      title: 'Ready to boost your bakery\'s sales?',
+      description: 'Join the hundreds of bakers who have transformed their business with a professional website.',
+      primary_button: 'Get my free quote',
+      secondary_button: 'Call us now',
+      features: [
+        'Free consultation',
+        'Custom quote within 24h',
+        'No commitment'
+      ]
+    }
+  },
 }
