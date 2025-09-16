@@ -2381,7 +2381,16 @@
   "doctor_landing": {
     "meta_title": "Création Site Internet Médecin | Prise Rendez-vous | Sidikoff Digital",
     "meta_description": "Site web professionnel pour médecins avec prise de rendez-vous en ligne. SEO local, design rassurant, conformité RGPD. Devis gratuit.",
-    "keywords": ["création site internet médecin", "site web docteur", "prise rendez-vous en ligne", "site médical", "cabinet médical", "SEO médecin", "site dentiste", "dermatologue"],
+    "keywords": [
+      "création site internet médecin",
+      "site web docteur",
+      "prise rendez-vous en ligne",
+      "site médical",
+      "cabinet médical",
+      "SEO médecin",
+      "site dentiste",
+      "dermatologue"
+    ],
     "hero": {
       "badge": "Sites Web Médicaux",
       "title": "Site internet professionnel pour médecins avec prise de rendez-vous",
