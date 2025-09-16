@@ -40,20 +40,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `/services/creation-site-internet-photographe`,
       languages: {
-        'fr': '/fr/services/creation-site-internet-photographe',
-        'en': '/en/services/creation-site-internet-photographe',
-        'ru': '/ru/services/creation-site-internet-photographe',
+        fr: '/fr/services/creation-site-internet-photographe',
+        en: '/en/services/creation-site-internet-photographe',
+        ru: '/ru/services/creation-site-internet-photographe',
       },
     },
   }
 }
 
 export async function generateStaticParams() {
-  return [
-    { locale: 'fr' },
-    { locale: 'en' },
-    { locale: 'ru' },
-  ]
+  return [{ locale: 'fr' }, { locale: 'en' }, { locale: 'ru' }]
 }
 
 export default async function PhotographerLandingPage({ params }: PageProps) {

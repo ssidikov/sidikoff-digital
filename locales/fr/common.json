@@ -2108,14 +2108,20 @@
   "photographer_landing": {
     "meta_title": "Création de Site Internet pour Photographes | Portfolio Professionnel",
     "meta_description": "Sites web sur mesure pour photographes professionnels. Portfolio haute qualité, galeries dynamiques, SEO optimisé. Attirez plus de clients avec une vitrine digitale unique.",
-    "keywords": ["création site internet photographe", "portfolio photographe professionnel", "site web photographer", "galerie photo en ligne", "photographe mariage site"],
+    "keywords": [
+      "création site internet photographe",
+      "portfolio photographe professionnel",
+      "site web photographer",
+      "galerie photo en ligne",
+      "photographe mariage site"
+    ],
     "hero": {
       "badge": "Spécialistes Photographes",
       "title": "Sites Web Professionnels pour Photographes",
       "description": "Offrez à vos photos un écrin digital unique et professionnel qui met en valeur votre talent artistique.",
       "benefits": [
         "Portfolio haute qualité responsive",
-        "Galeries dynamiques et élégantes", 
+        "Galeries dynamiques et élégantes",
         "Optimisation SEO locale avancée",
         "Système de réservation intégré"
       ],
