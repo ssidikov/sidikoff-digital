@@ -67,7 +67,5 @@ export default async function BoulangerieWebsitesPage({ params }: Props) {
 
   const dictionary = await getDictionary(locale as Locale)
 
-  return (
-    <BoulangerieLandingContent dictionary={dictionary} locale={locale} />
-  )
+  return <BoulangerieLandingContent dictionary={dictionary} locale={locale} />
 }
