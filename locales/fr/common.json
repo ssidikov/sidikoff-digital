@@ -2104,5 +2104,272 @@
         "Sans engagement"
       ]
     }
+  },
+  "photographer_landing": {
+    "meta_title": "Création de Site Internet pour Photographes | Portfolio Professionnel",
+    "meta_description": "Sites web sur mesure pour photographes professionnels. Portfolio haute qualité, galeries dynamiques, SEO optimisé. Attirez plus de clients avec une vitrine digitale unique.",
+    "keywords": ["création site internet photographe", "portfolio photographe professionnel", "site web photographer", "galerie photo en ligne", "photographe mariage site"],
+    "hero": {
+      "badge": "Spécialistes Photographes",
+      "title": "Sites Web Professionnels pour Photographes",
+      "description": "Offrez à vos photos un écrin digital unique et professionnel qui met en valeur votre talent artistique.",
+      "benefits": [
+        "Portfolio haute qualité responsive",
+        "Galeries dynamiques et élégantes", 
+        "Optimisation SEO locale avancée",
+        "Système de réservation intégré"
+      ],
+      "cta_primary": "Obtenir mon site",
+      "cta_secondary": "Voir nos réalisations",
+      "image_alt": "Exemple de site web photographe moderne"
+    },
+    "problems": {
+      "title": "Défis Communs des Photographes",
+      "subtitle": "Rencontrez-vous ces difficultés ?",
+      "pain_points": [
+        {
+          "icon": "eye-off",
+          "title": "Manque de visibilité en ligne",
+          "description": "Vos clients potentiels ne trouvent pas votre travail quand ils cherchent un photographe sur Google."
+        },
+        {
+          "icon": "users",
+          "title": "Dépendance aux réseaux sociaux",
+          "description": "Instagram et Facebook limitent votre portée et vous ne possédez pas votre audience."
+        },
+        {
+          "icon": "heart",
+          "title": "Portfolio dispersé",
+          "description": "Vos plus belles photos sont éparpillées sur différentes plateformes sans cohérence."
+        }
+      ]
+    },
+    "solution": {
+      "title": "Nos Solutions Spécialisées",
+      "description": "Nous créons des sites web sur mesure qui mettent en valeur votre art photographique et attirent vos clients idéaux.",
+      "features": [
+        {
+          "icon": "camera",
+          "title": "Portfolio professionnel",
+          "description": "Galeries haute résolution qui conservent la qualité et l'impact visuel de vos clichés."
+        },
+        {
+          "icon": "search",
+          "title": "Optimisation SEO locale",
+          "description": "Apparaissez en premier sur Google pour 'photographe mariage [votre ville]'."
+        },
+        {
+          "icon": "calendar",
+          "title": "Réservation en ligne",
+          "description": "Système de prise de rendez-vous et de devis automatisé pour vos séances."
+        },
+        {
+          "icon": "smartphone",
+          "title": "Design responsive",
+          "description": "Site parfaitement optimisé pour tous les écrans et appareils mobiles."
+        },
+        {
+          "icon": "award",
+          "title": "Présentation services",
+          "description": "Mise en avant claire de vos spécialités : mariage, portrait, événementiel, studio."
+        },
+        {
+          "icon": "star",
+          "title": "Témoignages clients",
+          "description": "Section dédiée pour rassurer vos prospects avec vos avis positifs."
+        }
+      ]
+    },
+    "process": {
+      "title": "Notre Processus de Création",
+      "description": "Une méthode éprouvée spécialement pour photographes",
+      "steps": [
+        {
+          "title": "Analyse de votre style",
+          "description": "Nous étudions votre univers artistique et vos spécialités photographiques."
+        },
+        {
+          "title": "Design sur mesure",
+          "description": "Création d'une identité visuelle qui met en valeur vos photos sans les éclipser."
+        },
+        {
+          "title": "Développement optimisé",
+          "description": "Site rapide, SEO-friendly avec galeries haute performance et compression intelligente."
+        },
+        {
+          "title": "Formation complète",
+          "description": "Apprenez à gérer vos galeries, ajouter vos photos et obtenir plus de clients."
+        }
+      ]
+    },
+    "portfolio": {
+      "title": "Nos Réalisations Photographes",
+      "subtitle": "Découvrez nos créations pour professionnels de l'image",
+      "projects": [
+        {
+          "name": "Studio Marie Photographe",
+          "type": "Portfolio Mariage + Blog",
+          "image": "photographer-wedding.webp",
+          "results": [
+            "+200% demandes de devis",
+            "+85% taux de conversion"
+          ]
+        },
+        {
+          "name": "David Photos Corporate",
+          "type": "Site Vitrine + Galerie",
+          "image": "photographer-wedding-portfolio.webp",
+          "results": [
+            "+150% clients entreprises",
+            "+70% tarifs pratiqués"
+          ]
+        },
+        {
+          "name": "Clara Art Photography",
+          "type": "Portfolio Artistique",
+          "image": "photographer-artistic.webp",
+          "results": [
+            "+300% ventes tirages",
+            "+120% abonnés Instagram"
+          ]
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Ce que disent nos clients photographes",
+      "subtitle": "Témoignages authentiques de professionnels satisfaits",
+      "reviews": [
+        {
+          "name": "Marie Dubois",
+          "position": "Photographe Mariage",
+          "company": "Studio Marie",
+          "location": "Paris",
+          "content": "Mon site reflète parfaitement mon style de photographie. Grâce au référencement, j'ai gagné de nombreux nouveaux clients en quelques mois seulement !",
+          "rating": 5,
+          "image": "marie-dubois-photographer.webp"
+        },
+        {
+          "name": "David Laurent",
+          "position": "Photographe Corporate",
+          "company": "DL Photos",
+          "location": "Lyon",
+          "content": "Site professionnel qui inspire confiance aux entreprises. Mes tarifs ont augmenté significativement depuis que j'ai ma propre vitrine web.",
+          "rating": 5,
+          "image": "david-laurent-photographer.webp"
+        },
+        {
+          "name": "Clara Martin",
+          "position": "Photographe Artistique",
+          "company": "Clara Art",
+          "location": "Marseille",
+          "content": "Mes œuvres photographiques sont mises en valeur comme jamais. Les collectionneurs me trouvent directement grâce au SEO naturel.",
+          "rating": 5,
+          "image": "clara-martin-photographer.webp"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Forfaits Adaptés aux Photographes",
+      "description": "Tarifs transparents selon votre spécialité et objectifs",
+      "packages": [
+        {
+          "name": "Portfolio",
+          "price": "€899",
+          "period": "unique",
+          "description": "Idéal pour présenter vos plus belles réalisations",
+          "delivery_time": "2 semaines",
+          "features": [
+            "Galerie photo professionnelle",
+            "Présentation services et tarifs",
+            "Formulaire de contact",
+            "Optimisation mobile parfaite",
+            "Hébergement 1 an inclus",
+            "Formation à la gestion"
+          ]
+        },
+        {
+          "name": "Studio Pro",
+          "price": "€1,399",
+          "period": "unique",
+          "description": "Solution complète avec réservation et blog",
+          "delivery_time": "3 semaines",
+          "is_popular": true,
+          "features": [
+            "Tout du forfait Portfolio",
+            "Galeries multiples organisées",
+            "Blog photo optimisé SEO",
+            "Système de réservation",
+            "Devis en ligne automatisé",
+            "Analytics et suivi détaillé",
+            "Support 1 an inclus"
+          ]
+        },
+        {
+          "name": "Master",
+          "price": "€1,999",
+          "period": "unique",
+          "description": "Solution premium pour photographes établis",
+          "delivery_time": "4 semaines",
+          "features": [
+            "Tout du forfait Studio Pro",
+            "Boutique en ligne intégrée",
+            "Espace client privé sécurisé",
+            "Newsletter automatisée",
+            "Formation vidéo avancée",
+            "Support prioritaire illimité",
+            "Maintenance 2 ans incluse"
+          ]
+        }
+      ]
+    },
+    "faq": {
+      "title": "Questions Fréquentes",
+      "subtitle": "Tout ce qu'il faut savoir sur la création d'un site photographe",
+      "questions": [
+        {
+          "question": "Mes photos conserveront-elles leur qualité sur le site ?",
+          "answer": "Absolument ! Nous utilisons des technologies de compression intelligente qui préservent la qualité visuelle tout en optimisant les temps de chargement."
+        },
+        {
+          "question": "Puis-je organiser mes photos en galeries thématiques ?",
+          "answer": "Oui, nous créons des galeries organisées par spécialité : mariage, portrait, événementiel, studio, etc. Vous pourrez facilement les gérer."
+        },
+        {
+          "question": "Le site sera-t-il visible sur Google ?",
+          "answer": "Nous optimisons votre site pour le référencement local avec vos mots-clés photographiques et votre zone géographique pour attirer des clients qualifiés."
+        },
+        {
+          "question": "Puis-je vendre mes photos en ligne ?",
+          "answer": "Oui, nos forfaits Studio Pro et Master incluent un système de vente en ligne pour vos tirages, albums et prestations photographiques."
+        },
+        {
+          "question": "Comment gérer les demandes de devis ?",
+          "answer": "Nous intégrons un système de devis automatisé où vos clients peuvent détailler leur projet et recevoir une estimation personnalisée."
+        },
+        {
+          "question": "Le site fonctionnera-t-il sur mobile ?",
+          "answer": "Tous nos sites sont 100% responsive et optimisés mobile-first. Vos galeries s'affichent parfaitement sur smartphones et tablettes."
+        },
+        {
+          "question": "Puis-je avoir un blog pour partager mes expériences ?",
+          "answer": "Oui, le blog est inclus dans nos forfaits Pro et Master. Parfait pour raconter vos shootings et attirer du trafic organique."
+        },
+        {
+          "question": "Que se passe-t-il pour l'hébergement et la sécurité ?",
+          "answer": "L'hébergement sécurisé, les sauvegardes automatiques et les mises à jour de sécurité sont incluses dans tous nos forfaits."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Prêt à sublimer votre photographie en ligne ?",
+      "description": "Rejoignez les centaines de photographes qui ont développé leur clientèle avec un site web professionnel.",
+      "primary_button": "Obtenir mon devis gratuit",
+      "secondary_button": "Nous appeler",
+      "features": [
+        "Consultation gratuite",
+        "Devis personnalisé sous 24h",
+        "Sans engagement"
+      ]
+    }
   }
 }

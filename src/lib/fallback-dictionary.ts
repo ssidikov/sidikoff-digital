@@ -1704,4 +1704,271 @@ export const fallbackDictionary: Dictionary = {
       features: ['Free consultation', 'Personalized quote within 24h', 'No commitment'],
     },
   },
+  photographer_landing: {
+    meta_title: "Professional Website Creation for Photographers | Premium Portfolio",
+    meta_description: "Custom websites for professional photographers. High-quality portfolios, dynamic galleries, SEO optimized. Attract more clients with a unique digital showcase.",
+    keywords: ["photographer website creation", "professional photography portfolio", "photography website design", "online photo gallery", "wedding photographer website"],
+    hero: {
+      badge: "Photography Specialists",
+      title: "Professional Websites for Photographers",
+      description: "Give your photos a unique and professional digital showcase that highlights your artistic talent.",
+      benefits: [
+        "High-quality responsive portfolio",
+        "Dynamic and elegant galleries",
+        "Advanced local SEO optimization",
+        "Integrated booking system"
+      ],
+      cta_primary: "Get my website",
+      cta_secondary: "View our work",
+      image_alt: "Modern photographer website example"
+    },
+    problems: {
+      title: "Common Photographer Challenges",
+      subtitle: "Do you face these difficulties?",
+      pain_points: [
+        {
+          icon: "eye-off",
+          title: "Lack of online visibility",
+          description: "Your potential clients can't find your work when they search for a photographer on Google."
+        },
+        {
+          icon: "users",
+          title: "Social media dependency",
+          description: "Instagram and Facebook limit your reach and you don't own your audience."
+        },
+        {
+          icon: "heart",
+          title: "Scattered portfolio",
+          description: "Your best photos are spread across different platforms without coherence."
+        }
+      ]
+    },
+    solution: {
+      title: "Our Specialized Solutions",
+      description: "We create custom websites that showcase your photographic art and attract your ideal clients.",
+      features: [
+        {
+          icon: "camera",
+          title: "Professional portfolio",
+          description: "High-resolution galleries that preserve the quality and visual impact of your shots."
+        },
+        {
+          icon: "search",
+          title: "Local SEO optimization",
+          description: "Appear first on Google for 'wedding photographer [your city]'."
+        },
+        {
+          icon: "calendar",
+          title: "Online booking",
+          description: "Automated appointment and quote system for your sessions."
+        },
+        {
+          icon: "smartphone",
+          title: "Responsive design",
+          description: "Site perfectly optimized for all screens and mobile devices."
+        },
+        {
+          icon: "award",
+          title: "Service presentation",
+          description: "Clear showcase of your specialties: wedding, portrait, events, studio."
+        },
+        {
+          icon: "star",
+          title: "Client testimonials",
+          description: "Dedicated section to reassure prospects with your positive reviews."
+        }
+      ]
+    },
+    process: {
+      title: "Our Creation Process",
+      description: "A proven method specially for photographers",
+      steps: [
+        {
+          title: "Style analysis",
+          description: "We study your artistic universe and photographic specialties."
+        },
+        {
+          title: "Custom design",
+          description: "Creation of a visual identity that enhances your photos without overshadowing them."
+        },
+        {
+          title: "Optimized development",
+          description: "Fast, SEO-friendly site with high-performance galleries and intelligent compression."
+        },
+        {
+          title: "Complete training",
+          description: "Learn to manage your galleries, add your photos and get more clients."
+        }
+      ]
+    },
+    portfolio: {
+      title: "Our Photography Projects",
+      subtitle: "Discover our creations for image professionals",
+      projects: [
+        {
+          name: "Studio Marie Photographer",
+          type: "Wedding Portfolio + Blog",
+          image: "photographer-wedding.webp",
+          results: [
+            "+200% quote requests",
+            "+85% conversion rate"
+          ]
+        },
+        {
+          name: "David Corporate Photos",
+          type: "Showcase Site + Gallery",
+          image: "photographer-wedding-portfolio.webp",
+          results: [
+            "+150% business clients",
+            "+70% rates charged"
+          ]
+        },
+        {
+          name: "Clara Art Photography",
+          type: "Artistic Portfolio",
+          image: "photographer-artistic.webp",
+          results: [
+            "+300% print sales",
+            "+120% Instagram followers"
+          ]
+        }
+      ]
+    },
+    testimonials: {
+      title: "What our photographer clients say",
+      subtitle: "Authentic testimonials from satisfied professionals",
+      reviews: [
+        {
+          name: "Marie Dubois",
+          position: "Wedding Photographer",
+          company: "Studio Marie",
+          location: "Paris",
+          content: "My site perfectly reflects my photography style. Thanks to SEO, I gained many new clients in just a few months!",
+          rating: 5,
+          image: "marie-dubois-photographer.webp"
+        },
+        {
+          name: "David Laurent",
+          position: "Corporate Photographer",
+          company: "DL Photos",
+          location: "Lyon",
+          content: "Professional site that inspires confidence in businesses. My rates increased significantly since I have my own web showcase.",
+          rating: 5,
+          image: "david-laurent-photographer.webp"
+        },
+        {
+          name: "Clara Martin",
+          position: "Artistic Photographer",
+          company: "Clara Art",
+          location: "Marseille",
+          content: "My photographic works are showcased like never before. Collectors find me directly thanks to natural SEO.",
+          rating: 5,
+          image: "clara-martin-photographer.webp"
+        }
+      ]
+    },
+    pricing: {
+      title: "Packages Adapted to Photographers",
+      description: "Transparent pricing according to your specialty and objectives",
+      packages: [
+        {
+          name: "Portfolio",
+          price: "€899",
+          period: "one-time",
+          description: "Ideal for presenting your best achievements",
+          delivery_time: "2 weeks",
+          features: [
+            "Professional photo gallery",
+            "Services and pricing presentation",
+            "Contact form",
+            "Perfect mobile optimization",
+            "1 year hosting included",
+            "Management training"
+          ]
+        },
+        {
+          name: "Studio Pro",
+          price: "€1,399",
+          period: "one-time",
+          description: "Complete solution with booking and blog",
+          delivery_time: "3 weeks",
+          is_popular: true,
+          features: [
+            "Everything from Portfolio package",
+            "Multiple organized galleries",
+            "SEO optimized photo blog",
+            "Booking system",
+            "Automated online quotes",
+            "Detailed analytics and tracking",
+            "1 year support included"
+          ]
+        },
+        {
+          name: "Master",
+          price: "€1,999",
+          period: "one-time",
+          description: "Premium solution for established photographers",
+          delivery_time: "4 weeks",
+          features: [
+            "Everything from Studio Pro package",
+            "Integrated online store",
+            "Secure private client area",
+            "Automated newsletter",
+            "Advanced video training",
+            "Unlimited priority support",
+            "2 years maintenance included"
+          ]
+        }
+      ]
+    },
+    faq: {
+      title: "Frequently Asked Questions",
+      subtitle: "Everything you need to know about creating a photographer website",
+      questions: [
+        {
+          question: "Will my photos maintain their quality on the site?",
+          answer: "Absolutely! We use intelligent compression technologies that preserve visual quality while optimizing loading times."
+        },
+        {
+          question: "Can I organize my photos in thematic galleries?",
+          answer: "Yes, we create galleries organized by specialty: wedding, portrait, events, studio, etc. You can easily manage them."
+        },
+        {
+          question: "Will the site be visible on Google?",
+          answer: "We optimize your site for local SEO with your photography keywords and geographical area to attract qualified clients."
+        },
+        {
+          question: "Can I sell my photos online?",
+          answer: "Yes, our Studio Pro and Master packages include an online sales system for your prints, albums and photography services."
+        },
+        {
+          question: "How to manage quote requests?",
+          answer: "We integrate an automated quote system where your clients can detail their project and receive a personalized estimate."
+        },
+        {
+          question: "Will the site work on mobile?",
+          answer: "All our sites are 100% responsive and mobile-first optimized. Your galleries display perfectly on smartphones and tablets."
+        },
+        {
+          question: "Can I have a blog to share my experiences?",
+          answer: "Yes, the blog is included in our Pro and Master packages. Perfect for telling your shoot stories and attracting organic traffic."
+        },
+        {
+          question: "What about hosting and security?",
+          answer: "Secure hosting, automatic backups and security updates are included in all our packages."
+        }
+      ]
+    },
+    cta: {
+      title: "Ready to elevate your photography online?",
+      description: "Join hundreds of photographers who have grown their clientele with a professional website.",
+      primary_button: "Get my free quote",
+      secondary_button: "Call us",
+      features: [
+        "Free consultation",
+        "Personalized quote within 24h",
+        "No commitment"
+      ]
+    }
+  },
 }
