@@ -1427,4 +1427,271 @@ export const fallbackDictionary: Dictionary = {
       features: ['Free consultation', 'Custom quote within 24h', 'No commitment'],
     },
   },
+  freelance_landing: {
+    meta_title: "Freelance Website Creation | Professional Online Presence",
+    meta_description: "Custom websites for freelancers and independent professionals. Portfolio, blog, SEO optimized. Attract more clients with a professional digital presence.",
+    keywords: ["freelance website creation", "independent consultant website", "freelance portfolio", "freelance web development", "freelance showcase site"],
+    hero: {
+      badge: "Freelance Specialists",
+      title: "Professional Websites for Freelancers",
+      description: "Give your freelance business a professional and visible showcase that attracts new clients.",
+      benefits: [
+        "Professional online portfolio",
+        "Qualified lead generation",
+        "Client credibility and trust",
+        "Autonomy and independence"
+      ],
+      cta_primary: "Get my website",
+      cta_secondary: "View our work",
+      image_alt: "Modern freelance website example"
+    },
+    problems: {
+      title: "Common Freelancer Challenges",
+      subtitle: "Do you face these difficulties?",
+      pain_points: [
+        {
+          icon: "eye-off",
+          title: "Lack of online visibility",
+          description: "Your prospects can't find you when they search for your services on Google."
+        },
+        {
+          icon: "users",
+          title: "Platform dependency",
+          description: "You depend entirely on marketplaces that take significant commissions."
+        },
+        {
+          icon: "briefcase",
+          title: "Lack of credibility",
+          description: "Without a professional site, you inspire less trust than your competitors."
+        }
+      ]
+    },
+    solution: {
+      title: "Our Specialized Solutions",
+      description: "We create custom websites tailored to the needs of freelancers and independent professionals.",
+      features: [
+        {
+          icon: "search",
+          title: "SEO Optimization",
+          description: "Appear on the first page of Google for your professional keywords."
+        },
+        {
+          icon: "briefcase",
+          title: "Professional portfolio",
+          description: "Showcase your achievements and projects in a modern and impactful gallery."
+        },
+        {
+          icon: "file-text",
+          title: "Optimized blog",
+          description: "Publish your expertise and advice to attract organic traffic."
+        },
+        {
+          icon: "calendar",
+          title: "Appointment booking",
+          description: "Online booking system for consultations and training."
+        },
+        {
+          icon: "smartphone",
+          title: "Responsive design",
+          description: "Site optimized for all screens, mobile-first and fast."
+        },
+        {
+          icon: "star",
+          title: "Client testimonials",
+          description: "Highlight your reviews to reassure prospects."
+        }
+      ]
+    },
+    process: {
+      title: "Our Creation Process",
+      description: "A proven method specially for freelancers",
+      steps: [
+        {
+          title: "Business analysis",
+          description: "We study your sector, your services and your competitive positioning."
+        },
+        {
+          title: "Custom design",
+          description: "We create a unique visual identity that reflects your expertise and values."
+        },
+        {
+          title: "Optimized development",
+          description: "Modern, fast and SEO-optimized site with the latest technologies."
+        },
+        {
+          title: "Launch and training",
+          description: "Go-live and complete training to manage your site independently."
+        }
+      ]
+    },
+    portfolio: {
+      title: "Our Freelance Projects",
+      subtitle: "Discover our achievements for independents",
+      projects: [
+        {
+          name: "Sarah Developer",
+          type: "Portfolio + Blog",
+          image: "developer-freelance.webp",
+          results: [
+            "+150% project requests",
+            "+80% conversion rate"
+          ]
+        },
+        {
+          name: "Marc Consultant",
+          type: "Showcase Site + Booking",
+          image: "consultant-freelance.webp",
+          results: [
+            "+200% consultations",
+            "+60% rates charged"
+          ]
+        },
+        {
+          name: "Julie Photographer",
+          type: "Creative Portfolio",
+          image: "photographer-freelance.webp",
+          results: [
+            "+300% Instagram visibility",
+            "+45% shoot bookings"
+          ]
+        }
+      ]
+    },
+    testimonials: {
+      title: "What our freelance clients say",
+      subtitle: "Authentic testimonials from satisfied independents",
+      reviews: [
+        {
+          name: "Sarah Martin",
+          position: "Freelance Developer",
+          company: "SarahDev",
+          location: "Lyon",
+          content: "Thanks to my site designed by Sidikoff Digital, I tripled my quote requests in just a few weeks. Clients find me directly on Google!",
+          rating: 5,
+          image: "sarah-martin.webp"
+        },
+        {
+          name: "Marc Dubois",
+          position: "Marketing Consultant",
+          company: "MD Consulting",
+          location: "Paris",
+          content: "Professional site that inspires confidence. My rates increased by 60% since I have my own web showcase. Excellent investment!",
+          rating: 5,
+          image: "marc-dubois.webp"
+        },
+        {
+          name: "Julie Petit",
+          position: "Photographer",
+          company: "Julie Photo",
+          location: "Bordeaux",
+          content: "My online portfolio attracts high-end clients. No more prospecting needed, they come to me thanks to natural referencing.",
+          rating: 5,
+          image: "julie-petit.webp"
+        }
+      ]
+    },
+    pricing: {
+      title: "Packages Adapted to Freelancers",
+      description: "Transparent pricing according to your activity and objectives",
+      packages: [
+        {
+          name: "Showcase",
+          price: "€799",
+          period: "one-time",
+          description: "Perfect for presenting your services and attracting prospects",
+          delivery_time: "2 weeks",
+          features: [
+            "Professional showcase site",
+            "Services and pricing presentation",
+            "Contact form",
+            "Mobile optimization",
+            "1 year hosting included",
+            "Management training"
+          ]
+        },
+        {
+          name: "Pro",
+          price: "€1,299",
+          period: "one-time",
+          description: "Complete solution with portfolio and blog",
+          delivery_time: "3 weeks",
+          is_popular: true,
+          features: [
+            "Everything from Showcase package",
+            "Professional portfolio",
+            "SEO optimized blog",
+            "Online booking",
+            "Social media integration",
+            "Analytics and tracking",
+            "1 year support included"
+          ]
+        },
+        {
+          name: "Expert",
+          price: "€1,899",
+          period: "one-time",
+          description: "Premium solution for established freelancers",
+          delivery_time: "4 weeks",
+          features: [
+            "Everything from Pro package",
+            "Integrated e-commerce",
+            "Private client area",
+            "Automated newsletter",
+            "Advanced video training",
+            "Priority support",
+            "2 years maintenance included"
+          ]
+        }
+      ]
+    },
+    faq: {
+      title: "Frequently Asked Questions",
+      subtitle: "Everything you need to know about creating a freelance site",
+      questions: [
+        {
+          question: "How long does it take to create a freelance site?",
+          answer: "Depending on the package chosen, it takes between 2 to 4 weeks to create and launch your site. We adapt the schedule according to your constraints and needs."
+        },
+        {
+          question: "Can I update my site myself?",
+          answer: "Absolutely! All our sites include complete training so you can add your projects, articles and modify your content independently."
+        },
+        {
+          question: "Will my site be visible on Google?",
+          answer: "Yes, we optimize your site for natural referencing with your professional keywords and your location to attract qualified clients."
+        },
+        {
+          question: "What happens after delivery?",
+          answer: "We remain available for technical support, updates and your questions. Hosting and maintenance are included according to your package."
+        },
+        {
+          question: "Can I sell my services online?",
+          answer: "Yes, our Pro and Expert packages include online booking and payment systems for your consultations, training or digital products."
+        },
+        {
+          question: "Will the site work on mobile?",
+          answer: "All our sites are 100% responsive and mobile-first optimized. More than 70% of your visitors browse from their smartphone."
+        },
+        {
+          question: "Can I have a blog for my expertise?",
+          answer: "Yes, the blog is included in our Pro and Expert packages. It's an excellent way to attract organic traffic and demonstrate your expertise."
+        },
+        {
+          question: "Do you manage hosting and security?",
+          answer: "Yes, secure hosting, automatic backups and security updates are included in all our packages."
+        }
+      ]
+    },
+    cta: {
+      title: "Ready to boost your freelance business?",
+      description: "Join the hundreds of freelancers who have developed their business with a professional website.",
+      primary_button: "Get my free quote",
+      secondary_button: "Call us",
+      features: [
+        "Free consultation",
+        "Personalized quote within 24h",
+        "No commitment"
+      ]
+    }
+  },
 }

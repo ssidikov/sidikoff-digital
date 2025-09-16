@@ -1831,5 +1831,272 @@
         "Sans engagement"
       ]
     }
+  },
+  "freelance_landing": {
+    "meta_title": "Création de Site Internet pour Freelances | Vitrine Professionnelle",
+    "meta_description": "Sites web sur mesure pour freelances et indépendants. Portfolio, blog, SEO optimisé. Attirez plus de clients avec une présence digitale professionnelle.",
+    "keywords": ["création site internet freelance", "site web pour consultant indépendant", "portfolio freelance", "développeur web indépendant", "site vitrine freelance"],
+    "hero": {
+      "badge": "Spécialistes Freelances",
+      "title": "Sites Web Professionnels pour Freelances",
+      "description": "Offrez à votre activité freelance une vitrine professionnelle et visible qui attire de nouveaux clients.",
+      "benefits": [
+        "Portfolio professionnel en ligne",
+        "Génération de leads qualifiés",
+        "Crédibilité et confiance clients",
+        "Autonomie et indépendance"
+      ],
+      "cta_primary": "Obtenir mon site",
+      "cta_secondary": "Voir nos réalisations",
+      "image_alt": "Exemple de site web freelance moderne"
+    },
+    "problems": {
+      "title": "Défis Communs des Freelances",
+      "subtitle": "Rencontrez-vous ces difficultés ?",
+      "pain_points": [
+        {
+          "icon": "eye-off",
+          "title": "Manque de visibilité en ligne",
+          "description": "Vos prospects ne vous trouvent pas quand ils cherchent vos services sur Google."
+        },
+        {
+          "icon": "users",
+          "title": "Dépendance aux plateformes",
+          "description": "Vous dépendez entièrement des marketplaces qui prennent des commissions importantes."
+        },
+        {
+          "icon": "briefcase",
+          "title": "Manque de crédibilité",
+          "description": "Sans site professionnel, vous inspirez moins confiance que vos concurrents."
+        }
+      ]
+    },
+    "solution": {
+      "title": "Nos Solutions Spécialisées",
+      "description": "Nous créons des sites web sur mesure adaptés aux besoins des freelances et indépendants.",
+      "features": [
+        {
+          "icon": "search",
+          "title": "Optimisation SEO",
+          "description": "Apparaissez en première page sur Google pour vos mots-clés métier."
+        },
+        {
+          "icon": "briefcase",
+          "title": "Portfolio professionnel",
+          "description": "Présentez vos réalisations et projets dans une galerie moderne et impactante."
+        },
+        {
+          "icon": "file-text",
+          "title": "Blog optimisé",
+          "description": "Publiez vos expertises et conseils pour attirer du trafic organique."
+        },
+        {
+          "icon": "calendar",
+          "title": "Prise de rendez-vous",
+          "description": "Système de réservation en ligne pour consultations et formations."
+        },
+        {
+          "icon": "smartphone",
+          "title": "Design responsive",
+          "description": "Site optimisé pour tous les écrans, mobile-first et rapide."
+        },
+        {
+          "icon": "star",
+          "title": "Témoignages clients",
+          "description": "Mettez en avant vos avis pour rassurer les prospects."
+        }
+      ]
+    },
+    "process": {
+      "title": "Notre Processus de Création",
+      "description": "Une méthode éprouvée spécialement pour freelances",
+      "steps": [
+        {
+          "title": "Analyse de votre activité",
+          "description": "Nous étudions votre secteur, vos services et votre positionnement concurrentiel."
+        },
+        {
+          "title": "Design personnalisé",
+          "description": "Nous créons une identité visuelle unique qui reflète votre expertise et vos valeurs."
+        },
+        {
+          "title": "Développement optimisé",
+          "description": "Site moderne, rapide et optimisé SEO avec les dernières technologies."
+        },
+        {
+          "title": "Lancement et formation",
+          "description": "Mise en ligne et formation complète pour gérer votre site en autonomie."
+        }
+      ]
+    },
+    "portfolio": {
+      "title": "Nos Projets Freelance",
+      "subtitle": "Découvrez nos réalisations pour indépendants",
+      "projects": [
+        {
+          "name": "Sarah Développeuse",
+          "type": "Portfolio + Blog",
+          "image": "developer-freelance.webp",
+          "results": [
+            "+150% demandes de projets",
+            "+80% taux de conversion"
+          ]
+        },
+        {
+          "name": "Marc Consultant",
+          "type": "Site Vitrine + Booking",
+          "image": "consultant-freelance.webp",
+          "results": [
+            "+200% consultations",
+            "+60% tarifs pratiqués"
+          ]
+        },
+        {
+          "name": "Julie Photographe",
+          "type": "Portfolio Créatif",
+          "image": "photographer-freelance.webp",
+          "results": [
+            "+300% visibilité Instagram",
+            "+45% réservations shoots"
+          ]
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Ce que disent nos clients freelances",
+      "subtitle": "Témoignages authentiques d'indépendants satisfaits",
+      "reviews": [
+        {
+          "name": "Sarah Martin",
+          "position": "Développeuse Freelance",
+          "company": "SarahDev",
+          "location": "Lyon",
+          "content": "Grâce à mon site conçu par Sidikoff Digital, j'ai triplé mes demandes de devis en quelques semaines. Les clients me trouvent sur Google directement !",
+          "rating": 5,
+          "image": "sarah-martin.webp"
+        },
+        {
+          "name": "Marc Dubois",
+          "position": "Consultant Marketing",
+          "company": "MD Consulting",
+          "location": "Paris",
+          "content": "Site professionnel qui inspire confiance. Mes tarifs ont augmenté de 60% depuis que j'ai ma propre vitrine web. Excellent investissement !",
+          "rating": 5,
+          "image": "marc-dubois.webp"
+        },
+        {
+          "name": "Julie Petit",
+          "position": "Photographe",
+          "company": "Julie Photo",
+          "location": "Bordeaux",
+          "content": "Mon portfolio en ligne attire des clients haut de gamme. Plus besoin de démarcher, ils viennent à moi grâce au référencement naturel.",
+          "rating": 5,
+          "image": "julie-petit.webp"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Forfaits Adaptés aux Freelances",
+      "description": "Tarifs transparents selon votre activité et objectifs",
+      "packages": [
+        {
+          "name": "Vitrine",
+          "price": "€799",
+          "period": "unique",
+          "description": "Parfait pour présenter vos services et attirer des prospects",
+          "delivery_time": "2 semaines",
+          "features": [
+            "Site vitrine professionnel",
+            "Présentation services et tarifs",
+            "Formulaire de contact",
+            "Optimisation mobile",
+            "Hébergement 1 an inclus",
+            "Formation à la gestion"
+          ]
+        },
+        {
+          "name": "Pro",
+          "price": "€1,299",
+          "period": "unique",
+          "description": "Solution complète avec portfolio et blog",
+          "delivery_time": "3 semaines",
+          "is_popular": true,
+          "features": [
+            "Tout du forfait Vitrine",
+            "Portfolio professionnel",
+            "Blog optimisé SEO",
+            "Réservation en ligne",
+            "Intégration réseaux sociaux",
+            "Analytics et suivi",
+            "Support 1 an inclus"
+          ]
+        },
+        {
+          "name": "Expert",
+          "price": "€1,899",
+          "period": "unique",
+          "description": "Solution premium pour freelances établis",
+          "delivery_time": "4 semaines",
+          "features": [
+            "Tout du forfait Pro",
+            "E-commerce intégré",
+            "Espace client privé",
+            "Newsletter automatisée",
+            "Formation vidéo avancée",
+            "Support prioritaire",
+            "Maintenance 2 ans incluse"
+          ]
+        }
+      ]
+    },
+    "faq": {
+      "title": "Questions Fréquentes",
+      "subtitle": "Tout ce qu'il faut savoir sur la création d'un site freelance",
+      "questions": [
+        {
+          "question": "Combien de temps faut-il pour créer un site freelance ?",
+          "answer": "Selon le forfait choisi, il faut entre 2 à 4 semaines pour créer et lancer votre site. Nous adaptons le planning selon vos contraintes et besoins."
+        },
+        {
+          "question": "Puis-je mettre à jour mon site moi-même ?",
+          "answer": "Absolument ! Tous nos sites incluent une formation complète pour que vous puissiez ajouter vos projets, articles et modifier vos contenus en toute autonomie."
+        },
+        {
+          "question": "Mon site sera-t-il visible sur Google ?",
+          "answer": "Oui, nous optimisons votre site pour le référencement naturel avec vos mots-clés métier et votre localisation pour attirer des clients qualifiés."
+        },
+        {
+          "question": "Que se passe-t-il après la livraison ?",
+          "answer": "Nous restons disponibles pour le support technique, les mises à jour et vos questions. L'hébergement et la maintenance sont inclus selon votre forfait."
+        },
+        {
+          "question": "Puis-je vendre mes services en ligne ?",
+          "answer": "Oui, nos forfaits Pro et Expert incluent des systèmes de réservation et de paiement en ligne pour vos consultations, formations ou produits digitaux."
+        },
+        {
+          "question": "Le site fonctionnera-t-il sur mobile ?",
+          "answer": "Tous nos sites sont 100% responsive et optimisés mobile-first. Plus de 70% de vos visiteurs naviguent depuis leur smartphone."
+        },
+        {
+          "question": "Puis-je avoir un blog pour mon expertise ?",
+          "answer": "Oui, le blog est inclus dans nos forfaits Pro et Expert. C'est un excellent moyen d'attirer du trafic organique et de démontrer votre expertise."
+        },
+        {
+          "question": "Gérez-vous l'hébergement et la sécurité ?",
+          "answer": "Oui, l'hébergement sécurisé, les sauvegardes automatiques et les mises à jour de sécurité sont incluses dans tous nos forfaits."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Prêt à booster votre activité freelance ?",
+      "description": "Rejoignez les centaines de freelances qui ont développé leur business avec un site web professionnel.",
+      "primary_button": "Obtenir mon devis gratuit",
+      "secondary_button": "Nous appeler",
+      "features": [
+        "Consultation gratuite",
+        "Devis personnalisé sous 24h",
+        "Sans engagement"
+      ]
+    }
   }
 }
