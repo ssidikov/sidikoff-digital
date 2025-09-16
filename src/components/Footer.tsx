@@ -65,6 +65,10 @@ const createNavigationLinks = (dictionary: Dictionary, locale: Locale): FooterLi
     href: getLocalizedUrl('/services/creation-site-internet-cafe-paris', locale),
   },
   {
+    name: 'Création Site Internet Boulangerie',
+    href: getLocalizedUrl('/services/creation-site-internet-boulangerie', locale),
+  },
+  {
     name: dictionary.navigation?.portfolio || 'Portfolio',
     href: getLocalizedUrl('/#portfolio', locale),
   },

@@ -1289,5 +1289,275 @@
         "No commitment before signing"
       ]
     }
+  },
+  "boulangerie_landing": {
+    "meta_title": "Bakery Website Creation – Attract More Customers",
+    "meta_description": "Boost your bakery with a professional, multilingual website optimized for local SEO to attract more customers.",
+    "keywords": [
+      "bakery website creation",
+      "bakery web design",
+      "bakery showcase website",
+      "bakery e-commerce website",
+      "bakery web agency",
+      "local SEO bakery"
+    ],
+    "hero": {
+      "badge": "Bakery Specialist",
+      "title": "Bakery Website Creation",
+      "description": "Your bakery deserves an online presence that matches your products. Our web agency creates modern and efficient websites, tailored to bakery needs and optimized for local SEO. Whether for a showcase website or e-commerce site, we help your bakery attract more customers.",
+      "benefits": [
+        "Showcase your artisanal products",
+        "Online orders and reservations",
+        "Visibility on Google and Google Maps",
+        "Attractive and appetizing design",
+        "Multilingual solution EN/FR/RU",
+        "Technical support included"
+      ],
+      "cta_primary": "Request Free Quote",
+      "cta_secondary": "View Our Work",
+      "image_alt": "Modern website for bakery"
+    },
+    "problems": {
+      "title": "Why a website is essential for a bakery",
+      "subtitle": "Challenges faced by bakeries without online presence",
+      "pain_points": [
+        {
+          "icon": "trending_down",
+          "title": "Limited visibility",
+          "description": "Without a website, potential customers cannot easily find you on internet and Google Maps."
+        },
+        {
+          "icon": "phone",
+          "title": "Lost orders",
+          "description": "Your competitors with websites capture online orders while you miss these opportunities."
+        },
+        {
+          "icon": "clock",
+          "title": "Restricted hours",
+          "description": "Your customers cannot browse your products or place orders outside business hours."
+        }
+      ]
+    },
+    "solution": {
+      "title": "Our bakery website creation services",
+      "description": "Complete solutions to digitize your bakery",
+      "features": [
+        {
+          "icon": "smartphone",
+          "title": "Professional showcase website",
+          "description": "Present your bakery, hours, address and products with an attractive and appetizing design."
+        },
+        {
+          "icon": "shopping_bag",
+          "title": "Appetizing e-commerce site",
+          "description": "Online sales of breads, pastries, custom cakes with integrated ordering system."
+        },
+        {
+          "icon": "search",
+          "title": "Local SEO for bakery",
+          "description": "Optimization to appear first on Google when customers search for a bakery near them."
+        },
+        {
+          "icon": "star",
+          "title": "Appetizing design & UX",
+          "description": "Attractive user interface with appetizing photos that make customers want to buy."
+        },
+        {
+          "icon": "zap",
+          "title": "Custom features",
+          "description": "Multilingual solution EN/FR/RU, recipe blog, newsletter, customer loyalty system."
+        },
+        {
+          "icon": "users",
+          "title": "Maintenance & support",
+          "description": "Regular updates, enhanced security and continuous technical assistance."
+        }
+      ]
+    },
+    "process": {
+      "title": "Benefits of an optimized website for your bakery",
+      "description": "A proven method to create the perfect website for your bakery",
+      "steps": [
+        {
+          "title": "Increased local visibility",
+          "description": "Appear in top position on Google Maps and attract more local customers."
+        },
+        {
+          "title": "Customer loyalty",
+          "description": "Stay in touch with customers through newsletters and online promotions."
+        },
+        {
+          "title": "Time savings",
+          "description": "Automate orders and reservations with smart features."
+        },
+        {
+          "title": "Professional image",
+          "description": "Strengthen your credibility with a modern site reflecting product quality."
+        }
+      ]
+    },
+    "portfolio": {
+      "title": "Portfolio / Project Examples",
+      "subtitle": "Discover our work for local bakeries",
+      "projects": [
+        {
+          "name": "Artisan Bakery",
+          "type": "Showcase Website",
+          "image": "boulangerie-artisan.webp",
+          "results": [
+            "+60% Google Maps visibility",
+            "+40% new customers"
+          ]
+        },
+        {
+          "name": "Gourmet Pastry",
+          "type": "E-commerce Site",
+          "image": "patisserie-gourmande.webp",
+          "results": [
+            "+80% online orders",
+            "+25% revenue"
+          ]
+        },
+        {
+          "name": "Golden Bread",
+          "type": "Multilingual Site",
+          "image": "pain-dore.webp",
+          "results": [
+            "International clientele",
+            "+50% reservations"
+          ]
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "What our baker clients say",
+      "subtitle": "Testimonials from professionals who trust us",
+      "reviews": [
+        {
+          "name": "Marie Dubois",
+          "position": "Owner",
+          "boulangerie": "Délices Bakery",
+          "location": "Paris 16th",
+          "content": "Thanks to the new website, our online orders tripled! The reservation system works perfectly and customers love ordering 24/7.",
+          "rating": 5,
+          "image": "marie-dubois.webp"
+        },
+        {
+          "name": "Pierre Martin",
+          "position": "Baker",
+          "boulangerie": "Modern Bakehouse",
+          "location": "Lyon",
+          "content": "Local SEO made us appear first on Google Maps. We now receive many more walk-in customers.",
+          "rating": 5,
+          "image": "pierre-martin.webp"
+        },
+        {
+          "name": "Sophie Laurent",
+          "position": "Pastry Chef",
+          "boulangerie": "Sweet Delights",
+          "location": "Toulouse",
+          "content": "The multilingual website opened new markets. Our custom pastries are now ordered by international clients.",
+          "rating": 5,
+          "image": "sophie-laurent.webp"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Transparent pricing for your bakery",
+      "description": "Packages adapted to all bakery budgets",
+      "packages": [
+        {
+          "name": "Showcase Website",
+          "price": "899",
+          "period": "project",
+          "description": "Perfect to present your bakery",
+          "delivery_time": "3-4 weeks",
+          "features": [
+            "Responsive and appetizing design",
+            "Essential pages (home, products, contact)",
+            "Local SEO optimization",
+            "Google Maps integration",
+            "Contact form",
+            "Management training"
+          ],
+          "is_popular": false
+        },
+        {
+          "name": "E-commerce Website",
+          "price": "1499",
+          "period": "project",
+          "description": "To sell online and take orders",
+          "delivery_time": "5-6 weeks",
+          "features": [
+            "Everything from Showcase package",
+            "Complete online store",
+            "Order system",
+            "Secure payment",
+            "Inventory management",
+            "Customer area",
+            "Integrated newsletter"
+          ],
+          "is_popular": true
+        },
+        {
+          "name": "Premium Solution",
+          "price": "2299",
+          "period": "project",
+          "description": "Complete multilingual solution",
+          "delivery_time": "6-8 weeks",
+          "features": [
+            "Everything from E-commerce package",
+            "Multilingual website (EN/FR/RU)",
+            "Recipe blog and news",
+            "Loyalty system",
+            "Online reservations",
+            "Advanced analytics",
+            "Priority support 1 year"
+          ],
+          "is_popular": false
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "subtitle": "Everything you need to know about creating your website",
+      "questions": [
+        {
+          "question": "What is the price of a website for my bakery?",
+          "answer": "Our prices start at €899 for a showcase website and go up to €2299 for a premium multilingual solution. We offer a free and personalized quote according to your specific needs."
+        },
+        {
+          "question": "How long does it take to create my website?",
+          "answer": "The timeframe varies from 3 to 8 weeks depending on project complexity. A simple showcase website takes 3-4 weeks, while a complete e-commerce solution requires 5-6 weeks."
+        },
+        {
+          "question": "Will my website be visible on Google?",
+          "answer": "Yes, absolutely! All our websites are optimized for local SEO. We ensure your bakery appears in Google Maps searches and local queries."
+        },
+        {
+          "question": "Can I manage my website myself after delivery?",
+          "answer": "Yes, we use a simple and intuitive management system. We include complete training so you can update your products, prices and news independently."
+        },
+        {
+          "question": "Will the website work on mobile?",
+          "answer": "All our websites are fully responsive, meaning they adapt perfectly to smartphones and tablets. Over 70% of your customers will view your website on mobile."
+        },
+        {
+          "question": "Do you offer support after delivery?",
+          "answer": "Yes, we offer continuous technical support, security updates and assistance for all your questions. Maintenance packages available from €29/month."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Request your free quote",
+      "description": "Attract more customers to your bakery with a modern, appetizing and efficient website.",
+      "primary_button": "Get My Free Quote",
+      "secondary_button": "View Our Work",
+      "features": [
+        "Free 30min consultation",
+        "Detailed quote within 24h",
+        "No commitment before signing"
+      ]
+    }
   }
 }

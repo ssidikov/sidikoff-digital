@@ -381,7 +381,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                     <p>• Online menu and downloadable PDF</p>
                     <p>• Table reservation and customer flow management</p>
                     <p>• Click & Collect and delivery</p>
-                    <p>• Multilingual section (FR/EN/RU)</p>
+                    <p>• Multilingual section (FR/EN)</p>
                   </div>
                   <Link
                     href='/services/creation-sites-web'
@@ -1067,7 +1067,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                     <p>• Онлайн-меню и загружаемый PDF</p>
                     <p>• Бронирование столов и управление потоком клиентов</p>
                     <p>• Click & Collect и доставка</p>
-                    <p>• Многоязычная секция (FR/EN/RU)</p>
+                    <p>• Многоязычная секция (FR/EN)</p>
                   </div>
                   <Link
                     href='/services/creation-sites-web'

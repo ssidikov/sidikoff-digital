@@ -1288,5 +1288,275 @@
         "Pas d'engagement avant signature"
       ]
     }
+  },
+  "boulangerie_landing": {
+    "meta_title": "Création site internet boulangerie – Attirez plus de clients",
+    "meta_description": "Boostez votre boulangerie avec un site web professionnel, multilingue et optimisé SEO local pour attirer plus de clients.",
+    "keywords": [
+      "création site internet boulangerie",
+      "site web boulangerie",
+      "site vitrine boulangerie",
+      "site e-commerce boulangerie",
+      "agence web boulangerie",
+      "référencement local boulangerie"
+    ],
+    "hero": {
+      "badge": "Spécialiste Boulangerie",
+      "title": "Création de site internet pour boulangerie",
+      "description": "Votre boulangerie mérite une présence en ligne à la hauteur de vos produits. Notre agence web crée des sites internet modernes et performants, adaptés aux besoins des boulangeries et optimisés pour le SEO local. Que ce soit pour un site vitrine ou un site e-commerce, nous aidons votre boulangerie à attirer plus de clients.",
+      "benefits": [
+        "Présentation de vos produits artisanaux",
+        "Commandes en ligne et réservations",
+        "Visibilité sur Google et Google Maps",
+        "Design gourmand et attractif",
+        "Solution multilingue FR/EN",
+        "Support technique inclus"
+      ],
+      "cta_primary": "Demandez un devis gratuit",
+      "cta_secondary": "Voir nos réalisations",
+      "image_alt": "Site internet moderne pour boulangerie"
+    },
+    "problems": {
+      "title": "Pourquoi un site internet est essentiel pour une boulangerie",
+      "subtitle": "Les défis que rencontrent les boulangeries sans présence en ligne",
+      "pain_points": [
+        {
+          "icon": "trending_down",
+          "title": "Visibilité limitée",
+          "description": "Sans site web, vos clients potentiels ne peuvent pas vous trouver facilement sur internet et Google Maps."
+        },
+        {
+          "icon": "phone",
+          "title": "Perte de commandes",
+          "description": "Vos concurrents avec un site internet captent les commandes en ligne pendant que vous perdez ces opportunités."
+        },
+        {
+          "icon": "clock",
+          "title": "Horaires restreints",
+          "description": "Vos clients ne peuvent pas consulter vos produits ou passer commande en dehors de vos heures d'ouverture."
+        }
+      ]
+    },
+    "solution": {
+      "title": "Nos services de création de site web pour boulangeries",
+      "description": "Des solutions complètes pour digitaliser votre boulangerie",
+      "features": [
+        {
+          "icon": "smartphone",
+          "title": "Site vitrine professionnel",
+          "description": "Présentez votre boulangerie, horaires, adresse et produits avec un design gourmand et attractif."
+        },
+        {
+          "icon": "shopping_bag",
+          "title": "Site e-commerce gourmand",
+          "description": "Vente en ligne de pains, pâtisseries, gâteaux personnalisés avec système de commandes intégré."
+        },
+        {
+          "icon": "search",
+          "title": "SEO local boulangerie",
+          "description": "Optimisation pour apparaître en premier sur Google quand les clients cherchent une boulangerie près de chez eux."
+        },
+        {
+          "icon": "star",
+          "title": "Design & UX gourmand",
+          "description": "Interface utilisateur attractive avec photos appétissantes qui donnent envie à vos clients."
+        },
+        {
+          "icon": "zap",
+          "title": "Fonctionnalités personnalisées",
+          "description": "Solution multilingue FR/EN, blog recettes, newsletter, système de fidélité client."
+        },
+        {
+          "icon": "users",
+          "title": "Maintenance & support",
+          "description": "Mises à jour régulières, sécurité renforcée et assistance technique continue."
+        }
+      ]
+    },
+    "process": {
+      "title": "Avantages d'un site web optimisé pour votre boulangerie",
+      "description": "Une méthode éprouvée pour créer le site parfait de votre boulangerie",
+      "steps": [
+        {
+          "title": "Visibilité locale accrue",
+          "description": "Apparaissez en première position sur Google Maps et attirez plus de clients de proximité."
+        },
+        {
+          "title": "Fidélisation des clients",
+          "description": "Gardez le contact avec vos clients grâce à la newsletter et aux promotions en ligne."
+        },
+        {
+          "title": "Gain de temps",
+          "description": "Automatisez les commandes et réservations avec des fonctionnalités intelligentes."
+        },
+        {
+          "title": "Image professionnelle",
+          "description": "Renforcez votre crédibilité avec un site moderne qui reflète la qualité de vos produits."
+        }
+      ]
+    },
+    "portfolio": {
+      "title": "Portfolio / Exemples de projets",
+      "subtitle": "Découvrez nos réalisations pour boulangeries locales",
+      "projects": [
+        {
+          "name": "Boulangerie Artisan",
+          "type": "Site Vitrine",
+          "image": "boulangerie-artisan.webp",
+          "results": [
+            "+60% de visibilité Google Maps",
+            "+40% de nouveaux clients"
+          ]
+        },
+        {
+          "name": "Pâtisserie Gourmande",
+          "type": "Site E-commerce",
+          "image": "patisserie-gourmande.webp",
+          "results": [
+            "+80% commandes en ligne",
+            "+25% chiffre d'affaires"
+          ]
+        },
+        {
+          "name": "Au Pain Doré",
+          "type": "Site Multilingue",
+          "image": "pain-dore.webp",
+          "results": [
+            "Clientèle internationale",
+            "+50% réservations"
+          ]
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Ce que disent nos clients boulangers",
+      "subtitle": "Témoignages de professionnels qui nous font confiance",
+      "reviews": [
+        {
+          "name": "Marie Dubois",
+          "position": "Propriétaire",
+          "boulangerie": "Boulangerie des Délices",
+          "location": "Paris 16ème",
+          "content": "Grâce au nouveau site, nos commandes en ligne ont triplé ! Le système de réservation fonctionne parfaitement et nos clients adorent pouvoir commander 24h/24.",
+          "rating": 5,
+          "image": "marie-dubois.webp"
+        },
+        {
+          "name": "Pierre Martin",
+          "position": "Boulanger",
+          "boulangerie": "Au Fournil Moderne",
+          "location": "Lyon",
+          "content": "Le référencement local nous a permis d'apparaître en premier sur Google Maps. Nous recevons maintenant beaucoup plus de clients de passage.",
+          "rating": 5,
+          "image": "pierre-martin.webp"
+        },
+        {
+          "name": "Sophie Laurent",
+          "position": "Pâtissière",
+          "boulangerie": "Délices Sucrés",
+          "location": "Toulouse",
+          "content": "Le site multilingue nous a ouvert de nouveaux marchés. Nos pâtisseries personnalisées sont maintenant commandées par une clientèle internationale.",
+          "rating": 5,
+          "image": "sophie-laurent.webp"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Tarifs transparents pour votre boulangerie",
+      "description": "Des forfaits adaptés à tous les budgets de boulangeries",
+      "packages": [
+        {
+          "name": "Site Vitrine",
+          "price": "899",
+          "period": "projet",
+          "description": "Parfait pour présenter votre boulangerie",
+          "delivery_time": "3-4 semaines",
+          "features": [
+            "Design responsive et gourmand",
+            "Pages essentielles (accueil, produits, contact)",
+            "Optimisation SEO local",
+            "Intégration Google Maps",
+            "Formulaire de contact",
+            "Formation à la gestion"
+          ],
+          "is_popular": false
+        },
+        {
+          "name": "Site E-commerce",
+          "price": "1499",
+          "period": "projet",
+          "description": "Pour vendre en ligne et prendre des commandes",
+          "delivery_time": "5-6 semaines",
+          "features": [
+            "Tout du forfait Vitrine",
+            "Boutique en ligne complète",
+            "Système de commandes",
+            "Paiement sécurisé",
+            "Gestion des stocks",
+            "Espace client",
+            "Newsletter intégrée"
+          ],
+          "is_popular": true
+        },
+        {
+          "name": "Solution Premium",
+          "price": "2299",
+          "period": "projet",
+          "description": "La solution complète multilingue",
+          "delivery_time": "6-8 semaines",
+          "features": [
+            "Tout du forfait E-commerce",
+            "Site multilingue (FR/EN)",
+            "Blog recettes et actualités",
+            "Système de fidélité",
+            "Réservations en ligne",
+            "Analyses avancées",
+            "Support prioritaire 1 an"
+          ],
+          "is_popular": false
+        }
+      ]
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "subtitle": "Tout ce que vous devez savoir sur la création de votre site",
+      "questions": [
+        {
+          "question": "Quel est le prix d'un site internet pour ma boulangerie ?",
+          "answer": "Nos tarifs commencent à 590€ pour un site vitrine et vont jusqu'à 2299€ pour une solution premium multilingue. Nous proposons un devis gratuit et personnalisé selon vos besoins spécifiques."
+        },
+        {
+          "question": "Combien de temps faut-il pour créer mon site ?",
+          "answer": "Le délai varie de 3 à 8 semaines selon la complexité du projet. Un site vitrine simple prend 3-4 semaines, tandis qu'une solution e-commerce complète nécessite 5-6 semaines."
+        },
+        {
+          "question": "Mon site sera-t-il visible sur Google ?",
+          "answer": "Oui, absolument ! Tous nos sites sont optimisés pour le référencement local. Nous nous assurons que votre boulangerie apparaisse dans les recherches Google Maps et les requêtes locales."
+        },
+        {
+          "question": "Puis-je gérer mon site moi-même après la livraison ?",
+          "answer": "Oui, nous utilisons un système de gestion simple et intuitif. Nous incluons une formation complète pour que vous puissiez mettre à jour vos produits, prix et actualités en toute autonomie."
+        },
+        {
+          "question": "Le site fonctionnera-t-il sur mobile ?",
+          "answer": "Tous nos sites sont entièrement responsives, c'est-à-dire qu'ils s'adaptent parfaitement aux smartphones et tablettes. Plus de 70% de vos clients consulteront votre site sur mobile."
+        },
+        {
+          "question": "Proposez-vous un support après la livraison ?",
+          "answer": "Oui, nous offrons un support technique continu, des mises à jour de sécurité et une assistance pour toutes vos questions. Des forfaits de maintenance sont disponibles dès 29€/mois."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Demandez votre devis gratuit",
+      "description": "Attirez plus de clients dans votre boulangerie avec un site web moderne, gourmand et performant.",
+      "primary_button": "Obtenir mon Devis Gratuit",
+      "secondary_button": "Voir nos Réalisations",
+      "features": [
+        "Consultation gratuite 30min",
+        "Devis détaillé sous 24h",
+        "Pas d'engagement avant signature"
+      ]
+    }
   }
 }
