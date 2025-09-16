@@ -1151,4 +1151,280 @@ export const fallbackDictionary: Dictionary = {
       features: ['Free consultation', 'Custom quote within 24h', 'No commitment'],
     },
   },
+  barbershop_landing: {
+    meta_title: 'Professional Website Creation for Barbershops | Male Grooming Specialist',
+    meta_description:
+      'Custom websites for barbershops and male grooming salons. Modern design, online booking, local SEO. Attract more clients!',
+    keywords: [
+      'barbershop website creation',
+      'barber website',
+      'male grooming website',
+      'barbershop web development',
+    ],
+    hero: {
+      badge: 'Barbershop Specialists',
+      title: 'Professional Websites for Barbershops',
+      description:
+        'Give your barbershop a unique and professional online presence that attracts more clients.',
+      benefits: [
+        '24/7 online booking',
+        'Optimized local visibility',
+        'Modern masculine design',
+        'Simplified client management',
+      ],
+      cta_primary: 'Get my website',
+      cta_secondary: 'View our work',
+      image_alt: 'Modern barbershop website example',
+    },
+    problems: {
+      title: 'Common Barbershop Challenges',
+      subtitle: 'Are you facing these problems?',
+      pain_points: [
+        {
+          icon: 'eye-off',
+          title: 'Lack of online visibility',
+          description:
+            "Your barbershop doesn't appear when clients search for a male groomer near them.",
+        },
+        {
+          icon: 'users',
+          title: 'Difficulty attracting new clients',
+          description: 'You rely only on word-of-mouth and walk-ins to get customers.',
+        },
+        {
+          icon: 'clock',
+          title: 'Time lost on phone calls',
+          description: 'You spend hours answering calls for appointments and information.',
+        },
+      ],
+    },
+    solution: {
+      title: 'Our Specialized Solutions',
+      description:
+        'We create websites specifically designed for barbershops and male grooming salons.',
+      features: [
+        {
+          icon: 'search',
+          title: 'Local SEO optimization',
+          description: 'Appear first when clients search for a barber in your area.',
+        },
+        {
+          icon: 'calendar',
+          title: 'Online booking system',
+          description: 'Let your clients book their slots online, even outside business hours.',
+        },
+        {
+          icon: 'scissors',
+          title: 'Service showcase',
+          description: 'Present your cuts, beard care and services in a professional gallery.',
+        },
+        {
+          icon: 'map-pin',
+          title: 'Salon location',
+          description: 'Help your clients find you easily with integrated maps.',
+        },
+        {
+          icon: 'clock',
+          title: 'Hours and availability',
+          description: 'Display your hours, special schedules and real-time availability.',
+        },
+        {
+          icon: 'star',
+          title: 'Customer reviews',
+          description: 'Show testimonials and reviews to reassure new clients.',
+        },
+      ],
+    },
+    process: {
+      title: 'Our Creation Process',
+      description: 'A proven method specifically for barbershops',
+      steps: [
+        {
+          title: 'Salon analysis',
+          description: 'We study your style, target clientele and local competition.',
+        },
+        {
+          title: 'Custom design',
+          description:
+            'We create a unique design that reflects the masculine atmosphere of your barbershop.',
+        },
+        {
+          title: 'Technical development',
+          description: 'We develop a fast, secure website optimized for search engines.',
+        },
+        {
+          title: 'Launch and training',
+          description: 'We put your site online and train you to manage it independently.',
+        },
+      ],
+    },
+    portfolio: {
+      title: 'Our Barbershop Projects',
+      subtitle: 'Discover our work for barbers',
+      projects: [
+        {
+          name: 'Vintage Barbershop',
+          type: 'Showcase Website',
+          image: 'barbershop-vintage.webp',
+          results: ['+70% online bookings', '+45% new clients'],
+        },
+        {
+          name: 'Urban Cuts',
+          type: 'E-booking Website',
+          image: 'urban-cuts.webp',
+          results: ['+85% booking rate', '+30% revenue'],
+        },
+        {
+          name: 'Classic Barber',
+          type: 'Multilingual Website',
+          image: 'classic-barber.webp',
+          results: ['International clientele', '+60% Google visibility'],
+        },
+      ],
+    },
+    testimonials: {
+      title: 'What Our Barber Clients Say',
+      subtitle: 'Authentic testimonials from satisfied barbers',
+      reviews: [
+        {
+          name: 'Antoine Moreau',
+          position: 'Owner',
+          barbershop: 'Vintage Barbershop Paris',
+          location: 'Paris 11th',
+          content:
+            'Since launching our site, we have 70% online bookings. No more constant calls! The design perfectly reflects our vintage atmosphere.',
+          rating: 5,
+          image: 'antoine-moreau.webp',
+        },
+        {
+          name: 'Karim Benali',
+          position: 'Master Barber',
+          barbershop: 'Urban Cuts',
+          location: 'Lyon Part-Dieu',
+          content:
+            'Modern and efficient site. My clients love being able to book with just a few clicks. The team perfectly understood our urban universe.',
+          rating: 5,
+          image: 'karim-benali.webp',
+        },
+        {
+          name: 'Marco Silva',
+          position: 'Barber',
+          barbershop: 'Classic Barber',
+          location: 'Marseille Old Port',
+          content:
+            'The booking system has revolutionized our organization. No more misunderstandings, everything is clear and professional. Thank you!',
+          rating: 5,
+          image: 'marco-silva.webp',
+        },
+      ],
+    },
+    pricing: {
+      title: 'Packages Tailored for Barbershops',
+      description: 'Transparent pricing adapted to your needs and budget',
+      packages: [
+        {
+          name: 'Showcase',
+          price: '€590',
+          period: 'one-time',
+          description: 'Perfect for presenting your barbershop and attracting local clients',
+          delivery_time: '2 weeks',
+          features: [
+            'Professional showcase website',
+            'Photo gallery of your cuts',
+            'Contact information and hours',
+            'Google Maps integration',
+            'Mobile optimization',
+            '1 year of maintenance included',
+          ],
+        },
+        {
+          name: 'Professional',
+          price: '€1,699',
+          period: 'one-time',
+          description: 'Complete solution with online booking',
+          delivery_time: '3 weeks',
+          is_popular: true,
+          features: [
+            'Everything in Showcase',
+            'Online booking system',
+            'Slot management',
+            'Automatic notifications',
+            'Local SEO optimization',
+            'Social media integration',
+            '1 year of maintenance and support',
+          ],
+        },
+        {
+          name: 'Premium',
+          price: '€2,499',
+          period: 'one-time',
+          description: 'High-end solution for multi-barber salons',
+          delivery_time: '4 weeks',
+          features: [
+            'Everything in Professional',
+            'Multi-barber management',
+            'Loyalty system',
+            'Advanced analytics',
+            'Custom mobile app',
+            'Priority support',
+            '2 years of maintenance included',
+          ],
+        },
+      ],
+    },
+    faq: {
+      title: 'Frequently Asked Questions',
+      subtitle: 'Everything you need to know about creating a barbershop website',
+      questions: [
+        {
+          question: 'How long does it take to create a barbershop website?',
+          answer:
+            'Depending on the chosen package, it takes between 2 to 4 weeks to create and launch your website. We work with you to define a delivery schedule that suits you.',
+        },
+        {
+          question: 'Can I manage my website content myself?',
+          answer:
+            'Absolutely! We create user-friendly websites with an intuitive administration interface. We also provide training so you can update your services, prices, and content independently.',
+        },
+        {
+          question: 'Is the booking system secure?',
+          answer:
+            "Yes, we use the latest security technologies to protect your clients' data and their bookings. All information is processed securely.",
+        },
+        {
+          question: 'What happens if I have technical problems?',
+          answer:
+            'We provide technical support included in all our packages. You can contact us by email or phone, and we respond within 24 hours maximum.',
+        },
+        {
+          question: 'Can you help with photography?',
+          answer:
+            'Yes, we can recommend professional photographers specialized in the barbershop universe, or guide you to take quality photos of your salon.',
+        },
+        {
+          question: 'Is the website optimized for mobile phones?',
+          answer:
+            'All our websites are 100% responsive and optimized for mobile phones and tablets. More than 70% of your clients will visit your site from their phone.',
+        },
+        {
+          question: 'Do you handle local SEO?',
+          answer:
+            'Yes, local SEO is included in our Professional and Premium packages. We optimize your site to appear in local searches and on Google Maps.',
+        },
+        {
+          question: 'Can I integrate my social media accounts?',
+          answer:
+            'Absolutely! We can integrate your Instagram, Facebook and other social media accounts to increase your online visibility.',
+        },
+      ],
+    },
+    cta: {
+      title: 'Ready to boost your barbershop?',
+      description:
+        'Join the hundreds of barbers who have transformed their business with a professional website.',
+      primary_button: 'Get my free quote',
+      secondary_button: 'Call us now',
+      features: ['Free consultation', 'Custom quote within 24h', 'No commitment'],
+    },
+  },
 }

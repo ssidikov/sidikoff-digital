@@ -1558,5 +1558,278 @@
         "Pas d'engagement avant signature"
       ]
     }
+  },
+  "barbershop_landing": {
+    "meta_title": "Création de Site Internet pour Barbershop | Spécialiste Coiffure Homme",
+    "meta_description": "Sites web sur mesure pour barbershops et salons de coiffure homme. Design moderne, réservation en ligne, SEO local. Attirez plus de clients !",
+    "keywords": [
+      "création site internet barbier",
+      "site web barbershop",
+      "développeur site vitrine barbier",
+      "agence web barbershop",
+      "coiffeur homme site internet"
+    ],
+    "hero": {
+      "badge": "Spécialistes Barbershop",
+      "title": "Sites Web Professionnels pour Barbershops",
+      "description": "Donnez à votre barbershop une présence en ligne unique et professionnelle qui attire plus de clients.",
+      "benefits": [
+        "Réservation en ligne 24h/7j",
+        "Visibilité locale optimisée",
+        "Design moderne et masculin",
+        "Gestion client simplifiée"
+      ],
+      "cta_primary": "Obtenir mon site",
+      "cta_secondary": "Voir nos réalisations",
+      "image_alt": "Exemple de site web barbershop moderne"
+    },
+    "problems": {
+      "title": "Défis Communs des Barbershops",
+      "subtitle": "Rencontrez-vous ces problèmes ?",
+      "pain_points": [
+        {
+          "icon": "eye-off",
+          "title": "Manque de visibilité en ligne",
+          "description": "Votre barbershop n'apparaît pas quand les clients cherchent un coiffeur homme près d'eux."
+        },
+        {
+          "icon": "users",
+          "title": "Difficulté à attirer de nouveaux clients",
+          "description": "Vous comptez uniquement sur le bouche-à-oreille et le passage pour avoir des clients."
+        },
+        {
+          "icon": "clock",
+          "title": "Temps perdu au téléphone",
+          "description": "Vous passez des heures à répondre aux appels pour les rendez-vous et les informations."
+        }
+      ]
+    },
+    "solution": {
+      "title": "Nos Solutions Spécialisées",
+      "description": "Nous créons des sites web spécialement conçus pour barbershops et salons de coiffure homme.",
+      "features": [
+        {
+          "icon": "search",
+          "title": "Optimisation SEO locale",
+          "description": "Apparaissez en premier quand les clients cherchent un barbier dans votre secteur."
+        },
+        {
+          "icon": "calendar",
+          "title": "Réservation en ligne",
+          "description": "Permettez à vos clients de réserver leurs créneaux en ligne, même hors horaires."
+        },
+        {
+          "icon": "scissors",
+          "title": "Showcase de vos prestations",
+          "description": "Présentez vos coupes, soins barbe et services dans une galerie professionnelle."
+        },
+        {
+          "icon": "map-pin",
+          "title": "Localisation salon",
+          "description": "Aidez vos clients à vous trouver facilement avec des cartes intégrées."
+        },
+        {
+          "icon": "clock",
+          "title": "Horaires et disponibilités",
+          "description": "Affichez vos horaires, plannings spéciaux et disponibilités en temps réel."
+        },
+        {
+          "icon": "star",
+          "title": "Avis clients",
+          "description": "Montrez les témoignages et avis pour rassurer les nouveaux clients."
+        }
+      ]
+    },
+    "process": {
+      "title": "Notre Processus de Création",
+      "description": "Une méthode éprouvée spécialement pour barbershops",
+      "steps": [
+        {
+          "title": "Analyse de votre salon",
+          "description": "Nous étudions votre style, clientèle cible et concurrence locale."
+        },
+        {
+          "title": "Design sur mesure",
+          "description": "Nous créons un design unique qui reflète l'ambiance masculine de votre barbershop."
+        },
+        {
+          "title": "Développement technique",
+          "description": "Nous développons un site rapide, sécurisé et optimisé pour les moteurs de recherche."
+        },
+        {
+          "title": "Lancement et formation",
+          "description": "Nous mettons votre site en ligne et vous formons à sa gestion en autonomie."
+        }
+      ]
+    },
+    "portfolio": {
+      "title": "Nos Projets Barbershop",
+      "subtitle": "Découvrez nos réalisations pour barbiers",
+      "projects": [
+        {
+          "name": "Barbershop Vintage",
+          "type": "Site Vitrine",
+          "image": "barbershop-vintage.webp",
+          "results": [
+            "+70% réservations en ligne",
+            "+45% nouveaux clients"
+          ]
+        },
+        {
+          "name": "Urban Cuts",
+          "type": "Site avec E-booking",
+          "image": "urban-cuts.webp",
+          "results": [
+            "+85% taux de réservation",
+            "+30% chiffre d'affaires"
+          ]
+        },
+        {
+          "name": "Classic Barber",
+          "type": "Site Multilingue",
+          "image": "classic-barber.webp",
+          "results": [
+            "Clientèle internationale",
+            "+60% visibilité Google"
+          ]
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Ce que disent nos clients barbiers",
+      "subtitle": "Témoignages authentiques de barbiers satisfaits",
+      "reviews": [
+        {
+          "name": "Antoine Moreau",
+          "position": "Propriétaire",
+          "barbershop": "Barbershop Vintage Paris",
+          "location": "Paris 11ème",
+          "content": "Depuis le lancement de notre site, nous avons 70% de réservations en ligne. Fini les appels constants ! Le design reflète parfaitement notre ambiance vintage.",
+          "rating": 5,
+          "image": "antoine-moreau.webp"
+        },
+        {
+          "name": "Karim Benali",
+          "position": "Master Barber",
+          "barbershop": "Urban Cuts",
+          "location": "Lyon Part-Dieu",
+          "content": "Site moderne et efficace. Mes clients adorent pouvoir réserver en quelques clics. L'équipe a parfaitement compris notre univers urbain.",
+          "rating": 5,
+          "image": "karim-benali.webp"
+        },
+        {
+          "name": "Marco Silva",
+          "position": "Barbier",
+          "barbershop": "Classic Barber",
+          "location": "Marseille Vieux-Port",
+          "content": "Le système de réservation a révolutionné notre organisation. Plus de malentendus, tout est clair et professionnel. Merci !",
+          "rating": 5,
+          "image": "marco-silva.webp"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Forfaits Adaptés aux Barbershops",
+      "description": "Tarifs transparents adaptés à vos besoins et budget",
+      "packages": [
+        {
+          "name": "Vitrine",
+          "price": "€590",
+          "period": "unique",
+          "description": "Parfait pour présenter votre barbershop et attirer des clients locaux",
+          "delivery_time": "2 semaines",
+          "features": [
+            "Site vitrine professionnel",
+            "Galerie photos de vos coupes",
+            "Informations contact et horaires",
+            "Intégration Google Maps",
+            "Optimisation mobile",
+            "1 an de maintenance inclus"
+          ]
+        },
+        {
+          "name": "Pro",
+          "price": "€1,699",
+          "period": "unique",
+          "description": "Solution complète avec réservation en ligne",
+          "delivery_time": "3 semaines",
+          "is_popular": true,
+          "features": [
+            "Tout du forfait Vitrine",
+            "Système de réservation en ligne",
+            "Gestion des créneaux",
+            "Notifications automatiques",
+            "Optimisation SEO locale",
+            "Intégration réseaux sociaux",
+            "1 an de maintenance et support"
+          ]
+        },
+        {
+          "name": "Premium",
+          "price": "€2,499",
+          "period": "unique",
+          "description": "Solution haut de gamme pour salons multi-barbiers",
+          "delivery_time": "4 semaines",
+          "features": [
+            "Tout du forfait Pro",
+            "Gestion multi-barbiers",
+            "Système de fidélité",
+            "Analytics avancées",
+            "App mobile personnalisée",
+            "Support prioritaire",
+            "2 ans de maintenance inclus"
+          ]
+        }
+      ]
+    },
+    "faq": {
+      "title": "Questions Fréquentes",
+      "subtitle": "Tout ce qu'il faut savoir sur la création d'un site barbershop",
+      "questions": [
+        {
+          "question": "Combien de temps faut-il pour créer un site barbershop ?",
+          "answer": "Selon le forfait choisi, il faut entre 2 à 4 semaines pour créer et lancer votre site. Nous travaillons avec vous pour définir un planning de livraison qui vous convient."
+        },
+        {
+          "question": "Puis-je gérer le contenu de mon site moi-même ?",
+          "answer": "Absolument ! Nous créons des sites faciles à utiliser avec une interface d'administration intuitive. Nous vous formons également pour que vous puissiez mettre à jour vos services, tarifs et contenus en autonomie."
+        },
+        {
+          "question": "Le système de réservation est-il sécurisé ?",
+          "answer": "Oui, nous utilisons les dernières technologies de sécurité pour protéger les données de vos clients et leurs réservations. Toutes les informations sont traitées de manière sécurisée."
+        },
+        {
+          "question": "Que se passe-t-il si j'ai des problèmes techniques ?",
+          "answer": "Nous fournissons un support technique inclus dans tous nos forfaits. Vous pouvez nous contacter par email ou téléphone, et nous répondons sous 24h maximum."
+        },
+        {
+          "question": "Pouvez-vous m'aider avec la photographie ?",
+          "answer": "Oui, nous pouvons vous recommander des photographes professionnels spécialisés dans l'univers barbershop, ou vous guider pour prendre des photos de qualité de votre salon."
+        },
+        {
+          "question": "Le site est-il optimisé pour les téléphones ?",
+          "answer": "Tous nos sites sont 100% responsive et optimisés pour mobiles et tablettes. Plus de 70% de vos clients visiteront votre site depuis leur téléphone."
+        },
+        {
+          "question": "Gérez-vous le référencement local ?",
+          "answer": "Oui, le SEO local est inclus dans nos forfaits Pro et Premium. Nous optimisons votre site pour apparaître dans les recherches locales et sur Google Maps."
+        },
+        {
+          "question": "Puis-je intégrer mes réseaux sociaux ?",
+          "answer": "Absolument ! Nous pouvons intégrer vos comptes Instagram, Facebook et autres réseaux sociaux pour augmenter votre visibilité en ligne."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Prêt à booster votre barbershop ?",
+      "description": "Rejoignez les centaines de barbiers qui ont transformé leur business avec un site web professionnel.",
+      "primary_button": "Obtenir mon devis gratuit",
+      "secondary_button": "Nous appeler",
+      "features": [
+        "Consultation gratuite",
+        "Devis sur mesure sous 24h",
+        "Sans engagement"
+      ]
+    }
   }
 }

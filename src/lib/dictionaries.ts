@@ -527,6 +527,97 @@ export interface Dictionary {
       features: string[]
     }
   }
+  barbershop_landing: {
+    meta_title: string
+    meta_description: string
+    keywords: string[]
+    hero: {
+      badge: string
+      title: string
+      description: string
+      benefits: string[]
+      cta_primary: string
+      cta_secondary: string
+      image_alt: string
+    }
+    problems: {
+      title: string
+      subtitle: string
+      pain_points: Array<{
+        icon: string
+        title: string
+        description: string
+      }>
+    }
+    solution: {
+      title: string
+      description: string
+      features: Array<{
+        icon: string
+        title: string
+        description: string
+      }>
+    }
+    process: {
+      title: string
+      description: string
+      steps: Array<{
+        title: string
+        description: string
+      }>
+    }
+    portfolio: {
+      title: string
+      subtitle: string
+      projects: Array<{
+        name: string
+        type: string
+        image: string
+        results: string[]
+      }>
+    }
+    testimonials: {
+      title: string
+      subtitle: string
+      reviews: Array<{
+        name: string
+        position: string
+        barbershop: string
+        location: string
+        content: string
+        rating: number
+        image: string
+      }>
+    }
+    pricing: {
+      title: string
+      description: string
+      packages: Array<{
+        name: string
+        price: string
+        period: string
+        description: string
+        delivery_time?: string
+        features: string[]
+        is_popular?: boolean
+      }>
+    }
+    faq: {
+      title: string
+      subtitle: string
+      questions: Array<{
+        question: string
+        answer: string
+      }>
+    }
+    cta: {
+      title: string
+      description: string
+      primary_button: string
+      secondary_button: string
+      features: string[]
+    }
+  }
   seo_local: {
     hero: {
       title: string
