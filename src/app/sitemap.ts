@@ -151,16 +151,28 @@ function generateMultilingualServicePages(): SitemapEntry[] {
     'creation-site-internet-medecin',
     'creation-site-internet-photographe',
     'refonte-sites-web',
-    'restaurant-websites'
+    'restaurant-websites',
   ]
 
   return multilingualServices.flatMap((service) => [
     // French version (highest priority)
-    createSitemapEntry(`${BASE_URL}/services/${service}`, 'weekly', PRIORITY_CONFIG.MEDIUM_PRIORITY),
+    createSitemapEntry(
+      `${BASE_URL}/services/${service}`,
+      'weekly',
+      PRIORITY_CONFIG.MEDIUM_PRIORITY
+    ),
     // English version (reduced priority)
-    createSitemapEntry(`${BASE_URL}/en/services/${service}`, 'weekly', PRIORITY_CONFIG.LOW_PRIORITY),
+    createSitemapEntry(
+      `${BASE_URL}/en/services/${service}`,
+      'weekly',
+      PRIORITY_CONFIG.LOW_PRIORITY
+    ),
     // Russian version (lowest priority)
-    createSitemapEntry(`${BASE_URL}/ru/services/${service}`, 'weekly', PRIORITY_CONFIG.VERY_LOW_PRIORITY),
+    createSitemapEntry(
+      `${BASE_URL}/ru/services/${service}`,
+      'weekly',
+      PRIORITY_CONFIG.VERY_LOW_PRIORITY
+    ),
   ])
 }
 
