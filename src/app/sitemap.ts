@@ -139,6 +139,32 @@ function generateProjectPages(): SitemapEntry[] {
 }
 
 /**
+ * Generates multilingual specialized service pages for all locales
+ */
+function generateMultilingualServicePages(): SitemapEntry[] {
+  const multilingualServices = [
+    'creation-site-ecommerce',
+    'creation-site-internet-boulangerie',
+    'creation-site-internet-agence-voyage',
+    'creation-site-internet-barbershop',
+    'creation-site-internet-freelance',
+    'creation-site-internet-medecin',
+    'creation-site-internet-photographe',
+    'refonte-sites-web',
+    'restaurant-websites'
+  ]
+
+  return multilingualServices.flatMap((service) => [
+    // French version (highest priority)
+    createSitemapEntry(`${BASE_URL}/services/${service}`, 'weekly', PRIORITY_CONFIG.MEDIUM_PRIORITY),
+    // English version (reduced priority)
+    createSitemapEntry(`${BASE_URL}/en/services/${service}`, 'weekly', PRIORITY_CONFIG.LOW_PRIORITY),
+    // Russian version (lowest priority)
+    createSitemapEntry(`${BASE_URL}/ru/services/${service}`, 'weekly', PRIORITY_CONFIG.VERY_LOW_PRIORITY),
+  ])
+}
+
+/**
  * Gets priority-based Paris districts configuration
  */
 function getParisDistrictsConfig(): SeoLocation[] {
@@ -357,5 +383,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Generate individual project pages
   const projectPages = generateProjectPages()
 
-  return [...allStaticPages, ...seoPages, ...projectPages]
+  // Generate multilingual specialized service pages
+  const multilingualServicePages = generateMultilingualServicePages()
+
+  return [...allStaticPages, ...seoPages, ...projectPages, ...multilingualServicePages]
 }
