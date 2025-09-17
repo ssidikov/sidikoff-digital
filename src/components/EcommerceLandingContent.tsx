@@ -65,7 +65,7 @@ interface Review {
   location: string
   content: string
   rating: number
-  image: string
+  image?: string
 }
 
 interface Package {
@@ -374,22 +374,12 @@ export default function EcommerceLandingContent({
                   ))}
                 </div>
                 <p className='text-gray-600 mb-6 leading-relaxed'>&ldquo;{review.content}&rdquo;</p>
-                <div className='flex items-center'>
-                  <div className='relative w-12 h-12 rounded-full overflow-hidden mr-4'>
-                    <Image
-                      src={`/images/testimonials/ecommerce/${review.image}`}
-                      alt={review.name}
-                      fill
-                      className='object-cover'
-                    />
+                <div>
+                  <div className='font-semibold text-gray-900'>{review.name}</div>
+                  <div className='text-sm text-gray-600'>
+                    {review.position}, {review.company}
                   </div>
-                  <div>
-                    <div className='font-semibold text-gray-900'>{review.name}</div>
-                    <div className='text-sm text-gray-600'>
-                      {review.position}, {review.company}
-                    </div>
-                    <div className='text-sm text-gray-500'>{review.location}</div>
-                  </div>
+                  <div className='text-sm text-gray-500'>{review.location}</div>
                 </div>
               </motion.div>
             ))}

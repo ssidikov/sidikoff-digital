@@ -1203,31 +1203,28 @@
       "subtitle": "Témoignages authentiques de propriétaires qui ont transformé leur business",
       "reviews": [
         {
-          "name": "Sophie Laurent",
+          "name": "Claire Moreau",
           "position": "Propriétaire",
-          "restaurant": "Bistro des Halles",
+          "restaurant": "Le Petit Gourmet",
           "location": "Lyon",
-          "content": "Notre site web a complètement transformé notre business ! Les réservations en ligne ont augmenté de 300% en seulement 3 mois. Le système de réservation fonctionne 24h/24 et nous ne ratons plus jamais un appel client.",
-          "rating": 5,
-          "image": "/images/testimonials/sophie-laurent.jpg"
+          "content": "Sardor a créé un site magnifique pour notre restaurant ! Il a compris exactement ce dont nous avions besoin. Le travail a été fait dans les délais, de manière très professionnelle. Grâce au système de réservation en ligne, nos réservations ont augmenté de 200% en 2 mois.",
+          "rating": 5
         },
         {
-          "name": "Antoine Moreau",
-          "position": "Chef & Propriétaire",
-          "restaurant": "La Piccola Italia",
+          "name": "Julien Rousseau",
+          "position": "Chef & Gérant",
+          "restaurant": "Bistro de l'Olivier",
           "location": "Nice",
-          "content": "Le système de commande en ligne a révolutionné notre service de plats à emporter. Nous gérons maintenant 60% de commandes en plus avec moins de stress. Les clients adorent la facilité de commande.",
-          "rating": 5,
-          "image": "/images/testimonials/antoine-moreau.jpg"
+          "content": "Excellent travail de Sardor ! Il a livré un site web parfait pour notre bistro, tout était fait avec beaucoup de soin et d'attention aux détails. Les commandes en ligne fonctionnent parfaitement. Nous recommandons vivement ses services !",
+          "rating": 5
         },
         {
-          "name": "Camille Dubois",
-          "position": "Directrice Restaurant",
-          "restaurant": "Le Jardin Secret",
+          "name": "Marina Blanc",
+          "position": "Co-propriétaire",
+          "restaurant": "Chez Marina",
           "location": "Marseille",
-          "content": "Depuis le lancement de notre nouveau site, nous affichons complet en permanence ! L'optimisation SEO locale nous a apporté énormément de nouveaux clients. Les photos professionnelles de nos plats font vraiment la différence.",
-          "rating": 5,
-          "image": "/images/testimonials/camille-dubois.jpg"
+          "content": "Sardor a dépassé toutes nos attentes ! Le site est moderne, rapide et très facile à utiliser. Il a terminé le projet avant la date prévue et nous a formés parfaitement. Notre chiffre d'affaires a augmenté de 150% depuis le lancement.",
+          "rating": 5
         }
       ]
     },
@@ -1433,31 +1430,28 @@
       "subtitle": "Témoignages de professionnels qui nous font confiance",
       "reviews": [
         {
-          "name": "Marie Dubois",
+          "name": "Léa Charrier",
           "position": "Propriétaire",
-          "boulangerie": "Boulangerie des Délices",
+          "boulangerie": "La Mie Dorée",
           "location": "Paris 16ème",
-          "content": "Grâce au nouveau site, nos commandes en ligne ont triplé ! Le système de réservation fonctionne parfaitement et nos clients adorent pouvoir commander 24h/24.",
-          "rating": 5,
-          "image": "marie-dubois.webp"
+          "content": "Sardor a créé un site magnifique pour notre boulangerie ! Son travail est impeccable, livré dans les temps et très professionnel. Nos commandes en ligne ont augmenté de 250% grâce au nouveau système de réservation.",
+          "rating": 5
         },
         {
-          "name": "Pierre Martin",
+          "name": "Alexandre Petit",
           "position": "Boulanger",
-          "boulangerie": "Au Fournil Moderne",
+          "boulangerie": "Au Pain Traditionnel",
           "location": "Lyon",
-          "content": "Le référencement local nous a permis d'apparaître en premier sur Google Maps. Nous recevons maintenant beaucoup plus de clients de passage.",
-          "rating": 5,
-          "image": "pierre-martin.webp"
+          "content": "Excellente collaboration avec Sardor ! Il a parfaitement compris nos besoins et a livré un site qui dépasse nos attentes. Le référencement local fonctionne très bien, nous avons beaucoup plus de visibilité.",
+          "rating": 5
         },
         {
-          "name": "Sophie Laurent",
+          "name": "Isabelle Moreau",
           "position": "Pâtissière",
-          "boulangerie": "Délices Sucrés",
+          "boulangerie": "Douceurs & Gourmandises",
           "location": "Toulouse",
-          "content": "Le site multilingue nous a ouvert de nouveaux marchés. Nos pâtisseries personnalisées sont maintenant commandées par une clientèle internationale.",
-          "rating": 5,
-          "image": "sophie-laurent.webp"
+          "content": "Un travail remarquable de Sardor ! Le site est à la fois beau et fonctionnel. Il a terminé le projet en avance et nous a parfaitement formés. Notre chiffre d'affaires a progressé de 180% depuis le lancement.",
+          "rating": 5
         }
       ]
     },
@@ -1705,8 +1699,7 @@
           "barbershop": "Barbershop Vintage Paris",
           "location": "Paris 11ème",
           "content": "Depuis le lancement de notre site, nous avons 70% de réservations en ligne. Fini les appels constants ! Le design reflète parfaitement notre ambiance vintage.",
-          "rating": 5,
-          "image": "antoine-moreau.webp"
+          "rating": 5
         },
         {
           "name": "Karim Benali",
@@ -1714,8 +1707,7 @@
           "barbershop": "Urban Cuts",
           "location": "Lyon Part-Dieu",
           "content": "Site moderne et efficace. Mes clients adorent pouvoir réserver en quelques clics. L'équipe a parfaitement compris notre univers urbain.",
-          "rating": 5,
-          "image": "karim-benali.webp"
+          "rating": 5
         },
         {
           "name": "Marco Silva",
@@ -1723,8 +1715,7 @@
           "barbershop": "Classic Barber",
           "location": "Marseille Vieux-Port",
           "content": "Le système de réservation a révolutionné notre organisation. Plus de malentendus, tout est clair et professionnel. Merci !",
-          "rating": 5,
-          "image": "marco-silva.webp"
+          "rating": 5
         }
       ]
     },
@@ -1978,8 +1969,7 @@
           "company": "SarahDev",
           "location": "Lyon",
           "content": "Grâce à mon site conçu par Sidikoff Digital, j'ai triplé mes demandes de devis en quelques semaines. Les clients me trouvent sur Google directement !",
-          "rating": 5,
-          "image": "sarah-martin.webp"
+          "rating": 5
         },
         {
           "name": "Marc Dubois",
@@ -1987,8 +1977,7 @@
           "company": "MD Consulting",
           "location": "Paris",
           "content": "Site professionnel qui inspire confiance. Mes tarifs ont augmenté de 60% depuis que j'ai ma propre vitrine web. Excellent investissement !",
-          "rating": 5,
-          "image": "marc-dubois.webp"
+          "rating": 5
         },
         {
           "name": "Julie Petit",
@@ -1996,8 +1985,7 @@
           "company": "Julie Photo",
           "location": "Bordeaux",
           "content": "Mon portfolio en ligne attire des clients haut de gamme. Plus besoin de démarcher, ils viennent à moi grâce au référencement naturel.",
-          "rating": 5,
-          "image": "julie-petit.webp"
+          "rating": 5
         }
       ]
     },
@@ -2251,8 +2239,7 @@
           "company": "Studio Marie",
           "location": "Paris",
           "content": "Mon site reflète parfaitement mon style de photographie. Grâce au référencement, j'ai gagné de nombreux nouveaux clients en quelques mois seulement !",
-          "rating": 5,
-          "image": "marie-dubois-photographer.webp"
+          "rating": 5
         },
         {
           "name": "David Laurent",
@@ -2260,8 +2247,7 @@
           "company": "DL Photos",
           "location": "Lyon",
           "content": "Site professionnel qui inspire confiance aux entreprises. Mes tarifs ont augmenté significativement depuis que j'ai ma propre vitrine web.",
-          "rating": 5,
-          "image": "david-laurent-photographer.webp"
+          "rating": 5
         },
         {
           "name": "Clara Martin",
@@ -2269,8 +2255,7 @@
           "company": "Clara Art",
           "location": "Marseille",
           "content": "Mes œuvres photographiques sont mises en valeur comme jamais. Les collectionneurs me trouvent directement grâce au SEO naturel.",
-          "rating": 5,
-          "image": "clara-martin-photographer.webp"
+          "rating": 5
         }
       ]
     },
@@ -2527,8 +2512,7 @@
           "company": "Cabinet Martin",
           "location": "Paris 15e",
           "content": "Mon site créé par Sidikoff Digital a révolutionné la gestion de mon cabinet. Les patients prennent rendez-vous en ligne et j'ai gagné énormément de temps !",
-          "rating": 5,
-          "image": "dr-sophie-martin.webp"
+          "rating": 5
         },
         {
           "name": "Dr. Pierre Lemoine",
@@ -2536,8 +2520,7 @@
           "company": "Clinique Sourire",
           "location": "Lyon 6e",
           "content": "Excellent travail ! Le site est professionnel, rassurant et le référencement local fonctionne parfaitement. Je recommande vivement.",
-          "rating": 5,
-          "image": "dr-pierre-lemoine.webp"
+          "rating": 5
         },
         {
           "name": "Dr. Marie Dubois",
@@ -2545,8 +2528,7 @@
           "company": "Centre Dermatologique",
           "location": "Marseille 8e",
           "content": "L'équipe a parfaitement compris mes besoins. Le design inspire confiance et le système de rendez-vous est très pratique pour mes patients.",
-          "rating": 5,
-          "image": "dr-marie-dubois.webp"
+          "rating": 5
         }
       ]
     },

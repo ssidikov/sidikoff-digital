@@ -63,7 +63,7 @@ interface Review {
   location: string
   content: string
   rating: number
-  image: string
+  image?: string
 }
 
 interface Package {

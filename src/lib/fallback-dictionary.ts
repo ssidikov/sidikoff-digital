@@ -759,9 +759,34 @@ export const fallbackDictionary: Dictionary = {
       projects: [],
     },
     testimonials: {
-      title: 'Client Reviews',
-      subtitle: 'What our clients say',
-      reviews: [],
+      title: 'What Our Restaurant Clients Say',
+      subtitle: 'Authentic testimonials from restaurant owners who transformed their business',
+      reviews: [
+        {
+          name: 'Claire Moreau',
+          position: 'Owner',
+          restaurant: 'Le Petit Gourmet',
+          location: 'Lyon',
+          content: 'Sardor created a beautiful website for our restaurant! He understood exactly what we needed. The work was done on time, very professionally. Thanks to the online reservation system, our bookings increased by 200% in 2 months.',
+          rating: 5,
+        },
+        {
+          name: 'Julien Rousseau',
+          position: 'Chef & Manager',
+          restaurant: 'Bistro de l\'Olivier',
+          location: 'Nice',
+          content: 'Excellent work by Sardor! He delivered a perfect website for our bistro, everything was done with great care and attention to detail. Online orders work perfectly. We highly recommend his services!',
+          rating: 5,
+        },
+        {
+          name: 'Marina Blanc',
+          position: 'Co-owner',
+          restaurant: 'Chez Marina',
+          location: 'Marseille',
+          content: 'Sardor exceeded all our expectations! The site is modern, fast and very easy to use. He completed the project ahead of schedule and trained us perfectly. Our turnover increased by 150% since launch.',
+          rating: 5,
+        },
+      ],
     },
     pricing: {
       title: 'Pricing',

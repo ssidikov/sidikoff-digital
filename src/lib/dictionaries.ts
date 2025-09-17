@@ -495,7 +495,7 @@ export interface Dictionary {
         location: string
         content: string
         rating: number
-        image: string
+        image?: string
       }>
     }
     pricing: {
@@ -586,7 +586,7 @@ export interface Dictionary {
         location: string
         content: string
         rating: number
-        image: string
+        image?: string
       }>
     }
     pricing: {
@@ -677,7 +677,7 @@ export interface Dictionary {
         location: string
         content: string
         rating: number
-        image: string
+        image?: string
       }>
     }
     pricing: {
@@ -845,7 +845,7 @@ export interface Dictionary {
         location: string
         content: string
         rating: number
-        image: string
+        image?: string
       }>
     }
     pricing: {
@@ -1038,7 +1038,7 @@ export interface Dictionary {
         location: string
         content: string
         rating: number
-        image: string
+        image?: string
       }>
     }
     faq: {
@@ -1116,7 +1116,7 @@ export interface Dictionary {
         location: string
         content: string
         rating: number
-        image: string
+        image?: string
       }>
     }
     pricing: {
@@ -1205,7 +1205,7 @@ export interface Dictionary {
         location: string
         content: string
         rating: number
-        image: string
+        image?: string
       }>
     }
     pricing: {

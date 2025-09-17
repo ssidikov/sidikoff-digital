@@ -89,7 +89,7 @@ interface Testimonial {
   location: string
   content: string
   rating: number
-  image: string
+  image?: string
 }
 
 interface FAQ {
@@ -601,23 +601,22 @@ export default function RestaurantLandingContent({
                   &ldquo;{testimonial.content}&rdquo;
                 </blockquote>
                 <div className='flex items-center justify-between'>
+                  <div>
+                    <div className='font-semibold text-white'>{testimonial.name}</div>
+                    <div className='text-white/70 text-sm'>
+                      {testimonial.position}, {testimonial.restaurant}
+                    </div>
+                    <div className='text-white/60 text-sm'>{testimonial.location}</div>
+                  </div>
                   <div className='flex items-center'>
-                    <div className='w-12 h-12 rounded-full overflow-hidden mr-4 flex-shrink-0'>
-                      <Image
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        width={48}
-                        height={48}
-                        className='w-full h-full object-cover'
+                    {[...Array(5)].map((_, starIndex) => (
+                      <Star
+                        key={starIndex}
+                        className={`w-4 h-4 ${
+                          starIndex < testimonial.rating ? 'text-yellow-400 fill-current' : 'text-white/30'
+                        }`}
                       />
-                    </div>
-                    <div>
-                      <div className='font-semibold text-white'>{testimonial.name}</div>
-                      <div className='text-white/70 text-sm'>
-                        {testimonial.position}, {testimonial.restaurant}
-                      </div>
-                      <div className='text-white/60 text-sm'>{testimonial.location}</div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </motion.div>

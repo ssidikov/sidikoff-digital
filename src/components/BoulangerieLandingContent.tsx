@@ -85,7 +85,7 @@ interface Testimonial {
   location: string
   content: string
   rating: number
-  image: string
+  image?: string
 }
 
 interface FAQ {

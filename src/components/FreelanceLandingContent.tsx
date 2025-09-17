@@ -69,7 +69,7 @@ interface Review {
   location: string
   content: string
   rating: number
-  image: string
+  image?: string
 }
 
 interface Package {
@@ -418,22 +418,12 @@ export default function FreelanceLandingContent({
                   ))}
                 </div>
                 <p className='text-gray-700 mb-6 italic'>&ldquo;{review.content}&rdquo;</p>
-                <div className='flex items-center space-x-3'>
-                  <div className='w-12 h-12 relative rounded-full overflow-hidden'>
-                    <Image
-                      src={`/images/testimonials/${review.image}`}
-                      alt={review.name}
-                      fill
-                      className='object-cover'
-                    />
-                  </div>
-                  <div>
-                    <p className='font-semibold text-gray-900'>{review.name}</p>
-                    <p className='text-sm text-gray-600'>
-                      {review.position} - {review.company}
-                    </p>
-                    <p className='text-sm text-gray-500'>{review.location}</p>
-                  </div>
+                <div>
+                  <p className='font-semibold text-gray-900'>{review.name}</p>
+                  <p className='text-sm text-gray-600'>
+                    {review.position} - {review.company}
+                  </p>
+                  <p className='text-sm text-gray-500'>{review.location}</p>
                 </div>
               </motion.div>
             ))}
