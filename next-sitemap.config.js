@@ -133,7 +133,7 @@ const nextSitemapConfig = {
       '/services/creation-site-internet-medecin',
       '/services/creation-site-internet-photographe',
       '/services/refonte-sites-web',
-      '/services/restaurant-websites'
+      '/services/restaurant-websites',
     ]
 
     // Add all locales for specialized services (including French)
@@ -141,7 +141,7 @@ const nextSitemapConfig = {
     multilingualServices.forEach((service) => {
       allLocales.forEach((locale) => {
         const path = locale === 'fr' ? service : `/${locale}${service}`
-        const priority = locale === 'fr' ? 0.7 : (locale === 'en' ? 0.6 : 0.5)
+        const priority = locale === 'fr' ? 0.7 : locale === 'en' ? 0.6 : 0.5
         paths.push({
           loc: path,
           changefreq: 'weekly',
