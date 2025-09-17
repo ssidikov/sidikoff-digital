@@ -1,0 +1,266 @@
+{
+  "travel_agency_landing": {
+    "meta_title": "Travel Agency Website Creation - Sardor Sidikoff Digital",
+    "meta_description": "Travel agency website creation in Boulogne-Billancourt. Professional design, booking system, SEO optimized. Free consultation!",
+    "keywords": ["travel agency website creation", "travel website", "online booking", "Boulogne-Billancourt", "digital tourism"],
+    "hero": {
+      "title": "Professional Website for Your Travel Agency",
+      "subtitle": "Transform your passion for travel into digital success with a custom website that inspires and converts your visitors into clients",
+      "cta_primary": "Get my free quote",
+      "cta_secondary": "View our work",
+      "stats_title": "Your success starts here",
+      "stats_subtitle": "Complete solutions for your agency"
+    },
+    "pain_points": {
+      "title": "Modern Travel Agency Challenges",
+      "subtitle": "In an ultra-competitive market, your agency faces numerous obstacles that hinder its growth",
+      "points": [
+        {
+          "icon": "globe",
+          "title": "Online platform competition",
+          "description": "Booking, Expedia and other giants dominate searches and capture your potential clients with their massive marketing budgets."
+        },
+        {
+          "icon": "map",
+          "title": "Outdated booking process",
+          "description": "Your modern clients want everything, right away. A slow or complicated booking process makes them flee to the competition."
+        },
+        {
+          "icon": "compass",
+          "title": "Lack of online visibility",
+          "description": "Without strong digital presence, your expertise and unique destinations remain invisible to 95% of your potential clients."
+        },
+        {
+          "icon": "plane",
+          "title": "Time-consuming manual management",
+          "description": "Between quotes, modifications, payments... You waste precious time on administrative tasks instead of selling."
+        },
+        {
+          "icon": "camera",
+          "title": "Difficulty presenting your destinations",
+          "description": "How to make your clients dream and want to leave without stunning visuals and immersive presentation?"
+        }
+      ]
+    },
+    "solutions": {
+      "title": "Your Complete Digital Solution",
+      "subtitle": "A professional website that transforms your travel agency into a digital leader in your sector",
+      "items": [
+        {
+          "icon": "globe",
+          "title": "Premium digital presence",
+          "description": "An elegant website that reflects your agency's standing and inspires confidence from the first visit."
+        },
+        {
+          "icon": "heart",
+          "title": "Integrated booking system",
+          "description": "Your clients book directly online 24/7, with secure payment and automatic confirmation."
+        },
+        {
+          "icon": "users",
+          "title": "Automated client management",
+          "description": "Integrated CRM, request tracking, automatic follow-ups and simplified group management."
+        },
+        {
+          "icon": "smartphone",
+          "title": "Perfect mobile experience",
+          "description": "80% of your clients browse on mobile. Your site adapts perfectly to all screens."
+        },
+        {
+          "icon": "map",
+          "title": "Immersive destination gallery",
+          "description": "Present your destinations with HD photo galleries, videos and descriptions that inspire dreams."
+        },
+        {
+          "icon": "compass",
+          "title": "Travel-optimized SEO",
+          "description": "Google positioning on your key destinations and strategic keywords in the travel sector."
+        }
+      ]
+    },
+    "features": {
+      "title": "Advanced Features for Travel Agencies",
+      "subtitle": "Everything you need to digitize and automate your activity",
+      "items": [
+        {
+          "icon": "plane",
+          "title": "Dynamic travel catalog",
+          "description": "Present all your tours, trips and getaways with detailed descriptions, prices and real-time availability."
+        },
+        {
+          "icon": "calendar",
+          "title": "Availability calendar",
+          "description": "Your clients instantly see available dates and can book their preferred slot."
+        },
+        {
+          "icon": "users",
+          "title": "Group management",
+          "description": "Easily organize your group trips with participant tracking and installment payments."
+        },
+        {
+          "icon": "heart",
+          "title": "Wishlist and favorites",
+          "description": "Your clients save their favorite trips and return to finalize their booking later."
+        },
+        {
+          "icon": "globe",
+          "title": "Interactive destination map",
+          "description": "Explore your destinations on an interactive map with photos, practical info and weather."
+        },
+        {
+          "icon": "camera",
+          "title": "Integrated travel blog",
+          "description": "Share your tips, travel stories and inspiration to build audience loyalty."
+        },
+        {
+          "icon": "smartphone",
+          "title": "Automatic notifications",
+          "description": "Quote reminders, booking confirmations and payment reminders fully automated."
+        },
+        {
+          "icon": "compass",
+          "title": "Client review system",
+          "description": "Collect and display testimonials from your travelers to reassure future clients."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Concrete Benefits for Your Agency",
+      "subtitle": "Measurable results that transform your business from the first weeks",
+      "items": [
+        {
+          "icon": "trendingDown",
+          "title": "+250% online visibility",
+          "description": "Multiply your reach and attract new clients thanks to optimized SEO."
+        },
+        {
+          "icon": "checkCircle",
+          "title": "24/7 bookings",
+          "description": "Your clients book even at night and weekends, increasing your sales by 40% on average."
+        },
+        {
+          "icon": "users",
+          "title": "-70% administrative time",
+          "description": "Automation of repetitive tasks to focus on consulting and selling."
+        },
+        {
+          "icon": "heart",
+          "title": "Enhanced loyalty",
+          "description": "Personalized client area and newsletter to maintain the connection between trips."
+        }
+      ]
+    },
+    "process": {
+      "title": "Our 4-Step Creation Process",
+      "subtitle": "A proven method to deliver your professional website in 3-4 weeks",
+      "steps": [
+        {
+          "number": "1",
+          "title": "Audit & Strategy",
+          "description": "Analysis of your activity, definition of your objectives and creation of personalized digital strategy."
+        },
+        {
+          "number": "2",
+          "title": "Design & Mockups",
+          "description": "Creation of custom design and interactive mockups validated with you before development."
+        },
+        {
+          "number": "3",
+          "title": "Development & Integration",
+          "description": "Professional development with booking system integration and advanced features."
+        },
+        {
+          "number": "4",
+          "title": "Training & Launch",
+          "description": "Complete training on managing your site and launch with 30-day support."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "What Our Travel Sector Clients Say",
+      "subtitle": "Agencies that have transformed their business thanks to their new website",
+      "items": [
+        {
+          "name": "Marie Dubois",
+          "role": "Director",
+          "text": "Since Sardor created our site, our online bookings have exploded! The design is magnificent and the booking system works perfectly. Our clients love being able to do everything online. An investment that paid for itself in 2 months!",
+          "rating": 5
+        },
+        {
+          "name": "Antoine Leroux",
+          "role": "Founder",
+          "text": "Sardor understood our specific travel agency needs. The site he developed allowed us to automate 80% of our administrative tasks. More time for our clients, more sales! I highly recommend.",
+          "rating": 5
+        },
+        {
+          "name": "Sophie Martin",
+          "role": "Digital Manager",
+          "text": "Finally a site that sets us apart from the competition! Sardor created a unique experience that highlights our destinations. Our clients spend 3x more time on the site and conversion rate has doubled. Bravo!",
+          "rating": 5
+        },
+        {
+          "name": "Thomas Bernard",
+          "role": "Manager",
+          "text": "Sardor's professionalism is exceptional. He delivered on time, with all requested features and even more! The site is fast, secure and our clients only give us compliments. Thank you for this quality work!",
+          "rating": 5
+        },
+        {
+          "name": "Isabelle Moreau",
+          "role": "Commercial Director",
+          "text": "Sardor transformed our vision into digital reality! Our new site perfectly reflects our agency's spirit. The booking features are intuitive and our online sales keep growing. A trusted partner!",
+          "rating": 5
+        },
+        {
+          "name": "Pierre Rousseau",
+          "role": "Owner",
+          "text": "Thanks to Sardor's remarkable work, we finally have a site worthy of our ambitions. The design is elegant, navigation smooth and the secure payment system reassures our clients. Our digital revenue has tripled!",
+          "rating": 5
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked Questions About Travel Agency Website Creation",
+      "subtitle": "All answers to the questions you're asking yourself",
+      "questions": [
+        {
+          "question": "How much does creating a travel agency website cost?",
+          "answer": "The price varies according to your specific needs (number of destinations, booking features, integrations...). Our packages start from €2,500 for a showcase site up to €8,000 for a complete platform with advanced booking system. Contact us for a free personalized quote."
+        },
+        {
+          "question": "Is the online booking system secure?",
+          "answer": "Absolutely! We integrate PCI-DSS certified payment solutions (Stripe, PayPal) with 256-bit SSL encryption. All client data is protected according to European GDPR standards. Your clients can book with complete confidence."
+        },
+        {
+          "question": "Can I manage my site content myself?",
+          "answer": "Yes, your site will be equipped with an intuitive CMS allowing you to easily modify destinations, prices, photos and content. We train you on its use and remain available for any questions."
+        },
+        {
+          "question": "Will the site be well indexed on Google?",
+          "answer": "We optimize your site for SEO from creation: technical structure, travel keywords, optimized content, loading speed... You'll also benefit from advice to improve your local positioning in Boulogne-Billancourt."
+        },
+        {
+          "question": "How long does it take to create the site?",
+          "answer": "Development generally takes 3 to 4 weeks depending on complexity. We follow a precise schedule: 1 week for design, 2 weeks for development, then testing and training. You can track progress in real time."
+        },
+        {
+          "question": "Do you offer maintenance and updates?",
+          "answer": "Yes, we offer maintenance contracts including: automatic backups, security updates, technical support, and minor modifications. This guarantees the security and optimal performance of your site."
+        },
+        {
+          "question": "Will the site work on mobile and tablet?",
+          "answer": "All our sites are responsive design, meaning they automatically adapt to all screens (smartphone, tablet, computer). User experience is optimized for each device, essential when 70% of travel searches are done on mobile."
+        },
+        {
+          "question": "Can I integrate my social accounts and newsletter?",
+          "answer": "Of course! We integrate your social networks (Facebook, Instagram, Twitter) and configure a newsletter system to build client loyalty. You'll be able to share your most beautiful destinations and maintain the connection with your travelers."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Digitize Your Travel Agency?",
+      "subtitle": "Join the agencies that have chosen digital excellence. Get your personalized free quote in 24 hours.",
+      "primary": "Get my free quote",
+      "secondary": "View our work"
+    }
+  }
+}

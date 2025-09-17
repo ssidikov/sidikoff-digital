@@ -1,0 +1,266 @@
+{
+  "travel_agency_landing": {
+    "meta_title": "Création Site Internet Agence de Voyage - Sardor Sidikoff Digital",
+    "meta_description": "Création de sites web pour agences de voyage à Boulogne-Billancourt. Design professionnel, système de réservation, SEO optimisé. Devis gratuit !",
+    "keywords": ["création site agence voyage", "site web voyage", "réservation en ligne", "Boulogne-Billancourt", "tourisme digital"],
+    "hero": {
+      "title": "Site Web Professionnel pour Votre Agence de Voyage",
+      "subtitle": "Transformez votre passion pour les voyages en succès digital avec un site web sur mesure qui inspire et convertit vos visiteurs en clients",
+      "cta_primary": "Obtenir mon devis gratuit",
+      "cta_secondary": "Voir nos réalisations",
+      "stats_title": "Votre succès commence ici",
+      "stats_subtitle": "Des solutions complètes pour votre agence"
+    },
+    "pain_points": {
+      "title": "Les Défis des Agences de Voyage Modernes",
+      "subtitle": "Dans un marché ultra-concurrentiel, votre agence fait face à de nombreux obstacles qui freinent sa croissance",
+      "points": [
+        {
+          "icon": "globe",
+          "title": "Concurrence des plateformes en ligne",
+          "description": "Booking, Expedia et autres géants dominent les recherches et captent vos clients potentiels avec leurs budgets marketing massifs."
+        },
+        {
+          "icon": "map",
+          "title": "Processus de réservation obsolète",
+          "description": "Vos clients modernes veulent tout, tout de suite. Un processus de réservation lent ou compliqué les fait fuir vers la concurrence."
+        },
+        {
+          "icon": "compass",
+          "title": "Manque de visibilité en ligne",
+          "description": "Sans présence digitale forte, votre expertise et vos destinations uniques restent invisibles pour 95% de vos clients potentiels."
+        },
+        {
+          "icon": "plane",
+          "title": "Gestion manuelle chronophage",
+          "description": "Entre les devis, les modifications, les paiements... Vous perdez un temps précieux sur des tâches administratives au lieu de vendre."
+        },
+        {
+          "icon": "camera",
+          "title": "Difficulté à présenter vos destinations",
+          "description": "Comment faire rêver vos clients et leur donner envie de partir sans des visuels époustouflants et une présentation immersive ?"
+        }
+      ]
+    },
+    "solutions": {
+      "title": "Votre Solution Digitale Complète",
+      "subtitle": "Un site web professionnel qui transforme votre agence de voyage en leader digital de votre secteur",
+      "items": [
+        {
+          "icon": "globe",
+          "title": "Présence digitale premium",
+          "description": "Un site web élégant qui reflète le standing de votre agence et inspire confiance dès la première visite."
+        },
+        {
+          "icon": "heart",
+          "title": "Système de réservation intégré",
+          "description": "Vos clients réservent directement en ligne 24h/24, avec paiement sécurisé et confirmation automatique."
+        },
+        {
+          "icon": "users",
+          "title": "Gestion client automatisée",
+          "description": "CRM intégré, suivi des demandes, relances automatiques et gestion des groupes simplifiée."
+        },
+        {
+          "icon": "smartphone",
+          "title": "Expérience mobile parfaite",
+          "description": "80% de vos clients naviguent sur mobile. Votre site s'adapte parfaitement à tous les écrans."
+        },
+        {
+          "icon": "map",
+          "title": "Galerie destinations immersive",
+          "description": "Présentez vos destinations avec des galeries photos HD, vidéos et descriptions qui font rêver."
+        },
+        {
+          "icon": "compass",
+          "title": "SEO optimisé pour le voyage",
+          "description": "Positionnement Google sur vos destinations phares et mots-clés stratégiques du secteur voyage."
+        }
+      ]
+    },
+    "features": {
+      "title": "Fonctionnalités Avancées pour Agences de Voyage",
+      "subtitle": "Tout ce dont vous avez besoin pour digitaliser et automatiser votre activité",
+      "items": [
+        {
+          "icon": "plane",
+          "title": "Catalogue de voyages dynamique",
+          "description": "Présentez tous vos circuits, séjours et escapades avec descriptions détaillées, prix et disponibilités en temps réel."
+        },
+        {
+          "icon": "calendar",
+          "title": "Calendrier de disponibilités",
+          "description": "Vos clients voient instantanément les dates disponibles et peuvent réserver leur créneau préféré."
+        },
+        {
+          "icon": "users",
+          "title": "Gestion des groupes",
+          "description": "Organisez facilement vos voyages de groupe avec suivi des participants et paiements échelonnés."
+        },
+        {
+          "icon": "heart",
+          "title": "Wishlist et favoris",
+          "description": "Vos clients sauvegardent leurs voyages favoris et reviennent finaliser leur réservation plus tard."
+        },
+        {
+          "icon": "globe",
+          "title": "Carte interactive des destinations",
+          "description": "Explorez vos destinations sur une carte interactive avec photos, infos pratiques et météo."
+        },
+        {
+          "icon": "camera",
+          "title": "Blog voyage intégré",
+          "description": "Partagez vos conseils, récits de voyage et inspirations pour fidéliser votre audience."
+        },
+        {
+          "icon": "smartphone",
+          "title": "Notifications automatiques",
+          "description": "Relances de devis, confirmations de réservation et rappels de paiement entièrement automatisés."
+        },
+        {
+          "icon": "compass",
+          "title": "Système d'avis clients",
+          "description": "Collectez et affichez les témoignages de vos voyageurs pour rassurer vos futurs clients."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Les Bénéfices Concrets pour Votre Agence",
+      "subtitle": "Des résultats mesurables qui transforment votre business dès les premières semaines",
+      "items": [
+        {
+          "icon": "trendingDown",
+          "title": "+250% de visibilité en ligne",
+          "description": "Multipliez votre portée et touchez de nouveaux clients grâce à un référencement optimisé."
+        },
+        {
+          "icon": "checkCircle",
+          "title": "Réservations 24h/24",
+          "description": "Vos clients réservent même la nuit et le week-end, augmentant vos ventes de 40% en moyenne."
+        },
+        {
+          "icon": "users",
+          "title": "-70% de temps administratif",
+          "description": "Automatisation des tâches répétitives pour vous concentrer sur le conseil et la vente."
+        },
+        {
+          "icon": "heart",
+          "title": "Fidélisation renforcée",
+          "description": "Espace client personnalisé et newsletter pour maintenir le lien entre les voyages."
+        }
+      ]
+    },
+    "process": {
+      "title": "Notre Processus de Création en 4 Étapes",
+      "subtitle": "Une méthode éprouvée pour livrer votre site web professionnel en 3-4 semaines",
+      "steps": [
+        {
+          "number": "1",
+          "title": "Audit & Stratégie",
+          "description": "Analyse de votre activité, définition de vos objectifs et création de la stratégie digitale personnalisée."
+        },
+        {
+          "number": "2",
+          "title": "Design & Maquettes",
+          "description": "Création du design sur mesure et des maquettes interactives validées avec vous avant développement."
+        },
+        {
+          "number": "3",
+          "title": "Développement & Intégration",
+          "description": "Développement professionnel avec intégration du système de réservation et des fonctionnalités avancées."
+        },
+        {
+          "number": "4",
+          "title": "Formation & Lancement",
+          "description": "Formation complète à la gestion de votre site et lancement avec accompagnement sur 30 jours."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Ce Que Disent Nos Clients du Secteur Voyage",
+      "subtitle": "Des agences qui ont transformé leur business grâce à leur nouveau site web",
+      "items": [
+        {
+          "name": "Marie Dubois",
+          "role": "Directrice",
+          "text": "Depuis que Sardor a créé notre site, nos réservations en ligne ont explosé ! Le design est magnifique et le système de réservation fonctionne parfaitement. Nos clients adorent pouvoir tout faire en ligne. Un investissement qui s'est remboursé en 2 mois !",
+          "rating": 5
+        },
+        {
+          "name": "Antoine Leroux",
+          "role": "Fondateur",
+          "text": "Sardor a compris nos besoins spécifiques d'agence de voyage. Le site qu'il a développé nous a permis d'automatiser 80% de nos tâches administratives. Plus de temps pour nos clients, plus de ventes ! Je recommande vivement.",
+          "rating": 5
+        },
+        {
+          "name": "Sophie Martin",
+          "role": "Responsable Digital",
+          "text": "Enfin un site qui nous démarque de la concurrence ! Sardor a créé une expérience unique qui met en valeur nos destinations. Nos clients passent 3x plus de temps sur le site et le taux de conversion a doublé. Bravo !",
+          "rating": 5
+        },
+        {
+          "name": "Thomas Bernard",
+          "role": "Gérant",
+          "text": "Le professionnalisme de Sardor est exceptionnel. Il a livré dans les temps, avec toutes les fonctionnalités demandées et même plus ! Le site est rapide, sécurisé et nos clients nous font que des compliments. Merci pour ce travail de qualité !",
+          "rating": 5
+        },
+        {
+          "name": "Isabelle Moreau",
+          "role": "Directrice Commerciale",
+          "text": "Sardor a transformé notre vision en réalité digitale ! Notre nouveau site reflète parfaitement l'esprit de notre agence. Les fonctionnalités de réservation sont intuitives et nos ventes en ligne ne cessent de croître. Un partenaire de confiance !",
+          "rating": 5
+        },
+        {
+          "name": "Pierre Rousseau",
+          "role": "Propriétaire",
+          "text": "Grâce au travail remarquable de Sardor, nous avons enfin un site à la hauteur de nos ambitions. Le design est élégant, la navigation fluide et le système de paiement sécurisé rassure nos clients. Notre chiffre d'affaires digital a triplé !",
+          "rating": 5
+        }
+      ]
+    },
+    "faq": {
+      "title": "Questions Fréquentes sur la Création de Sites pour Agences de Voyage",
+      "subtitle": "Toutes les réponses aux questions que vous vous posez",
+      "questions": [
+        {
+          "question": "Combien coûte la création d'un site web pour une agence de voyage ?",
+          "answer": "Le prix varie selon vos besoins spécifiques (nombre de destinations, fonctionnalités de réservation, intégrations...). Nos forfaits commencent à partir de 2 500€ pour un site vitrine jusqu'à 8 000€ pour une plateforme complète avec système de réservation avancé. Contactez-nous pour un devis personnalisé gratuit."
+        },
+        {
+          "question": "Le système de réservation en ligne est-il sécurisé ?",
+          "answer": "Absolument ! Nous intégrons des solutions de paiement certifiées PCI-DSS (Stripe, PayPal) avec cryptage SSL 256 bits. Toutes les données clients sont protégées selon les standards RGPD européens. Vos clients peuvent réserver en toute confiance."
+        },
+        {
+          "question": "Puis-je gérer le contenu de mon site moi-même ?",
+          "answer": "Oui, votre site sera équipé d'un CMS intuitif vous permettant de modifier facilement les destinations, prix, photos et contenus. Nous vous formons à son utilisation et restons disponibles pour toute question."
+        },
+        {
+          "question": "Le site sera-t-il bien référencé sur Google ?",
+          "answer": "Nous optimisons votre site pour le SEO dès la création : structure technique, mots-clés du voyage, contenus optimisés, vitesse de chargement... Vous bénéficierez également de conseils pour améliorer votre positionnement local à Boulogne-Billancourt."
+        },
+        {
+          "question": "Combien de temps faut-il pour créer le site ?",
+          "answer": "Le développement prend généralement 3 à 4 semaines selon la complexité. Nous suivons un planning précis : 1 semaine pour le design, 2 semaines pour le développement, puis tests et formations. Vous pouvez suivre l'avancement en temps réel."
+        },
+        {
+          "question": "Proposez-vous la maintenance et les mises à jour ?",
+          "answer": "Oui, nous proposons des contrats de maintenance incluant : sauvegardes automatiques, mises à jour de sécurité, support technique, et modifications mineures. Cela garantit la sécurité et les performances optimales de votre site."
+        },
+        {
+          "question": "Le site fonctionnera-t-il sur mobile et tablette ?",
+          "answer": "Tous nos sites sont responsive design, c'est-à-dire qu'ils s'adaptent automatiquement à tous les écrans (smartphone, tablette, ordinateur). L'expérience utilisateur est optimisée pour chaque appareil, essentiel quand 70% des recherches voyage se font sur mobile."
+        },
+        {
+          "question": "Puis-je intégrer mes comptes sociaux et newsletter ?",
+          "answer": "Bien sûr ! Nous intégrons vos réseaux sociaux (Facebook, Instagram, Twitter) et configurons un système de newsletter pour fidéliser votre clientèle. Vous pourrez partager vos plus belles destinations et maintenir le lien avec vos voyageurs."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Prêt à Digitaliser Votre Agence de Voyage ?",
+      "subtitle": "Rejoignez les agences qui ont choisi l'excellence digitale. Obtenez votre devis personnalisé gratuit en 24h.",
+      "primary": "Obtenir mon devis gratuit",
+      "secondary": "Voir nos réalisations"
+    }
+  }
+}

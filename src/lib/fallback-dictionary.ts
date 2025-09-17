@@ -2553,4 +2553,130 @@ export const fallbackDictionary: Dictionary = {
       button: 'Get my free quote',
     },
   },
+  travel_agency_landing: {
+    meta_title: 'Travel Agency Website Creation - Professional Web Solutions',
+    meta_description: 'Create a professional travel agency website with booking system, destination galleries, and SEO optimization.',
+    keywords: ['travel agency website', 'booking system', 'travel website design', 'tourism digital solutions'],
+    hero: {
+      title: 'Professional Website for Your Travel Agency',
+      subtitle: 'Transform your travel expertise into digital success with a custom website that inspires and converts visitors into clients',
+      cta_primary: 'Get Free Quote',
+      cta_secondary: 'View Our Work',
+      stats_title: 'Your Success Starts Here',
+      stats_subtitle: 'Complete solutions for your agency'
+    },
+    pain_points: {
+      title: 'Modern Travel Agency Challenges',
+      subtitle: 'In an ultra-competitive market, your agency faces numerous obstacles that hinder growth',
+      points: [
+        {
+          icon: 'globe',
+          title: 'Online Platform Competition',
+          description: 'Booking giants dominate searches and capture your potential clients with massive marketing budgets.'
+        },
+        {
+          icon: 'map',
+          title: 'Outdated Booking Process',
+          description: 'Modern clients want everything instantly. Slow or complicated booking drives them to competitors.'
+        },
+        {
+          icon: 'compass',
+          title: 'Limited Online Visibility',
+          description: 'Without strong digital presence, your expertise remains invisible to 95% of potential clients.'
+        }
+      ]
+    },
+    solutions: {
+      title: 'Your Complete Digital Solution',
+      subtitle: 'Professional website that transforms your travel agency into a digital leader',
+      items: [
+        {
+          icon: 'globe',
+          title: 'Premium Digital Presence',
+          description: 'Elegant website reflecting your agency status and inspiring confidence from first visit.'
+        },
+        {
+          icon: 'heart',
+          title: 'Integrated Booking System',
+          description: 'Clients book directly online 24/7 with secure payment and automatic confirmation.'
+        }
+      ]
+    },
+    features: {
+      title: 'Advanced Features for Travel Agencies',
+      subtitle: 'Everything needed to digitize and automate your activity',
+      items: [
+        {
+          icon: 'plane',
+          title: 'Dynamic Travel Catalog',
+          description: 'Present all tours with detailed descriptions, prices and real-time availability.'
+        },
+        {
+          icon: 'calendar',
+          title: 'Availability Calendar',
+          description: 'Clients instantly see available dates and book their preferred slots.'
+        }
+      ]
+    },
+    benefits: {
+      title: 'Concrete Benefits for Your Agency',
+      subtitle: 'Measurable results that transform your business from the first weeks',
+      items: [
+        {
+          icon: 'trendingDown',
+          title: '+250% Online Visibility',
+          description: 'Multiply reach and attract new clients through optimized SEO.'
+        },
+        {
+          icon: 'checkCircle',
+          title: '24/7 Bookings',
+          description: 'Clients book even nights and weekends, increasing sales by 40% average.'
+        }
+      ]
+    },
+    process: {
+      title: 'Our 4-Step Creation Process',
+      subtitle: 'Proven method to deliver your professional website in 3-4 weeks',
+      steps: [
+        {
+          number: '1',
+          title: 'Audit & Strategy',
+          description: 'Activity analysis, objective definition and personalized digital strategy creation.'
+        },
+        {
+          number: '2',
+          title: 'Design & Mockups',
+          description: 'Custom design creation and interactive mockups validated before development.'
+        }
+      ]
+    },
+    testimonials: {
+      title: 'What Our Travel Sector Clients Say',
+      subtitle: 'Agencies that transformed their business with new websites',
+      items: [
+        {
+          name: 'Marie Dubois',
+          role: 'Director',
+          text: 'Since our new site launch, online bookings exploded! Design is magnificent and booking system works perfectly.',
+          rating: 5
+        }
+      ]
+    },
+    faq: {
+      title: 'Frequently Asked Questions',
+      subtitle: 'All answers to your questions about travel agency websites',
+      questions: [
+        {
+          question: 'How much does a travel agency website cost?',
+          answer: 'Price varies by specific needs. Our packages start from €2,500 for showcase sites up to €8,000 for complete platforms.'
+        }
+      ]
+    },
+    cta: {
+      title: 'Ready to Digitize Your Travel Agency?',
+      subtitle: 'Join agencies that chose digital excellence. Get your personalized quote in 24 hours.',
+      primary: 'Get Free Quote',
+      secondary: 'View Our Work'
+    }
+  },
 }

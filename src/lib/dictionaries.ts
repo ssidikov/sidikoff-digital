@@ -1235,6 +1235,89 @@ export interface Dictionary {
       button: string
     }
   }
+  travel_agency_landing: {
+    meta_title: string
+    meta_description: string
+    keywords: string[]
+    hero: {
+      title: string
+      subtitle: string
+      cta_primary: string
+      cta_secondary: string
+      stats_title: string
+      stats_subtitle: string
+    }
+    pain_points: {
+      title: string
+      subtitle: string
+      points: Array<{
+        icon: string
+        title: string
+        description: string
+      }>
+    }
+    solutions: {
+      title: string
+      subtitle: string
+      items: Array<{
+        icon: string
+        title: string
+        description: string
+      }>
+    }
+    features: {
+      title: string
+      subtitle: string
+      items: Array<{
+        icon: string
+        title: string
+        description: string
+      }>
+    }
+    benefits: {
+      title: string
+      subtitle: string
+      items: Array<{
+        icon: string
+        title: string
+        description: string
+      }>
+    }
+    process: {
+      title: string
+      subtitle: string
+      steps: Array<{
+        number: string
+        title: string
+        description: string
+      }>
+    }
+    testimonials: {
+      title: string
+      subtitle: string
+      items: Array<{
+        name: string
+        role: string
+        text: string
+        rating: number
+        image?: string
+      }>
+    }
+    faq: {
+      title: string
+      subtitle: string
+      questions: Array<{
+        question: string
+        answer: string
+      }>
+    }
+    cta: {
+      title: string
+      subtitle: string
+      primary: string
+      secondary: string
+    }
+  }
 }
 
 // Cache for dictionaries with TTL
@@ -1253,6 +1336,15 @@ const dictionaries = {
   fr: () => import('../../locales/fr/common.json').then((module) => module.default),
   en: () => import('../../locales/en/common.json').then((module) => module.default),
   ru: () => import('../../locales/ru/common.json').then((module) => module.default),
+} as const
+
+/**
+ * Travel agency landing page dictionaries
+ */
+const travelAgencyDictionaries = {
+  fr: () => import('../../locales/fr/travel_agency_landing.json').then((module) => module.default),
+  en: () => import('../../locales/en/travel_agency_landing.json').then((module) => module.default),
+  ru: () => import('../../locales/ru/travel_agency_landing.json').then((module) => module.default),
 } as const
 
 /**
@@ -1280,6 +1372,14 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
 
   try {
     const localeData = await dictionaries[locale]()
+    
+    // Load travel agency landing data
+    let travelAgencyData: Record<string, unknown> = {}
+    try {
+      travelAgencyData = await travelAgencyDictionaries[locale]()
+    } catch (error) {
+      console.warn(`Failed to load travel agency landing data for locale: ${locale}`, error)
+    }
 
     // Check if landing data is nested in services or testimonials
     const typedLocaleData = localeData as Record<string, unknown>
@@ -1288,6 +1388,12 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
 
     // Extract landing pages from services if they exist there
     const extractedData = { ...typedLocaleData }
+    
+    // Add travel agency landing data
+    if (travelAgencyData && travelAgencyData.travel_agency_landing) {
+      extractedData.travel_agency_landing = travelAgencyData.travel_agency_landing
+    }
+    
     if (servicesData) {
       // Move landing pages from services to top level
       if (servicesData.web_creation_landing) {
