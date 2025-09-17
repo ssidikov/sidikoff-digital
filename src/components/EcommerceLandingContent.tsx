@@ -85,21 +85,21 @@ interface FAQ {
 
 const iconMap = {
   'trending-up': TrendingUp,
-  'users': Users,
-  'shield': Shield,
-  'search': Search,
+  users: Users,
+  shield: Shield,
+  search: Search,
   'shopping-cart': ShoppingCart,
   'credit-card': CreditCard,
-  'package': Package,
-  'smartphone': Smartphone,
-  'star': Star,
-  'award': Award,
+  package: Package,
+  smartphone: Smartphone,
+  star: Star,
+  award: Award,
   'file-text': FileText,
-  'globe': Globe,
-  'zap': Zap,
+  globe: Globe,
+  zap: Zap,
   'bar-chart-3': BarChart3,
-  'target': Target,
-  'palette': Palette,
+  target: Target,
+  palette: Palette,
 }
 
 export default function EcommerceLandingContent({
@@ -119,7 +119,7 @@ export default function EcommerceLandingContent({
       {/* Hero Section */}
       <section className='relative pt-24 md:pt-32 pb-24 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden'>
         <div className='absolute inset-0 bg-[url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%233b82f6" fill-opacity="0.03"%3E%3Ccircle cx="30" cy="30" r="4"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")] opacity-30'></div>
-        
+
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
             <motion.div
@@ -127,7 +127,6 @@ export default function EcommerceLandingContent({
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               className='space-y-8'>
-              
               <div className='inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium'>
                 <ShoppingCart className='w-4 h-4 mr-2' />
                 {t.hero.badge}
@@ -137,10 +136,8 @@ export default function EcommerceLandingContent({
                 <h1 className='text-4xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6'>
                   {t.hero.title}
                 </h1>
-                <p className='text-xl text-gray-600 leading-relaxed mb-8'>
-                  {t.hero.description}
-                </p>
-                
+                <p className='text-xl text-gray-600 leading-relaxed mb-8'>{t.hero.description}</p>
+
                 <div className='space-y-4 mb-8'>
                   {t.hero.benefits?.map((benefit: string, index: number) => (
                     <motion.div
@@ -206,9 +203,7 @@ export default function EcommerceLandingContent({
             <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
               {t.problems.title}
             </h2>
-            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-              {t.problems.description}
-            </p>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.problems.description}</p>
           </motion.div>
 
           <div className='grid md:grid-cols-3 gap-8'>
@@ -223,12 +218,8 @@ export default function EcommerceLandingContent({
                 <div className='w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mb-6'>
                   {renderIcon(point.icon, 'w-8 h-8 text-red-600')}
                 </div>
-                <h3 className='text-xl font-semibold text-gray-900 mb-4'>
-                  {point.title}
-                </h3>
-                <p className='text-gray-600 leading-relaxed'>
-                  {point.description}
-                </p>
+                <h3 className='text-xl font-semibold text-gray-900 mb-4'>{point.title}</h3>
+                <p className='text-gray-600 leading-relaxed'>{point.description}</p>
               </motion.div>
             ))}
           </div>
@@ -247,9 +238,7 @@ export default function EcommerceLandingContent({
             <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
               {t.solution.title}
             </h2>
-            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-              {t.solution.description}
-            </p>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.solution.description}</p>
           </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -264,12 +253,8 @@ export default function EcommerceLandingContent({
                 <div className='w-16 h-16 bg-blue-500 rounded-lg flex items-center justify-center mb-6'>
                   {renderIcon(feature.icon, 'w-8 h-8 text-white')}
                 </div>
-                <h3 className='text-xl font-semibold text-gray-900 mb-4'>
-                  {feature.title}
-                </h3>
-                <p className='text-gray-600 leading-relaxed'>
-                  {feature.description}
-                </p>
+                <h3 className='text-xl font-semibold text-gray-900 mb-4'>{feature.title}</h3>
+                <p className='text-gray-600 leading-relaxed'>{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -285,12 +270,8 @@ export default function EcommerceLandingContent({
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className='text-center mb-16'>
-            <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
-              {t.process.title}
-            </h2>
-            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-              {t.process.description}
-            </p>
+            <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>{t.process.title}</h2>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.process.description}</p>
           </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
@@ -305,12 +286,8 @@ export default function EcommerceLandingContent({
                 <div className='w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6'>
                   {index + 1}
                 </div>
-                <h3 className='text-xl font-semibold text-gray-900 mb-4'>
-                  {step.title}
-                </h3>
-                <p className='text-gray-600 leading-relaxed'>
-                  {step.description}
-                </p>
+                <h3 className='text-xl font-semibold text-gray-900 mb-4'>{step.title}</h3>
+                <p className='text-gray-600 leading-relaxed'>{step.description}</p>
               </motion.div>
             ))}
           </div>
@@ -329,9 +306,7 @@ export default function EcommerceLandingContent({
             <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
               {t.portfolio.title}
             </h2>
-            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-              {t.portfolio.description}
-            </p>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.portfolio.description}</p>
           </motion.div>
 
           <div className='grid md:grid-cols-3 gap-8'>
@@ -352,12 +327,8 @@ export default function EcommerceLandingContent({
                   />
                 </div>
                 <div className='p-6'>
-                  <div className='text-sm text-blue-600 font-medium mb-2'>
-                    {project.type}
-                  </div>
-                  <h3 className='text-xl font-semibold text-gray-900 mb-4'>
-                    {project.name}
-                  </h3>
+                  <div className='text-sm text-blue-600 font-medium mb-2'>{project.type}</div>
+                  <h3 className='text-xl font-semibold text-gray-900 mb-4'>{project.name}</h3>
                   <div className='space-y-2'>
                     {project.results.map((result, resultIndex) => (
                       <div key={resultIndex} className='flex items-center text-gray-600'>
@@ -385,9 +356,7 @@ export default function EcommerceLandingContent({
             <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
               {t.testimonials.title}
             </h2>
-            <p className='text-xl text-gray-600'>
-              {t.testimonials.subtitle}
-            </p>
+            <p className='text-xl text-gray-600'>{t.testimonials.subtitle}</p>
           </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -404,9 +373,7 @@ export default function EcommerceLandingContent({
                     <Star key={i} className='w-5 h-5 text-yellow-400 fill-current' />
                   ))}
                 </div>
-                <p className='text-gray-600 mb-6 leading-relaxed'>
-                  &ldquo;{review.content}&rdquo;
-                </p>
+                <p className='text-gray-600 mb-6 leading-relaxed'>&ldquo;{review.content}&rdquo;</p>
                 <div className='flex items-center'>
                   <div className='relative w-12 h-12 rounded-full overflow-hidden mr-4'>
                     <Image
@@ -439,12 +406,8 @@ export default function EcommerceLandingContent({
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className='text-center mb-16'>
-            <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
-              {t.pricing.title}
-            </h2>
-            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-              {t.pricing.description}
-            </p>
+            <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>{t.pricing.title}</h2>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.pricing.description}</p>
           </motion.div>
 
           <div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
@@ -456,11 +419,8 @@ export default function EcommerceLandingContent({
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
                 className={`relative bg-white rounded-2xl shadow-lg p-8 ${
-                  pkg.is_popular
-                    ? 'ring-2 ring-blue-500 shadow-2xl scale-105'
-                    : 'hover:shadow-xl'
+                  pkg.is_popular ? 'ring-2 ring-blue-500 shadow-2xl scale-105' : 'hover:shadow-xl'
                 } transition-all duration-300`}>
-                
                 {pkg.is_popular && (
                   <div className='absolute -top-4 left-1/2 transform -translate-x-1/2'>
                     <span className='bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium'>
@@ -470,17 +430,11 @@ export default function EcommerceLandingContent({
                 )}
 
                 <div className='text-center mb-8'>
-                  <h3 className='text-2xl font-bold text-gray-900 mb-2'>
-                    {pkg.name}
-                  </h3>
-                  <div className='text-4xl font-bold text-blue-600 mb-2'>
-                    {pkg.price}
-                  </div>
+                  <h3 className='text-2xl font-bold text-gray-900 mb-2'>{pkg.name}</h3>
+                  <div className='text-4xl font-bold text-blue-600 mb-2'>{pkg.price}</div>
                   <div className='text-gray-600'>{pkg.period}</div>
                   {pkg.delivery_time && (
-                    <div className='text-sm text-blue-600 mt-2'>
-                      {pkg.delivery_time}
-                    </div>
+                    <div className='text-sm text-blue-600 mt-2'>{pkg.delivery_time}</div>
                   )}
                 </div>
 
@@ -519,12 +473,8 @@ export default function EcommerceLandingContent({
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className='text-center mb-16'>
-            <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
-              {t.faq.title}
-            </h2>
-            <p className='text-xl text-gray-600'>
-              {t.faq.description}
-            </p>
+            <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>{t.faq.title}</h2>
+            <p className='text-xl text-gray-600'>{t.faq.description}</p>
           </motion.div>
 
           <div className='space-y-6'>
@@ -539,9 +489,7 @@ export default function EcommerceLandingContent({
                 <button
                   className='w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors'
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}>
-                  <h3 className='text-lg font-semibold text-gray-900 pr-4'>
-                    {item.question}
-                  </h3>
+                  <h3 className='text-lg font-semibold text-gray-900 pr-4'>{item.question}</h3>
                   {openFaq === index ? (
                     <ChevronUp className='w-5 h-5 text-blue-600 flex-shrink-0' />
                   ) : (
@@ -550,9 +498,7 @@ export default function EcommerceLandingContent({
                 </button>
                 {openFaq === index && (
                   <div className='px-8 pb-6'>
-                    <p className='text-gray-600 leading-relaxed'>
-                      {item.answer}
-                    </p>
+                    <p className='text-gray-600 leading-relaxed'>{item.answer}</p>
                   </div>
                 )}
               </motion.div>
@@ -569,12 +515,8 @@ export default function EcommerceLandingContent({
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}>
-            <h2 className='text-3xl lg:text-4xl font-bold text-white mb-6'>
-              {t.cta.title}
-            </h2>
-            <p className='text-xl text-blue-100 mb-8 max-w-2xl mx-auto'>
-              {t.cta.description}
-            </p>
+            <h2 className='text-3xl lg:text-4xl font-bold text-white mb-6'>{t.cta.title}</h2>
+            <p className='text-xl text-blue-100 mb-8 max-w-2xl mx-auto'>{t.cta.description}</p>
             <Link
               href={`/${locale}/contact`}
               className='inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors'>
