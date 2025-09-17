@@ -1372,7 +1372,7 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
 
   try {
     const localeData = await dictionaries[locale]()
-    
+
     // Load travel agency landing data
     let travelAgencyData: Record<string, unknown> = {}
     try {
@@ -1388,12 +1388,12 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
 
     // Extract landing pages from services if they exist there
     const extractedData = { ...typedLocaleData }
-    
+
     // Add travel agency landing data
     if (travelAgencyData && travelAgencyData.travel_agency_landing) {
       extractedData.travel_agency_landing = travelAgencyData.travel_agency_landing
     }
-    
+
     if (servicesData) {
       // Move landing pages from services to top level
       if (servicesData.web_creation_landing) {

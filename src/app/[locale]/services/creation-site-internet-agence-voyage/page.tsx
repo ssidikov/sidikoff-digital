@@ -52,10 +52,5 @@ export default async function TravelAgencyLandingPage(props: Props) {
   const params = await props.params
   const dict = await getDictionary(params.locale)
 
-  return (
-    <TravelAgencyLandingContent
-      dictionary={dict}
-      locale={params.locale}
-    />
-  )
+  return <TravelAgencyLandingContent dictionary={dict} locale={params.locale} />
 }

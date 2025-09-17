@@ -367,13 +367,13 @@ const TravelAgencyLandingContent: React.FC<TravelAgencyLandingContentProps> = ({
 
       {/* Benefits Section */}
       <section className='py-20 relative overflow-hidden'>
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
+        <div
+          className='absolute inset-0 bg-cover bg-center'
           style={{
-            backgroundImage: 'url("/images/services/travel/travel-destinations.jpg")'
+            backgroundImage: 'url("/images/services/travel/travel-destinations.jpg")',
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-green-50/90 to-blue-50/90" />
+        <div className='absolute inset-0 bg-gradient-to-br from-green-50/90 to-blue-50/90' />
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -557,13 +557,13 @@ const TravelAgencyLandingContent: React.FC<TravelAgencyLandingContentProps> = ({
 
       {/* CTA Section */}
       <section className='py-20 relative overflow-hidden text-white'>
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
+        <div
+          className='absolute inset-0 bg-cover bg-center'
           style={{
-            backgroundImage: 'url("/images/services/travel/business-growth.jpg")'
+            backgroundImage: 'url("/images/services/travel/business-growth.jpg")',
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/85 via-blue-800/85 to-blue-600/85" />
+        <div className='absolute inset-0 bg-gradient-to-br from-blue-900/85 via-blue-800/85 to-blue-600/85' />
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10'>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
