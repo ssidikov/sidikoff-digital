@@ -77,6 +77,7 @@ const nextSitemapConfig = {
       '/services/creation-site-internet-paris',
       '/services/creation-site-internet-paris-16',
       '/services/creation-site-internet-toulouse',
+      '/services/creation-site-internet-boulogne-billancourt',
       '/services/creation-site-internet-cafe-paris',
       '/services/restaurant-websites',
       '/services/refonte-sites-web',
