@@ -2641,5 +2641,271 @@
       "description": "Rejoignez les centaines de praticiens qui ont développé leur patientèle avec un site web professionnel.",
       "button": "Obtenir mon devis gratuit"
     }
+  },
+  "ecommerce_landing": {
+    "meta_title": "Création Site E-commerce | Boutiques & Marketplaces | Sidikoff Digital",
+    "meta_description": "Sites E-commerce sur mesure : boutiques en ligne, magasins et marketplaces. Next.js, React, Shopify, WooCommerce. SEO optimisé France. Devis gratuit.",
+    "keywords": [
+      "création site e-commerce",
+      "boutique en ligne",
+      "marketplace",
+      "magasin en ligne",
+      "site e-commerce France",
+      "développement e-commerce",
+      "Shopify, WooCommerce",
+      "WooCommerce"
+    ],
+    "hero": {
+      "badge": "E-commerce & Boutiques",
+      "title": "Sites E-commerce : boutiques, magasins et marketplaces",
+      "description": "Offrez à votre entreprise une vitrine en ligne performante. Nous créons des sites E-commerce sur mesure avec un design professionnel et une optimisation SEO pour générer des ventes.",
+      "image_alt": "Boutique en ligne moderne avec interface e-commerce",
+      "benefits": [
+        "Sites sur mesure avec Next.js, React, Shopify, WooCommerce",
+        "Paiements sécurisés : CB, PayPal, Stripe",
+        "SEO optimisé pour le marché français",
+        "Design moderne et UX optimisée",
+        "Gestion facile des produits et stocks"
+      ],
+      "cta_primary": "Lancer mon e-commerce",
+      "cta_secondary": "Voir nos réalisations"
+    },
+    "problems": {
+      "title": "Les défis du commerce en ligne aujourd'hui",
+      "description": "Le e-commerce évolue rapidement et la concurrence est forte. Votre site doit se démarquer.",
+      "pain_points": [
+        {
+          "icon": "trending-up",
+          "title": "Concurrence intense",
+          "description": "Des milliers de boutiques en ligne se disputent l'attention des consommateurs français."
+        },
+        {
+          "icon": "users",
+          "title": "Expérience utilisateur complexe",
+          "description": "Les clients abandonnent leur panier si le site n'est pas intuitif et rapide."
+        },
+        {
+          "icon": "search",
+          "title": "Visibilité insuffisante",
+          "description": "Sans SEO optimisé, votre boutique reste invisible dans les résultats Google."
+        }
+      ]
+    },
+    "solution": {
+      "title": "Nos solutions E-commerce performantes",
+      "description": "Nous créons des boutiques en ligne qui convertissent les visiteurs en clients fidèles.",
+      "features": [
+        {
+          "icon": "shopping-cart",
+          "title": "Boutiques sur mesure",
+          "description": "Design élégant et moderne pour mettre en valeur vos produits avec images haute résolution."
+        },
+        {
+          "icon": "credit-card",
+          "title": "Paiements sécurisés",
+          "description": "Intégration complète avec CB, PayPal, Stripe pour des transactions fluides et sécurisées."
+        },
+        {
+          "icon": "package",
+          "title": "Gestion des stocks",
+          "description": "Interface intuitive pour gérer facilement vos produits, catégories et inventaire."
+        },
+        {
+          "icon": "smartphone",
+          "title": "Mobile-first",
+          "description": "Site responsive optimisé pour smartphones et tablettes, où vos clients achètent."
+        },
+        {
+          "icon": "search",
+          "title": "SEO E-commerce",
+          "description": "Optimisation spécialisée pour que vos produits apparaissent dans les recherches Google."
+        },
+        {
+          "icon": "bar-chart-3",
+          "title": "Analytics avancés",
+          "description": "Tableaux de bord détaillés pour suivre vos ventes et optimiser vos performances."
+        }
+      ]
+    },
+    "process": {
+      "title": "Notre processus de création E-commerce",
+      "description": "Une méthode éprouvée pour lancer votre boutique en ligne avec succès",
+      "steps": [
+        {
+          "title": "Analyse de marché",
+          "description": "Étude de votre secteur, concurrents et stratégie e-commerce optimale."
+        },
+        {
+          "title": "Design & UX",
+          "description": "Création d'une interface attractive qui guide vos clients vers l'achat."
+        },
+        {
+          "title": "Développement technique",
+          "description": "Programmation avec les dernières technologies : Next.js, React, ou CMS spécialisés."
+        },
+        {
+          "title": "Tests & lancement",
+          "description": "Tests complets, formation à la gestion et lancement de votre boutique."
+        }
+      ]
+    },
+    "portfolio": {
+      "title": "E-commerces que nous avons créés",
+      "description": "Découvrez comment nous avons aidé des entreprises à réussir en ligne",
+      "projects": [
+        {
+          "name": "Boutique Mode Parisienne",
+          "type": "Fashion E-commerce",
+          "image": "ecommerce-fashion-boutique.webp",
+          "results": [
+            "+300% ventes en ligne",
+            "+180% taux de conversion"
+          ]
+        },
+        {
+          "name": "Marketplace Artisans Local",
+          "type": "Multi-vendeurs Marketplace",
+          "image": "ecommerce-marketplace-artisans.webp",
+          "results": [
+            "50+ vendeurs actifs",
+            "+250% GMV mensuel"
+          ]
+        },
+        {
+          "name": "Magasin Bio & Naturel",
+          "type": "E-commerce Alimentaire",
+          "image": "ecommerce-organic-store.webp",
+          "results": [
+            "+200% commandes en ligne",
+            "+150% panier moyen"
+          ]
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Ce que disent nos clients E-commerce",
+      "subtitle": "Témoignages authentiques d'entrepreneurs qui réussissent en ligne",
+      "reviews": [
+        {
+          "name": "Sophie Martineau",
+          "position": "Fondatrice",
+          "company": "Boutique Mode Parisienne",
+          "location": "Paris",
+          "content": "Grâce à Sidikoff Digital, notre boutique en ligne est devenue notre principal canal de vente. Le site est rapide, attractif et nos ventes ont triplé !",
+          "rating": 5,
+          "image": "sophie-martineau.webp"
+        },
+        {
+          "name": "Thomas Dubois",
+          "position": "CEO",
+          "company": "Marketplace Artisans",
+          "location": "Lyon",
+          "content": "Notre marketplace fonctionne parfaitement. Les vendeurs gèrent facilement leurs produits et le SEO local nous apporte de nombreux clients dans toute la France.",
+          "rating": 5,
+          "image": "thomas-dubois.webp"
+        },
+        {
+          "name": "Marie Leclerc",
+          "position": "Propriétaire",
+          "company": "Bio & Naturel",
+          "location": "Bordeaux",
+          "content": "L'équipe a parfaitement compris nos besoins. Le site reflète nos valeurs bio et les commandes en ligne ont explosé depuis le lancement.",
+          "rating": 5,
+          "image": "marie-leclerc.webp"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Forfaits E-commerce adaptés à votre business",
+      "description": "Solutions complètes pour boutiques, magasins et marketplaces",
+      "packages": [
+        {
+          "name": "Boutique Essential",
+          "price": "€2,499",
+          "period": "projet complet",
+          "delivery_time": "Livré en 4-6 semaines",
+          "description": "Parfait pour lancer votre première boutique en ligne",
+          "features": [
+            "Jusqu'à 100 produits",
+            "Design e-commerce responsive",
+            "Panier et checkout optimisés",
+            "Paiements CB, PayPal, Stripe",
+            "Gestion des stocks",
+            "SEO de base optimisé",
+            "Formation à la gestion",
+            "Hébergement sécurisé 1 an"
+          ]
+        },
+        {
+          "name": "Commerce Pro",
+          "price": "€4,299",
+          "period": "projet complet",
+          "delivery_time": "Livré en 6-8 semaines",
+          "is_popular": true,
+          "description": "Solution complète pour commerces ambitieux",
+          "features": [
+            "Produits illimités",
+            "Tout du forfait Essential",
+            "Système de promotions avancé",
+            "Comptes clients et fidélisation",
+            "Analytics e-commerce détaillés",
+            "SEO e-commerce avancé",
+            "Intégration réseaux sociaux",
+            "Système d'avis clients",
+            "Support prioritaire 6 mois"
+          ]
+        },
+        {
+          "name": "Marketplace Master",
+          "price": "€7,999",
+          "period": "projet complet",
+          "delivery_time": "Livré en 8-12 semaines",
+          "description": "Solution premium pour marketplaces multi-vendeurs",
+          "features": [
+            "Tout du forfait Pro",
+            "Gestion multi-vendeurs",
+            "Système de commissions automatisé",
+            "Tableau de bord vendeurs",
+            "Modération des produits",
+            "Paiements multi-vendeurs",
+            "API et intégrations avancées",
+            "Architecture scalable",
+            "Formation équipe complète",
+            "Maintenance 1 an incluse"
+          ]
+        }
+      ]
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "description": "Réponses aux questions les plus courantes sur nos sites E-commerce",
+      "questions": [
+        {
+          "question": "Quelle plateforme utilisez-vous pour les sites E-commerce ?",
+          "answer": "Nous utilisons les meilleures technologies selon vos besoins : Next.js/React pour du sur-mesure, Shopify pour du rapide, WooCommerce pour du flexible, ou des solutions custom pour les marketplaces."
+        },
+        {
+          "question": "Comment gérez-vous les paiements et la sécurité ?",
+          "answer": "Nous intégrons les solutions de paiement les plus sûres (Stripe, PayPal, banques françaises) avec chiffrement SSL et conformité aux standards PCI DSS pour protéger vos transactions."
+        },
+        {
+          "question": "Le site sera-t-il optimisé pour le SEO ?",
+          "answer": "Absolument ! Chaque page produit, catégorie et contenu est optimisé pour le référencement français. Nous travaillons la vitesse, les mots-clés et l'expérience utilisateur."
+        },
+        {
+          "question": "Puis-je gérer mon stock et mes commandes facilement ?",
+          "answer": "Oui, nous créons un tableau de bord intuitif où vous pouvez gérer vos produits, stocks, commandes et clients. Formation complète incluse."
+        },
+        {
+          "question": "Proposez-vous la maintenance et les mises à jour ?",
+          "answer": "Nous assurons la maintenance technique, les sauvegardes, mises à jour de sécurité et support. Votre e-commerce reste toujours performant et sécurisé."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Prêt à lancer votre succès E-commerce ?",
+      "description": "Rejoignez les entreprises qui ont choisi l'excellence pour leur boutique en ligne et génèrent des ventes 24h/24.",
+      "button": "Obtenir mon devis gratuit"
+    }
   }
 }

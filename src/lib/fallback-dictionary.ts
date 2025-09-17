@@ -2252,4 +2252,261 @@ export const fallbackDictionary: Dictionary = {
       button: 'Get my free quote',
     },
   },
+  ecommerce_landing: {
+    meta_title: 'E-commerce Website Creation | Online Stores & Marketplaces | Sidikoff Digital',
+    meta_description: 'Custom E-commerce websites: online stores, shops and marketplaces. Next.js, React, Shopify, WooCommerce. SEO optimized. Free quote.',
+    keywords: ['ecommerce website creation', 'online store', 'marketplace', 'online shop', 'ecommerce France', 'ecommerce development', 'Shopify', 'WooCommerce'],
+    hero: {
+      badge: 'E-commerce & Online Stores',
+      title: 'E-commerce sites: stores, shops and marketplaces',
+      description: 'Give your business a high-performing online presence. We create custom E-commerce sites with professional design and SEO optimization to generate sales.',
+      image_alt: 'Modern online store with e-commerce interface',
+      benefits: [
+        'Custom sites with Next.js, React, Shopify',
+        'Secure payments: Credit Card, PayPal, Stripe',
+        'SEO optimized for French market',
+        'Modern design and optimized UX',
+        'Easy product and inventory management'
+      ],
+      cta_primary: 'Launch my e-commerce',
+      cta_secondary: 'View our work'
+    },
+    problems: {
+      title: 'E-commerce challenges today',
+      description: 'E-commerce evolves rapidly and competition is fierce. Your site must stand out.',
+      pain_points: [
+        {
+          icon: 'trending-up',
+          title: 'Intense competition',
+          description: 'Thousands of online stores compete for French consumers\' attention.'
+        },
+        {
+          icon: 'users',
+          title: 'Complex user experience',
+          description: 'Customers abandon their cart if the site is not intuitive and fast.'
+        },
+        {
+          icon: 'search',
+          title: 'Insufficient visibility',
+          description: 'Without optimized SEO, your store remains invisible in Google results.'
+        }
+      ]
+    },
+    solution: {
+      title: 'Our high-performing E-commerce solutions',
+      description: 'We create online stores that convert visitors into loyal customers.',
+      features: [
+        {
+          icon: 'shopping-cart',
+          title: 'Custom stores',
+          description: 'Elegant and modern design to showcase your products with high-resolution images.'
+        },
+        {
+          icon: 'credit-card',
+          title: 'Secure payments',
+          description: 'Complete integration with Credit Card, PayPal, Stripe for smooth and secure transactions.'
+        },
+        {
+          icon: 'package',
+          title: 'Inventory management',
+          description: 'Intuitive interface to easily manage your products, categories and inventory.'
+        },
+        {
+          icon: 'smartphone',
+          title: 'Mobile-first',
+          description: 'Responsive site optimized for smartphones and tablets, where your customers shop.'
+        },
+        {
+          icon: 'search',
+          title: 'E-commerce SEO',
+          description: 'Specialized optimization so your products appear in Google searches.'
+        },
+        {
+          icon: 'bar-chart-3',
+          title: 'Advanced analytics',
+          description: 'Detailed dashboards to track your sales and optimize your performance.'
+        }
+      ]
+    },
+    process: {
+      title: 'Our E-commerce creation process',
+      description: 'A proven method to successfully launch your online store',
+      steps: [
+        {
+          title: 'Market analysis',
+          description: 'Study of your sector, competitors and optimal e-commerce strategy.'
+        },
+        {
+          title: 'Design & UX',
+          description: 'Creating an attractive interface that guides your customers to purchase.'
+        },
+        {
+          title: 'Technical development',
+          description: 'Programming with latest technologies: Next.js, React, or specialized CMS.'
+        },
+        {
+          title: 'Testing & launch',
+          description: 'Complete testing, management training and launch of your store.'
+        }
+      ]
+    },
+    portfolio: {
+      title: 'E-commerce sites we have created',
+      description: 'Discover how we helped businesses succeed online',
+      projects: [
+        {
+          name: 'Parisian Fashion Boutique',
+          type: 'Fashion E-commerce',
+          image: 'ecommerce-fashion-boutique.webp',
+          results: [
+            '+300% online sales',
+            '+180% conversion rate'
+          ]
+        },
+        {
+          name: 'Local Artisans Marketplace',
+          type: 'Multi-vendor Marketplace',
+          image: 'ecommerce-marketplace-artisans.webp',
+          results: [
+            '50+ active vendors',
+            '+250% monthly GMV'
+          ]
+        },
+        {
+          name: 'Organic & Natural Store',
+          type: 'Food E-commerce',
+          image: 'ecommerce-organic-store.webp',
+          results: [
+            '+200% online orders',
+            '+150% average basket'
+          ]
+        }
+      ]
+    },
+    testimonials: {
+      title: 'What our E-commerce clients say',
+      subtitle: 'Authentic testimonials from entrepreneurs who succeed online',
+      reviews: [
+        {
+          name: 'Sophie Martineau',
+          position: 'Founder',
+          company: 'Parisian Fashion Boutique',
+          location: 'Paris',
+          content: 'Thanks to Sidikoff Digital, our online store became our main sales channel. The site is fast, attractive and our sales tripled!',
+          rating: 5,
+          image: 'sophie-martineau.webp'
+        },
+        {
+          name: 'Thomas Dubois',
+          position: 'CEO',
+          company: 'Artisans Marketplace',
+          location: 'Lyon',
+          content: 'Our marketplace works perfectly. Vendors easily manage their products and local SEO brings us many customers throughout France.',
+          rating: 5,
+          image: 'thomas-dubois.webp'
+        },
+        {
+          name: 'Marie Leclerc',
+          position: 'Owner',
+          company: 'Organic & Natural',
+          location: 'Bordeaux',
+          content: 'The team perfectly understood our needs. The site reflects our organic values and online orders exploded since launch.',
+          rating: 5,
+          image: 'marie-leclerc.webp'
+        }
+      ]
+    },
+    pricing: {
+      title: 'E-commerce packages adapted to your business',
+      description: 'Complete solutions for stores, shops and marketplaces',
+      packages: [
+        {
+          name: 'Store Essential',
+          price: '€2,499',
+          period: 'complete project',
+          delivery_time: 'Delivered in 4-6 weeks',
+          description: 'Perfect to launch your first online store',
+          features: [
+            'Up to 100 products',
+            'Responsive e-commerce design',
+            'Optimized cart and checkout',
+            'Credit Card, PayPal, Stripe payments',
+            'Inventory management',
+            'Basic optimized SEO',
+            'Management training',
+            'Secure hosting 1 year'
+          ]
+        },
+        {
+          name: 'Commerce Pro',
+          price: '€4,299',
+          period: 'complete project',
+          delivery_time: 'Delivered in 6-8 weeks',
+          is_popular: true,
+          description: 'Complete solution for ambitious businesses',
+          features: [
+            'Unlimited products',
+            'Everything from Essential package',
+            'Advanced promotion system',
+            'Customer accounts and loyalty',
+            'Detailed e-commerce analytics',
+            'Advanced e-commerce SEO',
+            'Social media integration',
+            'Customer review system',
+            'Priority support 6 months'
+          ]
+        },
+        {
+          name: 'Marketplace Master',
+          price: '€7,999',
+          period: 'complete project',
+          delivery_time: 'Delivered in 8-12 weeks',
+          description: 'Premium solution for multi-vendor marketplaces',
+          features: [
+            'Everything from Pro package',
+            'Multi-vendor management',
+            'Automated commission system',
+            'Vendor dashboard',
+            'Product moderation',
+            'Multi-vendor payments',
+            'Advanced API and integrations',
+            'Scalable architecture',
+            'Complete team training',
+            'Maintenance 1 year included'
+          ]
+        }
+      ]
+    },
+    faq: {
+      title: 'Frequently asked questions',
+      description: 'Answers to most common questions about our E-commerce sites',
+      questions: [
+        {
+          question: 'Which platform do you use for E-commerce sites?',
+          answer: 'We use the best technologies according to your needs: Next.js/React for custom, Shopify for quick, WooCommerce for flexible, or custom solutions for marketplaces.'
+        },
+        {
+          question: 'How do you handle payments and security?',
+          answer: 'We integrate the safest payment solutions (Stripe, PayPal, French banks) with SSL encryption and PCI DSS compliance to protect your transactions.'
+        },
+        {
+          question: 'Will the site be optimized for SEO?',
+          answer: 'Absolutely! Every product page, category and content is optimized for French SEO. We work on speed, keywords and user experience.'
+        },
+        {
+          question: 'Can I manage my inventory and orders easily?',
+          answer: 'Yes, we create an intuitive dashboard where you can manage your products, inventory, orders and customers. Complete training included.'
+        },
+        {
+          question: 'Do you offer maintenance and updates?',
+          answer: 'We handle technical maintenance, backups, security updates and support. Your e-commerce stays always performant and secure.'
+        }
+      ]
+    },
+    cta: {
+      title: 'Ready to launch your E-commerce success?',
+      description: 'Join businesses that chose excellence for their online store and generate sales 24/7.',
+      button: 'Get my free quote'
+    }
+  }
 }
