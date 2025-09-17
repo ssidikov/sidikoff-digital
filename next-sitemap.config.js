@@ -123,6 +123,34 @@ const nextSitemapConfig = {
       })
     })
 
+    // Add multilingual specialized service pages
+    const multilingualServices = [
+      '/services/creation-site-ecommerce',
+      '/services/creation-site-internet-boulangerie',
+      '/services/creation-site-internet-agence-voyage',
+      '/services/creation-site-internet-barbershop',
+      '/services/creation-site-internet-freelance',
+      '/services/creation-site-internet-medecin',
+      '/services/creation-site-internet-photographe',
+      '/services/refonte-sites-web',
+      '/services/restaurant-websites'
+    ]
+
+    // Add all locales for specialized services (including French)
+    const allLocales = ['fr', 'en', 'ru']
+    multilingualServices.forEach((service) => {
+      allLocales.forEach((locale) => {
+        const path = locale === 'fr' ? service : `/${locale}${service}`
+        const priority = locale === 'fr' ? 0.7 : (locale === 'en' ? 0.6 : 0.5)
+        paths.push({
+          loc: path,
+          changefreq: 'weekly',
+          priority: priority,
+          lastmod: new Date().toISOString(),
+        })
+      })
+    })
+
     // Add other locales with prefixes
     locales.forEach((locale) => {
       // Main routes for en and ru
