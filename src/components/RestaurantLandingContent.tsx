@@ -613,7 +613,9 @@ export default function RestaurantLandingContent({
                       <Star
                         key={starIndex}
                         className={`w-4 h-4 ${
-                          starIndex < testimonial.rating ? 'text-yellow-400 fill-current' : 'text-white/30'
+                          starIndex < testimonial.rating
+                            ? 'text-yellow-400 fill-current'
+                            : 'text-white/30'
                         }`}
                       />
                     ))}
