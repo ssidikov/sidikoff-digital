@@ -20,16 +20,22 @@ export async function generateMetadata({ params }: Paris16PageProps): Promise<Me
 
   if (locale === 'fr') {
     title = 'Création de site internet professionnel Paris 16ème - Agence Web Auteuil'
-    description = 'Agence web spécialisée Paris 16ème ✓ Création sites internet Passy, Trocadéro, Auteuil ✓ Développement sur mesure ✓ SEO local ✓ Devis gratuit'
-    keywords = 'création site internet, Paris 16ème, agence web, Passy, Trocadéro, Auteuil, Chaillot, développement web, SEO local'
+    description =
+      'Agence web spécialisée Paris 16ème ✓ Création sites internet Passy, Trocadéro, Auteuil ✓ Développement sur mesure ✓ SEO local ✓ Devis gratuit'
+    keywords =
+      'création site internet, Paris 16ème, agence web, Passy, Trocadéro, Auteuil, Chaillot, développement web, SEO local'
   } else if (locale === 'en') {
     title = 'Professional Website Creation Paris 16th - Auteuil Web Agency'
-    description = 'Specialized web agency Paris 16th ✓ Website creation Passy, Trocadéro, Auteuil ✓ Custom development ✓ Local SEO ✓ Free quote'
-    keywords = 'website creation, Paris 16th, web agency, Passy, Trocadéro, Auteuil, Chaillot, web development, local SEO'
+    description =
+      'Specialized web agency Paris 16th ✓ Website creation Passy, Trocadéro, Auteuil ✓ Custom development ✓ Local SEO ✓ Free quote'
+    keywords =
+      'website creation, Paris 16th, web agency, Passy, Trocadéro, Auteuil, Chaillot, web development, local SEO'
   } else {
     title = 'Создание профессиональных сайтов Париж 16-й - Веб Агентство Отей'
-    description = 'Специализированное веб-агентство Париж 16-й ✓ Создание сайтов Пасси, Трокадеро, Отей ✓ Индивидуальная разработка ✓ Локальное SEO ✓ Бесплатная консультация'
-    keywords = 'создание сайтов, Париж 16, веб агентство, Пасси, Трокадеро, Отей, Шайо, веб разработка, локальное SEO'
+    description =
+      'Специализированное веб-агентство Париж 16-й ✓ Создание сайтов Пасси, Трокадеро, Отей ✓ Индивидуальная разработка ✓ Локальное SEO ✓ Бесплатная консультация'
+    keywords =
+      'создание сайтов, Париж 16, веб агентство, Пасси, Трокадеро, Отей, Шайо, веб разработка, локальное SEO'
   }
 
   const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${locale === 'fr' ? '' : `${locale}/`}services/creation-site-internet-paris-16`
@@ -50,9 +56,9 @@ export async function generateMetadata({ params }: Paris16PageProps): Promise<Me
     alternates: {
       canonical: canonicalUrl,
       languages: {
-        'fr': '/services/creation-site-internet-paris-16',
-        'en': '/en/services/creation-site-internet-paris-16', 
-        'ru': '/ru/services/creation-site-internet-paris-16',
+        fr: '/services/creation-site-internet-paris-16',
+        en: '/en/services/creation-site-internet-paris-16',
+        ru: '/ru/services/creation-site-internet-paris-16',
       },
     },
     robots: {
@@ -110,7 +116,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
     return (
       <>
         <SEOLinks locale={locale} />
-        
+
         {/* Schema Markup for Local Business and Web Development Services */}
         <Script
           id='schema-local-business-paris-16'
@@ -119,9 +125,11 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'LocalBusiness',
-              '@id': 'https://www.sidikoff.com/services/creation-site-internet-paris-16#LocalBusiness',
+              '@id':
+                'https://www.sidikoff.com/services/creation-site-internet-paris-16#LocalBusiness',
               name: 'SIDIKOFF DIGITAL - Agence Web Paris 16ème',
-              description: 'Agence web spécialisée dans la création de sites internet professionnels pour les entreprises du 16ème arrondissement de Paris. Expertise en développement web, SEO local et design responsive.',
+              description:
+                'Agence web spécialisée dans la création de sites internet professionnels pour les entreprises du 16ème arrondissement de Paris. Expertise en développement web, SEO local et design responsive.',
               url: 'https://www.sidikoff.com/services/creation-site-internet-paris-16',
               telephone: '+33626932734',
               email: 's.sidikoff@gmail.com',
@@ -130,37 +138,37 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                 addressLocality: 'Paris',
                 postalCode: '75016',
                 addressRegion: 'Île-de-France',
-                addressCountry: 'FR'
+                addressCountry: 'FR',
               },
               geo: {
                 '@type': 'GeoCoordinates',
                 latitude: '48.8606',
-                longitude: '2.2881'
+                longitude: '2.2881',
               },
               areaServed: [
                 {
                   '@type': 'Place',
-                  name: 'Passy, Paris 16ème'
-                },
-                {
-                  '@type': 'Place', 
-                  name: 'Trocadéro, Paris 16ème'
+                  name: 'Passy, Paris 16ème',
                 },
                 {
                   '@type': 'Place',
-                  name: 'Auteuil, Paris 16ème'
+                  name: 'Trocadéro, Paris 16ème',
                 },
                 {
                   '@type': 'Place',
-                  name: 'Chaillot, Paris 16ème'
-                }
+                  name: 'Auteuil, Paris 16ème',
+                },
+                {
+                  '@type': 'Place',
+                  name: 'Chaillot, Paris 16ème',
+                },
               ],
               serviceType: [
                 'Création de site internet',
                 'Développement web',
                 'SEO local',
                 'Design responsive',
-                'E-commerce'
+                'E-commerce',
               ],
               priceRange: '€€',
               openingHours: 'Mo-Fr 09:00-18:00',
@@ -173,28 +181,31 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                     itemOffered: {
                       '@type': 'Service',
                       name: 'Site vitrine professionnel Paris 16ème',
-                      description: 'Création de sites vitrines élégants pour les entreprises du 16ème arrondissement'
-                    }
+                      description:
+                        'Création de sites vitrines élégants pour les entreprises du 16ème arrondissement',
+                    },
                   },
                   {
                     '@type': 'Offer',
                     itemOffered: {
                       '@type': 'Service',
                       name: 'Boutique e-commerce Passy - Trocadéro',
-                      description: 'Développement de boutiques en ligne pour les commerces de luxe du 16ème'
-                    }
+                      description:
+                        'Développement de boutiques en ligne pour les commerces de luxe du 16ème',
+                    },
                   },
                   {
                     '@type': 'Offer',
                     itemOffered: {
                       '@type': 'Service',
                       name: 'SEO local Paris 16ème',
-                      description: 'Optimisation pour les recherches locales dans le 16ème arrondissement'
-                    }
-                  }
-                ]
-              }
-            })
+                      description:
+                        'Optimisation pour les recherches locales dans le 16ème arrondissement',
+                    },
+                  },
+                ],
+              },
+            }),
           }}
         />
 
@@ -205,37 +216,39 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'ProfessionalService',
-              '@id': 'https://www.sidikoff.com/services/creation-site-internet-paris-16#ProfessionalService',
+              '@id':
+                'https://www.sidikoff.com/services/creation-site-internet-paris-16#ProfessionalService',
               name: 'Création Site Internet Paris 16ème - Agence Web Auteuil',
               alternateName: 'Développement Web Paris 16ème',
-              description: 'Service professionnel de création de sites internet sur mesure pour les entreprises, commerces et professionnels du 16ème arrondissement de Paris.',
+              description:
+                'Service professionnel de création de sites internet sur mesure pour les entreprises, commerces et professionnels du 16ème arrondissement de Paris.',
               provider: {
                 '@type': 'Organization',
                 name: 'SIDIKOFF DIGITAL',
-                url: 'https://www.sidikoff.com'
+                url: 'https://www.sidikoff.com',
               },
               areaServed: {
                 '@type': 'Place',
                 name: 'Paris 16ème arrondissement',
                 containedInPlace: {
                   '@type': 'City',
-                  name: 'Paris'
-                }
+                  name: 'Paris',
+                },
               },
               serviceType: 'Website Development',
               category: 'Web Development Agency',
               audience: {
                 '@type': 'Audience',
-                audienceType: 'Businesses in Paris 16th arrondissement'
+                audienceType: 'Businesses in Paris 16th arrondissement',
               },
               offers: {
                 '@type': 'Offer',
                 name: 'Création site internet professionnel',
                 description: 'Développement de sites web sur mesure avec SEO local optimisé',
                 priceCurrency: 'EUR',
-                priceRange: '€€'
-              }
-            })
+                priceRange: '€€',
+              },
+            }),
           }}
         />
 
@@ -1662,7 +1675,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
     return (
       <>
         <SEOLinks locale={locale} />
-        
+
         {/* Schema Markup for Local Business and Web Development Services - English */}
         <Script
           id='schema-local-business-paris-16-en'
@@ -1671,10 +1684,12 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'LocalBusiness',
-              '@id': 'https://www.sidikoff.com/en/services/creation-site-internet-paris-16#LocalBusiness',
+              '@id':
+                'https://www.sidikoff.com/en/services/creation-site-internet-paris-16#LocalBusiness',
               name: 'Website Creation Paris 16th - SIDIKOFF DIGITAL',
               alternateName: 'Web Development Agency Paris 16',
-              description: 'Professional website creation services for businesses and professionals in Paris 16th arrondissement. Custom web solutions optimized for local SEO.',
+              description:
+                'Professional website creation services for businesses and professionals in Paris 16th arrondissement. Custom web solutions optimized for local SEO.',
               url: 'https://www.sidikoff.com/en/services/creation-site-internet-paris-16',
               telephone: '+33142508888',
               email: 'contact@sidikoff.com',
@@ -1684,37 +1699,37 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                 addressLocality: 'Paris',
                 postalCode: '75016',
                 addressRegion: 'Île-de-France',
-                addressCountry: 'FR'
+                addressCountry: 'FR',
               },
               geo: {
                 '@type': 'GeoCoordinates',
                 latitude: '48.8606',
-                longitude: '2.2881'
+                longitude: '2.2881',
               },
               areaServed: [
                 {
                   '@type': 'Place',
-                  name: 'Passy, Paris 16th'
-                },
-                {
-                  '@type': 'Place', 
-                  name: 'Trocadéro, Paris 16th'
+                  name: 'Passy, Paris 16th',
                 },
                 {
                   '@type': 'Place',
-                  name: 'Auteuil, Paris 16th'
+                  name: 'Trocadéro, Paris 16th',
                 },
                 {
                   '@type': 'Place',
-                  name: 'Chaillot, Paris 16th'
-                }
+                  name: 'Auteuil, Paris 16th',
+                },
+                {
+                  '@type': 'Place',
+                  name: 'Chaillot, Paris 16th',
+                },
               ],
               serviceType: [
                 'Website Creation',
                 'Web Development',
                 'Local SEO',
                 'Responsive Design',
-                'E-commerce'
+                'E-commerce',
               ],
               priceRange: '€€',
               openingHours: 'Mo-Fr 09:00-18:00',
@@ -1727,28 +1742,29 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                     itemOffered: {
                       '@type': 'Service',
                       name: 'Professional Business Website Paris 16th',
-                      description: 'Creation of elegant business websites for companies in the 16th arrondissement'
-                    }
+                      description:
+                        'Creation of elegant business websites for companies in the 16th arrondissement',
+                    },
                   },
                   {
                     '@type': 'Offer',
                     itemOffered: {
                       '@type': 'Service',
                       name: 'E-commerce Store Passy - Trocadéro',
-                      description: 'Development of online stores for luxury businesses in the 16th'
-                    }
+                      description: 'Development of online stores for luxury businesses in the 16th',
+                    },
                   },
                   {
                     '@type': 'Offer',
                     itemOffered: {
                       '@type': 'Service',
                       name: 'Local SEO Paris 16th',
-                      description: 'Optimization for local searches in the 16th arrondissement'
-                    }
-                  }
-                ]
-              }
-            })
+                      description: 'Optimization for local searches in the 16th arrondissement',
+                    },
+                  },
+                ],
+              },
+            }),
           }}
         />
 
@@ -1759,37 +1775,39 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'ProfessionalService',
-              '@id': 'https://www.sidikoff.com/en/services/creation-site-internet-paris-16#ProfessionalService',
+              '@id':
+                'https://www.sidikoff.com/en/services/creation-site-internet-paris-16#ProfessionalService',
               name: 'Website Creation Paris 16th - Web Agency Auteuil',
               alternateName: 'Web Development Paris 16th',
-              description: 'Professional website creation service tailored for businesses, shops and professionals in the 16th arrondissement of Paris.',
+              description:
+                'Professional website creation service tailored for businesses, shops and professionals in the 16th arrondissement of Paris.',
               provider: {
                 '@type': 'Organization',
                 name: 'SIDIKOFF DIGITAL',
-                url: 'https://www.sidikoff.com/en'
+                url: 'https://www.sidikoff.com/en',
               },
               areaServed: {
                 '@type': 'Place',
                 name: 'Paris 16th arrondissement',
                 containedInPlace: {
                   '@type': 'City',
-                  name: 'Paris'
-                }
+                  name: 'Paris',
+                },
               },
               serviceType: 'Website Development',
               category: 'Web Development Agency',
               audience: {
                 '@type': 'Audience',
-                audienceType: 'Businesses in Paris 16th arrondissement'
+                audienceType: 'Businesses in Paris 16th arrondissement',
               },
               offers: {
                 '@type': 'Offer',
                 name: 'Professional website creation',
                 description: 'Custom website development with optimized local SEO',
                 priceCurrency: 'EUR',
-                priceRange: '€€'
-              }
-            })
+                priceRange: '€€',
+              },
+            }),
           }}
         />
 
@@ -1834,7 +1852,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
   return (
     <>
       <SEOLinks locale={locale} />
-      
+
       {/* Schema Markup for Local Business and Web Development Services - Russian */}
       <Script
         id='schema-local-business-paris-16-ru'
@@ -1843,10 +1861,12 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'LocalBusiness',
-            '@id': 'https://www.sidikoff.com/ru/services/creation-site-internet-paris-16#LocalBusiness',
+            '@id':
+              'https://www.sidikoff.com/ru/services/creation-site-internet-paris-16#LocalBusiness',
             name: 'Создание Сайтов Париж 16 - SIDIKOFF DIGITAL',
             alternateName: 'Веб-агентство Париж 16',
-            description: 'Профессиональные услуги по созданию сайтов для бизнеса и профессионалов в 16-м округе Парижа. Индивидуальные веб-решения с оптимизацией для местного SEO.',
+            description:
+              'Профессиональные услуги по созданию сайтов для бизнеса и профессионалов в 16-м округе Парижа. Индивидуальные веб-решения с оптимизацией для местного SEO.',
             url: 'https://www.sidikoff.com/ru/services/creation-site-internet-paris-16',
             telephone: '+33142508888',
             email: 'contact@sidikoff.com',
@@ -1856,37 +1876,37 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
               addressLocality: 'Париж',
               postalCode: '75016',
               addressRegion: 'Иль-де-Франс',
-              addressCountry: 'FR'
+              addressCountry: 'FR',
             },
             geo: {
               '@type': 'GeoCoordinates',
               latitude: '48.8606',
-              longitude: '2.2881'
+              longitude: '2.2881',
             },
             areaServed: [
               {
                 '@type': 'Place',
-                name: 'Пасси, Париж 16'
-              },
-              {
-                '@type': 'Place', 
-                name: 'Трокадеро, Париж 16'
+                name: 'Пасси, Париж 16',
               },
               {
                 '@type': 'Place',
-                name: 'Отёй, Париж 16'
+                name: 'Трокадеро, Париж 16',
               },
               {
                 '@type': 'Place',
-                name: 'Шайо, Париж 16'
-              }
+                name: 'Отёй, Париж 16',
+              },
+              {
+                '@type': 'Place',
+                name: 'Шайо, Париж 16',
+              },
             ],
             serviceType: [
               'Создание сайтов',
               'Веб-разработка',
               'Местное SEO',
               'Адаптивный дизайн',
-              'Электронная коммерция'
+              'Электронная коммерция',
             ],
             priceRange: '€€',
             openingHours: 'Mo-Fr 09:00-18:00',
@@ -1899,28 +1919,29 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                   itemOffered: {
                     '@type': 'Service',
                     name: 'Профессиональный корпоративный сайт Париж 16',
-                    description: 'Создание элегантных корпоративных сайтов для компаний 16-го округа'
-                  }
+                    description:
+                      'Создание элегантных корпоративных сайтов для компаний 16-го округа',
+                  },
                 },
                 {
                   '@type': 'Offer',
                   itemOffered: {
                     '@type': 'Service',
                     name: 'Интернет-магазин Пасси - Трокадеро',
-                    description: 'Разработка интернет-магазинов для люксовых брендов 16-го округа'
-                  }
+                    description: 'Разработка интернет-магазинов для люксовых брендов 16-го округа',
+                  },
                 },
                 {
                   '@type': 'Offer',
                   itemOffered: {
                     '@type': 'Service',
                     name: 'Местное SEO Париж 16',
-                    description: 'Оптимизация для местного поиска в 16-м округе'
-                  }
-                }
-              ]
-            }
-          })
+                    description: 'Оптимизация для местного поиска в 16-м округе',
+                  },
+                },
+              ],
+            },
+          }),
         }}
       />
 
@@ -1931,37 +1952,39 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'ProfessionalService',
-            '@id': 'https://www.sidikoff.com/ru/services/creation-site-internet-paris-16#ProfessionalService',
+            '@id':
+              'https://www.sidikoff.com/ru/services/creation-site-internet-paris-16#ProfessionalService',
             name: 'Создание Сайтов Париж 16 - Веб-агентство Отёй',
             alternateName: 'Веб-разработка Париж 16',
-            description: 'Профессиональная услуга по созданию сайтов на заказ для предприятий, магазинов и профессионалов 16-го округа Парижа.',
+            description:
+              'Профессиональная услуга по созданию сайтов на заказ для предприятий, магазинов и профессионалов 16-го округа Парижа.',
             provider: {
               '@type': 'Organization',
               name: 'SIDIKOFF DIGITAL',
-              url: 'https://www.sidikoff.com/ru'
+              url: 'https://www.sidikoff.com/ru',
             },
             areaServed: {
               '@type': 'Place',
               name: '16-й округ Парижа',
               containedInPlace: {
                 '@type': 'City',
-                name: 'Париж'
-              }
+                name: 'Париж',
+              },
             },
             serviceType: 'Веб-разработка',
             category: 'Агентство веб-разработки',
             audience: {
               '@type': 'Audience',
-              audienceType: 'Предприятия 16-го округа Парижа'
+              audienceType: 'Предприятия 16-го округа Парижа',
             },
             offers: {
               '@type': 'Offer',
               name: 'Профессиональное создание сайтов',
               description: 'Индивидуальная веб-разработка с оптимизированным местным SEO',
               priceCurrency: 'EUR',
-              priceRange: '€€'
-            }
-          })
+              priceRange: '€€',
+            },
+          }),
         }}
       />
 
