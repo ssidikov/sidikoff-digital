@@ -77,23 +77,23 @@ export const DEFAULT_SEO = {
 export function generateCanonicalUrl(path: string, locale?: Locale): string {
   // Remove leading slash if present
   const cleanPath = path.startsWith('/') ? path.slice(1) : path
-  
+
   // Handle locale-specific URLs
   let finalPath = cleanPath
-  
+
   if (locale && locale !== 'fr') {
     // For non-French locales, add locale prefix
     finalPath = `${locale}/${cleanPath}`
   }
-  
+
   // Always use www subdomain and https
   const baseUrl = DEFAULT_SEO.siteUrl // Already configured as https://www.sidikoff.com
-  
+
   // Handle root path
   if (!finalPath || finalPath === '/') {
     return baseUrl
   }
-  
+
   return `${baseUrl}/${finalPath}`
 }
 
@@ -102,13 +102,13 @@ export function generateCanonicalUrl(path: string, locale?: Locale): string {
  */
 export function generateAlternateUrls(path: string): Record<Locale, string> {
   const alternates: Record<Locale, string> = {} as Record<Locale, string>
-  
+
   const locales: Locale[] = ['fr', 'en', 'ru']
-  
+
   locales.forEach((locale) => {
     alternates[locale] = generateCanonicalUrl(path, locale)
   })
-  
+
   return alternates
 }
 

@@ -29,7 +29,8 @@ const SECURITY_HEADERS = [
   // SEO and performance headers
   {
     key: 'Link',
-    value: '</images/og-homepage.jpg>; rel=preload; as=image, </fonts/inter.woff2>; rel=preload; as=font; type=font/woff2; crossorigin',
+    value:
+      '</images/og-homepage.jpg>; rel=preload; as=image, </fonts/inter.woff2>; rel=preload; as=font; type=font/woff2; crossorigin',
   },
 ]
 

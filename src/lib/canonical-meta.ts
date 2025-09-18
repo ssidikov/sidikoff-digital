@@ -25,24 +25,24 @@ export function generateCanonicalMetadata({
 }: CanonicalMetaProps): Metadata {
   // Clean the pathname (remove leading slash if present)
   const cleanPath = pathname.startsWith('/') ? pathname.slice(1) : pathname
-  
+
   // Generate canonical URL for this page
   const canonicalUrl = createCanonicalUrl(cleanPath, locale)
-  
+
   // Generate alternate language URLs
   const alternateUrls = generateAlternateUrls(cleanPath)
-  
+
   return {
     title,
     description,
     robots: noIndex ? 'noindex,nofollow' : 'index,follow',
-    
+
     // Canonical URL
     alternates: {
       canonical: canonicalUrl,
       languages: alternateUrls,
     },
-    
+
     // Open Graph
     openGraph: {
       title,
@@ -60,7 +60,7 @@ export function generateCanonicalMetadata({
       locale,
       type: 'website',
     },
-    
+
     // Twitter
     twitter: {
       card: 'summary_large_image',
@@ -69,7 +69,7 @@ export function generateCanonicalMetadata({
       images: [ogImage],
       creator: '@sidikoffdigital',
     },
-    
+
     // Additional meta tags for better SEO
     other: {
       'og:site_name': 'SIDIKOFF DIGITAL',
@@ -106,33 +106,47 @@ export function generateServicePageMetadata(
       'creation-site-internet-lyon': 'Создание сайтов Лион - Эксперт React Next.js',
     },
   }
-  
+
   const serviceDescriptions = {
     fr: {
-      'creation-sites-web': 'Services professionnels de création de sites web modernes, responsive et optimisés SEO. Expert React, Next.js, TypeScript.',
-      'creation-site-internet-paris': 'Agence web Paris spécialisée en création de sites internet professionnels. Sites modernes, SEO optimisés, React Next.js.',
-      'creation-site-internet-toulouse': 'Création de sites internet à Toulouse. Développeur web expert en React, Next.js. Devis gratuit.',
-      'creation-site-internet-lyon': 'Expert création de sites web à Lyon. Solutions modernes React Next.js TypeScript. Devis gratuit 24h.',
+      'creation-sites-web':
+        'Services professionnels de création de sites web modernes, responsive et optimisés SEO. Expert React, Next.js, TypeScript.',
+      'creation-site-internet-paris':
+        'Agence web Paris spécialisée en création de sites internet professionnels. Sites modernes, SEO optimisés, React Next.js.',
+      'creation-site-internet-toulouse':
+        'Création de sites internet à Toulouse. Développeur web expert en React, Next.js. Devis gratuit.',
+      'creation-site-internet-lyon':
+        'Expert création de sites web à Lyon. Solutions modernes React Next.js TypeScript. Devis gratuit 24h.',
     },
     en: {
-      'creation-sites-web': 'Professional modern website creation services, responsive and SEO optimized. React, Next.js, TypeScript expert.',
-      'creation-site-internet-paris': 'Paris web agency specialized in professional website creation. Modern, SEO optimized sites, React Next.js.',
-      'creation-site-internet-toulouse': 'Website creation in Toulouse. Web developer expert in React, Next.js. Free quote.',
-      'creation-site-internet-lyon': 'Website creation expert in Lyon. Modern React Next.js TypeScript solutions. Free quote 24h.',
+      'creation-sites-web':
+        'Professional modern website creation services, responsive and SEO optimized. React, Next.js, TypeScript expert.',
+      'creation-site-internet-paris':
+        'Paris web agency specialized in professional website creation. Modern, SEO optimized sites, React Next.js.',
+      'creation-site-internet-toulouse':
+        'Website creation in Toulouse. Web developer expert in React, Next.js. Free quote.',
+      'creation-site-internet-lyon':
+        'Website creation expert in Lyon. Modern React Next.js TypeScript solutions. Free quote 24h.',
     },
     ru: {
-      'creation-sites-web': 'Профессиональные услуги по созданию современных веб-сайтов, адаптивных и SEO-оптимизированных. Эксперт React, Next.js, TypeScript.',
-      'creation-site-internet-paris': 'Веб-агентство в Париже, специализирующееся на создании профессиональных сайтов. Современные, SEO-оптимизированные сайты, React Next.js.',
-      'creation-site-internet-toulouse': 'Создание веб-сайтов в Тулузе. Веб-разработчик, эксперт по React, Next.js. Бесплатная смета.',
-      'creation-site-internet-lyon': 'Эксперт по созданию веб-сайтов в Лионе. Современные решения React Next.js TypeScript. Бесплатная смета 24ч.',
+      'creation-sites-web':
+        'Профессиональные услуги по созданию современных веб-сайтов, адаптивных и SEO-оптимизированных. Эксперт React, Next.js, TypeScript.',
+      'creation-site-internet-paris':
+        'Веб-агентство в Париже, специализирующееся на создании профессиональных сайтов. Современные, SEO-оптимизированные сайты, React Next.js.',
+      'creation-site-internet-toulouse':
+        'Создание веб-сайтов в Тулузе. Веб-разработчик, эксперт по React, Next.js. Бесплатная смета.',
+      'creation-site-internet-lyon':
+        'Эксперт по созданию веб-сайтов в Лионе. Современные решения React Next.js TypeScript. Бесплатная смета 24ч.',
     },
   }
-  
-  const title = serviceTitles[locale][service as keyof typeof serviceTitles[typeof locale]] || service
-  const description = serviceDescriptions[locale][service as keyof typeof serviceDescriptions[typeof locale]] || ''
-  
+
+  const title =
+    serviceTitles[locale][service as keyof (typeof serviceTitles)[typeof locale]] || service
+  const description =
+    serviceDescriptions[locale][service as keyof (typeof serviceDescriptions)[typeof locale]] || ''
+
   const pathname = `services/${service}`
-  
+
   return generateCanonicalMetadata({
     pathname,
     locale,

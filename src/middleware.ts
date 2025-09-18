@@ -352,7 +352,7 @@ export function middleware(request: NextRequest) {
   // Domain canonicalization: redirect non-www to www
   const host = request.headers.get('host')
   const protocol = request.headers.get('x-forwarded-proto') || 'https'
-  
+
   // Only redirect in production to avoid issues with localhost
   if (process.env.NODE_ENV === 'production' && host) {
     // Check if we need to redirect to www
@@ -360,15 +360,15 @@ export function middleware(request: NextRequest) {
       const redirectUrl = new URL(request.url)
       redirectUrl.host = PREFERRED_DOMAIN
       redirectUrl.protocol = CANONICAL_PROTOCOL
-      
+
       return NextResponse.redirect(redirectUrl, {
         status: 301,
         headers: {
           'Cache-Control': 'public, max-age=31536000', // Cache redirect for 1 year
-        }
+        },
       })
     }
-    
+
     // Also handle protocol redirects (HTTP → HTTPS)
     if (protocol === 'http' && (host === PREFERRED_DOMAIN || host === 'sidikoff.com')) {
       const redirectUrl = new URL(request.url)
@@ -376,12 +376,12 @@ export function middleware(request: NextRequest) {
       if (host === 'sidikoff.com') {
         redirectUrl.host = PREFERRED_DOMAIN
       }
-      
+
       return NextResponse.redirect(redirectUrl, {
         status: 301,
         headers: {
           'Cache-Control': 'public, max-age=31536000',
-        }
+        },
       })
     }
   }
