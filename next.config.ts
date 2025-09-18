@@ -26,6 +26,11 @@ const SECURITY_HEADERS = [
     key: 'Referrer-Policy',
     value: 'strict-origin-when-cross-origin',
   },
+  // SEO and performance headers
+  {
+    key: 'Link',
+    value: '</images/og-homepage.jpg>; rel=preload; as=image, </fonts/inter.woff2>; rel=preload; as=font; type=font/woff2; crossorigin',
+  },
 ]
 
 const nextConfig: NextConfig = {
@@ -104,55 +109,9 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
 
-  // Redirects to handle www vs non-www and other canonical URLs
+  // Redirects to handle old project URLs and legacy paths
   async redirects() {
     return [
-      // Redirect HTTP to HTTPS for non-www
-      {
-        source: '/(.*)',
-        has: [
-          {
-            type: 'host',
-            value: 'sidikoff.com',
-          },
-          {
-            type: 'header',
-            key: 'x-forwarded-proto',
-            value: 'http',
-          },
-        ],
-        destination: 'https://www.sidikoff.com/:path*',
-        permanent: true,
-      },
-      // Redirect HTTP to HTTPS for www
-      {
-        source: '/(.*)',
-        has: [
-          {
-            type: 'host',
-            value: 'www.sidikoff.com',
-          },
-          {
-            type: 'header',
-            key: 'x-forwarded-proto',
-            value: 'http',
-          },
-        ],
-        destination: 'https://www.sidikoff.com/:path*',
-        permanent: true,
-      },
-      // Redirect non-www to www
-      {
-        source: '/(.*)',
-        has: [
-          {
-            type: 'host',
-            value: 'sidikoff.com',
-          },
-        ],
-        destination: 'https://www.sidikoff.com/:path*',
-        permanent: true,
-      },
       // Redirect old project URLs to new structure if they exist
       {
         source: '/projects/booki',

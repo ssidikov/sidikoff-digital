@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { locales, defaultLocale } from './lib/i18n'
 
+// Domain configuration
+const PREFERRED_DOMAIN = 'www.sidikoff.com'
+const CANONICAL_PROTOCOL = 'https'
+
 // Constants for better maintainability
 const STATIC_PATHS = [
   '/_next',
@@ -343,6 +347,43 @@ export function middleware(request: NextRequest) {
   // Skip middleware for static files and API routes
   if (shouldSkipMiddleware(pathname)) {
     return enhanceResponse(NextResponse.next(), pathname)
+  }
+
+  // Domain canonicalization: redirect non-www to www
+  const host = request.headers.get('host')
+  const protocol = request.headers.get('x-forwarded-proto') || 'https'
+  
+  // Only redirect in production to avoid issues with localhost
+  if (process.env.NODE_ENV === 'production' && host) {
+    // Check if we need to redirect to www
+    if (host === 'sidikoff.com' || host.startsWith('sidikoff.com:')) {
+      const redirectUrl = new URL(request.url)
+      redirectUrl.host = PREFERRED_DOMAIN
+      redirectUrl.protocol = CANONICAL_PROTOCOL
+      
+      return NextResponse.redirect(redirectUrl, {
+        status: 301,
+        headers: {
+          'Cache-Control': 'public, max-age=31536000', // Cache redirect for 1 year
+        }
+      })
+    }
+    
+    // Also handle protocol redirects (HTTP → HTTPS)
+    if (protocol === 'http' && (host === PREFERRED_DOMAIN || host === 'sidikoff.com')) {
+      const redirectUrl = new URL(request.url)
+      redirectUrl.protocol = 'https'
+      if (host === 'sidikoff.com') {
+        redirectUrl.host = PREFERRED_DOMAIN
+      }
+      
+      return NextResponse.redirect(redirectUrl, {
+        status: 301,
+        headers: {
+          'Cache-Control': 'public, max-age=31536000',
+        }
+      })
+    }
   }
 
   // Fix double locale prefixes (e.g., /ru/ru/blog -> /ru/blog)

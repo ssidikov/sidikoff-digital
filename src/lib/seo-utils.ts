@@ -70,6 +70,48 @@ export const DEFAULT_SEO = {
   ],
 }
 
+/**
+ * Generates a canonical URL for the given path and locale
+ * Always ensures www subdomain and https protocol
+ */
+export function generateCanonicalUrl(path: string, locale?: Locale): string {
+  // Remove leading slash if present
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path
+  
+  // Handle locale-specific URLs
+  let finalPath = cleanPath
+  
+  if (locale && locale !== 'fr') {
+    // For non-French locales, add locale prefix
+    finalPath = `${locale}/${cleanPath}`
+  }
+  
+  // Always use www subdomain and https
+  const baseUrl = DEFAULT_SEO.siteUrl // Already configured as https://www.sidikoff.com
+  
+  // Handle root path
+  if (!finalPath || finalPath === '/') {
+    return baseUrl
+  }
+  
+  return `${baseUrl}/${finalPath}`
+}
+
+/**
+ * Generates alternate language URLs for hreflang tags
+ */
+export function generateAlternateUrls(path: string): Record<Locale, string> {
+  const alternates: Record<Locale, string> = {} as Record<Locale, string>
+  
+  const locales: Locale[] = ['fr', 'en', 'ru']
+  
+  locales.forEach((locale) => {
+    alternates[locale] = generateCanonicalUrl(path, locale)
+  })
+  
+  return alternates
+}
+
 // Business locations - Main business addresses for structured data
 export const businessLocations: LocalBusiness[] = [
   {
@@ -241,13 +283,9 @@ export function generateLocalizedSEOMetadata(locale: Locale): Metadata {
               'профессиональные сайты',
               'современные веб-приложения',
             ],
-    canonicalUrl: 'https://www.sidikoff.com/',
+    canonicalUrl: createCanonicalUrl('', locale),
     locale: locale as Locale,
-    alternateLanguages: {
-      fr: 'https://www.sidikoff.com/',
-      en: 'https://www.sidikoff.com/en',
-      ru: 'https://www.sidikoff.com/ru',
-    },
+    alternateLanguages: generateAlternateUrls(''),
     ogImage: '/images/og-homepage.jpg',
     ogType: 'website' as const,
     twitterCard: 'summary_large_image' as const,
