@@ -90,10 +90,10 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                     </svg>
                     Café Website Expert
                   </div>
-                  <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] leading-tight'>
+                  <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] leading-tight'>
                     Professional Website Creation for{' '}
                     <span className='text-[#3F72AF]'>Cafés in Paris</span>
-                  </h1>
+                  </h2>
                   <p className='text-xl text-gray-600 leading-relaxed'>
                     Specialized web agency helping Parisian cafés boost their digital presence with
                     professional, SEO-optimized websites featuring online menus, reservations, and
@@ -774,10 +774,10 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                     </svg>
                     Эксперт по сайтам кафе
                   </div>
-                  <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] leading-tight'>
+                  <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] leading-tight'>
                     Профессиональное создание сайтов для{' '}
                     <span className='text-[#3F72AF]'>кафе в Париже</span>
-                  </h1>
+                  </h2>
                   <p className='text-xl text-gray-600 leading-relaxed'>
                     Специализированное веб-агентство помогает парижским кафе повысить цифровое
                     присутствие с профессиональными, SEO-оптимизированными сайтами с онлайн-меню,

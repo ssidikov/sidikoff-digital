@@ -94,9 +94,9 @@ export default async function LyonPage({ params }: LyonPageProps) {
                     </svg>
                     Lyon Web Expert
                   </div>
-                  <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] leading-tight'>
+                  <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] leading-tight'>
                     Professional Website Creation in <span className='text-[#3F72AF]'>Lyon</span>
-                  </h1>
+                  </h2>
                   <p className='text-xl text-gray-600 leading-relaxed'>
                     Lyon web agency specialized in custom website creation. Whether showcase or
                     e-commerce sites, with optimized SEO for Google and modern design adapted to
@@ -199,9 +199,9 @@ export default async function LyonPage({ params }: LyonPageProps) {
                     </svg>
                     Веб-эксперт в Лионе
                   </div>
-                  <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] leading-tight'>
+                  <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] leading-tight'>
                     Профессиональное создание сайтов в <span className='text-[#3F72AF]'>Лионе</span>
-                  </h1>
+                  </h2>
                   <p className='text-xl text-gray-600 leading-relaxed'>
                     Веб-агентство в Лионе, специализирующееся на создании сайтов под заказ.
                     Современные, SEO-оптимизированные сайты, адаптированные для ваших клиентов.

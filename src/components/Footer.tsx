@@ -175,11 +175,11 @@ export function Footer({ dictionary, locale }: FooterProps) {
 
       {/* Large SIDIKOFF Text */}
       <div className='mb-8'>
-        <h1
+        <div
           className='text-[clamp(3.5rem,-0.1429rem+18.2143vw,16.25rem)] font-bold leading-none tracking-wider text-[#EFEEF3]'
           aria-hidden='true'>
           SIDIKOFF
-        </h1>
+        </div>
       </div>
 
       {/* Bottom Section */}

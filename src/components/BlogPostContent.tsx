@@ -31,9 +31,9 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
           switch (style) {
             case 'h1':
               return (
-                <h1 key={index} className='text-4xl font-bold text-gray-900 mt-12 mb-6'>
+                <h2 key={index} className='text-3xl font-bold text-gray-900 mt-12 mb-6'>
                   {block.children?.map((child: any) => child.text).join('')}
-                </h1>
+                </h2>
               )
             case 'h2':
               return (

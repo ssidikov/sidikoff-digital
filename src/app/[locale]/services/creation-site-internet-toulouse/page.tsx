@@ -94,10 +94,10 @@ export default async function ToulousePage({ params }: ToulousePageProps) {
                     </svg>
                     Toulouse Web Expert
                   </div>
-                  <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] leading-tight'>
+                  <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] leading-tight'>
                     Professional Website Creation in{' '}
                     <span className='text-[#3F72AF]'>Toulouse</span>
-                  </h1>
+                  </h2>
                   <p className='text-xl text-gray-600 leading-relaxed'>
                     Toulouse web agency specialized in custom website creation. Whether showcase or
                     e-commerce sites, with optimized SEO for Google and modern design adapted to
@@ -200,10 +200,10 @@ export default async function ToulousePage({ params }: ToulousePageProps) {
                     </svg>
                     Веб-эксперт в Тулузе
                   </div>
-                  <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] leading-tight'>
+                  <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] leading-tight'>
                     Профессиональное создание сайтов в{' '}
                     <span className='text-[#3F72AF]'>Тулузе</span>
-                  </h1>
+                  </h2>
                   <p className='text-xl text-gray-600 leading-relaxed'>
                     Веб-агентство в Тулузе, специализирующееся на создании сайтов под заказ.
                     Современные, SEO-оптимизированные сайты, адаптированные для ваших клиентов.

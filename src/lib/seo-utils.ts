@@ -176,9 +176,9 @@ export function generateLocalizedSEOMetadata(locale: Locale): Metadata {
 
   // Enhanced SEO-optimized descriptions with better keyword density and local targeting
   const descriptions = {
-    fr: '🚀 Développeur React Paris - Création site web professionnel, e-commerce, refonte. Expert Next.js TypeScript. Devis gratuit 24h, livraison rapide. ✅ 20+ projets réussis ✅ SEO optimisé ✅ Support inclus. Contactez-nous maintenant!',
-    en: '🚀 React Developer Paris - Professional website creation, e-commerce, redesign. Next.js TypeScript expert. Free quote 24h, fast delivery. ✅ 20+ successful projects ✅ SEO optimized ✅ Support included. Contact us now!',
-    ru: '🚀 React Разработчик Париж - Создание сайтов, e-commerce, редизайн. Эксперт Next.js TypeScript. Бесплатная смета 24ч, быстрая доставка. ✅ 20+ успешных проектов ✅ SEO оптимизация ✅ Поддержка включена. Свяжитесь сейчас!',
+    fr: 'Développeur React Paris - Sites web professionnels, e-commerce, refonte. Expert Next.js TypeScript. Devis gratuit 24h, livraison rapide.',
+    en: 'React Developer Paris - Professional website creation, e-commerce, redesign. Next.js TypeScript expert. Free quote 24h, fast delivery.',
+    ru: 'React Разработчик Париж - Создание сайтов, e-commerce, редизайн. Эксперт Next.js TypeScript. Бесплатная смета 24ч, быстрая доставка.',
   }
 
   const seoData = {
