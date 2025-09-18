@@ -19,7 +19,6 @@
     "sanity": "sanity start",
     "sanity:build": "sanity build",
     "sanity:deploy": "sanity deploy",
-    "postbuild": "next-sitemap",
     "test": "echo \"No tests specified\" && exit 0",
     "prepare": "husky install || true"
   },
@@ -35,7 +34,6 @@
     "negotiator": "^1.0.0",
     "next": "15.4.1",
     "next-sanity": "^10.0.4",
-    "next-sitemap": "^4.2.3",
     "nodemailer": "^7.0.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
