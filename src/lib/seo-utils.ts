@@ -87,11 +87,7 @@ export const businessLocations: LocalBusiness[] = [
       latitude: '48.8566',
       longitude: '2.3522',
     },
-    areaServed: [
-      'Paris',
-      'Île-de-France',
-      'France',
-    ],
+    areaServed: ['Paris', 'Île-de-France', 'France'],
     hasMap: 'https://maps.app.goo.gl/7219cD6xWk5tdYpb6',
   },
 ]
