@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Script from 'next/script'
 import { Locale } from '@/lib/i18n'
 import SEOLinks from '@/components/SEOLinks'
 import { Section } from '@/components/ui'
@@ -13,51 +14,91 @@ interface Paris16PageProps {
 export async function generateMetadata({ params }: Paris16PageProps): Promise<Metadata> {
   const { locale } = await params
 
-  const title =
-    locale === 'fr'
-      ? 'Création site internet Paris 16 – Agence web & SEO local'
-      : locale === 'en'
-        ? 'Website Creation Paris 16 | Expert Local Web Developer'
-        : 'Создание Сайтов Париж 16 | Эксперт Веб-Разработчик'
+  let title: string
+  let description: string
+  let keywords: string
 
-  const description =
-    locale === 'fr'
-      ? 'Agence web à Paris 16 spécialisée dans la création de sites internet sur mesure, vitrine & e-commerce. Boostez votre visibilité locale avec un site optimisé SEO.'
-      : locale === 'en'
-        ? 'Custom website creation in Paris 16. Local web developer expert in SEO and responsive design. Free quote for your professional website.'
-        : 'Создание сайтов в Париже 16. Местный веб-разработчик, эксперт по SEO и адаптивному дизайну. Бесплатная консультация.'
+  if (locale === 'fr') {
+    title = 'Création de site internet professionnel Paris 16ème - Agence Web Auteuil'
+    description = 'Agence web spécialisée Paris 16ème ✓ Création sites internet Passy, Trocadéro, Auteuil ✓ Développement sur mesure ✓ SEO local ✓ Devis gratuit'
+    keywords = 'création site internet, Paris 16ème, agence web, Passy, Trocadéro, Auteuil, Chaillot, développement web, SEO local'
+  } else if (locale === 'en') {
+    title = 'Professional Website Creation Paris 16th - Auteuil Web Agency'
+    description = 'Specialized web agency Paris 16th ✓ Website creation Passy, Trocadéro, Auteuil ✓ Custom development ✓ Local SEO ✓ Free quote'
+    keywords = 'website creation, Paris 16th, web agency, Passy, Trocadéro, Auteuil, Chaillot, web development, local SEO'
+  } else {
+    title = 'Создание профессиональных сайтов Париж 16-й - Веб Агентство Отей'
+    description = 'Специализированное веб-агентство Париж 16-й ✓ Создание сайтов Пасси, Трокадеро, Отей ✓ Индивидуальная разработка ✓ Локальное SEO ✓ Бесплатная консультация'
+    keywords = 'создание сайтов, Париж 16, веб агентство, Пасси, Трокадеро, Отей, Шайо, веб разработка, локальное SEO'
+  }
+
+  const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${locale === 'fr' ? '' : `${locale}/`}services/creation-site-internet-paris-16`
 
   return {
     title,
     description,
+    keywords,
+    authors: [{ name: 'SIDIKOFF DIGITAL', url: 'https://www.sidikoff.com' }],
+    creator: 'SIDIKOFF DIGITAL',
+    publisher: 'SIDIKOFF DIGITAL',
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'),
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        'fr': '/services/creation-site-internet-paris-16',
+        'en': '/en/services/creation-site-internet-paris-16', 
+        'ru': '/ru/services/creation-site-internet-paris-16',
+      },
+    },
     robots: {
       index: true,
       follow: true,
+      nocache: false,
       googleBot: {
         index: true,
         follow: true,
+        noimageindex: false,
         'max-video-preview': -1,
         'max-image-preview': 'large',
         'max-snippet': -1,
       },
     },
-    alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}services/creation-site-internet-paris-16`,
-    },
     openGraph: {
       title,
       description,
       type: 'website',
-      locale: locale,
+      locale: locale === 'fr' ? 'fr_FR' : locale === 'en' ? 'en_US' : 'ru_RU',
+      url: canonicalUrl,
+      siteName: 'SIDIKOFF DIGITAL',
       images: [
         {
           url: '/images/services/web-creation-paris-16.jpg',
           width: 1200,
           height: 630,
           alt: title,
+          type: 'image/jpeg',
         },
       ],
     },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      creator: '@sidikoffdigital',
+      site: '@sidikoffdigital',
+      images: ['/images/services/web-creation-paris-16.jpg'],
+    },
+    verification: {
+      google: process.env.GOOGLE_SITE_VERIFICATION,
+    },
+    category: 'technology',
+    classification: 'Web Development Services',
+    referrer: 'origin-when-cross-origin',
   }
 }
 
@@ -69,11 +110,140 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
     return (
       <>
         <SEOLinks locale={locale} />
+        
+        {/* Schema Markup for Local Business and Web Development Services */}
+        <Script
+          id='schema-local-business-paris-16'
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'LocalBusiness',
+              '@id': 'https://www.sidikoff.com/services/creation-site-internet-paris-16#LocalBusiness',
+              name: 'SIDIKOFF DIGITAL - Agence Web Paris 16ème',
+              description: 'Agence web spécialisée dans la création de sites internet professionnels pour les entreprises du 16ème arrondissement de Paris. Expertise en développement web, SEO local et design responsive.',
+              url: 'https://www.sidikoff.com/services/creation-site-internet-paris-16',
+              telephone: '+33626932734',
+              email: 's.sidikoff@gmail.com',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Paris',
+                postalCode: '75016',
+                addressRegion: 'Île-de-France',
+                addressCountry: 'FR'
+              },
+              geo: {
+                '@type': 'GeoCoordinates',
+                latitude: '48.8606',
+                longitude: '2.2881'
+              },
+              areaServed: [
+                {
+                  '@type': 'Place',
+                  name: 'Passy, Paris 16ème'
+                },
+                {
+                  '@type': 'Place', 
+                  name: 'Trocadéro, Paris 16ème'
+                },
+                {
+                  '@type': 'Place',
+                  name: 'Auteuil, Paris 16ème'
+                },
+                {
+                  '@type': 'Place',
+                  name: 'Chaillot, Paris 16ème'
+                }
+              ],
+              serviceType: [
+                'Création de site internet',
+                'Développement web',
+                'SEO local',
+                'Design responsive',
+                'E-commerce'
+              ],
+              priceRange: '€€',
+              openingHours: 'Mo-Fr 09:00-18:00',
+              hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: 'Services de création web Paris 16ème',
+                itemListElement: [
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: 'Site vitrine professionnel Paris 16ème',
+                      description: 'Création de sites vitrines élégants pour les entreprises du 16ème arrondissement'
+                    }
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: 'Boutique e-commerce Passy - Trocadéro',
+                      description: 'Développement de boutiques en ligne pour les commerces de luxe du 16ème'
+                    }
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: 'SEO local Paris 16ème',
+                      description: 'Optimisation pour les recherches locales dans le 16ème arrondissement'
+                    }
+                  }
+                ]
+              }
+            })
+          }}
+        />
+
+        <Script
+          id='schema-web-development-service'
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'ProfessionalService',
+              '@id': 'https://www.sidikoff.com/services/creation-site-internet-paris-16#ProfessionalService',
+              name: 'Création Site Internet Paris 16ème - Agence Web Auteuil',
+              alternateName: 'Développement Web Paris 16ème',
+              description: 'Service professionnel de création de sites internet sur mesure pour les entreprises, commerces et professionnels du 16ème arrondissement de Paris.',
+              provider: {
+                '@type': 'Organization',
+                name: 'SIDIKOFF DIGITAL',
+                url: 'https://www.sidikoff.com'
+              },
+              areaServed: {
+                '@type': 'Place',
+                name: 'Paris 16ème arrondissement',
+                containedInPlace: {
+                  '@type': 'City',
+                  name: 'Paris'
+                }
+              },
+              serviceType: 'Website Development',
+              category: 'Web Development Agency',
+              audience: {
+                '@type': 'Audience',
+                audienceType: 'Businesses in Paris 16th arrondissement'
+              },
+              offers: {
+                '@type': 'Offer',
+                name: 'Création site internet professionnel',
+                description: 'Développement de sites web sur mesure avec SEO local optimisé',
+                priceCurrency: 'EUR',
+                priceRange: '€€'
+              }
+            })
+          }}
+        />
+
         <div className='min-h-screen bg-gradient-to-br from-[#F9F7FF] via-[#F9F7FF] to-[#DBE2EF]'>
           {/* Hero Section */}
           <Section id='hero-paris-16' variant='hero' padding='xl' contentWidth='wide'>
             <div className='container mx-auto px-4 md:pt-32 pb-20'>
-              <div className='max-w-6xl mx-auto'>
+              <div className='max-w-8xl mx-auto'>
                 <div className='grid lg:grid-cols-2 gap-12 items-center'>
                   {/* Left Content */}
                   <div className='text-center lg:text-left'>
@@ -89,18 +259,21 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                     </div>
 
                     <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] mb-6 leading-tight'>
-                      Création de site internet professionnel à{' '}
+                      Création de site internet professionnel{' '}
                       <span className='bg-gradient-to-r from-[#3F72AF] to-[#112D4E] bg-clip-text text-transparent'>
-                        Paris 16ᵉ
-                      </span>
+                        Paris 16ème
+                      </span>{' '}
+                      - Agence Web Auteuil
                     </h1>
 
                     <p className='text-xl text-gray-600 mb-8 leading-relaxed'>
-                      Vous cherchez une <strong>agence web à Paris 16</strong> pour développer un
-                      site internet moderne, efficace et visible sur Google ? Nous créons des{' '}
-                      <strong>sites vitrines et e-commerce</strong> sur mesure, optimisés pour le{' '}
-                      <strong>SEO local</strong> et adaptés aux besoins des entreprises, artisans et
-                      professionnels du <strong>16ᵉ arrondissement de Paris</strong>.
+                      Vous cherchez une <strong>agence web spécialisée Paris 16ème</strong> pour
+                      développer un site internet moderne, efficace et visible sur Google ? Nous
+                      créons des <strong>sites vitrines et e-commerce</strong> sur mesure, optimisés
+                      pour le <strong>SEO local</strong> et adaptés aux besoins des entreprises,
+                      artisans et professionnels des quartiers <strong>Passy</strong>,{' '}
+                      <strong>Trocadéro</strong>, <strong>Auteuil</strong> et{' '}
+                      <strong>Chaillot</strong> du <strong>16ème arrondissement</strong>.
                     </p>
 
                     <div className='flex flex-col sm:flex-row gap-4 mb-8'>
@@ -276,7 +449,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
             <div className='container mx-auto px-4'>
               <div className='text-center mb-16'>
                 <h2 className='text-3xl md:text-4xl font-bold text-[#112D4E] mb-6'>
-                  Nos services de création de site web à Paris 16
+                  Nos services de création de site web Paris 16ème
                 </h2>
                 <div className='w-24 h-1 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] mx-auto mb-6'></div>
               </div>
@@ -300,13 +473,16 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                       </svg>
                     </div>
                     <h3 className='text-2xl font-bold text-[#112D4E]'>
-                      Site vitrine professionnel
+                      Site vitrine Paris 16ème arrondissement
                     </h3>
                   </div>
 
                   <p className='text-lg text-gray-700 leading-relaxed'>
-                    Un <strong>site vitrine optimisé pour Paris 16</strong> afin de présenter vos
-                    services, attirer de nouveaux clients et renforcer votre image professionnelle.
+                    Un <strong>site vitrine élégant</strong> pour les{' '}
+                    <strong>entreprises du 16ème</strong> : médecins spécialistes avenue Foch,
+                    cabinets d&apos;avocats rue de Passy, galeries d&apos;art près du Trocadéro.
+                    Design haut de gamme adapté à votre clientèle prestigieuse d&apos;
+                    <strong>Auteuil</strong> et <strong>Chaillot</strong>.
                   </p>
 
                   <Link
@@ -374,14 +550,15 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                       </svg>
                     </div>
                     <h3 className='text-2xl font-bold text-[#112D4E]'>
-                      Site e-commerce sur mesure
+                      Boutique e-commerce Passy - Trocadéro
                     </h3>
                   </div>
 
                   <p className='text-lg text-gray-700 leading-relaxed'>
-                    Développement de <strong>boutiques en ligne performantes</strong> : gestion des
-                    produits, paiement sécurisé, design responsive, adapté à vos clients locaux et
-                    nationaux.
+                    <strong>Développement e-commerce Paris 16ème</strong> pour les{' '}
+                    <strong>boutiques de luxe</strong>,<strong>créateurs de mode</strong> et{' '}
+                    <strong>artisans d&apos;art</strong>. Solutions sur mesure avec paiement
+                    sécurisé et livraison dans tout le <strong>16ème arrondissement</strong>.
                   </p>
                 </div>
               </div>
@@ -882,6 +1059,323 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
             </div>
           </Section>
 
+          {/* Secteurs d'expertise Section */}
+          <Section
+            id='secteurs-expertise-paris-16'
+            variant='default'
+            padding='xl'
+            contentWidth='wide'>
+            <div className='container mx-auto px-4'>
+              <div className='text-center mb-16'>
+                <h2 className='text-3xl md:text-4xl font-bold text-[#112D4E] mb-6'>
+                  Secteurs d&apos;expertise Paris 16ème arrondissement
+                </h2>
+                <div className='w-24 h-1 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] mx-auto mb-6'></div>
+                <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+                  Notre <strong>agence web spécialisée Paris 16ème</strong> accompagne tous les
+                  secteurs d&apos;activité du prestigieux 16ème arrondissement
+                </p>
+              </div>
+
+              <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16'>
+                {/* Professions libérales */}
+                <div className='bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition-all duration-300'>
+                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mx-auto mb-4'>
+                    <svg
+                      className='w-6 h-6 text-white'
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'>
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth={2}
+                        d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'
+                      />
+                    </svg>
+                  </div>
+                  <h3 className='text-lg font-bold text-[#112D4E] mb-3'>
+                    Professions libérales 16ème
+                  </h3>
+                  <ul className='text-sm text-gray-700 space-y-1'>
+                    <li>
+                      <strong>Médecins spécialistes</strong> avenue Foch
+                    </li>
+                    <li>
+                      <strong>Cabinets d&apos;avocats</strong> d&apos;affaires Chaillot
+                    </li>
+                    <li>
+                      <strong>Experts-comptables</strong> Passy et Trocadéro
+                    </li>
+                    <li>
+                      <strong>Notaires</strong> avenue Victor Hugo
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Commerce de luxe */}
+                <div className='bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition-all duration-300'>
+                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mx-auto mb-4'>
+                    <svg
+                      className='w-6 h-6 text-white'
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'>
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth={2}
+                        d='M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1'
+                      />
+                    </svg>
+                  </div>
+                  <h3 className='text-lg font-bold text-[#112D4E] mb-3'>
+                    Commerce de luxe Paris 16
+                  </h3>
+                  <ul className='text-sm text-gray-700 space-y-1'>
+                    <li>
+                      <strong>Boutiques créateurs</strong> rue de Passy
+                    </li>
+                    <li>
+                      <strong>Galeries d&apos;art</strong> Trocadéro et Chaillot
+                    </li>
+                    <li>
+                      <strong>Joailliers</strong> avenue Victor Hugo
+                    </li>
+                    <li>
+                      <strong>Antiquaires</strong> quartier Auteuil
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Restauration */}
+                <div className='bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition-all duration-300'>
+                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mx-auto mb-4'>
+                    <svg
+                      className='w-6 h-6 text-white'
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'>
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth={2}
+                        d='M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z'
+                      />
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth={2}
+                        d='M15 13a3 3 0 11-6 0 3 3 0 016 0z'
+                      />
+                    </svg>
+                  </div>
+                  <h3 className='text-lg font-bold text-[#112D4E] mb-3'>
+                    Restauration haut de gamme
+                  </h3>
+                  <ul className='text-sm text-gray-700 space-y-1'>
+                    <li>
+                      <strong>Restaurants gastronomiques</strong> Trocadéro
+                    </li>
+                    <li>
+                      <strong>Brasseries traditionnelles</strong> Passy
+                    </li>
+                    <li>
+                      <strong>Salons de thé</strong> avenue Victor Hugo
+                    </li>
+                    <li>
+                      <strong>Traiteurs de prestige</strong> Chaillot
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Services aux entreprises */}
+                <div className='bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition-all duration-300'>
+                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mx-auto mb-4'>
+                    <svg
+                      className='w-6 h-6 text-white'
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'>
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth={2}
+                        d='M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4'
+                      />
+                    </svg>
+                  </div>
+                  <h3 className='text-lg font-bold text-[#112D4E] mb-3'>
+                    Services aux entreprises
+                  </h3>
+                  <ul className='text-sm text-gray-700 space-y-1'>
+                    <li>
+                      <strong>Sièges sociaux</strong> avenue d&apos;Iéna
+                    </li>
+                    <li>
+                      <strong>Bureaux de conseil</strong> Chaillot
+                    </li>
+                    <li>
+                      <strong>Agences immobilières</strong> 16ème
+                    </li>
+                    <li>
+                      <strong>Services financiers</strong> Trocadéro
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </Section>
+
+          {/* Zones d'intervention Section */}
+          <Section
+            id='zones-intervention-paris-16'
+            variant='default'
+            padding='xl'
+            contentWidth='wide'
+            className='bg-gradient-to-b from-[#F8F9FA] to-white'>
+            <div className='container mx-auto px-4'>
+              <div className='text-center mb-16'>
+                <h2 className='text-3xl md:text-4xl font-bold text-[#112D4E] mb-6'>
+                  Zones d&apos;intervention Paris 16ème
+                </h2>
+                <div className='w-24 h-1 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] mx-auto mb-6'></div>
+                <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+                  <strong>Création sites web</strong> dans tous les quartiers prestigieux du 16ème
+                  arrondissement parisien
+                </p>
+              </div>
+
+              <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
+                {/* Passy - La Muette */}
+                <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300'>
+                  <div className='flex items-center space-x-3 mb-4'>
+                    <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
+                      <svg className='w-5 h-5 text-white' fill='currentColor' viewBox='0 0 20 20'>
+                        <path
+                          fillRule='evenodd'
+                          d='M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z'
+                          clipRule='evenodd'
+                        />
+                      </svg>
+                    </div>
+                    <h3 className='text-xl font-bold text-[#112D4E]'>Passy - La Muette</h3>
+                  </div>
+                  <p className='text-gray-700 mb-4'>
+                    <strong>Création sites web Passy</strong> : rue de Passy, avenue Mozart, place
+                    de la Muette. Spécialisation commerces de proximité, professions libérales,
+                    restaurants.
+                  </p>
+                  <div className='text-sm text-gray-600'>
+                    <div className='flex items-center mb-1'>
+                      <span className='w-2 h-2 bg-[#3F72AF] rounded-full mr-2'></span>
+                      Rue de Passy • Avenue Mozart
+                    </div>
+                    <div className='flex items-center'>
+                      <span className='w-2 h-2 bg-[#3F72AF] rounded-full mr-2'></span>
+                      Place de la Muette • Jardins du Ranelagh
+                    </div>
+                  </div>
+                </div>
+
+                {/* Trocadéro - Chaillot */}
+                <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300'>
+                  <div className='flex items-center space-x-3 mb-4'>
+                    <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
+                      <svg className='w-5 h-5 text-white' fill='currentColor' viewBox='0 0 20 20'>
+                        <path
+                          fillRule='evenodd'
+                          d='M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z'
+                          clipRule='evenodd'
+                        />
+                      </svg>
+                    </div>
+                    <h3 className='text-xl font-bold text-[#112D4E]'>Trocadéro - Chaillot</h3>
+                  </div>
+                  <p className='text-gray-700 mb-4'>
+                    <strong>Agence web Trocadéro</strong> : place du Trocadéro, avenue du Président
+                    Wilson, rue de Chaillot. Expertise sites institutionnels, galeries, restaurants
+                    vue Tour Eiffel.
+                  </p>
+                  <div className='text-sm text-gray-600'>
+                    <div className='flex items-center mb-1'>
+                      <span className='w-2 h-2 bg-[#3F72AF] rounded-full mr-2'></span>
+                      Place du Trocadéro • Palais de Chaillot
+                    </div>
+                    <div className='flex items-center'>
+                      <span className='w-2 h-2 bg-[#3F72AF] rounded-full mr-2'></span>
+                      Avenue du Président Wilson • Rue de Chaillot
+                    </div>
+                  </div>
+                </div>
+
+                {/* Auteuil - Porte d'Auteuil */}
+                <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300'>
+                  <div className='flex items-center space-x-3 mb-4'>
+                    <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
+                      <svg className='w-5 h-5 text-white' fill='currentColor' viewBox='0 0 20 20'>
+                        <path
+                          fillRule='evenodd'
+                          d='M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z'
+                          clipRule='evenodd'
+                        />
+                      </svg>
+                    </div>
+                    <h3 className='text-xl font-bold text-[#112D4E]'>
+                      Auteuil - Porte d&apos;Auteuil
+                    </h3>
+                  </div>
+                  <p className='text-gray-700 mb-4'>
+                    <strong>Développement web Auteuil</strong> : rue d&apos;Auteuil, avenue de
+                    Versailles, Porte d&apos;Auteuil. Services pour entreprises locales, commerces
+                    de quartier, professions de santé.
+                  </p>
+                  <div className='text-sm text-gray-600'>
+                    <div className='flex items-center mb-1'>
+                      <span className='w-2 h-2 bg-[#3F72AF] rounded-full mr-2'></span>
+                      Rue d&apos;Auteuil • Avenue de Versailles
+                    </div>
+                    <div className='flex items-center'>
+                      <span className='w-2 h-2 bg-[#3F72AF] rounded-full mr-2'></span>
+                      Porte d&apos;Auteuil • Bois de Boulogne
+                    </div>
+                  </div>
+                </div>
+
+                {/* Victor Hugo - Étoile */}
+                <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300'>
+                  <div className='flex items-center space-x-3 mb-4'>
+                    <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
+                      <svg className='w-5 h-5 text-white' fill='currentColor' viewBox='0 0 20 20'>
+                        <path
+                          fillRule='evenodd'
+                          d='M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z'
+                          clipRule='evenodd'
+                        />
+                      </svg>
+                    </div>
+                    <h3 className='text-xl font-bold text-[#112D4E]'>Victor Hugo - Étoile</h3>
+                  </div>
+                  <p className='text-gray-700 mb-4'>
+                    <strong>Sites internet avenue Victor Hugo</strong> : place Victor Hugo, avenue
+                    Foch, proche Étoile. Spécialisation boutiques de luxe, cabinets prestigieux,
+                    services haut de gamme.
+                  </p>
+                  <div className='text-sm text-gray-600'>
+                    <div className='flex items-center mb-1'>
+                      <span className='w-2 h-2 bg-[#3F72AF] rounded-full mr-2'></span>
+                      Place Victor Hugo • Avenue Foch
+                    </div>
+                    <div className='flex items-center'>
+                      <span className='w-2 h-2 bg-[#3F72AF] rounded-full mr-2'></span>
+                      Avenue de la Grande Armée • Place de l&apos;Étoile
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Section>
+
           {/* FAQ Section */}
           <Section id='faq-paris-16' variant='faq' padding='xl' contentWidth='wide'>
             <div className='container mx-auto px-4'>
@@ -1012,11 +1506,13 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                         </h3>
                         <p className='text-gray-700 leading-relaxed'>
                           Oui, chaque site que nous créons intègre une optimisation{' '}
-                          <strong>SEO local</strong> avancée. Votre site sera structuré pour
-                          apparaître dans les recherches locales &quot;Paris 16&quot; et bénéficiera
-                          d&apos;un
+                          <strong>SEO local Paris 16ème</strong> avancée. Votre site sera structuré
+                          pour apparaître dans les recherches locales comme &quot;médecin
+                          Passy&quot;, &quot;restaurant Trocadéro&quot;, &quot;avocat Auteuil&quot;
+                          et bénéficiera d&apos;un
                           <strong>référencement Google</strong> efficace dès sa mise en ligne,
-                          attirant votre clientèle de proximité.
+                          attirant votre clientèle de proximité du{' '}
+                          <strong>16ème arrondissement</strong>.
                         </p>
                       </div>
                     </div>
@@ -1166,6 +1662,137 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
     return (
       <>
         <SEOLinks locale={locale} />
+        
+        {/* Schema Markup for Local Business and Web Development Services - English */}
+        <Script
+          id='schema-local-business-paris-16-en'
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'LocalBusiness',
+              '@id': 'https://www.sidikoff.com/en/services/creation-site-internet-paris-16#LocalBusiness',
+              name: 'Website Creation Paris 16th - SIDIKOFF DIGITAL',
+              alternateName: 'Web Development Agency Paris 16',
+              description: 'Professional website creation services for businesses and professionals in Paris 16th arrondissement. Custom web solutions optimized for local SEO.',
+              url: 'https://www.sidikoff.com/en/services/creation-site-internet-paris-16',
+              telephone: '+33142508888',
+              email: 'contact@sidikoff.com',
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: 'Paris 16th arrondissement',
+                addressLocality: 'Paris',
+                postalCode: '75016',
+                addressRegion: 'Île-de-France',
+                addressCountry: 'FR'
+              },
+              geo: {
+                '@type': 'GeoCoordinates',
+                latitude: '48.8606',
+                longitude: '2.2881'
+              },
+              areaServed: [
+                {
+                  '@type': 'Place',
+                  name: 'Passy, Paris 16th'
+                },
+                {
+                  '@type': 'Place', 
+                  name: 'Trocadéro, Paris 16th'
+                },
+                {
+                  '@type': 'Place',
+                  name: 'Auteuil, Paris 16th'
+                },
+                {
+                  '@type': 'Place',
+                  name: 'Chaillot, Paris 16th'
+                }
+              ],
+              serviceType: [
+                'Website Creation',
+                'Web Development',
+                'Local SEO',
+                'Responsive Design',
+                'E-commerce'
+              ],
+              priceRange: '€€',
+              openingHours: 'Mo-Fr 09:00-18:00',
+              hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: 'Web Creation Services Paris 16th',
+                itemListElement: [
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: 'Professional Business Website Paris 16th',
+                      description: 'Creation of elegant business websites for companies in the 16th arrondissement'
+                    }
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: 'E-commerce Store Passy - Trocadéro',
+                      description: 'Development of online stores for luxury businesses in the 16th'
+                    }
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: 'Local SEO Paris 16th',
+                      description: 'Optimization for local searches in the 16th arrondissement'
+                    }
+                  }
+                ]
+              }
+            })
+          }}
+        />
+
+        <Script
+          id='schema-web-development-service-en'
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'ProfessionalService',
+              '@id': 'https://www.sidikoff.com/en/services/creation-site-internet-paris-16#ProfessionalService',
+              name: 'Website Creation Paris 16th - Web Agency Auteuil',
+              alternateName: 'Web Development Paris 16th',
+              description: 'Professional website creation service tailored for businesses, shops and professionals in the 16th arrondissement of Paris.',
+              provider: {
+                '@type': 'Organization',
+                name: 'SIDIKOFF DIGITAL',
+                url: 'https://www.sidikoff.com/en'
+              },
+              areaServed: {
+                '@type': 'Place',
+                name: 'Paris 16th arrondissement',
+                containedInPlace: {
+                  '@type': 'City',
+                  name: 'Paris'
+                }
+              },
+              serviceType: 'Website Development',
+              category: 'Web Development Agency',
+              audience: {
+                '@type': 'Audience',
+                audienceType: 'Businesses in Paris 16th arrondissement'
+              },
+              offers: {
+                '@type': 'Offer',
+                name: 'Professional website creation',
+                description: 'Custom website development with optimized local SEO',
+                priceCurrency: 'EUR',
+                priceRange: '€€'
+              }
+            })
+          }}
+        />
+
         <div className='min-h-screen bg-gradient-to-br from-[#F9F7FF] via-[#F9F7FF] to-[#DBE2EF]'>
           <Section id='hero-paris-16-en' variant='hero' padding='xl' contentWidth='wide'>
             <div className='container mx-auto px-4 pt-32 pb-16'>
@@ -1207,6 +1834,137 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
   return (
     <>
       <SEOLinks locale={locale} />
+      
+      {/* Schema Markup for Local Business and Web Development Services - Russian */}
+      <Script
+        id='schema-local-business-paris-16-ru'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'LocalBusiness',
+            '@id': 'https://www.sidikoff.com/ru/services/creation-site-internet-paris-16#LocalBusiness',
+            name: 'Создание Сайтов Париж 16 - SIDIKOFF DIGITAL',
+            alternateName: 'Веб-агентство Париж 16',
+            description: 'Профессиональные услуги по созданию сайтов для бизнеса и профессионалов в 16-м округе Парижа. Индивидуальные веб-решения с оптимизацией для местного SEO.',
+            url: 'https://www.sidikoff.com/ru/services/creation-site-internet-paris-16',
+            telephone: '+33142508888',
+            email: 'contact@sidikoff.com',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: '16-й округ Парижа',
+              addressLocality: 'Париж',
+              postalCode: '75016',
+              addressRegion: 'Иль-де-Франс',
+              addressCountry: 'FR'
+            },
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: '48.8606',
+              longitude: '2.2881'
+            },
+            areaServed: [
+              {
+                '@type': 'Place',
+                name: 'Пасси, Париж 16'
+              },
+              {
+                '@type': 'Place', 
+                name: 'Трокадеро, Париж 16'
+              },
+              {
+                '@type': 'Place',
+                name: 'Отёй, Париж 16'
+              },
+              {
+                '@type': 'Place',
+                name: 'Шайо, Париж 16'
+              }
+            ],
+            serviceType: [
+              'Создание сайтов',
+              'Веб-разработка',
+              'Местное SEO',
+              'Адаптивный дизайн',
+              'Электронная коммерция'
+            ],
+            priceRange: '€€',
+            openingHours: 'Mo-Fr 09:00-18:00',
+            hasOfferCatalog: {
+              '@type': 'OfferCatalog',
+              name: 'Услуги веб-разработки Париж 16',
+              itemListElement: [
+                {
+                  '@type': 'Offer',
+                  itemOffered: {
+                    '@type': 'Service',
+                    name: 'Профессиональный корпоративный сайт Париж 16',
+                    description: 'Создание элегантных корпоративных сайтов для компаний 16-го округа'
+                  }
+                },
+                {
+                  '@type': 'Offer',
+                  itemOffered: {
+                    '@type': 'Service',
+                    name: 'Интернет-магазин Пасси - Трокадеро',
+                    description: 'Разработка интернет-магазинов для люксовых брендов 16-го округа'
+                  }
+                },
+                {
+                  '@type': 'Offer',
+                  itemOffered: {
+                    '@type': 'Service',
+                    name: 'Местное SEO Париж 16',
+                    description: 'Оптимизация для местного поиска в 16-м округе'
+                  }
+                }
+              ]
+            }
+          })
+        }}
+      />
+
+      <Script
+        id='schema-web-development-service-ru'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ProfessionalService',
+            '@id': 'https://www.sidikoff.com/ru/services/creation-site-internet-paris-16#ProfessionalService',
+            name: 'Создание Сайтов Париж 16 - Веб-агентство Отёй',
+            alternateName: 'Веб-разработка Париж 16',
+            description: 'Профессиональная услуга по созданию сайтов на заказ для предприятий, магазинов и профессионалов 16-го округа Парижа.',
+            provider: {
+              '@type': 'Organization',
+              name: 'SIDIKOFF DIGITAL',
+              url: 'https://www.sidikoff.com/ru'
+            },
+            areaServed: {
+              '@type': 'Place',
+              name: '16-й округ Парижа',
+              containedInPlace: {
+                '@type': 'City',
+                name: 'Париж'
+              }
+            },
+            serviceType: 'Веб-разработка',
+            category: 'Агентство веб-разработки',
+            audience: {
+              '@type': 'Audience',
+              audienceType: 'Предприятия 16-го округа Парижа'
+            },
+            offers: {
+              '@type': 'Offer',
+              name: 'Профессиональное создание сайтов',
+              description: 'Индивидуальная веб-разработка с оптимизированным местным SEO',
+              priceCurrency: 'EUR',
+              priceRange: '€€'
+            }
+          })
+        }}
+      />
+
       <div className='min-h-screen bg-gradient-to-br from-[#F9F7FF] via-[#F9F7FF] to-[#DBE2EF]'>
         <Section id='hero-paris-16-ru' variant='hero' padding='xl' contentWidth='wide'>
           <div className='container mx-auto px-4 pt-32 pb-16'>
