@@ -308,19 +308,19 @@ export function middleware(request: NextRequest) {
     const pathWithoutLocale = pathname.replace(/^\/(en|ru)/, '')
     const seoMatch = pathWithoutLocale.match(/\/seo\/creation-site-web-(.*)/)
     const locationName = seoMatch?.[1]?.replace(/-/g, ' ') || ''
-    
+
     // Determine locale from pathname
     let locale: 'fr' | 'en' | 'ru' = 'fr'
     if (pathname.startsWith('/en/')) locale = 'en'
     if (pathname.startsWith('/ru/')) locale = 'ru'
-    
+
     // Create URL for our landing page with parameters
     const landingUrl = new URL('/gone-landing', request.url)
     if (locationName) {
       landingUrl.searchParams.set('city', locationName)
     }
     landingUrl.searchParams.set('locale', locale)
-    
+
     // Return 410 status with redirect to our React landing page
     return NextResponse.rewrite(landingUrl, {
       status: 410,
