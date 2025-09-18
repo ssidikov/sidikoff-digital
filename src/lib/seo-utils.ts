@@ -71,33 +71,6 @@ export const DEFAULT_SEO = {
 }
 
 /**
- * Generates a canonical URL for the given path and locale
- * Always ensures www subdomain and https protocol
- */
-export function generateCanonicalUrl(path: string, locale?: Locale): string {
-  // Remove leading slash if present
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path
-
-  // Handle locale-specific URLs
-  let finalPath = cleanPath
-
-  if (locale && locale !== 'fr') {
-    // For non-French locales, add locale prefix
-    finalPath = `${locale}/${cleanPath}`
-  }
-
-  // Always use www subdomain and https
-  const baseUrl = DEFAULT_SEO.siteUrl // Already configured as https://www.sidikoff.com
-
-  // Handle root path
-  if (!finalPath || finalPath === '/') {
-    return baseUrl
-  }
-
-  return `${baseUrl}/${finalPath}`
-}
-
-/**
  * Generates alternate language URLs for hreflang tags
  */
 export function generateAlternateUrls(path: string): Record<Locale, string> {
@@ -106,7 +79,7 @@ export function generateAlternateUrls(path: string): Record<Locale, string> {
   const locales: Locale[] = ['fr', 'en', 'ru']
 
   locales.forEach((locale) => {
-    alternates[locale] = generateCanonicalUrl(path, locale)
+    alternates[locale] = createCanonicalUrl(path, locale)
   })
 
   return alternates
@@ -131,6 +104,60 @@ export const businessLocations: LocalBusiness[] = [
     },
     areaServed: ['Paris', 'Île-de-France', 'France'],
     hasMap: 'https://maps.app.goo.gl/7219cD6xWk5tdYpb6',
+  },
+  {
+    name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Toulouse',
+    url: 'https://www.sidikoff.com',
+    address: {
+      streetAddress: 'Service à domicile',
+      addressLocality: 'Toulouse',
+      postalCode: '31000',
+      addressCountry: 'FR',
+    },
+    telephone: '+33626932734',
+    email: 's.sidikoff@gmail.com',
+    geo: {
+      latitude: '43.6047',
+      longitude: '1.4442',
+    },
+    areaServed: ['Toulouse', 'Haute-Garonne', 'Occitanie'],
+    hasMap: 'https://maps.app.goo.gl/toulouse',
+  },
+  {
+    name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Lyon',
+    url: 'https://www.sidikoff.com',
+    address: {
+      streetAddress: 'Service à domicile',
+      addressLocality: 'Lyon',
+      postalCode: '69000',
+      addressCountry: 'FR',
+    },
+    telephone: '+33626932734',
+    email: 's.sidikoff@gmail.com',
+    geo: {
+      latitude: '45.7640',
+      longitude: '4.8357',
+    },
+    areaServed: ['Lyon', 'Rhône', 'Auvergne-Rhône-Alpes'],
+    hasMap: 'https://maps.app.goo.gl/lyon',
+  },
+  {
+    name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Strasbourg',
+    url: 'https://www.sidikoff.com',
+    address: {
+      streetAddress: 'Service à domicile',
+      addressLocality: 'Strasbourg',
+      postalCode: '67000',
+      addressCountry: 'FR',
+    },
+    telephone: '+33626932734',
+    email: 's.sidikoff@gmail.com',
+    geo: {
+      latitude: '48.5734',
+      longitude: '7.7521',
+    },
+    areaServed: ['Strasbourg', 'Bas-Rhin', 'Grand Est'],
+    hasMap: 'https://maps.app.goo.gl/strasbourg',
   },
 ]
 

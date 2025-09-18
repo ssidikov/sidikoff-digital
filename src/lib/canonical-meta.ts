@@ -81,11 +81,7 @@ export function generateCanonicalMetadata({
 /**
  * Hook to generate canonical metadata for service pages
  */
-export function generateServicePageMetadata(
-  service: string,
-  locale: Locale,
-  city?: string
-): Metadata {
+export function generateServicePageMetadata(service: string, locale: Locale): Metadata {
   const serviceTitles = {
     fr: {
       'creation-sites-web': 'Création de Sites Web Professionnels',
