@@ -14,80 +14,50 @@ interface Paris16PageProps {
 export async function generateMetadata({ params }: Paris16PageProps): Promise<Metadata> {
   const { locale } = await params
 
-  let title: string
-  let description: string
-  let keywords: string
+  const title =
+    locale === 'fr'
+      ? 'Création de site internet professionnel Paris 16ème - Agence Web Auteuil'
+      : locale === 'en'
+        ? 'Professional Website Creation Paris 16th - Auteuil Web Agency'
+        : 'Создание профессиональных сайтов Париж 16-й - Веб Агентство Отей'
 
-  if (locale === 'fr') {
-    title = 'Création de site internet professionnel Paris 16ème - Agence Web Auteuil'
-    description =
-      'Agence web spécialisée Paris 16ème ✓ Création sites internet Passy, Trocadéro, Auteuil ✓ Développement sur mesure ✓ SEO local ✓ Devis gratuit'
-    keywords =
-      'création site internet, Paris 16ème, agence web, Passy, Trocadéro, Auteuil, Chaillot, développement web, SEO local'
-  } else if (locale === 'en') {
-    title = 'Professional Website Creation Paris 16th - Auteuil Web Agency'
-    description =
-      'Specialized web agency Paris 16th ✓ Website creation Passy, Trocadéro, Auteuil ✓ Custom development ✓ Local SEO ✓ Free quote'
-    keywords =
-      'website creation, Paris 16th, web agency, Passy, Trocadéro, Auteuil, Chaillot, web development, local SEO'
-  } else {
-    title = 'Создание профессиональных сайтов Париж 16-й - Веб Агентство Отей'
-    description =
-      'Специализированное веб-агентство Париж 16-й ✓ Создание сайтов Пасси, Трокадеро, Отей ✓ Индивидуальная разработка ✓ Локальное SEO ✓ Бесплатная консультация'
-    keywords =
-      'создание сайтов, Париж 16, веб агентство, Пасси, Трокадеро, Отей, Шайо, веб разработка, локальное SEO'
-  }
-
-  const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${locale === 'fr' ? '' : `${locale}/`}services/creation-site-internet-paris-16`
+  const description =
+    locale === 'fr'
+      ? 'Agence web spécialisée Paris 16ème ✓ Création sites internet Passy, Trocadéro, Auteuil ✓ Développement sur mesure ✓ SEO local ✓ Devis gratuit'
+      : locale === 'en'
+        ? 'Specialized web agency Paris 16th ✓ Website creation Passy, Trocadéro, Auteuil ✓ Custom development ✓ Local SEO ✓ Free quote'
+        : 'Специализированное веб-агентство Париж 16-й ✓ Создание сайтов Пасси, Трокадеро, Отей ✓ Индивидуальная разработка ✓ Локальное SEO ✓ Бесплатная консультация'
 
   return {
     title,
     description,
-    keywords,
-    authors: [{ name: 'SIDIKOFF DIGITAL', url: 'https://www.sidikoff.com' }],
-    creator: 'SIDIKOFF DIGITAL',
-    publisher: 'SIDIKOFF DIGITAL',
-    formatDetection: {
-      email: false,
-      address: false,
-      telephone: false,
-    },
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'),
-    alternates: {
-      canonical: canonicalUrl,
-      languages: {
-        fr: '/services/creation-site-internet-paris-16',
-        en: '/en/services/creation-site-internet-paris-16',
-        ru: '/ru/services/creation-site-internet-paris-16',
-      },
-    },
     robots: {
       index: true,
       follow: true,
-      nocache: false,
       googleBot: {
         index: true,
         follow: true,
-        noimageindex: false,
         'max-video-preview': -1,
         'max-image-preview': 'large',
         'max-snippet': -1,
       },
     },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}services/creation-site-internet-paris-16`,
+    },
     openGraph: {
       title,
       description,
       type: 'website',
-      locale: locale === 'fr' ? 'fr_FR' : locale === 'en' ? 'en_US' : 'ru_RU',
-      url: canonicalUrl,
-      siteName: 'SIDIKOFF DIGITAL',
+      locale,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}services/creation-site-internet-paris-16`,
+      siteName: 'Sidikoff Digital',
       images: [
         {
-          url: '/images/services/web-creation-paris-16.jpg',
+          url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/images/services/web-creation-paris-16.jpg`,
           width: 1200,
           height: 630,
           alt: title,
-          type: 'image/jpeg',
         },
       ],
     },
@@ -95,16 +65,10 @@ export async function generateMetadata({ params }: Paris16PageProps): Promise<Me
       card: 'summary_large_image',
       title,
       description,
-      creator: '@sidikoffdigital',
-      site: '@sidikoffdigital',
-      images: ['/images/services/web-creation-paris-16.jpg'],
+      images: [
+        `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/images/services/web-creation-paris-16.jpg`,
+      ],
     },
-    verification: {
-      google: process.env.GOOGLE_SITE_VERIFICATION,
-    },
-    category: 'technology',
-    classification: 'Web Development Services',
-    referrer: 'origin-when-cross-origin',
   }
 }
 
