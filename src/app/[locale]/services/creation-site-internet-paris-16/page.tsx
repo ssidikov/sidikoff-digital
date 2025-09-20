@@ -331,8 +331,8 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                         width={600}
                         height={400}
                         priority={true}
-                        loading="eager"
-                        fetchPriority="high"
+                        loading='eager'
+                        fetchPriority='high'
                       />
                       <div className='absolute inset-0 bg-gradient-to-tr from-[#112D4E]/20 to-transparent rounded-2xl'></div>
                     </div>
