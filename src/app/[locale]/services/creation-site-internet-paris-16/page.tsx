@@ -45,6 +45,10 @@ export async function generateMetadata({ params }: Paris16PageProps): Promise<Me
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}services/creation-site-internet-paris-16`,
     },
+    other: {
+      // Preconnect to Unsplash domain for faster image loading
+      preconnect: 'https://images.unsplash.com',
+    },
     openGraph: {
       title,
       description,
@@ -326,6 +330,9 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                         className='rounded-2xl shadow-2xl'
                         width={600}
                         height={400}
+                        priority={true}
+                        loading="eager"
+                        fetchPriority="high"
                       />
                       <div className='absolute inset-0 bg-gradient-to-tr from-[#112D4E]/20 to-transparent rounded-2xl'></div>
                     </div>
