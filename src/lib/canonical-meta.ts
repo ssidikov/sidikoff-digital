@@ -130,9 +130,9 @@ export function generateServicePageMetadata(service: string, locale: Locale): Me
       'creation-site-internet-paris':
         'Веб-агентство в Париже, специализирующееся на создании профессиональных сайтов. Современные, SEO-оптимизированные сайты, React Next.js.',
       'creation-site-internet-toulouse':
-        'Создание веб-сайтов в Тулузе. Веб-разработчик, эксперт по React, Next.js. Бесплатная смета.',
+        'Создание веб-сайтов в Тулузе. Веб-разработчик, эксперт по React, Next.js. Бесплатная первая консультация.',
       'creation-site-internet-lyon':
-        'Эксперт по созданию веб-сайтов в Лионе. Современные решения React Next.js TypeScript. Бесплатная смета 24ч.',
+        'Эксперт по созданию веб-сайтов в Лионе. Современные решения React Next.js TypeScript. Бесплатная первая консультация',
     },
   }
 

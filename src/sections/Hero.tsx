@@ -53,7 +53,7 @@ export function Hero({ dict, locale }: HeroProps) {
   return (
     <ViewportHeightProvider>
       <Section id='hero' variant='hero' background='transparent' padding='none' contentWidth='wide'>
-        <div ref={ref} className='relative z-10 hero-height flex items-center md:pt-24 lg:pt-0'>
+        <div ref={ref} className='relative z-10 hero-height flex items-center'>
           <div className='w-full grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center px-4 sm:px-6 lg:px-8'>
             {/* Content Column */}
             <div className='order-1 max-w-[800px] space-y-6 md:space-y-8 lg:pr-8'>

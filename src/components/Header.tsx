@@ -11,6 +11,7 @@ import { type Locale } from '@/lib/i18n'
 import { getLocalizedUrl } from '@/utils/navigation'
 import { scrollToElementWithRetry } from '@/utils/scroll'
 import { LanguageSwitcher } from './LanguageSwitcher'
+import PopupContactForm from './ui/PopupContactForm'
 
 interface HeaderProps {
   dictionary: Dictionary
@@ -147,6 +148,7 @@ function getActiveSectionFromPath(pathname: string): string {
 export function Header({ dictionary, locale }: HeaderProps) {
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
 
   // Memoized computed values
@@ -311,21 +313,21 @@ export function Header({ dictionary, locale }: HeaderProps) {
                   width={145}
                   height={40}
                   quality={95}
-                  sizes='(max-width: 640px) 120px, (max-width: 768px) 130px, (max-width: 1024px) 145px, 160px'
+                  sizes='(max-width: 640px) 120px, (max-width: 768px) 130px, (max-width: 1024px) 130px, 145px'
                   priority
-                  className='h-8 w-auto sm:h-9 md:h-10 lg:h-12'
+                  className='h-8 w-auto xl:h-10 '
                 />
               </Link>
             </div>
 
             {/* Desktop Navigation */}
-            <div className='hidden lg:flex items-center space-x-6 xl:space-x-8'>
+            <div className='hidden lg:flex items-center space-x-6 xl:space-x-8 ml-2'>
               {navigation.map((item) => (
                 <div key={item.href}>
                   <Link
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item)}
-                    className={`text-sm xl:text-base font-medium transition-all duration-300 px-2.5 xl:px-3 py-2 rounded-lg text-[#112D4E] focus:outline-none outline-none cursor-pointer ${
+                    className={`text-sm md:text-sm xl:text-base font-medium transition-all duration-300 px-2.5 xl:px-3 py-2 rounded-lg text-[#112D4E] focus:outline-none outline-none cursor-pointer ${
                       isActive(item)
                         ? 'bg-[var(--accent)] text-white'
                         : 'hover:text-white hover:bg-[var(--accent)]'
@@ -338,6 +340,14 @@ export function Header({ dictionary, locale }: HeaderProps) {
 
               {/* Language Switcher */}
               <LanguageSwitcher currentLocale={locale} dict={dictionary} />
+
+              {/* CTA Button */}
+              <button
+                onClick={() => setIsContactPopupOpen(true)}
+                className='text-sm md:text-sm xl:text-base font-semibold transition-all duration-300 px-4 xl:px-5 py-2.5 rounded-lg bg-[var(--accent)] text-white hover:bg-[var(--accent-dark)] hover:scale-105 focus:outline-none outline-none cursor-pointer shadow-md hover:shadow-lg'
+                style={{ outline: 'none !important', boxShadow: 'none !important' }}>
+                {(dictionary?.navigation as Record<string, string>)?.cta || 'Devis gratuit'}
+              </button>
             </div>
 
             {/* Mobile & Tablet Controls */}
@@ -390,11 +400,36 @@ export function Header({ dictionary, locale }: HeaderProps) {
                     </Link>
                   </div>
                 ))}
+
+                {/* Mobile CTA Button */}
+                <div className='pt-2 border-t border-white/20 mt-4'>
+                  <button
+                    onClick={() => {
+                      setIsContactPopupOpen(true)
+                      setIsMenuOpen(false)
+                    }}
+                    className='w-full py-3 px-4 rounded-lg font-semibold transition-all duration-300 bg-[var(--accent)] text-white hover:bg-[var(--accent-dark)] cursor-pointer'>
+                    {(dictionary?.navigation as Record<string, string>)?.cta || 'Devis gratuit'}
+                  </button>
+                </div>
               </div>
             </motion.div>
           )}
         </nav>
       </motion.header>
+
+      {/* Contact Popup */}
+      <PopupContactForm
+        isOpen={isContactPopupOpen}
+        onClose={() => setIsContactPopupOpen(false)}
+        dictionary={{
+          title: dictionary?.hero?.cta_primary || 'Devis gratuit',
+          subtitle:
+            (dictionary?.navigation as Record<string, string>)?.cta || 'Décrivez votre projet',
+          form: dictionary?.contact?.form,
+        }}
+        locale={locale}
+      />
     </>
   )
 }

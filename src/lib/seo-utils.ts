@@ -239,7 +239,7 @@ export function generateLocalizedSEOMetadata(locale: Locale): Metadata {
       ? '🥇 Website Creation Paris | React Next.js Expert | Free Quote'
       : 'SIDIKOFF DIGITAL - Expert Web Agency Paris | React Development',
     ru: isHomePage
-      ? '🥇 Создание Сайтов Париж | Эксперт React Next.js | Бесплатная Смета'
+      ? '🥇 Создание Сайтов Париж | Эксперт React Next.js | Бесплатная первая консультация'
       : 'SIDIKOFF DIGITAL - Экспертное Веб-агентство Париж | React Разработка',
   }
 
@@ -247,7 +247,7 @@ export function generateLocalizedSEOMetadata(locale: Locale): Metadata {
   const descriptions = {
     fr: 'Développeur React Paris - Sites web professionnels, e-commerce, refonte. Expert Next.js TypeScript. Devis gratuit 24h, livraison rapide.',
     en: 'React Developer Paris - Professional website creation, e-commerce, redesign. Next.js TypeScript expert. Free quote 24h, fast delivery.',
-    ru: 'React Разработчик Париж - Создание сайтов, e-commerce, редизайн. Эксперт Next.js TypeScript. Бесплатная смета 24ч, быстрая доставка.',
+    ru: 'React Разработчик Париж - Создание сайтов, e-commerce, редизайн. Эксперт Next.js TypeScript. Бесплатная первая консультация',
   }
 
   const seoData = {

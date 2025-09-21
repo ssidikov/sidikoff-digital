@@ -106,7 +106,7 @@ const PADDING_STYLES = {
   md: 'px-4 py-8 sm:px-4 lg:py-12 xl:px-8',
   lg: 'px-4 py-8 sm:px-4 lg:py-12 xl:px-24',
   xl: 'px-4 py-8 sm:px-4 lg:py-12 xl:px-16',
-  hero: 'pt-28 lg:px-8 xl:pt-0',
+  hero: 'pt-24 lg:pt-0 lg:px-8 xl:pt-0',
 } as const
 
 const CONTENT_STYLES = {
