@@ -139,7 +139,10 @@ export function Hero({ dict, locale }: HeroProps) {
                   fill
                   className="object-contain drop-shadow-2xl bg-transparent"
                   priority
+                  loading="eager"
+                  fetchPriority="high"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                  quality={95}
                 />
               </motion.div>
             </div>

@@ -1,6 +1,6 @@
 import type { NextConfig } from 'next'
 
-// Security headers configuration
+  // ИСПРАВЛЕНО: Улучшенные security headers с CSP
 const SECURITY_HEADERS = [
   {
     key: 'X-DNS-Prefetch-Control',
@@ -26,19 +26,45 @@ const SECURITY_HEADERS = [
     key: 'Referrer-Policy',
     value: 'strict-origin-when-cross-origin',
   },
-  // SEO and performance headers
+  // ИСПРАВЛЕНО: Добавлен Content Security Policy
+  {
+    key: 'Content-Security-Policy',
+    value: `
+      default-src 'self';
+      script-src 'self' 'unsafe-eval' 'unsafe-inline' *.vercel-insights.com *.googletagmanager.com;
+      style-src 'self' 'unsafe-inline' fonts.googleapis.com;
+      img-src 'self' data: blob: https://images.unsplash.com https://cdn.sanity.io;
+      font-src 'self' fonts.gstatic.com;
+      connect-src 'self' *.vercel-insights.com *.sanity.io;
+      frame-src 'none';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+      frame-ancestors 'none';
+    `.replace(/\s+/g, ' ').trim(),
+  },
+  // ИСПРАВЛЕНО: Добавлен Permissions Policy
+  {
+    key: 'Permissions-Policy',
+    value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=()',
+  },
+  // ИСПРАВЛЕНО: Убраны ненужные preload для шрифтов - Next.js делает это автоматически
   {
     key: 'Link',
-    value:
-      '</images/og-homepage.jpg>; rel=preload; as=image, </fonts/inter.woff2>; rel=preload; as=font; type=font/woff2; crossorigin',
+    value: '<https://images.unsplash.com>; rel=preconnect; crossorigin, <https://cdn.sanity.io>; rel=preconnect; crossorigin',
   },
 ]
 
 const nextConfig: NextConfig = {
-  // Enable experimental features for better performance
+  // ИСПРАВЛЕНО: Добавлена оптимизация пакетов
   experimental: {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
+    webVitalsAttribution: ['CLS', 'FCP', 'FID', 'LCP', 'TTFB'],
+    // optimizeCss: true, // Отключено временно из-за проблем с critters
   },
+
+  // ИСПРАВЛЕНО: Moved serverComponentsExternalPackages to serverExternalPackages
+  serverExternalPackages: ['@sanity/client'],
 
   // Development server settings
   ...(process.env.NODE_ENV === 'development' && {
@@ -66,20 +92,24 @@ const nextConfig: NextConfig = {
   // Compiler optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
+    styledComponents: true,
   },
+  
+  // Modern JavaScript transpilation
+  transpilePackages: ['framer-motion', 'lucide-react'],
 
   // Internationalization
   trailingSlash: false,
 
-  // Image optimization
+  // ИСПРАВЛЕНО: Безопасная настройка изображений
   images: {
-    formats: ['image/webp', 'image/avif'],
-    minimumCacheTTL: 31536000, // 1 year
-    dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    domains: ['images.unsplash.com'],
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 86400, // Уменьшено до 1 дня
+    dangerouslyAllowSVG: false, // ИСПРАВЛЕНО: убрана уязвимость
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512],
+    
+    // ИСПРАВЛЕНО: Убран deprecated параметр domains
     remotePatterns: [
       {
         protocol: 'https',
@@ -100,6 +130,20 @@ const nextConfig: NextConfig = {
   // Performance optimizations
   compress: true,
   poweredByHeader: false,
+  generateEtags: true, // ИСПРАВЛЕНО: включены для лучшего кэширования
+  
+  // Bundle analyzer (only in development)
+  ...(process.env.ANALYZE === 'true' && {
+    webpack: (config, { isServer }) => {
+      if (!isServer) {
+        config.resolve.fallback = {
+          fs: false,
+          module: false,
+        }
+      }
+      return config
+    },
+  }),
 
   // Environment variables
   env: {
@@ -265,6 +309,31 @@ const nextConfig: NextConfig = {
         source: '/(.*)',
         headers: SECURITY_HEADERS,
       },
+      // Static assets caching
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // ИСПРАВЛЕНО: Оптимальное кэширование изображений
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=2592000, stale-while-revalidate=86400', // 30 дней
+          },
+          {
+            key: 'Vary',
+            value: 'Accept',
+          },
+        ],
+      },
+      // ИСПРАВЛЕНО: Убраны headers для шрифтов - Next.js управляет этим автоматически
     ]
   },
 }

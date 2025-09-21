@@ -212,19 +212,18 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
               {/* Contact Channels - Icons with direct links */}
               <div className='space-y-4 lg:space-y-6'>
                 <div className='flex items-center space-x-4 lg:space-x-6'>
-                  <div className='flex items-center justify-center w-12 h-12 lg:w-16 lg:h-16 bg-gray-900 rounded-xl shadow-lg hover:bg-accent transition-colors duration-300'>
+                  <div className='flex items-center justify-center w-12 h-12 lg:w-16 lg:h-14 bg-gray-900 rounded-xl shadow-lg hover:bg-accent transition-colors duration-300'>
                     <Mail className='w-6 h-6 lg:w-8 lg:h-8 text-white' />
                   </div>
                   <a
                     href={`mailto:${CONTACT_INFO.email}`}
-                    className="break-all text-lg font-medium text-gray-600 transition-colors duration-200 hover:text-accent lg:text-xl xl:text-2xl"
-                  >
+                    className='break-all text-lg font-medium text-gray-600 transition-colors duration-200 hover:text-accent lg:text-xl xl:text-2xl'>
                     {CONTACT_INFO.email}
                   </a>
                 </div>
 
                 <div className='flex items-center space-x-4 lg:space-x-6'>
-                  <div className='flex items-center justify-center w-12 h-12 lg:w-16 lg:h-16 bg-gray-900 rounded-xl shadow-lg hover:bg-accent transition-colors duration-300'>
+                  <div className='flex items-center justify-center w-12 h-12 lg:w-16 lg:h-14 bg-gray-900 rounded-xl shadow-lg hover:bg-accent transition-colors duration-300'>
                     <svg
                       className='w-6 h-6 lg:w-8 lg:h-8 text-white'
                       fill='currentColor'
@@ -234,16 +233,15 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                   </div>
                   <a
                     href={CONTACT_INFO.whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-lg font-medium text-gray-600 transition-colors duration-200 hover:text-accent lg:text-xl xl:text-2xl"
-                  >
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-lg font-medium text-gray-600 transition-colors duration-200 hover:text-accent lg:text-xl xl:text-2xl'>
                     {CONTACT_INFO.phone}
                   </a>
                 </div>
 
                 <div className='flex items-center space-x-4 lg:space-x-6'>
-                  <div className='flex items-center justify-center w-12 h-12 lg:w-16 lg:h-16 bg-gray-900 rounded-xl shadow-lg hover:bg-accent transition-colors duration-300'>
+                  <div className='flex items-center justify-center w-12 h-12 lg:w-16 lg:h-14 bg-gray-900 rounded-xl shadow-lg hover:bg-accent transition-colors duration-300'>
                     <svg
                       className='w-6 h-6 lg:w-8 lg:h-8 text-white'
                       fill='currentColor'
@@ -253,16 +251,15 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                   </div>
                   <a
                     href={CONTACT_INFO.telegramUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-lg font-medium text-gray-600 transition-colors duration-200 hover:text-accent lg:text-xl xl:text-2xl"
-                  >
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-lg font-medium text-gray-600 transition-colors duration-200 hover:text-accent lg:text-xl xl:text-2xl'>
                     {CONTACT_INFO.telegram}
                   </a>
                 </div>
 
                 <div className='flex items-center space-x-4 lg:space-x-6'>
-                  <div className='flex items-center justify-center w-12 h-12 lg:w-16 lg:h-16 bg-gray-900 rounded-xl shadow-lg hover:bg-accent transition-colors duration-300'>
+                  <div className='flex items-center justify-center w-12 h-12 lg:w-16 lg:h-14 bg-gray-900 rounded-xl shadow-lg hover:bg-accent transition-colors duration-300'>
                     <svg
                       className='w-6 h-6 lg:w-8 lg:h-8 text-white'
                       fill='none'
@@ -278,8 +275,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
                   </div>
                   <a
                     href={`tel:${CONTACT_INFO.phone}`}
-                    className="text-lg font-medium text-gray-600 transition-colors duration-200 hover:text-accent lg:text-xl xl:text-2xl"
-                  >
+                    className='text-lg font-medium text-gray-600 transition-colors duration-200 hover:text-accent lg:text-xl xl:text-2xl'>
                     {CONTACT_INFO.phone}
                   </a>
                 </div>

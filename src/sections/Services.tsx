@@ -169,6 +169,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
                       alt={service.alt}
                       width={900}
                       height={600}
+                      quality={95}
                       className='h-full w-full object-cover'
                       loading='lazy'
                     />

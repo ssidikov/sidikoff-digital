@@ -35,6 +35,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, locale }) => 
         alt={project.title}
         width={584}
         height={384}
+        quality={95}
         className='w-full h-full object-cover object-top'
       />
     </div>

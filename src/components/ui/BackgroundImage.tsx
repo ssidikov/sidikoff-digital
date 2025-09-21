@@ -43,6 +43,7 @@ export function BackgroundImage({
           src={src}
           alt={alt}
           fill
+          quality={95}
           className={`pointer-events-none select-none object-cover ${className}`}
           priority={priority}
           sizes="100vw"

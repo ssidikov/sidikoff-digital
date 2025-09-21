@@ -28,20 +28,9 @@ export default function SEOLinks({ locale }: SEOLinksProps) {
       ))}
 
       {/* Preload critical resources */}
-      <link
-        rel='preload'
-        href='/fonts/inter-latin.woff2'
-        as='font'
-        type='font/woff2'
-        crossOrigin='anonymous'
-      />
-      <link rel='preload' href='/images/logo-sidikoff.webp' as='image' />
+      <link rel='preload' href='/logo-sidikoff.webp' as='image' />
 
-      {/* DNS Prefetch for external resources */}
-      <link rel='dns-prefetch' href='//fonts.googleapis.com' />
-
-      {/* Preconnect for faster loading */}
-      <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
+      {/* ИСПРАВЛЕНО: Убраны preload и preconnect для шрифтов - Next.js делает это автоматически */}
     </>
   )
 }

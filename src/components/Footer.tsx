@@ -22,6 +22,7 @@ const CONTACT_INFO = {
   phone: '+33626932734',
   emailLabel: 's.sidikoff@gmail.com',
   phoneLabel: '+33 6 26 93 27 34',
+  address: '77 ter Rue Michel Ange, 75016 Paris',
 } as const
 
 // Copyright and company information
@@ -135,9 +136,7 @@ export function Footer({ dictionary, locale }: FooterProps) {
         {/* Left Side - Company Info */}
         <div className='space-y-8'>
           <div>
-            <h2 className='mb-4 text-4xl font-light leading-tight lg:text-5xl'>
-              {footerDescription}
-            </h2>
+            <h2 className='mb-4 text-xl font-light leading-tight'>{footerDescription}</h2>
           </div>
 
           {/* Contact Info */}
@@ -148,6 +147,7 @@ export function Footer({ dictionary, locale }: FooterProps) {
               aria-label={`Envoyer un email à ${CONTACT_INFO.emailLabel}`}>
               {CONTACT_INFO.emailLabel}
             </a>
+            <div className='block text-lg'>{CONTACT_INFO.address}</div>
             <a
               href={`tel:${CONTACT_INFO.phone}`}
               className='block text-lg transition-opacity duration-200 hover:opacity-70'
@@ -164,7 +164,7 @@ export function Footer({ dictionary, locale }: FooterProps) {
               <div key={`nav-${link.href}`}>
                 <Link
                   href={link.href}
-                  className='block text-lg transition-opacity duration-200 hover:opacity-70'>
+                  className='block transition-opacity duration-200 hover:opacity-70'>
                   {link.name}
                 </Link>
               </div>

@@ -7,6 +7,17 @@ const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
+  preload: true,
+  fallback: [
+    'system-ui',
+    '-apple-system',
+    'BlinkMacSystemFont',
+    'Segoe UI',
+    'Roboto',
+    'sans-serif',
+  ],
+  adjustFontFallback: true,
+  weight: ['400', '500', '600', '700'], // Указываем только нужные веса
 })
 
 // SEO Configuration
@@ -44,7 +55,10 @@ const SITE_CONFIG = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
-  title: SITE_CONFIG.title,
+  title: {
+    default: SITE_CONFIG.title,
+    template: '%s | SIDIKOFF DIGITAL'
+  },
   description: SITE_CONFIG.description,
   keywords: [...SITE_CONFIG.keywords],
   authors: [{ name: 'Sidikoff', url: SITE_CONFIG.url }],
@@ -58,7 +72,7 @@ export const metadata: Metadata = {
     ICBM: '48.8566, 2.3522',
     'theme-color': '#112D4E',
     'msapplication-TileColor': '#112D4E',
-    'apple-mobile-web-app-capable': 'yes',
+    'mobile-web-app-capable': 'yes',
     'apple-mobile-web-app-status-bar-style': 'default',
     'format-detection': 'telephone=no',
   },
@@ -135,11 +149,22 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang='fr' suppressHydrationWarning>
       <head>
-        {/* Preconnect to external domains for performance */}
-        <link rel='preconnect' href='https://fonts.googleapis.com' />
-        <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
+        {/* ИСПРАВЛЕНО: Только критические preload */}
+        <link 
+          rel='preload' 
+          href='/images/hero-illustration.svg' 
+          as='image' 
+          type='image/svg+xml'
+          fetchPriority="high"
+        />
+
+        {/* ИСПРАВЛЕНО: Убраны preconnect для шрифтов - Next.js делает это автоматически */}
+        
+        {/* DNS prefetch для внешних ресурсов */}
+        <link rel='dns-prefetch' href='https://images.unsplash.com' />
         <link rel='dns-prefetch' href='https://cdn.sanity.io' />
         <link rel='dns-prefetch' href='https://vitals.vercel-insights.com' />
+        <link rel='dns-prefetch' href='https://www.googletagmanager.com' />
 
         {/* Favicon configuration */}
         <link rel='icon' href='/favicon.svg' type='image/svg+xml' />

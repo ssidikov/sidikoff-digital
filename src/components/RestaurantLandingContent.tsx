@@ -252,6 +252,7 @@ export default function RestaurantLandingContent({
                   alt={t.hero.image_alt}
                   width={800}
                   height={600}
+                  quality={95}
                   className='w-full h-full object-cover rounded-2xl'
                 />
               </div>
@@ -510,6 +511,7 @@ export default function RestaurantLandingContent({
                     alt={restaurant.name}
                     width={400}
                     height={300}
+                    quality={95}
                     className='w-full h-full object-cover'
                   />
                   <div className='absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium'>

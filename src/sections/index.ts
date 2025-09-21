@@ -1,4 +1,4 @@
-// Main page sections
+// Main page sections - optimized for tree shaking
 export { Hero } from './Hero'
 export { Services } from './Services'
 export { default as Portfolio } from './Portfolio'

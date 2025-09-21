@@ -8,6 +8,9 @@ interface OptimizedImageProps extends Omit<ImageProps, 'onLoad' | 'onError'> {
   loading?: 'lazy' | 'eager'
   className?: string
   showLoader?: boolean
+  priority?: boolean
+  fetchPriority?: 'high' | 'low' | 'auto'
+  quality?: number
 }
 
 const DEFAULT_FALLBACK = '/images/projects-bg.webp'
@@ -23,6 +26,9 @@ const OptimizedImage = ({
   loading = 'lazy',
   className = '',
   showLoader = true,
+  priority = false,
+  fetchPriority = 'auto',
+  quality = 95,
   ...props
 }: OptimizedImageProps) => {
   const [imgSrc, setImgSrc] = useState(src)
@@ -36,24 +42,33 @@ const OptimizedImage = ({
   const handleError = useCallback(() => {
     setHasError(true)
     setIsLoading(false)
-    
+
     // Use fallback image for both external URLs and local images
     if (imgSrc !== fallback) {
       setImgSrc(fallback)
     }
   }, [fallback, imgSrc])
 
+  // Determine optimal sizes based on priority
+  const optimalSizes = priority
+    ? '(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 60vw'
+    : '(max-width: 768px) 90vw, (max-width: 1024px) 50vw, 33vw'
+
   return (
     <div className={`relative ${className}`}>
       {/* Loading placeholder */}
       {isLoading && showLoader && (
-        <div className="absolute inset-0 animate-pulse rounded bg-gray-200" />
+        <div className='absolute inset-0 animate-pulse rounded bg-gray-200' />
       )}
-      
+
       <Image
         src={imgSrc}
         alt={alt}
         loading={loading}
+        priority={priority}
+        fetchPriority={fetchPriority}
+        quality={quality}
+        sizes={props.sizes || optimalSizes}
         onLoad={handleLoad}
         onError={handleError}
         className={`transition-opacity duration-300 ${

@@ -294,6 +294,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
                   alt='SIDIKOFF DIGITAL'
                   width={145}
                   height={40}
+                  quality={95}
                   sizes='(max-width: 640px) 120px, (max-width: 768px) 130px, (max-width: 1024px) 145px, 160px'
                   priority
                   className='h-8 w-auto sm:h-9 md:h-10 lg:h-12'

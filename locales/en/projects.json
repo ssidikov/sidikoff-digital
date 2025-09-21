@@ -65,7 +65,7 @@
     "id": "5",
     "title": "Les petits plats",
     "description": "Development of a search algorithm for a cooking recipe platform with performance optimization.",
-    "image": "/images/projects/les-petit-plats.webp",
+    "image": "/images/projects/les-petit-plats.jpg",
     "longDescription": "Les petits plats is a recipe search platform with optimized algorithms and an intuitive interface. The project implements two search algorithms, compares their performance, and follows Green Code principles. Using JavaScript, Bootstrap, and functional programming, the site is fast and user-friendly for anyone looking for the best recipes online.",
     "technologies": [
       "JavaScript",

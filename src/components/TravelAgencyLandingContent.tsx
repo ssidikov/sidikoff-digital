@@ -168,6 +168,7 @@ const TravelAgencyLandingContent: React.FC<TravelAgencyLandingContentProps> = ({
                   alt='Création site web agence de voyage'
                   width={600}
                   height={400}
+                  quality={95}
                   className='rounded-2xl shadow-2xl'
                   priority
                 />
@@ -235,6 +236,7 @@ const TravelAgencyLandingContent: React.FC<TravelAgencyLandingContentProps> = ({
             src='/images/services/travel/travel-destinations.jpg'
             alt='Background'
             fill
+            quality={95}
             className='object-cover'
           />
         </div>
@@ -336,6 +338,7 @@ const TravelAgencyLandingContent: React.FC<TravelAgencyLandingContentProps> = ({
                   alt='Système de réservation en ligne'
                   width={500}
                   height={400}
+                  quality={95}
                   className='rounded-2xl shadow-lg'
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-2xl'></div>
@@ -416,6 +419,7 @@ const TravelAgencyLandingContent: React.FC<TravelAgencyLandingContentProps> = ({
             src='/images/services/travel/travel-planning.jpg'
             alt='Background'
             fill
+            quality={95}
             className='object-cover'
           />
         </div>
@@ -462,6 +466,7 @@ const TravelAgencyLandingContent: React.FC<TravelAgencyLandingContentProps> = ({
             src='/images/services/travel/travel-team.jpg'
             alt='Background'
             fill
+            quality={95}
             className='object-cover'
           />
         </div>

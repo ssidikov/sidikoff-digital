@@ -157,6 +157,7 @@ export default function WebCreationLandingContent({
                   alt={t.hero.title}
                   width={800}
                   height={600}
+                  quality={95}
                   className='w-full h-auto'
                 />
               </div>

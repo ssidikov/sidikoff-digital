@@ -86,6 +86,7 @@ export function BlogCard({ post, featured = false, locale, index }: BlogCardProp
             src={imageUrl}
             alt={imageAlt}
             fill
+            quality={95}
             className="object-cover transition-transform duration-700 group-hover:scale-110"
             sizes={featured ? '(max-width: 768px) 100vw, 50vw' : '(max-width: 768px) 100vw, 33vw'}
             priority={featured || index < 4}

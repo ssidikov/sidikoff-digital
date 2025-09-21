@@ -142,6 +142,7 @@ export default function MaintenanceLandingContent({
                   alt={t.hero.image_alt}
                   width={800}
                   height={600}
+                  quality={95}
                   className='w-full h-full object-contain max-w-2xl mx-auto'
                   priority
                 />
