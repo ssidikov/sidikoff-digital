@@ -1,4 +1,3 @@
-
 'use client'
 
 import Image from 'next/image'
@@ -46,16 +45,13 @@ export function BackgroundImage({
           quality={95}
           className={`pointer-events-none select-none object-cover ${className}`}
           priority={priority}
-          sizes="100vw"
+          sizes='100vw'
         />
       </div>
 
       {/* Gradient Overlay */}
       {gradient && (
-        <div
-          className={`absolute inset-0 ${gradientZIndex}`}
-          style={{ background: gradient }}
-        />
+        <div className={`absolute inset-0 ${gradientZIndex}`} style={{ background: gradient }} />
       )}
 
       {/* Pattern Overlay */}

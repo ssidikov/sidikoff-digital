@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
     default: SITE_CONFIG.title,
-    template: '%s | SIDIKOFF DIGITAL'
+    template: '%s | SIDIKOFF DIGITAL',
   },
   description: SITE_CONFIG.description,
   keywords: [...SITE_CONFIG.keywords],
@@ -150,16 +150,16 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang='fr' suppressHydrationWarning>
       <head>
         {/* ИСПРАВЛЕНО: Только критические preload */}
-        <link 
-          rel='preload' 
-          href='/images/hero-illustration.svg' 
-          as='image' 
+        <link
+          rel='preload'
+          href='/images/hero-illustration.svg'
+          as='image'
           type='image/svg+xml'
-          fetchPriority="high"
+          fetchPriority='high'
         />
 
         {/* ИСПРАВЛЕНО: Убраны preconnect для шрифтов - Next.js делает это автоматически */}
-        
+
         {/* DNS prefetch для внешних ресурсов */}
         <link rel='dns-prefetch' href='https://images.unsplash.com' />
         <link rel='dns-prefetch' href='https://cdn.sanity.io' />

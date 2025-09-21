@@ -50,17 +50,17 @@ const MENU_OVERLAY_ANIMATION = {
 
 // Icon components
 const MenuIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <line x1="3" y1="6" x2="21" y2="6" />
-    <line x1="3" y1="12" x2="21" y2="12" />
-    <line x1="3" y1="18" x2="21" y2="18" />
+  <svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2'>
+    <line x1='3' y1='6' x2='21' y2='6' />
+    <line x1='3' y1='12' x2='21' y2='12' />
+    <line x1='3' y1='18' x2='21' y2='18' />
   </svg>
 )
 
 const CloseIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <line x1="18" y1="6" x2="6" y2="18" />
-    <line x1="6" y1="6" x2="18" y2="18" />
+  <svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2'>
+    <line x1='18' y1='6' x2='6' y2='18' />
+    <line x1='6' y1='6' x2='18' y2='18' />
   </svg>
 )
 
@@ -116,12 +116,15 @@ function getActiveSectionFromScroll(): string {
     if (element) {
       const rect = element.getBoundingClientRect()
       // Section is active if its top is above middle of screen and bottom is below threshold
-      if (rect.top <= window.innerHeight * SCROLL_CONFIG.viewportMiddle && rect.bottom >= SCROLL_CONFIG.scrollThreshold) {
+      if (
+        rect.top <= window.innerHeight * SCROLL_CONFIG.viewportMiddle &&
+        rect.bottom >= SCROLL_CONFIG.scrollThreshold
+      ) {
         return section
       }
     }
   }
-  
+
   return ''
 }
 
@@ -153,51 +156,57 @@ export function Header({ dictionary, locale }: HeaderProps) {
   /**
    * Determines if a navigation item is currently active
    */
-  const isActive = useCallback((item: NavigationItem): boolean => {
-    const homeUrl = getLocalizedUrl('/', locale)
-    const isOnHomePage = pathname === homeUrl || pathname === homeUrl + '/'
+  const isActive = useCallback(
+    (item: NavigationItem): boolean => {
+      const homeUrl = getLocalizedUrl('/', locale)
+      const isOnHomePage = pathname === homeUrl || pathname === homeUrl + '/'
 
-    if (isOnHomePage) {
-      if (item.section === '') {
-        // Home is active when no section is active (user is at top of page)
-        return activeSection === ''
+      if (isOnHomePage) {
+        if (item.section === '') {
+          // Home is active when no section is active (user is at top of page)
+          return activeSection === ''
+        }
+        // Section is active when it matches current active section
+        return activeSection === item.section
       }
-      // Section is active when it matches current active section
-      return activeSection === item.section
-    }
-    
-    // For other pages, check exact URL match
-    return pathname === item.href
-  }, [pathname, locale, activeSection])
+
+      // For other pages, check exact URL match
+      return pathname === item.href
+    },
+    [pathname, locale, activeSection]
+  )
 
   /**
    * Handles navigation click with smooth scroll for same-page anchors
    */
-  const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, item: NavigationItem) => {
-    const homeUrl = getLocalizedUrl('/', locale)
-    const isOnHomePage = pathname === homeUrl || pathname === homeUrl + '/'
+  const handleNavClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, item: NavigationItem) => {
+      const homeUrl = getLocalizedUrl('/', locale)
+      const isOnHomePage = pathname === homeUrl || pathname === homeUrl + '/'
 
-    // If we're on the home page and clicking a section link
-    if (isOnHomePage && item.href.includes('#')) {
-      e.preventDefault()
-      const sectionId = item.href.split('#')[1]
+      // If we're on the home page and clicking a section link
+      if (isOnHomePage && item.href.includes('#')) {
+        e.preventDefault()
+        const sectionId = item.href.split('#')[1]
 
-      if (sectionId) {
-        const element = document.getElementById(sectionId)
-        if (element) {
-          const elementPosition = element.getBoundingClientRect().top
-          const offsetPosition = elementPosition + window.pageYOffset - SCROLL_CONFIG.headerOffset
+        if (sectionId) {
+          const element = document.getElementById(sectionId)
+          if (element) {
+            const elementPosition = element.getBoundingClientRect().top
+            const offsetPosition = elementPosition + window.pageYOffset - SCROLL_CONFIG.headerOffset
 
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth',
-          })
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth',
+            })
+          }
         }
       }
-    }
-    // Close mobile menu after navigation
-    setIsMenuOpen(false)
-  }, [pathname, locale])
+      // Close mobile menu after navigation
+      setIsMenuOpen(false)
+    },
+    [pathname, locale]
+  )
 
   useEffect(() => {
     const handleScroll = () => {
@@ -212,7 +221,9 @@ export function Header({ dictionary, locale }: HeaderProps) {
         const pricingElement = document.getElementById('pricing')
         if (pricingElement) {
           const rect = pricingElement.getBoundingClientRect()
-          const isActive = rect.top <= window.innerHeight * SCROLL_CONFIG.viewportMiddle && rect.bottom >= SCROLL_CONFIG.scrollThreshold
+          const isActive =
+            rect.top <= window.innerHeight * SCROLL_CONFIG.viewportMiddle &&
+            rect.bottom >= SCROLL_CONFIG.scrollThreshold
           setActiveSection(isActive ? 'pricing' : 'pricing')
         } else {
           setActiveSection('pricing')
@@ -233,7 +244,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
   // Manage body scroll when menu is open/closed
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : 'unset'
-    
+
     // Cleanup on unmount
     return () => {
       document.body.style.overflow = 'unset'
@@ -260,7 +271,12 @@ export function Header({ dictionary, locale }: HeaderProps) {
     if (hash) {
       const id = hash.substring(1)
       // Use retry utility for more reliable scrolling
-      scrollToElementWithRetry(id, SCROLL_CONFIG.headerOffset, SCROLL_CONFIG.retryAttempts, SCROLL_CONFIG.retryDelay)
+      scrollToElementWithRetry(
+        id,
+        SCROLL_CONFIG.headerOffset,
+        SCROLL_CONFIG.retryAttempts,
+        SCROLL_CONFIG.retryDelay
+      )
     }
   }, [pathname])
 
@@ -270,7 +286,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
       {isMenuOpen && (
         <motion.div
           {...MENU_OVERLAY_ANIMATION}
-          className="fixed inset-0 z-[100] bg-black/20 backdrop-blur-sm lg:hidden"
+          className='fixed inset-0 z-[100] bg-black/20 backdrop-blur-sm lg:hidden'
           onClick={() => setIsMenuOpen(false)}
         />
       )}

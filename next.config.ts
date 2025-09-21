@@ -1,6 +1,6 @@
 import type { NextConfig } from 'next'
 
-  // ИСПРАВЛЕНО: Улучшенные security headers с CSP
+// ИСПРАВЛЕНО: Улучшенные security headers с CSP
 const SECURITY_HEADERS = [
   {
     key: 'X-DNS-Prefetch-Control',
@@ -41,17 +41,21 @@ const SECURITY_HEADERS = [
       base-uri 'self';
       form-action 'self';
       frame-ancestors 'none';
-    `.replace(/\s+/g, ' ').trim(),
+    `
+      .replace(/\s+/g, ' ')
+      .trim(),
   },
   // ИСПРАВЛЕНО: Добавлен Permissions Policy
   {
     key: 'Permissions-Policy',
-    value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=()',
+    value:
+      'camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=()',
   },
   // ИСПРАВЛЕНО: Убраны ненужные preload для шрифтов - Next.js делает это автоматически
   {
     key: 'Link',
-    value: '<https://images.unsplash.com>; rel=preconnect; crossorigin, <https://cdn.sanity.io>; rel=preconnect; crossorigin',
+    value:
+      '<https://images.unsplash.com>; rel=preconnect; crossorigin, <https://cdn.sanity.io>; rel=preconnect; crossorigin',
   },
 ]
 
@@ -94,7 +98,7 @@ const nextConfig: NextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
     styledComponents: true,
   },
-  
+
   // Modern JavaScript transpilation
   transpilePackages: ['framer-motion', 'lucide-react'],
 
@@ -108,7 +112,7 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: false, // ИСПРАВЛЕНО: убрана уязвимость
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512],
-    
+
     // ИСПРАВЛЕНО: Убран deprecated параметр domains
     remotePatterns: [
       {
@@ -131,7 +135,7 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: true, // ИСПРАВЛЕНО: включены для лучшего кэширования
-  
+
   // Bundle analyzer (only in development)
   ...(process.env.ANALYZE === 'true' && {
     webpack: (config, { isServer }) => {

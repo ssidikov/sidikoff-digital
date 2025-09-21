@@ -29,7 +29,7 @@ const config: Config = {
       // Ensure default spacing values are preserved
       spacing: {
         '0': '0px',
-        'px': '1px',
+        px: '1px',
         '0.5': '0.125rem',
         '1': '0.25rem',
         '1.5': '0.375rem',
