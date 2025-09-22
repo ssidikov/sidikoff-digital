@@ -307,11 +307,15 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   // Handle deprecated /services/consultation URLs - redirect to contact
-  if (pathname === '/services/consultation' || pathname === '/en/services/consultation' || pathname === '/ru/services/consultation') {
+  if (
+    pathname === '/services/consultation' ||
+    pathname === '/en/services/consultation' ||
+    pathname === '/ru/services/consultation'
+  ) {
     let redirectPath = '/contact'
     if (pathname.startsWith('/en/')) redirectPath = '/en/contact'
     if (pathname.startsWith('/ru/')) redirectPath = '/ru/contact'
-    
+
     const redirectUrl = new URL(redirectPath, request.url)
     return NextResponse.redirect(redirectUrl, {
       status: 301,
