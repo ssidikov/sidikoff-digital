@@ -306,6 +306,22 @@ function validateStudioAuth(request: NextRequest): boolean {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
+  // Handle deprecated /services/consultation URLs - redirect to contact
+  if (pathname === '/services/consultation' || pathname === '/en/services/consultation' || pathname === '/ru/services/consultation') {
+    let redirectPath = '/contact'
+    if (pathname.startsWith('/en/')) redirectPath = '/en/contact'
+    if (pathname.startsWith('/ru/')) redirectPath = '/ru/contact'
+    
+    const redirectUrl = new URL(redirectPath, request.url)
+    return NextResponse.redirect(redirectUrl, {
+      status: 301,
+      headers: {
+        'Cache-Control': 'public, max-age=31536000', // Cache redirect for 1 year
+        ...SECURITY_HEADERS,
+      },
+    })
+  }
+
   // Check for deleted SEO pages first - return 410 Gone
   if (isDeletedSEOPage(pathname)) {
     // Extract location info from URL
