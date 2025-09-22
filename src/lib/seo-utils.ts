@@ -592,7 +592,7 @@ export function generateReviewStructuredData(
   // Calculate aggregate rating
   const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0)
   const averageRating = reviews.length > 0 ? totalRating / reviews.length : 0
-  
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -602,7 +602,7 @@ export function generateReviewStructuredData(
       ratingValue: averageRating.toFixed(1),
       reviewCount: reviews.length.toString(),
       bestRating: '5',
-      worstRating: '1'
+      worstRating: '1',
     },
     review: reviews.map((review) => ({
       '@type': 'Review',
