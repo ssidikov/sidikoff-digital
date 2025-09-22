@@ -597,6 +597,9 @@ export function generateReviewStructuredData(
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': 'https://sidikoff.com#Organization',
+    name: 'SIDIKOFF DIGITAL',
+    url: 'https://sidikoff.com',
+    description: 'Développeur Web Full Stack - Création de sites web professionnels',
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: averageRating.toFixed(1),

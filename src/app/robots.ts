@@ -45,7 +45,7 @@ export default function robots(): MetadataRoute.Robots {
           '/fr/', // Allow /fr/ paths for Googlebot
         ],
         disallow: ['/api/', '/admin/', '/studio/', '/private/'],
-        crawlDelay: 1,
+        // Note: Googlebot ignores crawlDelay directive
       },
       {
         userAgent: 'Bingbot',
