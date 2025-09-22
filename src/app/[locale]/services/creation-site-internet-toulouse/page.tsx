@@ -42,14 +42,14 @@ export async function generateMetadata({ params }: ToulousePageProps): Promise<M
       },
     },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}services/creation-site-internet-toulouse`,
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}services/creation-site-internet-toulouse`,
     },
     openGraph: {
       title,
       description,
       type: 'website',
       locale,
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}services/creation-site-internet-toulouse`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}services/creation-site-internet-toulouse`,
       siteName: 'Sidikoff Digital',
       images: [
         {

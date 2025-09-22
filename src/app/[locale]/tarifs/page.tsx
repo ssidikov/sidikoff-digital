@@ -29,11 +29,11 @@ export async function generateMetadata({ params }: TarifsPageProps): Promise<Met
       description:
         dict?.pricing?.description ||
         'Découvrez nos tarifs transparents pour la création de sites web. Solutions adaptées à tous les budgets.',
-      url: `https://www.sidikoff.com/${locale === 'fr' ? '' : locale + '/'}tarifs`,
+      url: `https://sidikoff.com/${locale === 'fr' ? '' : locale + '/'}tarifs`,
       type: 'website',
     },
     alternates: {
-      canonical: `https://www.sidikoff.com/${locale === 'fr' ? '' : locale + '/'}tarifs`,
+      canonical: `https://sidikoff.com/${locale === 'fr' ? '' : locale + '/'}tarifs`,
     },
   }
 }

@@ -1,6 +1,6 @@
 {
   "env": {
-    "NEXT_PUBLIC_SITE_URL": "https://www.sidikoff.com"
+    "NEXT_PUBLIC_SITE_URL": "https://sidikoff.com"
   },
   "functions": {
     "src/app/sitemap.ts": {

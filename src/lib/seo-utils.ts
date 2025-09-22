@@ -41,7 +41,7 @@ export interface LocalBusiness {
 // Default SEO configuration
 export const DEFAULT_SEO = {
   siteName: 'SIDIKOFF DIGITAL - Développeur Web Full Stack',
-  siteUrl: 'https://www.sidikoff.com',
+  siteUrl: 'https://sidikoff.com',
   defaultImage: '/images/og-default.jpg',
   twitterHandle: '@sidikoffdigital',
   locale: 'fr' as Locale,
@@ -89,7 +89,7 @@ export function generateAlternateUrls(path: string): Record<Locale, string> {
 export const businessLocations: LocalBusiness[] = [
   {
     name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Paris',
-    url: 'https://www.sidikoff.com',
+    url: 'https://sidikoff.com',
     address: {
       streetAddress: '77 Ter Rue Michel Ange',
       addressLocality: 'Paris',
@@ -107,7 +107,7 @@ export const businessLocations: LocalBusiness[] = [
   },
   {
     name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Toulouse',
-    url: 'https://www.sidikoff.com',
+    url: 'https://sidikoff.com',
     address: {
       streetAddress: 'Service à domicile',
       addressLocality: 'Toulouse',
@@ -125,7 +125,7 @@ export const businessLocations: LocalBusiness[] = [
   },
   {
     name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Lyon',
-    url: 'https://www.sidikoff.com',
+    url: 'https://sidikoff.com',
     address: {
       streetAddress: 'Service à domicile',
       addressLocality: 'Lyon',
@@ -143,7 +143,7 @@ export const businessLocations: LocalBusiness[] = [
   },
   {
     name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Strasbourg',
-    url: 'https://www.sidikoff.com',
+    url: 'https://sidikoff.com',
     address: {
       streetAddress: 'Service à domicile',
       addressLocality: 'Strasbourg',
@@ -440,13 +440,13 @@ export function generateLocalBusinessSchema(
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  '@id': 'https://www.sidikoff.com#Organization',
+  '@id': 'https://sidikoff.com#Organization',
   name: 'SIDIKOFF DIGITAL',
   legalName: 'SIDIKOFF DIGITAL - Création de Sites Web | Agence Web',
-  url: 'https://www.sidikoff.com',
+  url: 'https://sidikoff.com',
   logo: {
     '@type': 'ImageObject',
-    url: 'https://www.sidikoff.com/images/logo-sidikoff.svg',
+    url: 'https://sidikoff.com/images/logo-sidikoff.svg',
     width: 300,
     height: 100,
   },
@@ -457,7 +457,7 @@ export const organizationSchema = {
     '@type': 'Person',
     name: 'Sardorbek SIDIKOV',
     jobTitle: 'Développeur Web Full Stack',
-    url: 'https://www.sidikoff.com/',
+    url: 'https://sidikoff.com/',
     sameAs: ['https://github.com/ssidikov', 'https://linkedin.com/in/sardorbeksidikov'],
   },
   contactPoint: [
@@ -592,7 +592,7 @@ export function generateReviewStructuredData(
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    '@id': 'https://www.sidikoff.com#Organization',
+    '@id': 'https://sidikoff.com#Organization',
     review: reviews.map((review) => ({
       '@type': 'Review',
       author: {

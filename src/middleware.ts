@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { locales, defaultLocale } from './lib/i18n'
 
 // Domain configuration
-const PREFERRED_DOMAIN = 'www.sidikoff.com'
+const PREFERRED_DOMAIN = 'sidikoff.com'
 const CANONICAL_PROTOCOL = 'https'
 
 // Constants for better maintainability
@@ -369,14 +369,14 @@ export function middleware(request: NextRequest) {
     return enhanceResponse(NextResponse.next(), pathname)
   }
 
-  // Domain canonicalization: redirect non-www to www
+  // Domain canonicalization: redirect www to non-www
   const host = request.headers.get('host')
   const protocol = request.headers.get('x-forwarded-proto') || 'https'
 
   // Only redirect in production to avoid issues with localhost
   if (process.env.NODE_ENV === 'production' && host) {
-    // Check if we need to redirect to www
-    if (host === 'sidikoff.com' || host.startsWith('sidikoff.com:')) {
+    // Check if we need to redirect from www to non-www
+    if (host === 'www.sidikoff.com' || host.startsWith('www.sidikoff.com:')) {
       const redirectUrl = new URL(request.url)
       redirectUrl.host = PREFERRED_DOMAIN
       redirectUrl.protocol = CANONICAL_PROTOCOL
@@ -390,10 +390,10 @@ export function middleware(request: NextRequest) {
     }
 
     // Also handle protocol redirects (HTTP → HTTPS)
-    if (protocol === 'http' && (host === PREFERRED_DOMAIN || host === 'sidikoff.com')) {
+    if (protocol === 'http' && (host === PREFERRED_DOMAIN || host === 'www.sidikoff.com')) {
       const redirectUrl = new URL(request.url)
       redirectUrl.protocol = 'https'
-      if (host === 'sidikoff.com') {
+      if (host === 'www.sidikoff.com') {
         redirectUrl.host = PREFERRED_DOMAIN
       }
 

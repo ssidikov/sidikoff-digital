@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: HomePageProps) {
 
 // ИСПРАВЛЕНО: Добавлена структурированная разметка WebPage
 function generateWebPageSchema(locale: Locale) {
-  const url = locale === 'fr' ? 'https://www.sidikoff.com' : `https://www.sidikoff.com/${locale}`
+  const url = locale === 'fr' ? 'https://sidikoff.com' : `https://sidikoff.com/${locale}`
 
   return {
     '@context': 'https://schema.org',
@@ -63,7 +63,7 @@ function generateWebPageSchema(locale: Locale) {
     inLanguage: locale,
     isPartOf: {
       '@type': 'WebSite',
-      '@id': 'https://www.sidikoff.com#website',
+      '@id': 'https://sidikoff.com#website',
     },
     breadcrumb: {
       '@type': 'BreadcrumbList',
@@ -78,7 +78,7 @@ function generateWebPageSchema(locale: Locale) {
     },
     mainEntity: {
       '@type': 'Organization',
-      '@id': 'https://www.sidikoff.com#organization',
+      '@id': 'https://sidikoff.com#organization',
     },
   }
 }

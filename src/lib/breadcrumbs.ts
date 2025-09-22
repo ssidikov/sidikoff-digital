@@ -26,7 +26,7 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
 }
 
 export function getPageBreadcrumbs(pathname: string, locale: Locale = 'fr') {
-  const baseUrl = 'https://www.sidikoff.com'
+  const baseUrl = 'https://sidikoff.com'
   const breadcrumbs: BreadcrumbItem[] = [
     {
       position: 1,

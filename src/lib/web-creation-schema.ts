@@ -23,7 +23,7 @@ interface WebCreationServiceSchema {
 }
 
 export function generateWebCreationSchema(locale: Locale): WebCreationServiceSchema {
-  const baseUrl = 'https://www.sidikoff.com'
+  const baseUrl = 'https://sidikoff.com'
   const serviceUrl =
     locale === 'fr'
       ? `${baseUrl}/services/creation-sites-web`
