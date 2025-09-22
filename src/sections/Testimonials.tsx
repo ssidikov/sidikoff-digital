@@ -107,12 +107,12 @@ export function Testimonials({ dictionary: dict, locale, className }: Testimonia
   const contactUrl = getContactUrl(locale)
 
   // Generate structured data for reviews
-  const reviewsData = TESTIMONIALS_DATA.map((testimonial) => ({
+  const reviewsData = TESTIMONIALS_DATA.map((testimonial, index) => ({
     author: testimonial.author[locale],
     reviewBody: testimonial.text[locale],
     rating: testimonial.rating,
     projectName: testimonial.project[locale],
-    datePublished: '2024-12-01', // You can make this dynamic if needed
+    datePublished: index === 0 ? '2025-07-01' : '2025-08-01',
   }))
 
   const reviewStructuredData = generateReviewStructuredData(reviewsData)

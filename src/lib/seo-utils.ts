@@ -589,10 +589,21 @@ export function generateReviewStructuredData(
     datePublished: string
   }>
 ) {
+  // Calculate aggregate rating
+  const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0)
+  const averageRating = reviews.length > 0 ? totalRating / reviews.length : 0
+  
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': 'https://sidikoff.com#Organization',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: averageRating.toFixed(1),
+      reviewCount: reviews.length.toString(),
+      bestRating: '5',
+      worstRating: '1'
+    },
     review: reviews.map((review) => ({
       '@type': 'Review',
       author: {
