@@ -850,7 +850,7 @@
       "showcase": {
         "title": "Site vitrine",
         "description": "Site web professionnel pour présenter votre entreprise, vos services et vos valeurs. Design moderne et responsive.",
-        "price": "À partir de 590€"
+        "price": "À partir de 800€"
       },
       "ecommerce": {
         "title": "Boutique e-commerce",
@@ -870,7 +870,7 @@
       "redesign": {
         "title": "Refonte de site",
         "description": "Modernisation de votre site existant : nouveau design, amélioration des performances et SEO.",
-        "price": "À partir de 590€"
+        "price": "À partir de 800€"
       },
       "maintenance": {
         "title": "Maintenance",
@@ -1499,7 +1499,7 @@
       "packages": [
         {
           "name": "Site Vitrine",
-          "price": "590",
+          "price": "800€",
           "period": "projet",
           "description": "Parfait pour présenter votre boulangerie",
           "delivery_time": "3-4 semaines",
@@ -1555,7 +1555,7 @@
       "questions": [
         {
           "question": "Quel est le prix d'un site internet pour ma boulangerie ?",
-          "answer": "Nos tarifs commencent à 590€ pour un site vitrine et vont jusqu'à 2299€ pour une solution premium multilingue. Nous proposons un devis gratuit et personnalisé selon vos besoins spécifiques."
+          "answer": "Nos tarifs commencent à 800€ pour un site vitrine et vont jusqu'à 2299€ pour une solution premium multilingue. Nous proposons un devis gratuit et personnalisé selon vos besoins spécifiques."
         },
         {
           "question": "Combien de temps faut-il pour créer mon site ?",
@@ -1763,7 +1763,7 @@
       "packages": [
         {
           "name": "Vitrine",
-          "price": "€590",
+          "price": "€800",
           "period": "unique",
           "description": "Parfait pour présenter votre barbershop et attirer des clients locaux",
           "delivery_time": "2 semaines",

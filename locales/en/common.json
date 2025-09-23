@@ -850,7 +850,7 @@
       "showcase": {
         "title": "Showcase website",
         "description": "Professional website to present your company, services and values. Modern and responsive design.",
-        "price": "From €590"
+        "price": "From €800"
       },
       "ecommerce": {
         "title": "E-commerce store",
@@ -870,7 +870,7 @@
       "redesign": {
         "title": "Website redesign",
         "description": "Modernization of your existing site: new design, performance improvement and SEO.",
-        "price": "From €590"
+        "price": "From €800"
       },
       "maintenance": {
         "title": "Maintenance",
@@ -1505,7 +1505,7 @@
       "packages": [
         {
           "name": "Showcase Website",
-          "price": "590",
+          "price": "800",
           "period": "project",
           "description": "Perfect to present your bakery",
           "delivery_time": "3-4 weeks",

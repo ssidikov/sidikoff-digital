@@ -231,7 +231,7 @@ export const fallbackDictionary: Dictionary = {
     plans: {
       essentiel: {
         name: 'Essential',
-        price: 'from €590',
+        price: 'from €800',
         description: 'Perfect for launching your business or modernizing your online image',
         features: [
           'Clear and professional single page',
@@ -836,7 +836,7 @@ export const fallbackDictionary: Dictionary = {
         title: 'Showcase website',
         description:
           'Professional website to present your company, services and values. Modern and responsive design.',
-        price: 'From €590',
+        price: 'From €800',
       },
       ecommerce: {
         title: 'E-commerce store',
@@ -859,7 +859,7 @@ export const fallbackDictionary: Dictionary = {
         title: 'Website redesign',
         description:
           'Modernization of your existing site: new design, performance improvement and SEO.',
-        price: 'From €590',
+        price: 'From €800',
       },
       maintenance: {
         title: 'Maintenance',
@@ -1352,7 +1352,7 @@ export const fallbackDictionary: Dictionary = {
       packages: [
         {
           name: 'Showcase',
-          price: '€590',
+          price: '€800',
           period: 'one-time',
           description: 'Perfect for presenting your barbershop and attracting local clients',
           delivery_time: '2 weeks',

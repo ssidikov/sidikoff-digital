@@ -53,7 +53,7 @@ export function generateWebCreationSchema(locale: Locale): WebCreationServiceSch
     },
     offers: {
       '@type': 'Offer',
-      price: '590',
+      price: '800',
       priceCurrency: 'EUR',
       availability: 'https://schema.org/InStock',
       validFrom: new Date().toISOString().split('T')[0] || new Date().toISOString(),
