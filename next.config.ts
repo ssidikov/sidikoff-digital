@@ -29,7 +29,7 @@ const SECURITY_HEADERS = [
   // Отключение кеширования для обновленного контента
   {
     key: 'Cache-Control',
-    value: 'no-cache, no-store, must-revalidate',
+    value: 'no-cache, no-store, must-revalidate, max-age=0',
   },
   {
     key: 'Pragma',
@@ -38,6 +38,14 @@ const SECURITY_HEADERS = [
   {
     key: 'Expires',
     value: '0',
+  },
+  {
+    key: 'Last-Modified',
+    value: new Date().toUTCString(),
+  },
+  {
+    key: 'ETag',
+    value: `"${Date.now()}"`,
   },
   // ИСПРАВЛЕНО: Добавлен Content Security Policy
   {

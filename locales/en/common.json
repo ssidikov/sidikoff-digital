@@ -476,10 +476,11 @@
     "subtitle": "Transparent & Tailored",
     "description": "Choose the solution that perfectly matches your needs and budget. All our projects include modern design, professional development and complete support.",
     "guarantee_badge": "Guaranteed results • Guaranteed delivery",
+    "website_creation_title": "Website Creation Pricing",
     "plans": {
       "essentiel": {
         "name": "Essential",
-        "price": "from €590",
+        "price": "€800",
         "description": "Perfect for launching your business or modernizing your online image",
         "features": [
           "Clear and professional single page",
@@ -495,7 +496,7 @@
       },
       "pro": {
         "name": "Pro",
-        "price": "from €900",
+        "price": "€1500",
         "description": "Complete solution for growing businesses with advanced needs",
         "features": [
           "Complete 4 to 6 page site (Home, Services, About, Contact, etc.)",
@@ -520,6 +521,7 @@
           "Complete SEO strategy (content, technical, semantic)",
           "Digital support for 1 to 3 months",
           "Advanced features (automation, blog, podcast, etc.)",
+          "Payment systems integration (PayPal, Stripe)",
           "Ongoing support and personalized advice",
           "🎯 Objective: transform your site into a growth and conversion tool"
         ],
@@ -528,15 +530,49 @@
     },
     "maintenance": {
       "title": "🔧 Monthly Maintenance – Ongoing Support",
-      "billing": "💶 Price: from €59/month",
-      "features": [
-        "Regular technical updates (CMS, plugins, security...)",
-        "Modifications or additions of sections/pages (within 2h/month limit)",
-        "Addition or modification of content (texts, images, etc.)",
-        "Support via WhatsApp, Telegram or email",
-        "Regular backups"
-      ],
-      "cta": "Request a quote"
+      "subtitle": "Choose the level of support that fits your needs",
+      "plans": {
+        "basic": {
+          "name": "Basic",
+          "price": "€100/month",
+          "description": "For small websites. Updates include text and images. Basic SEO helps maintain visibility on Google.",
+          "features": [
+            "Hosting",
+            "Domain",
+            "Monthly content updates (up to 3 changes)",
+            "Basic SEO check"
+          ],
+          "cta": "Choose Basic"
+        },
+        "advanced": {
+          "name": "Advanced",
+          "price": "€200/month",
+          "description": "For businesses wanting to improve visibility and attract more clients. Reports help make informed marketing decisions.",
+          "features": [
+            "Everything in Basic",
+            "SEO optimization for up to 2 news pages each month",
+            "Website performance and uptime monitoring",
+            "Monthly traffic reports",
+            "Visitor analytics setup",
+            "Google Ads setup"
+          ],
+          "cta": "Choose Advanced"
+        },
+        "premium": {
+          "name": "Premium",
+          "price": "€400/month",
+          "description": "Complete package for businesses. Full website management, ability to accept online payments, detailed analytics, and expert consultations.",
+          "features": [
+            "Everything in Advanced",
+            "Regular content updates on demand",
+            "Payment systems integration (PayPal, Stripe)",
+            "Consultation for website improvements",
+            "Premium and rapid support via WhatsApp/Telegram",
+            "Google Analytics, Google Ads, analytics and monthly reports"
+          ],
+          "cta": "Choose Premium"
+        }
+      }
     }
   },
   "legal": {
