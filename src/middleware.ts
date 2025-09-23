@@ -23,6 +23,10 @@ const SECURITY_HEADERS = {
   'X-Content-Type-Options': 'nosniff',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+  // Отключение кеширования
+  'Cache-Control': 'no-cache, no-store, must-revalidate',
+  'Pragma': 'no-cache',
+  'Expires': '0',
 } as const
 
 // Deleted SEO locations that should return 410 Gone
@@ -320,7 +324,6 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(redirectUrl, {
       status: 301,
       headers: {
-        'Cache-Control': 'public, max-age=31536000', // Cache redirect for 1 year
         ...SECURITY_HEADERS,
       },
     })
@@ -351,7 +354,6 @@ export function middleware(request: NextRequest) {
       statusText: 'Gone',
       headers: {
         'X-Robots-Tag': 'noindex, nofollow',
-        'Cache-Control': 'public, max-age=31536000', // Cache for 1 year
         ...SECURITY_HEADERS,
       },
     })
@@ -383,9 +385,7 @@ export function middleware(request: NextRequest) {
 
       return NextResponse.redirect(redirectUrl, {
         status: 301,
-        headers: {
-          'Cache-Control': 'public, max-age=31536000', // Cache redirect for 1 year
-        },
+        headers: SECURITY_HEADERS,
       })
     }
 
@@ -399,9 +399,7 @@ export function middleware(request: NextRequest) {
 
       return NextResponse.redirect(redirectUrl, {
         status: 301,
-        headers: {
-          'Cache-Control': 'public, max-age=31536000',
-        },
+        headers: SECURITY_HEADERS,
       })
     }
   }

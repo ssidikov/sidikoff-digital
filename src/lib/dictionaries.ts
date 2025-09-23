@@ -1320,14 +1320,7 @@ export interface Dictionary {
   }
 }
 
-// Cache for dictionaries with TTL
-interface CacheEntry {
-  data: Dictionary
-  timestamp: number
-}
-
-const CACHE_TTL = 5 * 60 * 1000 // 5 minutes in development, could be longer in production
-const dictionaryCache = new Map<Locale, CacheEntry>()
+// Кеширование ОТКЛЮЧЕНО для разработки
 
 /**
  * Dictionary loading functions with proper error handling
@@ -1348,14 +1341,7 @@ const travelAgencyDictionaries = {
 } as const
 
 /**
- * Checks if cache entry is still valid
- */
-function isCacheValid(entry: CacheEntry): boolean {
-  return Date.now() - entry.timestamp < CACHE_TTL
-}
-
-/**
- * Get dictionary for a locale with enhanced caching and error handling
+ * Get dictionary for a locale with enhanced error handling (БЕЗ кеширования)
  */
 export async function getDictionary(locale: Locale): Promise<Dictionary> {
   // Locale validation
@@ -1364,11 +1350,7 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
     notFound()
   }
 
-  // Check cache with TTL
-  const cachedEntry = dictionaryCache.get(locale)
-  if (cachedEntry && isCacheValid(cachedEntry)) {
-    return cachedEntry.data
-  }
+  // Кеширование отключено - всегда загружаем свежие данные
 
   try {
     const localeData = await dictionaries[locale]()
@@ -1470,11 +1452,7 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
 
     const dictionary: Dictionary = mergeDeep(mergedDictionary, fallbackDictionary) as Dictionary
 
-    // Cache result with timestamp
-    dictionaryCache.set(locale, {
-      data: dictionary,
-      timestamp: Date.now(),
-    })
+    // Кеширование отключено - возвращаем данные напрямую
 
     return dictionary
   } catch (error) {
@@ -1491,10 +1469,10 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
 }
 
 /**
- * Clear cache (for testing or hot reload)
+ * Clear cache (для тестирования или hot reload) - кеширование отключено
  */
 export function clearDictionaryCache(): void {
-  dictionaryCache.clear()
+  // Кеширование отключено - ничего не делаем
 }
 
 /**

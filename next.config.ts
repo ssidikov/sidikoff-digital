@@ -1,6 +1,6 @@
 import type { NextConfig } from 'next'
 
-// ИСПРАВЛЕНО: Улучшенные security headers с CSP
+// ИСПРАВЛЕНО: Улучшенные security headers с CSP и БЕЗ кеширования
 const SECURITY_HEADERS = [
   {
     key: 'X-DNS-Prefetch-Control',
@@ -25,6 +25,19 @@ const SECURITY_HEADERS = [
   {
     key: 'Referrer-Policy',
     value: 'strict-origin-when-cross-origin',
+  },
+  // Отключение кеширования для обновленного контента
+  {
+    key: 'Cache-Control',
+    value: 'no-cache, no-store, must-revalidate',
+  },
+  {
+    key: 'Pragma',
+    value: 'no-cache',
+  },
+  {
+    key: 'Expires',
+    value: '0',
   },
   // ИСПРАВЛЕНО: Добавлен Content Security Policy
   {
@@ -105,10 +118,10 @@ const nextConfig: NextConfig = {
   // Internationalization
   trailingSlash: false,
 
-  // ИСПРАВЛЕНО: Безопасная настройка изображений
+  // ИСПРАВЛЕНО: Безопасная настройка изображений БЕЗ кеширования
   images: {
     formats: ['image/avif', 'image/webp'],
-    minimumCacheTTL: 86400, // Уменьшено до 1 дня
+    minimumCacheTTL: 0, // Отключено кеширование
     dangerouslyAllowSVG: false, // ИСПРАВЛЕНО: убрана уязвимость
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512],
@@ -134,7 +147,7 @@ const nextConfig: NextConfig = {
   // Performance optimizations
   compress: true,
   poweredByHeader: false,
-  generateEtags: true, // ИСПРАВЛЕНО: включены для лучшего кэширования
+  generateEtags: false, // ОТКЛЮЧЕНО: убрано кеширование
 
   // Bundle analyzer (only in development)
   ...(process.env.ANALYZE === 'true' && {
@@ -313,27 +326,31 @@ const nextConfig: NextConfig = {
         source: '/(.*)',
         headers: SECURITY_HEADERS,
       },
-      // Static assets caching
+      // Static assets БЕЗ кеширования
       {
         source: '/_next/static/:path*',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            value: 'no-cache, no-store, must-revalidate',
           },
         ],
       },
-      // ИСПРАВЛЕНО: Оптимальное кэширование изображений
+      // ОТКЛЮЧЕНО: Кеширование изображений убрано
       {
         source: '/images/:path*',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=2592000, stale-while-revalidate=86400', // 30 дней
+            value: 'no-cache, no-store, must-revalidate',
           },
           {
-            key: 'Vary',
-            value: 'Accept',
+            key: 'Pragma',
+            value: 'no-cache',
+          },
+          {
+            key: 'Expires',
+            value: '0',
           },
         ],
       },
