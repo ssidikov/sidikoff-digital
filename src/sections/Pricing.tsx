@@ -210,7 +210,7 @@ export default function Pricing({ locale, className }: PricingProps) {
           className='flex flex-wrap justify-center gap-4 mb-8'>
           <div className='px-6 py-3 rounded-full flex items-center gap-2 bg-blue-100/60 text-green-500 p-4'>
             <CheckIcon className='w-4 h-4 bg-green-200 rounded-full' />
-            <span className='text-sm md:text-base font-medium text-accent'>
+            <span className='text-sm md:text-base font-medium'>
               {dict?.pricing?.guarantee_badge || 'Résultats garantis • Livraison garantie'}
             </span>
           </div>
@@ -281,7 +281,7 @@ export default function Pricing({ locale, className }: PricingProps) {
                     <h4 className='text-xl font-bold text-primary mb-2'>
                       {dict?.pricing?.maintenance?.plans?.basic?.name || 'Basique'}
                     </h4>
-                    <div className='text-3xl font-bold text-accent mb-2'>
+                    <div className='text-3xl font-bold mb-2'>
                       {dict?.pricing?.maintenance?.plans?.basic?.price || '100 €/mois'}
                     </div>
                     <p className='text-secondary mb-6'>
@@ -338,7 +338,7 @@ export default function Pricing({ locale, className }: PricingProps) {
                     <h4 className='text-xl font-bold text-primary mb-2'>
                       {dict?.pricing?.maintenance?.plans?.advanced?.name || 'Avancé'}
                     </h4>
-                    <div className='text-3xl font-bold text-accent mb-2'>
+                    <div className='text-3xl font-bold mb-2'>
                       {dict?.pricing?.maintenance?.plans?.advanced?.price || '200 €/mois'}
                     </div>
                     <p className='text-secondary mb-6'>
@@ -391,7 +391,7 @@ export default function Pricing({ locale, className }: PricingProps) {
                     <h4 className='text-xl font-bold text-primary mb-2'>
                       {dict?.pricing?.maintenance?.plans?.premium?.name || 'Premium'}
                     </h4>
-                    <div className='text-3xl font-bold text-accent mb-2'>
+                    <div className='text-3xl font-bold mb-2'>
                       {dict?.pricing?.maintenance?.plans?.premium?.price || '400 €/mois'}
                     </div>
                     <p className='text-secondary mb-6'>
