@@ -349,7 +349,7 @@ export default function Pricing({ locale, className }: PricingProps) {
                       {(
                         dict?.pricing?.maintenance?.plans?.advanced?.features || [
                           'Tout ce qui est inclus dans Basique',
-                          'SEO optimisation jusqu\'à 2 nouvelles pages chaque mois',
+                          "SEO optimisation jusqu'à 2 nouvelles pages chaque mois",
                           'Surveillance des performances et de la disponibilité du site',
                           'Rapports de trafic mensuels',
                           "Configuration d'analyses des visiteurs",
