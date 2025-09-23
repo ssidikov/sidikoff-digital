@@ -27,17 +27,19 @@ const SECURITY_HEADERS = [
     value: 'strict-origin-when-cross-origin',
   },
   // Разумные настройки кэширования для разработки
-  ...(process.env.NODE_ENV === 'development' ? [
-    {
-      key: 'Cache-Control',
-      value: 'no-cache',
-    },
-  ] : [
-    {
-      key: 'Cache-Control',
-      value: 'public, max-age=31536000, immutable',
-    },
-  ]),
+  ...(process.env.NODE_ENV === 'development'
+    ? [
+        {
+          key: 'Cache-Control',
+          value: 'no-cache',
+        },
+      ]
+    : [
+        {
+          key: 'Cache-Control',
+          value: 'public, max-age=31536000, immutable',
+        },
+      ]),
   // ИСПРАВЛЕНО: Добавлен Content Security Policy
   {
     key: 'Content-Security-Policy',
@@ -331,9 +333,10 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: process.env.NODE_ENV === 'development' 
-              ? 'no-cache'
-              : 'public, max-age=31536000, immutable',
+            value:
+              process.env.NODE_ENV === 'development'
+                ? 'no-cache'
+                : 'public, max-age=31536000, immutable',
           },
         ],
       },
@@ -343,9 +346,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: process.env.NODE_ENV === 'development'
-              ? 'no-cache'
-              : 'public, max-age=86400',
+            value: process.env.NODE_ENV === 'development' ? 'no-cache' : 'public, max-age=86400',
           },
         ],
       },

@@ -24,11 +24,13 @@ const SECURITY_HEADERS = {
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
   // Разумное кэширование для разработки
-  ...(process.env.NODE_ENV === 'development' ? {
-    'Cache-Control': 'no-cache'
-  } : {
-    'Cache-Control': 'public, max-age=0, must-revalidate'
-  }),
+  ...(process.env.NODE_ENV === 'development'
+    ? {
+        'Cache-Control': 'no-cache',
+      }
+    : {
+        'Cache-Control': 'public, max-age=0, must-revalidate',
+      }),
 } as const
 
 // Deleted SEO locations that should return 410 Gone

@@ -2,7 +2,7 @@
 ;(function () {
   // Проверяем, нужна ли очистка кэша
   const shouldClearCache = sessionStorage.getItem('force-cache-clear')
-  
+
   if (!shouldClearCache) {
     console.log('🔄 Cache Buster - кэш не требует очистки')
     return
