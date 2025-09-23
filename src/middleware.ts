@@ -23,10 +23,13 @@ const SECURITY_HEADERS = {
   'X-Content-Type-Options': 'nosniff',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
-  // Разумное кэширование для разработки
+  // Строгие anti-cache настройки для development
   ...(process.env.NODE_ENV === 'development'
     ? {
-        'Cache-Control': 'no-cache',
+        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0',
+        Pragma: 'no-cache',
+        Expires: '0',
+        'Surrogate-Control': 'no-store',
       }
     : {
         'Cache-Control': 'public, max-age=0, must-revalidate',

@@ -15,6 +15,7 @@
     "build:check": "pnpm type-check && pnpm lint && pnpm build",
     "preview": "pnpm build && pnpm start",
     "clean": "rimraf .next out dist",
+    "clear-cache": "rm -rf .next && npm run clean",
     "analyze": "ANALYZE=true pnpm build",
     "sanity": "sanity start",
     "sanity:build": "sanity build",

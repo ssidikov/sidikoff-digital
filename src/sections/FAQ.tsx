@@ -266,7 +266,7 @@ const FAQCard = ({ item, isOpen, onToggle }: FAQCardProps) => (
     <motion.div
       id={`faq-content-${item.id}`}
       initial={{ maxHeight: 0 }}
-      animate={{ maxHeight: isOpen ? 200 : 0 }}
+      animate={{ maxHeight: isOpen ? 400 : 0 }}
       transition={ANIMATION_CONFIG.content.transition}
       style={{ overflow: 'hidden' }}>
       <p className='mt-4 px-5 pb-2 text-lg sm:px-6 3xl:px-8 3xl:pb-4'>{item.answer}</p>

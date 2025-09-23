@@ -1,28 +1,19 @@
-// Утилита для мягкой очистки кэша (только при необходимости)
-;(function () {
-  // Проверяем, нужна ли очистка кэша
-  const shouldClearCache = sessionStorage.getItem('force-cache-clear')
+// Cache-buster for development
+// Adds timestamp to avoid browser caching during development
+if (process.env.NODE_ENV === 'development') {
+  const timestamp = Date.now()
+  const links = document.querySelectorAll('link[rel="stylesheet"]')
+  const scripts = document.querySelectorAll('script[src]')
 
-  if (!shouldClearCache) {
-    console.log('🔄 Cache Buster - кэш не требует очистки')
-    return
-  }
+  links.forEach((link) => {
+    const href = link.href
+    link.href = href + (href.includes('?') ? '&' : '?') + `t=${timestamp}`
+  })
 
-  console.log('🔄 Cache Buster - мягкая очистка кэша')
-
-  // Очищаем только старые service workers
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.getRegistrations().then(function (registrations) {
-      registrations.forEach(function (registration) {
-        if (registration.scope.includes('old') || registration.scope.includes('legacy')) {
-          console.log('🗑️ Удаляем старый Service Worker:', registration.scope)
-          registration.unregister()
-        }
-      })
-    })
-  }
-
-  // Удаляем флаг после очистки
-  sessionStorage.removeItem('force-cache-clear')
-  console.log('✅ Cache Buster - очистка завершена')
-})()
+  scripts.forEach((script) => {
+    const src = script.src
+    if (src && !src.includes('cache-buster.js')) {
+      script.src = src + (src.includes('?') ? '&' : '?') + `t=${timestamp}`
+    }
+  })
+}

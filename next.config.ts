@@ -1,6 +1,6 @@
 import type { NextConfig } from 'next'
 
-// ИСПРАВЛЕНО: Улучшенные security headers с CSP и БЕЗ кеширования
+// ИСПРАВЛЕНО: Улучшенные security headers с строгим anti-cache для development
 const SECURITY_HEADERS = [
   {
     key: 'X-DNS-Prefetch-Control',
@@ -26,12 +26,24 @@ const SECURITY_HEADERS = [
     key: 'Referrer-Policy',
     value: 'strict-origin-when-cross-origin',
   },
-  // Разумные настройки кэширования для разработки
+  // Строгие anti-cache настройки для development
   ...(process.env.NODE_ENV === 'development'
     ? [
         {
           key: 'Cache-Control',
+          value: 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0',
+        },
+        {
+          key: 'Pragma',
           value: 'no-cache',
+        },
+        {
+          key: 'Expires',
+          value: '0',
+        },
+        {
+          key: 'Surrogate-Control',
+          value: 'no-store',
         },
       ]
     : [
@@ -122,7 +134,7 @@ const nextConfig: NextConfig = {
   // ИСПРАВЛЕНО: Рациональные настройки изображений
   images: {
     formats: ['image/avif', 'image/webp'],
-    minimumCacheTTL: process.env.NODE_ENV === 'development' ? 60 : 31536000, // 1 минута в dev, 1 год в prod
+    minimumCacheTTL: process.env.NODE_ENV === 'development' ? 0 : 31536000, // Без кеша в dev, 1 год в prod
     dangerouslyAllowSVG: false, // ИСПРАВЛЕНО: убрана уязвимость
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512],
@@ -169,7 +181,8 @@ const nextConfig: NextConfig = {
   },
 
   eslint: {
-    ignoreDuringBuilds: true,
+    // Отключаем только для development, в production проверяем ESLint
+    ignoreDuringBuilds: process.env.NODE_ENV === 'development',
   },
 
   // Redirects to handle old project URLs and legacy paths
@@ -327,29 +340,80 @@ const nextConfig: NextConfig = {
         source: '/(.*)',
         headers: SECURITY_HEADERS,
       },
-      // Рациональное кэширование статических ресурсов
+      // Строгое отключение кэширования для development
       {
         source: '/_next/static/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value:
-              process.env.NODE_ENV === 'development'
-                ? 'no-cache'
-                : 'public, max-age=31536000, immutable',
-          },
-        ],
+        headers:
+          process.env.NODE_ENV === 'development'
+            ? [
+                {
+                  key: 'Cache-Control',
+                  value: 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0',
+                },
+                {
+                  key: 'Pragma',
+                  value: 'no-cache',
+                },
+                {
+                  key: 'Expires',
+                  value: '0',
+                },
+              ]
+            : [
+                {
+                  key: 'Cache-Control',
+                  value: 'public, max-age=31536000, immutable',
+                },
+              ],
       },
       // Кэширование изображений
       {
         source: '/images/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: process.env.NODE_ENV === 'development' ? 'no-cache' : 'public, max-age=86400',
-          },
-        ],
+        headers:
+          process.env.NODE_ENV === 'development'
+            ? [
+                {
+                  key: 'Cache-Control',
+                  value: 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0',
+                },
+                {
+                  key: 'Pragma',
+                  value: 'no-cache',
+                },
+                {
+                  key: 'Expires',
+                  value: '0',
+                },
+              ]
+            : [
+                {
+                  key: 'Cache-Control',
+                  value: 'public, max-age=86400',
+                },
+              ],
       },
+      // Отключение кэширования для HTML страниц в development
+      ...(process.env.NODE_ENV === 'development'
+        ? [
+            {
+              source: '/((?!_next|api|favicon|robots.txt|sitemap.xml|manifest.json).*)',
+              headers: [
+                {
+                  key: 'Cache-Control',
+                  value: 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0',
+                },
+                {
+                  key: 'Pragma',
+                  value: 'no-cache',
+                },
+                {
+                  key: 'Expires',
+                  value: '0',
+                },
+              ],
+            },
+          ]
+        : []),
       // ИСПРАВЛЕНО: Убраны headers для шрифтов - Next.js управляет этим автоматически
     ]
   },
