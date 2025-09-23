@@ -26,27 +26,18 @@ const SECURITY_HEADERS = [
     key: 'Referrer-Policy',
     value: 'strict-origin-when-cross-origin',
   },
-  // Отключение кеширования для обновленного контента
-  {
-    key: 'Cache-Control',
-    value: 'no-cache, no-store, must-revalidate, max-age=0',
-  },
-  {
-    key: 'Pragma',
-    value: 'no-cache',
-  },
-  {
-    key: 'Expires',
-    value: '0',
-  },
-  {
-    key: 'Last-Modified',
-    value: new Date().toUTCString(),
-  },
-  {
-    key: 'ETag',
-    value: `"${Date.now()}"`,
-  },
+  // Разумные настройки кэширования для разработки
+  ...(process.env.NODE_ENV === 'development' ? [
+    {
+      key: 'Cache-Control',
+      value: 'no-cache',
+    },
+  ] : [
+    {
+      key: 'Cache-Control',
+      value: 'public, max-age=31536000, immutable',
+    },
+  ]),
   // ИСПРАВЛЕНО: Добавлен Content Security Policy
   {
     key: 'Content-Security-Policy',
@@ -126,10 +117,10 @@ const nextConfig: NextConfig = {
   // Internationalization
   trailingSlash: false,
 
-  // ИСПРАВЛЕНО: Безопасная настройка изображений БЕЗ кеширования
+  // ИСПРАВЛЕНО: Рациональные настройки изображений
   images: {
     formats: ['image/avif', 'image/webp'],
-    minimumCacheTTL: 0, // Отключено кеширование
+    minimumCacheTTL: process.env.NODE_ENV === 'development' ? 60 : 31536000, // 1 минута в dev, 1 год в prod
     dangerouslyAllowSVG: false, // ИСПРАВЛЕНО: убрана уязвимость
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512],
@@ -155,7 +146,7 @@ const nextConfig: NextConfig = {
   // Performance optimizations
   compress: true,
   poweredByHeader: false,
-  generateEtags: false, // ОТКЛЮЧЕНО: убрано кеширование
+  generateEtags: true, // Включаем ETags для правильного кэширования
 
   // Bundle analyzer (only in development)
   ...(process.env.ANALYZE === 'true' && {
@@ -334,31 +325,27 @@ const nextConfig: NextConfig = {
         source: '/(.*)',
         headers: SECURITY_HEADERS,
       },
-      // Static assets БЕЗ кеширования
+      // Рациональное кэширование статических ресурсов
       {
         source: '/_next/static/:path*',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
+            value: process.env.NODE_ENV === 'development' 
+              ? 'no-cache'
+              : 'public, max-age=31536000, immutable',
           },
         ],
       },
-      // ОТКЛЮЧЕНО: Кеширование изображений убрано
+      // Кэширование изображений
       {
         source: '/images/:path*',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
-          },
-          {
-            key: 'Pragma',
-            value: 'no-cache',
-          },
-          {
-            key: 'Expires',
-            value: '0',
+            value: process.env.NODE_ENV === 'development'
+              ? 'no-cache'
+              : 'public, max-age=86400',
           },
         ],
       },

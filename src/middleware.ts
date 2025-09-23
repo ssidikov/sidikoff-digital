@@ -23,12 +23,12 @@ const SECURITY_HEADERS = {
   'X-Content-Type-Options': 'nosniff',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
-  // Усиленное отключение кеширования
-  'Cache-Control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
-  Pragma: 'no-cache',
-  Expires: '0',
-  'Last-Modified': new Date().toUTCString(),
-  ETag: `"${Date.now()}"`,
+  // Разумное кэширование для разработки
+  ...(process.env.NODE_ENV === 'development' ? {
+    'Cache-Control': 'no-cache'
+  } : {
+    'Cache-Control': 'public, max-age=0, must-revalidate'
+  }),
 } as const
 
 // Deleted SEO locations that should return 410 Gone

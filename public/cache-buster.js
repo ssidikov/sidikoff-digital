@@ -1,30 +1,28 @@
-// Утилита для принудительной очистки кэша браузера
+// Утилита для мягкой очистки кэша (только при необходимости)
 ;(function () {
-  console.log('🔄 Cache Buster - принудительная очистка кэша')
+  // Проверяем, нужна ли очистка кэша
+  const shouldClearCache = sessionStorage.getItem('force-cache-clear')
+  
+  if (!shouldClearCache) {
+    console.log('🔄 Cache Buster - кэш не требует очистки')
+    return
+  }
 
-  // Очищаем все возможные виды кэша
+  console.log('🔄 Cache Buster - мягкая очистка кэша')
+
+  // Очищаем только старые service workers
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.getRegistrations().then(function (registrations) {
       registrations.forEach(function (registration) {
-        console.log('🗑️ Удаляем Service Worker:', registration.scope)
-        registration.unregister()
+        if (registration.scope.includes('old') || registration.scope.includes('legacy')) {
+          console.log('🗑️ Удаляем старый Service Worker:', registration.scope)
+          registration.unregister()
+        }
       })
     })
   }
 
-  // Очищаем кэш через Cache API
-  if ('caches' in window) {
-    caches.keys().then(function (names) {
-      names.forEach(function (name) {
-        console.log('🗑️ Удаляем кэш:', name)
-        caches.delete(name)
-      })
-    })
-  }
-
-  // Принудительно перезагружаем страницу без кэша
-  setTimeout(() => {
-    console.log('🔄 Перезагружаем страницу без кэша...')
-    window.location.reload(true)
-  }, 1000)
+  // Удаляем флаг после очистки
+  sessionStorage.removeItem('force-cache-clear')
+  console.log('✅ Cache Buster - очистка завершена')
 })()

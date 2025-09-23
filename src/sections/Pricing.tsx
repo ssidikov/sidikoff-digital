@@ -261,7 +261,7 @@ export default function Pricing({ locale, className }: PricingProps) {
             <h3 className='text-2xl md:text-3xl font-bold text-primary mb-4'>
               {dict?.pricing?.maintenance?.title || 'Plans de Maintenance'}
             </h3>
-            <p className='text-lg text-secondary max-w-2xl mx-auto'>
+            <p className='text-lg max-w-2xl mx-auto'>
               {dict?.pricing?.maintenance?.subtitle ||
                 'Choisissez le niveau de support adapté à vos besoins'}
             </p>
@@ -284,7 +284,7 @@ export default function Pricing({ locale, className }: PricingProps) {
                     <div className='text-3xl font-bold mb-2'>
                       {dict?.pricing?.maintenance?.plans?.basic?.price || '100 €/mois'}
                     </div>
-                    <p className='text-secondary mb-6'>
+                    <p className='mb-6'>
                       {dict?.pricing?.maintenance?.plans?.basic?.description ||
                         "L'essentiel pour rester en ligne"}
                     </p>
@@ -302,7 +302,7 @@ export default function Pricing({ locale, className }: PricingProps) {
                           <div className='flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center bg-green-200 text-green-600 mt-0.5'>
                             <CheckIcon className='w-3 h-3' />
                           </div>
-                          <span className='text-sm text-secondary'>{feature}</span>
+                          <span className='text-sm'>{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -341,7 +341,7 @@ export default function Pricing({ locale, className }: PricingProps) {
                     <div className='text-3xl font-bold mb-2'>
                       {dict?.pricing?.maintenance?.plans?.advanced?.price || '200 €/mois'}
                     </div>
-                    <p className='text-secondary mb-6'>
+                    <p className='mb-6'>
                       {dict?.pricing?.maintenance?.plans?.advanced?.description ||
                         'Pour les entreprises qui veulent croître'}
                     </p>
@@ -360,7 +360,7 @@ export default function Pricing({ locale, className }: PricingProps) {
                           <div className='flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center bg-green-200 text-green-600 mt-0.5'>
                             <CheckIcon className='w-3 h-3' />
                           </div>
-                          <span className='text-sm text-secondary'>{feature}</span>
+                          <span className='text-sm'>{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -394,7 +394,7 @@ export default function Pricing({ locale, className }: PricingProps) {
                     <div className='text-3xl font-bold mb-2'>
                       {dict?.pricing?.maintenance?.plans?.premium?.price || '400 €/mois'}
                     </div>
-                    <p className='text-secondary mb-6'>
+                    <p className='mb-6'>
                       {dict?.pricing?.maintenance?.plans?.premium?.description ||
                         'Solution complète pour entreprises ambitieuses'}
                     </p>
@@ -413,7 +413,7 @@ export default function Pricing({ locale, className }: PricingProps) {
                           <div className='flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center bg-green-200 text-green-600 mt-0.5'>
                             <CheckIcon className='w-3 h-3' />
                           </div>
-                          <span className='text-sm text-secondary'>{feature}</span>
+                          <span className='text-sm'>{feature}</span>
                         </li>
                       ))}
                     </ul>
