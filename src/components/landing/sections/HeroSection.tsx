@@ -27,37 +27,46 @@ interface HeroSectionProps extends SectionProps {
 }
 
 // Type guards for safe property access
-function isStringProperty(obj: Record<string, unknown>, key: string): obj is Record<string, string> {
+function isStringProperty(
+  obj: Record<string, unknown>,
+  key: string
+): obj is Record<string, string> {
   return typeof obj[key] === 'string'
 }
 
-function isArrayProperty(obj: Record<string, unknown>, key: string): obj is Record<string, unknown[]> {
+function isArrayProperty(
+  obj: Record<string, unknown>,
+  key: string
+): obj is Record<string, unknown[]> {
   return Array.isArray(obj[key])
 }
 
 export function HeroSection({ dictionary, locale, industryConfig, breadcrumbs }: HeroSectionProps) {
   // Access restaurant landing data from dictionary - using safe property access
-  const restaurantData = (dictionary as unknown as Record<string, unknown>).restaurant_landing as Record<string, unknown> || {}
+  const restaurantData =
+    ((dictionary as unknown as Record<string, unknown>).restaurant_landing as Record<
+      string,
+      unknown
+    >) || {}
   const heroData = (restaurantData.hero as Record<string, unknown>) || {}
-  
+
   // Generate contact URL based on locale
   const contactUrl = locale === 'fr' ? '/contact' : `/${locale}/contact`
   const portfolioUrl = locale === 'fr' ? '/portfolio' : `/${locale}/portfolio`
 
   return (
-    <section 
+    <section
       className={`relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br ${industryConfig.hero.backgroundPattern} pt-[120px] md:pt-[160px] pb-8 md:pb-16`}
       style={{
-        background: `linear-gradient(135deg, ${industryConfig.colors.gradient.from}10, ${industryConfig.colors.gradient.to}10)`
-      }}
-    >
+        background: `linear-gradient(135deg, ${industryConfig.colors.gradient.from}10, ${industryConfig.colors.gradient.to}10)`,
+      }}>
       {/* Background Elements */}
       <div className='absolute inset-0 overflow-hidden'>
-        <div 
+        <div
           className='absolute -top-40 -right-40 w-80 h-80 rounded-full opacity-60 animate-pulse'
           style={{ backgroundColor: `${industryConfig.colors.primary}20` }}
         />
-        <div 
+        <div
           className='absolute -bottom-40 -left-40 w-96 h-96 rounded-full opacity-40 animate-pulse delay-700'
           style={{ backgroundColor: `${industryConfig.colors.secondary}30` }}
         />
@@ -70,25 +79,20 @@ export function HeroSection({ dictionary, locale, industryConfig, breadcrumbs }:
             className='mb-8'
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+            transition={{ duration: 0.5 }}>
             <ol className='flex items-center space-x-2 text-sm text-gray-600'>
               {breadcrumbs.items.map((item, index: number) => (
                 <li key={index} className='flex items-center'>
                   {index > 0 && <span className='mx-2 text-gray-400'>/</span>}
                   {item.href ? (
-                    <Link 
-                      href={item.href} 
+                    <Link
+                      href={item.href}
                       className='hover:text-accent transition-colors'
-                      style={{ '--accent': industryConfig.colors.accent } as React.CSSProperties}
-                    >
+                      style={{ '--accent': industryConfig.colors.accent } as React.CSSProperties}>
                       {item.label}
                     </Link>
                   ) : (
-                    <span 
-                      className='font-medium'
-                      style={{ color: industryConfig.colors.accent }}
-                    >
+                    <span className='font-medium' style={{ color: industryConfig.colors.accent }}>
                       {item.label}
                     </span>
                   )}
@@ -104,20 +108,18 @@ export function HeroSection({ dictionary, locale, industryConfig, breadcrumbs }:
             className='text-center lg:text-left'
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+            transition={{ duration: 0.8 }}>
             {/* Badge */}
             {isStringProperty(heroData, 'badge') && (
               <motion.div
                 className='inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6'
                 style={{
                   backgroundColor: `${industryConfig.colors.primary}15`,
-                  color: industryConfig.colors.primary
+                  color: industryConfig.colors.primary,
                 }}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
+                transition={{ duration: 0.5, delay: 0.2 }}>
                 {getIcon(industryConfig.icons.badge, 'w-4 h-4')}
                 {heroData.badge}
               </motion.div>
@@ -129,13 +131,8 @@ export function HeroSection({ dictionary, locale, industryConfig, breadcrumbs }:
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className='mb-6'
-              >
-                <Heading 
-                  level="h1" 
-                  variant="gradient"
-                  className='text-4xl md:text-5xl lg:text-6xl'
-                >
+                className='mb-6'>
+                <Heading level='h1' variant='gradient' className='text-4xl md:text-5xl lg:text-6xl'>
                   {heroData.title}
                 </Heading>
               </motion.div>
@@ -147,9 +144,8 @@ export function HeroSection({ dictionary, locale, industryConfig, breadcrumbs }:
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className='mb-8'
-              >
-                <Text size="lg" variant="muted" className='leading-relaxed'>
+                className='mb-8'>
+                <Text size='lg' variant='muted' className='leading-relaxed'>
                   {heroData.description}
                 </Text>
               </motion.div>
@@ -161,18 +157,16 @@ export function HeroSection({ dictionary, locale, industryConfig, breadcrumbs }:
                 className='space-y-3 mb-8'
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-              >
+                transition={{ delay: 0.5, duration: 0.8 }}>
                 {heroData.benefits.map((benefit: unknown, index: number) => (
                   <motion.li
                     key={index}
                     className='flex items-center space-x-3'
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
-                  >
-                    <CheckCircle 
-                      className='w-5 h-5 flex-shrink-0' 
+                    transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}>
+                    <CheckCircle
+                      className='w-5 h-5 flex-shrink-0'
                       style={{ color: industryConfig.colors.accent }}
                     />
                     <Text>{typeof benefit === 'string' ? benefit : String(benefit)}</Text>
@@ -186,18 +180,19 @@ export function HeroSection({ dictionary, locale, industryConfig, breadcrumbs }:
               className='flex flex-col sm:flex-row gap-4'
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.8 }}
-            >
+              transition={{ delay: 0.7, duration: 0.8 }}>
               <Link href={contactUrl}>
-                <Button size="lg" className='group'>
+                <Button size='lg' className='group'>
                   {isStringProperty(heroData, 'cta_primary') ? heroData.cta_primary : 'Contact Us'}
                   <ArrowRight className='ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform' />
                 </Button>
               </Link>
-              
+
               <Link href={portfolioUrl}>
-                <Button variant="outline" size="lg">
-                  {isStringProperty(heroData, 'cta_secondary') ? heroData.cta_secondary : 'View Portfolio'}
+                <Button variant='outline' size='lg'>
+                  {isStringProperty(heroData, 'cta_secondary')
+                    ? heroData.cta_secondary
+                    : 'View Portfolio'}
                 </Button>
               </Link>
             </motion.div>
@@ -208,8 +203,7 @@ export function HeroSection({ dictionary, locale, industryConfig, breadcrumbs }:
             className='relative'
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
+            transition={{ duration: 0.8, delay: 0.2 }}>
             <div className='aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl'>
               <Image
                 src={industryConfig.hero.image}

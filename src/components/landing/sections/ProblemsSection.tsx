@@ -2,9 +2,17 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { 
-  AlertTriangle, TrendingDown, Clock, DollarSign, Users, 
-  Smartphone, Globe, Star, Search, Target 
+import {
+  AlertTriangle,
+  TrendingDown,
+  Clock,
+  DollarSign,
+  Users,
+  Smartphone,
+  Globe,
+  Star,
+  Search,
+  Target,
 } from 'lucide-react'
 import { Heading, Text, Card, CardContent } from '@/design-system'
 import { SectionProps } from '../types'
@@ -13,14 +21,14 @@ import { SectionProps } from '../types'
 const iconMap = {
   'alert-triangle': AlertTriangle,
   'trending-down': TrendingDown,
-  'clock': Clock,
+  clock: Clock,
   'dollar-sign': DollarSign,
-  'users': Users,
-  'smartphone': Smartphone,
-  'globe': Globe,
-  'star': Star,
-  'search': Search,
-  'target': Target,
+  users: Users,
+  smartphone: Smartphone,
+  globe: Globe,
+  star: Star,
+  search: Search,
+  target: Target,
 } as const
 
 function getIcon(iconName: string, className?: string) {
@@ -29,9 +37,9 @@ function getIcon(iconName: string, className?: string) {
 }
 
 export function ProblemsSection({ dictionary, industryConfig }: Omit<SectionProps, 'locale'>) {
-  const t = (dictionary as unknown as Record<string, Record<string, unknown>>)
-  const problemsData = t.problems || {} as Record<string, unknown>
-  
+  const t = dictionary as unknown as Record<string, Record<string, unknown>>
+  const problemsData = t.problems || ({} as Record<string, unknown>)
+
   if (!problemsData.title || !problemsData.list) {
     return null
   }
@@ -51,13 +59,12 @@ export function ProblemsSection({ dictionary, industryConfig }: Omit<SectionProp
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <Heading level="h2" className='mb-4'>
+          viewport={{ once: true }}>
+          <Heading level='h2' className='mb-4'>
             {problemsData.title as string}
           </Heading>
           {typeof problemsData.description === 'string' && problemsData.description && (
-            <Text size="xl" variant="muted" className='max-w-3xl mx-auto'>
+            <Text size='xl' variant='muted' className='max-w-3xl mx-auto'>
               {problemsData.description}
             </Text>
           )}
@@ -71,15 +78,13 @@ export function ProblemsSection({ dictionary, industryConfig }: Omit<SectionProp
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
+              viewport={{ once: true }}>
               <Card className='text-center h-full hover:shadow-lg transition-shadow duration-300'>
                 <CardContent className='p-6'>
                   <div className='mb-4'>
-                    <div 
+                    <div
                       className='w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4'
-                      style={{ backgroundColor: `${industryConfig.colors.primary}15` }}
-                    >
+                      style={{ backgroundColor: `${industryConfig.colors.primary}15` }}>
                       {getIcon(problem.icon, `w-8 h-8`)}
                       <style jsx>{`
                         svg {
@@ -88,12 +93,12 @@ export function ProblemsSection({ dictionary, industryConfig }: Omit<SectionProp
                       `}</style>
                     </div>
                   </div>
-                  
-                  <Heading level="h3" className='text-xl mb-3'>
+
+                  <Heading level='h3' className='text-xl mb-3'>
                     {problem.title}
                   </Heading>
-                  
-                  <Text variant="muted" className='leading-relaxed'>
+
+                  <Text variant='muted' className='leading-relaxed'>
                     {problem.description}
                   </Text>
                 </CardContent>

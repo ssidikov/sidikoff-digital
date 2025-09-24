@@ -7,16 +7,16 @@ import { ProblemsSection } from './sections/ProblemsSection'
 import { ProcessSection } from './sections/ProcessSection'
 import { CTASection } from './sections/CTASection'
 
-export function BaseLandingContent({ 
-  dictionary, 
-  locale, 
-  breadcrumbs, 
-  industryConfig 
+export function BaseLandingContent({
+  dictionary,
+  locale,
+  breadcrumbs,
+  industryConfig,
 }: BaseLandingContentProps) {
   return (
     <div className='min-h-screen'>
       {/* Hero Section - Always shown */}
-      <HeroSection 
+      <HeroSection
         dictionary={dictionary}
         locale={locale}
         industryConfig={industryConfig}
@@ -24,16 +24,10 @@ export function BaseLandingContent({
       />
 
       {/* Problems Section - Conditional */}
-      <ProblemsSection 
-        dictionary={dictionary}
-        industryConfig={industryConfig}
-      />
+      <ProblemsSection dictionary={dictionary} industryConfig={industryConfig} />
 
       {/* Process Section - Always shown */}
-      <ProcessSection 
-        dictionary={dictionary}
-        industryConfig={industryConfig}
-      />
+      <ProcessSection dictionary={dictionary} industryConfig={industryConfig} />
 
       {/* Stats Section - Conditional */}
       {industryConfig.sections.showStats && (
@@ -79,11 +73,7 @@ export function BaseLandingContent({
       </section>
 
       {/* CTA Section - Always shown */}
-      <CTASection 
-        dictionary={dictionary}
-        locale={locale}
-        industryConfig={industryConfig}
-      />
+      <CTASection dictionary={dictionary} locale={locale} industryConfig={industryConfig} />
     </div>
   )
 }

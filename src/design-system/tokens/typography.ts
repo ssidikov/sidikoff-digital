@@ -10,17 +10,17 @@ export const typography = {
   },
 
   fontSize: {
-    xs: ['0.75rem', { lineHeight: '1rem' }],      // 12px
-    sm: ['0.875rem', { lineHeight: '1.25rem' }],  // 14px
-    base: ['1rem', { lineHeight: '1.5rem' }],     // 16px
-    lg: ['1.125rem', { lineHeight: '1.75rem' }],  // 18px
-    xl: ['1.25rem', { lineHeight: '1.75rem' }],   // 20px
-    '2xl': ['1.5rem', { lineHeight: '2rem' }],    // 24px
+    xs: ['0.75rem', { lineHeight: '1rem' }], // 12px
+    sm: ['0.875rem', { lineHeight: '1.25rem' }], // 14px
+    base: ['1rem', { lineHeight: '1.5rem' }], // 16px
+    lg: ['1.125rem', { lineHeight: '1.75rem' }], // 18px
+    xl: ['1.25rem', { lineHeight: '1.75rem' }], // 20px
+    '2xl': ['1.5rem', { lineHeight: '2rem' }], // 24px
     '3xl': ['1.875rem', { lineHeight: '2.25rem' }], // 30px
-    '4xl': ['2.25rem', { lineHeight: '2.5rem' }],   // 36px
-    '5xl': ['3rem', { lineHeight: '1' }],           // 48px
-    '6xl': ['3.75rem', { lineHeight: '1' }],        // 60px
-    '7xl': ['4.5rem', { lineHeight: '1' }],         // 72px
+    '4xl': ['2.25rem', { lineHeight: '2.5rem' }], // 36px
+    '5xl': ['3rem', { lineHeight: '1' }], // 48px
+    '6xl': ['3.75rem', { lineHeight: '1' }], // 60px
+    '7xl': ['4.5rem', { lineHeight: '1' }], // 72px
   },
 
   fontWeight: {
@@ -51,7 +51,7 @@ export const typography = {
     normal: '1.5',
     relaxed: '1.625',
     loose: '2',
-  }
+  },
 } as const
 
 // Semantic typography variants
@@ -124,7 +124,7 @@ export const typographyVariants = {
     lineHeight: typography.lineHeight.none,
     letterSpacing: typography.letterSpacing.widest,
     textTransform: 'uppercase' as const,
-  }
+  },
 } as const
 
 export type TypographyVariant = keyof typeof typographyVariants

@@ -5,13 +5,13 @@ export { BaseLandingContent } from './BaseLandingContent'
 export { industryConfigs, getIndustryConfig } from './industryConfigs'
 
 // Types
-export type { 
-  IndustryConfig, 
-  IndustryType, 
+export type {
+  IndustryConfig,
+  IndustryType,
   BaseLandingContentProps,
   SectionProps,
   Breadcrumbs,
-  BreadcrumbItem
+  BreadcrumbItem,
 } from './types'
 
 // Section components (for custom usage)

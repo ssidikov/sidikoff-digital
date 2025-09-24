@@ -6,10 +6,10 @@
 export const colors = {
   // Brand Colors
   brand: {
-    primary: '#3F72AF',      // Основной синий
-    secondary: '#112D4E',    // Темно-синий
+    primary: '#3F72AF', // Основной синий
+    secondary: '#112D4E', // Темно-синий
     accent: 'var(--accent)', // Динамический accent из CSS переменных
-    light: '#DBE2EF',        // Светлый оттенок
+    light: '#DBE2EF', // Светлый оттенок
   },
 
   // Grayscale
@@ -52,7 +52,7 @@ export const colors = {
       500: '#3b82f6',
       600: '#2563eb',
       900: '#1e3a8a',
-    }
+    },
   },
 
   // Industry-specific colors
@@ -82,7 +82,7 @@ export const colors = {
       secondary: '#7c3aed',
       accent: '#c4b5fd',
     },
-  }
+  },
 } as const
 
 export type ColorKey = keyof typeof colors

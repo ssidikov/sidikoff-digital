@@ -3,7 +3,7 @@ import { Dictionary } from '@/lib/dictionaries'
 export interface IndustryConfig {
   /** Industry identifier */
   name: string
-  
+
   /** Color scheme for the industry */
   colors: {
     primary: string
@@ -14,14 +14,14 @@ export interface IndustryConfig {
       to: string
     }
   }
-  
+
   /** Hero section configuration */
   hero: {
     image: string
     imageAlt: string
     backgroundPattern?: string
   }
-  
+
   /** Section visibility and behavior */
   sections: {
     showTestimonials: boolean
@@ -31,14 +31,14 @@ export interface IndustryConfig {
     pricingType: 'simple' | 'detailed' | 'none'
     processSteps: number
   }
-  
+
   /** Icon configuration */
   icons: {
     primary: string
     badge: string
     features: string[]
   }
-  
+
   /** Industry-specific metadata */
   meta: {
     category: string
@@ -118,7 +118,7 @@ export interface FAQItem {
   answer: string
 }
 
-export type IndustryType = 
+export type IndustryType =
   | 'restaurant'
   | 'travel-agency'
   | 'barbershop'
