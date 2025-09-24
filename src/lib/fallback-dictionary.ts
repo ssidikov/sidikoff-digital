@@ -1629,7 +1629,7 @@ export const fallbackDictionary: Dictionary = {
       packages: [
         {
           name: 'Showcase',
-          price: '€799',
+          price: '€800',
           period: 'one-time',
           description: 'Perfect for presenting your services and attracting prospects',
           delivery_time: '2 weeks',

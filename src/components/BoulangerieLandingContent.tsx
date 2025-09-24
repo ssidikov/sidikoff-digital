@@ -440,7 +440,7 @@ export default function BoulangerieLandingContent({
                 )}
                 <h3 className='text-xl font-bold text-gray-900 mb-2'>{pkg.name}</h3>
                 <div className='text-3xl font-bold text-amber-600 mb-2'>
-                  {pkg.price}€<span className='text-lg text-gray-600'>/{pkg.period}</span>
+                  {pkg.price}<span className='text-lg text-gray-600'>/{pkg.period}</span>
                 </div>
                 <p className='text-gray-600 mb-6'>{pkg.description}</p>
                 <ul className='space-y-3 mb-8'>

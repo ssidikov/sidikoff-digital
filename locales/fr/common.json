@@ -910,7 +910,7 @@
   },
   "restaurant_landing": {
     "meta_title": "Création Site Web Restaurant - Augmentez vos Réservations",
-    "meta_description": "Site web professionnel pour restaurant. Réservations en ligne, menu digital, commandes. Tarif dès 799€ TTC. Support mensuel tout inclus dès 24€/mois. Solutions transparentes et complètes.",
+    "meta_description": "Site web professionnel pour restaurant. Réservations en ligne, menu digital, commandes. Tarif dès 800€ TTC. Support mensuel tout inclus dès 24€/mois. Solutions transparentes et complètes.",
     "keywords": [
       "site web restaurant",
       "création site restaurant",
@@ -1003,7 +1003,7 @@
       "packages": [
         {
           "name": "Starter",
-          "price": "799",
+          "price": "800",
           "currency": "€",
           "period": "one-time",
           "description": "Pour débuter avec une vitrine + réservations",
@@ -1272,7 +1272,7 @@
       "questions": [
         {
           "question": "Combien coûte un site web pour restaurant ?",
-          "answer": "Nos sites web restaurant démarrent à 799€ TTC pour une solution complète avec réservations en ligne, menu numérique et optimisation mobile. Tarif Professional 1299€ inclut vente en ligne + Click&Collect. Plans de support mensuel dès 24€/mois incluant hébergement, maintenance et mises à jour. Aucun frais caché, tarification transparente. Délais 3-8 semaines selon complexité."
+          "answer": "Nos sites web restaurant démarrent à 800€ TTC pour une solution complète avec réservations en ligne, menu numérique et optimisation mobile. Tarif Professional 1299€ inclut vente en ligne + Click&Collect. Plans de support mensuel dès 24€/mois incluant hébergement, maintenance et mises à jour. Aucun frais caché, tarification transparente. Délais 3-8 semaines selon complexité."
         },
         {
           "question": "Ai-je besoin de connaissances techniques pour gérer mon site restaurant ?",
@@ -2033,7 +2033,7 @@
       "packages": [
         {
           "name": "Vitrine",
-          "price": "€799",
+          "price": "€800",
           "period": "unique",
           "description": "Parfait pour présenter vos services et attirer des prospects",
           "delivery_time": "2 semaines",
