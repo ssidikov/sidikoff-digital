@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: Paris16PageProps): Promise<Me
 
   const title =
     locale === 'fr'
-      ? 'Création de site internet professionnel Paris 16ème - Agence Web Auteuil'
+      ? 'Création de site internet professionnel Paris 16ème - Agence Web'
       : locale === 'en'
-        ? 'Professional Website Creation Paris 16th - Auteuil Web Agency'
-        : 'Создание профессиональных сайтов Париж 16-й - Веб Агентство Отей'
+        ? 'Professional Website Creation Paris 16th - Web Agency'
+        : 'Создание профессиональных сайтов Париж 16-й - Веб Агентство'
 
   const description =
     locale === 'fr'
@@ -1748,7 +1748,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
               '@type': 'ProfessionalService',
               '@id':
                 'https://www.sidikoff.com/en/services/creation-site-internet-paris-16#ProfessionalService',
-              name: 'Website Creation Paris 16th - Web Agency Auteuil',
+              name: 'Website Creation Paris 16th - Web Agency',
               alternateName: 'Web Development Paris 16th',
               description:
                 'Professional website creation service tailored for businesses, shops and professionals in the 16th arrondissement of Paris.',
