@@ -605,7 +605,7 @@ export default function ParisLandingContent({ locale }: ParisLandingContentProps
         </Section>
 
         {/* Services Section */}
-        <Section id='services' className='py-20 bg-white' contentWidth='wide'>
+        <Section id='services' className='py-20 bg-gradient-to-b from-white to-gray-50' contentWidth='wide'>
           <div ref={servicesRef} className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='text-center mb-16'>
               <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-6'>
@@ -659,7 +659,7 @@ export default function ParisLandingContent({ locale }: ParisLandingContentProps
         {/* Why Choose Us Section */}
         <Section
           id='why-choose-us'
-          className='py-20 bg-gradient-to-br from-gray-50 to-white'
+          className='py-20 bg-gradient-to-br from-[#DBE2EF] via-[#F9F7FF] to-white'
           contentWidth='wide'>
           <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='text-center mb-16'>
@@ -689,7 +689,7 @@ export default function ParisLandingContent({ locale }: ParisLandingContentProps
         </Section>
 
         {/* FAQ Section */}
-        <Section id='faq' className='py-20 bg-white' contentWidth='wide'>
+        <Section id='faq' className='py-20 bg-gradient-to-br from-gray-50 via-white to-[#F9F7FF]' contentWidth='wide'>
           <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='text-center mb-16'>
               <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-6'>
