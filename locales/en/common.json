@@ -342,48 +342,58 @@
   },
   "faq": {
     "title": "Frequently Asked Questions",
-    "subtitle": "Everything You Need to Know",
+    "subtitle": "Everything You Need to Know About Professional Website Creation",
     "categories": {
       "general": "General",
       "pricing": "Pricing",
       "support": "Support"
     },
     "questions": {
-      "what_we_do": {
-        "question": "What services do you offer?",
-        "answer": "We offer comprehensive digital solutions including web development, mobile app development, digital marketing, and technology consulting.",
-        "category": "general"
-      },
-      "timeline": {
-        "question": "How long does a typical project take?",
-        "answer": "Project timelines vary depending on scope and complexity. A simple website typically takes 4-6 weeks, while complex applications may take 3-6 months. We also offer a rapid 14-day development option.",
-        "category": "general"
-      },
-      "pricing_model": {
-        "question": "How do you structure your pricing?",
-        "answer": "We offer flexible pricing models including fixed-price projects, hourly rates, and retainer agreements based on your specific needs.",
+      "website_cost": {
+        "question": "How much does it cost to create a professional website?",
+        "answer": "Professional website costs range from €800 to €15,000 depending on your needs: showcase website (€800-€4,000), e-commerce site (€3,000-€8,000), or custom development (€5,000-€15,000). Each project includes responsive design, SEO optimization, and training. Contact us for a free personalized quote within 24h.",
         "category": "pricing"
       },
-      "support_included": {
-        "question": "Is ongoing support included?",
-        "answer": "Yes, we provide ongoing support and maintenance packages to ensure your digital solutions continue to perform optimally.",
-        "category": "support"
-      },
-      "technologies": {
-        "question": "What technologies do you use?",
-        "answer": "We use modern technologies including React, Next.js, Node.js, and cloud platforms like Vercel.",
+      "development_timeline": {
+        "question": "How long does it take to create my website?",
+        "answer": "Average timeline is 4-8 weeks depending on complexity. Showcase website: 3-4 weeks, e-commerce site: 6-8 weeks, custom application: 8-12 weeks. We also offer express service in 14 days for urgent projects. Detailed schedule provided upon quote approval.",
         "category": "general"
       },
-      "consultation": {
-        "question": "Do you offer free consultations?",
-        "answer": "Yes, we offer a free initial consultation to discuss your project requirements and provide strategic recommendations.",
+      "web_agency_services": {
+        "question": "What services does your web agency offer?",
+        "answer": "We are a full-service digital agency specializing in website creation, website redesign, e-commerce development, SEO optimization, maintenance, and technical support. We also serve restaurants, doctors, lawyers, and freelancers with specialized industry solutions.",
+        "category": "general"
+      },
+      "website_redesign": {
+        "question": "My site is outdated, do you offer website redesign services?",
+        "answer": "Absolutely! Our redesign service modernizes your existing site to improve design, speed, SEO, and conversion rates. Redesign pricing: €2,500 to €10,000 depending on scope. Free audit included to identify priority improvement areas and boost your performance.",
+        "category": "general"
+      },
+      "maintenance_support": {
+        "question": "Do you provide maintenance and support after delivery?",
+        "answer": "Yes! We offer maintenance packages starting at €100/month including: automatic backups, security updates, 24/7 monitoring, bug fixes, and priority support. 2-hour response time for emergencies. Your site stays performant and secure at all times.",
+        "category": "support"
+      },
+      "google_visibility": {
+        "question": "Will my site be visible on Google after creation?",
+        "answer": "Yes, all our sites integrate SEO optimization from creation: optimized structure, meta tags, XML sitemap, fast loading times, and mobile optimization. We also create your Google My Business listing and guide you through local SEO to maximize your visibility.",
+        "category": "general"
+      },
+      "self_management": {
+        "question": "Can I manage my website myself after delivery?",
+        "answer": "Absolutely! We use intuitive CMS (WordPress or custom solutions) with simple interfaces. Complete 2-hour training included to make you autonomous: adding pages, editing text/images, managing blog. Technical support available when needed.",
+        "category": "support"
+      },
+      "free_consultation": {
+        "question": "Do you offer a free consultation for my project?",
+        "answer": "Yes! FREE 30-minute initial consultation to analyze your needs, define optimal digital strategy, and propose concrete solutions. Competitive audit and personalized recommendations included. Book your appointment now with no commitment.",
         "category": "pricing"
       }
     },
     "cta": {
       "title": "Still have questions?",
-      "description": "Contact our team for personalized consultation about your project.",
-      "button": "Contact Us"
+      "description": "Contact our team for a free personalized consultation about your web project.",
+      "button": "Free Consultation"
     }
   },
   "contact": {
@@ -875,7 +885,7 @@
       "maintenance": {
         "title": "Maintenance",
         "description": "Updates, automatic backups, security and technical support for your website.",
-        "price": "€49/month"
+        "price": "€100/month"
       }
     },
     "advantages": {

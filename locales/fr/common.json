@@ -114,7 +114,7 @@
           "Technologies modernes (React, Next.js)",
           "Optimisation SEO avancée pour Google",
           "Site responsive 100% mobile-friendly",
-          "Livraison rapide en 7-14 jours",
+          "Livraison rapide en 7-7-14 jours",
           "Support et formation inclus"
         ],
         "cta_primary": "Demander un Devis Gratuit",
@@ -342,48 +342,58 @@
   },
   "faq": {
     "title": "Questions Fréquemment Posées",
-    "subtitle": "Tout Ce Que Vous Devez Savoir",
+    "subtitle": "Tout Ce Que Vous Devez Savoir Sur La Création de Sites Web",
     "categories": {
       "general": "Général",
       "pricing": "Tarification",
       "support": "Support"
     },
     "questions": {
-      "what_we_do": {
-        "question": "Quels services offrez-vous ?",
-        "answer": "Nous offrons des solutions numériques complètes incluant le développement web, le développement d'applications mobiles, le marketing numérique et le conseil technologique.",
-        "category": "general"
-      },
-      "timeline": {
-        "question": "Combien de temps prend un projet typique ?",
-        "answer": "Les délais de projet varient selon la portée et la complexité. Un site web simple prend généralement 4-6 semaines, tandis que les applications complexes peuvent prendre 3-6 mois. Nous proposons également un développement rapide en 14 jours.",
-        "category": "general"
-      },
-      "pricing_model": {
-        "question": "Comment structurez-vous vos tarifs ?",
-        "answer": "Nous offrons des modèles de tarification flexibles incluant des projets à prix fixe, des tarifs horaires et des accords de provision basés sur vos besoins spécifiques.",
+      "prix_site_web": {
+        "question": "Combien coûte la création d'un site internet professionnel ?",
+        "answer": "Le prix pour créer un site web varie de 800€ à 15 000€ selon vos besoins : site vitrine (800€-4 000€), site e-commerce (3 000€-8 000€), ou développement sur-mesure (5 000€-15 000€). Chaque projet inclut design responsive, optimisation SEO et formation. Contactez-nous pour un devis gratuit personnalisé sous 24h.",
         "category": "pricing"
       },
-      "support_included": {
-        "question": "Le support continu est-il inclus ?",
-        "answer": "Oui, nous fournissons des packages de support et maintenance continus pour assurer que vos solutions numériques continuent de performer de manière optimale.",
-        "category": "support"
-      },
-      "technologies": {
-        "question": "Quelles technologies utilisez-vous ?",
-        "answer": "Nous utilisons des technologies modernes incluant React, Next.js, Node.js et des plateformes cloud comme Vercel.",
+      "delai_creation": {
+        "question": "Quel est le délai pour créer mon site web ?",
+        "answer": "Le délai moyen est de 4 à 8 semaines selon la complexité. Site vitrine : 3-4 semaines, site e-commerce : 6-8 semaines, application sur-mesure : 8-12 semaines. Nous proposons aussi un service express en 7-14 jours pour les projets urgents. Planning détaillé fourni dès validation du devis.",
         "category": "general"
       },
-      "consultation": {
-        "question": "Offrez-vous des consultations gratuites ?",
-        "answer": "Oui, nous offrons une consultation initiale gratuite pour discuter de vos exigences de projet et fournir des recommandations stratégiques.",
+      "services_agence": {
+        "question": "Quels services propose votre agence web ?",
+        "answer": "Nous sommes une agence digitale complète spécialisée dans la création de sites web, refonte de sites existants, développement e-commerce, optimisation SEO, maintenance et support technique. Nous accompagnons aussi les restaurants, médecins, avocats, et freelances avec des solutions métier spécialisées.",
+        "category": "general"
+      },
+      "refonte_site": {
+        "question": "Mon site est obsolète, proposez-vous la refonte de sites web ?",
+        "answer": "Absolument ! Notre service de refonte modernise votre site existant pour améliorer design, vitesse, SEO et taux de conversion. Prix refonte : 2 500€ à 10 000€ selon l'ampleur. Audit gratuit inclus pour identifier les axes d'amélioration prioritaires et booster vos performances.",
+        "category": "general"
+      },
+      "maintenance_support": {
+        "question": "Proposez-vous la maintenance et le support après livraison ?",
+        "answer": "Oui ! Nous offrons des forfaits de maintenance dès 49€/mois incluant : sauvegardes automatiques, mises à jour de sécurité, monitoring 24/7, corrections bugs, et support prioritaire. Intervention sous 2h en cas d'urgence. Votre site reste performant et sécurisé en permanence.",
+        "category": "support"
+      },
+      "visibilite_google": {
+        "question": "Mon site sera-t-il visible sur Google après création ?",
+        "answer": "Oui, tous nos sites intègrent l'optimisation SEO dès la création : structure optimisée, balises meta, sitemap XML, temps de chargement rapide, et optimisation mobile. Nous créons aussi votre fiche Google My Business et vous accompagnons dans votre référencement local pour maximiser votre visibilité.",
+        "category": "general"
+      },
+      "gestion_autonome": {
+        "question": "Puis-je gérer mon site internet moi-même après livraison ?",
+        "answer": "Absolument ! Nous utilisons des CMS intuitifs (WordPress ou solutions sur-mesure) avec interface simple. Formation complète de 2h incluse pour vous rendre autonome : ajout pages, modification textes/images, gestion blog. Support technique disponible si besoin.",
+        "category": "support"
+      },
+      "consultation_gratuite": {
+        "question": "Offrez-vous une consultation gratuite pour mon projet ?",
+        "answer": "Oui ! Consultation initiale de 30 minutes GRATUITE pour analyser vos besoins, définir la stratégie digitale optimale et vous proposer des solutions concrètes. Audit concurrentiel et recommandations personnalisées inclus. Prenez rendez-vous dès maintenant sans engagement.",
         "category": "pricing"
       }
     },
     "cta": {
       "title": "Vous avez encore des questions ?",
-      "description": "Contactez notre équipe pour une consultation personnalisée sur votre projet.",
-      "button": "Nous Contacter"
+      "description": "Contactez notre équipe pour une consultation gratuite personnalisée sur votre projet web.",
+      "button": "Consultation Gratuite"
     }
   },
   "contact": {
@@ -505,7 +515,7 @@
           "Statistiques simples (Google Analytics)",
           "Design premium avec animations modernes",
           "Formation courte pour gérer votre site",
-          "Livraison en 14 jours ouvrés",
+          "Livraison en 7-14 jours ouvrés",
           "🔥 Recommandé pour créer une vraie autorité en ligne et générer des leads"
         ],
         "cta": "Choisir Pro"
@@ -1067,7 +1077,7 @@
       "support_plans": {
         "title": "Support & Maintenance Mensuelle",
         "subtitle": "Sérénité totale pour votre restaurant en ligne",
-        "commitment": "Engagement minimum 3 mois, puis sans engagement (préavis 14 jours)",
+        "commitment": "Engagement minimum 3 mois, puis sans engagement (préavis 7-14 jours)",
         "plans": [
           {
             "name": "Basic",

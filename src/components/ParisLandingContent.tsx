@@ -143,7 +143,7 @@ function getLocalizedContent(locale: Locale) {
           {
             question: 'How much does it cost to create a professional website in Paris?',
             answer:
-              'Website creation costs in Paris range from €1,500 to €15,000 depending on your project: showcase website (€1,500-€4,000), e-commerce site (€3,000-€8,000), or custom development (€5,000-€15,000). We offer free personalized quotes with an audit of your specific needs and Parisian competition. Contact our Paris web agency for your detailed estimate within 24h.',
+              'Website creation costs in Paris range from €800 to €15,000 depending on your project: showcase website (€800-€4,000), e-commerce site (€3,000-€8,000), or custom development (€5,000-€15,000). We offer free personalized quotes with an audit of your specific needs and Parisian competition. Contact our Paris web agency for your detailed estimate within 24h.',
           },
           {
             question: 'How long does it take to create my website with a Parisian agency?',
@@ -293,7 +293,7 @@ function getLocalizedContent(locale: Locale) {
           {
             question: 'Сколько стоит создание профессионального сайта в Париже?',
             answer:
-              'Стоимость создания сайта в Париже варьируется от €1,500 до €15,000 в зависимости от проекта: сайт-визитка (€1,500-€4,000), интернет-магазин (€3,000-€8,000), или индивидуальная разработка (€5,000-€15,000). Мы предлагаем бесплатные персонализированные расчеты с аудитом ваших специфических потребностей и парижской конкуренции. Обратитесь к нашему веб-агентству в Париже для получения подробной оценки в течение 24 часов.',
+              'Стоимость создания сайта в Париже варьируется от €800 до €15,000 в зависимости от проекта: сайт-визитка (€800-€4,000), интернет-магазин (€3,000-€8,000), или индивидуальная разработка (€5,000-€15,000). Мы предлагаем бесплатные персонализированные расчеты с аудитом ваших специфических потребностей и парижской конкуренции. Обратитесь к нашему веб-агентству в Париже для получения подробной оценки в течение 24 часов.',
           },
           {
             question: 'Сколько времени занимает создание сайта с парижским агентством?',

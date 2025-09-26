@@ -141,7 +141,7 @@ export default function Pricing({ locale, className }: PricingProps) {
           'Statistiques simples (Google Analytics)',
           'Design premium avec animations modernes',
           'Formation courte pour gérer votre site',
-          'Livraison en 14 jours ouvrés',
+          'Livraison en 7-14 jours ouvrés',
           '🔥 Recommandé pour créer une vraie autorité en ligne et générer des leads',
         ]
       ).map((text: string) => ({ text, included: true })),

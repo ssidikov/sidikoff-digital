@@ -864,7 +864,7 @@ export const fallbackDictionary: Dictionary = {
       maintenance: {
         title: 'Maintenance',
         description: 'Updates, automatic backups, security and technical support for your website.',
-        price: '€49/month',
+        price: '€100/month',
       },
     },
     advantages: {
