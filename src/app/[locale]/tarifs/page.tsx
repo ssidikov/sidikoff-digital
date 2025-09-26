@@ -47,7 +47,7 @@ export default async function TarifsPage({ params }: TarifsPageProps) {
       <LocaleProvider locale={locale}>
         <div className='min-h-screen'>
           <main className='m-0 p-0'>
-            <Pricing locale={locale} className='pt-[80px] md:pt-[100px]' />
+            <Pricing locale={locale} className='pt-[80px] md:pt-[100px]' showGuide={true} />
           </main>
         </div>
       </LocaleProvider>

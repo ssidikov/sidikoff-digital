@@ -583,6 +583,130 @@
           "cta": "Choisir Premium"
         }
       }
+    },
+    "guide_section": {
+      "title": "🎯 Guide Complet : Comment Choisir le Bon Plan pour Votre Site Web",
+      "subtitle": "Découvrez quelle solution correspond parfaitement à votre projet et pourquoi la maintenance continue est essentielle",
+      "intro": {
+        "title": "Pourquoi Investir Dans un Site Web Professionnel ?",
+        "content": "Votre site web est la vitrine de votre entreprise 24h/24, 7j/7. Il travaille pour vous même quand vous dormez, attire de nouveaux clients et renforce votre crédibilité. Un site bien conçu peut transformer des visiteurs en clients fidèles."
+      },
+      "website_types": {
+        "title": "🏗️ Types de Sites Web : Lequel Correspond à Votre Activité ?",
+        "types": [
+          {
+            "name": "Site Vitrine (1 Page)",
+            "description": "Idéal pour les artisans, consultants, professions libérales qui souhaitent une présence en ligne rapidement",
+            "best_for": "Coiffeurs, plombiers, avocats, coaches, thérapeutes",
+            "plan_recommendation": "Plan Essentiel (800€)",
+            "maintenance": "Maintenance Basic (100€/mois) recommandée pour garder le site à jour et sécurisé",
+            "why_important": "Même un site simple nécessite des mises à jour de sécurité et sauvegarde régulières"
+          },
+          {
+            "name": "Site Multi-pages (4-6 pages)",
+            "description": "Pour les entreprises qui veulent présenter leurs services détaillés, équipe, témoignages",
+            "best_for": "Restaurants, agences, boutiques, services B2B, consultants",
+            "plan_recommendation": "Plan Pro (1500€)",
+            "maintenance": "Maintenance Advanced (200€/mois) pour optimiser le référencement et analyser les performances",
+            "why_important": "Les rapports mensuels vous aident à comprendre vos visiteurs et améliorer vos conversions"
+          },
+          {
+            "name": "Site E-commerce/Complexe",
+            "description": "Pour vendre en ligne, gérer les réservations, espaces clients ou fonctionnalités spécifiques",
+            "best_for": "Boutiques en ligne, restaurants avec réservation, centres de formation, services SaaS",
+            "plan_recommendation": "Plan Entreprise (Sur devis)",
+            "maintenance": "Maintenance Premium (400€/mois) indispensable pour la sécurité des paiements et optimisations continues",
+            "why_important": "Les sites e-commerce nécessitent une surveillance constante, mises à jour sécurité et optimisations conversion"
+          }
+        ]
+      },
+      "support_importance": {
+        "title": "🛡️ Pourquoi la Maintenance est-elle Cruciale ?",
+        "subtitle": "Votre site web est un investissement qui nécessite un entretien régulier",
+        "benefits": [
+          {
+            "icon": "🔒",
+            "title": "Sécurité & Fiabilité",
+            "content": "Mises à jour de sécurité automatiques, sauvegardes quotidiennes, protection contre les cyberattaques. Votre site reste accessible 24h/24."
+          },
+          {
+            "icon": "🚀",
+            "title": "Performance Optimale",
+            "content": "Surveillance de la vitesse, optimisation des images, cache optimisé. Un site rapide améliore votre classement Google."
+          },
+          {
+            "icon": "📈",
+            "title": "Croissance Continue",
+            "content": "Ajout de nouvelles pages, optimisation SEO, intégration de nouvelles fonctionnalités selon vos besoins business."
+          },
+          {
+            "icon": "🎯",
+            "title": "Support Expert",
+            "content": "Je m'occupe de la technique, vous vous concentrez sur votre business. Conseils personnalisés pour améliorer vos résultats."
+          }
+        ]
+      },
+      "single_payment_option": {
+        "title": "💡 Option Paiement Unique",
+        "content": "Vous pouvez choisir uniquement la création de site sans maintenance (paiement unique). Cependant, un site sans maintenance c'est comme une voiture sans entretien : ça fonctionne au début, mais les problèmes arrivent rapidement.",
+        "risks": [
+          "Risques de sécurité et piratage",
+          "Perte de position sur Google",
+          "Site qui devient lent ou inaccessible",
+          "Pas de conseils pour améliorer vos résultats"
+        ]
+      },
+      "business_focus": {
+        "title": "🎯 Concentrez-vous sur votre Business",
+        "content": "Pendant que je m'occupe de votre site web (technique, sécurité, optimisations), vous pouvez vous concentrer sur ce que vous faites de mieux : développer votre activité et servir vos clients.",
+        "what_i_handle": [
+          "Mises à jour techniques et de sécurité",
+          "Optimisation SEO continue",
+          "Ajout de nouveaux contenus",
+          "Analyses et rapports de performance",
+          "Conseils pour améliorer les conversions",
+          "Support technique rapide"
+        ]
+      },
+      "seo_benefits": {
+        "title": "📊 Améliorez Votre Positionnement Google",
+        "subtitle": "La maintenance SEO continue fait la différence",
+        "benefits": [
+          {
+            "title": "Contenu Frais",
+            "content": "Ajout régulier de nouveaux contenus, optimisation des pages existantes pour maintenir votre visibilité Google"
+          },
+          {
+            "title": "Analyse Concurrentielle",
+            "content": "Surveillance de vos concurrents, identification de nouvelles opportunités de mots-clés"
+          },
+          {
+            "title": "Backlinks Qualité",
+            "content": "Stratégie de liens retour naturels vers vos services et pages importantes pour booster votre autorité"
+          },
+          {
+            "title": "Reporting Mensuel",
+            "content": "Rapports détaillés sur vos positions, trafic, conversions avec recommandations d'amélioration"
+          }
+        ]
+      },
+      "future_services": {
+        "title": "🚀 Évolution et Nouveaux Services",
+        "content": "Votre business évolue, votre site aussi ! Avec une maintenance active, vous pouvez facilement :",
+        "services": [
+          "Ajouter de nouvelles pages de services",
+          "Intégrer un système de réservation en ligne",
+          "Créer une boutique e-commerce",
+          "Ajouter un blog pour le SEO",
+          "Intégrer des outils de marketing (newsletter, chat)",
+          "Développer une app mobile companion"
+        ]
+      },
+      "call_to_action": {
+        "title": "🎯 Prêt à Lancer Votre Projet ?",
+        "content": "Chaque jour sans site web professionnel, c'est des clients potentiels qui passent chez la concurrence. Investissez dans votre présence digitale dès maintenant.",
+        "contact_text": "Discutons de votre projet et trouvons la solution parfaite pour votre business."
+      }
     }
   },
   "legal": {

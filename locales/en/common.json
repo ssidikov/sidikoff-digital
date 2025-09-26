@@ -583,6 +583,130 @@
           "cta": "Choose Premium"
         }
       }
+    },
+    "guide_section": {
+      "title": "🎯 Complete Guide: How to Choose the Right Plan for Your Website",
+      "subtitle": "Discover which solution perfectly matches your project and why ongoing maintenance is essential",
+      "intro": {
+        "title": "Why Invest in a Professional Website?",
+        "content": "Your website is your business showcase 24/7. It works for you even when you sleep, attracts new clients and strengthens your credibility. A well-designed site can transform visitors into loyal customers."
+      },
+      "website_types": {
+        "title": "🏗️ Website Types: Which One Matches Your Business?",
+        "types": [
+          {
+            "name": "Landing Page (1 Page)",
+            "description": "Ideal for craftsmen, consultants, freelancers who want an online presence quickly",
+            "best_for": "Hairdressers, plumbers, lawyers, coaches, therapists",
+            "plan_recommendation": "Essential Plan (€800)",
+            "maintenance": "Basic Maintenance (€100/month) recommended to keep the site updated and secure",
+            "why_important": "Even a simple site requires regular security updates and backups"
+          },
+          {
+            "name": "Multi-page Site (4-6 pages)",
+            "description": "For businesses wanting to showcase detailed services, team, testimonials",
+            "best_for": "Restaurants, agencies, shops, B2B services, consultants",
+            "plan_recommendation": "Pro Plan (€1500)",
+            "maintenance": "Advanced Maintenance (€200/month) to optimize SEO and analyze performance",
+            "why_important": "Monthly reports help you understand your visitors and improve conversions"
+          },
+          {
+            "name": "E-commerce/Complex Site",
+            "description": "For selling online, managing bookings, customer areas or specific features",
+            "best_for": "Online stores, restaurants with reservations, training centers, SaaS services",
+            "plan_recommendation": "Enterprise Plan (On quote)",
+            "maintenance": "Premium Maintenance (€400/month) essential for payment security and continuous optimization",
+            "why_important": "E-commerce sites require constant monitoring, security updates and conversion optimizations"
+          }
+        ]
+      },
+      "support_importance": {
+        "title": "🛡️ Why is Maintenance Crucial?",
+        "subtitle": "Your website is an investment that requires regular maintenance",
+        "benefits": [
+          {
+            "icon": "🔒",
+            "title": "Security & Reliability",
+            "content": "Automatic security updates, daily backups, protection against cyber attacks. Your site stays accessible 24/7."
+          },
+          {
+            "icon": "🚀",
+            "title": "Optimal Performance",
+            "content": "Speed monitoring, image optimization, optimized cache. A fast site improves your Google ranking."
+          },
+          {
+            "icon": "📈",
+            "title": "Continuous Growth",
+            "content": "Adding new pages, SEO optimization, integrating new features according to your business needs."
+          },
+          {
+            "icon": "🎯",
+            "title": "Expert Support",
+            "content": "I handle the technical side, you focus on your business. Personalized advice to improve your results."
+          }
+        ]
+      },
+      "single_payment_option": {
+        "title": "💡 Single Payment Option",
+        "content": "You can choose only website creation without maintenance (one-time payment). However, a site without maintenance is like a car without service: it works at first, but problems come quickly.",
+        "risks": [
+          "Security risks and hacking",
+          "Loss of Google rankings",
+          "Site becomes slow or inaccessible",
+          "No advice to improve your results"
+        ]
+      },
+      "business_focus": {
+        "title": "🎯 Focus on Your Business",
+        "content": "While I take care of your website (technical, security, optimization), you can focus on what you do best: develop your business and serve your clients.",
+        "what_i_handle": [
+          "Technical and security updates",
+          "Continuous SEO optimization",
+          "Adding new content",
+          "Performance analysis and reports",
+          "Advice to improve conversions",
+          "Fast technical support"
+        ]
+      },
+      "seo_benefits": {
+        "title": "📊 Improve Your Google Rankings",
+        "subtitle": "Continuous SEO maintenance makes the difference",
+        "benefits": [
+          {
+            "title": "Fresh Content",
+            "content": "Regular addition of new content, optimization of existing pages to maintain your Google visibility"
+          },
+          {
+            "title": "Competitive Analysis",
+            "content": "Monitoring your competitors, identifying new keyword opportunities"
+          },
+          {
+            "title": "Quality Backlinks",
+            "content": "Natural backlink strategy to your services and important pages to boost your authority"
+          },
+          {
+            "title": "Monthly Reporting",
+            "content": "Detailed reports on your rankings, traffic, conversions with improvement recommendations"
+          }
+        ]
+      },
+      "future_services": {
+        "title": "🚀 Evolution and New Services",
+        "content": "Your business evolves, so does your site! With active maintenance, you can easily:",
+        "services": [
+          "Add new service pages",
+          "Integrate online booking system",
+          "Create an e-commerce store",
+          "Add a blog for SEO",
+          "Integrate marketing tools (newsletter, chat)",
+          "Develop a companion mobile app"
+        ]
+      },
+      "call_to_action": {
+        "title": "🎯 Ready to Launch Your Project?",
+        "content": "Every day without a professional website, potential customers go to the competition. Invest in your digital presence now.",
+        "contact_text": "Let's discuss your project and find the perfect solution for your business."
+      }
     }
   },
   "legal": {

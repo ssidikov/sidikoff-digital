@@ -21,6 +21,62 @@ interface Dictionary {
     description?: string
     guarantee_badge?: string
     website_creation_title?: string
+    guide_section?: {
+      title?: string
+      subtitle?: string
+      intro?: {
+        title?: string
+        content?: string
+      }
+      website_types?: {
+        title?: string
+        types?: Array<{
+          name?: string
+          description?: string
+          best_for?: string
+          plan_recommendation?: string
+          maintenance?: string
+          why_important?: string
+        }>
+      }
+      support_importance?: {
+        title?: string
+        subtitle?: string
+        benefits?: Array<{
+          icon?: string
+          title?: string
+          content?: string
+        }>
+      }
+      single_payment_option?: {
+        title?: string
+        content?: string
+        risks?: string[]
+      }
+      business_focus?: {
+        title?: string
+        content?: string
+        what_i_handle?: string[]
+      }
+      seo_benefits?: {
+        title?: string
+        subtitle?: string
+        benefits?: Array<{
+          title?: string
+          content?: string
+        }>
+      }
+      future_services?: {
+        title?: string
+        content?: string
+        services?: string[]
+      }
+      call_to_action?: {
+        title?: string
+        content?: string
+        contact_text?: string
+      }
+    }
     maintenance?: {
       title?: string
       subtitle?: string
@@ -80,9 +136,10 @@ interface Dictionary {
 interface PricingProps {
   locale: string
   className?: string
+  showGuide?: boolean
 }
 
-export default function Pricing({ locale, className }: PricingProps) {
+export default function Pricing({ locale, className, showGuide = false }: PricingProps) {
   const [dict, setDict] = useState<Dictionary | null>(null)
 
   useEffect(() => {
@@ -249,6 +306,282 @@ export default function Pricing({ locale, className }: PricingProps) {
             </div>
           ))}
         </div>
+
+        {/* Comprehensive Pricing Guide Section */}
+        {showGuide && dict?.pricing?.guide_section && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className='mt-24 max-w-6xl mx-auto'>
+            
+            {/* Guide Header */}
+            <div className='text-center mb-16'>
+              <h2 className='text-3xl md:text-4xl font-bold text-primary mb-4'>
+                {dict.pricing.guide_section.title}
+              </h2>
+              <p className='text-xl text-gray-600 max-w-4xl mx-auto'>
+                {dict.pricing.guide_section.subtitle}
+              </p>
+            </div>
+
+            {/* Introduction */}
+            {dict.pricing.guide_section.intro && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className='bg-blue-50 rounded-2xl p-8 mb-16'>
+                <h3 className='text-2xl font-bold text-primary mb-4'>
+                  {dict.pricing.guide_section.intro.title}
+                </h3>
+                <p className='text-lg text-gray-700 leading-relaxed'>
+                  {dict.pricing.guide_section.intro.content}
+                </p>
+              </motion.div>
+            )}
+
+            {/* Website Types */}
+            {dict.pricing.guide_section.website_types && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+                className='mb-16'>
+                <h3 className='text-2xl md:text-3xl font-bold text-primary mb-8 text-center'>
+                  {dict.pricing.guide_section.website_types.title}
+                </h3>
+                <div className='grid md:grid-cols-1 gap-8'>
+                  {dict.pricing.guide_section.website_types.types?.map((type, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className={`${cardStyles.card} p-6 border-l-4 ${
+                        index === 0 ? 'border-green-500' : 
+                        index === 1 ? 'border-blue-500' : 'border-purple-500'
+                      }`}>
+                      <h4 className='text-xl font-bold text-primary mb-3'>{type.name}</h4>
+                      <p className='text-gray-600 mb-4'>{type.description}</p>
+                      <div className='grid md:grid-cols-2 gap-4 text-sm'>
+                        <div>
+                          <p className='font-semibold text-gray-800 mb-2'>🎯 Idéal pour:</p>
+                          <p className='text-gray-600'>{type.best_for}</p>
+                        </div>
+                        <div>
+                          <p className='font-semibold text-gray-800 mb-2'>💡 Plan recommandé:</p>
+                          <p className='text-green-600 font-semibold'>{type.plan_recommendation}</p>
+                        </div>
+                        <div className='md:col-span-2'>
+                          <p className='font-semibold text-gray-800 mb-2'>🔧 Maintenance:</p>
+                          <p className='text-gray-600'>{type.maintenance}</p>
+                        </div>
+                        <div className='md:col-span-2 bg-yellow-50 p-3 rounded-lg'>
+                          <p className='font-semibold text-gray-800 mb-1'>⚠️ Pourquoi c&apos;est important:</p>
+                          <p className='text-gray-700 text-sm'>{type.why_important}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
+            {/* Support Importance */}
+            {dict.pricing.guide_section.support_importance && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className='mb-16'>
+                <div className='text-center mb-12'>
+                  <h3 className='text-2xl md:text-3xl font-bold text-primary mb-4'>
+                    {dict.pricing.guide_section.support_importance.title}
+                  </h3>
+                  <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
+                    {dict.pricing.guide_section.support_importance.subtitle}
+                  </p>
+                </div>
+                <div className='grid md:grid-cols-2 gap-6'>
+                  {dict.pricing.guide_section.support_importance.benefits?.map((benefit, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className={`${cardStyles.card} p-6 text-center hover:shadow-lg transition-shadow`}>
+                      <div className='text-4xl mb-4'>{benefit.icon}</div>
+                      <h4 className='text-xl font-bold text-primary mb-3'>{benefit.title}</h4>
+                      <p className='text-gray-600 leading-relaxed'>{benefit.content}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
+            {/* Single Payment vs Maintenance */}
+            <div className='grid md:grid-cols-2 gap-8 mb-16'>
+              {/* Single Payment Option */}
+              {dict.pricing.guide_section.single_payment_option && (
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  viewport={{ once: true }}
+                  className={`${cardStyles.card} p-6 border-2 border-orange-200`}>
+                  <h4 className='text-xl font-bold text-primary mb-4'>
+                    {dict.pricing.guide_section.single_payment_option.title}
+                  </h4>
+                  <p className='text-gray-700 mb-4 leading-relaxed'>
+                    {dict.pricing.guide_section.single_payment_option.content}
+                  </p>
+                  <div className='bg-red-50 p-4 rounded-lg'>
+                    <h5 className='font-semibold text-red-800 mb-2'>Risques sans maintenance:</h5>
+                    <ul className='space-y-1'>
+                      {dict.pricing.guide_section.single_payment_option.risks?.map((risk, index) => (
+                        <li key={index} className='text-red-700 text-sm flex items-start gap-2'>
+                          <span className='text-red-500 mt-1'>•</span>
+                          {risk}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Business Focus */}
+              {dict.pricing.guide_section.business_focus && (
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true }}
+                  className={`${cardStyles.card} p-6 border-2 border-green-200`}>
+                  <h4 className='text-xl font-bold text-primary mb-4'>
+                    {dict.pricing.guide_section.business_focus.title}
+                  </h4>
+                  <p className='text-gray-700 mb-4 leading-relaxed'>
+                    {dict.pricing.guide_section.business_focus.content}
+                  </p>
+                  <div className='bg-green-50 p-4 rounded-lg'>
+                    <h5 className='font-semibold text-green-800 mb-2'>Ce dont je m&apos;occupe:</h5>
+                    <ul className='space-y-1'>
+                      {dict.pricing.guide_section.business_focus.what_i_handle?.map((item, index) => (
+                        <li key={index} className='text-green-700 text-sm flex items-start gap-2'>
+                          <span className='text-green-500 mt-1'>✓</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              )}
+            </div>
+
+            {/* SEO Benefits */}
+            {dict.pricing.guide_section.seo_benefits && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+                className='mb-16'>
+                <div className='text-center mb-12'>
+                  <h3 className='text-2xl md:text-3xl font-bold text-primary mb-4'>
+                    {dict.pricing.guide_section.seo_benefits.title}
+                  </h3>
+                  <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
+                    {dict.pricing.guide_section.seo_benefits.subtitle}
+                  </p>
+                </div>
+                <div className='grid md:grid-cols-2 gap-6'>
+                  {dict.pricing.guide_section.seo_benefits.benefits?.map((benefit, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className={`${cardStyles.card} p-6 border-l-4 border-blue-500`}>
+                      <h4 className='text-lg font-bold text-primary mb-3'>{benefit.title}</h4>
+                      <p className='text-gray-600 leading-relaxed'>{benefit.content}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
+            {/* Future Services */}
+            {dict.pricing.guide_section.future_services && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className='mb-16'>
+                <h3 className='text-2xl md:text-3xl font-bold text-primary mb-4 text-center'>
+                  {dict.pricing.guide_section.future_services.title}
+                </h3>
+                <p className='text-lg text-gray-600 mb-8 text-center max-w-3xl mx-auto'>
+                  {dict.pricing.guide_section.future_services.content}
+                </p>
+                <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
+                  {dict.pricing.guide_section.future_services.services?.map((service, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4, delay: index * 0.05 }}
+                      viewport={{ once: true }}
+                      className='bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-lg border border-blue-200'>
+                      <div className='flex items-start gap-3'>
+                        <span className='text-blue-500 mt-1'>🚀</span>
+                        <span className='text-gray-700 font-medium'>{service}</span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
+            {/* Call to Action */}
+            {dict.pricing.guide_section.call_to_action && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                viewport={{ once: true }}
+                className='bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-center text-white'>
+                <h3 className='text-2xl md:text-3xl font-bold mb-4'>
+                  {dict.pricing.guide_section.call_to_action.title}
+                </h3>
+                <p className='text-lg mb-6 opacity-90 max-w-3xl mx-auto'>
+                  {dict.pricing.guide_section.call_to_action.content}
+                </p>
+                <p className='text-base mb-8 opacity-90'>
+                  {dict.pricing.guide_section.call_to_action.contact_text}
+                </p>
+                <CTAButton
+                  variant='secondary'
+                  size='lg'
+                  className='bg-white text-blue-600 hover:bg-gray-100'
+                  onClick={() => {
+                    const contactUrl = `/${locale === 'fr' ? '' : locale + '/'}contact`
+                    window.location.href = contactUrl
+                  }}>
+                  Contactez-moi maintenant
+                </CTAButton>
+              </motion.div>
+            )}
+          </motion.div>
+        )}
 
         {/* Section des plans de maintenance */}
         <motion.div
