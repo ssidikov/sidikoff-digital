@@ -141,24 +141,34 @@ function getLocalizedContent(locale: Locale) {
         subtitle: 'Answers to frequently asked questions',
         items: [
           {
-            question: 'What is the price for creating a website in Paris?',
+            question: 'How much does it cost to create a professional website in Paris?',
             answer:
-              'The price depends on the type of site (showcase, e-commerce, features). Each project is unique. Contact us for a free personalized quote.',
+              'Website creation costs in Paris range from €1,500 to €15,000 depending on your project: showcase website (€1,500-€4,000), e-commerce site (€3,000-€8,000), or custom development (€5,000-€15,000). We offer free personalized quotes with an audit of your specific needs and Parisian competition. Contact our Paris web agency for your detailed estimate within 24h.',
           },
           {
-            question: 'How long does it take to design a website in Paris?',
+            question: 'How long does it take to create my website with a Parisian agency?',
             answer:
-              'On average between 4 and 8 weeks, depending on the project size and content provided.',
+              'Average website creation time in Paris is 4 to 8 weeks depending on complexity. Showcase site: 3-4 weeks, e-commerce site: 6-8 weeks, custom development: 8-12 weeks. Our geographical proximity in Paris allows us to accelerate exchanges and validations. We guarantee weekly follow-up and delivery within agreed deadlines.',
           },
           {
-            question: 'Will my site be visible on Google?',
+            question: 'Will my site be well ranked on Google Paris?',
             answer:
-              'Yes. All our sites are optimized for local SEO in Paris, to maximize your local visibility.',
+              'Yes, all our sites integrate local SEO optimization for Paris from creation. We optimize for geo-localized searches ("your sector + Paris"), create your Google My Business listing, and integrate strategic keywords for your Parisian market. On average, our clients see a 60% improvement in their local visibility within the first 3 months after going live.',
           },
           {
-            question: 'Can I manage my site after it goes online?',
+            question: 'Do you offer maintenance and technical support in Paris?',
             answer:
-              'Yes. We use intuitive CMS that allow you to easily update text, images and content.',
+              'Absolutely! We offer a premium maintenance service with intervention within 2h for our Parisian clients. Included: daily backups, security updates, 24/7 monitoring, and reactive technical support. Our Paris-based team ensures proximity service with possibility of in-person meetings if necessary.',
+          },
+          {
+            question: 'Can I manage my website myself after delivery?',
+            answer:
+              'Yes, we use intuitive CMS (WordPress, or custom according to your needs) with complete training included. You can easily modify texts, images, prices, and add content. We also offer personalized 2-hour in-person training in Paris to make you totally autonomous in the daily management of your site.',
+          },
+          {
+            question: 'What types of websites do you create for Parisian businesses?',
+            answer:
+              'We specialize in all types of web projects: showcase sites for craftsmen and professionals, e-commerce sites for shops, institutional sites for companies, and custom solutions. We have particular expertise for thriving sectors in Paris: restaurants, lawyers, doctors, architects, and startups. Each project includes responsive design and mobile-first optimization.',
           },
         ],
       },
@@ -281,24 +291,34 @@ function getLocalizedContent(locale: Locale) {
         subtitle: 'Ответы на часто задаваемые вопросы',
         items: [
           {
-            question: 'Какова цена создания сайта в Париже?',
+            question: 'Сколько стоит создание профессионального сайта в Париже?',
             answer:
-              'Цена зависит от типа сайта (витрина, электронная коммерция, функции). Каждый проект уникален. Свяжитесь с нами для бесплатного персонализированного расчета.',
+              'Стоимость создания сайта в Париже варьируется от €1,500 до €15,000 в зависимости от проекта: сайт-визитка (€1,500-€4,000), интернет-магазин (€3,000-€8,000), или индивидуальная разработка (€5,000-€15,000). Мы предлагаем бесплатные персонализированные расчеты с аудитом ваших специфических потребностей и парижской конкуренции. Обратитесь к нашему веб-агентству в Париже для получения подробной оценки в течение 24 часов.',
           },
           {
-            question: 'Сколько времени нужно для создания сайта в Париже?',
+            question: 'Сколько времени занимает создание сайта с парижским агентством?',
             answer:
-              'В среднем от 4 до 8 недель, в зависимости от размера проекта и предоставленного контента.',
+              'Среднее время создания сайта в Париже составляет от 4 до 8 недель в зависимости от сложности. Сайт-визитка: 3-4 недели, интернет-магазин: 6-8 недель, индивидуальная разработка: 8-12 недель. Наша географическая близость в Париже позволяет ускорить обмен информацией и согласования. Мы гарантируем еженедельный контроль и соблюдение согласованных сроков.',
           },
           {
-            question: 'Будет ли мой сайт виден в Google?',
+            question: 'Будет ли мой сайт хорошо ранжироваться в Google Париж?',
             answer:
-              'Да. Все наши сайты оптимизированы для локального SEO в Париже, чтобы максимизировать вашу местную видимость.',
+              'Да, все наши сайты интегрируют локальную SEO-оптимизацию для Парижа с момента создания. Мы оптимизируем для геолокализованных поисков ("ваша сфера + Париж"), создаем профиль Google My Business и интегрируем стратегические ключевые слова для вашего парижского рынка. В среднем наши клиенты наблюдают улучшение местной видимости на 60% в первые 3 месяца после запуска.',
           },
           {
-            question: 'Смогу ли я управлять своим сайтом после запуска?',
+            question: 'Предлагаете ли вы техническую поддержку и обслуживание в Париже?',
             answer:
-              'Да. Мы используем интуитивные CMS, которые позволяют легко обновлять тексты, изображения и контент.',
+              'Абсолютно! Мы предлагаем премиум-сервис обслуживания с вмешательством в течение 2 часов для наших парижских клиентов. Включено: ежедневные резервные копии, обновления безопасности, мониторинг 24/7 и оперативная техническая поддержка. Наша команда в Париже обеспечивает близкий сервис с возможностью личных встреч при необходимости.',
+          },
+          {
+            question: 'Смогу ли я управлять сайтом самостоятельно после запуска?',
+            answer:
+              'Да, мы используем интуитивные CMS (WordPress или индивидуальные решения в зависимости от ваших потребностей) с полным обучением. Вы сможете легко изменять тексты, изображения, цены и добавлять контент. Мы также предлагаем персонализированное 2-часовое очное обучение в Париже, чтобы сделать вас полностью автономными в ежедневном управлении сайтом.',
+          },
+          {
+            question: 'Какие типы сайтов вы создаете для парижских предприятий?',
+            answer:
+              'Мы специализируемся на всех типах веб-проектов: сайты-визитки для ремесленников и специалистов, интернет-магазины для торговли, институциональные сайты для компаний и индивидуальные решения. У нас есть особая экспертиза для процветающих секторов в Париже: рестораны, юристы, врачи, архитекторы и стартапы. Каждый проект включает адаптивный дизайн и mobile-first оптимизацию.',
           },
         ],
       },
@@ -421,24 +441,34 @@ function getLocalizedContent(locale: Locale) {
         subtitle: 'Réponses aux questions les plus fréquentes',
         items: [
           {
-            question: "Quel est le prix pour la création d'un site internet à Paris ?",
+            question: "Combien coûte la création d'un site internet professionnel à Paris ?",
             answer:
-              'Le tarif dépend du type de site (vitrine, e-commerce, fonctionnalités). Chaque projet est unique. Contactez-nous pour un devis personnalisé gratuit.',
+              'Les tarifs pour créer un site internet à Paris varient de 800€ à 15 000€ selon le type de projet : site vitrine (800€-4 000€), site e-commerce (3 000€-8 000€), ou développement sur-mesure (5 000€-15 000€). Nous proposons des devis gratuits personnalisés avec un audit de vos besoins spécifiques et de votre concurrence parisienne. Contactez notre agence web Paris pour obtenir votre estimation détaillée sous 24h.',
           },
           {
-            question: 'Combien de temps pour concevoir un site web à Paris ?',
+            question: 'Quel délai pour créer mon site web avec une agence parisienne ?',
             answer:
-              'En moyenne entre 4 et 8 semaines, selon la taille du projet et le contenu fourni.',
+              "Le délai moyen pour la création d'un site internet à Paris est de 4 à 8 semaines selon la complexité. Site vitrine : 3-4 semaines, site e-commerce : 6-8 semaines, développement sur-mesure : 8-12 semaines. Notre proximité géographique à Paris nous permet d'accélérer les échanges et validations. Nous garantissons un suivi hebdomadaire et une livraison dans les délais convenus.",
           },
           {
-            question: 'Mon site sera-t-il visible sur Google ?',
+            question: 'Mon site sera-t-il bien référencé sur Google Paris ?',
             answer:
-              'Oui. Tous nos sites sont optimisés pour le référencement SEO à Paris, afin de maximiser votre visibilité locale.',
+              "Oui, tous nos sites intègrent une optimisation SEO locale Paris dès la création. Nous optimisons pour les recherches géolocalisées ('votre secteur + Paris'), créons votre fiche Google My Business, et intégrons les mots-clés stratégiques de votre marché parisien. En moyenne, nos clients observent une amélioration de 60% de leur visibilité locale dans les 3 premiers mois après mise en ligne.",
           },
           {
-            question: 'Puis-je gérer mon site après sa mise en ligne ?',
+            question: 'Proposez-vous la maintenance et le support technique à Paris ?',
             answer:
-              'Oui. Nous utilisons des CMS intuitifs qui vous permettent de mettre à jour facilement textes, images et contenus.',
+              'Absolument ! Nous offrons un service de maintenance premium avec intervention sous 2h pour nos clients parisiens. Inclus : sauvegardes quotidiennes, mises à jour de sécurité, monitoring 24/7, et support technique réactif. Notre équipe basée à Paris assure un service de proximité avec possibilité de rendez-vous en personne si nécessaire.',
+          },
+          {
+            question: 'Puis-je gérer mon site internet moi-même après la livraison ?',
+            answer:
+              'Oui, nous utilisons des CMS intuitifs (WordPress, ou sur-mesure selon vos besoins) avec une formation complète incluse. Vous pourrez facilement modifier textes, images, tarifs, et ajouter du contenu. Nous proposons également une formation personnalisée de 2h en présentiel à Paris pour vous rendre totalement autonome sur la gestion quotidienne de votre site.',
+          },
+          {
+            question: 'Quels types de sites web créez-vous pour les entreprises parisiennes ?',
+            answer:
+              'Nous sommes spécialisés dans tous types de projets web : sites vitrines pour artisans et professions libérales, sites e-commerce pour boutiques, sites institutionnels pour entreprises, et solutions sur-mesure. Nous avons une expertise particulière pour les secteurs porteurs à Paris : restaurants, avocats, médecins, architectes, et startups. Chaque projet inclut design responsive et optimisation mobile-first.',
           },
         ],
       },
