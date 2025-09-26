@@ -315,7 +315,6 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
             className='mt-24 max-w-6xl mx-auto'>
-            
             {/* Guide Header */}
             <div className='text-center mb-16'>
               <h2 className='text-3xl md:text-4xl font-bold text-primary mb-4'>
@@ -363,8 +362,11 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                       viewport={{ once: true }}
                       className={`${cardStyles.card} p-6 border-l-4 ${
-                        index === 0 ? 'border-green-500' : 
-                        index === 1 ? 'border-blue-500' : 'border-purple-500'
+                        index === 0
+                          ? 'border-green-500'
+                          : index === 1
+                            ? 'border-blue-500'
+                            : 'border-purple-500'
                       }`}>
                       <h4 className='text-xl font-bold text-primary mb-3'>{type.name}</h4>
                       <p className='text-gray-600 mb-4'>{type.description}</p>
@@ -382,7 +384,9 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                           <p className='text-gray-600'>{type.maintenance}</p>
                         </div>
                         <div className='md:col-span-2 bg-yellow-50 p-3 rounded-lg'>
-                          <p className='font-semibold text-gray-800 mb-1'>⚠️ Pourquoi c&apos;est important:</p>
+                          <p className='font-semibold text-gray-800 mb-1'>
+                            ⚠️ Pourquoi c&apos;est important:
+                          </p>
                           <p className='text-gray-700 text-sm'>{type.why_important}</p>
                         </div>
                       </div>
@@ -445,12 +449,14 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                   <div className='bg-red-50 p-4 rounded-lg'>
                     <h5 className='font-semibold text-red-800 mb-2'>Risques sans maintenance:</h5>
                     <ul className='space-y-1'>
-                      {dict.pricing.guide_section.single_payment_option.risks?.map((risk, index) => (
-                        <li key={index} className='text-red-700 text-sm flex items-start gap-2'>
-                          <span className='text-red-500 mt-1'>•</span>
-                          {risk}
-                        </li>
-                      ))}
+                      {dict.pricing.guide_section.single_payment_option.risks?.map(
+                        (risk, index) => (
+                          <li key={index} className='text-red-700 text-sm flex items-start gap-2'>
+                            <span className='text-red-500 mt-1'>•</span>
+                            {risk}
+                          </li>
+                        )
+                      )}
                     </ul>
                   </div>
                 </motion.div>
@@ -473,12 +479,14 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                   <div className='bg-green-50 p-4 rounded-lg'>
                     <h5 className='font-semibold text-green-800 mb-2'>Ce dont je m&apos;occupe:</h5>
                     <ul className='space-y-1'>
-                      {dict.pricing.guide_section.business_focus.what_i_handle?.map((item, index) => (
-                        <li key={index} className='text-green-700 text-sm flex items-start gap-2'>
-                          <span className='text-green-500 mt-1'>✓</span>
-                          {item}
-                        </li>
-                      ))}
+                      {dict.pricing.guide_section.business_focus.what_i_handle?.map(
+                        (item, index) => (
+                          <li key={index} className='text-green-700 text-sm flex items-start gap-2'>
+                            <span className='text-green-500 mt-1'>✓</span>
+                            {item}
+                          </li>
+                        )
+                      )}
                     </ul>
                   </div>
                 </motion.div>
