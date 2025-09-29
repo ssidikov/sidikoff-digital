@@ -2699,14 +2699,20 @@ export const fallbackDictionary: Dictionary = {
   },
   agence_web_paris_landing: {
     meta_title: 'Web Agency Paris - Website Creation & Next.js Applications',
-    meta_description: 'Web agency in Paris specializing in Next.js/React development and WordPress. High-performance, SEO-optimized website creation.',
+    meta_description:
+      'Web agency in Paris specializing in Next.js/React development and WordPress. High-performance, SEO-optimized website creation.',
     hero: {
       badge: 'Web Agency Paris',
       title: 'Web Agency in Paris – Digital Creation & Innovation',
-      description: 'We build modern, high-performance websites tailored to your business needs with cutting-edge technologies.',
+      description:
+        'We build modern, high-performance websites tailored to your business needs with cutting-edge technologies.',
       cta_primary: 'Request Quote',
       cta_secondary: 'View Projects',
-      trust_indicators: ['Next.js/React Technologies', 'WordPress Support 24/7', 'SEO & Performance'],
+      trust_indicators: [
+        'Next.js/React Technologies',
+        'WordPress Support 24/7',
+        'SEO & Performance',
+      ],
     },
     services: {
       title: 'Our Web Agency Services',
@@ -2715,7 +2721,8 @@ export const fallbackDictionary: Dictionary = {
         {
           icon: '⚛️',
           title: 'Next.js & React Development',
-          description: 'We create high-performance websites and applications using Next.js and React, technologies trusted by giants like Netflix, Uber, and Airbnb.',
+          description:
+            'We create high-performance websites and applications using Next.js and React, technologies trusted by giants like Netflix, Uber, and Airbnb.',
         },
         {
           icon: '🌐',

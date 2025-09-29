@@ -16,20 +16,20 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
   const baseUrl = 'https://sidikoff-digital.fr'
   const url = `${baseUrl}/${params.locale}/services/agence-web-paris`
-  
+
   return {
     title: content.meta_title,
     description: content.meta_description,
     keywords: [
       'agence web paris',
-      'agence web ile de france', 
+      'agence web ile de france',
       'agence communication paris',
       'agence digitale paris',
       'agence web wordpress paris',
       'creation site web paris',
       'next.js paris',
       'react paris',
-      'développement web paris'
+      'développement web paris',
     ],
     authors: [{ name: 'SIDIKOFF DIGITAL' }],
     creator: 'SIDIKOFF DIGITAL',
