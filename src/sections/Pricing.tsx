@@ -255,13 +255,14 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className='text-4xl md:text-5xl font-bold text-primary text-center mb-4'>
-            {dict?.pricing?.title || 'Nos Offres'} - {dict?.pricing?.subtitle || 'Transparentes & Adaptées'}
+            {dict?.pricing?.title || 'Nos Offres'} -{' '}
+            {dict?.pricing?.subtitle || 'Transparentes & Adaptées'}
           </motion.h1>
         )}
 
         <SectionHeader
-          title={showGuide ? '' : (dict?.pricing?.title || 'Nos Offres')}
-          subtitle={showGuide ? '' : (dict?.pricing?.subtitle || 'Transparentes & Adaptées')}
+          title={showGuide ? '' : dict?.pricing?.title || 'Nos Offres'}
+          subtitle={showGuide ? '' : dict?.pricing?.subtitle || 'Transparentes & Adaptées'}
           description={
             dict?.pricing?.description ||
             'Choisissez la solution qui correspond parfaitement à vos besoins et à votre budget. Tous nos projets incluent un design moderne, un développement professionnel et un support complet.'
