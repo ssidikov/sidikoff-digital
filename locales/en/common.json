@@ -1730,5 +1730,103 @@
         "No commitment before signing"
       ]
     }
+  },
+  "agence_web_paris_landing": {
+    "meta_title": "Web Agency Paris - Website Creation & Next.js Applications",
+    "meta_description": "Web agency in Paris specializing in Next.js/React development and WordPress. High-performance, SEO-optimized website creation. Contact us!",
+    "hero": {
+      "badge": "Web Agency Paris",
+      "title": "Web Agency in Paris – Digital Creation & Innovation",
+      "description": "We build modern, high-performance websites tailored to your business needs with cutting-edge technologies like Next.js and React.",
+      "cta_primary": "Request Quote",
+      "cta_secondary": "View Our Projects",
+      "trust_indicators": [
+        "Next.js/React Technologies",
+        "WordPress Support 24/7",
+        "SEO & Performance"
+      ]
+    },
+    "services": {
+      "title": "Our Web Agency Services in Paris",
+      "subtitle": "Complete digital solutions for your online presence",
+      "items": [
+        {
+          "icon": "⚛️",
+          "title": "Next.js & React Development",
+          "description": "We create high-performance websites and applications using Next.js and React, the technologies trusted by giants like Netflix, Uber, and Airbnb."
+        },
+        {
+          "icon": "🌐",
+          "title": "Custom WordPress Websites",
+          "description": "Creation, redesign, and full monthly support for your WordPress site."
+        },
+        {
+          "icon": "🚀",
+          "title": "SEO & Optimization",
+          "description": "Google ranking, loading speed optimization and exceptional user experience."
+        }
+      ]
+    },
+    "about": {
+      "title": "Why Choose Our Web Agency Paris?",
+      "subtitle": "We are a web agency in Paris specializing in modern web development. Every project is unique, and our mission is to deliver digital solutions that stand out.",
+      "items": [
+        {
+          "icon": "🏆",
+          "title": "Technical Expertise",
+          "description": "Modern technologies: Next.js, React, WordPress, advanced SEO optimization"
+        },
+        {
+          "icon": "📍",
+          "title": "Paris Proximity",
+          "description": "Agency based in Paris, we understand local challenges and specific needs"
+        },
+        {
+          "icon": "💼",
+          "title": "Dedicated Support",
+          "description": "Continuous maintenance, security updates and responsive technical support"
+        }
+      ]
+    },
+    "process": {
+      "title": "Our 5-Step Process",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Analysis & strategy",
+          "description": "Study your needs and define the optimal digital strategy"
+        },
+        {
+          "number": "02",
+          "title": "Modern UX/UI design",
+          "description": "Design attractive interfaces optimized for conversion"
+        },
+        {
+          "number": "03",
+          "title": "Development (Next.js / WordPress)",
+          "description": "Development with the most performant market technologies"
+        },
+        {
+          "number": "04",
+          "title": "SEO optimization",
+          "description": "Natural referencing and performance optimization for Google"
+        },
+        {
+          "number": "05",
+          "title": "Continuous support",
+          "description": "Maintenance, updates and permanent technical support"
+        }
+      ]
+    },
+    "portfolio_teaser": {
+      "title": "Our Work",
+      "description": "Explore our portfolio: showcase websites, e-commerce, and custom applications for Parisian businesses.",
+      "cta": "View All Projects"
+    },
+    "cta": {
+      "title": "Ready to launch your digital project?",
+      "description": "👉 Contact our web agency in Paris today.",
+      "button": "Request Free Quote"
+    }
   }
 }

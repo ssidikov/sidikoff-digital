@@ -3061,5 +3061,103 @@
       "description": "Rejoignez les entreprises qui ont choisi l'excellence pour leur boutique en ligne et génèrent des ventes 24h/24.",
       "button": "Obtenir mon devis gratuit"
     }
+  },
+  "agence_web_paris_landing": {
+    "meta_title": "Agence Web Paris - Création Sites Internet & Applications Next.js",
+    "meta_description": "Agence web à Paris spécialisée en développement Next.js/React et WordPress. Création sites internet performants, SEO optimisés. Contactez-nous !",
+    "hero": {
+      "badge": "Agence Web Paris",
+      "title": "Agence Web à Paris – Création & Innovation Digitale",
+      "description": "Nous concevons des sites web modernes, performants et adaptés à vos besoins, en utilisant les technologies les plus avancées comme Next.js et React.",
+      "cta_primary": "Demander un Devis",
+      "cta_secondary": "Voir Nos Projets",
+      "trust_indicators": [
+        "Technologies Next.js/React",
+        "Support WordPress 24/7",
+        "SEO & Performance"
+      ]
+    },
+    "services": {
+      "title": "Nos Services d'Agence Web à Paris",
+      "subtitle": "Solutions digitales complètes pour votre présence en ligne",
+      "items": [
+        {
+          "icon": "⚛️",
+          "title": "Développement Next.js & React",
+          "description": "Nous créons des sites web et applications performantes avec Next.js et React, les technologies utilisées par des géants comme Netflix, Uber et Airbnb."
+        },
+        {
+          "icon": "🌐",
+          "title": "Sites WordPress sur mesure",
+          "description": "Création, refonte et maintenance complète avec support mensuel pour votre site WordPress."
+        },
+        {
+          "icon": "🚀",
+          "title": "SEO & Performance",
+          "description": "Optimisation pour Google, vitesse de chargement et expérience utilisateur exceptionnelle."
+        }
+      ]
+    },
+    "about": {
+      "title": "Pourquoi Choisir Notre Agence Web Paris ?",
+      "subtitle": "Nous sommes une agence web à Paris spécialisée dans le développement moderne. Chaque projet est unique, et notre mission est d'apporter des solutions digitales qui font la différence.",
+      "items": [
+        {
+          "icon": "🏆",
+          "title": "Expertise Technique",
+          "description": "Technologies modernes : Next.js, React, WordPress, optimisation SEO avancée"
+        },
+        {
+          "icon": "📍",
+          "title": "Proximité Parisienne",
+          "description": "Agence basée à Paris, nous comprenons les enjeux locaux et les besoins spécifiques"
+        },
+        {
+          "icon": "💼",
+          "title": "Support Dédié",
+          "description": "Maintenance continue, mises à jour sécuritaires et support technique réactif"
+        }
+      ]
+    },
+    "process": {
+      "title": "Notre Processus en 5 Étapes",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Analyse & stratégie",
+          "description": "Étude de vos besoins et définition de la stratégie digitale optimale"
+        },
+        {
+          "number": "02", 
+          "title": "Design UX/UI moderne",
+          "description": "Conception d'interfaces attractives et optimisées pour la conversion"
+        },
+        {
+          "number": "03",
+          "title": "Développement Next.js / WordPress",
+          "description": "Développement avec les technologies les plus performantes du marché"
+        },
+        {
+          "number": "04",
+          "title": "Optimisation SEO",
+          "description": "Référencement naturel et optimisation des performances pour Google"
+        },
+        {
+          "number": "05",
+          "title": "Support & accompagnement continu",
+          "description": "Maintenance, mises à jour et support technique permanent"
+        }
+      ]
+    },
+    "portfolio_teaser": {
+      "title": "Nos Réalisations",
+      "description": "Découvrez nos réalisations : sites vitrines, e-commerce et applications sur mesure pour des entreprises parisiennes.",
+      "cta": "Voir Tous Nos Projets"
+    },
+    "cta": {
+      "title": "Prêt à lancer votre projet digital ?",
+      "description": "👉 Contactez notre agence web Paris dès aujourd'hui.",
+      "button": "Demander un Devis Gratuit"
+    }
   }
 }

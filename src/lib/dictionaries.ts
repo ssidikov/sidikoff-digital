@@ -1318,6 +1318,54 @@ export interface Dictionary {
       secondary: string
     }
   }
+  agence_web_paris_landing: {
+    meta_title: string
+    meta_description: string
+    hero: {
+      badge: string
+      title: string
+      description: string
+      cta_primary: string
+      cta_secondary: string
+      trust_indicators: string[]
+    }
+    services: {
+      title: string
+      subtitle: string
+      items: Array<{
+        icon: string
+        title: string
+        description: string
+      }>
+    }
+    about: {
+      title: string
+      subtitle: string
+      items: Array<{
+        icon: string
+        title: string
+        description: string
+      }>
+    }
+    process: {
+      title: string
+      steps: Array<{
+        number: string
+        title: string
+        description: string
+      }>
+    }
+    portfolio_teaser: {
+      title: string
+      description: string
+      cta: string
+    }
+    cta: {
+      title: string
+      description: string
+      button: string
+    }
+  }
 }
 
 // Кеширование ОТКЛЮЧЕНО для разработки
