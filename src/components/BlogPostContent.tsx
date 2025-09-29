@@ -25,7 +25,7 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
   // Helper function to render text spans with marks (links, bold, italic, etc.)
   const renderSpan = (span: any, spanIndex: number) => {
     const content = span.text || ''
-    
+
     if (!span.marks || span.marks.length === 0) {
       return content
     }
@@ -33,29 +33,36 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
     // Process marks (bold, italic, links, etc.)
     return span.marks.reduce((acc: any, mark: any, markIndex: number) => {
       const key = `${spanIndex}-${markIndex}`
-      
+
       if (mark._type === 'link') {
         return (
-          <a 
+          <a
             key={key}
-            href={mark.href} 
+            href={mark.href}
             target={mark.blank ? '_blank' : '_self'}
             rel={mark.blank ? 'noopener noreferrer' : undefined}
-            className='text-blue-600 hover:text-blue-800 underline transition-colors duration-200'
-          >
+            className='text-blue-600 hover:text-blue-800 underline transition-colors duration-200'>
             {acc}
           </a>
         )
       }
-      
+
       if (mark._type === 'strong') {
-        return <strong key={key} className='font-bold'>{acc}</strong>
+        return (
+          <strong key={key} className='font-bold'>
+            {acc}
+          </strong>
+        )
       }
-      
+
       if (mark._type === 'em') {
-        return <em key={key} className='italic'>{acc}</em>
+        return (
+          <em key={key} className='italic'>
+            {acc}
+          </em>
+        )
       }
-      
+
       if (mark._type === 'code') {
         return (
           <code key={key} className='bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono'>
@@ -63,7 +70,7 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
           </code>
         )
       }
-      
+
       return acc
     }, content)
   }
@@ -101,7 +108,9 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
               )
             case 'blockquote':
               return (
-                <blockquote key={index} className='border-l-4 border-blue-500 pl-6 my-8 italic text-gray-700 bg-blue-50 py-4 rounded-r-lg'>
+                <blockquote
+                  key={index}
+                  className='border-l-4 border-blue-500 pl-6 my-8 italic text-gray-700 bg-blue-50 py-4 rounded-r-lg'>
                   {block.children?.map((child: any, childIndex: number) => (
                     <span key={childIndex}>{renderSpan(child, childIndex)}</span>
                   ))}
@@ -121,7 +130,7 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
         // Handle ordered and unordered lists
         if (block._type === 'block' && block.listItem) {
           const level = block.level || 1
-          
+
           return (
             <li key={index} className={`ml-${level * 4} mb-2 text-gray-700 text-lg`}>
               {block.children?.map((child: any, childIndex: number) => (
