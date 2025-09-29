@@ -247,15 +247,27 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
       className={className || ''}
       aria-labelledby='pricing-title'>
       <div className='relative z-10'>
+        {/* H1 Title for /tarifs page SEO */}
+        {showGuide && (
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className='text-4xl md:text-5xl font-bold text-primary text-center mb-4'>
+            {dict?.pricing?.title || 'Nos Offres'} - {dict?.pricing?.subtitle || 'Transparentes & Adaptées'}
+          </motion.h1>
+        )}
+
         <SectionHeader
-          title={dict?.pricing?.title || 'Nos Offres'}
-          subtitle={dict?.pricing?.subtitle || 'Transparentes & Adaptées'}
+          title={showGuide ? '' : (dict?.pricing?.title || 'Nos Offres')}
+          subtitle={showGuide ? '' : (dict?.pricing?.subtitle || 'Transparentes & Adaptées')}
           description={
             dict?.pricing?.description ||
             'Choisissez la solution qui correspond parfaitement à vos besoins et à votre budget. Tous nos projets incluent un design moderne, un développement professionnel et un support complet.'
           }
           titleId='pricing-title'
-          className='text-left mb-16'
+          className={`${showGuide ? 'mb-8' : 'text-left mb-16'}`}
         />
 
         {/* Badges de confiance */}

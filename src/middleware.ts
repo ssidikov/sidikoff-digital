@@ -317,6 +317,32 @@ function validateStudioAuth(request: NextRequest): boolean {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
+  // Handle pricing page redirects (pricing -> tarifs)
+  if (pathname === '/en/pricing' || pathname === '/ru/pricing') {
+    const locale = pathname.startsWith('/en/') ? 'en' : 'ru'
+    const redirectPath = `/${locale}/tarifs`
+    const redirectUrl = new URL(redirectPath, request.url)
+    return NextResponse.redirect(redirectUrl, {
+      status: 301,
+      headers: {
+        ...SECURITY_HEADERS,
+      },
+    })
+  }
+
+  // Handle services URLs without slash
+  if (pathname === '/enservices' || pathname === '/ruservices') {
+    const locale = pathname === '/enservices' ? 'en' : 'ru'
+    const redirectPath = `/${locale}/services`
+    const redirectUrl = new URL(redirectPath, request.url)
+    return NextResponse.redirect(redirectUrl, {
+      status: 301,
+      headers: {
+        ...SECURITY_HEADERS,
+      },
+    })
+  }
+
   // Handle deprecated /services/consultation URLs - redirect to contact
   if (
     pathname === '/services/consultation' ||
