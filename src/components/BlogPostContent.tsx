@@ -17,10 +17,56 @@ interface BlogPostContentProps {
   locale: Locale
 }
 
-// Simple portable text renderer for now
+// Enhanced portable text renderer with support for links and formatting
 /* eslint-disable @typescript-eslint/no-explicit-any */
 function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
   if (!blocks || !Array.isArray(blocks)) return null
+
+  // Helper function to render text spans with marks (links, bold, italic, etc.)
+  const renderSpan = (span: any, spanIndex: number) => {
+    const content = span.text || ''
+    
+    if (!span.marks || span.marks.length === 0) {
+      return content
+    }
+
+    // Process marks (bold, italic, links, etc.)
+    return span.marks.reduce((acc: any, mark: any, markIndex: number) => {
+      const key = `${spanIndex}-${markIndex}`
+      
+      if (mark._type === 'link') {
+        return (
+          <a 
+            key={key}
+            href={mark.href} 
+            target={mark.blank ? '_blank' : '_self'}
+            rel={mark.blank ? 'noopener noreferrer' : undefined}
+            className='text-blue-600 hover:text-blue-800 underline transition-colors duration-200'
+          >
+            {acc}
+          </a>
+        )
+      }
+      
+      if (mark._type === 'strong') {
+        return <strong key={key} className='font-bold'>{acc}</strong>
+      }
+      
+      if (mark._type === 'em') {
+        return <em key={key} className='italic'>{acc}</em>
+      }
+      
+      if (mark._type === 'code') {
+        return (
+          <code key={key} className='bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono'>
+            {acc}
+          </code>
+        )
+      }
+      
+      return acc
+    }, content)
+  }
 
   return (
     <div className='prose prose-lg max-w-none'>
@@ -32,28 +78,57 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
             case 'h1':
               return (
                 <h2 key={index} className='text-3xl font-bold text-gray-900 mt-12 mb-6'>
-                  {block.children?.map((child: any) => child.text).join('')}
+                  {block.children?.map((child: any, childIndex: number) => (
+                    <span key={childIndex}>{renderSpan(child, childIndex)}</span>
+                  ))}
                 </h2>
               )
             case 'h2':
               return (
                 <h2 key={index} className='text-3xl font-bold text-gray-900 mt-10 mb-5'>
-                  {block.children?.map((child: any) => child.text).join('')}
+                  {block.children?.map((child: any, childIndex: number) => (
+                    <span key={childIndex}>{renderSpan(child, childIndex)}</span>
+                  ))}
                 </h2>
               )
             case 'h3':
               return (
                 <h3 key={index} className='text-2xl font-bold text-gray-900 mt-8 mb-4'>
-                  {block.children?.map((child: any) => child.text).join('')}
+                  {block.children?.map((child: any, childIndex: number) => (
+                    <span key={childIndex}>{renderSpan(child, childIndex)}</span>
+                  ))}
                 </h3>
+              )
+            case 'blockquote':
+              return (
+                <blockquote key={index} className='border-l-4 border-blue-500 pl-6 my-8 italic text-gray-700 bg-blue-50 py-4 rounded-r-lg'>
+                  {block.children?.map((child: any, childIndex: number) => (
+                    <span key={childIndex}>{renderSpan(child, childIndex)}</span>
+                  ))}
+                </blockquote>
               )
             default:
               return (
                 <p key={index} className='text-gray-700 leading-relaxed mb-6 text-lg'>
-                  {block.children?.map((child: any) => child.text).join('')}
+                  {block.children?.map((child: any, childIndex: number) => (
+                    <span key={childIndex}>{renderSpan(child, childIndex)}</span>
+                  ))}
                 </p>
               )
           }
+        }
+
+        // Handle ordered and unordered lists
+        if (block._type === 'block' && block.listItem) {
+          const level = block.level || 1
+          
+          return (
+            <li key={index} className={`ml-${level * 4} mb-2 text-gray-700 text-lg`}>
+              {block.children?.map((child: any, childIndex: number) => (
+                <span key={childIndex}>{renderSpan(child, childIndex)}</span>
+              ))}
+            </li>
+          )
         }
 
         if (block._type === 'image') {
