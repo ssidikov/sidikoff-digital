@@ -41,7 +41,7 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
 
     // Find link mark - может быть строкой-ключом или объектом
     let linkMark = null
-    
+
     // Проверяем markDefs в родительском блоке
     if (parentBlock?.markDefs && Array.isArray(parentBlock.markDefs)) {
       // Ищем mark, который является ссылкой
@@ -53,16 +53,17 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
         }
         return false
       })
-      
+
       if (linkMarkKey && typeof linkMarkKey === 'string') {
         linkMark = parentBlock.markDefs.find((def: any) => def._key === linkMarkKey)
       }
     }
-    
+
     // Если не нашли в markDefs, проверяем прямо в marks (старый способ)
     if (!linkMark) {
-      linkMark = span.marks.find((mark: string | any) => 
-        typeof mark === 'object' && (mark._type === 'link' || mark._key?.includes('link'))
+      linkMark = span.marks.find(
+        (mark: string | any) =>
+          typeof mark === 'object' && (mark._type === 'link' || mark._key?.includes('link'))
       )
     }
 
@@ -78,7 +79,11 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
         } else if (mark === 'em') {
           result = <em className='italic'>{result}</em>
         } else if (mark === 'code') {
-          result = <code className='bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono'>{result}</code>
+          result = (
+            <code className='bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono'>
+              {result}
+            </code>
+          )
         }
       }
     })
@@ -111,14 +116,16 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
       // Handle list items - group them into ul/ol
       if (block._type === 'block' && block.listItem) {
         const listType = block.listItem
-        
+
         // Start a new list if needed
         if (!currentList || currentListType !== listType) {
           // Close previous list if exists
           if (currentList && currentListType) {
             const ListTag = currentListType === 'bullet' ? 'ul' : 'ol'
             rendered.push(
-              <ListTag key={`list-${rendered.length}`} className={`my-6 ${currentListType === 'bullet' ? 'list-disc' : 'list-decimal'} list-inside space-y-2`}>
+              <ListTag
+                key={`list-${rendered.length}`}
+                className={`my-6 ${currentListType === 'bullet' ? 'list-disc' : 'list-decimal'} list-inside space-y-2`}>
                 {currentList}
               </ListTag>
             )
@@ -142,7 +149,9 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
       if (currentList && currentListType) {
         const ListTag = currentListType === 'bullet' ? 'ul' : 'ol'
         rendered.push(
-          <ListTag key={`list-${rendered.length}`} className={`my-6 ${currentListType === 'bullet' ? 'list-disc' : 'list-decimal'} list-inside space-y-2`}>
+          <ListTag
+            key={`list-${rendered.length}`}
+            className={`my-6 ${currentListType === 'bullet' ? 'list-disc' : 'list-decimal'} list-inside space-y-2`}>
             {currentList}
           </ListTag>
         )
@@ -228,7 +237,9 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
     if (currentList && currentListType) {
       const ListTag = currentListType === 'bullet' ? 'ul' : 'ol'
       rendered.push(
-        <ListTag key={`list-${rendered.length}`} className={`my-6 ${currentListType === 'bullet' ? 'list-disc' : 'list-decimal'} list-inside space-y-2`}>
+        <ListTag
+          key={`list-${rendered.length}`}
+          className={`my-6 ${currentListType === 'bullet' ? 'list-disc' : 'list-decimal'} list-inside space-y-2`}>
           {currentList}
         </ListTag>
       )
@@ -237,11 +248,7 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
     return rendered
   }
 
-  return (
-    <div className='prose prose-lg max-w-none'>
-      {renderBlocks()}
-    </div>
-  )
+  return <div className='prose prose-lg max-w-none'>{renderBlocks()}</div>
 }
 
 export function BlogPostContent({ post, dictionary, locale }: BlogPostContentProps) {
