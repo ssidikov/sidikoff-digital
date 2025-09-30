@@ -202,43 +202,38 @@ const AgenceWebParisLandingContent: React.FC<AgenceWebParisLandingContentProps> 
           </motion.div>
 
           <div className='grid md:grid-cols-3 gap-8'>
-            {content.services.items.map(
-              (
-                service: ServiceItem,
-                index: number
-              ) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className='bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group hover:border-blue-200 hover:-translate-y-2'>
-                  {/* Service Image */}
-                  <div className='mb-6 h-48 rounded-xl overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50'>
-                    <Image
-                      src={
-                        index === 0
-                          ? 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop'
-                          : index === 1
-                            ? 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=400&h=300&fit=crop'
-                            : 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop'
-                      }
-                      alt={service.title}
-                      width={400}
-                      height={300}
-                      className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
-                    />
-                  </div>
+            {content.services.items.map((service: ServiceItem, index: number) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className='bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group hover:border-blue-200 hover:-translate-y-2'>
+                {/* Service Image */}
+                <div className='mb-6 h-48 rounded-xl overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50'>
+                  <Image
+                    src={
+                      index === 0
+                        ? 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop'
+                        : index === 1
+                          ? 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=400&h=300&fit=crop'
+                          : 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop'
+                    }
+                    alt={service.title}
+                    width={400}
+                    height={300}
+                    className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
+                  />
+                </div>
 
-                  <div className='mb-6'>{getServiceIcon(service.icon)}</div>
-                  <h3 className='text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors'>
-                    {service.title}
-                  </h3>
-                  <p className='text-gray-600 leading-relaxed'>{service.description}</p>
-                </motion.div>
-              )
-            )}
+                <div className='mb-6'>{getServiceIcon(service.icon)}</div>
+                <h3 className='text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors'>
+                  {service.title}
+                </h3>
+                <p className='text-gray-600 leading-relaxed'>{service.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -272,24 +267,19 @@ const AgenceWebParisLandingContent: React.FC<AgenceWebParisLandingContentProps> 
           </motion.div>
 
           <div className='grid md:grid-cols-3 gap-8'>
-            {content.about.items.map(
-              (
-                item: AboutItem,
-                index: number
-              ) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className='text-center p-8 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-white/50'>
-                  <div className='flex justify-center mb-6'>{getAboutIcon(item.icon)}</div>
-                  <h3 className='text-xl font-bold text-gray-900 mb-4'>{item.title}</h3>
-                  <p className='text-gray-600 leading-relaxed'>{item.description}</p>
-                </motion.div>
-              )
-            )}
+            {content.about.items.map((item: AboutItem, index: number) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className='text-center p-8 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-white/50'>
+                <div className='flex justify-center mb-6'>{getAboutIcon(item.icon)}</div>
+                <h3 className='text-xl font-bold text-gray-900 mb-4'>{item.title}</h3>
+                <p className='text-gray-600 leading-relaxed'>{item.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -324,39 +314,34 @@ const AgenceWebParisLandingContent: React.FC<AgenceWebParisLandingContentProps> 
             <div className='hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-400 to-blue-600 rounded-full'></div>
 
             <div className='space-y-12 md:space-y-16'>
-              {content.process.steps.map(
-                (
-                  step: ProcessStep,
-                  index: number
-                ) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className={`flex flex-col md:flex-row items-center ${
-                      index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                    }`}>
-                    {/* Content */}
-                    <div
-                      className={`md:w-5/12 ${index % 2 === 0 ? 'md:text-right md:pr-8' : 'md:text-left md:pl-8'}`}>
-                      <div className='bg-white p-6 rounded-xl shadow-lg border border-gray-100'>
-                        <h3 className='text-xl font-bold text-gray-900 mb-3'>{step.title}</h3>
-                        <p className='text-gray-600 leading-relaxed'>{step.description}</p>
-                      </div>
+              {content.process.steps.map((step: ProcessStep, index: number) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className={`flex flex-col md:flex-row items-center ${
+                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                  }`}>
+                  {/* Content */}
+                  <div
+                    className={`md:w-5/12 ${index % 2 === 0 ? 'md:text-right md:pr-8' : 'md:text-left md:pl-8'}`}>
+                    <div className='bg-white p-6 rounded-xl shadow-lg border border-gray-100'>
+                      <h3 className='text-xl font-bold text-gray-900 mb-3'>{step.title}</h3>
+                      <p className='text-gray-600 leading-relaxed'>{step.description}</p>
                     </div>
+                  </div>
 
-                    {/* Step number */}
-                    <div className='relative z-10 flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 text-white font-bold text-lg rounded-full shadow-lg my-4 md:my-0'>
-                      {step.number}
-                    </div>
+                  {/* Step number */}
+                  <div className='relative z-10 flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 text-white font-bold text-lg rounded-full shadow-lg my-4 md:my-0'>
+                    {step.number}
+                  </div>
 
-                    {/* Spacer */}
-                    <div className='hidden md:block md:w-5/12'></div>
-                  </motion.div>
-                )
-              )}
+                  {/* Spacer */}
+                  <div className='hidden md:block md:w-5/12'></div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
