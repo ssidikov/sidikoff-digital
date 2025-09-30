@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { ReactNode } from 'react'
 
 import { Dictionary } from '@/lib/dictionaries'
 import { formatDate, Locale } from '@/lib/i18n'
@@ -23,142 +24,222 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
   if (!blocks || !Array.isArray(blocks)) return null
 
   // Helper function to render text spans with marks (links, bold, italic, etc.)
-  const renderSpan = (span: any, spanIndex: number) => {
+  const renderSpan = (span: any, spanIndex: number, parentBlock?: any) => {
     const content = span.text || ''
 
     if (!span.marks || span.marks.length === 0) {
       return content
     }
 
+    // Log для отладки (можно удалить после проверки)
+    if (span.marks.length > 0) {
+      console.log('Span marks:', JSON.stringify(span.marks, null, 2))
+      if (parentBlock?.markDefs) {
+        console.log('Block markDefs:', JSON.stringify(parentBlock.markDefs, null, 2))
+      }
+    }
+
+    // Find link mark - может быть строкой-ключом или объектом
+    let linkMark = null
+    
+    // Проверяем markDefs в родительском блоке
+    if (parentBlock?.markDefs && Array.isArray(parentBlock.markDefs)) {
+      // Ищем mark, который является ссылкой
+      const linkMarkKey = span.marks.find((mark: string | any) => {
+        if (typeof mark === 'string') {
+          // Ищем соответствующий markDef
+          const markDef = parentBlock.markDefs.find((def: any) => def._key === mark)
+          return markDef && markDef._type === 'link'
+        }
+        return false
+      })
+      
+      if (linkMarkKey && typeof linkMarkKey === 'string') {
+        linkMark = parentBlock.markDefs.find((def: any) => def._key === linkMarkKey)
+      }
+    }
+    
+    // Если не нашли в markDefs, проверяем прямо в marks (старый способ)
+    if (!linkMark) {
+      linkMark = span.marks.find((mark: string | any) => 
+        typeof mark === 'object' && (mark._type === 'link' || mark._key?.includes('link'))
+      )
+    }
+
     // Process marks (bold, italic, links, etc.)
-    return span.marks.reduce((acc: any, mark: any, markIndex: number) => {
-      const key = `${spanIndex}-${markIndex}`
+    let result: any = content
 
-      if (mark._type === 'link') {
-        return (
-          <a
-            key={key}
-            href={mark.href}
-            target={mark.blank ? '_blank' : '_self'}
-            rel={mark.blank ? 'noopener noreferrer' : undefined}
-            className='text-blue-600 hover:text-blue-800 underline transition-colors duration-200'>
-            {acc}
-          </a>
+    // Apply text decorators first (bold, italic, code)
+    span.marks.forEach((mark: string | any) => {
+      if (typeof mark === 'string') {
+        // Simple decorator marks like 'strong', 'em', 'code'
+        if (mark === 'strong') {
+          result = <strong className='font-bold'>{result}</strong>
+        } else if (mark === 'em') {
+          result = <em className='italic'>{result}</em>
+        } else if (mark === 'code') {
+          result = <code className='bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono'>{result}</code>
+        }
+      }
+    })
+
+    // Apply link wrapper last (so it wraps everything)
+    if (linkMark) {
+      console.log('Applying link:', linkMark.href)
+      result = (
+        <a
+          key={`link-${spanIndex}`}
+          href={linkMark.href}
+          target={linkMark.blank ? '_blank' : '_self'}
+          rel={linkMark.blank ? 'noopener noreferrer' : undefined}
+          className='text-blue-600 hover:text-blue-700 font-semibold transition-colors duration-200'>
+          {result}
+        </a>
+      )
+    }
+
+    return result
+  }
+
+  // Group blocks into rendered elements, properly handling lists
+  const renderBlocks = () => {
+    const rendered: ReactNode[] = []
+    let currentList: ReactNode[] | null = null
+    let currentListType: 'bullet' | 'number' | null = null
+
+    blocks.forEach((block: any, index: number) => {
+      // Handle list items - group them into ul/ol
+      if (block._type === 'block' && block.listItem) {
+        const listType = block.listItem
+        
+        // Start a new list if needed
+        if (!currentList || currentListType !== listType) {
+          // Close previous list if exists
+          if (currentList && currentListType) {
+            const ListTag = currentListType === 'bullet' ? 'ul' : 'ol'
+            rendered.push(
+              <ListTag key={`list-${rendered.length}`} className={`my-6 ${currentListType === 'bullet' ? 'list-disc' : 'list-decimal'} list-inside space-y-2`}>
+                {currentList}
+              </ListTag>
+            )
+          }
+          currentList = []
+          currentListType = listType
+        }
+
+        // Add item to current list
+        currentList.push(
+          <li key={index} className='text-gray-700 text-lg ml-4'>
+            {block.children?.map((child: any, childIndex: number) => (
+              <span key={childIndex}>{renderSpan(child, childIndex, block)}</span>
+            ))}
+          </li>
         )
+        return
       }
 
-      if (mark._type === 'strong') {
-        return (
-          <strong key={key} className='font-bold'>
-            {acc}
-          </strong>
+      // Close any open list before rendering other content
+      if (currentList && currentListType) {
+        const ListTag = currentListType === 'bullet' ? 'ul' : 'ol'
+        rendered.push(
+          <ListTag key={`list-${rendered.length}`} className={`my-6 ${currentListType === 'bullet' ? 'list-disc' : 'list-decimal'} list-inside space-y-2`}>
+            {currentList}
+          </ListTag>
         )
+        currentList = null
+        currentListType = null
       }
 
-      if (mark._type === 'em') {
-        return (
-          <em key={key} className='italic'>
-            {acc}
-          </em>
-        )
+      // Handle regular blocks
+      if (block._type === 'block') {
+        const style = block.style || 'normal'
+
+        switch (style) {
+          case 'h1':
+            rendered.push(
+              <h2 key={index} className='text-3xl font-bold text-gray-900 mt-12 mb-6'>
+                {block.children?.map((child: any, childIndex: number) => (
+                  <span key={childIndex}>{renderSpan(child, childIndex, block)}</span>
+                ))}
+              </h2>
+            )
+            break
+          case 'h2':
+            rendered.push(
+              <h2 key={index} className='text-3xl font-bold text-gray-900 mt-10 mb-5'>
+                {block.children?.map((child: any, childIndex: number) => (
+                  <span key={childIndex}>{renderSpan(child, childIndex, block)}</span>
+                ))}
+              </h2>
+            )
+            break
+          case 'h3':
+            rendered.push(
+              <h3 key={index} className='text-2xl font-bold text-gray-900 mt-8 mb-4'>
+                {block.children?.map((child: any, childIndex: number) => (
+                  <span key={childIndex}>{renderSpan(child, childIndex, block)}</span>
+                ))}
+              </h3>
+            )
+            break
+          case 'blockquote':
+            rendered.push(
+              <blockquote
+                key={index}
+                className='border-l-4 border-blue-500 pl-6 my-8 italic text-gray-700 bg-blue-50 py-4 rounded-r-lg'>
+                {block.children?.map((child: any, childIndex: number) => (
+                  <span key={childIndex}>{renderSpan(child, childIndex, block)}</span>
+                ))}
+              </blockquote>
+            )
+            break
+          default:
+            rendered.push(
+              <p key={index} className='text-gray-700 leading-relaxed mb-6 text-lg'>
+                {block.children?.map((child: any, childIndex: number) => (
+                  <span key={childIndex}>{renderSpan(child, childIndex, block)}</span>
+                ))}
+              </p>
+            )
+        }
+        return
       }
 
-      if (mark._type === 'code') {
-        return (
-          <code key={key} className='bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono'>
-            {acc}
-          </code>
+      // Handle images
+      if (block._type === 'image') {
+        rendered.push(
+          <div key={index} className='my-10'>
+            <Image
+              src={urlFor(block).width(800).height(450).url()}
+              alt={block.alt || ''}
+              width={800}
+              height={450}
+              className='rounded-xl shadow-lg w-full'
+            />
+            {block.caption && (
+              <p className='text-center text-gray-500 text-sm mt-3 italic'>{block.caption}</p>
+            )}
+          </div>
         )
       }
+    })
 
-      return acc
-    }, content)
+    // Close any remaining open list
+    if (currentList && currentListType) {
+      const ListTag = currentListType === 'bullet' ? 'ul' : 'ol'
+      rendered.push(
+        <ListTag key={`list-${rendered.length}`} className={`my-6 ${currentListType === 'bullet' ? 'list-disc' : 'list-decimal'} list-inside space-y-2`}>
+          {currentList}
+        </ListTag>
+      )
+    }
+
+    return rendered
   }
 
   return (
     <div className='prose prose-lg max-w-none'>
-      {blocks.map((block: any, index: number) => {
-        if (block._type === 'block') {
-          const style = block.style || 'normal'
-
-          switch (style) {
-            case 'h1':
-              return (
-                <h2 key={index} className='text-3xl font-bold text-gray-900 mt-12 mb-6'>
-                  {block.children?.map((child: any, childIndex: number) => (
-                    <span key={childIndex}>{renderSpan(child, childIndex)}</span>
-                  ))}
-                </h2>
-              )
-            case 'h2':
-              return (
-                <h2 key={index} className='text-3xl font-bold text-gray-900 mt-10 mb-5'>
-                  {block.children?.map((child: any, childIndex: number) => (
-                    <span key={childIndex}>{renderSpan(child, childIndex)}</span>
-                  ))}
-                </h2>
-              )
-            case 'h3':
-              return (
-                <h3 key={index} className='text-2xl font-bold text-gray-900 mt-8 mb-4'>
-                  {block.children?.map((child: any, childIndex: number) => (
-                    <span key={childIndex}>{renderSpan(child, childIndex)}</span>
-                  ))}
-                </h3>
-              )
-            case 'blockquote':
-              return (
-                <blockquote
-                  key={index}
-                  className='border-l-4 border-blue-500 pl-6 my-8 italic text-gray-700 bg-blue-50 py-4 rounded-r-lg'>
-                  {block.children?.map((child: any, childIndex: number) => (
-                    <span key={childIndex}>{renderSpan(child, childIndex)}</span>
-                  ))}
-                </blockquote>
-              )
-            default:
-              return (
-                <p key={index} className='text-gray-700 leading-relaxed mb-6 text-lg'>
-                  {block.children?.map((child: any, childIndex: number) => (
-                    <span key={childIndex}>{renderSpan(child, childIndex)}</span>
-                  ))}
-                </p>
-              )
-          }
-        }
-
-        // Handle ordered and unordered lists
-        if (block._type === 'block' && block.listItem) {
-          const level = block.level || 1
-
-          return (
-            <li key={index} className={`ml-${level * 4} mb-2 text-gray-700 text-lg`}>
-              {block.children?.map((child: any, childIndex: number) => (
-                <span key={childIndex}>{renderSpan(child, childIndex)}</span>
-              ))}
-            </li>
-          )
-        }
-
-        if (block._type === 'image') {
-          return (
-            <div key={index} className='my-10'>
-              <Image
-                src={urlFor(block).width(800).height(450).url()}
-                alt={block.alt || ''}
-                width={800}
-                height={450}
-                className='rounded-xl shadow-lg w-full'
-              />
-              {block.caption && (
-                <p className='text-center text-gray-500 text-sm mt-3 italic'>{block.caption}</p>
-              )}
-            </div>
-          )
-        }
-
-        return null
-      })}
+      {renderBlocks()}
     </div>
   )
 }
