@@ -24,6 +24,7 @@ const config: Config = {
         },
       },
       fontFamily: {
+        sans: ['var(--font-inter)', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         inter: ['var(--font-inter)', 'Inter', 'sans-serif'],
       },
       // Добавляем дополнительные spacing без переопределения стандартных

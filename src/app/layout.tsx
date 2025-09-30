@@ -1,24 +1,7 @@
-import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
 import Analytics from '@/components/analytics'
 import '@/styles/globals.css'
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-  preload: true,
-  fallback: [
-    'system-ui',
-    '-apple-system',
-    'BlinkMacSystemFont',
-    'Segoe UI',
-    'Roboto',
-    'sans-serif',
-  ],
-  adjustFontFallback: true,
-  weight: ['400', '500', '600', '700'], // Указываем только нужные веса
-})
+import { inter } from '@/lib/fonts'
 
 // SEO Configuration
 const SITE_CONFIG = {
