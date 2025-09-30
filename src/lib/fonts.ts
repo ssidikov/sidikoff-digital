@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 /**
  * Configuration optimisée de la font Inter pour le multilingue
  * Support: Français (latin), Anglais (latin), Russe (cyrillic)
- * 
+ *
  * Optimisations appliquées:
  * - display: swap pour FOIT (Flash of Invisible Text) optimization
  * - Preload automatique par Next.js
@@ -37,7 +37,7 @@ export const inter = Inter({
 /**
  * Font configuration pour une utilisation dans Tailwind
  * Peut être ajouté à tailwind.config.ts:
- * 
+ *
  * theme: {
  *   extend: {
  *     fontFamily: {

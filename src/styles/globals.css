@@ -52,7 +52,8 @@ body {
   color: var(--foreground);
   font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
   line-height: 1.6;
-  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1; /* Optimisation typographique */
+  font-feature-settings: 'kern'1, 'liga'1, 'calt'1;
+  /* Optimisation typographique */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
