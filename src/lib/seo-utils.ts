@@ -38,6 +38,23 @@ export interface LocalBusiness {
   hasMap: string
 }
 
+// Helper function to get locale-specific OG image
+export function getLocalizedOgImage(locale: Locale, customImage?: string): string {
+  // If a custom image is provided, return it
+  if (customImage) {
+    return customImage
+  }
+  
+  // Return locale-specific default OG image
+  const localeImages = {
+    fr: '/images/opengraph-fr.png',
+    en: '/images/opengraph-en.png',
+    ru: '/images/opengraph-ru.png',
+  }
+  
+  return localeImages[locale] || localeImages.fr
+}
+
 // Default SEO configuration
 export const DEFAULT_SEO = {
   siteName: 'SIDIKOFF DIGITAL - Développeur Web Full Stack',
@@ -170,7 +187,7 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
     canonicalUrl,
     locale,
     alternateLanguages,
-    ogImage = DEFAULT_SEO.defaultImage,
+    ogImage, // Can be custom or undefined
     ogType = 'website',
     twitterCard = 'summary_large_image',
     noIndex = false,
@@ -179,6 +196,9 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
     authors,
     tags,
   } = config
+
+  // Get locale-specific OG image (will use custom if provided, otherwise locale-specific default)
+  const localizedOgImage = getLocalizedOgImage(locale, ogImage)
 
   const metadata: Metadata = {
     title,
@@ -196,7 +216,7 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
       siteName: DEFAULT_SEO.siteName,
       images: [
         {
-          url: ogImage,
+          url: localizedOgImage,
           width: 1200,
           height: 630,
           alt: title,
@@ -213,13 +233,16 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
       card: twitterCard,
       title,
       description,
-      images: [ogImage],
+      images: [localizedOgImage],
       creator: DEFAULT_SEO.twitterHandle,
     },
 
     alternates: {
       canonical: canonicalUrl,
-      languages: alternateLanguages,
+      languages: {
+        ...alternateLanguages,
+        'x-default': `${DEFAULT_SEO.siteUrl}/`, // Default to French version
+      },
     },
   }
 
@@ -233,21 +256,21 @@ export function generateLocalizedSEOMetadata(locale: Locale): Metadata {
   // Enhanced SEO-optimized titles with primary keywords and call-to-action
   const titles = {
     fr: isHomePage
-      ? '🥇 Création Site Web Paris | Expert React Next.js | Devis Gratuit'
+      ? 'Création Site Web Paris | Expert React Next.js - '
       : 'SIDIKOFF DIGITAL - Agence Web Expert Paris | Développement React',
     en: isHomePage
-      ? '🥇 Website Creation Paris | React Next.js Expert | Free Quote'
+      ? 'Website Creation Paris | React Next.js Expert - '
       : 'SIDIKOFF DIGITAL - Expert Web Agency Paris | React Development',
     ru: isHomePage
-      ? '🥇 Создание Сайтов Париж | Эксперт React Next.js | Бесплатная первая консультация'
+      ? 'Создание Сайтов Париж | Эксперт React Next.js - '
       : 'SIDIKOFF DIGITAL - Экспертное Веб-агентство Париж | React Разработка',
   }
 
   // Enhanced SEO-optimized descriptions with better keyword density and local targeting
   const descriptions = {
-    fr: 'Développeur React Paris - Sites web professionnels, e-commerce, refonte. Expert Next.js TypeScript. Devis gratuit 24h, livraison rapide.',
-    en: 'React Developer Paris - Professional website creation, e-commerce, redesign. Next.js TypeScript expert. Free quote 24h, fast delivery.',
-    ru: 'React Разработчик Париж - Создание сайтов, e-commerce, редизайн. Эксперт Next.js TypeScript. Бесплатная первая консультация',
+    fr: 'Développeur React Paris - Sites web professionnels, e-commerce, refonte. Expert Next.js TypeScript. Devis gratuit, livraison rapide.',
+    en: 'React Developer Paris - Professional websites, e-commerce, redesign. Next.js TypeScript expert. Free quote, fast delivery.',
+    ru: 'React Разработчик Париж - Сайты, e-commerce, редизайн. Эксперт Next.js TypeScript. Бесплатная консультация.',
   }
 
   const seoData = {
@@ -313,7 +336,7 @@ export function generateLocalizedSEOMetadata(locale: Locale): Metadata {
     canonicalUrl: createCanonicalUrl('', locale),
     locale: locale as Locale,
     alternateLanguages: generateAlternateUrls(''),
-    ogImage: '/images/og-homepage.jpg',
+    // ogImage will be automatically set to locale-specific image by getLocalizedOgImage()
     ogType: 'website' as const,
     twitterCard: 'summary_large_image' as const,
   }
@@ -620,6 +643,98 @@ export function generateReviewStructuredData(
       },
       reviewBody: review.reviewBody,
       datePublished: review.datePublished,
+    })),
+  }
+}
+
+/**
+ * Generate complete metadata with alternates for a page
+ * @param config - Basic SEO configuration
+ * @param path - Page path without locale (e.g., '/contact', '/services')
+ * @param locale - Current locale
+ */
+export function generatePageMetadata(
+  title: string,
+  description: string,
+  path: string,
+  locale: Locale,
+  additionalConfig?: Partial<SEOConfig>
+): Metadata {
+  const canonicalUrl = createCanonicalUrl(path, locale)
+  const alternateUrls = generateAlternateUrls(path)
+
+  return generateSEOMetadata({
+    title,
+    description,
+    canonicalUrl,
+    locale,
+    alternateLanguages: alternateUrls,
+    ...additionalConfig,
+  })
+}
+
+/**
+ * Generate Article Schema for blog posts
+ */
+export function generateArticleSchema(article: {
+  title: string
+  description: string
+  url: string
+  imageUrl: string
+  publishedAt: string
+  modifiedAt?: string
+  authorName: string
+  authorUrl?: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.description,
+    url: article.url,
+    image: {
+      '@type': 'ImageObject',
+      url: article.imageUrl,
+      width: 1200,
+      height: 630,
+    },
+    datePublished: article.publishedAt,
+    dateModified: article.modifiedAt || article.publishedAt,
+    author: {
+      '@type': 'Person',
+      name: article.authorName,
+      url: article.authorUrl || 'https://sidikoff.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'SIDIKOFF DIGITAL',
+      url: 'https://sidikoff.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://sidikoff.com/logo-sidikoff.webp',
+        width: 512,
+        height: 512,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': article.url,
+    },
+  }
+}
+
+/**
+ * Generate Breadcrumb Schema
+ */
+export function generateBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
     })),
   }
 }

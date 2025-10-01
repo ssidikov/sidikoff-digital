@@ -5,6 +5,7 @@ import { Locale } from '@/lib/i18n'
 import LocaleProvider from '@/components/LocaleProvider'
 import { Metadata } from 'next'
 import SEOLinks from '@/components/SEOLinks'
+import { generatePageMetadata } from '@/lib/seo-utils'
 
 interface FAQPageProps {
   params: Promise<{ locale: Locale }>
@@ -14,10 +15,16 @@ export async function generateMetadata({ params }: FAQPageProps): Promise<Metada
   const { locale } = await params
   const dictionary = await getDictionary(locale)
 
-  return {
-    title: `${dictionary.faq.title} | SIDIKOFF DIGITAL`,
-    description: dictionary.faq.subtitle,
-  }
+  return generatePageMetadata(
+    `${dictionary.faq.title} | SIDIKOFF DIGITAL`,
+    dictionary.faq.subtitle,
+    '/faq',
+    locale,
+    {
+      ogImage: '/images/og-homepage.jpg',
+      ogType: 'website',
+    }
+  )
 }
 
 export default async function FAQPage({ params }: FAQPageProps) {

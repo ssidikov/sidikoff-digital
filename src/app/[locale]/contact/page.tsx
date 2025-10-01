@@ -4,6 +4,7 @@ import { Locale } from '@/lib/i18n'
 import LocaleProvider from '@/components/LocaleProvider'
 import { Metadata } from 'next'
 import SEOLinks from '@/components/SEOLinks'
+import { generatePageMetadata } from '@/lib/seo-utils'
 
 interface ContactPageProps {
   params: Promise<{ locale: Locale }>
@@ -13,10 +14,16 @@ export async function generateMetadata({ params }: ContactPageProps): Promise<Me
   const { locale } = await params
   const dictionary = await getDictionary(locale)
 
-  return {
-    title: `${dictionary.contact.title} | SIDIKOFF DIGITAL`,
-    description: dictionary.contact.subtitle,
-  }
+  return generatePageMetadata(
+    `${dictionary.contact.title} | SIDIKOFF DIGITAL`,
+    dictionary.contact.subtitle,
+    '/contact',
+    locale,
+    {
+      ogImage: '/images/og-homepage.jpg',
+      ogType: 'website',
+    }
+  )
 }
 
 export default async function ContactPage({ params }: ContactPageProps) {

@@ -32,7 +32,7 @@ const SITE_CONFIG = {
     'création site web paris',
     'développeur freelance france',
   ],
-  image: '/images/og-homepage.jpg',
+  image: '/images/opengraph-fr.png', // French default OG image
   twitter: '@sidikoff',
 } as const
 

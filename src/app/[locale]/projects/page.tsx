@@ -4,6 +4,7 @@ import { Locale } from '@/lib/i18n'
 import LocaleProvider from '@/components/LocaleProvider'
 import { Metadata } from 'next'
 import SEOLinks from '@/components/SEOLinks'
+import { generatePageMetadata } from '@/lib/seo-utils'
 
 interface ProjectsPageProps {
   params: Promise<{ locale: Locale }>
@@ -13,10 +14,16 @@ export async function generateMetadata({ params }: ProjectsPageProps): Promise<M
   const { locale } = await params
   const dictionary = await getDictionary(locale)
 
-  return {
-    title: `${dictionary.portfolio?.title || 'Portfolio'} | SIDIKOFF DIGITAL`,
-    description: dictionary.portfolio?.subtitle || 'Découvrez notre portfolio de projets web.',
-  }
+  return generatePageMetadata(
+    `${dictionary.portfolio?.title || 'Portfolio'} | SIDIKOFF DIGITAL`,
+    dictionary.portfolio?.subtitle || 'Découvrez notre portfolio de projets web.',
+    '/projects',
+    locale,
+    {
+      ogImage: '/images/projects-bg.webp',
+      ogType: 'website',
+    }
+  )
 }
 
 export default async function ProjectsPage({ params }: ProjectsPageProps) {
