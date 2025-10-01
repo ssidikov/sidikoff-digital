@@ -147,7 +147,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <link rel='dns-prefetch' href='https://images.unsplash.com' />
         <link rel='dns-prefetch' href='https://cdn.sanity.io' />
         <link rel='dns-prefetch' href='https://vitals.vercel-insights.com' />
-        <link rel='dns-prefetch' href='https://www.googletagmanager.com' />
+        {/* <link rel='dns-prefetch' href='https://www.googletagmanager.com' /> */}
 
         {/* Favicon configuration */}
         <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
