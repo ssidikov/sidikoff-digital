@@ -216,14 +216,21 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
 
       // Handle images
       if (block._type === 'image') {
+        // Get original image dimensions from metadata if available
+        const imageAsset = block.asset
+        const originalWidth = imageAsset?.metadata?.dimensions?.width || 1200
+        const originalHeight = imageAsset?.metadata?.dimensions?.height || 800
+
         rendered.push(
           <div key={index} className='my-10'>
             <Image
-              src={urlFor(block).width(800).height(450).url()}
+              src={urlFor(block).quality(100).url()}
               alt={block.alt || ''}
-              width={800}
-              height={450}
-              className='rounded-xl shadow-lg w-full'
+              width={originalWidth}
+              height={originalHeight}
+              className='rounded-xl shadow-lg w-full h-auto'
+              quality={100}
+              unoptimized={false}
             />
             {block.caption && (
               <p className='text-center text-gray-500 text-sm mt-3 italic'>{block.caption}</p>
@@ -254,7 +261,7 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
 export function BlogPostContent({ post, dictionary, locale }: BlogPostContentProps) {
   const formattedDate = formatDate(new Date(post.publishedAt), locale)
   const imageUrl = post.mainImage
-    ? urlFor(post.mainImage).width(1200).height(600).url()
+    ? urlFor(post.mainImage).quality(100).url()
     : '/images/misc/technology-bg.jpg'
 
   // Share handlers
@@ -307,6 +314,7 @@ export function BlogPostContent({ post, dictionary, locale }: BlogPostContentPro
               fill
               sizes='100vw'
               className='object-cover'
+              quality={100}
               priority
             />
             <div className='absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20' />

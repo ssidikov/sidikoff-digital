@@ -137,7 +137,7 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: process.env.NODE_ENV === 'development' ? 0 : 31536000, // Без кеша в dev, 1 год в prod
     dangerouslyAllowSVG: false, // ИСПРАВЛЕНО: убрана уязвимость
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512, 768, 1024, 1536, 2048],
 
     // ИСПРАВЛЕНО: Убран deprecated параметр domains
     remotePatterns: [
