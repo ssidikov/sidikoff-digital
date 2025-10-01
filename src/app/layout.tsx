@@ -132,6 +132,37 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang='fr' suppressHydrationWarning>
       <head>
+        {/* КРИТИЧЕСКИЙ CSS ДЛЯ МГНОВЕННОГО РЕНДЕРИНГА */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              :root {
+                --background: #F9F7F7;
+                --foreground: #112D4E;
+                --accent: #3377FF;
+                --accent-alpha-20: rgba(51, 119, 255, 0.2);
+              }
+              body {
+                background: var(--background);
+                color: var(--foreground);
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+                margin: 0;
+                overflow-x: hidden;
+              }
+              .hero-height {
+                min-height: 100vh;
+                min-height: 100svh;
+              }
+              @media (max-height: 650px) {
+                .hero-height { min-height: 650px; }
+              }
+              @supports (-webkit-touch-callout: none) {
+                .hero-height { min-height: -webkit-fill-available; }
+              }
+            `,
+          }}
+        />
+
         {/* ИСПРАВЛЕНО: Только критические preload */}
         <link
           rel='preload'
@@ -141,7 +172,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fetchPriority='high'
         />
 
-        {/* ИСПРАВЛЕНО: Убраны preconnect для шрифтов - Next.js делает это автоматически */}
+        {/* Preconnect для Google Fonts (критично для производительности) */}
+        <link rel='preconnect' href='https://fonts.googleapis.com' />
+        <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
 
         {/* DNS prefetch для внешних ресурсов */}
         <link rel='dns-prefetch' href='https://images.unsplash.com' />

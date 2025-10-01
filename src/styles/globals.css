@@ -1,7 +1,8 @@
 @import "tailwindcss";
-@import "../styles/section-backgrounds.css";
-@import "../styles/mobile-viewport.css";
-@import "../styles/tailwind-accent.css";
+
+/* ============================================
+   КРИТИЧЕСКИЕ СТИЛИ ДЛЯ ПРОИЗВОДИТЕЛЬНОСТИ
+   ============================================ */
 
 :root {
   /* Primary Color System */
@@ -45,18 +46,205 @@
   --bg-accent: var(--accent);
   --bg-accent-light: var(--accent-alpha-10);
   --bg-accent-hover: var(--accent-alpha-20);
+
+  /* Mobile viewport units - Inline для устранения блокировки */
+  --vh: 1vh;
+  --vw: 1vw;
+  --svh: 1svh;
+  --lvh: 1lvh;
+  --dvh: 1dvh;
 }
 
+/* ============================================
+   MOBILE VIEWPORT FIXES (Inline)
+   ============================================ */
+
+/* Базовые классы для стабильного viewport */
+.min-h-screen-stable {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.h-screen-stable {
+  height: 100vh;
+  height: 100svh;
+}
+
+.min-h-screen-dynamic {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Hero section специфичные стили */
+.hero-height {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/* Для устройств с маленьким экраном используем фиксированную высоту */
+@media (max-height: 650px) {
+  .hero-height {
+    min-height: 650px;
+  }
+}
+
+/* Дополнительные утилиты для мобильных */
+@media (max-width: 768px) {
+  .hero-height {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+
+  /* Prevent content jump on address bar hide/show */
+  .mobile-no-bounce {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Улучшенная поддержка для iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  .hero-height {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Фикс для старых браузеров без поддержки новых viewport units */
+@supports not (height: 100svh) {
+  .hero-height {
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
+
+  .min-h-screen-stable {
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
+
+  .h-screen-stable {
+    height: calc(var(--vh, 1vh) * 100);
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal overflow on mobile */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
   line-height: 1.6;
   font-feature-settings: 'kern'1, 'liga'1, 'calt'1;
-  /* Optimisation typographique */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Loading state для предотвращения layout shift */
+.hero-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================
+   TAILWIND ACCENT UTILITIES (Inline)
+   ============================================ */
+
+@layer utilities {
+
+  /* Background utilities */
+  .bg-accent {
+    background-color: var(--accent);
+  }
+
+  .bg-accent-light {
+    background-color: var(--accent-light);
+  }
+
+  .bg-accent-dark {
+    background-color: var(--accent-dark);
+  }
+
+  .bg-accent-alpha-10 {
+    background-color: var(--accent-alpha-10);
+  }
+
+  .bg-accent-alpha-20 {
+    background-color: var(--accent-alpha-20);
+  }
+
+  .bg-accent-alpha-50 {
+    background-color: var(--accent-alpha-50);
+  }
+
+  /* Text utilities */
+  .text-accent {
+    color: var(--accent);
+  }
+
+  .text-accent-light {
+    color: var(--accent-light);
+  }
+
+  .text-accent-dark {
+    color: var(--accent-dark);
+  }
+
+  /* Border utilities */
+  .border-accent {
+    border-color: var(--accent);
+  }
+
+  .border-accent-light {
+    border-color: var(--accent-light);
+  }
+
+  .border-accent-dark {
+    border-color: var(--accent-dark);
+  }
+
+  /* Hover utilities */
+  .hover\:bg-accent:hover {
+    background-color: var(--accent);
+  }
+
+  .hover\:bg-accent-light:hover {
+    background-color: var(--accent-light);
+  }
+
+  .hover\:bg-accent-dark:hover {
+    background-color: var(--accent-dark);
+  }
+
+  .hover\:text-accent:hover {
+    color: var(--accent);
+  }
+
+  .hover\:border-accent:hover {
+    border-color: var(--accent);
+  }
+
+  /* Focus utilities */
+  .focus\:ring-accent:focus {
+    --tw-ring-color: var(--accent);
+  }
+
+  .focus\:border-accent:focus {
+    border-color: var(--accent);
+  }
+
+  /* Ring utilities */
+  .ring-accent {
+    --tw-ring-color: var(--accent);
+  }
 }
 
 /* Custom scrollbar */
@@ -319,39 +507,6 @@ a.banner-button-white:hover {
 
 .text-secondary {
   color: var(--text-secondary);
-}
-
-/* Accent color utilities */
-.bg-accent {
-  background-color: var(--bg-accent);
-}
-
-.bg-accent-light {
-  background-color: var(--bg-accent-light);
-}
-
-.bg-accent-hover {
-  background-color: var(--bg-accent-hover);
-}
-
-.text-accent {
-  color: var(--text-accent);
-}
-
-.border-accent {
-  border-color: var(--accent);
-}
-
-.hover\:bg-accent:hover {
-  background-color: var(--accent);
-}
-
-.hover\:text-accent:hover {
-  color: var(--accent);
-}
-
-.hover\:border-accent:hover {
-  border-color: var(--accent);
 }
 
 /* Glass morphism effects */

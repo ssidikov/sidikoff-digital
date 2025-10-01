@@ -37,7 +37,8 @@ const SECURITY_HEADERS = {
 } as const
 
 // Deleted SEO locations that should return 410 Gone
-const DELETED_SEO_CITIES = [
+// ОПТИМИЗИРОВАНО: Используем Set для O(1) поиска вместо O(n)
+const DELETED_SEO_CITIES_SET = new Set([
   'paris',
   'marseille',
   'lyon',
@@ -220,9 +221,9 @@ const DELETED_SEO_CITIES = [
   'clamart',
   'annecy',
   'le-mans',
-]
+])
 
-const DELETED_SEO_REGIONS = [
+const DELETED_SEO_REGIONS_SET = new Set([
   'ile-de-france',
   'auvergne-rhone-alpes',
   'nouvelle-aquitaine',
@@ -241,17 +242,29 @@ const DELETED_SEO_REGIONS = [
   'guyane',
   'la-reunion',
   'mayotte',
-]
+])
 
 /**
  * Checks if the path should skip middleware processing
+ * ОПТИМИЗИРОВАНО: Используем Set для быстрого поиска
  */
+const STATIC_PATHS_SET = new Set(STATIC_PATHS)
+
 function shouldSkipMiddleware(pathname: string): boolean {
-  return STATIC_PATHS.some((path) => pathname.startsWith(path)) || pathname.includes('.')
+  // Быстрая проверка на точку (файлы)
+  if (pathname.includes('.')) return true
+  
+  // Оптимизированная проверка через Set
+  for (const path of STATIC_PATHS_SET) {
+    if (pathname.startsWith(path)) return true
+  }
+  
+  return false
 }
 
 /**
  * Checks if the pathname is a deleted SEO page that should return 410
+ * ОПТИМИЗИРОВАНО: Используем Set для быстрого поиска O(1)
  */
 function isDeletedSEOPage(pathname: string): boolean {
   // Remove locale prefix if present
@@ -268,7 +281,7 @@ function isDeletedSEOPage(pathname: string): boolean {
 
   if (match) {
     const slug = match[1]
-    return slug ? DELETED_SEO_CITIES.includes(slug) || DELETED_SEO_REGIONS.includes(slug) : false
+    return slug ? DELETED_SEO_CITIES_SET.has(slug) || DELETED_SEO_REGIONS_SET.has(slug) : false
   }
 
   return false

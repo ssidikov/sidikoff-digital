@@ -78,10 +78,11 @@ const SECURITY_HEADERS = [
       'camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=()',
   },
   // ИСПРАВЛЕНО: Убраны ненужные preload для шрифтов - Next.js делает это автоматически
+  // ДОБАВЛЕНО: Resource hints для внешних доменов (для мобильной производительности)
   {
     key: 'Link',
     value:
-      '<https://images.unsplash.com>; rel=preconnect; crossorigin, <https://cdn.sanity.io>; rel=preconnect; crossorigin',
+      '<https://fonts.googleapis.com>; rel=preconnect, <https://fonts.gstatic.com>; rel=preconnect; crossorigin, <https://images.unsplash.com>; rel=preconnect; crossorigin, <https://cdn.sanity.io>; rel=preconnect; crossorigin',
   },
 ]
 

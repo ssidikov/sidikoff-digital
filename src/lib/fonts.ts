@@ -6,6 +6,7 @@ import { Inter } from 'next/font/google'
  *
  * Optimisations appliquées:
  * - display: swap pour FOIT (Flash of Invisible Text) optimization
+ * - display: optional для мобильных устройств (быстрая загрузка)
  * - Preload automatique par Next.js
  * - adjustFontFallback pour des fallback metrics-compatible
  * - Subsets optimisés pour les 3 langues supportées
@@ -14,7 +15,7 @@ import { Inter } from 'next/font/google'
 export const inter = Inter({
   subsets: ['latin', 'cyrillic', 'latin-ext'],
   variable: '--font-inter',
-  display: 'swap',
+  display: 'optional', // ИЗМЕНЕНО: optional вместо swap для мобильных (лучшая производительность)
   preload: true,
   fallback: [
     'system-ui',
