@@ -253,12 +253,12 @@ const STATIC_PATHS_SET = new Set(STATIC_PATHS)
 function shouldSkipMiddleware(pathname: string): boolean {
   // Быстрая проверка на точку (файлы)
   if (pathname.includes('.')) return true
-  
+
   // Оптимизированная проверка через Set
   for (const path of STATIC_PATHS_SET) {
     if (pathname.startsWith(path)) return true
   }
-  
+
   return false
 }
 
