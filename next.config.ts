@@ -259,12 +259,12 @@ const nextConfig: NextConfig = {
       // Handle OpenGraph image redirects
       {
         source: '/opengraph-image',
-        destination: '/images/opengraph-fr.jpg',
+        destination: '/images/opengraph-fr.png',
         permanent: true,
       },
       {
         source: '/twitter-image',
-        destination: '/images/opengraph-fr.jpg',
+        destination: '/images/opengraph-fr.png',
         permanent: true,
       },
       // Service page redirects

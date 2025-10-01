@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       ? `https://sidikoff.com/blog/${slug}`
       : `https://sidikoff.com/${locale}/blog/${slug}`
 
-  const imageUrl = post.mainImage ? urlFor(post.mainImage).url() : '/images/opengraph-fr.jpg'
+  const imageUrl = post.mainImage ? urlFor(post.mainImage).url() : '/images/opengraph-fr.png'
 
   return {
     title: `${post.title} | SIDIKOFF DIGITAL`,

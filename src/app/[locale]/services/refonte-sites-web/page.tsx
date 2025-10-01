@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: WebRedesignPageProps): Promis
       type: 'website',
       images: [
         {
-          url: `${process.env.NEXT_PUBLIC_SITE_URL}/images/opengraph-fr.jpg`,
+          url: `${process.env.NEXT_PUBLIC_SITE_URL}/images/opengraph-fr.png`,
           width: 1200,
           height: 630,
           alt: title,
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: WebRedesignPageProps): Promis
       card: 'summary_large_image',
       title,
       description,
-      images: [`${process.env.NEXT_PUBLIC_SITE_URL}/images/opengraph-fr.jpg`],
+      images: [`${process.env.NEXT_PUBLIC_SITE_URL}/images/opengraph-fr.png`],
     },
     alternates: {
       canonical: canonicalUrl,
