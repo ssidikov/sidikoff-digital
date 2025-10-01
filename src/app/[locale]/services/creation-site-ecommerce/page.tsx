@@ -13,11 +13,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const dictionary = await getDictionary(locale)
   const t = dictionary.ecommerce_landing
 
-  return generatePageMetadata(t.meta_title, t.meta_description, '/services/creation-site-ecommerce', locale, {
-    keywords: t.keywords,
-    ogImage: '/images/og/ecommerce-websites.jpg',
-    ogType: 'website',
-  })
+  return generatePageMetadata(
+    t.meta_title,
+    t.meta_description,
+    '/services/creation-site-ecommerce',
+    locale,
+    {
+      keywords: t.keywords,
+      ogImage: '/images/og/ecommerce-websites.jpg',
+      ogType: 'website',
+    }
+  )
 }
 
 export async function generateStaticParams() {

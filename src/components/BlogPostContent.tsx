@@ -304,9 +304,10 @@ export function BlogPostContent({ post, dictionary, locale }: BlogPostContentPro
   }
 
   // Generate structured data
-  const articleUrl = locale === 'fr'
-    ? `https://sidikoff.com/blog/${post.slug.current}`
-    : `https://sidikoff.com/${locale}/blog/${post.slug.current}`
+  const articleUrl =
+    locale === 'fr'
+      ? `https://sidikoff.com/blog/${post.slug.current}`
+      : `https://sidikoff.com/${locale}/blog/${post.slug.current}`
 
   const articleSchema = generateArticleSchema({
     title: post.title,
@@ -318,7 +319,8 @@ export function BlogPostContent({ post, dictionary, locale }: BlogPostContentPro
     authorUrl: 'https://sidikoff.com',
   })
 
-  const blogUrl = locale === 'fr' ? 'https://sidikoff.com/blog' : `https://sidikoff.com/${locale}/blog`
+  const blogUrl =
+    locale === 'fr' ? 'https://sidikoff.com/blog' : `https://sidikoff.com/${locale}/blog`
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: dictionary.back_to_blog, url: blogUrl },
     { name: post.title, url: articleUrl },

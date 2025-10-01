@@ -1,4 +1,3 @@
-
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
@@ -17,19 +16,20 @@ interface BlogPostPageProps {
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const resolvedParams = await params
   const { slug, locale } = resolvedParams
-  
+
   const post = await getBlogPostBySlug(slug)
-  
+
   if (!post) {
     return {
       title: 'Article non trouvé',
-      description: 'Cet article de blog n\'existe pas.'
+      description: "Cet article de blog n'existe pas.",
     }
   }
 
-  const canonicalUrl = locale === 'fr'
-    ? `https://sidikoff.com/blog/${slug}`
-    : `https://sidikoff.com/${locale}/blog/${slug}`
+  const canonicalUrl =
+    locale === 'fr'
+      ? `https://sidikoff.com/blog/${slug}`
+      : `https://sidikoff.com/${locale}/blog/${slug}`
 
   const imageUrl = post.mainImage ? urlFor(post.mainImage).url() : '/images/og-homepage.jpg'
 
@@ -66,9 +66,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     alternates: {
       canonical: canonicalUrl,
       languages: {
-        'fr': `https://sidikoff.com/blog/${slug}`,
-        'en': `https://sidikoff.com/en/blog/${slug}`,
-        'ru': `https://sidikoff.com/ru/blog/${slug}`,
+        fr: `https://sidikoff.com/blog/${slug}`,
+        en: `https://sidikoff.com/en/blog/${slug}`,
+        ru: `https://sidikoff.com/ru/blog/${slug}`,
         'x-default': `https://sidikoff.com/blog/${slug}`,
       },
     },
@@ -78,9 +78,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 export async function generateStaticParams() {
   const posts = await getBlogPosts()
   const locales: Locale[] = ['en', 'ru'] // Exclude 'fr' as French pages are served without prefix
-  
+
   const params = []
-  
+
   for (const locale of locales) {
     for (const post of posts) {
       params.push({
@@ -89,31 +89,23 @@ export async function generateStaticParams() {
       })
     }
   }
-  
+
   return params
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const resolvedParams = await params
   const { locale, slug } = resolvedParams
-  
-  const [post, dict] = await Promise.all([
-    getBlogPostBySlug(slug),
-    getDictionary(locale)
-  ])
+
+  const [post, dict] = await Promise.all([getBlogPostBySlug(slug), getDictionary(locale)])
 
   if (!post) {
     notFound()
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <BlogPostContent 
-        post={post} 
-        dictionary={dict.blog} 
-        locale={locale} 
-      />
+    <div className='min-h-screen bg-gray-50'>
+      <BlogPostContent post={post} dictionary={dict.blog} locale={locale} />
     </div>
   )
 }
-

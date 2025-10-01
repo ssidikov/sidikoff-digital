@@ -44,14 +44,14 @@ export function getLocalizedOgImage(locale: Locale, customImage?: string): strin
   if (customImage) {
     return customImage
   }
-  
+
   // Return locale-specific default OG image
   const localeImages = {
     fr: '/images/opengraph-fr.png',
     en: '/images/opengraph-en.png',
     ru: '/images/opengraph-ru.png',
   }
-  
+
   return localeImages[locale] || localeImages.fr
 }
 
