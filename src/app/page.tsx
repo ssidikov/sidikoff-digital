@@ -25,7 +25,7 @@ const SEO_CONFIG = {
     'typescript développeur',
     'consultant digital',
   ],
-  ogImage: '/images/og-homepage.jpg',
+  ogImage: '/images/opengraph-fr.jpg',
 } as const
 
 export async function generateMetadata() {

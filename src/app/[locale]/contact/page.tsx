@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: ContactPageProps): Promise<Me
     '/contact',
     locale,
     {
-      ogImage: '/images/og-homepage.jpg',
+      ogImage: '/images/opengraph-fr.jpg',
       ogType: 'website',
     }
   )

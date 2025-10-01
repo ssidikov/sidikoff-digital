@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: FAQPageProps): Promise<Metada
     '/faq',
     locale,
     {
-      ogImage: '/images/og-homepage.jpg',
+      ogImage: '/images/opengraph-fr.jpg',
       ogType: 'website',
     }
   )
