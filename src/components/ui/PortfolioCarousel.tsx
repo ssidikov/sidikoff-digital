@@ -382,7 +382,7 @@ export default function PortfolioCarousel({
                   src={item.image || '/placeholder.svg'}
                   alt={item.imageAlt}
                   fill
-                  quality={95}
+                  quality={100}
                   sizes='(max-width: 768px) 100vw, (max-width: 1024px) 440px, 480px'
                   className='object-cover transition-transform duration-500'
                 />
@@ -396,7 +396,7 @@ export default function PortfolioCarousel({
                   src={item.image || '/placeholder.svg'}
                   alt={item.imageAlt}
                   fill
-                  quality={95}
+                  quality={100}
                   sizes='(max-width: 768px) 100vw, (max-width: 1024px) 440px, 480px'
                   className='object-cover transition-transform duration-500'
                 />

@@ -177,6 +177,7 @@ interface SectionHeaderProps {
   description?: string
   className?: string
   titleId?: string
+  as?: 'h1' | 'h2' // Add option to specify heading level
 }
 
 /**
@@ -189,6 +190,7 @@ export function SectionHeader({
   description,
   className = '',
   titleId,
+  as: Tag = 'h2', // Default to h2, but allow h1
 }: SectionHeaderProps) {
   return (
     <motion.div
@@ -197,10 +199,10 @@ export function SectionHeader({
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
       className={clsx('mb-16', className)}>
-      <h2 id={titleId} className={sectionStyles.title}>
+      <Tag id={titleId} className={sectionStyles.title}>
         {title}
         {subtitle && <span className={clsx('mt-2 block', sectionStyles.subtitle)}>{subtitle}</span>}
-      </h2>
+      </Tag>
       {description && <p className={clsx('max-w-4xl', sectionStyles.description)}>{description}</p>}
     </motion.div>
   )

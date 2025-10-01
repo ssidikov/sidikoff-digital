@@ -147,6 +147,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
           title={dict.title}
           subtitle={dict.subtitle}
           titleId='services-title'
+          as='h1'
           className='mb-16 text-left'
         />
 

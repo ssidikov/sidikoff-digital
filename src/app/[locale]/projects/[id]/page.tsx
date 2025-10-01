@@ -125,8 +125,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       src={project.image}
                       alt={project.title}
                       fill
+                      quality={100}
                       sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'
-                      className='object-cover object-left-top '
+                      className='object-cover object-left-top'
                       priority
                     />
                   </div>
