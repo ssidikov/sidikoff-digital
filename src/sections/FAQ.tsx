@@ -166,6 +166,7 @@ export const FAQ = ({ dictionary, className, locale: _locale }: FAQProps) => {
             'Retrouvez les réponses aux questions les plus courantes sur nos services'
           }
           titleId='faq-title'
+          as='h1'
           className='mb-10 text-left md:mb-16'
         />
 

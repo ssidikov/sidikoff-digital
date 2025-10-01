@@ -492,6 +492,7 @@ export default function PortfolioCarousel({
                   : 'Ознакомьтесь с нашими веб-проектами')
             }
             titleId='portfolio-title'
+            as='h1'
             className='text-left mb-16 px-4'
           />
         </div>

@@ -181,9 +181,9 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
       <div className='relative z-10'>
         {/* Mobile Title Section - Above everything on mobile */}
         <div className='mb-8 lg:hidden'>
-          <h2 className='text-3xl md:text-4xl font-bold text-[#112D4E] mb-4'>
+          <h1 className='text-3xl md:text-4xl font-bold text-[#112D4E] mb-4'>
             {dictionary?.title || 'Prenez Contact'}
-          </h2>
+          </h1>
           <p className='text-xl text-accent mb-6 font-semibold'>
             {dictionary?.subtitle || 'Prêt à Commencer Votre Projet ?'}
           </p>
@@ -195,9 +195,9 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
           <div className='space-y-8 order-2 lg:order-1'>
             {/* Section Title - Hidden on mobile, shown on desktop */}
             <div className='hidden lg:block'>
-              <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-[#112D4E] mb-6'>
+              <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold text-[#112D4E] mb-6'>
                 {dictionary?.title || 'Contactez-Nous'}
-              </h2>
+              </h1>
               <p className='text-xl text-accent mb-4 font-semibold'>
                 {dictionary?.subtitle || 'Prêt à Commencer Votre Projet ?'}
               </p>
