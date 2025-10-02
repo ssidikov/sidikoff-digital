@@ -1,9 +1,6 @@
-
 import { createClient } from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
 import { cache } from 'react'
-
-
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type SanityImageSource = any
