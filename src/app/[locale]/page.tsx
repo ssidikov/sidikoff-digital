@@ -11,6 +11,10 @@ import { Hero, Services } from '@/sections'
 
 import { Locale } from '@/lib/i18n'
 
+// ОПТИМИЗАЦИЯ: ISR для моментального TTFB
+// Страница генерируется статически и ревалидируется каждые 12 часов
+export const revalidate = 43200 // 12 hours in seconds
+
 // ИСПРАВЛЕНО: Приоритетная загрузка компонентов с loading states
 const Portfolio = dynamic(() => import('@/sections/Portfolio'), {
   ssr: true,
@@ -41,6 +45,12 @@ interface HomePageProps {
 export async function generateMetadata({ params }: HomePageProps) {
   const { locale } = await params
   return generateLocalizedSEOMetadata(locale)
+}
+
+// ОПТИМИЗАЦИЯ: Предгенерация статических параметров для всех локалей
+// Next.js сгенерирует эти страницы на этапе build
+export async function generateStaticParams() {
+  return [{ locale: 'fr' }, { locale: 'en' }, { locale: 'ru' }]
 }
 
 // ИСПРАВЛЕНО: Добавлена структурированная разметка WebPage

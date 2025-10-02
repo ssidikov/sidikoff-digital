@@ -1,6 +1,7 @@
 
 import { createClient } from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
+import { cache } from 'react'
 
 
 
@@ -160,30 +161,35 @@ export interface BlogCategory {
   description?: string
 }
 
-// Fetch functions
-export async function getBlogPosts(): Promise<BlogPost[]> {
+// Fetch functions with React cache() for deduplication
+// ОПТИМИЗИРОВАНО: Используем cache() для предотвращения повторных запросов
+export const getBlogPosts = cache(async (): Promise<BlogPost[]> => {
   try {
-    return await sanityClient.fetch(BLOG_POSTS_QUERY)
+    return await sanityClient.fetch(BLOG_POSTS_QUERY, {}, { next: { revalidate: 3600 } }) // 1 hour cache
   } catch (error) {
     console.error('Error fetching blog posts:', error)
     return []
   }
-}
+})
 
-export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
+export const getBlogPostBySlug = cache(async (slug: string): Promise<BlogPost | null> => {
   try {
-    return await sanityClient.fetch(BLOG_POST_BY_SLUG_QUERY, { slug })
+    return await sanityClient.fetch(
+      BLOG_POST_BY_SLUG_QUERY,
+      { slug },
+      { next: { revalidate: 3600 } }
+    ) // 1 hour cache
   } catch (error) {
     console.error('Error fetching blog post:', error)
     return null
   }
-}
+})
 
-export async function getBlogCategories(): Promise<BlogCategory[]> {
+export const getBlogCategories = cache(async (): Promise<BlogCategory[]> => {
   try {
-    return await sanityClient.fetch(BLOG_CATEGORIES_QUERY)
+    return await sanityClient.fetch(BLOG_CATEGORIES_QUERY, {}, { next: { revalidate: 86400 } }) // 24 hours cache
   } catch (error) {
     console.error('Error fetching categories:', error)
     return []
   }
-}
+})

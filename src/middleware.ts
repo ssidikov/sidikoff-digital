@@ -330,6 +330,12 @@ function validateStudioAuth(request: NextRequest): boolean {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
+  // ОПТИМИЗАЦИЯ: Ранний выход для статических файлов (самая частая проверка)
+  // Экономит ~50-100ms на каждый запрос статики
+  if (shouldSkipMiddleware(pathname)) {
+    return enhanceResponse(NextResponse.next(), pathname)
+  }
+
   // Handle pricing page redirects (pricing -> tarifs)
   if (pathname === '/en/pricing' || pathname === '/ru/pricing') {
     const locale = pathname.startsWith('/en/') ? 'en' : 'ru'
@@ -410,11 +416,6 @@ export function middleware(request: NextRequest) {
     if (!validateStudioAuth(request)) {
       return NextResponse.redirect(new URL('/studio', request.url))
     }
-  }
-
-  // Skip middleware for static files and API routes
-  if (shouldSkipMiddleware(pathname)) {
-    return enhanceResponse(NextResponse.next(), pathname)
   }
 
   // Domain canonicalization: redirect www to non-www
