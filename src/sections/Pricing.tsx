@@ -385,20 +385,46 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                       <p className='text-gray-600 mb-4'>{type.description}</p>
                       <div className='grid md:grid-cols-2 gap-4 text-sm'>
                         <div>
-                          <p className='font-semibold text-gray-800 mb-2'>🎯 Idéal pour:</p>
+                          <p className='font-semibold text-gray-800 mb-2'>
+                            🎯{' '}
+                            {locale === 'en'
+                              ? 'Ideal for:'
+                              : locale === 'ru'
+                                ? 'Идеально для:'
+                                : 'Idéal pour:'}
+                          </p>
                           <p className='text-gray-600'>{type.best_for}</p>
                         </div>
                         <div>
-                          <p className='font-semibold text-gray-800 mb-2'>💡 Plan recommandé:</p>
+                          <p className='font-semibold text-gray-800 mb-2'>
+                            💡{' '}
+                            {locale === 'en'
+                              ? 'Recommended plan:'
+                              : locale === 'ru'
+                                ? 'Рекомендуемый тариф:'
+                                : 'Plan recommandé:'}
+                          </p>
                           <p className='text-green-600 font-semibold'>{type.plan_recommendation}</p>
                         </div>
                         <div className='md:col-span-2'>
-                          <p className='font-semibold text-gray-800 mb-2'>🔧 Maintenance:</p>
+                          <p className='font-semibold text-gray-800 mb-2'>
+                            🔧{' '}
+                            {locale === 'en'
+                              ? 'Maintenance:'
+                              : locale === 'ru'
+                                ? 'Поддержка:'
+                                : 'Maintenance:'}
+                          </p>
                           <p className='text-gray-600'>{type.maintenance}</p>
                         </div>
                         <div className='md:col-span-2 bg-yellow-50 p-3 rounded-lg'>
                           <p className='font-semibold text-gray-800 mb-1'>
-                            ⚠️ Pourquoi c&apos;est important:
+                            ⚠️{' '}
+                            {locale === 'en'
+                              ? "Why it's important:"
+                              : locale === 'ru'
+                                ? 'Почему это важно:'
+                                : "Pourquoi c'est important:"}
                           </p>
                           <p className='text-gray-700 text-sm'>{type.why_important}</p>
                         </div>
@@ -460,7 +486,13 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                     {dict.pricing.guide_section.single_payment_option.content}
                   </p>
                   <div className='bg-red-50 p-4 rounded-lg'>
-                    <h5 className='font-semibold text-red-800 mb-2'>Risques sans maintenance:</h5>
+                    <h5 className='font-semibold text-red-800 mb-2'>
+                      {locale === 'en'
+                        ? 'Risks without maintenance:'
+                        : locale === 'ru'
+                          ? 'Риски без поддержки:'
+                          : 'Risques sans maintenance:'}
+                    </h5>
                     <ul className='space-y-1'>
                       {dict.pricing.guide_section.single_payment_option.risks?.map(
                         (risk, index) => (
@@ -490,7 +522,13 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                     {dict.pricing.guide_section.business_focus.content}
                   </p>
                   <div className='bg-green-50 p-4 rounded-lg'>
-                    <h5 className='font-semibold text-green-800 mb-2'>Ce dont je m&apos;occupe:</h5>
+                    <h5 className='font-semibold text-green-800 mb-2'>
+                      {locale === 'en'
+                        ? 'What I handle:'
+                        : locale === 'ru'
+                          ? 'Чем я занимаюсь:'
+                          : "Ce dont je m'occupe:"}
+                    </h5>
                     <ul className='space-y-1'>
                       {dict.pricing.guide_section.business_focus.what_i_handle?.map(
                         (item, index) => (
@@ -597,7 +635,11 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                     const contactUrl = `/${locale === 'fr' ? '' : locale + '/'}contact`
                     window.location.href = contactUrl
                   }}>
-                  Contactez-moi maintenant
+                  {locale === 'en'
+                    ? 'Contact me now'
+                    : locale === 'ru'
+                      ? 'Свяжитесь со мной сейчас'
+                      : 'Contactez-moi maintenant'}
                 </CTAButton>
               </motion.div>
             )}
