@@ -75,6 +75,15 @@ interface Dictionary {
         title?: string
         content?: string
         contact_text?: string
+        button?: string
+      }
+      labels?: {
+        ideal_for?: string
+        recommended_plan?: string
+        maintenance?: string
+        why_important?: string
+        risks_without_maintenance?: string
+        what_i_handle?: string
       }
     }
     maintenance?: {
@@ -386,45 +395,29 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                       <div className='grid md:grid-cols-2 gap-4 text-sm'>
                         <div>
                           <p className='font-semibold text-gray-800 mb-2'>
-                            🎯{' '}
-                            {locale === 'en'
-                              ? 'Ideal for:'
-                              : locale === 'ru'
-                                ? 'Идеально для:'
-                                : 'Idéal pour:'}
+                            🎯 {dict?.pricing?.guide_section?.labels?.ideal_for || 'Idéal pour:'}
                           </p>
                           <p className='text-gray-600'>{type.best_for}</p>
                         </div>
                         <div>
                           <p className='font-semibold text-gray-800 mb-2'>
                             💡{' '}
-                            {locale === 'en'
-                              ? 'Recommended plan:'
-                              : locale === 'ru'
-                                ? 'Рекомендуемый тариф:'
-                                : 'Plan recommandé:'}
+                            {dict?.pricing?.guide_section?.labels?.recommended_plan ||
+                              'Plan recommandé:'}
                           </p>
                           <p className='text-green-600 font-semibold'>{type.plan_recommendation}</p>
                         </div>
                         <div className='md:col-span-2'>
                           <p className='font-semibold text-gray-800 mb-2'>
-                            🔧{' '}
-                            {locale === 'en'
-                              ? 'Maintenance:'
-                              : locale === 'ru'
-                                ? 'Поддержка:'
-                                : 'Maintenance:'}
+                            🔧 {dict?.pricing?.guide_section?.labels?.maintenance || 'Maintenance:'}
                           </p>
                           <p className='text-gray-600'>{type.maintenance}</p>
                         </div>
                         <div className='md:col-span-2 bg-yellow-50 p-3 rounded-lg'>
                           <p className='font-semibold text-gray-800 mb-1'>
                             ⚠️{' '}
-                            {locale === 'en'
-                              ? "Why it's important:"
-                              : locale === 'ru'
-                                ? 'Почему это важно:'
-                                : "Pourquoi c'est important:"}
+                            {dict?.pricing?.guide_section?.labels?.why_important ||
+                              "Pourquoi c'est important:"}
                           </p>
                           <p className='text-gray-700 text-sm'>{type.why_important}</p>
                         </div>
@@ -487,11 +480,8 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                   </p>
                   <div className='bg-red-50 p-4 rounded-lg'>
                     <h5 className='font-semibold text-red-800 mb-2'>
-                      {locale === 'en'
-                        ? 'Risks without maintenance:'
-                        : locale === 'ru'
-                          ? 'Риски без поддержки:'
-                          : 'Risques sans maintenance:'}
+                      {dict?.pricing?.guide_section?.labels?.risks_without_maintenance ||
+                        'Risques sans maintenance:'}
                     </h5>
                     <ul className='space-y-1'>
                       {dict.pricing.guide_section.single_payment_option.risks?.map(
@@ -523,11 +513,8 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                   </p>
                   <div className='bg-green-50 p-4 rounded-lg'>
                     <h5 className='font-semibold text-green-800 mb-2'>
-                      {locale === 'en'
-                        ? 'What I handle:'
-                        : locale === 'ru'
-                          ? 'Чем я занимаюсь:'
-                          : "Ce dont je m'occupe:"}
+                      {dict?.pricing?.guide_section?.labels?.what_i_handle ||
+                        "Ce dont je m'occupe:"}
                     </h5>
                     <ul className='space-y-1'>
                       {dict.pricing.guide_section.business_focus.what_i_handle?.map(
@@ -635,11 +622,8 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                     const contactUrl = `/${locale === 'fr' ? '' : locale + '/'}contact`
                     window.location.href = contactUrl
                   }}>
-                  {locale === 'en'
-                    ? 'Contact me now'
-                    : locale === 'ru'
-                      ? 'Свяжитесь со мной сейчас'
-                      : 'Contactez-moi maintenant'}
+                  {dict?.pricing?.guide_section?.call_to_action?.button ||
+                    'Contactez-moi maintenant'}
                 </CTAButton>
               </motion.div>
             )}

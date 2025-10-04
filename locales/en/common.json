@@ -706,7 +706,16 @@
       "call_to_action": {
         "title": "🎯 Ready to Launch Your Project?",
         "content": "Every day without a professional website, potential customers go to the competition. Invest in your digital presence now.",
-        "contact_text": "Let's discuss your project and find the perfect solution for your business."
+        "contact_text": "Let's discuss your project and find the perfect solution for your business.",
+        "button": "Contact me now"
+      },
+      "labels": {
+        "ideal_for": "Ideal for:",
+        "recommended_plan": "Recommended plan:",
+        "maintenance": "Maintenance:",
+        "why_important": "Why it's important:",
+        "risks_without_maintenance": "Risks without maintenance:",
+        "what_i_handle": "What I handle:"
       }
     }
   },

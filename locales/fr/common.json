@@ -706,7 +706,16 @@
       "call_to_action": {
         "title": "🎯 Prêt à Lancer Votre Projet ?",
         "content": "Chaque jour sans site web professionnel, c'est des clients potentiels qui passent chez la concurrence. Investissez dans votre présence digitale dès maintenant.",
-        "contact_text": "Discutons de votre projet et trouvons la solution parfaite pour votre business."
+        "contact_text": "Discutons de votre projet et trouvons la solution parfaite pour votre business.",
+        "button": "Contactez-moi maintenant"
+      },
+      "labels": {
+        "ideal_for": "Idéal pour:",
+        "recommended_plan": "Plan recommandé:",
+        "maintenance": "Maintenance:",
+        "why_important": "Pourquoi c'est important:",
+        "risks_without_maintenance": "Risques sans maintenance:",
+        "what_i_handle": "Ce dont je m'occupe:"
       }
     }
   },
