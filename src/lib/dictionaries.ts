@@ -241,6 +241,7 @@ export interface Dictionary {
     socialDesc: string
     form: {
       title: string
+      responseTime: string
       name: {
         label: string
         placeholder: string

@@ -170,6 +170,7 @@ export const fallbackDictionary: Dictionary = {
     socialDesc: 'Follow us on social media.',
     form: {
       title: 'Contact Form',
+      responseTime: 'We usually reply within 24 hours',
       name: {
         label: 'Name',
         placeholder: 'Enter your name',

@@ -23,6 +23,7 @@ interface ContactForm {
   success_description?: string
   error?: string
   error_description?: string
+  responseTime?: string
 }
 
 interface ContactDictionary {

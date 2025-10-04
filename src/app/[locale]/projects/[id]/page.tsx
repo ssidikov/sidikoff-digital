@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Metadata } from 'next'
 import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
-import { projects } from '@/data/projects'
+import { getProjects, projects as fallbackProjects } from '@/data/projects'
 import { getProjectsUrl, getProjectUrl, getLocalizedUrl } from '@/utils/navigation'
 import CTAButton from '@/components/ui/CTAButton'
 import { Section } from '@/components/ui'
@@ -14,9 +14,19 @@ interface ProjectPageProps {
   params: Promise<{ locale: Locale; id: string }>
 }
 
+function findProject(locale: Locale, id: string) {
+  const localizedProject = getProjects(locale).find((project) => project.id === id)
+
+  if (localizedProject) {
+    return localizedProject
+  }
+
+  return fallbackProjects.find((project) => project.id === id)
+}
+
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
   const { locale, id } = await params
-  const project = projects.find((p) => p.id === id)
+  const project = findProject(locale, id)
 
   if (!project) {
     return {
@@ -59,14 +69,14 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 }
 
 export async function generateStaticParams() {
-  return projects.map((project) => ({
+  return fallbackProjects.map((project) => ({
     id: project.id,
   }))
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { locale, id } = await params
-  const project = projects.find((p) => p.id === id)
+  const project = findProject(locale, id)
 
   if (!project) {
     notFound()

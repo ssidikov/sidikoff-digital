@@ -23,6 +23,7 @@ interface ContactForm {
   success_description?: string
   error?: string
   error_description?: string
+  responseTime?: string
 }
 
 interface ContactInfo {
@@ -290,7 +291,9 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
               <h3 className='text-2xl lg:text-3xl font-bold text-gray-900 mb-2'>
                 {dictionary?.form?.title || 'Envoyez-nous un message'}
               </h3>
-              <p className='text-gray-500 text-sm'>Nous répondons généralement sous 24h</p>
+              <p className='text-gray-500 text-sm'>
+                {dictionary?.form?.responseTime || 'Nous répondons généralement sous 24h'}
+              </p>
             </div>
             <form onSubmit={handleSubmit} className='space-y-6'>
               <div>

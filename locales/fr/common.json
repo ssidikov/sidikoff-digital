@@ -405,6 +405,7 @@
     "socialDesc": "Suivez-nous sur les réseaux sociaux pour les dernières mises à jour, insights et contenu en coulisses.",
     "form": {
       "title": "Envoyez-nous un message",
+      "responseTime": "Nous répondons généralement sous 24h",
       "name": {
         "label": "Nom Complet",
         "placeholder": "Entrez votre nom complet"
