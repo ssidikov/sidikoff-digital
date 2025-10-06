@@ -1,5 +1,5 @@
 ﻿import { MetadataRoute } from 'next'
-import { getBlogPosts } from '@/lib/sanity'
+import { getBlogPosts, type BlogPost } from '@/lib/sanity'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://sidikoff.com'
@@ -41,7 +41,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let blogPosts: Array<{ slug: { current: string }; publishedAt: string }> = []
   try {
     const posts = await getBlogPosts()
-    blogPosts = posts.map((post) => ({
+    blogPosts = posts.map((post: BlogPost) => ({
       slug: post.slug,
       publishedAt: post.publishedAt || currentDate.toISOString(),
     }))
