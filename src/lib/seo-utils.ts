@@ -364,11 +364,14 @@ export function createCanonicalUrl(path: string, locale: Locale): string {
 
   // French is the default locale, no prefix needed
   if (locale === 'fr') {
-    return `${DEFAULT_SEO.siteUrl}${cleanPath ? '/' + cleanPath : ''}`
+    // Always include trailing slash for homepage to match browser behavior
+    // For other pages, add leading slash before the path
+    return `${DEFAULT_SEO.siteUrl}${cleanPath ? '/' + cleanPath : '/'}`
   }
 
   // Other locales get prefixes
-  return `${DEFAULT_SEO.siteUrl}/${locale}${cleanPath ? '/' + cleanPath : ''}`
+  // Always include trailing slash for homepage, leading slash for other pages
+  return `${DEFAULT_SEO.siteUrl}/${locale}${cleanPath ? '/' + cleanPath : '/'}`
 }
 
 // Generate local business schema

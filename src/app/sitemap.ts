@@ -52,7 +52,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // French pages (default, no prefix)
   routes.forEach((route) => {
     sitemap.push({
-      url: `${baseUrl}${route}`,
+      url: `${baseUrl}${route === '' ? '/' : route}`,
       lastModified: currentDate,
       changeFrequency: route === '/blog' ? 'daily' : 'weekly',
       priority: route === '' ? 1.0 : route === '/contact' ? 0.9 : 0.7,
@@ -72,7 +72,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // English pages
   routes.forEach((route) => {
     sitemap.push({
-      url: `${baseUrl}/en${route}`,
+      url: `${baseUrl}/en${route === '' ? '/' : route}`,
       lastModified: currentDate,
       changeFrequency: route === '/blog' ? 'daily' : 'weekly',
       priority: route === '' ? 0.8 : route === '/contact' ? 0.7 : 0.6,
@@ -92,7 +92,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Russian pages
   routes.forEach((route) => {
     sitemap.push({
-      url: `${baseUrl}/ru${route}`,
+      url: `${baseUrl}/ru${route === '' ? '/' : route}`,
       lastModified: currentDate,
       changeFrequency: route === '/blog' ? 'daily' : 'weekly',
       priority: route === '' ? 0.8 : route === '/contact' ? 0.7 : 0.6,
