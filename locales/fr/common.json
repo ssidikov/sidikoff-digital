@@ -351,7 +351,7 @@
     "questions": {
       "prix_site_web": {
         "question": "Combien coûte la création d'un site internet professionnel ?",
-        "answer": "Le prix pour créer un site web varie de 800€ à 15 000€ selon vos besoins : site vitrine (800€-4 000€), site e-commerce (3 000€-8 000€), ou développement sur-mesure (5 000€-15 000€). Chaque projet inclut design responsive, optimisation SEO et formation. Contactez-nous pour un devis gratuit personnalisé sous 24h.",
+        "answer": "Le coût dépend des objectifs du projet, du nombre de pages et des fonctionnalités.\nEn moyenne, le prix de création d'un site web professionnel varie de 800€ à 1800€.\nCela inclut le design responsive, l'optimisation SEO, la configuration des analytics et le support technique de base après le lancement.\n\nAudit gratuit et devis détaillé fournis après discussion de votre projet.",
         "category": "pricing"
       },
       "delai_creation": {
@@ -361,12 +361,12 @@
       },
       "services_agence": {
         "question": "Quels services propose votre agence web ?",
-        "answer": "Nous sommes une agence digitale complète spécialisée dans la création de sites web, refonte de sites existants, développement e-commerce, optimisation SEO, maintenance et support technique. Nous accompagnons aussi les restaurants, médecins, avocats, et freelances avec des solutions métier spécialisées.",
+        "answer": "Nous créons et mettons à jour des sites web, améliorons leur vitesse, SEO et conversions, et assurons également le support après lancement — pour que votre entreprise se développe en ligne.",
         "category": "general"
       },
       "refonte_site": {
         "question": "Mon site est obsolète, proposez-vous la refonte de sites web ?",
-        "answer": "Absolument ! Notre service de refonte modernise votre site existant pour améliorer design, vitesse, SEO et taux de conversion. Prix refonte : 2 500€ à 10 000€ selon l'ampleur. Audit gratuit inclus pour identifier les axes d'amélioration prioritaires et booster vos performances.",
+        "answer": "Nous mettrons à jour le design, accélérerons le chargement, améliorerons le SEO et les conversions. Prix à partir de 450€, devis détaillé après audit gratuit.",
         "category": "general"
       },
       "maintenance_support": {

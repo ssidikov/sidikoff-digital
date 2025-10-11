@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import CTAButton from '@/components/ui/CTAButton'
 import Section, { SectionHeader } from '@/components/ui/Section'
 import { type Locale } from '@/lib/i18n'
+import { defaultLocale } from '@/lib/i18n'
 
 interface FAQItem {
   id: string
@@ -112,8 +113,7 @@ const ANIMATION_CONFIG = {
  * FAQ section component with expandable items and responsive layout
  * Features smooth animations, accessibility, and analytics tracking
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const FAQ = ({ dictionary, className, locale: _locale }: FAQProps) => {
+export const FAQ = ({ dictionary, className, locale }: FAQProps) => {
   const [openItems, setOpenItems] = useState<Set<string>>(new Set())
 
   // Memoized FAQ data transformation
@@ -207,7 +207,7 @@ export const FAQ = ({ dictionary, className, locale: _locale }: FAQProps) => {
             {dictionary?.cta?.description || 'Vous ne trouvez pas la réponse à votre question ?'}
           </p>
           <CTAButton
-            href='#contact'
+            href={`/${locale || defaultLocale}/contact`}
             variant='primary'
             trackingAction='faq_contact'
             trackingCategory='faq'

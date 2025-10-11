@@ -351,7 +351,7 @@
     "questions": {
       "website_cost": {
         "question": "How much does it cost to create a professional website?",
-        "answer": "Professional website costs range from €800 to €15,000 depending on your needs: showcase website (€800-€4,000), e-commerce site (€3,000-€8,000), or custom development (€5,000-€15,000). Each project includes responsive design, SEO optimization, and training. Contact us for a free personalized quote within 24h.",
+        "answer": "The cost depends on the project goals, number of pages, and functionality.\nOn average, the price for creating a professional website ranges from €800 to €1800.\nThis includes responsive design, SEO optimization, analytics setup, and basic technical support after launch.\n\nFree audit and detailed quote provided after discussing your project.",
         "category": "pricing"
       },
       "development_timeline": {
@@ -361,12 +361,12 @@
       },
       "web_agency_services": {
         "question": "What services does your web agency offer?",
-        "answer": "We are a full-service digital agency specializing in website creation, website redesign, e-commerce development, SEO optimization, maintenance, and technical support. We also serve restaurants, doctors, lawyers, and freelancers with specialized industry solutions.",
+        "answer": "We create and update websites, improve their speed, SEO and conversions, and also provide post-launch support — so your business grows online.",
         "category": "general"
       },
       "website_redesign": {
         "question": "My site is outdated, do you offer website redesign services?",
-        "answer": "Absolutely! Our redesign service modernizes your existing site to improve design, speed, SEO, and conversion rates. Redesign pricing: €2,500 to €10,000 depending on scope. Free audit included to identify priority improvement areas and boost your performance.",
+        "answer": "We'll update the design, speed up loading, improve SEO and conversions. Prices start from €450, detailed quote after free audit.",
         "category": "general"
       },
       "maintenance_support": {
