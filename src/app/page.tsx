@@ -35,8 +35,8 @@ export async function generateMetadata() {
     title: SEO_CONFIG.title,
     description: dict.hero.subtitle,
     locale: defaultLocale,
-    canonicalUrl: createCanonicalUrl('/', defaultLocale),
-    alternateLanguages: generateLanguageAlternates('/', ['fr', 'en', 'ru']),
+    canonicalUrl: createCanonicalUrl('', defaultLocale),
+    alternateLanguages: generateLanguageAlternates('', ['fr', 'en', 'ru']),
     ogImage: SEO_CONFIG.ogImage,
     keywords: [...SEO_CONFIG.keywords],
   })
