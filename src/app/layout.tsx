@@ -5,7 +5,7 @@ import { inter } from '@/lib/fonts'
 
 // SEO Configuration
 const SITE_CONFIG = {
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com',
   name: 'SIDIKOFF DIGITAL',
   title:
     'Création de sites web | SIDIKOFF DIGITAL - Agence Web | Développement Web Paris, Lyon, Toulouse, Strasbourg',

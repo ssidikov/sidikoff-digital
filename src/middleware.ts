@@ -422,33 +422,30 @@ export function middleware(request: NextRequest) {
   const host = request.headers.get('host')
   const protocol = request.headers.get('x-forwarded-proto') || 'https'
 
-  // Only redirect in production to avoid issues with localhost
-  if (process.env.NODE_ENV === 'production' && host) {
-    // Check if we need to redirect from www to non-www
-    if (host === 'www.sidikoff.com' || host.startsWith('www.sidikoff.com:')) {
-      const redirectUrl = new URL(request.url)
-      redirectUrl.host = PREFERRED_DOMAIN
-      redirectUrl.protocol = CANONICAL_PROTOCOL
+  // Check if we need to redirect from www to non-www (always, not just in production)
+  if (host && (host === 'www.sidikoff.com' || host.startsWith('www.sidikoff.com:'))) {
+    const redirectUrl = new URL(request.url)
+    redirectUrl.host = PREFERRED_DOMAIN
+    redirectUrl.protocol = CANONICAL_PROTOCOL
 
-      return NextResponse.redirect(redirectUrl, {
-        status: 301,
-        headers: SECURITY_HEADERS,
-      })
-    }
+    return NextResponse.redirect(redirectUrl, {
+      status: 301,
+      headers: {
+        'X-Robots-Tag': 'noindex, nofollow',
+        ...SECURITY_HEADERS,
+      },
+    })
+  }
 
-    // Also handle protocol redirects (HTTP → HTTPS)
-    if (protocol === 'http' && (host === PREFERRED_DOMAIN || host === 'www.sidikoff.com')) {
-      const redirectUrl = new URL(request.url)
-      redirectUrl.protocol = 'https'
-      if (host === 'www.sidikoff.com') {
-        redirectUrl.host = PREFERRED_DOMAIN
-      }
+  // Also handle protocol redirects (HTTP → HTTPS) in production
+  if (process.env.NODE_ENV === 'production' && protocol === 'http' && host === PREFERRED_DOMAIN) {
+    const redirectUrl = new URL(request.url)
+    redirectUrl.protocol = 'https'
 
-      return NextResponse.redirect(redirectUrl, {
-        status: 301,
-        headers: SECURITY_HEADERS,
-      })
-    }
+    return NextResponse.redirect(redirectUrl, {
+      status: 301,
+      headers: SECURITY_HEADERS,
+    })
   }
 
   // Fix double locale prefixes (e.g., /ru/ru/blog -> /ru/blog)
