@@ -169,14 +169,14 @@ export function middleware(request: NextRequest) {
   if (isDeletedSEOPage(pathname)) {
     // Extract location info from URL
     const pathWithoutLocale = pathname.replace(/^\/(en|ru)/, '')
-    
+
     // ИСПРАВЛЕНО: Обрабатываем оба формата:
     // - /seo/creation-site-web-city
     // - /seo/city
     let locationName = ''
     const longFormatMatch = pathWithoutLocale.match(/\/seo\/creation-site-web-(.+)/)
     const shortFormatMatch = pathWithoutLocale.match(/\/seo\/(.+)/)
-    
+
     if (longFormatMatch?.[1]) {
       locationName = longFormatMatch[1].replace(/-/g, ' ')
     } else if (shortFormatMatch?.[1]) {

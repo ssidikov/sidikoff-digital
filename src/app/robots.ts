@@ -46,9 +46,9 @@ export default function robots(): MetadataRoute.Robots {
           '/fr/', // Allow /fr/ paths for Googlebot
         ],
         disallow: [
-          '/api/', 
-          '/admin/', 
-          '/studio/', 
+          '/api/',
+          '/admin/',
+          '/studio/',
           '/private/',
           '/seo/', // Block all deleted SEO pages
         ],
@@ -61,9 +61,9 @@ export default function robots(): MetadataRoute.Robots {
           '/fr/', // Allow /fr/ paths for Bingbot
         ],
         disallow: [
-          '/api/', 
-          '/admin/', 
-          '/studio/', 
+          '/api/',
+          '/admin/',
+          '/studio/',
           '/private/',
           '/seo/', // Block all deleted SEO pages
         ],
