@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description:
       'Agence spécialisée en création de sites web, e-commerce et SEO. Nous accompagnons entreprises, indépendants et startups dans toute la France.',
     type: 'website',
-    url: 'https://www.sidikoff.com/',
+    url: 'https://sidikoff.com/',
   },
   twitter: {
     card: 'summary_large_image',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
       'Agence spécialisée en création de sites web, e-commerce et SEO. Nous accompagnons entreprises, indépendants et startups dans toute la France.',
   },
   alternates: {
-    canonical: 'https://www.sidikoff.com/',
+    canonical: 'https://sidikoff.com/',
   },
 }
 

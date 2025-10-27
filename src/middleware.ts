@@ -36,214 +36,6 @@ const SECURITY_HEADERS = {
       }),
 } as const
 
-// Deleted SEO locations that should return 410 Gone
-// ОПТИМИЗИРОВАНО: Используем Set для O(1) поиска вместо O(n)
-const DELETED_SEO_CITIES_SET = new Set([
-  'paris',
-  'marseille',
-  'lyon',
-  'toulouse',
-  'nice',
-  'nantes',
-  'montpellier',
-  'strasbourg',
-  'bordeaux',
-  'lille',
-  'rennes',
-  'reims',
-  'saint-etienne',
-  'toulon',
-  'le-havre',
-  'grenoble',
-  'dijon',
-  'angers',
-  'nimes',
-  'villeurbanne',
-  'saint-denis-reunion',
-  'aix-en-provence',
-  'clermont-ferrand',
-  'brest',
-  'limoges',
-  'tours',
-  'amiens',
-  'perpignan',
-  'metz',
-  'besancon',
-  'boulogne-billancourt',
-  'orleans',
-  'mulhouse',
-  'rouen',
-  'caen',
-  'nancy',
-  'argenteuil',
-  'montreuil',
-  'roubaix',
-  'tourcoing',
-  'nanterre',
-  'avignon',
-  'poitiers',
-  'fort-de-france',
-  'courbevoie',
-  'versailles',
-  'colombes',
-  'aulnay-sous-bois',
-  'saint-paul',
-  'rueil-malmaison',
-  'champigny-sur-marne',
-  'antibes',
-  'dunkerque',
-  'pessac',
-  'levallois-perret',
-  'noisy-le-grand',
-  'cergy',
-  'pau',
-  'ivry-sur-seine',
-  'creteil',
-  'bourges',
-  'cannes',
-  'montrouge',
-  'neuilly-sur-seine',
-  'sarcelles',
-  'troyes',
-  'issy-les-moulineaux',
-  'montauban',
-  'lorient',
-  'beauvais',
-  'cholet',
-  'vannes',
-  'laval',
-  'charleville-mezieres',
-  'allonnes',
-  'valence',
-  'les-abymes',
-  'quimper',
-  'meaux',
-  'biarritz',
-  'auxerre',
-  'la-rochelle',
-  'matoury',
-  'evry-courcouronnes',
-  'calais',
-  'merignac',
-  'saint-malo',
-  'chelles',
-  'bourg-en-bresse',
-  'blois',
-  'cagnes-sur-mer',
-  'salon-de-provence',
-  'saint-brieuc',
-  'saint-nazaire',
-  'chatou',
-  'garges-les-gonesse',
-  'savigny-sur-orge',
-  'pontoise',
-  'sens',
-  'evreux',
-  'choisy-le-roi',
-  'suresnes',
-  'puteaux',
-  'clichy',
-  'saint-germain-en-laye',
-  'franconville',
-  'drancy',
-  'gagny',
-  'livry-gargan',
-  'sevran',
-  'vitry-sur-seine',
-  'thiais',
-  'fresnes',
-  'fontenay-sous-bois',
-  'noisy-le-sec',
-  'maisons-alfort',
-  'saint-maur-des-fosses',
-  'vincennes',
-  'nogent-sur-marne',
-  'le-perreux-sur-marne',
-  'bry-sur-marne',
-  'joinville-le-pont',
-  'saint-mande',
-  'charenton-le-pont',
-  'alfortville',
-  'maisons-laffitte',
-  'le-vesinet',
-  'sartrouville',
-  'houilles',
-  'carrieres-sur-seine',
-  'le-port-marly',
-  'marnes-la-coquette',
-  'vaucresson',
-  'chaville',
-  'sevres',
-  'vanves',
-  'malakoff',
-  'bagneux',
-  'fontenay-aux-roses',
-  'le-plessis-robinson',
-  'chatenay-malabry',
-  'antony',
-  'bourg-la-reine',
-  'sceaux',
-  'rungis',
-  'chevilly-larue',
-  'l-hay-les-roses',
-  'cachan',
-  'arcueil',
-  'gentilly',
-  'le-kremlin-bicetre',
-  'villejuif',
-  'saint-maurice',
-  'bagnolet',
-  'les-lilas',
-  'le-pre-saint-gervais',
-  'pantin',
-  'bobigny',
-  'bondy',
-  'rosny-sous-bois',
-  'villemomble',
-  'montfermeil',
-  'clichy-sous-bois',
-  'coubron',
-  'vaujours',
-  'le-blanc-mesnil',
-  'dugny',
-  'le-bourget',
-  'la-courneuve',
-  'stains',
-  'pierrefitte-sur-seine',
-  'villetaneuse',
-  'epinay-sur-seine',
-  'saint-denis',
-  'l-ile-saint-denis',
-  'saint-ouen-sur-seine',
-  'garches',
-  'saint-cloud',
-  'meudon',
-  'clamart',
-  'annecy',
-  'le-mans',
-])
-
-const DELETED_SEO_REGIONS_SET = new Set([
-  'ile-de-france',
-  'auvergne-rhone-alpes',
-  'nouvelle-aquitaine',
-  'occitanie',
-  'hauts-de-france',
-  'grand-est',
-  'provence-alpes-cote-azur',
-  'bretagne',
-  'pays-de-la-loire',
-  'normandie',
-  'bourgogne-franche-comte',
-  'centre-val-de-loire',
-  'corse',
-  'guadeloupe',
-  'martinique',
-  'guyane',
-  'la-reunion',
-  'mayotte',
-])
-
 /**
  * Checks if the path should skip middleware processing
  * ОПТИМИЗИРОВАНО: Используем Set для быстрого поиска
@@ -270,18 +62,10 @@ function isDeletedSEOPage(pathname: string): boolean {
   // Remove locale prefix if present
   const pathWithoutLocale = pathname.replace(/^\/(en|ru)/, '')
 
-  // Check for /seo/[slug] pattern (all deleted SEO pages)
+  // ИСПРАВЛЕНО: Все URL с /seo/ считаются удалёнными страницами
+  // Это включает как /seo/city так и /seo/creation-site-web-city
   if (pathWithoutLocale.startsWith('/seo/')) {
     return true
-  }
-
-  // Check for specific deleted city/region patterns
-  const seoPattern = /^\/seo\/creation-site-web-(.*)/
-  const match = pathWithoutLocale.match(seoPattern)
-
-  if (match) {
-    const slug = match[1]
-    return slug ? DELETED_SEO_CITIES_SET.has(slug) || DELETED_SEO_REGIONS_SET.has(slug) : false
   }
 
   return false
@@ -385,8 +169,19 @@ export function middleware(request: NextRequest) {
   if (isDeletedSEOPage(pathname)) {
     // Extract location info from URL
     const pathWithoutLocale = pathname.replace(/^\/(en|ru)/, '')
-    const seoMatch = pathWithoutLocale.match(/\/seo\/creation-site-web-(.*)/)
-    const locationName = seoMatch?.[1]?.replace(/-/g, ' ') || ''
+    
+    // ИСПРАВЛЕНО: Обрабатываем оба формата:
+    // - /seo/creation-site-web-city
+    // - /seo/city
+    let locationName = ''
+    const longFormatMatch = pathWithoutLocale.match(/\/seo\/creation-site-web-(.+)/)
+    const shortFormatMatch = pathWithoutLocale.match(/\/seo\/(.+)/)
+    
+    if (longFormatMatch?.[1]) {
+      locationName = longFormatMatch[1].replace(/-/g, ' ')
+    } else if (shortFormatMatch?.[1]) {
+      locationName = shortFormatMatch[1].replace(/-/g, ' ')
+    }
 
     // Determine locale from pathname
     let locale: 'fr' | 'en' | 'ru' = 'fr'

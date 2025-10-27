@@ -23,6 +23,7 @@ export default function robots(): MetadataRoute.Robots {
           '/404',
           '/500',
           '/fonts/',
+          '/seo/', // Block all deleted SEO pages
           '/services/fullstack',
           '/services/frontend',
           '/services/backend',
@@ -44,7 +45,13 @@ export default function robots(): MetadataRoute.Robots {
           '/',
           '/fr/', // Allow /fr/ paths for Googlebot
         ],
-        disallow: ['/api/', '/admin/', '/studio/', '/private/'],
+        disallow: [
+          '/api/', 
+          '/admin/', 
+          '/studio/', 
+          '/private/',
+          '/seo/', // Block all deleted SEO pages
+        ],
         // Note: Googlebot ignores crawlDelay directive
       },
       {
@@ -53,7 +60,13 @@ export default function robots(): MetadataRoute.Robots {
           '/',
           '/fr/', // Allow /fr/ paths for Bingbot
         ],
-        disallow: ['/api/', '/admin/', '/studio/', '/private/'],
+        disallow: [
+          '/api/', 
+          '/admin/', 
+          '/studio/', 
+          '/private/',
+          '/seo/', // Block all deleted SEO pages
+        ],
         crawlDelay: 1,
       },
       // Block specific bad bots
