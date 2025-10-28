@@ -18,7 +18,12 @@ interface PortfolioProps {
  * Portfolio section component displaying project carousel
  * Features responsive design and localized content
  */
-export default function Portfolio({ locale, dictionary, className, isHomePage = false }: PortfolioProps) {
+export default function Portfolio({
+  locale,
+  dictionary,
+  className,
+  isHomePage = false,
+}: PortfolioProps) {
   const projects = getProjects(locale)
   const carouselItems = convertProjectsToPortfolioItems(projects)
 

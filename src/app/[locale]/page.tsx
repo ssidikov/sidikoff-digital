@@ -130,8 +130,8 @@ export default async function HomePage({ params }: HomePageProps) {
           {locale === 'fr'
             ? 'Aller au contenu principal'
             : locale === 'en'
-              ? 'Skip to main content'
-              : 'Перейти к основному содержанию'}
+            ? 'Skip to main content'
+            : 'Перейти к основному содержанию'}
         </a>
 
         <div id='main-content'>

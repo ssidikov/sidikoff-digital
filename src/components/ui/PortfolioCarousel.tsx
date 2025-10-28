@@ -490,8 +490,8 @@ export default function PortfolioCarousel({
               (locale === 'fr'
                 ? 'Découvrez nos réalisations web'
                 : locale === 'en'
-                  ? 'Discover our web projects'
-                  : 'Ознакомьтесь с нашими веб-проектами')
+                ? 'Discover our web projects'
+                : 'Ознакомьтесь с нашими веб-проектами')
             }
             titleId='portfolio-title'
             as={isHomePage ? 'h2' : 'h1'}

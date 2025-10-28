@@ -63,7 +63,12 @@ const scrollToPricing = (): void => {
  * Services section component with service cards and CTA banner
  * Features responsive design, animations, and accessibility
  */
-export function Services({ dictionary: dict, locale, className, isHomePage = false }: ServicesProps) {
+export function Services({
+  dictionary: dict,
+  locale,
+  className,
+  isHomePage = false,
+}: ServicesProps) {
   const services = [
     {
       title: dict.web_creation.title,
