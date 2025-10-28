@@ -106,12 +106,12 @@ export default async function HomePage() {
         <Header locale={defaultLocale} dictionary={dict} />
         <main className='m-0 p-0'>
           <Hero dict={dict.hero} locale={defaultLocale} />
-          <Services dictionary={dict.services} locale={defaultLocale} />
-          <Portfolio dictionary={dict.portfolio} locale={defaultLocale} />
+          <Services dictionary={dict.services} locale={defaultLocale} isHomePage={true} />
+          <Portfolio dictionary={dict.portfolio} locale={defaultLocale} isHomePage={true} />
           <Pricing locale={defaultLocale} />
           <Testimonials dictionary={dict.testimonials} locale={defaultLocale} />
-          <FAQ dictionary={dict.faq} />
-          <Contact dictionary={dict.contact} locale={defaultLocale} />
+          <FAQ dictionary={dict.faq} isHomePage={true} />
+          <Contact dictionary={dict.contact} locale={defaultLocale} isHomePage={true} />
         </main>
         <Footer dictionary={dict} locale={defaultLocale} />
       </div>

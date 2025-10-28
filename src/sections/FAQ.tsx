@@ -49,6 +49,7 @@ interface FAQProps {
   locale?: Locale
   dictionary?: FAQDictionary
   className?: string
+  isHomePage?: boolean // Add prop to determine if on homepage
 }
 
 // Default FAQ data for fallback
@@ -113,7 +114,7 @@ const ANIMATION_CONFIG = {
  * FAQ section component with expandable items and responsive layout
  * Features smooth animations, accessibility, and analytics tracking
  */
-export const FAQ = ({ dictionary, className, locale }: FAQProps) => {
+export const FAQ = ({ dictionary, className, locale, isHomePage = false }: FAQProps) => {
   const [openItems, setOpenItems] = useState<Set<string>>(new Set())
 
   // Memoized FAQ data transformation
@@ -166,7 +167,7 @@ export const FAQ = ({ dictionary, className, locale }: FAQProps) => {
             'Retrouvez les réponses aux questions les plus courantes sur nos services'
           }
           titleId='faq-title'
-          as='h1'
+          as={isHomePage ? 'h2' : 'h1'}
           className='mb-10 text-left md:mb-16'
         />
 

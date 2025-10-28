@@ -13,6 +13,7 @@ interface ServicesProps {
   dictionary: Dictionary['services']
   locale: Locale
   className?: string
+  isHomePage?: boolean // Add prop to determine if on homepage
 }
 
 // Animation configurations
@@ -62,7 +63,7 @@ const scrollToPricing = (): void => {
  * Services section component with service cards and CTA banner
  * Features responsive design, animations, and accessibility
  */
-export function Services({ dictionary: dict, locale, className }: ServicesProps) {
+export function Services({ dictionary: dict, locale, className, isHomePage = false }: ServicesProps) {
   const services = [
     {
       title: dict.web_creation.title,
@@ -147,7 +148,7 @@ export function Services({ dictionary: dict, locale, className }: ServicesProps)
           title={dict.title}
           subtitle={dict.subtitle}
           titleId='services-title'
-          as='h1'
+          as={isHomePage ? 'h2' : 'h1'}
           className='mb-16 text-left'
         />
 

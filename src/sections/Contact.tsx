@@ -58,6 +58,7 @@ interface ContactProps {
   className?: string
   dictionary?: ContactDictionary
   locale?: Locale
+  isHomePage?: boolean // Add prop to determine if on homepage
 }
 
 interface FormData {
@@ -87,7 +88,7 @@ const STATUS_RESET_TIMEOUT = 5000
  * Contact section component with form and contact information
  * Features validation, status feedback, and accessibility
  */
-const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
+const Contact = ({ className, dictionary, locale = 'fr', isHomePage = false }: ContactProps) => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -182,9 +183,15 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
       <div className='relative z-10'>
         {/* Mobile Title Section - Above everything on mobile */}
         <div className='mb-8 lg:hidden'>
-          <h1 className='text-3xl md:text-4xl font-bold text-[#112D4E] mb-4'>
-            {dictionary?.title || 'Prenez Contact'}
-          </h1>
+          {isHomePage ? (
+            <h2 className='text-3xl md:text-4xl font-bold text-[#112D4E] mb-4'>
+              {dictionary?.title || 'Prenez Contact'}
+            </h2>
+          ) : (
+            <h1 className='text-3xl md:text-4xl font-bold text-[#112D4E] mb-4'>
+              {dictionary?.title || 'Prenez Contact'}
+            </h1>
+          )}
           <p className='text-xl text-accent mb-6 font-semibold'>
             {dictionary?.subtitle || 'Prêt à Commencer Votre Projet ?'}
           </p>
@@ -196,9 +203,15 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
           <div className='space-y-8 order-2 lg:order-1'>
             {/* Section Title - Hidden on mobile, shown on desktop */}
             <div className='hidden lg:block'>
-              <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold text-[#112D4E] mb-6'>
-                {dictionary?.title || 'Contactez-Nous'}
-              </h1>
+              {isHomePage ? (
+                <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-[#112D4E] mb-6'>
+                  {dictionary?.title || 'Contactez-Nous'}
+                </h2>
+              ) : (
+                <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold text-[#112D4E] mb-6'>
+                  {dictionary?.title || 'Contactez-Nous'}
+                </h1>
+              )}
               <p className='text-xl text-accent mb-4 font-semibold'>
                 {dictionary?.subtitle || 'Prêt à Commencer Votre Projet ?'}
               </p>

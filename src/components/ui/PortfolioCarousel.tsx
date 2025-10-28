@@ -43,6 +43,7 @@ interface PortfolioCarouselProps {
   title?: string
   subtitle?: string
   className?: string
+  isHomePage?: boolean // Add prop to determine if on homepage
 }
 
 // Helper function to convert projects to portfolio items
@@ -77,6 +78,7 @@ export default function PortfolioCarousel({
   title,
   subtitle,
   className,
+  isHomePage = false,
 }: PortfolioCarouselProps) {
   const [isPaused, setIsPaused] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -492,7 +494,7 @@ export default function PortfolioCarousel({
                   : 'Ознакомьтесь с нашими веб-проектами')
             }
             titleId='portfolio-title'
-            as='h1'
+            as={isHomePage ? 'h2' : 'h1'}
             className='text-left mb-16 px-4'
           />
         </div>
@@ -500,7 +502,9 @@ export default function PortfolioCarousel({
         <div className='relative px-0'>
           <div
             ref={containerRef}
-            className={`portfolio-carousel-container ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+            className={`portfolio-carousel-container ${
+              isDragging ? 'cursor-grabbing' : 'cursor-grab'
+            }`}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -540,10 +544,10 @@ export default function PortfolioCarousel({
                         isActive && isScrolling
                           ? `translateX(-50%) translateX(${-dragOffset * 0.8}px)`
                           : isActive
-                            ? 'translateX(-50%)'
-                            : index < currentIndex
-                              ? 'translateX(-50%) translateX(-100%)'
-                              : 'translateX(-50%) translateX(100%)',
+                          ? 'translateX(-50%)'
+                          : index < currentIndex
+                          ? 'translateX(-50%) translateX(-100%)'
+                          : 'translateX(-50%) translateX(100%)',
                     }}>
                     {renderCardContent(item, isEven)}
                   </div>

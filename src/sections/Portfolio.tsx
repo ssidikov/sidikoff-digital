@@ -11,13 +11,14 @@ interface PortfolioProps {
   locale: Locale
   dictionary: Dictionary['portfolio']
   className?: string
+  isHomePage?: boolean // Add prop to determine if on homepage
 }
 
 /**
  * Portfolio section component displaying project carousel
  * Features responsive design and localized content
  */
-export default function Portfolio({ locale, dictionary, className }: PortfolioProps) {
+export default function Portfolio({ locale, dictionary, className, isHomePage = false }: PortfolioProps) {
   const projects = getProjects(locale)
   const carouselItems = convertProjectsToPortfolioItems(projects)
 
@@ -27,6 +28,7 @@ export default function Portfolio({ locale, dictionary, className }: PortfolioPr
       locale={locale}
       title={dictionary?.title || 'Portfolio'}
       subtitle={dictionary?.subtitle || ''}
+      isHomePage={isHomePage}
       {...(className && { className })}
     />
   )
