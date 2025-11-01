@@ -182,13 +182,14 @@ const Contact = ({ className, dictionary, locale = 'fr', isHomePage = false }: C
       className={className || ''}>
       <div className='relative z-10'>
         {/* Mobile Title Section - Above everything on mobile */}
-        <div className='mb-8 lg:hidden'>
+        {/* Section Title - Visible on all screens */}
+        <div className='mb-8'>
           {isHomePage ? (
-            <h2 className='text-3xl md:text-4xl font-bold text-[#112D4E] mb-4'>
+            <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-[#112D4E] mb-4 lg:mb-6'>
               {dictionary?.title || 'Prenez Contact'}
             </h2>
           ) : (
-            <h1 className='text-3xl md:text-4xl font-bold text-[#112D4E] mb-4'>
+            <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold text-[#112D4E] mb-4 lg:mb-6'>
               {dictionary?.title || 'Prenez Contact'}
             </h1>
           )}
@@ -201,21 +202,6 @@ const Contact = ({ className, dictionary, locale = 'fr', isHomePage = false }: C
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start'>
           {/* Left Side - Text Information (Second on mobile, First on desktop) */}
           <div className='space-y-8 order-2 lg:order-1'>
-            {/* Section Title - Hidden on mobile, shown on desktop */}
-            <div className='hidden lg:block'>
-              {isHomePage ? (
-                <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-[#112D4E] mb-6'>
-                  {dictionary?.title || 'Contactez-Nous'}
-                </h2>
-              ) : (
-                <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold text-[#112D4E] mb-6'>
-                  {dictionary?.title || 'Contactez-Nous'}
-                </h1>
-              )}
-              <p className='text-xl text-accent mb-4 font-semibold'>
-                {dictionary?.subtitle || 'Prêt à Commencer Votre Projet ?'}
-              </p>
-            </div>
 
             {/* Contact Rapide Section */}
             <div className='space-y-6'>

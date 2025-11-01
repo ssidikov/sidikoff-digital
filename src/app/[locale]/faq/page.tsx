@@ -4,7 +4,7 @@ import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
 import LocaleProvider from '@/components/LocaleProvider'
 import { Metadata } from 'next'
-import SEOLinks from '@/components/SEOLinks'
+
 import { generatePageMetadata } from '@/lib/seo-utils'
 
 interface FAQPageProps {
@@ -32,17 +32,14 @@ export default async function FAQPage({ params }: FAQPageProps) {
   const dictionary = await getDictionary(locale)
 
   return (
-    <>
-      <SEOLinks locale={locale} />
-      <LocaleProvider locale={locale}>
-        <div className='min-h-screen'>
-          <main className='m-0 p-0'>
-            <ErrorBoundary>
-              <FAQ dictionary={dictionary.faq} locale={locale} className='pt-[140px]' />
-            </ErrorBoundary>
-          </main>
-        </div>
-      </LocaleProvider>
-    </>
+    <LocaleProvider locale={locale}>
+      <div className='min-h-screen'>
+        <main className='m-0 p-0'>
+          <ErrorBoundary>
+            <FAQ dictionary={dictionary.faq} locale={locale} className='pt-[140px]' />
+          </ErrorBoundary>
+        </main>
+      </div>
+    </LocaleProvider>
   )
 }

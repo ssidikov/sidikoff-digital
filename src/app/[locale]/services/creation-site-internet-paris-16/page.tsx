@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Script from 'next/script'
 import { Locale } from '@/lib/i18n'
-import SEOLinks from '@/components/SEOLinks'
+
 import { Section } from '@/components/ui'
 import CTAButton from '@/components/ui/CTAButton'
 import Link from 'next/link'
@@ -23,10 +23,10 @@ export async function generateMetadata({ params }: Paris16PageProps): Promise<Me
 
   const description =
     locale === 'fr'
-      ? 'Agence web spécialisée Paris 16ème ✓ Création sites internet Passy, Trocadéro, Auteuil ✓ Développement sur mesure ✓ SEO local ✓ Devis gratuit'
+      ? 'SIDIKOFF DIGITAL, agence web 75016, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
       : locale === 'en'
-        ? 'Specialized web agency Paris 16th ✓ Website creation Passy, Trocadéro, Auteuil ✓ Custom development ✓ Local SEO ✓ Free quote'
-        : 'Специализированное веб-агентство Париж 16-й ✓ Создание сайтов Пасси, Трокадеро, Отей ✓ Индивидуальная разработка ✓ Локальное SEO ✓ Бесплатная консультация'
+        ? 'SIDIKOFF DIGITAL, Paris 16th web agency (75016), specializes in website creation and web marketing. Contact us now.'
+        : 'SIDIKOFF DIGITAL, веб-агентство Париж 16-й (75016), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.'
 
   return {
     title,
@@ -83,8 +83,6 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
   if (locale === 'fr') {
     return (
       <>
-        <SEOLinks locale={locale} />
-
         {/* Schema Markup for Local Business and Web Development Services */}
         <Script
           id='schema-local-business-paris-16'
@@ -1645,8 +1643,6 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
   if (locale === 'en') {
     return (
       <>
-        <SEOLinks locale={locale} />
-
         {/* Schema Markup for Local Business and Web Development Services - English */}
         <Script
           id='schema-local-business-paris-16-en'
@@ -1822,8 +1818,6 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
   // Russian content
   return (
     <>
-      <SEOLinks locale={locale} />
-
       {/* Schema Markup for Local Business and Web Development Services - Russian */}
       <Script
         id='schema-local-business-paris-16-ru'

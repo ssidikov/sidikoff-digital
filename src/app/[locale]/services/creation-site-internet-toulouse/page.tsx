@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
-import SEOLinks from '@/components/SEOLinks'
+
 import { Section } from '@/components/ui'
 import CTAButton from '@/components/ui/CTAButton'
 import Link from 'next/link'
@@ -22,10 +22,10 @@ export async function generateMetadata({ params }: ToulousePageProps): Promise<M
 
   const description =
     locale === 'fr'
-      ? 'Agence web à Toulouse spécialisée en création de sites internet vitrine & e-commerce. Sites modernes, performants et optimisés SEO pour les entreprises toulousaines.'
+      ? 'SIDIKOFF DIGITAL, agence web 31, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
       : locale === 'en'
-        ? 'Toulouse web agency specialized in professional website creation. Modern, SEO-optimized sites adapted to Toulouse businesses.'
-        : 'Веб-агентство в Тулузе, специализирующееся на создании профессиональных сайтов. Современные, SEO-оптимизированные сайты.'
+        ? 'SIDIKOFF DIGITAL, Toulouse web agency (31), specializes in website creation and web marketing. Contact us now.'
+        : 'SIDIKOFF DIGITAL, веб-агентство Тулуза (31), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.'
 
   return {
     title,
@@ -174,9 +174,7 @@ export default async function ToulousePage({ params }: ToulousePageProps) {
             </div>
           </Section>
         </div>
-
-        <SEOLinks locale={locale} />
-      </div>
+</div>
     )
   }
 
@@ -279,9 +277,7 @@ export default async function ToulousePage({ params }: ToulousePageProps) {
             </div>
           </Section>
         </div>
-
-        <SEOLinks locale={locale} />
-      </div>
+</div>
     )
   }
 
@@ -952,8 +948,6 @@ export default async function ToulousePage({ params }: ToulousePageProps) {
           </div>
         </Section>
       </div>
-
-      <SEOLinks locale={locale} />
-    </div>
+</div>
   )
 }

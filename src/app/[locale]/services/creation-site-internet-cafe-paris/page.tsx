@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
-import SEOLinks from '@/components/SEOLinks'
+
 import { Section } from '@/components/ui'
 import CTAButton from '@/components/ui/CTAButton'
 import Link from 'next/link'
@@ -752,9 +752,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
             </div>
           </Section>
         </div>
-
-        <SEOLinks locale={locale} />
-      </div>
+</div>
     )
   }
 
@@ -1443,9 +1441,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
             </div>
           </Section>
         </div>
-
-        <SEOLinks locale={locale} />
-      </div>
+</div>
     )
   }
 
@@ -2128,8 +2124,6 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
           </div>
         </Section>
       </div>
-
-      <SEOLinks locale={locale} />
-    </div>
+</div>
   )
 }

@@ -8,7 +8,7 @@ import { getProjects, projects as fallbackProjects } from '@/data/projects'
 import { getProjectsUrl, getProjectUrl, getLocalizedUrl } from '@/utils/navigation'
 import CTAButton from '@/components/ui/CTAButton'
 import { Section } from '@/components/ui'
-import SEOLinks from '@/components/SEOLinks'
+
 
 interface ProjectPageProps {
   params: Promise<{ locale: Locale; id: string }>
@@ -84,10 +84,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   const dict = await getDictionary(locale)
 
-  return (
-    <>
-      <SEOLinks locale={locale} />
-      <Section id='project-detail' variant='project-detail' padding='xl' contentWidth='wide'>
+  return (<Section id='project-detail' variant='project-detail' padding='xl' contentWidth='wide'>
         <div className='relative z-10'>
           {/* Project Header */}
           <div className='max-w-7xl mx-auto mb-12 pt-24 lg:pt-32'>
@@ -407,6 +404,5 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </div>
       </Section>
-    </>
   )
 }

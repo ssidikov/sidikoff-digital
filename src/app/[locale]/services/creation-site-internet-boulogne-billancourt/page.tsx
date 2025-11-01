@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
-import SEOLinks from '@/components/SEOLinks'
+
 import { Section } from '@/components/ui'
 import CTAButton from '@/components/ui/CTAButton'
 
@@ -17,15 +17,15 @@ export async function generateMetadata({
     locale === 'fr'
       ? 'Création site internet Boulogne-Billancourt – Agence web spécialisée'
       : locale === 'en'
-        ? 'Website Creation Boulogne-Billancourt | Expert Local Web Developer'
-        : 'Создание Сайтов Булонь-Бийанкур | Эксперт Веб-Разработчик'
+      ? 'Website Creation Boulogne-Billancourt | Expert Local Web Developer'
+      : 'Создание Сайтов Булонь-Бийанкур | Эксперт Веб-Разработчик'
 
   const description =
     locale === 'fr'
-      ? 'Développez votre entreprise à Boulogne-Billancourt avec un site web professionnel, multilingue et optimisé SEO local pour attirer plus de clients.'
+      ? 'SIDIKOFF DIGITAL, agence web 92, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
       : locale === 'en'
-        ? 'Custom website creation in Boulogne-Billancourt. Local web developer expert in SEO and responsive design. Free quote for your professional website.'
-        : 'Создание сайтов в Булонь-Бийанкур. Местный веб-разработчик, эксперт по SEO и адаптивному дизайну. Бесплатная консультация.'
+      ? 'SIDIKOFF DIGITAL, Boulogne-Billancourt web agency (92), specializes in website creation and web marketing. Contact us now.'
+      : 'SIDIKOFF DIGITAL, веб-агентство Булонь-Бийанкур (92), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.'
 
   return {
     title,
@@ -42,18 +42,24 @@ export async function generateMetadata({
       },
     },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}services/creation-site-internet-boulogne-billancourt`,
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${
+        locale === 'fr' ? '' : locale + '/'
+      }services/creation-site-internet-boulogne-billancourt`,
     },
     openGraph: {
       title,
       description,
       type: 'website',
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}services/creation-site-internet-boulogne-billancourt`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${
+        locale === 'fr' ? '' : locale + '/'
+      }services/creation-site-internet-boulogne-billancourt`,
       siteName: 'SIDIKOFF Digital',
       locale: locale === 'fr' ? 'fr_FR' : locale === 'en' ? 'en_US' : 'ru_RU',
       images: [
         {
-          url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/images/og-creation-sites-web.jpg`,
+          url: `${
+            process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
+          }/images/og-creation-sites-web.jpg`,
           width: 1200,
           height: 630,
           alt: title,
@@ -65,15 +71,17 @@ export async function generateMetadata({
       title,
       description,
       images: [
-        `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/images/og-creation-sites-web.jpg`,
+        `${
+          process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
+        }/images/og-creation-sites-web.jpg`,
       ],
     },
     keywords:
       locale === 'fr'
         ? 'création site internet Boulogne-Billancourt, agence web Boulogne-Billancourt, site vitrine Boulogne-Billancourt, site e-commerce Boulogne-Billancourt, référencement local Boulogne-Billancourt, développement web Hauts-de-Seine, site internet professionnel, site responsive, SEO local, design moderne, Core Web Vitals, multilingue'
         : locale === 'en'
-          ? 'website creation Boulogne-Billancourt, web agency Boulogne-Billancourt, showcase website Boulogne-Billancourt, e-commerce website Boulogne-Billancourt, local SEO Boulogne-Billancourt, web development Hauts-de-Seine, professional website, responsive design, modern design, multilingual'
-          : 'создание сайтов Булонь-Бийанкур, веб-агентство Булонь-Бийанкур, сайт-визитка Булонь-Бийанкур, интернет-магазин Булонь-Бийанкур, локальное SEO Булонь-Бийанкур, веб-разработка О-де-Сен, профессиональный сайт, адаптивный дизайн, современный дизайн, многоязычный',
+        ? 'website creation Boulogne-Billancourt, web agency Boulogne-Billancourt, showcase website Boulogne-Billancourt, e-commerce website Boulogne-Billancourt, local SEO Boulogne-Billancourt, web development Hauts-de-Seine, professional website, responsive design, modern design, multilingual'
+        : 'создание сайтов Булонь-Бийанкур, веб-агентство Булонь-Бийанкур, сайт-визитка Булонь-Бийанкур, интернет-магазин Булонь-Бийанкур, локальное SEO Булонь-Бийанкур, веб-разработка О-де-Сен, профессиональный сайт, адаптивный дизайн, современный дизайн, многоязычный',
   }
 }
 
@@ -481,7 +489,6 @@ export default async function BoulogneBillancourtPage({ params }: BoulogneBillan
       </Section>
 
       {/* SEO Links */}
-      <SEOLinks locale={locale} />
     </div>
   )
 }

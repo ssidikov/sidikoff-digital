@@ -3,7 +3,7 @@ import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
 import LocaleProvider from '@/components/LocaleProvider'
 import { Metadata } from 'next'
-import SEOLinks from '@/components/SEOLinks'
+
 import { generatePageMetadata } from '@/lib/seo-utils'
 
 interface ProjectsPageProps {
@@ -14,9 +14,12 @@ export async function generateMetadata({ params }: ProjectsPageProps): Promise<M
   const { locale } = await params
   const dictionary = await getDictionary(locale)
 
+  const description =
+    'Découvrez nos réalisations web : sites vitrines, e-commerce, applications sur mesure. Projets modernes, performants et optimisés SEO développés avec React et Next.js.'
+
   return generatePageMetadata(
     `${dictionary.portfolio?.title || 'Portfolio'} | SIDIKOFF DIGITAL`,
-    dictionary.portfolio?.subtitle || 'Découvrez notre portfolio de projets web.',
+    description,
     '/projects',
     locale,
     {
@@ -31,15 +34,12 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
   const dictionary = await getDictionary(locale)
 
   return (
-    <>
-      <SEOLinks locale={locale} />
-      <LocaleProvider locale={locale}>
-        <div className='min-h-screen'>
-          <main className='m-0 p-0'>
-            <Portfolio dictionary={dictionary.portfolio} locale={locale} className='pt-[140px]' />
-          </main>
-        </div>
-      </LocaleProvider>
-    </>
+    <LocaleProvider locale={locale}>
+      <div className='min-h-screen'>
+        <main className='m-0 p-0'>
+          <Portfolio dictionary={dictionary.portfolio} locale={locale} className='pt-[140px]' />
+        </main>
+      </div>
+    </LocaleProvider>
   )
 }

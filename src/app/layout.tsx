@@ -10,7 +10,7 @@ const SITE_CONFIG = {
   title:
     'Création de sites web | SIDIKOFF DIGITAL - Agence Web | Développement Web Paris, Lyon, Toulouse, Strasbourg',
   description:
-    'Agence web spécialisée dans la création de sites internet modernes et applications web. Services professionnels à Paris, Lyon, Toulouse, Strasbourg et toute la France. Expertise React, Next.js, SEO et développement sur mesure.',
+    'Agence web spécialisée en création de sites modernes. Services à Paris, Lyon, Toulouse, Strasbourg. Expertise React, Next.js et SEO.',
   keywords: [
     'agence web france',
     'développement web',

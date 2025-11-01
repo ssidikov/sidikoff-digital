@@ -268,9 +268,9 @@ export function generateLocalizedSEOMetadata(locale: Locale): Metadata {
 
   // Enhanced SEO-optimized descriptions with better keyword density and local targeting
   const descriptions = {
-    fr: 'Développeur React Paris - Sites web professionnels, e-commerce, refonte. Expert Next.js TypeScript. Devis gratuit, livraison rapide.',
-    en: 'React Developer Paris - Professional websites, e-commerce, redesign. Next.js TypeScript expert. Free quote, fast delivery.',
-    ru: 'React Разработчик Париж - Сайты, e-commerce, редизайн. Эксперт Next.js TypeScript. Бесплатная консультация.',
+    fr: 'SIDIKOFF DIGITAL, agence web 75, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.',
+    en: 'SIDIKOFF DIGITAL, Paris web agency (75), specializes in website creation and web marketing. Contact us now.',
+    ru: 'SIDIKOFF DIGITAL, веб-агентство Париж (75), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.',
   }
 
   const seoData = {

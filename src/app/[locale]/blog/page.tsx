@@ -5,7 +5,7 @@ import { BlogPageContent } from '@/components/BlogPageContent'
 import { getBlogPosts, getBlogCategories } from '@/lib/sanity'
 import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
-import SEOLinks from '@/components/SEOLinks'
+
 
 interface BlogPageProps {
   params: Promise<{
@@ -46,23 +46,20 @@ export default async function BlogPage({ params }: BlogPageProps) {
   ])
 
   return (
-    <>
-      <SEOLinks locale={locale} />
-      <div className='min-h-screen bg-gray-50'>
-        <Suspense
-          fallback={
-            <div className='flex items-center justify-center min-h-screen'>
-              <div className='animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600'></div>
-            </div>
-          }>
-          <BlogPageContent
-            posts={posts}
-            categories={categories}
-            dictionary={dict.blog}
-            locale={locale}
-          />
-        </Suspense>
-      </div>
-    </>
+    <div className='min-h-screen bg-gray-50'>
+      <Suspense
+        fallback={
+          <div className='flex items-center justify-center min-h-screen'>
+            <div className='animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600'></div>
+          </div>
+        }>
+        <BlogPageContent
+          posts={posts}
+          categories={categories}
+          dictionary={dict.blog}
+          locale={locale}
+        />
+      </Suspense>
+    </div>
   )
 }

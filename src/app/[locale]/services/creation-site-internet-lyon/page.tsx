@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
-import SEOLinks from '@/components/SEOLinks'
+
 import { Section } from '@/components/ui'
 import CTAButton from '@/components/ui/CTAButton'
 import Link from 'next/link'
@@ -17,15 +17,15 @@ export async function generateMetadata({ params }: LyonPageProps): Promise<Metad
     locale === 'fr'
       ? 'Création site internet Lyon – Agence web & SEO local'
       : locale === 'en'
-        ? 'Website Creation Lyon | Expert Local Web Developer'
-        : 'Создание Сайтов Лион | Эксперт Веб-Разработчик'
+      ? 'Website Creation Lyon | Expert Local Web Developer'
+      : 'Создание Сайтов Лион | Эксперт Веб-Разработчик'
 
   const description =
     locale === 'fr'
-      ? 'Agence web à Lyon spécialisée en création de sites internet vitrine & e-commerce. Sites modernes, performants et optimisés SEO pour les entreprises lyonnaises.'
+      ? 'SIDIKOFF DIGITAL, agence web 69, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
       : locale === 'en'
-        ? 'Lyon web agency specialized in professional website creation. Modern, SEO-optimized sites adapted to Lyon businesses.'
-        : 'Веб-агентство в Лионе, специализирующееся на создании профессиональных сайтов. Современные, SEO-оптимизированные сайты.'
+      ? 'SIDIKOFF DIGITAL, Lyon web agency (69), specializes in website creation and web marketing. Contact us now.'
+      : 'SIDIKOFF DIGITAL, веб-агентство Лион (69), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.'
 
   return {
     title,
@@ -42,18 +42,24 @@ export async function generateMetadata({ params }: LyonPageProps): Promise<Metad
       },
     },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}services/creation-site-internet-lyon`,
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${
+        locale === 'fr' ? '' : locale + '/'
+      }services/creation-site-internet-lyon`,
     },
     openGraph: {
       title,
       description,
       type: 'website',
       locale,
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}services/creation-site-internet-lyon`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${
+        locale === 'fr' ? '' : locale + '/'
+      }services/creation-site-internet-lyon`,
       siteName: 'Sidikoff Digital',
       images: [
         {
-          url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/images/og/creation-sites-web-lyon.jpg`,
+          url: `${
+            process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
+          }/images/og/creation-sites-web-lyon.jpg`,
           width: 1200,
           height: 630,
           alt: title,
@@ -65,7 +71,9 @@ export async function generateMetadata({ params }: LyonPageProps): Promise<Metad
       title,
       description,
       images: [
-        `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/images/og/creation-sites-web-lyon.jpg`,
+        `${
+          process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
+        }/images/og/creation-sites-web-lyon.jpg`,
       ],
     },
   }
@@ -94,9 +102,9 @@ export default async function LyonPage({ params }: LyonPageProps) {
                     </svg>
                     Lyon Web Expert
                   </div>
-                  <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] leading-tight'>
+                  <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] leading-tight'>
                     Professional Website Creation in <span className='text-[#3F72AF]'>Lyon</span>
-                  </h2>
+                  </h1>
                   <p className='text-xl text-gray-600 leading-relaxed'>
                     Lyon web agency specialized in custom website creation. Whether showcase or
                     e-commerce sites, with optimized SEO for Google and modern design adapted to
@@ -173,8 +181,6 @@ export default async function LyonPage({ params }: LyonPageProps) {
             </div>
           </Section>
         </div>
-
-        <SEOLinks locale={locale} />
       </div>
     )
   }
@@ -199,9 +205,9 @@ export default async function LyonPage({ params }: LyonPageProps) {
                     </svg>
                     Веб-эксперт в Лионе
                   </div>
-                  <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] leading-tight'>
+                  <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] leading-tight'>
                     Профессиональное создание сайтов в <span className='text-[#3F72AF]'>Лионе</span>
-                  </h2>
+                  </h1>
                   <p className='text-xl text-gray-600 leading-relaxed'>
                     Веб-агентство в Лионе, специализирующееся на создании сайтов под заказ.
                     Современные, SEO-оптимизированные сайты, адаптированные для ваших клиентов.
@@ -277,8 +283,6 @@ export default async function LyonPage({ params }: LyonPageProps) {
             </div>
           </Section>
         </div>
-
-        <SEOLinks locale={locale} />
       </div>
     )
   }
@@ -940,8 +944,6 @@ export default async function LyonPage({ params }: LyonPageProps) {
           </div>
         </Section>
       </div>
-
-      <SEOLinks locale={locale} />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
-import SEOLinks from '@/components/SEOLinks'
+
 import ParisLandingContent from '@/components/ParisLandingContent'
 
 interface ParisPageProps {
@@ -19,10 +19,10 @@ export async function generateMetadata({ params }: ParisPageProps): Promise<Meta
 
   const description =
     locale === 'fr'
-      ? 'Agence web à Paris spécialisée en création de sites internet vitrine & e-commerce. Sites modernes, SEO optimisés et adaptés aux entreprises parisiennes.'
+      ? 'SIDIKOFF DIGITAL, agence web 75, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
       : locale === 'en'
-        ? 'Paris web agency specialized in professional website creation. Modern, SEO-optimized sites adapted to Parisian businesses.'
-        : 'Веб-агентство в Париже, специализирующееся на создании профессиональных сайтов. Современные, SEO-оптимизированные сайты.'
+        ? 'SIDIKOFF DIGITAL, Paris web agency (75), specializes in website creation and web marketing. Contact us now.'
+        : 'SIDIKOFF DIGITAL, веб-агентство Париж (75), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.'
 
   return {
     title,
@@ -74,7 +74,6 @@ export default async function ParisPage({ params }: ParisPageProps) {
   return (
     <div className='min-h-screen'>
       <ParisLandingContent locale={locale} />
-      <SEOLinks locale={locale} />
-    </div>
+</div>
   )
 }
