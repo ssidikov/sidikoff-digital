@@ -139,6 +139,7 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: false, // ИСПРАВЛЕНО: убрана уязвимость
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512, 768, 1024, 1536, 2048],
+    qualities: [75, 90, 95, 100], // Next.js 16: explicitly define allowed quality values
 
     // ИСПРАВЛЕНО: Убран deprecated параметр domains
     remotePatterns: [
@@ -179,11 +180,6 @@ const nextConfig: NextConfig = {
   // Environment variables
   env: {
     CUSTOM_KEY: 'my-value',
-  },
-
-  eslint: {
-    // Отключаем только для development, в production проверяем ESLint
-    ignoreDuringBuilds: process.env.NODE_ENV === 'development',
   },
 
   // Redirects to handle old project URLs and legacy paths
