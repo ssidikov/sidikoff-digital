@@ -202,7 +202,6 @@ const Contact = ({ className, dictionary, locale = 'fr', isHomePage = false }: C
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start'>
           {/* Left Side - Text Information (Second on mobile, First on desktop) */}
           <div className='space-y-8 order-2 lg:order-1'>
-
             {/* Contact Rapide Section */}
             <div className='space-y-6'>
               <h3 className='text-xl font-bold text-gray-900 mb-6'>

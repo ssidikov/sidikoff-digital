@@ -18,15 +18,15 @@ export async function generateMetadata({ params }: Paris16PageProps): Promise<Me
     locale === 'fr'
       ? 'Création de site internet professionnel Paris 16ème - Agence Web'
       : locale === 'en'
-        ? 'Professional Website Creation Paris 16th - Web Agency'
-        : 'Создание профессиональных сайтов Париж 16-й - Веб Агентство'
+      ? 'Professional Website Creation Paris 16th - Web Agency'
+      : 'Создание профессиональных сайтов Париж 16-й - Веб Агентство'
 
   const description =
     locale === 'fr'
       ? 'SIDIKOFF DIGITAL, agence web 75016, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
       : locale === 'en'
-        ? 'SIDIKOFF DIGITAL, Paris 16th web agency (75016), specializes in website creation and web marketing. Contact us now.'
-        : 'SIDIKOFF DIGITAL, веб-агентство Париж 16-й (75016), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.'
+      ? 'SIDIKOFF DIGITAL, Paris 16th web agency (75016), specializes in website creation and web marketing. Contact us now.'
+      : 'SIDIKOFF DIGITAL, веб-агентство Париж 16-й (75016), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.'
 
   return {
     title,
@@ -43,7 +43,9 @@ export async function generateMetadata({ params }: Paris16PageProps): Promise<Me
       },
     },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}services/creation-site-internet-paris-16`,
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${
+        locale === 'fr' ? '' : locale + '/'
+      }services/creation-site-internet-paris-16`,
     },
     other: {
       // Preconnect to Unsplash domain for faster image loading
@@ -54,11 +56,15 @@ export async function generateMetadata({ params }: Paris16PageProps): Promise<Me
       description,
       type: 'website',
       locale,
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}services/creation-site-internet-paris-16`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${
+        locale === 'fr' ? '' : locale + '/'
+      }services/creation-site-internet-paris-16`,
       siteName: 'Sidikoff Digital',
       images: [
         {
-          url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/images/services/web-creation-paris-16.jpg`,
+          url: `${
+            process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
+          }/images/services/web-creation-paris-16.jpg`,
           width: 1200,
           height: 630,
           alt: title,
@@ -70,7 +76,9 @@ export async function generateMetadata({ params }: Paris16PageProps): Promise<Me
       title,
       description,
       images: [
-        `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/images/services/web-creation-paris-16.jpg`,
+        `${
+          process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
+        }/images/services/web-creation-paris-16.jpg`,
       ],
     },
   }

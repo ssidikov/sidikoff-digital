@@ -17,15 +17,15 @@ export async function generateMetadata({ params }: ToulousePageProps): Promise<M
     locale === 'fr'
       ? 'Création site internet Toulouse – Agence web & SEO local'
       : locale === 'en'
-        ? 'Website Creation Toulouse | Expert Local Web Developer'
-        : 'Создание Сайтов Тулуза | Эксперт Веб-Разработчик'
+      ? 'Website Creation Toulouse | Expert Local Web Developer'
+      : 'Создание Сайтов Тулуза | Эксперт Веб-Разработчик'
 
   const description =
     locale === 'fr'
       ? 'SIDIKOFF DIGITAL, agence web 31, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
       : locale === 'en'
-        ? 'SIDIKOFF DIGITAL, Toulouse web agency (31), specializes in website creation and web marketing. Contact us now.'
-        : 'SIDIKOFF DIGITAL, веб-агентство Тулуза (31), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.'
+      ? 'SIDIKOFF DIGITAL, Toulouse web agency (31), specializes in website creation and web marketing. Contact us now.'
+      : 'SIDIKOFF DIGITAL, веб-агентство Тулуза (31), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.'
 
   return {
     title,
@@ -42,18 +42,24 @@ export async function generateMetadata({ params }: ToulousePageProps): Promise<M
       },
     },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}services/creation-site-internet-toulouse`,
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'}/${
+        locale === 'fr' ? '' : locale + '/'
+      }services/creation-site-internet-toulouse`,
     },
     openGraph: {
       title,
       description,
       type: 'website',
       locale,
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}services/creation-site-internet-toulouse`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'}/${
+        locale === 'fr' ? '' : locale + '/'
+      }services/creation-site-internet-toulouse`,
       siteName: 'Sidikoff Digital',
       images: [
         {
-          url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/images/og/creation-sites-web-toulouse.jpg`,
+          url: `${
+            process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
+          }/images/og/creation-sites-web-toulouse.jpg`,
           width: 1200,
           height: 630,
           alt: title,
@@ -65,7 +71,9 @@ export async function generateMetadata({ params }: ToulousePageProps): Promise<M
       title,
       description,
       images: [
-        `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/images/og/creation-sites-web-toulouse.jpg`,
+        `${
+          process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
+        }/images/og/creation-sites-web-toulouse.jpg`,
       ],
     },
   }
@@ -174,7 +182,7 @@ export default async function ToulousePage({ params }: ToulousePageProps) {
             </div>
           </Section>
         </div>
-</div>
+      </div>
     )
   }
 
@@ -277,7 +285,7 @@ export default async function ToulousePage({ params }: ToulousePageProps) {
             </div>
           </Section>
         </div>
-</div>
+      </div>
     )
   }
 
@@ -948,6 +956,6 @@ export default async function ToulousePage({ params }: ToulousePageProps) {
           </div>
         </Section>
       </div>
-</div>
+    </div>
   )
 }

@@ -6,7 +6,6 @@ import { getBlogPosts, getBlogCategories } from '@/lib/sanity'
 import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
 
-
 interface BlogPageProps {
   params: Promise<{
     locale: Locale

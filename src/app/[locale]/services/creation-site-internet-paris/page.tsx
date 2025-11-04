@@ -14,15 +14,15 @@ export async function generateMetadata({ params }: ParisPageProps): Promise<Meta
     locale === 'fr'
       ? 'Création site internet Paris – Agence web & SEO local'
       : locale === 'en'
-        ? 'Website Creation Paris | Expert Local Web Developer'
-        : 'Создание Сайтов Париж | Эксперт Веб-Разработчик'
+      ? 'Website Creation Paris | Expert Local Web Developer'
+      : 'Создание Сайтов Париж | Эксперт Веб-Разработчик'
 
   const description =
     locale === 'fr'
       ? 'SIDIKOFF DIGITAL, agence web 75, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
       : locale === 'en'
-        ? 'SIDIKOFF DIGITAL, Paris web agency (75), specializes in website creation and web marketing. Contact us now.'
-        : 'SIDIKOFF DIGITAL, веб-агентство Париж (75), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.'
+      ? 'SIDIKOFF DIGITAL, Paris web agency (75), specializes in website creation and web marketing. Contact us now.'
+      : 'SIDIKOFF DIGITAL, веб-агентство Париж (75), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.'
 
   return {
     title,
@@ -39,18 +39,24 @@ export async function generateMetadata({ params }: ParisPageProps): Promise<Meta
       },
     },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}services/creation-site-internet-paris`,
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${
+        locale === 'fr' ? '' : locale + '/'
+      }services/creation-site-internet-paris`,
     },
     openGraph: {
       title,
       description,
       type: 'website',
       locale,
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}services/creation-site-internet-paris`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${
+        locale === 'fr' ? '' : locale + '/'
+      }services/creation-site-internet-paris`,
       siteName: 'Sidikoff Digital',
       images: [
         {
-          url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/images/og/creation-sites-web-paris.jpg`,
+          url: `${
+            process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
+          }/images/og/creation-sites-web-paris.jpg`,
           width: 1200,
           height: 630,
           alt: title,
@@ -62,7 +68,9 @@ export async function generateMetadata({ params }: ParisPageProps): Promise<Meta
       title,
       description,
       images: [
-        `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/images/og/creation-sites-web-paris.jpg`,
+        `${
+          process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
+        }/images/og/creation-sites-web-paris.jpg`,
       ],
     },
   }
@@ -74,6 +82,6 @@ export default async function ParisPage({ params }: ParisPageProps) {
   return (
     <div className='min-h-screen'>
       <ParisLandingContent locale={locale} />
-</div>
+    </div>
   )
 }

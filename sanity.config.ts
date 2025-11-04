@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineConfig } from 'sanity'
-import { deskTool } from 'sanity/desk'
+import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './sanity/schemas'
 
@@ -16,7 +16,7 @@ export default defineConfig({
   dataset: dataset || 'production',
 
   plugins: [
-    deskTool({
+    structureTool({
       name: 'studio',
       title: 'Content Studio',
       structure: (S: any) =>
