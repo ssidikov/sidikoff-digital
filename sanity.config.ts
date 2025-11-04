@@ -52,7 +52,8 @@ export default defineConfig({
 
             // All other document types
             ...S.documentTypeListItems().filter(
-              (listItem: any) => !['blogPost', 'blogCategory', 'author'].includes(listItem.getId() || '')
+              (listItem: any) =>
+                !['blogPost', 'blogCategory', 'author'].includes(listItem.getId() || '')
             ),
           ]),
     }),

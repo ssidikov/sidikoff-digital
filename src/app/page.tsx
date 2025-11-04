@@ -31,7 +31,8 @@ const SEO_CONFIG = {
 export async function generateMetadata() {
   return generateSEOMetadata({
     title: SEO_CONFIG.title,
-    description: 'SIDIKOFF DIGITAL, agence web 75, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.',
+    description:
+      'SIDIKOFF DIGITAL, agence web 75, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.',
     locale: defaultLocale,
     canonicalUrl: createCanonicalUrl('', defaultLocale),
     alternateLanguages: generateLanguageAlternates('', ['fr', 'en', 'ru']),
