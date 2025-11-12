@@ -586,7 +586,7 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.4, delay: index * 0.05 }}
                       viewport={{ once: true }}
-                      className='bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-lg border border-blue-200'>
+                      className='bg-linear-to-r from-blue-50 to-purple-50 p-4 rounded-lg border border-blue-200'>
                       <div className='flex items-start gap-3'>
                         <span className='text-blue-500 mt-1'>🚀</span>
                         <span className='text-gray-700 font-medium'>{service}</span>
@@ -604,7 +604,7 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
                 viewport={{ once: true }}
-                className='bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-center text-white'>
+                className='bg-linear-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-center text-white'>
                 <h3 className='text-2xl md:text-3xl font-bold mb-4'>
                   {dict.pricing.guide_section.call_to_action.title}
                 </h3>

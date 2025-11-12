@@ -19,7 +19,7 @@ const buttonVariants = cva(
         primary: 'bg-[#3F72AF] text-white shadow hover:bg-[#2c5282] focus:ring-[#3F72AF]/20',
         accent:
           'bg-[var(--accent)] text-white shadow hover:bg-[var(--accent-dark)] focus:ring-[var(--accent)]/20',
-        cta: 'bg-gradient-to-r from-[#3F72AF] to-[#112D4E] text-white shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200',
+        cta: 'bg-linear-to-r from-[#3F72AF] to-[#112D4E] text-white shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200',
       },
       size: {
         default: 'h-9 px-4 py-2',

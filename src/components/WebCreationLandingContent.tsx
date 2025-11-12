@@ -49,7 +49,7 @@ export default function WebCreationLandingContent({
   return (
     <div className='min-h-screen'>
       {/* Hero Section - Full Screen */}
-      <section className='relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-white via-[var(--bg-accent-light)] to-[var(--accent-alpha-10)] pt-[120px] md:pt-[160px] pb-8 md:pb-16'>
+      <section className='relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-linear-to-br from-white via-[var(--bg-accent-light)] to-[var(--accent-alpha-10)] pt-[120px] md:pt-[160px] pb-8 md:pb-16'>
         {/* Background Elements */}
         <div className='absolute inset-0 overflow-hidden'>
           <div className='absolute -top-40 -right-40 w-80 h-80 bg-[var(--accent-alpha-10)] rounded-full opacity-60 animate-pulse'></div>
@@ -96,7 +96,7 @@ export default function WebCreationLandingContent({
               </motion.div>
 
               <motion.h1
-                className='text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent'
+                className='text-4xl md:text-5xl font-bold mb-6 bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent'
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}>
@@ -161,14 +161,14 @@ export default function WebCreationLandingContent({
                   className='w-full h-auto'
                 />
               </div>
-              <div className='absolute -inset-4 bg-gradient-to-r from-[var(--accent-alpha-20)] to-[var(--accent-alpha-10)] rounded-2xl blur-3xl opacity-70'></div>
+              <div className='absolute -inset-4 bg-linear-to-r from-[var(--accent-alpha-20)] to-[var(--accent-alpha-10)] rounded-2xl blur-3xl opacity-70'></div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className='py-16 md:py-24 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-dark)] text-white'>
+      <section className='py-16 md:py-24 bg-linear-to-r from-[var(--accent)] to-[var(--accent-dark)] text-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
             className='grid grid-cols-1 md:grid-cols-3 gap-8'
@@ -281,7 +281,7 @@ export default function WebCreationLandingContent({
       </section>
 
       {/* CTA Section */}
-      <section className='py-16 md:py-24 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-dark)] text-white'>
+      <section className='py-16 md:py-24 bg-linear-to-r from-[var(--accent)] to-[var(--accent-dark)] text-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
           <motion.div
             initial={{ opacity: 0, y: 50 }}

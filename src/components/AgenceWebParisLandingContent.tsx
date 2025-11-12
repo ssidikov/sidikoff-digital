@@ -69,7 +69,7 @@ const AgenceWebParisLandingContent: React.FC<AgenceWebParisLandingContentProps> 
   }
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-slate-50 to-blue-50'>
+    <div className='min-h-screen bg-linear-to-br from-slate-50 to-blue-50'>
       {/* Hero Section */}
       <section
         className='relative overflow-hidden text-gray-800 pt-20 md:pt-24'
@@ -211,7 +211,7 @@ const AgenceWebParisLandingContent: React.FC<AgenceWebParisLandingContentProps> 
                 viewport={{ once: true }}
                 className='bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group hover:border-blue-200 hover:-translate-y-2'>
                 {/* Service Image */}
-                <div className='mb-6 h-48 rounded-xl overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50'>
+                <div className='mb-6 h-48 rounded-xl overflow-hidden bg-linear-to-br from-blue-50 to-purple-50'>
                   <Image
                     src={
                       index === 0
@@ -239,7 +239,7 @@ const AgenceWebParisLandingContent: React.FC<AgenceWebParisLandingContentProps> 
       </section>
 
       {/* About Section */}
-      <section className='py-20 bg-gradient-to-br from-blue-50 to-indigo-50 relative overflow-hidden'>
+      <section className='py-20 bg-linear-to-br from-blue-50 to-indigo-50 relative overflow-hidden'>
         {/* Background image with overlay */}
         <div className='absolute inset-0 opacity-10'>
           <Image
@@ -311,7 +311,7 @@ const AgenceWebParisLandingContent: React.FC<AgenceWebParisLandingContentProps> 
 
           <div className='relative'>
             {/* Timeline line */}
-            <div className='hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-400 to-blue-600 rounded-full'></div>
+            <div className='hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-linear-to-b from-blue-400 to-blue-600 rounded-full'></div>
 
             <div className='space-y-12 md:space-y-16'>
               {content.process.steps.map((step: ProcessStep, index: number) => (
@@ -334,7 +334,7 @@ const AgenceWebParisLandingContent: React.FC<AgenceWebParisLandingContentProps> 
                   </div>
 
                   {/* Step number */}
-                  <div className='relative z-10 flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 text-white font-bold text-lg rounded-full shadow-lg my-4 md:my-0'>
+                  <div className='relative z-10 flex items-center justify-center w-16 h-16 bg-linear-to-br from-blue-500 to-blue-600 text-white font-bold text-lg rounded-full shadow-lg my-4 md:my-0'>
                     {step.number}
                   </div>
 
@@ -365,11 +365,11 @@ const AgenceWebParisLandingContent: React.FC<AgenceWebParisLandingContentProps> 
           github:
             locale === 'fr' ? 'Code source' : locale === 'en' ? 'Source Code' : 'Исходный код',
         }}
-        className='py-20 bg-gradient-to-br from-gray-50 to-blue-50'
+        className='py-20 bg-linear-to-br from-gray-50 to-blue-50'
       />
 
       {/* Final CTA Section */}
-      <section className='py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600 text-white relative overflow-hidden'>
+      <section className='py-20 bg-linear-to-br from-blue-900 via-blue-800 to-blue-600 text-white relative overflow-hidden'>
         {/* Background image with overlay */}
         <div className='absolute inset-0'>
           <Image
@@ -379,7 +379,7 @@ const AgenceWebParisLandingContent: React.FC<AgenceWebParisLandingContentProps> 
             className='object-cover opacity-20'
             quality={70}
           />
-          <div className='absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/80 to-blue-600/80'></div>
+          <div className='absolute inset-0 bg-linear-to-br from-blue-900/80 via-blue-800/80 to-blue-600/80'></div>
         </div>
 
         <div className='relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>

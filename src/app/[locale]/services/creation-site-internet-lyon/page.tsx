@@ -17,15 +17,15 @@ export async function generateMetadata({ params }: LyonPageProps): Promise<Metad
     locale === 'fr'
       ? 'Création site internet Lyon – Agence web & SEO local'
       : locale === 'en'
-      ? 'Website Creation Lyon | Expert Local Web Developer'
-      : 'Создание Сайтов Лион | Эксперт Веб-Разработчик'
+        ? 'Website Creation Lyon | Expert Local Web Developer'
+        : 'Создание Сайтов Лион | Эксперт Веб-Разработчик'
 
   const description =
     locale === 'fr'
       ? 'SIDIKOFF DIGITAL, agence web 69, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
       : locale === 'en'
-      ? 'SIDIKOFF DIGITAL, Lyon web agency (69), specializes in website creation and web marketing. Contact us now.'
-      : 'SIDIKOFF DIGITAL, веб-агентство Лион (69), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.'
+        ? 'SIDIKOFF DIGITAL, Lyon web agency (69), specializes in website creation and web marketing. Contact us now.'
+        : 'SIDIKOFF DIGITAL, веб-агентство Лион (69), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.'
 
   return {
     title,
@@ -86,8 +86,8 @@ export default async function LyonPage({ params }: LyonPageProps) {
     return (
       <div className='min-h-screen'>
         {/* Hero Section */}
-        <Section className='pt-32 pb-20 bg-gradient-to-br from-[#DBE2EF] via-[#F9F7FF] to-white relative overflow-hidden'>
-          <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-right-top opacity-5'></div>
+        <Section className='pt-32 pb-20 bg-linear-to-br from-[#DBE2EF] via-[#F9F7FF] to-white relative overflow-hidden'>
+          <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-top-right opacity-5'></div>
           <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
             <div className='grid lg:grid-cols-2 gap-12 items-center'>
               <div className='space-y-8'>
@@ -151,7 +151,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
                     width={600}
                     height={400}
                   />
-                  <div className='absolute inset-0 bg-gradient-to-tr from-[#3F72AF]/20 to-transparent rounded-2xl'></div>
+                  <div className='absolute inset-0 bg-linear-to-tr from-[#3F72AF]/20 to-transparent rounded-2xl'></div>
                 </div>
 
                 {/* Floating Elements */}
@@ -174,7 +174,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
         </Section>
 
         <div className='flex flex-col gap-0'>
-          <Section className='py-20 bg-gradient-to-b from-white to-[#F8F9FA]'>
+          <Section className='py-20 bg-linear-to-b from-white to-[#F8F9FA]'>
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
               <h2 className='text-3xl font-bold text-[#112D4E] mb-8'>Coming Soon</h2>
               <p className='text-lg text-gray-600'>English content is being prepared.</p>
@@ -189,8 +189,8 @@ export default async function LyonPage({ params }: LyonPageProps) {
     return (
       <div className='min-h-screen'>
         {/* Hero Section */}
-        <Section className='pt-32 pb-20 bg-gradient-to-br from-[#DBE2EF] via-[#F9F7FF] to-white relative overflow-hidden'>
-          <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-right-top opacity-5'></div>
+        <Section className='pt-32 pb-20 bg-linear-to-br from-[#DBE2EF] via-[#F9F7FF] to-white relative overflow-hidden'>
+          <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-top-right opacity-5'></div>
           <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
             <div className='grid lg:grid-cols-2 gap-12 items-center'>
               <div className='space-y-8'>
@@ -253,7 +253,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
                     width={600}
                     height={400}
                   />
-                  <div className='absolute inset-0 bg-gradient-to-tr from-[#3F72AF]/20 to-transparent rounded-2xl'></div>
+                  <div className='absolute inset-0 bg-linear-to-tr from-[#3F72AF]/20 to-transparent rounded-2xl'></div>
                 </div>
 
                 {/* Floating Elements */}
@@ -276,7 +276,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
         </Section>
 
         <div className='flex flex-col gap-0'>
-          <Section className='py-20 bg-gradient-to-b from-white to-[#F8F9FA]'>
+          <Section className='py-20 bg-linear-to-b from-white to-[#F8F9FA]'>
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
               <h2 className='text-3xl font-bold text-[#112D4E] mb-8'>Скоро</h2>
               <p className='text-lg text-gray-600'>Контент на русском языке готовится.</p>
@@ -291,8 +291,8 @@ export default async function LyonPage({ params }: LyonPageProps) {
   return (
     <div className='min-h-screen'>
       {/* Hero Section */}
-      <Section className='pt-32 pb-20 bg-gradient-to-br from-[#DBE2EF] via-[#F9F7FF] to-white relative overflow-hidden'>
-        <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-right-top opacity-5'></div>
+      <Section className='pt-32 pb-20 bg-linear-to-br from-[#DBE2EF] via-[#F9F7FF] to-white relative overflow-hidden'>
+        <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-top-right opacity-5'></div>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
             <div className='space-y-8'>
@@ -358,7 +358,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
                   width={600}
                   height={400}
                 />
-                <div className='absolute inset-0 bg-gradient-to-tr from-[#3F72AF]/20 to-transparent rounded-2xl'></div>
+                <div className='absolute inset-0 bg-linear-to-tr from-[#3F72AF]/20 to-transparent rounded-2xl'></div>
               </div>
 
               {/* Floating Elements */}
@@ -382,7 +382,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
 
       <div className='flex flex-col gap-0'>
         {/* Services Section */}
-        <Section className='py-20 bg-gradient-to-b from-white to-[#F8F9FA]'>
+        <Section className='py-20 bg-linear-to-b from-white to-[#F8F9FA]'>
           <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='text-center mb-16'>
               <h2 className='text-4xl font-bold text-[#112D4E] mb-6'>
@@ -398,7 +398,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
               {/* Site vitrine */}
               <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                   <svg
                     className='w-6 h-6 text-white'
                     fill='none'
@@ -438,7 +438,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
 
               {/* Site e-commerce */}
               <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                   <svg
                     className='w-6 h-6 text-white'
                     fill='none'
@@ -480,7 +480,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
 
               {/* Développement sur mesure */}
               <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                   <svg
                     className='w-6 h-6 text-white'
                     fill='none'
@@ -522,7 +522,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
 
               {/* SEO Lyon */}
               <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                   <svg
                     className='w-6 h-6 text-white'
                     fill='none'
@@ -563,7 +563,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
 
               {/* Design & UX */}
               <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                   <svg
                     className='w-6 h-6 text-white'
                     fill='none'
@@ -603,7 +603,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
 
               {/* Maintenance */}
               <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                   <svg
                     className='w-6 h-6 text-white'
                     fill='none'
@@ -653,7 +653,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
         </Section>
 
         {/* Why Choose Us Section */}
-        <Section className='py-20 bg-gradient-to-br from-[#F8F9FA] to-[#DBE2EF]'>
+        <Section className='py-20 bg-linear-to-br from-[#F8F9FA] to-[#DBE2EF]'>
           <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='text-center mb-16'>
               <h2 className='text-4xl font-bold text-[#112D4E] mb-6'>
@@ -666,7 +666,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
 
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
               <div className='bg-white/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-white/20'>
-                <div className='w-16 h-16 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4'>
+                <div className='w-16 h-16 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4'>
                   <svg className='w-8 h-8 text-white' fill='currentColor' viewBox='0 0 20 20'>
                     <path
                       fillRule='evenodd'
@@ -682,7 +682,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
               </div>
 
               <div className='bg-white/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-white/20'>
-                <div className='w-16 h-16 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4'>
+                <div className='w-16 h-16 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4'>
                   <svg
                     className='w-8 h-8 text-white'
                     fill='none'
@@ -703,7 +703,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
               </div>
 
               <div className='bg-white/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-white/20'>
-                <div className='w-16 h-16 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4'>
+                <div className='w-16 h-16 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4'>
                   <svg
                     className='w-8 h-8 text-white'
                     fill='none'
@@ -722,7 +722,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
               </div>
 
               <div className='bg-white/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-white/20'>
-                <div className='w-16 h-16 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4'>
+                <div className='w-16 h-16 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4'>
                   <svg
                     className='w-8 h-8 text-white'
                     fill='none'
@@ -741,7 +741,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
               </div>
 
               <div className='bg-white/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-white/20'>
-                <div className='w-16 h-16 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4'>
+                <div className='w-16 h-16 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4'>
                   <svg
                     className='w-8 h-8 text-white'
                     fill='none'
@@ -762,7 +762,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
               </div>
 
               <div className='bg-white/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-white/20'>
-                <div className='w-16 h-16 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4'>
+                <div className='w-16 h-16 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4'>
                   <svg
                     className='w-8 h-8 text-white'
                     fill='none'
@@ -799,7 +799,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
 
             <div className='grid md:grid-cols-5 gap-8'>
               <div className='text-center'>
-                <div className='w-16 h-16 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl'>
+                <div className='w-16 h-16 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl'>
                   1
                 </div>
                 <h3 className='text-lg font-bold text-[#112D4E] mb-3'>
@@ -811,7 +811,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
               </div>
 
               <div className='text-center'>
-                <div className='w-16 h-16 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl'>
+                <div className='w-16 h-16 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl'>
                   2
                 </div>
                 <h3 className='text-lg font-bold text-[#112D4E] mb-3'>Conception & design</h3>
@@ -821,7 +821,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
               </div>
 
               <div className='text-center'>
-                <div className='w-16 h-16 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl'>
+                <div className='w-16 h-16 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl'>
                   3
                 </div>
                 <h3 className='text-lg font-bold text-[#112D4E] mb-3'>Développement web</h3>
@@ -831,7 +831,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
               </div>
 
               <div className='text-center'>
-                <div className='w-16 h-16 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl'>
+                <div className='w-16 h-16 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl'>
                   4
                 </div>
                 <h3 className='text-lg font-bold text-[#112D4E] mb-3'>SEO & optimisation locale</h3>
@@ -841,7 +841,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
               </div>
 
               <div className='text-center'>
-                <div className='w-16 h-16 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl'>
+                <div className='w-16 h-16 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl'>
                   5
                 </div>
                 <h3 className='text-lg font-bold text-[#112D4E] mb-3'>Lancement & suivi</h3>
@@ -854,7 +854,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
         </Section>
 
         {/* FAQ Section */}
-        <Section className='py-20 bg-gradient-to-b from-[#F8F9FA] to-white'>
+        <Section className='py-20 bg-linear-to-b from-[#F8F9FA] to-white'>
           <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='text-center mb-16'>
               <h2 className='text-4xl font-bold text-[#112D4E] mb-6'>
@@ -908,7 +908,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
         </Section>
 
         {/* CTA Section */}
-        <Section className='py-20 bg-gradient-to-br from-[#112D4E] to-[#3F72AF] text-white'>
+        <Section className='py-20 bg-linear-to-br from-[#112D4E] to-[#3F72AF] text-white'>
           <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
             <h2 className='text-4xl font-bold mb-6'>Demandez un devis gratuit à Lyon</h2>
             <p className='text-xl mb-8 opacity-90'>

@@ -269,7 +269,7 @@ export default function GoneLandingPage({ cityName, locale = 'fr' }: GoneLanding
       <div className='min-h-screen bg-white'>
         {/* Notice Bar */}
         <motion.div
-          className='bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200'
+          className='bg-linear-to-r from-amber-50 to-orange-50 border-b border-amber-200'
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}>
@@ -287,7 +287,7 @@ export default function GoneLandingPage({ cityName, locale = 'fr' }: GoneLanding
         </motion.div>
 
         {/* Hero Section */}
-        <section className='relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-20 lg:py-32'>
+        <section className='relative bg-linear-to-br from-slate-50 via-blue-50 to-indigo-100 py-20 lg:py-32'>
           <div className='container mx-auto px-4'>
             <div className='max-w-4xl mx-auto text-center'>
               <motion.div variants={staggerContainer} initial='initial' animate='animate'>
@@ -295,7 +295,7 @@ export default function GoneLandingPage({ cityName, locale = 'fr' }: GoneLanding
                   variants={fadeInUp}
                   className='text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight'>
                   {t.mainTitle}{' '}
-                  <span className='bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent'>
+                  <span className='bg-linear-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent'>
                     {t.titleHighlight}
                   </span>
                 </motion.h1>
@@ -311,7 +311,7 @@ export default function GoneLandingPage({ cityName, locale = 'fr' }: GoneLanding
                   className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
                   <Link
                     href='/contact'
-                    className='group bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center space-x-2'>
+                    className='group bg-linear-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center space-x-2'>
                     <span>{t.ctaPrimary}</span>
                     <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
                   </Link>
@@ -381,7 +381,7 @@ export default function GoneLandingPage({ cityName, locale = 'fr' }: GoneLanding
                     key={index}
                     variants={fadeInUp}
                     className='bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2'>
-                    <div className='w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center text-white mb-6'>
+                    <div className='w-16 h-16 bg-linear-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center text-white mb-6'>
                       {service.icon}
                     </div>
                     <h3 className='text-xl font-bold text-gray-900 mb-4'>{service.title}</h3>
@@ -429,7 +429,7 @@ export default function GoneLandingPage({ cityName, locale = 'fr' }: GoneLanding
         </section>
 
         {/* Testimonials Section */}
-        <section className='py-20 bg-gradient-to-br from-blue-50 to-indigo-100'>
+        <section className='py-20 bg-linear-to-br from-blue-50 to-indigo-100'>
           <div className='container mx-auto px-4'>
             <motion.div
               variants={staggerContainer}
@@ -458,7 +458,7 @@ export default function GoneLandingPage({ cityName, locale = 'fr' }: GoneLanding
                   &ldquo;{t.testimonial}&rdquo;
                 </blockquote>
                 <div className='flex items-center justify-center space-x-4'>
-                  <div className='w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center'>
+                  <div className='w-12 h-12 bg-linear-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center'>
                     <Users className='w-6 h-6 text-white' />
                   </div>
                   <div className='text-left'>
@@ -503,7 +503,7 @@ export default function GoneLandingPage({ cityName, locale = 'fr' }: GoneLanding
               <motion.div variants={fadeInUp}>
                 <Link
                   href='/contact'
-                  className='inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl'>
+                  className='inline-flex items-center space-x-2 bg-linear-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl'>
                   <span>{t.contactCta}</span>
                   <ArrowRight className='w-5 h-5' />
                 </Link>

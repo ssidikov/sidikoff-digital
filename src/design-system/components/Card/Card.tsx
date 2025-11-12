@@ -9,7 +9,7 @@ const cardVariants = cva('rounded-lg border text-card-foreground shadow-sm', {
       elevated: 'bg-card border-border shadow-md hover:shadow-lg transition-shadow duration-200',
       outlined: 'bg-transparent border-2 border-border hover:border-accent transition-colors',
       ghost: 'bg-transparent border-transparent shadow-none',
-      gradient: 'bg-gradient-to-br from-white via-blue-50 to-indigo-100 border-blue-200/50',
+      gradient: 'bg-linear-to-br from-white via-blue-50 to-indigo-100 border-blue-200/50',
     },
     padding: {
       none: 'p-0',

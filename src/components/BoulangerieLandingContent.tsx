@@ -140,10 +140,10 @@ export default function BoulangerieLandingContent({
   const contactUrl = locale === 'fr' ? '/contact' : `/${locale}/contact`
 
   return (
-    <div className='min-h-screen bg-gradient-to-b from-amber-50 to-white'>
+    <div className='min-h-screen bg-linear-to-b from-amber-50 to-white'>
       {/* Hero Section */}
       <section className='relative pt-24 md:pt-32 pb-24 overflow-hidden'>
-        <div className='absolute inset-0 bg-gradient-to-br from-amber-100 via-orange-50 to-red-50 opacity-60'></div>
+        <div className='absolute inset-0 bg-linear-to-br from-amber-100 via-orange-50 to-red-50 opacity-60'></div>
         <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
             <motion.div
@@ -241,7 +241,7 @@ export default function BoulangerieLandingContent({
       </section>
 
       {/* Solution Section */}
-      <section className='py-16 bg-gradient-to-br from-amber-50 to-orange-50'>
+      <section className='py-16 bg-linear-to-br from-amber-50 to-orange-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -412,7 +412,7 @@ export default function BoulangerieLandingContent({
       </section>
 
       {/* Pricing Section */}
-      <section className='py-16 bg-gradient-to-br from-amber-50 to-orange-50'>
+      <section className='py-16 bg-linear-to-br from-amber-50 to-orange-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -507,7 +507,7 @@ export default function BoulangerieLandingContent({
       </section>
 
       {/* CTA Section */}
-      <section className='py-16 bg-gradient-to-r from-amber-600 to-orange-600'>
+      <section className='py-16 bg-linear-to-r from-amber-600 to-orange-600'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

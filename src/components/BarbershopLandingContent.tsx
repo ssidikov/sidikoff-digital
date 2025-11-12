@@ -134,10 +134,10 @@ export default function BarbershopLandingContent({
   const contactUrl = locale === 'fr' ? '/contact' : `/${locale}/contact`
 
   return (
-    <div className='min-h-screen bg-gradient-to-b from-slate-50 to-white'>
+    <div className='min-h-screen bg-linear-to-b from-slate-50 to-white'>
       {/* Hero Section */}
       <section className='relative pt-24 md:pt-32 pb-24 overflow-hidden'>
-        <div className='absolute inset-0 bg-gradient-to-br from-slate-100 via-gray-50 to-zinc-50 opacity-60'></div>
+        <div className='absolute inset-0 bg-linear-to-br from-slate-100 via-gray-50 to-zinc-50 opacity-60'></div>
         <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
             <motion.div

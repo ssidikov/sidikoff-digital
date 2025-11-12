@@ -18,15 +18,15 @@ export async function generateMetadata({ params }: Paris16PageProps): Promise<Me
     locale === 'fr'
       ? 'Création de site internet professionnel Paris 16ème - Agence Web'
       : locale === 'en'
-      ? 'Professional Website Creation Paris 16th - Web Agency'
-      : 'Создание профессиональных сайтов Париж 16-й - Веб Агентство'
+        ? 'Professional Website Creation Paris 16th - Web Agency'
+        : 'Создание профессиональных сайтов Париж 16-й - Веб Агентство'
 
   const description =
     locale === 'fr'
       ? 'SIDIKOFF DIGITAL, agence web 75016, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
       : locale === 'en'
-      ? 'SIDIKOFF DIGITAL, Paris 16th web agency (75016), specializes in website creation and web marketing. Contact us now.'
-      : 'SIDIKOFF DIGITAL, веб-агентство Париж 16-й (75016), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.'
+        ? 'SIDIKOFF DIGITAL, Paris 16th web agency (75016), specializes in website creation and web marketing. Contact us now.'
+        : 'SIDIKOFF DIGITAL, веб-агентство Париж 16-й (75016), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.'
 
   return {
     title,
@@ -226,7 +226,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
           }}
         />
 
-        <div className='min-h-screen bg-gradient-to-br from-[#F9F7FF] via-[#F9F7FF] to-[#DBE2EF]'>
+        <div className='min-h-screen bg-linear-to-br from-[#F9F7FF] via-[#F9F7FF] to-[#DBE2EF]'>
           {/* Hero Section */}
           <Section id='hero-paris-16' variant='hero' padding='xl' contentWidth='wide'>
             <div className='container mx-auto px-4 md:pt-32 pb-20'>
@@ -247,7 +247,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
 
                     <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] mb-6 leading-tight'>
                       Création de site internet professionnel{' '}
-                      <span className='bg-gradient-to-r from-[#3F72AF] to-[#112D4E] bg-clip-text text-transparent'>
+                      <span className='bg-linear-to-r from-[#3F72AF] to-[#112D4E] bg-clip-text text-transparent'>
                         Paris 16ème
                       </span>{' '}
                       - Agence Web Auteuil
@@ -268,7 +268,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                         href='/contact'
                         variant='primary'
                         size='md'
-                        className='bg-gradient-to-r from-[#3F72AF] to-[#112D4E] hover:from-[#112D4E] hover:to-[#3F72AF] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'>
+                        className='bg-linear-to-r from-[#3F72AF] to-[#112D4E] hover:from-[#112D4E] hover:to-[#3F72AF] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'>
                         <svg
                           className='w-4 h-4 mr-2'
                           fill='none'
@@ -340,13 +340,13 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                         loading='eager'
                         fetchPriority='high'
                       />
-                      <div className='absolute inset-0 bg-gradient-to-tr from-[#112D4E]/20 to-transparent rounded-2xl'></div>
+                      <div className='absolute inset-0 bg-linear-to-tr from-[#112D4E]/20 to-transparent rounded-2xl'></div>
                     </div>
 
                     {/* Floating Cards */}
                     <div className='absolute -top-6 -left-6 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-xl z-20'>
                       <div className='flex items-center space-x-3'>
-                        <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
+                        <div className='w-10 h-10 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
                           <svg
                             className='w-5 h-5 text-white'
                             fill='none'
@@ -369,7 +369,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
 
                     <div className='absolute -bottom-6 -right-6 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-xl z-20'>
                       <div className='flex items-center space-x-3'>
-                        <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
+                        <div className='w-10 h-10 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
                           <svg
                             className='w-5 h-5 text-white'
                             fill='none'
@@ -397,7 +397,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                   <div className='bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/50'>
                     <div className='max-w-4xl mx-auto'>
                       <div className='flex items-start space-x-4'>
-                        <div className='flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-xl flex items-center justify-center'>
+                        <div className='flex-shrink-0 w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-xl flex items-center justify-center'>
                           <svg
                             className='w-6 h-6 text-white'
                             fill='none'
@@ -441,14 +441,14 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                 <h2 className='text-3xl md:text-4xl font-bold text-[#112D4E] mb-6'>
                   Nos services de création de site web Paris 16ème
                 </h2>
-                <div className='w-24 h-1 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] mx-auto mb-6'></div>
+                <div className='w-24 h-1 bg-linear-to-r from-[#3F72AF] to-[#112D4E] mx-auto mb-6'></div>
               </div>
 
               {/* Service 1: Site vitrine professionnel */}
               <div className='grid lg:grid-cols-2 gap-12 items-center mb-20'>
                 <div className='space-y-6'>
                   <div className='flex items-center space-x-3'>
-                    <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
+                    <div className='w-10 h-10 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
                       <svg
                         className='w-5 h-5 text-white'
                         fill='none'
@@ -503,7 +503,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                       width={600}
                       height={400}
                     />
-                    <div className='absolute inset-0 bg-gradient-to-tr from-[#112D4E]/10 to-transparent rounded-2xl'></div>
+                    <div className='absolute inset-0 bg-linear-to-tr from-[#112D4E]/10 to-transparent rounded-2xl'></div>
                   </div>
                 </div>
               </div>
@@ -519,13 +519,13 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                       width={600}
                       height={400}
                     />
-                    <div className='absolute inset-0 bg-gradient-to-tr from-[#3F72AF]/10 to-transparent rounded-2xl'></div>
+                    <div className='absolute inset-0 bg-linear-to-tr from-[#3F72AF]/10 to-transparent rounded-2xl'></div>
                   </div>
                 </div>
 
                 <div className='order-1 lg:order-2 space-y-6'>
                   <div className='flex items-center space-x-3'>
-                    <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
+                    <div className='w-10 h-10 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
                       <svg
                         className='w-5 h-5 text-white'
                         fill='none'
@@ -557,7 +557,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
               <div className='grid lg:grid-cols-2 gap-12 items-center mb-20'>
                 <div className='space-y-6'>
                   <div className='flex items-center space-x-3'>
-                    <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
+                    <div className='w-10 h-10 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
                       <svg
                         className='w-5 h-5 text-white'
                         fill='none'
@@ -608,7 +608,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                       width={600}
                       height={400}
                     />
-                    <div className='absolute inset-0 bg-gradient-to-tr from-[#3F72AF]/10 to-transparent rounded-2xl'></div>
+                    <div className='absolute inset-0 bg-linear-to-tr from-[#3F72AF]/10 to-transparent rounded-2xl'></div>
                   </div>
                 </div>
               </div>
@@ -624,13 +624,13 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                       width={600}
                       height={400}
                     />
-                    <div className='absolute inset-0 bg-gradient-to-tr from-[#112D4E]/10 to-transparent rounded-2xl'></div>
+                    <div className='absolute inset-0 bg-linear-to-tr from-[#112D4E]/10 to-transparent rounded-2xl'></div>
                   </div>
                 </div>
 
                 <div className='order-1 lg:order-2 space-y-6'>
                   <div className='flex items-center space-x-3'>
-                    <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
+                    <div className='w-10 h-10 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
                       <svg
                         className='w-5 h-5 text-white'
                         fill='none'
@@ -660,7 +660,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
               <div className='grid lg:grid-cols-2 gap-12 items-center'>
                 <div className='space-y-6'>
                   <div className='flex items-center space-x-3'>
-                    <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
+                    <div className='w-10 h-10 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
                       <svg
                         className='w-5 h-5 text-white'
                         fill='none'
@@ -717,7 +717,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                       width={600}
                       height={400}
                     />
-                    <div className='absolute inset-0 bg-gradient-to-tr from-[#3F72AF]/10 to-transparent rounded-2xl'></div>
+                    <div className='absolute inset-0 bg-linear-to-tr from-[#3F72AF]/10 to-transparent rounded-2xl'></div>
                   </div>
                 </div>
               </div>
@@ -725,7 +725,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
           </Section>
 
           {/* Services Section */}
-          <Section className='py-20 bg-gradient-to-b from-white to-[#F8F9FA]'>
+          <Section className='py-20 bg-linear-to-b from-white to-[#F8F9FA]'>
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
               <div className='text-center mb-16'>
                 <h2 className='text-4xl font-bold text-[#112D4E] mb-6'>
@@ -742,7 +742,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
               <div className='grid lg:grid-cols-2 gap-12 items-center mb-20'>
                 <div className='space-y-6'>
                   <div className='flex items-center space-x-3'>
-                    <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
+                    <div className='w-10 h-10 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
                       <svg
                         className='w-5 h-5 text-white'
                         fill='none'
@@ -767,7 +767,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                     <strong>design responsive</strong>.
                   </p>
 
-                  <div className='bg-gradient-to-r from-[#F9F7FF] to-[#DBE2EF] rounded-xl p-6'>
+                  <div className='bg-linear-to-r from-[#F9F7FF] to-[#DBE2EF] rounded-xl p-6'>
                     <h4 className='font-semibold text-[#112D4E] mb-3'>
                       Technologies que nous maîtrisons :
                     </h4>
@@ -819,7 +819,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                       width={600}
                       height={400}
                     />
-                    <div className='absolute inset-0 bg-gradient-to-tr from-[#112D4E]/10 to-transparent rounded-2xl'></div>
+                    <div className='absolute inset-0 bg-linear-to-tr from-[#112D4E]/10 to-transparent rounded-2xl'></div>
                   </div>
 
                   {/* Floating Badge */}
@@ -843,7 +843,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                       width={600}
                       height={400}
                     />
-                    <div className='absolute inset-0 bg-gradient-to-tr from-[#3F72AF]/10 to-transparent rounded-2xl'></div>
+                    <div className='absolute inset-0 bg-linear-to-tr from-[#3F72AF]/10 to-transparent rounded-2xl'></div>
                   </div>
 
                   {/* Floating SEO Stats */}
@@ -873,7 +873,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
 
                 <div className='order-1 lg:order-2 space-y-6'>
                   <div className='flex items-center space-x-3'>
-                    <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
+                    <div className='w-10 h-10 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
                       <svg
                         className='w-5 h-5 text-white'
                         fill='none'
@@ -900,7 +900,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                     arrondissement.
                   </p>
 
-                  <div className='bg-gradient-to-r from-[#F9F7FF] to-[#DBE2EF] rounded-xl p-6'>
+                  <div className='bg-linear-to-r from-[#F9F7FF] to-[#DBE2EF] rounded-xl p-6'>
                     <h4 className='font-semibold text-[#112D4E] mb-3'>
                       Notre approche SEO local :
                     </h4>
@@ -968,7 +968,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
 
               <div className='grid md:grid-cols-3 gap-8 mb-16'>
                 <div className='bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg text-center'>
-                  <div className='w-16 h-16 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-6'>
+                  <div className='w-16 h-16 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-6'>
                     <span className='text-white font-bold text-xl'>1</span>
                   </div>
                   <h3 className='text-xl font-bold text-[#112D4E] mb-4'>Analyse & Stratégie</h3>
@@ -979,7 +979,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                 </div>
 
                 <div className='bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg text-center'>
-                  <div className='w-16 h-16 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-6'>
+                  <div className='w-16 h-16 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-6'>
                     <span className='text-white font-bold text-xl'>2</span>
                   </div>
                   <h3 className='text-xl font-bold text-[#112D4E] mb-4'>Design & Développement</h3>
@@ -990,7 +990,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                 </div>
 
                 <div className='bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg text-center'>
-                  <div className='w-16 h-16 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-6'>
+                  <div className='w-16 h-16 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-6'>
                     <span className='text-white font-bold text-xl'>3</span>
                   </div>
                   <h3 className='text-xl font-bold text-[#112D4E] mb-4'>
@@ -1060,7 +1060,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                 <h2 className='text-3xl md:text-4xl font-bold text-[#112D4E] mb-6'>
                   Secteurs d&apos;expertise Paris 16ème arrondissement
                 </h2>
-                <div className='w-24 h-1 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] mx-auto mb-6'></div>
+                <div className='w-24 h-1 bg-linear-to-r from-[#3F72AF] to-[#112D4E] mx-auto mb-6'></div>
                 <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
                   Notre <strong>agence web spécialisée Paris 16ème</strong> accompagne tous les
                   secteurs d&apos;activité du prestigieux 16ème arrondissement
@@ -1070,7 +1070,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
               <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16'>
                 {/* Professions libérales */}
                 <div className='bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition-all duration-300'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mx-auto mb-4'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mx-auto mb-4'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -1105,7 +1105,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
 
                 {/* Commerce de luxe */}
                 <div className='bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition-all duration-300'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mx-auto mb-4'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mx-auto mb-4'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -1140,7 +1140,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
 
                 {/* Restauration */}
                 <div className='bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition-all duration-300'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mx-auto mb-4'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mx-auto mb-4'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -1181,7 +1181,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
 
                 {/* Services aux entreprises */}
                 <div className='bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition-all duration-300'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mx-auto mb-4'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mx-auto mb-4'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -1223,13 +1223,13 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
             variant='default'
             padding='xl'
             contentWidth='wide'
-            className='bg-gradient-to-b from-[#F8F9FA] to-white'>
+            className='bg-linear-to-b from-[#F8F9FA] to-white'>
             <div className='container mx-auto px-4'>
               <div className='text-center mb-16'>
                 <h2 className='text-3xl md:text-4xl font-bold text-[#112D4E] mb-6'>
                   Zones d&apos;intervention Paris 16ème
                 </h2>
-                <div className='w-24 h-1 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] mx-auto mb-6'></div>
+                <div className='w-24 h-1 bg-linear-to-r from-[#3F72AF] to-[#112D4E] mx-auto mb-6'></div>
                 <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
                   <strong>Création sites web</strong> dans tous les quartiers prestigieux du 16ème
                   arrondissement parisien
@@ -1240,7 +1240,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                 {/* Passy - La Muette */}
                 <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300'>
                   <div className='flex items-center space-x-3 mb-4'>
-                    <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
+                    <div className='w-10 h-10 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
                       <svg className='w-5 h-5 text-white' fill='currentColor' viewBox='0 0 20 20'>
                         <path
                           fillRule='evenodd'
@@ -1271,7 +1271,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                 {/* Trocadéro - Chaillot */}
                 <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300'>
                   <div className='flex items-center space-x-3 mb-4'>
-                    <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
+                    <div className='w-10 h-10 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
                       <svg className='w-5 h-5 text-white' fill='currentColor' viewBox='0 0 20 20'>
                         <path
                           fillRule='evenodd'
@@ -1302,7 +1302,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                 {/* Auteuil - Porte d'Auteuil */}
                 <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300'>
                   <div className='flex items-center space-x-3 mb-4'>
-                    <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
+                    <div className='w-10 h-10 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
                       <svg className='w-5 h-5 text-white' fill='currentColor' viewBox='0 0 20 20'>
                         <path
                           fillRule='evenodd'
@@ -1335,7 +1335,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                 {/* Victor Hugo - Étoile */}
                 <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300'>
                   <div className='flex items-center space-x-3 mb-4'>
-                    <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
+                    <div className='w-10 h-10 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center'>
                       <svg className='w-5 h-5 text-white' fill='currentColor' viewBox='0 0 20 20'>
                         <path
                           fillRule='evenodd'
@@ -1373,7 +1373,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                 <h2 className='text-3xl md:text-4xl font-bold text-[#112D4E] mb-6'>
                   FAQ Création Site Internet Paris 16
                 </h2>
-                <div className='w-24 h-1 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] mx-auto mb-6'></div>
+                <div className='w-24 h-1 bg-linear-to-r from-[#3F72AF] to-[#112D4E] mx-auto mb-6'></div>
                 <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
                   Réponses aux questions les plus posées par nos clients du 16ème arrondissement
                 </p>
@@ -1384,7 +1384,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                 <div className='bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300'>
                   <div className='p-8'>
                     <div className='flex items-start space-x-4'>
-                      <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center flex-shrink-0'>
+                      <div className='w-10 h-10 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center flex-shrink-0'>
                         <span className='text-white font-bold'>€</span>
                       </div>
                       <div className='flex-1'>
@@ -1408,7 +1408,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                 <div className='bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300'>
                   <div className='p-8'>
                     <div className='flex items-start space-x-4'>
-                      <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center flex-shrink-0'>
+                      <div className='w-10 h-10 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center flex-shrink-0'>
                         <svg
                           className='w-5 h-5 text-white'
                           fill='none'
@@ -1442,7 +1442,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                 <div className='bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300'>
                   <div className='p-8'>
                     <div className='flex items-start space-x-4'>
-                      <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center flex-shrink-0'>
+                      <div className='w-10 h-10 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center flex-shrink-0'>
                         <svg
                           className='w-5 h-5 text-white'
                           fill='none'
@@ -1476,7 +1476,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                 <div className='bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300'>
                   <div className='p-8'>
                     <div className='flex items-start space-x-4'>
-                      <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center flex-shrink-0'>
+                      <div className='w-10 h-10 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center flex-shrink-0'>
                         <svg
                           className='w-5 h-5 text-white'
                           fill='none'
@@ -1513,7 +1513,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                 <div className='bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300'>
                   <div className='p-8'>
                     <div className='flex items-start space-x-4'>
-                      <div className='w-10 h-10 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center flex-shrink-0'>
+                      <div className='w-10 h-10 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center flex-shrink-0'>
                         <svg
                           className='w-5 h-5 text-white'
                           fill='none'
@@ -1559,7 +1559,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                     width={2069}
                     height={600}
                   />
-                  <div className='absolute inset-0 bg-gradient-to-r from-[#112D4E]/95 via-[#112D4E]/90 to-[#3F72AF]/85'></div>
+                  <div className='absolute inset-0 bg-linear-to-r from-[#112D4E]/95 via-[#112D4E]/90 to-[#3F72AF]/85'></div>
                 </div>
 
                 {/* Content */}
@@ -1786,14 +1786,14 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
           }}
         />
 
-        <div className='min-h-screen bg-gradient-to-br from-[#F9F7FF] via-[#F9F7FF] to-[#DBE2EF]'>
+        <div className='min-h-screen bg-linear-to-br from-[#F9F7FF] via-[#F9F7FF] to-[#DBE2EF]'>
           <Section id='hero-paris-16-en' variant='hero' padding='xl' contentWidth='wide'>
             <div className='container mx-auto px-4 pt-32 pb-16'>
               <div className='max-w-4xl mx-auto text-center'>
                 <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] mb-6 leading-tight'>
                   Website Creation Paris 16 - Local Expert
                 </h1>
-                <div className='w-24 h-1 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] mx-auto mb-8'></div>
+                <div className='w-24 h-1 bg-linear-to-r from-[#3F72AF] to-[#112D4E] mx-auto mb-8'></div>
 
                 <div className='bg-white/80 backdrop-blur-sm rounded-2xl p-8 mb-12 shadow-lg'>
                   <p className='text-lg text-[#112D4E] leading-relaxed'>
@@ -1961,14 +1961,14 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
         }}
       />
 
-      <div className='min-h-screen bg-gradient-to-br from-[#F9F7FF] via-[#F9F7FF] to-[#DBE2EF]'>
+      <div className='min-h-screen bg-linear-to-br from-[#F9F7FF] via-[#F9F7FF] to-[#DBE2EF]'>
         <Section id='hero-paris-16-ru' variant='hero' padding='xl' contentWidth='wide'>
           <div className='container mx-auto px-4 pt-32 pb-16'>
             <div className='max-w-4xl mx-auto text-center'>
               <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] mb-6 leading-tight'>
                 Создание Сайтов Париж 16 - Местный Эксперт
               </h1>
-              <div className='w-24 h-1 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] mx-auto mb-8'></div>
+              <div className='w-24 h-1 bg-linear-to-r from-[#3F72AF] to-[#112D4E] mx-auto mb-8'></div>
 
               <div className='bg-white/80 backdrop-blur-sm rounded-2xl p-8 mb-12 shadow-lg'>
                 <p className='text-lg text-[#112D4E] leading-relaxed'>

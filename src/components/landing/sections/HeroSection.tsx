@@ -56,7 +56,7 @@ export function HeroSection({ dictionary, locale, industryConfig, breadcrumbs }:
 
   return (
     <section
-      className={`relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br ${industryConfig.hero.backgroundPattern} pt-[120px] md:pt-[160px] pb-8 md:pb-16`}
+      className={`relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-linear-to-br ${industryConfig.hero.backgroundPattern} pt-[120px] md:pt-[160px] pb-8 md:pb-16`}
       style={{
         background: `linear-gradient(135deg, ${industryConfig.colors.gradient.from}10, ${industryConfig.colors.gradient.to}10)`,
       }}>

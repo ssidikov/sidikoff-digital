@@ -14,7 +14,7 @@ const headingVariants = cva('font-bold tracking-tight text-foreground', {
     },
     variant: {
       default: '',
-      gradient: 'bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent',
+      gradient: 'bg-linear-to-r from-primary to-primary/70 bg-clip-text text-transparent',
       muted: 'text-muted-foreground',
       accent: 'text-accent-foreground',
     },

@@ -241,7 +241,7 @@ interface FAQCardProps {
 const FAQCard = ({ item, isOpen, onToggle }: FAQCardProps) => (
   <motion.div
     {...ANIMATION_CONFIG.item}
-    className='relative overflow-hidden rounded-md border border-white/50 bg-white pb-5 shadow-2xl transition-all duration-500 before:pointer-events-none before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/30 before:to-transparent before:opacity-60'>
+    className='relative overflow-hidden rounded-md border border-white/50 bg-white pb-5 shadow-2xl transition-all duration-500 before:pointer-events-none before:absolute before:inset-0 before:rounded-3xl before:bg-linear-to-br before:from-white/30 before:to-transparent before:opacity-60'>
     <button
       onClick={() => onToggle(item.id)}
       className='flex w-full cursor-pointer items-center justify-between px-5 pt-5 transition-all duration-[10000] sm:px-6'

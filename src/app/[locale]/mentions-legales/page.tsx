@@ -23,7 +23,7 @@ export default async function MentionsLegalesPage({ params }: Props) {
   const dict = await getDictionary(locale)
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-[#F9F7FF] via-[#F9F7FF] to-[#DBE2EF]'>
+    <div className='min-h-screen bg-linear-to-br from-[#F9F7FF] via-[#F9F7FF] to-[#DBE2EF]'>
       <div className='container mx-auto px-4 py-40'>
         <div className='max-w-4xl mx-auto'>
           {/* Header */}
@@ -31,7 +31,7 @@ export default async function MentionsLegalesPage({ params }: Props) {
             <h1 className='text-5xl md:text-6xl font-bold text-[#112D4E] mb-6'>
               {dict.legal.title}
             </h1>
-            <div className='w-24 h-1 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] mx-auto'></div>
+            <div className='w-24 h-1 bg-linear-to-r from-[#3F72AF] to-[#112D4E] mx-auto'></div>
           </div>
 
           {/* Content */}
@@ -39,7 +39,7 @@ export default async function MentionsLegalesPage({ params }: Props) {
             {/* Company Information */}
             <section className='bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/30'>
               <h2 className='text-3xl font-bold text-[#112D4E] mb-6 flex items-center'>
-                <div className='w-8 h-8 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg mr-3'></div>
+                <div className='w-8 h-8 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg mr-3'></div>
                 {dict.legal.company_info_title}
               </h2>
 
@@ -107,7 +107,7 @@ export default async function MentionsLegalesPage({ params }: Props) {
             {/* Publication Director */}
             <section className='bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/30'>
               <h2 className='text-3xl font-bold text-[#112D4E] mb-6 flex items-center'>
-                <div className='w-8 h-8 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg mr-3'></div>
+                <div className='w-8 h-8 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg mr-3'></div>
                 {dict.legal.director_title}
               </h2>
               <p className='text-lg text-[#112D4E] font-medium'>{dict.legal.director_name}</p>
@@ -116,7 +116,7 @@ export default async function MentionsLegalesPage({ params }: Props) {
             {/* Hosting */}
             <section className='bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/30'>
               <h2 className='text-3xl font-bold text-[#112D4E] mb-6 flex items-center'>
-                <div className='w-8 h-8 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg mr-3'></div>
+                <div className='w-8 h-8 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg mr-3'></div>
                 {dict.legal.hosting_title}
               </h2>
 
@@ -155,7 +155,7 @@ export default async function MentionsLegalesPage({ params }: Props) {
             {/* Intellectual Property */}
             <section className='bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/30'>
               <h2 className='text-3xl font-bold text-[#112D4E] mb-6 flex items-center'>
-                <div className='w-8 h-8 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg mr-3'></div>
+                <div className='w-8 h-8 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg mr-3'></div>
                 {dict.legal.ip_title}
               </h2>
               <p className='text-lg text-[#112D4E] leading-relaxed'>{dict.legal.ip_text}</p>
@@ -164,7 +164,7 @@ export default async function MentionsLegalesPage({ params }: Props) {
             {/* Data Protection */}
             <section className='bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/30'>
               <h2 className='text-3xl font-bold text-[#112D4E] mb-6 flex items-center'>
-                <div className='w-8 h-8 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg mr-3'></div>
+                <div className='w-8 h-8 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg mr-3'></div>
                 {dict.legal.data_title}
               </h2>
               <p className='text-lg text-[#112D4E] leading-relaxed'>{dict.legal.data_text}</p>
@@ -173,7 +173,7 @@ export default async function MentionsLegalesPage({ params }: Props) {
             {/* Cookies */}
             <section className='bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/30'>
               <h2 className='text-3xl font-bold text-[#112D4E] mb-6 flex items-center'>
-                <div className='w-8 h-8 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg mr-3'></div>
+                <div className='w-8 h-8 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg mr-3'></div>
                 {dict.legal.cookies_title}
               </h2>
               <p className='text-lg text-[#112D4E] leading-relaxed'>{dict.legal.cookies_text}</p>

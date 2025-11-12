@@ -409,7 +409,7 @@ export function BlogPostContent({ post, dictionary, locale }: BlogPostContentPro
               {/* Meta Information */}
               <div className='flex flex-wrap items-center justify-center gap-6 text-white/80'>
                 <div className='flex items-center'>
-                  <div className='w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-3'>
+                  <div className='w-8 h-8 bg-linear-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-3'>
                     <span className='text-white font-bold text-xs'>SD</span>
                   </div>
                   <span>SIDIKOFF DIGITAL</span>
@@ -464,7 +464,7 @@ export function BlogPostContent({ post, dictionary, locale }: BlogPostContentPro
               className='max-w-4xl mx-auto'>
               {/* Excerpt */}
               {post.excerpt && (
-                <div className='mb-12 p-8 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl border-l-4 border-blue-500'>
+                <div className='mb-12 p-8 bg-linear-to-r from-blue-50 to-purple-50 rounded-2xl border-l-4 border-blue-500'>
                   <p className='text-xl text-gray-700 leading-relaxed italic'>{post.excerpt}</p>
                 </div>
               )}
@@ -524,7 +524,7 @@ export function BlogPostContent({ post, dictionary, locale }: BlogPostContentPro
         </section>
 
         {/* CTA Section */}
-        <section className='relative py-20 bg-gradient-to-r from-gray-900 to-gray-800 overflow-hidden'>
+        <section className='relative py-20 bg-linear-to-r from-gray-900 to-gray-800 overflow-hidden'>
           <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-[length:20px_20px]' />
 
           <div className='relative z-10 container mx-auto px-4 text-center'>
@@ -544,7 +544,7 @@ export function BlogPostContent({ post, dictionary, locale }: BlogPostContentPro
               <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                 <Link
                   href={getLocalizedUrl('/contact', locale)}
-                  className='bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1'>
+                  className='bg-linear-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1'>
                   {dictionary.cta.button}
                 </Link>
                 <Link

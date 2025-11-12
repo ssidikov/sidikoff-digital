@@ -31,7 +31,7 @@ export default function SeoOptimizationLandingContent({
   return (
     <div className='min-h-screen'>
       {/* Hero Section - Full Screen */}
-      <section className='relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-white via-[var(--bg-accent-light)] to-[var(--accent-alpha-10)] pt-[120px] md:pt-[160px] pb-8 md:pb-16'>
+      <section className='relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-linear-to-br from-white via-[var(--bg-accent-light)] to-[var(--accent-alpha-10)] pt-[120px] md:pt-[160px] pb-8 md:pb-16'>
         {/* Background Elements */}
         <div className='absolute inset-0 overflow-hidden'>
           <div className='absolute -top-40 -right-40 w-80 h-80 bg-[var(--accent-alpha-10)] rounded-full opacity-60 animate-pulse'></div>
@@ -164,7 +164,7 @@ export default function SeoOptimizationLandingContent({
             {t.stats.map((stat, index: number) => (
               <motion.div
                 key={index}
-                className='text-center p-6 bg-gradient-to-br from-[var(--bg-accent-light)] to-[var(--accent-alpha-10)] rounded-xl border border-[var(--accent-alpha-20)]'
+                className='text-center p-6 bg-linear-to-br from-[var(--bg-accent-light)] to-[var(--accent-alpha-10)] rounded-xl border border-[var(--accent-alpha-20)]'
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2, duration: 0.6 }}
@@ -232,7 +232,7 @@ export default function SeoOptimizationLandingContent({
             {t.features.items.map((feature, index: number) => (
               <motion.div
                 key={index}
-                className='p-6 bg-gradient-to-br from-[var(--bg-primary)] to-white rounded-xl border border-gray-100 hover:border-[var(--accent-alpha-20)] hover:shadow-lg transition-all duration-300'
+                className='p-6 bg-linear-to-br from-[var(--bg-primary)] to-white rounded-xl border border-gray-100 hover:border-[var(--accent-alpha-20)] hover:shadow-lg transition-all duration-300'
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}

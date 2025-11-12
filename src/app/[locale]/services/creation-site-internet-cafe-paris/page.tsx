@@ -78,8 +78,8 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
     return (
       <div className='min-h-screen'>
         {/* Hero Section */}
-        <Section className='pt-32 pb-20 bg-gradient-to-br from-[#DBE2EF] via-[#F9F7FF] to-white relative overflow-hidden'>
-          <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-right-top opacity-5'></div>
+        <Section className='pt-32 pb-20 bg-linear-to-br from-[#DBE2EF] via-[#F9F7FF] to-white relative overflow-hidden'>
+          <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-top-right opacity-5'></div>
           <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
             <div className='grid lg:grid-cols-2 gap-12 items-center'>
               <div className='space-y-8'>
@@ -140,7 +140,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                     width={600}
                     height={400}
                   />
-                  <div className='absolute inset-0 bg-gradient-to-tr from-[#3F72AF]/20 to-transparent rounded-2xl'></div>
+                  <div className='absolute inset-0 bg-linear-to-tr from-[#3F72AF]/20 to-transparent rounded-2xl'></div>
                 </div>
 
                 {/* Floating Elements */}
@@ -164,7 +164,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
         <div className='flex flex-col gap-0'>
           {/* Why Essential Section */}
-          <Section className='py-20 bg-gradient-to-b from-white to-[#F8F9FA]'>
+          <Section className='py-20 bg-linear-to-b from-white to-[#F8F9FA]'>
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
               <div className='text-center mb-16'>
                 <h2 className='text-4xl font-bold text-[#112D4E] mb-6'>
@@ -178,7 +178,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
               <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
                 <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -199,7 +199,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                 </div>
 
                 <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -219,7 +219,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                 </div>
 
                 <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                     <svg className='w-4 h-4 text-white' fill='currentColor' viewBox='0 0 20 20'>
                       <path
                         fillRule='evenodd'
@@ -235,7 +235,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                 </div>
 
                 <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -258,7 +258,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
           </Section>
 
           {/* Services Section */}
-          <Section className='py-20 bg-gradient-to-br from-[#F8F9FA] to-[#DBE2EF]'>
+          <Section className='py-20 bg-linear-to-br from-[#F8F9FA] to-[#DBE2EF]'>
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
               <div className='text-center mb-16'>
                 <h2 className='text-4xl font-bold text-[#112D4E] mb-6'>
@@ -272,7 +272,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
               <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
                 {/* Professional showcase website */}
                 <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -314,7 +314,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
                 {/* E-commerce for café */}
                 <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -354,7 +354,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
                 {/* Café-specific features */}
                 <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -404,7 +404,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
                 {/* Local SEO for cafés in Paris */}
                 <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -447,7 +447,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
                 {/* Design & user experience */}
                 <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -490,7 +490,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
                 {/* Maintenance & technical support */}
                 <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -546,8 +546,8 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
               </div>
 
               <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-                <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                     <svg className='w-6 h-6 text-white' fill='currentColor' viewBox='0 0 20 20'>
                       <path
                         fillRule='evenodd'
@@ -562,8 +562,8 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                   <p className='text-gray-600'>and Île-de-France region.</p>
                 </div>
 
-                <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -583,8 +583,8 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                   <p className='text-gray-600'>and loyalty through online menu and reservation.</p>
                 </div>
 
-                <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -602,8 +602,8 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                   <p className='text-gray-600'>for you thanks to automatic features.</p>
                 </div>
 
-                <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -621,8 +621,8 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                   <p className='text-gray-600'>and modern appearance of your establishment.</p>
                 </div>
 
-                <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -644,7 +644,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
           </Section>
 
           {/* Portfolio Section */}
-          <Section className='py-20 bg-gradient-to-b from-[#F8F9FA] to-white'>
+          <Section className='py-20 bg-linear-to-b from-[#F8F9FA] to-white'>
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
               <h2 className='text-4xl font-bold text-[#112D4E] mb-6'>
                 Project examples / Portfolio
@@ -672,7 +672,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
               </div>
 
               <div className='space-y-8'>
-                <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
+                <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
                   <h3 className='text-xl font-bold text-[#112D4E] mb-4'>
                     What is the price to create a website for my café in Paris?
                   </h3>
@@ -682,7 +682,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                   </p>
                 </div>
 
-                <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
+                <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
                   <h3 className='text-xl font-bold text-[#112D4E] mb-4'>
                     How long does it take to create a café website?
                   </h3>
@@ -692,7 +692,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                   </p>
                 </div>
 
-                <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
+                <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
                   <h3 className='text-xl font-bold text-[#112D4E] mb-4'>
                     Will my site be visible on Google?
                   </h3>
@@ -702,7 +702,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                   </p>
                 </div>
 
-                <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
+                <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
                   <h3 className='text-xl font-bold text-[#112D4E] mb-4'>
                     Can I manage my site myself after it goes live?
                   </h3>
@@ -715,7 +715,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
           </Section>
 
           {/* CTA Section */}
-          <Section className='py-20 bg-gradient-to-br from-[#112D4E] to-[#3F72AF] text-white'>
+          <Section className='py-20 bg-linear-to-br from-[#112D4E] to-[#3F72AF] text-white'>
             <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
               <h2 className='text-4xl font-bold mb-6'>Request your free quote</h2>
               <p className='text-xl mb-8 opacity-90'>
@@ -752,7 +752,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
             </div>
           </Section>
         </div>
-</div>
+      </div>
     )
   }
 
@@ -760,8 +760,8 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
     return (
       <div className='min-h-screen'>
         {/* Hero Section */}
-        <Section className='pt-32 pb-20 bg-gradient-to-br from-[#DBE2EF] via-[#F9F7FF] to-white relative overflow-hidden'>
-          <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-right-top opacity-5'></div>
+        <Section className='pt-32 pb-20 bg-linear-to-br from-[#DBE2EF] via-[#F9F7FF] to-white relative overflow-hidden'>
+          <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-top-right opacity-5'></div>
           <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
             <div className='grid lg:grid-cols-2 gap-12 items-center'>
               <div className='space-y-8'>
@@ -822,7 +822,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                     width={600}
                     height={400}
                   />
-                  <div className='absolute inset-0 bg-gradient-to-tr from-[#3F72AF]/20 to-transparent rounded-2xl'></div>
+                  <div className='absolute inset-0 bg-linear-to-tr from-[#3F72AF]/20 to-transparent rounded-2xl'></div>
                 </div>
 
                 {/* Floating Elements */}
@@ -846,7 +846,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
         <div className='flex flex-col gap-0'>
           {/* Why Essential Section */}
-          <Section className='py-20 bg-gradient-to-b from-white to-[#F8F9FA]'>
+          <Section className='py-20 bg-linear-to-b from-white to-[#F8F9FA]'>
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
               <div className='text-center mb-16'>
                 <h2 className='text-4xl font-bold text-[#112D4E] mb-6'>
@@ -860,7 +860,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
               <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
                 <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -881,7 +881,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                 </div>
 
                 <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -901,7 +901,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                 </div>
 
                 <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                     <svg className='w-4 h-4 text-white' fill='currentColor' viewBox='0 0 20 20'>
                       <path
                         fillRule='evenodd'
@@ -916,7 +916,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                 </div>
 
                 <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -940,7 +940,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
           </Section>
 
           {/* Services Section */}
-          <Section className='py-20 bg-gradient-to-br from-[#F8F9FA] to-[#DBE2EF]'>
+          <Section className='py-20 bg-linear-to-br from-[#F8F9FA] to-[#DBE2EF]'>
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
               <div className='text-center mb-16'>
                 <h2 className='text-4xl font-bold text-[#112D4E] mb-6'>
@@ -954,7 +954,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
               <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
                 {/* Professional showcase website */}
                 <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -996,7 +996,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
                 {/* E-commerce for café */}
                 <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -1038,7 +1038,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
                 {/* Café-specific features */}
                 <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -1088,7 +1088,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
                 {/* Local SEO for cafés in Paris */}
                 <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -1131,7 +1131,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
                 {/* Design & user experience */}
                 <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -1174,7 +1174,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
                 {/* Maintenance & technical support */}
                 <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -1231,8 +1231,8 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
               </div>
 
               <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-                <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                     <svg className='w-6 h-6 text-white' fill='currentColor' viewBox='0 0 20 20'>
                       <path
                         fillRule='evenodd'
@@ -1247,8 +1247,8 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                   <p className='text-gray-600'>и регионе Иль-де-Франс.</p>
                 </div>
 
-                <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -1268,8 +1268,8 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                   <p className='text-gray-600'>и лояльность через онлайн-меню и бронирование.</p>
                 </div>
 
-                <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -1287,8 +1287,8 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                   <p className='text-gray-600'>для вас благодаря автоматическим функциям.</p>
                 </div>
 
-                <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -1306,8 +1306,8 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                   <p className='text-gray-600'>и современный вид вашего заведения.</p>
                 </div>
 
-                <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
+                  <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -1329,7 +1329,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
           </Section>
 
           {/* Portfolio Section */}
-          <Section className='py-20 bg-gradient-to-b from-[#F8F9FA] to-white'>
+          <Section className='py-20 bg-linear-to-b from-[#F8F9FA] to-white'>
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
               <h2 className='text-4xl font-bold text-[#112D4E] mb-6'>
                 Примеры проектов / Портфолио
@@ -1357,7 +1357,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
               </div>
 
               <div className='space-y-8'>
-                <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
+                <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
                   <h3 className='text-xl font-bold text-[#112D4E] mb-4'>
                     Какова цена создания сайта для моего кафе в Париже?
                   </h3>
@@ -1368,7 +1368,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                   </p>
                 </div>
 
-                <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
+                <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
                   <h3 className='text-xl font-bold text-[#112D4E] mb-4'>
                     Сколько времени занимает создание сайта для кафе?
                   </h3>
@@ -1378,7 +1378,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                   </p>
                 </div>
 
-                <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
+                <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
                   <h3 className='text-xl font-bold text-[#112D4E] mb-4'>
                     Будет ли мой сайт виден в Google?
                   </h3>
@@ -1389,7 +1389,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                   </p>
                 </div>
 
-                <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
+                <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
                   <h3 className='text-xl font-bold text-[#112D4E] mb-4'>
                     Смогу ли я сам управлять сайтом после его запуска?
                   </h3>
@@ -1403,7 +1403,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
           </Section>
 
           {/* CTA Section */}
-          <Section className='py-20 bg-gradient-to-br from-[#112D4E] to-[#3F72AF] text-white'>
+          <Section className='py-20 bg-linear-to-br from-[#112D4E] to-[#3F72AF] text-white'>
             <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
               <h2 className='text-4xl font-bold mb-6'>Запросите бесплатное предложение</h2>
               <p className='text-xl mb-8 opacity-90'>
@@ -1441,7 +1441,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
             </div>
           </Section>
         </div>
-</div>
+      </div>
     )
   }
 
@@ -1449,8 +1449,8 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
   return (
     <div className='min-h-screen'>
       {/* Hero Section */}
-      <Section className='pt-32 pb-20 bg-gradient-to-br from-[#DBE2EF] via-[#F9F7FF] to-white relative overflow-hidden'>
-        <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-right-top opacity-5'></div>
+      <Section className='pt-32 pb-20 bg-linear-to-br from-[#DBE2EF] via-[#F9F7FF] to-white relative overflow-hidden'>
+        <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-top-right opacity-5'></div>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
             <div className='space-y-8'>
@@ -1513,7 +1513,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                   width={600}
                   height={400}
                 />
-                <div className='absolute inset-0 bg-gradient-to-tr from-[#3F72AF]/20 to-transparent rounded-2xl'></div>
+                <div className='absolute inset-0 bg-linear-to-tr from-[#3F72AF]/20 to-transparent rounded-2xl'></div>
               </div>
 
               {/* Floating Elements */}
@@ -1537,7 +1537,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
       <div className='flex flex-col gap-0'>
         {/* Why Essential Section */}
-        <Section className='py-20 bg-gradient-to-b from-white to-[#F8F9FA]'>
+        <Section className='py-20 bg-linear-to-b from-white to-[#F8F9FA]'>
           <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='text-center mb-16'>
               <h2 className='text-4xl font-bold text-[#112D4E] mb-6'>
@@ -1551,7 +1551,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
             <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
               <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                   <svg
                     className='w-6 h-6 text-white'
                     fill='none'
@@ -1572,7 +1572,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
               </div>
 
               <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                   <svg
                     className='w-6 h-6 text-white'
                     fill='none'
@@ -1592,7 +1592,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
               </div>
 
               <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                   <svg className='w-4 h-4 text-white' fill='currentColor' viewBox='0 0 20 20'>
                     <path
                       fillRule='evenodd'
@@ -1608,7 +1608,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
               </div>
 
               <div className='bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                   <svg
                     className='w-6 h-6 text-white'
                     fill='none'
@@ -1631,7 +1631,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
         </Section>
 
         {/* Services Section */}
-        <Section className='py-20 bg-gradient-to-br from-[#F8F9FA] to-[#DBE2EF]'>
+        <Section className='py-20 bg-linear-to-br from-[#F8F9FA] to-[#DBE2EF]'>
           <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='text-center mb-16'>
               <h2 className='text-4xl font-bold text-[#112D4E] mb-6'>
@@ -1645,7 +1645,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
               {/* Site vitrine professionnel */}
               <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                   <svg
                     className='w-6 h-6 text-white'
                     fill='none'
@@ -1687,7 +1687,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
               {/* Site e-commerce pour café */}
               <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                   <svg
                     className='w-6 h-6 text-white'
                     fill='none'
@@ -1727,7 +1727,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
               {/* Fonctionnalités adaptées aux cafés */}
               <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                   <svg
                     className='w-6 h-6 text-white'
                     fill='none'
@@ -1777,7 +1777,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
               {/* SEO local pour cafés à Paris */}
               <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                   <svg
                     className='w-6 h-6 text-white'
                     fill='none'
@@ -1820,7 +1820,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
               {/* Design & expérience utilisateur */}
               <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                   <svg
                     className='w-6 h-6 text-white'
                     fill='none'
@@ -1863,7 +1863,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
 
               {/* Maintenance & support technique */}
               <div className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
                   <svg
                     className='w-6 h-6 text-white'
                     fill='none'
@@ -1920,8 +1920,8 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
             </div>
 
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-              <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+              <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                   <svg className='w-6 h-6 text-white' fill='currentColor' viewBox='0 0 20 20'>
                     <path
                       fillRule='evenodd'
@@ -1934,8 +1934,8 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                 <p className='text-gray-600'>et en Île-de-France.</p>
               </div>
 
-              <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+              <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                   <svg
                     className='w-6 h-6 text-white'
                     fill='none'
@@ -1955,8 +1955,8 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                 </p>
               </div>
 
-              <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+              <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                   <svg
                     className='w-6 h-6 text-white'
                     fill='none'
@@ -1974,8 +1974,8 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                 <p className='text-gray-600'>pour vous grâce aux fonctionnalités automatiques.</p>
               </div>
 
-              <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+              <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                   <svg
                     className='w-6 h-6 text-white'
                     fill='none'
@@ -1993,8 +1993,8 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                 <p className='text-gray-600'>et moderne de votre établissement.</p>
               </div>
 
-              <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
-                <div className='w-12 h-12 bg-gradient-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
+              <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-xl p-6 border border-gray-100'>
+                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-4'>
                   <svg
                     className='w-6 h-6 text-white'
                     fill='none'
@@ -2016,7 +2016,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
         </Section>
 
         {/* Portfolio Section */}
-        <Section className='py-20 bg-gradient-to-b from-[#F8F9FA] to-white'>
+        <Section className='py-20 bg-linear-to-b from-[#F8F9FA] to-white'>
           <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
             <h2 className='text-4xl font-bold text-[#112D4E] mb-6'>
               Exemple de projet / Portfolio
@@ -2044,7 +2044,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
             </div>
 
             <div className='space-y-8'>
-              <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
+              <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
                 <h3 className='text-xl font-bold text-[#112D4E] mb-4'>
                   Quel est le prix pour créer un site pour mon café à Paris ?
                 </h3>
@@ -2054,7 +2054,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                 </p>
               </div>
 
-              <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
+              <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
                 <h3 className='text-xl font-bold text-[#112D4E] mb-4'>
                   Combien de temps pour créer un site web pour café ?
                 </h3>
@@ -2064,7 +2064,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                 </p>
               </div>
 
-              <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
+              <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
                 <h3 className='text-xl font-bold text-[#112D4E] mb-4'>
                   Mon site sera-t-il visible sur Google ?
                 </h3>
@@ -2074,7 +2074,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
                 </p>
               </div>
 
-              <div className='bg-gradient-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
+              <div className='bg-linear-to-br from-[#F8F9FA] to-white rounded-2xl p-8 shadow-lg border border-gray-100'>
                 <h3 className='text-xl font-bold text-[#112D4E] mb-4'>
                   Puis-je gérer mon site moi-même après sa mise en ligne ?
                 </h3>
@@ -2088,7 +2088,7 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
         </Section>
 
         {/* CTA Section */}
-        <Section className='py-20 bg-gradient-to-br from-[#112D4E] to-[#3F72AF] text-white'>
+        <Section className='py-20 bg-linear-to-br from-[#112D4E] to-[#3F72AF] text-white'>
           <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
             <h2 className='text-4xl font-bold mb-6'>Demandez votre devis gratuit</h2>
             <p className='text-xl mb-8 opacity-90'>
@@ -2124,6 +2124,6 @@ export default async function CafeParisPage({ params }: CafeParisPageProps) {
           </div>
         </Section>
       </div>
-</div>
+    </div>
   )
 }

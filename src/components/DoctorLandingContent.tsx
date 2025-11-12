@@ -110,7 +110,7 @@ export default function DoctorLandingContent({ dictionary, locale }: DoctorLandi
   return (
     <div className='min-h-screen bg-white'>
       {/* Hero Section */}
-      <section className='relative pt-24 md:pt-32 pb-24 bg-gradient-to-br from-green-50 via-white to-emerald-50 overflow-hidden'>
+      <section className='relative pt-24 md:pt-32 pb-24 bg-linear-to-br from-green-50 via-white to-emerald-50 overflow-hidden'>
         <div className='absolute inset-0 bg-[url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%2310b981" fill-opacity="0.03"%3E%3Ccircle cx="30" cy="30" r="4"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")] opacity-30'></div>
 
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative'>
@@ -496,7 +496,7 @@ export default function DoctorLandingContent({ dictionary, locale }: DoctorLandi
       </section>
 
       {/* CTA Section */}
-      <section className='py-24 bg-gradient-to-r from-green-600 to-emerald-600'>
+      <section className='py-24 bg-linear-to-r from-green-600 to-emerald-600'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
           <motion.div
             initial={{ opacity: 0, y: 30 }}

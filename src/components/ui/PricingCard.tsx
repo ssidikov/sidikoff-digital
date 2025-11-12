@@ -119,7 +119,7 @@ export default function PricingCard({
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 + featureIndex * 0.05 }}
                   viewport={{ once: true }}
-                  className='text-center p-4 bg-gradient-to-r from-white/50 to-white/40 rounded-xl border border-accent-alpha-10'>
+                  className='text-center p-4 bg-linear-to-r from-white/50 to-white/40 rounded-xl border border-accent-alpha-10'>
                   <span className='text-base font-medium italic text-gray-700'>{feature.text}</span>
                 </motion.div>
               ))}

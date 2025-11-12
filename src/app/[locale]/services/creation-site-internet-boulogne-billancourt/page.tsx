@@ -17,15 +17,15 @@ export async function generateMetadata({
     locale === 'fr'
       ? 'Création site internet Boulogne-Billancourt – Agence web spécialisée'
       : locale === 'en'
-      ? 'Website Creation Boulogne-Billancourt | Expert Local Web Developer'
-      : 'Создание Сайтов Булонь-Бийанкур | Эксперт Веб-Разработчик'
+        ? 'Website Creation Boulogne-Billancourt | Expert Local Web Developer'
+        : 'Создание Сайтов Булонь-Бийанкур | Эксперт Веб-Разработчик'
 
   const description =
     locale === 'fr'
       ? 'SIDIKOFF DIGITAL, agence web 92, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
       : locale === 'en'
-      ? 'SIDIKOFF DIGITAL, Boulogne-Billancourt web agency (92), specializes in website creation and web marketing. Contact us now.'
-      : 'SIDIKOFF DIGITAL, веб-агентство Булонь-Бийанкур (92), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.'
+        ? 'SIDIKOFF DIGITAL, Boulogne-Billancourt web agency (92), specializes in website creation and web marketing. Contact us now.'
+        : 'SIDIKOFF DIGITAL, веб-агентство Булонь-Бийанкур (92), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.'
 
   return {
     title,
@@ -80,8 +80,8 @@ export async function generateMetadata({
       locale === 'fr'
         ? 'création site internet Boulogne-Billancourt, agence web Boulogne-Billancourt, site vitrine Boulogne-Billancourt, site e-commerce Boulogne-Billancourt, référencement local Boulogne-Billancourt, développement web Hauts-de-Seine, site internet professionnel, site responsive, SEO local, design moderne, Core Web Vitals, multilingue'
         : locale === 'en'
-        ? 'website creation Boulogne-Billancourt, web agency Boulogne-Billancourt, showcase website Boulogne-Billancourt, e-commerce website Boulogne-Billancourt, local SEO Boulogne-Billancourt, web development Hauts-de-Seine, professional website, responsive design, modern design, multilingual'
-        : 'создание сайтов Булонь-Бийанкур, веб-агентство Булонь-Бийанкур, сайт-визитка Булонь-Бийанкур, интернет-магазин Булонь-Бийанкур, локальное SEO Булонь-Бийанкур, веб-разработка О-де-Сен, профессиональный сайт, адаптивный дизайн, современный дизайн, многоязычный',
+          ? 'website creation Boulogne-Billancourt, web agency Boulogne-Billancourt, showcase website Boulogne-Billancourt, e-commerce website Boulogne-Billancourt, local SEO Boulogne-Billancourt, web development Hauts-de-Seine, professional website, responsive design, modern design, multilingual'
+          : 'создание сайтов Булонь-Бийанкур, веб-агентство Булонь-Бийанкур, сайт-визитка Булонь-Бийанкур, интернет-магазин Булонь-Бийанкур, локальное SEO Булонь-Бийанкур, веб-разработка О-де-Сен, профессиональный сайт, адаптивный дизайн, современный дизайн, многоязычный',
   }
 }
 
@@ -351,7 +351,7 @@ export default async function BoulogneBillancourtPage({ params }: BoulogneBillan
             <div className='grid md:grid-cols-2 gap-6'>
               {t.why_points.map((point, index) => (
                 <div key={index} className='flex items-start gap-3'>
-                  <div className='w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0' />
+                  <div className='w-2 h-2 bg-primary rounded-full mt-3 shrink-0' />
                   <p className='text-lg text-muted-foreground'>{point}</p>
                 </div>
               ))}
@@ -385,7 +385,7 @@ export default async function BoulogneBillancourtPage({ params }: BoulogneBillan
               <div className='grid md:grid-cols-2 gap-4'>
                 {t.features.map((feature, index) => (
                   <div key={index} className='flex items-start gap-3'>
-                    <div className='w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0' />
+                    <div className='w-2 h-2 bg-primary rounded-full mt-3 shrink-0' />
                     <p className='text-muted-foreground'>{feature}</p>
                   </div>
                 ))}
@@ -422,7 +422,7 @@ export default async function BoulogneBillancourtPage({ params }: BoulogneBillan
             <div className='grid md:grid-cols-2 gap-6'>
               {t.advantages.map((advantage, index) => (
                 <div key={index} className='flex items-start gap-3'>
-                  <div className='w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0' />
+                  <div className='w-2 h-2 bg-primary rounded-full mt-3 shrink-0' />
                   <p className='text-lg text-muted-foreground'>{advantage}</p>
                 </div>
               ))}

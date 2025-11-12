@@ -99,8 +99,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   {locale === 'fr'
                     ? 'Projet vedette'
                     : locale === 'en'
-                    ? 'Featured'
-                    : 'Рекомендуемый'}
+                      ? 'Featured'
+                      : 'Рекомендуемый'}
                 </span>
               )}
             </div>
@@ -134,7 +134,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     fill
                     quality={100}
                     sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'
-                    className='object-cover object-left-top'
+                    className='object-cover object-top-left'
                     priority
                   />
                 </div>
@@ -170,8 +170,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   {locale === 'fr'
                     ? 'Détails du projet'
                     : locale === 'en'
-                    ? 'Project Details'
-                    : 'Детали проекта'}
+                      ? 'Project Details'
+                      : 'Детали проекта'}
                 </h3>
               </div>
 
@@ -223,8 +223,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   {locale === 'fr'
                     ? 'Technologies utilisées'
                     : locale === 'en'
-                    ? 'Technologies Used'
-                    : 'Используемые технологии'}
+                      ? 'Technologies Used'
+                      : 'Используемые технологии'}
                 </h3>
               </div>
 
@@ -267,8 +267,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     {locale === 'fr'
                       ? 'Voir le site'
                       : locale === 'en'
-                      ? 'View Live'
-                      : 'Посмотреть'}
+                        ? 'View Live'
+                        : 'Посмотреть'}
                   </CTAButton>
                 )}
                 {project.github && (
@@ -285,8 +285,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     {locale === 'fr'
                       ? 'Code source'
                       : locale === 'en'
-                      ? 'Source Code'
-                      : 'Исходный код'}
+                        ? 'Source Code'
+                        : 'Исходный код'}
                   </CTAButton>
                 )}
               </div>
@@ -335,15 +335,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 {locale === 'fr'
                   ? 'Prêt à démarrer votre projet ?'
                   : locale === 'en'
-                  ? 'Ready to start your project?'
-                  : 'Готовы начать свой проект?'}
+                    ? 'Ready to start your project?'
+                    : 'Готовы начать свой проект?'}
               </h2>
               <p className='text-xl text-gray-600 mb-8 leading-relaxed'>
                 {locale === 'fr'
                   ? "Créons ensemble quelque chose d'extraordinaire. Contactez-nous pour discuter de votre vision."
                   : locale === 'en'
-                  ? "Let's create something extraordinary together. Contact us to discuss your vision."
-                  : 'Давайте создадим что-то необычное вместе. Свяжитесь с нами, чтобы обсудить ваше видение.'}
+                    ? "Let's create something extraordinary together. Contact us to discuss your vision."
+                    : 'Давайте создадим что-то необычное вместе. Свяжитесь с нами, чтобы обсудить ваше видение.'}
               </p>
               <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                 <CTAButton
@@ -367,8 +367,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   {locale === 'fr'
                     ? 'Discutons de votre projet'
                     : locale === 'en'
-                    ? 'Discuss your project'
-                    : 'Обсудить проект'}
+                      ? 'Discuss your project'
+                      : 'Обсудить проект'}
                 </CTAButton>
                 <CTAButton
                   href={getProjectsUrl(locale)}
@@ -391,8 +391,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   {locale === 'fr'
                     ? "Voir d'autres projets"
                     : locale === 'en'
-                    ? 'View other projects'
-                    : 'Посмотреть другие проекты'}
+                      ? 'View other projects'
+                      : 'Посмотреть другие проекты'}
                 </CTAButton>
               </div>
             </div>

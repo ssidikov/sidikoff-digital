@@ -139,7 +139,7 @@ export default function RestaurantLandingContent({
   return (
     <div className='min-h-screen'>
       {/* Hero Section */}
-      <section className='relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-white via-[var(--bg-accent-light)] to-[var(--accent-alpha-10)] pt-[120px] md:pt-[160px] pb-8 md:pb-16'>
+      <section className='relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-linear-to-br from-white via-[var(--bg-accent-light)] to-[var(--accent-alpha-10)] pt-[120px] md:pt-[160px] pb-8 md:pb-16'>
         {/* Background Elements */}
         <div className='absolute inset-0 overflow-hidden'>
           <div className='absolute -top-40 -right-40 w-80 h-80 bg-[var(--accent-alpha-10)] rounded-full opacity-60 animate-pulse'></div>
@@ -186,7 +186,7 @@ export default function RestaurantLandingContent({
               </motion.div>
 
               <motion.h1
-                className='text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent'
+                className='text-4xl md:text-5xl font-bold mb-4 bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent'
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}>
@@ -256,7 +256,7 @@ export default function RestaurantLandingContent({
                   className='w-full h-full object-cover rounded-2xl'
                 />
               </div>
-              <div className='absolute -inset-4 bg-gradient-to-r from-[var(--accent-alpha-20)] to-[var(--accent-alpha-10)] rounded-2xl blur-3xl opacity-70'></div>
+              <div className='absolute -inset-4 bg-linear-to-r from-[var(--accent-alpha-20)] to-[var(--accent-alpha-10)] rounded-2xl blur-3xl opacity-70'></div>
             </motion.div>
           </div>
         </div>
@@ -287,7 +287,7 @@ export default function RestaurantLandingContent({
                   className='bg-white dark:bg-slate-800 rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-300 border border-slate-200 dark:border-slate-700'>
                   <div className='flex items-start gap-4'>
                     <div className='flex-shrink-0'>
-                      <div className='w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white text-lg'>
+                      <div className='w-12 h-12 bg-linear-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white text-lg'>
                         {icons[index]}
                       </div>
                     </div>
@@ -343,7 +343,7 @@ export default function RestaurantLandingContent({
       </section>
 
       {/* Pricing Section */}
-      <section className='py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white'>
+      <section className='py-16 md:py-24 bg-linear-to-br from-gray-50 to-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
             className='text-center mb-16'
@@ -574,7 +574,7 @@ export default function RestaurantLandingContent({
       </section>
 
       {/* Testimonials Section */}
-      <section className='py-16 md:py-24 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-dark)] text-white'>
+      <section className='py-16 md:py-24 bg-linear-to-r from-[var(--accent)] to-[var(--accent-dark)] text-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
             className='text-center mb-16'
@@ -682,7 +682,7 @@ export default function RestaurantLandingContent({
       </section>
 
       {/* Final CTA Section */}
-      <section className='py-16 md:py-24 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-dark)] text-white'>
+      <section className='py-16 md:py-24 bg-linear-to-r from-[var(--accent)] to-[var(--accent-dark)] text-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
           <motion.div
             initial={{ opacity: 0, y: 50 }}

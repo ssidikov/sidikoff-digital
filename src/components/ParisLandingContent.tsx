@@ -503,9 +503,9 @@ export default function ParisLandingContent({ locale }: ParisLandingContentProps
           background='transparent'
           padding='none'
           contentWidth='wide'
-          className='relative overflow-hidden bg-gradient-to-br from-[#DBE2EF] via-[#F9F7FF] to-white'>
+          className='relative overflow-hidden bg-linear-to-br from-[#DBE2EF] via-[#F9F7FF] to-white'>
           {/* Background Pattern */}
-          <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-right-top opacity-5'></div>
+          <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-top-right opacity-5'></div>
 
           <div ref={heroRef} className='relative z-10 hero-height flex items-center'>
             <div className='w-full grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center px-4 sm:px-6 lg:px-8'>
@@ -537,7 +537,7 @@ export default function ParisLandingContent({ locale }: ParisLandingContentProps
                     <span key={index}>
                       {part}
                       {index === 0 && (
-                        <span className='bg-gradient-to-r from-black to-gray-700 bg-clip-text text-transparent'>
+                        <span className='bg-linear-to-r from-black to-gray-700 bg-clip-text text-transparent'>
                           {content.hero.titleHighlight}
                         </span>
                       )}
@@ -612,7 +612,7 @@ export default function ParisLandingContent({ locale }: ParisLandingContentProps
                     sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw'
                     quality={95}
                   />
-                  <div className='absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent rounded-2xl'></div>
+                  <div className='absolute inset-0 bg-linear-to-tr from-black/20 to-transparent rounded-2xl'></div>
                 </motion.div>
 
                 {/* Floating Elements */}
@@ -637,7 +637,7 @@ export default function ParisLandingContent({ locale }: ParisLandingContentProps
         {/* Services Section */}
         <Section
           id='services'
-          className='py-20 bg-gradient-to-b from-white to-gray-50'
+          className='py-20 bg-linear-to-b from-white to-gray-50'
           contentWidth='wide'>
           <div ref={servicesRef} className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='text-center mb-16'>
@@ -692,7 +692,7 @@ export default function ParisLandingContent({ locale }: ParisLandingContentProps
         {/* Why Choose Us Section */}
         <Section
           id='why-choose-us'
-          className='py-20 bg-gradient-to-br from-[#DBE2EF] via-[#F9F7FF] to-white'
+          className='py-20 bg-linear-to-br from-[#DBE2EF] via-[#F9F7FF] to-white'
           contentWidth='wide'>
           <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='text-center mb-16'>
@@ -724,7 +724,7 @@ export default function ParisLandingContent({ locale }: ParisLandingContentProps
         {/* FAQ Section */}
         <Section
           id='faq'
-          className='py-20 bg-gradient-to-br from-gray-50 via-white to-[#F9F7FF]'
+          className='py-20 bg-linear-to-br from-gray-50 via-white to-[#F9F7FF]'
           contentWidth='wide'>
           <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='text-center mb-16'>
@@ -753,7 +753,7 @@ export default function ParisLandingContent({ locale }: ParisLandingContentProps
         {/* CTA Section */}
         <Section
           id='cta'
-          className='py-20 bg-gradient-to-br from-black to-gray-800 text-white'
+          className='py-20 bg-linear-to-br from-black to-gray-800 text-white'
           contentWidth='wide'>
           <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
             <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-6'>{content.cta.title}</h2>
