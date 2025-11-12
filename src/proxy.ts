@@ -111,7 +111,7 @@ function validateStudioAuth(request: NextRequest): boolean {
   return Boolean(token && validToken && token === validToken)
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   // ОПТИМИЗАЦИЯ: Ранний выход для статических файлов (самая частая проверка)
@@ -335,7 +335,7 @@ function generateCSPHeader(isStudio: boolean): string {
       frame-ancestors 'none';
     `
       .replace(/\s{2,}/g, ' ')
-      .trim()
+      .trim();
   }
 
   return `
@@ -353,7 +353,7 @@ function generateCSPHeader(isStudio: boolean): string {
     upgrade-insecure-requests;
   `
     .replace(/\s{2,}/g, ' ')
-    .trim()
+    .trim();
 }
 
 export const config = {
