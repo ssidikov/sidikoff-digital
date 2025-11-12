@@ -128,6 +128,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(redirectUrl, {
       status: 301,
       headers: {
+        'X-Robots-Tag': 'noindex, nofollow',
         ...SECURITY_HEADERS,
       },
     })
@@ -141,6 +142,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(redirectUrl, {
       status: 301,
       headers: {
+        'X-Robots-Tag': 'noindex, nofollow',
         ...SECURITY_HEADERS,
       },
     })
@@ -160,6 +162,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(redirectUrl, {
       status: 301,
       headers: {
+        'X-Robots-Tag': 'noindex, nofollow',
         ...SECURITY_HEADERS,
       },
     })
@@ -247,7 +250,13 @@ export function middleware(request: NextRequest) {
   if (hasDoubleLocalePrefix(pathname)) {
     const fixedPath = fixDoubleLocalePrefix(pathname)
     const redirectUrl = new URL(fixedPath, request.url)
-    return NextResponse.redirect(redirectUrl, 301)
+    return NextResponse.redirect(redirectUrl, {
+      status: 301,
+      headers: {
+        'X-Robots-Tag': 'noindex, nofollow',
+        ...SECURITY_HEADERS,
+      },
+    })
   }
 
   // Check if there is any supported locale in the pathname
@@ -257,7 +266,13 @@ export function middleware(request: NextRequest) {
   if (pathname.startsWith('/fr/') || pathname === '/fr') {
     const newPath = pathname === '/fr' ? '/' : pathname.replace('/fr', '')
     const redirectUrl = new URL(newPath, request.url)
-    return NextResponse.redirect(redirectUrl, 301)
+    return NextResponse.redirect(redirectUrl, {
+      status: 301,
+      headers: {
+        'X-Robots-Tag': 'noindex, nofollow',
+        ...SECURITY_HEADERS,
+      },
+    })
   }
 
   // If pathname already has a locale (en/ru), continue normally

@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
+import { DEFAULT_SEO } from '@/lib/seo-utils'
 
 import { Section } from '@/components/ui'
 import CTAButton from '@/components/ui/CTAButton'
@@ -42,7 +43,7 @@ export async function generateMetadata({ params }: ToulousePageProps): Promise<M
       },
     },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'}/${
+      canonical: `${DEFAULT_SEO.siteUrl}/${
         locale === 'fr' ? '' : locale + '/'
       }services/creation-site-internet-toulouse`,
     },
@@ -51,15 +52,13 @@ export async function generateMetadata({ params }: ToulousePageProps): Promise<M
       description,
       type: 'website',
       locale,
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'}/${
+      url: `${DEFAULT_SEO.siteUrl}/${
         locale === 'fr' ? '' : locale + '/'
       }services/creation-site-internet-toulouse`,
       siteName: 'Sidikoff Digital',
       images: [
         {
-          url: `${
-            process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
-          }/images/og/creation-sites-web-toulouse.jpg`,
+          url: `${DEFAULT_SEO.siteUrl}/images/og/creation-sites-web-toulouse.jpg`,
           width: 1200,
           height: 630,
           alt: title,
@@ -70,11 +69,7 @@ export async function generateMetadata({ params }: ToulousePageProps): Promise<M
       card: 'summary_large_image',
       title,
       description,
-      images: [
-        `${
-          process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
-        }/images/og/creation-sites-web-toulouse.jpg`,
-      ],
+      images: [`${DEFAULT_SEO.siteUrl}/images/og/creation-sites-web-toulouse.jpg`],
     },
   }
 }

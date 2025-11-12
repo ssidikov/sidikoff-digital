@@ -14,7 +14,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${dict.legal.title} | SIDIKOFF DIGITAL- Agence Web`,
     description:
       'Mentions légales et informations légales de Sidikoff, agence web spécialisée dans la création de sites internet et applications.',
-    robots: 'noindex, nofollow',
+    robots: {
+      index: true,
+      follow: true,
+    },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}mentions-legales`,
+    },
   }
 }
 

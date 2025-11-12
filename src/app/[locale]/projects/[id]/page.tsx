@@ -8,6 +8,7 @@ import { getProjects, projects as fallbackProjects } from '@/data/projects'
 import { getProjectsUrl, getProjectUrl, getLocalizedUrl } from '@/utils/navigation'
 import CTAButton from '@/components/ui/CTAButton'
 import { Section } from '@/components/ui'
+import { DEFAULT_SEO } from '@/lib/seo-utils'
 
 interface ProjectPageProps {
   params: Promise<{ locale: Locale; id: string }>
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   }
 
   const projectUrl = getProjectUrl(id, locale)
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
+  const baseUrl = DEFAULT_SEO.siteUrl // Always without www
 
   return {
     title: `${project.title} | SIDIKOFF DIGITAL- Projets`,

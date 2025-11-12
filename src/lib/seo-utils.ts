@@ -58,7 +58,7 @@ export function getLocalizedOgImage(locale: Locale, customImage?: string): strin
 // Default SEO configuration
 export const DEFAULT_SEO = {
   siteName: 'SIDIKOFF DIGITAL - Développeur Web Full Stack',
-  siteUrl: 'https://sidikoff.com',
+  siteUrl: 'https://sidikoff.com', // IMPORTANT: Always without www
   defaultImage: '/images/og-default.jpg',
   twitterHandle: '@sidikoffdigital',
   locale: 'fr' as Locale,

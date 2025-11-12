@@ -2,6 +2,7 @@
 import { getBlogPosts, type BlogPost } from '@/lib/sanity'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  // IMPORTANT: Always use canonical domain without www
   const baseUrl = 'https://sidikoff.com'
   const currentDate = new Date()
 
