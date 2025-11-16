@@ -263,7 +263,7 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className='text-4xl md:text-5xl font-bold text-primary text-center mb-4'>
+            className='text-4xl text-left md:text-5xl font-bold text-primary text-center mb-4'>
             {dict?.pricing?.title || 'Nos Offres'} -{' '}
             {dict?.pricing?.subtitle || 'Transparentes & Adaptées'}
           </motion.h1>

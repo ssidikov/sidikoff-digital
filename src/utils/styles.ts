@@ -33,7 +33,7 @@ export const sectionStyles = {
   container: 'container mx-auto px-4',
   title: 'text-3xl md:text-4xl lg:text-5xl font-bold text-[#112D4E] mb-6',
   subtitle: 'text-accent mb-4 text-lg md:text-xl font-semibold',
-  description: 'text-gray-600 text-lg md:text-xl leading-relaxed',
+  description: 'text-accent text-lg md:text-xl leading-relaxed',
   // Hero section specific padding (accounts for fixed header)
   hero: {
     mobile: 'pt-24 pb-16', // Extra top padding for mobile header
