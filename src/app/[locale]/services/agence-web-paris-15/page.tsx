@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       'agence web convention',
       'création site web paris 15ème',
       'next.js paris 15',
-      'react paris 15ème'
+      'react paris 15ème',
     ],
     openGraph: {
       title: content.meta_title,
@@ -41,24 +41,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: '/images/og/agence-web-paris-15-og.jpg',
           width: 1200,
           height: 630,
-          alt: 'Agence Web Paris 15ème - Création Site Internet'
-        }
-      ]
+          alt: 'Agence Web Paris 15ème - Création Site Internet',
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: content.meta_title,
       description: content.meta_description,
-      images: ['/images/og/agence-web-paris-15-og.jpg']
+      images: ['/images/og/agence-web-paris-15-og.jpg'],
     },
     alternates: {
       canonical: `https://sidikoff.com/${locale}/services/agence-web-paris-15`,
       languages: {
-        'fr': '/fr/services/agence-web-paris-15',
-        'en': '/en/services/agence-web-paris-15',
-        'ru': '/ru/services/agence-web-paris-15',
-        'x-default': '/fr/services/agence-web-paris-15'
-      }
+        fr: '/fr/services/agence-web-paris-15',
+        en: '/en/services/agence-web-paris-15',
+        ru: '/ru/services/agence-web-paris-15',
+        'x-default': '/fr/services/agence-web-paris-15',
+      },
     },
     robots: {
       index: true,
@@ -68,9 +68,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         follow: true,
         'max-video-preview': -1,
         'max-image-preview': 'large',
-        'max-snippet': -1
-      }
-    }
+        'max-snippet': -1,
+      },
+    },
   }
 }
 
