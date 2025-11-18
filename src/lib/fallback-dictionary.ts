@@ -2799,4 +2799,101 @@ export const fallbackDictionary: Dictionary = {
       button: 'Request Free Quote',
     },
   },
+  agence_web_paris_15_landing: {
+    meta_title: 'Web Agency Paris 15th - Professional Website Creation 75015',
+    meta_description:
+      'Web agency in Paris 15th district specializing in modern website creation. Next.js/React development. Local proximity and expertise.',
+    hero: {
+      badge: 'Web Agency Paris 15th',
+      title: 'Your Web Agency in Paris 15th Arrondissement',
+      description:
+        'Located in the 15th arrondissement, we help local businesses with modern, high-performance websites.',
+      cta_primary: 'Request Quote',
+      cta_secondary: 'Our Work',
+      trust_indicators: ['Paris 15 Proximity', 'Next.js & React', 'Local Support 24/7'],
+    },
+    services: {
+      title: 'Web Services Paris 15th',
+      subtitle: 'Digital solutions for businesses in the 15th arrondissement',
+      items: [
+        {
+          icon: '⚛️',
+          title: 'Modern Next.js Websites',
+          description: 'Ultra-fast websites with Next.js and React for local businesses.',
+        },
+        {
+          icon: '🛍️',
+          title: 'E-commerce Paris 15',
+          description: 'Optimized online stores with secure payment and local delivery.',
+        },
+        {
+          icon: '📱',
+          title: 'Web & Mobile Apps',
+          description: 'Custom app development to digitize your services.',
+        },
+      ],
+    },
+    about: {
+      title: 'Why Choose Our Web Agency Paris 15?',
+      subtitle:
+        'Digital specialists in the 15th arrondissement with solutions adapted to the local market.',
+      items: [
+        {
+          icon: '📍',
+          title: 'Guaranteed Proximity',
+          description: 'Quick service throughout Paris 15',
+        },
+        {
+          icon: '🏆',
+          title: 'Cutting-Edge Technologies',
+          description: 'Next.js, React, WordPress – Best solutions',
+        },
+        {
+          icon: '💼',
+          title: 'Personalized Support',
+          description: 'Dedicated support and maintenance',
+        },
+      ],
+    },
+    process: {
+      title: 'Our Working Method',
+      steps: [
+        {
+          number: '01',
+          title: 'Local Meeting',
+          description: 'Visit your business to understand needs',
+        },
+        {
+          number: '02',
+          title: 'Local Strategy',
+          description: 'Strategy adapted to your market',
+        },
+        {
+          number: '03',
+          title: 'Custom Development',
+          description: 'Website with performant technologies',
+        },
+        {
+          number: '04',
+          title: 'Local SEO Paris 15',
+          description: 'Optimize to appear on top of Google',
+        },
+        {
+          number: '05',
+          title: 'Support & Evolution',
+          description: 'Continuous maintenance and support',
+        },
+      ],
+    },
+    portfolio_teaser: {
+      title: 'Our Paris 15th Projects',
+      description: 'Discover our work for businesses in the 15th arrondissement.',
+      cta: 'View Our Work',
+    },
+    cta: {
+      title: "Let's Launch Your Digital Project in the 15th!",
+      description: 'Local web agency Paris 15',
+      button: 'Contact Us',
+    },
+  },
 }

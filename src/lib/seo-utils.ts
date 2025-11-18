@@ -63,24 +63,25 @@ export const DEFAULT_SEO = {
   twitterHandle: '@sidikoffdigital',
   locale: 'fr' as Locale,
   keywords: [
-    // High-conversion primary keywords
+    // High-conversion primary keywords - "agence web paris" as #1
+    'agence web paris',
     'création site web professionnel paris',
     'développeur web paris',
-    'agence web paris',
-    'création site internet',
-    'développement web',
-    'développeur react',
+    'agence digitale paris',
+    'création site internet paris',
+    'développement web paris',
+    'agence création site web',
+    'développeur react paris',
     'expert nextjs',
     'typescript développeur',
     'freelance développeur web',
     'site web professionnel',
     'création site e-commerce',
     'refonte site web',
-    'optimisation seo',
+    'optimisation seo paris',
     'développement frontend',
     'développement backend',
     'full stack developer',
-    'agence digitale',
     'consultant web',
     'développement sur mesure',
     'applications web modernes',
@@ -256,21 +257,21 @@ export function generateLocalizedSEOMetadata(locale: Locale): Metadata {
   // Enhanced SEO-optimized titles with primary keywords and call-to-action
   const titles = {
     fr: isHomePage
-      ? 'Création Site Web Paris | Expert React Next.js - '
+      ? 'Agence Web Paris | Création Site Internet & Développement Sur Mesure'
       : 'SIDIKOFF DIGITAL - Agence Web Expert Paris | Développement React',
     en: isHomePage
-      ? 'Website Creation Paris | React Next.js Expert - '
+      ? 'Web Agency Paris | Custom Website Creation & Development'
       : 'SIDIKOFF DIGITAL - Expert Web Agency Paris | React Development',
     ru: isHomePage
-      ? 'Создание Сайтов Париж | Эксперт React Next.js - '
+      ? 'Веб-Агентство Париж | Создание Сайтов и Разработка'
       : 'SIDIKOFF DIGITAL - Экспертное Веб-агентство Париж | React Разработка',
   }
 
   // Enhanced SEO-optimized descriptions with better keyword density and local targeting
   const descriptions = {
-    fr: 'SIDIKOFF DIGITAL, agence web 75, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.',
-    en: 'SIDIKOFF DIGITAL, Paris web agency (75), specializes in website creation and web marketing. Contact us now.',
-    ru: 'SIDIKOFF DIGITAL, веб-агентство Париж (75), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.',
+    fr: 'Agence web Paris spécialisée en création de sites internet modernes et performants. Développement sur mesure, design professionnel, SEO optimisé. Votre projet digital commence ici.',
+    en: 'Paris web agency specialized in modern and high-performance website creation. Custom development, professional design, SEO optimized. Your digital project starts here.',
+    ru: 'Веб-агентство в Париже, специализирующееся на создании современных и производительных сайтов. Разработка на заказ, профессиональный дизайн, SEO оптимизация.',
   }
 
   const seoData = {

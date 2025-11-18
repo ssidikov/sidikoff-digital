@@ -54,6 +54,10 @@ const createNavigationLinks = (dictionary: Dictionary, locale: Locale): FooterLi
     href: getLocalizedUrl('/services/creation-site-internet-paris-16', locale),
   },
   {
+    name: 'Agence Web Paris 15',
+    href: getLocalizedUrl('/services/agence-web-paris-15', locale),
+  },
+  {
     name: 'Création Site Internet Boulogne-Billancourt',
     href: getLocalizedUrl('/services/creation-site-internet-boulogne-billancourt', locale),
   },

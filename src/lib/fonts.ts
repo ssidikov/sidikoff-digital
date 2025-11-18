@@ -1,4 +1,4 @@
-import { Inter } from 'next/font/google'
+import { Inter, Space_Grotesk } from 'next/font/google'
 
 /**
  * Configuration optimisée de la font Inter pour le multilingue
@@ -36,6 +36,28 @@ export const inter = Inter({
 })
 
 /**
+ * Grotesk font - Modern geometric sans-serif for headings
+ * Space Grotesk is a proportional variant of Space Mono
+ */
+export const grotesk = Space_Grotesk({
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-grotesk',
+  display: 'swap',
+  preload: true,
+  weight: ['400', '500', '600', '700'],
+  fallback: [
+    'ui-sans-serif',
+    'system-ui',
+    '-apple-system',
+    'BlinkMacSystemFont',
+    'Helvetica Neue',
+    'Arial',
+    'sans-serif',
+  ],
+  adjustFontFallback: true,
+})
+
+/**
  * Font configuration pour une utilisation dans Tailwind
  * Peut être ajouté à tailwind.config.ts:
  *
@@ -43,6 +65,7 @@ export const inter = Inter({
  *   extend: {
  *     fontFamily: {
  *       sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
+ *       grotesk: ['var(--font-grotesk)', ...defaultTheme.fontFamily.sans],
  *     },
  *   },
  * }
@@ -50,18 +73,20 @@ export const inter = Inter({
 export const fontConfig = {
   variable: inter.variable,
   className: inter.className,
+  groteskVariable: grotesk.variable,
+  groteskClassName: grotesk.className,
 }
 
 /**
  * Helper pour obtenir les classes de font
  */
 export function getFontClasses(): string {
-  return inter.className
+  return `${inter.className} ${grotesk.className}`
 }
 
 /**
  * Helper pour obtenir la variable CSS
  */
 export function getFontVariable(): string {
-  return inter.variable
+  return `${inter.variable} ${grotesk.variable}`
 }

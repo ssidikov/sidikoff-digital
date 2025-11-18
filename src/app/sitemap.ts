@@ -26,6 +26,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/services/restaurant-websites',
     '/services/creation-site-internet-paris',
     '/services/creation-site-internet-paris-16',
+    '/services/agence-web-paris-15',
     '/services/creation-site-internet-lyon',
     '/services/creation-site-internet-toulouse',
     '/services/creation-site-internet-boulogne-billancourt',

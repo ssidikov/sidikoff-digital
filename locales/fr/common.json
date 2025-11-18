@@ -3169,5 +3169,103 @@
       "description": "👉 Contactez notre agence web Paris dès aujourd'hui.",
       "button": "Demander un Devis Gratuit"
     }
+  },
+  "agence_web_paris_15_landing": {
+    "meta_title": "Agence Web Paris 15ème - Création Site Internet 75015 Vaugirard",
+    "meta_description": "Agence web Paris 15ème (Convention, Vaugirard, Grenelle). Création site internet professionnel, développement Next.js/React. Proximité & expertise digitale.",
+    "hero": {
+      "badge": "Agence Web Paris 15ème",
+      "title": "Votre Agence Web dans le 15ème Arrondissement de Paris",
+      "description": "Située au cœur du 15ème arrondissement (Convention, Vaugirard, Grenelle), nous accompagnons les entreprises locales dans leur transformation digitale avec des sites web performants et modernes.",
+      "cta_primary": "Demander un Devis",
+      "cta_secondary": "Nos Réalisations",
+      "trust_indicators": [
+        "Proximité Paris 15",
+        "Next.js & React",
+        "Support Local 7j/7"
+      ]
+    },
+    "services": {
+      "title": "Services Web Paris 15ème",
+      "subtitle": "Solutions digitales pour les entreprises du 15ème arrondissement",
+      "items": [
+        {
+          "icon": "⚛️",
+          "title": "Sites Web Modernes Next.js",
+          "description": "Création de sites ultra-performants avec Next.js et React pour les commerces et entreprises du quartier Convention, Vaugirard et Grenelle."
+        },
+        {
+          "icon": "🛍️",
+          "title": "E-commerce Paris 15",
+          "description": "Boutiques en ligne optimisées pour les commerçants du 15ème arrondissement avec paiement sécurisé et livraison locale."
+        },
+        {
+          "icon": "📱",
+          "title": "Applications Web & Mobile",
+          "description": "Développement d'applications sur mesure pour digitaliser vos services et fidéliser votre clientèle parisienne."
+        }
+      ]
+    },
+    "about": {
+      "title": "Pourquoi Choisir Notre Agence Web Paris 15 ?",
+      "subtitle": "Spécialistes du digital dans le 15ème arrondissement, nous connaissons les enjeux des entreprises locales et proposons des solutions adaptées au marché parisien.",
+      "items": [
+        {
+          "icon": "📍",
+          "title": "Proximité Garantie",
+          "description": "Intervention rapide dans tout Paris 15 (75015) : Convention, Vaugirard, Grenelle, Montparnasse"
+        },
+        {
+          "icon": "🏆",
+          "title": "Technologies de Pointe",
+          "description": "Next.js, React, WordPress – Les meilleures solutions pour votre visibilité en ligne"
+        },
+        {
+          "icon": "💼",
+          "title": "Accompagnement Personnalisé",
+          "description": "Support dédié, formation et maintenance pour assurer la réussite de votre projet digital"
+        }
+      ]
+    },
+    "process": {
+      "title": "Notre Méthode de Travail",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Rencontre dans le 15ème",
+          "description": "Rendez-vous dans votre entreprise pour comprendre vos besoins spécifiques"
+        },
+        {
+          "number": "02",
+          "title": "Stratégie Digitale Locale",
+          "description": "Conception d'une stratégie adaptée à votre marché et votre clientèle parisienne"
+        },
+        {
+          "number": "03",
+          "title": "Développement Sur Mesure",
+          "description": "Création de votre site avec les technologies les plus performantes du marché"
+        },
+        {
+          "number": "04",
+          "title": "SEO Local Paris 15",
+          "description": "Optimisation pour apparaître en tête sur Google dans le 15ème arrondissement"
+        },
+        {
+          "number": "05",
+          "title": "Support & Évolution",
+          "description": "Maintenance continue et accompagnement pour faire grandir votre présence digitale"
+        }
+      ]
+    },
+    "portfolio_teaser": {
+      "title": "Nos Projets Paris 15ème",
+      "description": "Découvrez nos réalisations pour les entreprises et commerces du 15ème arrondissement : sites vitrines, e-commerce et applications métier.",
+      "cta": "Voir Nos Réalisations"
+    },
+    "cta": {
+      "title": "Lançons Votre Projet Digital dans le 15ème !",
+      "description": "📍 Agence web de proximité Paris 15 - Convention, Vaugirard, Grenelle",
+      "button": "Contactez-Nous"
+    }
   }
 }

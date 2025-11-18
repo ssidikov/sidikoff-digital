@@ -1838,5 +1838,103 @@
       "description": "👉 Contact our web agency in Paris today.",
       "button": "Request Free Quote"
     }
+  },
+  "agence_web_paris_15_landing": {
+    "meta_title": "Web Agency Paris 15th - Professional Website Creation 75015",
+    "meta_description": "Web agency Paris 15th (Convention, Vaugirard, Grenelle). Professional website creation, Next.js/React development. Local proximity & digital expertise.",
+    "hero": {
+      "badge": "Web Agency Paris 15th",
+      "title": "Your Web Agency in Paris 15th Arrondissement",
+      "description": "Located in the heart of the 15th arrondissement (Convention, Vaugirard, Grenelle), we help local businesses in their digital transformation with modern, high-performance websites.",
+      "cta_primary": "Request Quote",
+      "cta_secondary": "Our Work",
+      "trust_indicators": [
+        "Paris 15 Proximity",
+        "Next.js & React",
+        "Local Support 24/7"
+      ]
+    },
+    "services": {
+      "title": "Web Services Paris 15th",
+      "subtitle": "Digital solutions for businesses in the 15th arrondissement",
+      "items": [
+        {
+          "icon": "⚛️",
+          "title": "Modern Next.js Websites",
+          "description": "Creating ultra-fast websites with Next.js and React for businesses and shops in Convention, Vaugirard and Grenelle neighborhoods."
+        },
+        {
+          "icon": "🛍️",
+          "title": "E-commerce Paris 15",
+          "description": "Optimized online stores for merchants in the 15th arrondissement with secure payment and local delivery."
+        },
+        {
+          "icon": "📱",
+          "title": "Web & Mobile Apps",
+          "description": "Custom app development to digitize your services and build customer loyalty in Paris."
+        }
+      ]
+    },
+    "about": {
+      "title": "Why Choose Our Web Agency Paris 15?",
+      "subtitle": "Digital specialists in the 15th arrondissement, we understand the challenges of local businesses and offer solutions tailored to the Parisian market.",
+      "items": [
+        {
+          "icon": "📍",
+          "title": "Guaranteed Proximity",
+          "description": "Quick service throughout Paris 15 (75015): Convention, Vaugirard, Grenelle, Montparnasse"
+        },
+        {
+          "icon": "🏆",
+          "title": "Cutting-Edge Technologies",
+          "description": "Next.js, React, WordPress – The best solutions for your online visibility"
+        },
+        {
+          "icon": "💼",
+          "title": "Personalized Support",
+          "description": "Dedicated support, training and maintenance to ensure your digital project success"
+        }
+      ]
+    },
+    "process": {
+      "title": "Our Working Method",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Meeting in the 15th",
+          "description": "Visit your business to understand your specific needs"
+        },
+        {
+          "number": "02",
+          "title": "Local Digital Strategy",
+          "description": "Design a strategy adapted to your market and Parisian clientele"
+        },
+        {
+          "number": "03",
+          "title": "Custom Development",
+          "description": "Create your website with the most performant market technologies"
+        },
+        {
+          "number": "04",
+          "title": "Local SEO Paris 15",
+          "description": "Optimize to appear on top of Google in the 15th arrondissement"
+        },
+        {
+          "number": "05",
+          "title": "Support & Evolution",
+          "description": "Continuous maintenance and support to grow your digital presence"
+        }
+      ]
+    },
+    "portfolio_teaser": {
+      "title": "Our Paris 15th Projects",
+      "description": "Discover our work for businesses and shops in the 15th arrondissement: showcase websites, e-commerce and business applications.",
+      "cta": "View Our Work"
+    },
+    "cta": {
+      "title": "Let's Launch Your Digital Project in the 15th!",
+      "description": "📍 Local web agency Paris 15 - Convention, Vaugirard, Grenelle",
+      "button": "Contact Us"
+    }
   }
 }
