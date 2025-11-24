@@ -265,5 +265,36 @@
     "link": "https://resto-parisien.vercel.app/",
     "category": "Restaurant",
     "featured": true
+  },
+  {
+    "id": "18",
+    "title": "Palais d'Agadir",
+    "description": "Creating a modern website for a restaurant with WordPress and Elementor.",
+    "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "longDescription": "The Palais d'Agadir restaurant website was entirely designed on WordPress with Elementor, offering a modern and elegant design. The focus was on user experience, with smooth navigation, intuitive menus, and attractive visual presentation of dishes. The site is fully responsive and optimized for all devices, allowing customers to easily discover the restaurant and browse the menu.",
+    "technologies": [
+      "WordPress",
+      "Elementor",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "link": "https://palaisdagadir.fr/",
+    "category": "Web"
+  },
+  {
+    "id": "19",
+    "title": "Degaus Landing Page",
+    "description": "Responsive landing page with animations for an AI startup.",
+    "image": "https://images.unsplash.com/photo-1743609500635-9fe6b3ec1c6a?q=80&w=1287&auto=format&fit=crop",
+    "longDescription": "This project involves transforming a finalized Figma design into a modern, smooth, and animated landing page for a startup specializing in marketing automation via AI. The page is fully responsive, integrates dynamic animations, and features an interactive header/hero. Developed with React, Next.js, and Tailwind CSS, the project also includes cookie consent management and analytics integration via PostHog. Fast delivery with the possibility of SEO tracking to improve the startup's visibility.",
+    "technologies": [
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Framer Motion"
+    ],
+    "link": "https://degaus.vercel.app/",
+    "category": "Web"
   }
 ]

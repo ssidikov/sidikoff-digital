@@ -245,8 +245,7 @@
       "Tailwind CSS"
     ],
     "link": "https://sidikov.tech/",
-    "category": "Restaurant",
-    "featured": true
+    "category": "Portfolio"
   },
   {
     "id": "17",
@@ -266,5 +265,36 @@
     "link": "https://resto-parisien.vercel.app/",
     "category": "Restaurant",
     "featured": true
+  },
+  {
+    "id": "18",
+    "title": "Palais d'Agadir",
+    "description": "Создание современного веб-сайта для ресторана на WordPress и Elementor.",
+    "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "longDescription": "Веб-сайт ресторана Palais d'Agadir был полностью разработан на WordPress с использованием Elementor, предлагая современный и элегантный дизайн. Основной акцент был сделан на пользовательский опыт, с плавной навигацией, интуитивными меню и привлекательной визуальной презентацией блюд. Сайт полностью адаптивен и оптимизирован для всех устройств, позволяя клиентам легко открыть для себя ресторан и просмотреть меню.",
+    "technologies": [
+      "WordPress",
+      "Elementor",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "link": "https://palaisdagadir.fr/",
+    "category": "Web"
+  },
+  {
+    "id": "19",
+    "title": "Лендинг Degaus",
+    "description": "Адаптивный лендинг с анимациями для AI-стартапа.",
+    "image": "https://images.unsplash.com/photo-1743609500635-9fe6b3ec1c6a?q=80&w=1287&auto=format&fit=crop",
+    "longDescription": "Этот проект заключается в преобразовании завершенного дизайна Figma в современный, плавный и анимированный лендинг для стартапа, специализирующегося на автоматизации маркетинга с помощью ИИ. Страница полностью адаптивна, включает динамические анимации и интерактивный header/hero. Разработано с использованием React, Next.js и Tailwind CSS, проект также включает управление согласием на cookie и интеграцию аналитики через PostHog. Быстрая доставка с возможностью SEO-оптимизации для повышения видимости стартапа.",
+    "technologies": [
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Framer Motion"
+    ],
+    "link": "https://degaus.vercel.app/",
+    "category": "Web"
   }
 ]
