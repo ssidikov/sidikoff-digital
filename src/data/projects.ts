@@ -25,11 +25,11 @@ function normalizeProjects(data: unknown[]): Project[] {
 export const getProjects = (locale: 'en' | 'fr' | 'ru'): Project[] => {
   switch (locale) {
     case 'fr':
-      return normalizeProjects(frProjects as unknown[])
+      return normalizeProjects(frProjects as unknown[]).reverse()
     case 'ru':
-      return normalizeProjects(ruProjects as unknown[])
+      return normalizeProjects(ruProjects as unknown[]).reverse()
     default:
-      return normalizeProjects(enProjects as unknown[])
+      return normalizeProjects(enProjects as unknown[]).reverse()
   }
 }
 
