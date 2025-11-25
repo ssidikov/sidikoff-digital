@@ -43,10 +43,10 @@ export const sectionStyles = {
   // Responsive padding utilities
   padding: {
     none: '',
-    sm: 'px-4 sm:px-6 py-12',
-    md: 'px-4 sm:px-4 xl:px-8 py-16',
-    lg: 'px-4 sm:px-4 xl:px-24 py-20',
-    xl: 'px-4 sm:px-4 xl:px-16 py-24',
+    sm: 'px-4 sm:px-6 py-16', // 64px
+    md: 'px-4 sm:px-4 xl:px-8 py-24', // 96px
+    lg: 'px-4 sm:px-4 xl:px-24 py-32', // 128px
+    xl: 'px-4 sm:px-4 xl:px-16 py-40', // 160px
   },
   // Content width constraints
   content: {

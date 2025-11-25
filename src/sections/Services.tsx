@@ -158,7 +158,7 @@ export function Services({
         />
 
         {/* Services Cards */}
-        <div className='space-y-16'>
+        <div className='space-y-24'>
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -303,7 +303,7 @@ export function Services({
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className='mt-20'>
+          className='mt-32'>
           <div className='relative flex w-full items-center justify-center overflow-hidden rounded-md bg-accent py-8 md:h-screen'>
             <div className='mx-auto max-w-4xl px-6 text-center lg:px-8'>
               <motion.h2
