@@ -35,6 +35,7 @@ interface Testimonial {
     fr: string
   }
   rating: number
+  date: string
 }
 
 // Animation configurations
@@ -60,6 +61,46 @@ const getContactUrl = (locale: Locale): string => {
 // Testimonials data
 const TESTIMONIALS_DATA: Testimonial[] = [
   {
+    id: 'new-2',
+    text: {
+      ru: 'Отличная работа Сардорбека по созданию нашего лендинга. Результат безупречен, всё было сделано очень быстро. Особенно оценил его отзывчивость и доступность. Настоятельно рекомендую его услуги.',
+      en: 'Excellent work by Sardorbek on creating our landing page. The result is impeccable and was delivered very quickly. I particularly appreciated his responsiveness and availability. I highly recommend his services.',
+      fr: "Excellent travail de la part de Sardorbek pour la création de notre landing page. Le résultat est impeccable et livré très rapidement. J'ai particulièrement apprécié sa réactivité et sa disponibilité. Je recommande vivement ses services.",
+    },
+    author: {
+      ru: 'Матье',
+      en: 'Mathieu',
+      fr: 'Mathieu',
+    },
+    project: {
+      ru: 'Degaus',
+      en: 'Degaus',
+      fr: 'Degaus',
+    },
+    rating: 5,
+    date: '2025-11-24',
+  },
+  {
+    id: 'new-1',
+    text: {
+      ru: 'Сардорбек был очень отзывчив и эффективно реагировал на мои запросы. Отличная коммуникация, а конечный результат — именно то, что я ожидал. Смело рекомендую его.',
+      en: 'Sardorbek was extremely responsive and answered my requests effectively. Communication was excellent, and the final result is exactly what I expected. I highly recommend him.',
+      fr: "Sardobek a été hyper réactif, il a su répondre efficacement à mes demandes, une excellente communication et le résultat final est précisément ce que j'attendais, je ne peux que le recommander.",
+    },
+    author: {
+      ru: 'Лоран Карре',
+      en: 'Laurent Carre',
+      fr: 'Laurent Carre',
+    },
+    project: {
+      ru: 'Websavoie - Менеджер',
+      en: 'Websavoie - Manager',
+      fr: 'Websavoie - Gérant',
+    },
+    rating: 5,
+    date: '2025-11-12',
+  },
+  {
     id: '1',
     text: {
       ru: 'Sardor помог нам исправить ошибки на нашем e-commerce сайте, из-за которых он неправильно работал на мобильных устройствах. Всё было сделано быстро и качественно, теперь сайт работает без проблем.',
@@ -77,6 +118,7 @@ const TESTIMONIALS_DATA: Testimonial[] = [
       fr: 'Site e-commerce',
     },
     rating: 5,
+    date: '2025-07-01',
   },
   {
     id: '2',
@@ -96,6 +138,7 @@ const TESTIMONIALS_DATA: Testimonial[] = [
       fr: 'Restaurant Chez Liqi',
     },
     rating: 5,
+    date: '2025-08-01',
   },
 ]
 
@@ -107,12 +150,12 @@ export function Testimonials({ dictionary: dict, locale, className }: Testimonia
   const contactUrl = getContactUrl(locale)
 
   // Generate structured data for reviews
-  const reviewsData = TESTIMONIALS_DATA.map((testimonial, index) => ({
+  const reviewsData = TESTIMONIALS_DATA.map((testimonial) => ({
     author: testimonial.author[locale],
     reviewBody: testimonial.text[locale],
     rating: testimonial.rating,
     projectName: testimonial.project[locale],
-    datePublished: index === 0 ? '2025-07-01' : '2025-08-01',
+    datePublished: testimonial.date,
   }))
 
   const reviewStructuredData = generateReviewStructuredData(reviewsData)
