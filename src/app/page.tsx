@@ -8,11 +8,21 @@ import {
   generateLanguageAlternates,
   createCanonicalUrl,
 } from '@/lib/seo-utils'
+import { getBlogPosts } from '@/lib/sanity'
 import { defaultLocale } from '@/lib/i18n'
 import { getDictionary } from '@/lib/dictionaries'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
-import { Hero, Services, Pricing, Portfolio, Testimonials, FAQ, Contact } from '@/sections'
+import {
+  Hero,
+  Services,
+  Pricing,
+  Portfolio,
+  Testimonials,
+  FAQ,
+  Contact,
+  Actualite,
+} from '@/sections'
 import LocaleProvider from '@/components/LocaleProvider'
 
 const SEO_CONFIG = {
@@ -85,6 +95,8 @@ function generateHomePageSchemas() {
 export default async function HomePage() {
   // Serve French content directly at root
   const dict = await getDictionary(defaultLocale)
+  const posts = await getBlogPosts()
+  const latestPosts = posts.slice(0, 3)
   const schemas = generateHomePageSchemas()
 
   return (
@@ -109,6 +121,7 @@ export default async function HomePage() {
           <Portfolio dictionary={dict.portfolio} locale={defaultLocale} isHomePage={true} />
           <Pricing locale={defaultLocale} />
           <Testimonials dictionary={dict.testimonials} locale={defaultLocale} />
+          <Actualite posts={latestPosts} dictionary={dict.blog} locale={defaultLocale} />
           <FAQ dictionary={dict.faq} isHomePage={true} />
           <Contact dictionary={dict.contact} locale={defaultLocale} isHomePage={true} />
         </main>

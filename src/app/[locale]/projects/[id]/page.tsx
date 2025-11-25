@@ -116,9 +116,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Bento Grid Layout */}
         <div className='max-w-7xl mx-auto'>
-          <div className='grid lg:grid-cols-2 gap-6 lg:h-[800px]'>
+          <div className='grid lg:grid-cols-2 gap-6'>
             {/* Left Card - Project Image (50% width, full height) */}
-            <div className='relative overflow-hidden rounded-3xl shadow-2xl border-2 border-white/50 lg:row-span-2 h-[500px] sm:h-[600px] md:h-[700px] lg:h-auto'>
+            <div className='relative overflow-hidden rounded-3xl shadow-2xl border-2 border-white/50 lg:row-span-2 h-[320px] sm:h-[420px] md:h-[520px] lg:h-auto'>
               <div
                 className='absolute inset-0'
                 style={{
@@ -135,7 +135,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     fill
                     quality={100}
                     sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'
-                    className='object-cover object-top-left'
+                    className='object-cover'
                     priority
                   />
                 </div>

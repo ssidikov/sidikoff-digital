@@ -33,7 +33,7 @@ const SCROLL_CONFIG = {
   retryDelay: 300,
 } as const
 
-const SECTIONS = ['services', 'portfolio', 'faq', 'pricing', 'contact'] as const
+const SECTIONS = ['services', 'portfolio', 'actualite', 'faq', 'pricing', 'contact'] as const
 
 // Animation configurations
 const HEADER_ANIMATION = {
@@ -87,14 +87,14 @@ function createNavigationItems(dictionary: Dictionary, locale: Locale): Navigati
       section: 'pricing',
     },
     {
+      label: dictionary.navigation.blog,
+      href: getLocalizedUrl('/#actualite', locale),
+      section: 'actualite',
+    },
+    {
       label: dictionary.navigation.faq,
       href: getLocalizedUrl('/faq', locale),
       section: 'faq',
-    },
-    {
-      label: dictionary.navigation.blog,
-      href: getLocalizedUrl('/blog', locale),
-      section: 'blog',
     },
     {
       label: dictionary.navigation.contact,
@@ -136,7 +136,6 @@ function getActiveSectionFromPath(pathname: string): string {
   if (pathname.includes('/services')) return 'services'
   if (pathname.includes('/contact')) return 'contact'
   if (pathname.includes('/faq')) return 'faq'
-  if (pathname.includes('/blog')) return 'blog'
   if (pathname.includes('/projects')) return 'portfolio'
   return ''
 }

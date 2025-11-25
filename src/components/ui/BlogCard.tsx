@@ -36,6 +36,39 @@ const AUTHOR_INFO = {
   avatar: 'SD',
 } as const
 
+const CATEGORY_TRANSLATIONS: Record<string, Record<Locale, string>> = {
+  'Web Development': {
+    fr: 'Développement Web',
+    ru: 'Веб-разработка',
+    en: 'Web Development',
+  },
+  'Web Design': {
+    fr: 'Web Design',
+    ru: 'Веб-дизайн',
+    en: 'Web Design',
+  },
+  SEO: {
+    fr: 'SEO',
+    ru: 'SEO',
+    en: 'SEO',
+  },
+  Marketing: {
+    fr: 'Marketing',
+    ru: 'Маркетинг',
+    en: 'Marketing',
+  },
+  Tutorial: {
+    fr: 'Tutoriel',
+    ru: 'Урок',
+    en: 'Tutorial',
+  },
+  News: {
+    fr: 'Actualités',
+    ru: 'Новости',
+    en: 'News',
+  },
+}
+
 /**
  * BlogCard component for displaying blog post previews
  * Supports featured layout with enhanced styling and animations
@@ -45,13 +78,16 @@ export function BlogCard({ post, featured = false, locale, index }: BlogCardProp
 
   const imageUrl = post.mainImage
     ? urlFor(post.mainImage)
-        .width(featured ? 800 : 400)
-        .height(featured ? 500 : 300)
+        .width(featured ? 1600 : 800)
+        .height(featured ? 1000 : 600)
         .url()
     : DEFAULT_IMAGE
 
   const imageAlt = post.mainImage?.alt || post.title
   const categoryColor = post.category?.color || DEFAULT_CATEGORY_COLOR
+  const categoryTitle = post.category
+    ? CATEGORY_TRANSLATIONS[post.category.title]?.[locale] || post.category.title
+    : ''
 
   // Localized strings
   const localizedStrings = {
@@ -61,11 +97,15 @@ export function BlogCard({ post, featured = false, locale, index }: BlogCardProp
       en: 'Author',
     }[locale],
     readMore: {
-      fr: 'Lire plus',
+      fr: 'Lire la suite',
       ru: 'Читать далее',
       en: 'Read more',
     }[locale],
-    readTime: `${post.estimatedReadingTime} min read`,
+    readTime: {
+      fr: `${post.estimatedReadingTime} min de lecture`,
+      ru: `${post.estimatedReadingTime} мин чтения`,
+      en: `${post.estimatedReadingTime} min read`,
+    }[locale],
   }
 
   return (
@@ -75,10 +115,10 @@ export function BlogCard({ post, featured = false, locale, index }: BlogCardProp
       initial='hidden'
       whileInView='visible'
       viewport={{ once: true, amount: 0.3 }}
-      className={`group relative overflow-hidden ${cardStyles.card} ${
+      className={`group relative overflow-hidden h-full flex flex-col ${cardStyles.card} ${
         featured ? 'lg:col-span-1' : ''
       }`}>
-      <Link href={getBlogPostUrl(post.slug.current, locale)} className='block'>
+      <Link href={getBlogPostUrl(post.slug.current, locale)} className='h-full flex flex-col'>
         {/* Image Container */}
         <div className={`relative overflow-hidden ${featured ? 'h-72 lg:h-80' : 'h-56 lg:h-64'}`}>
           <Image
@@ -97,7 +137,7 @@ export function BlogCard({ post, featured = false, locale, index }: BlogCardProp
               <span
                 className='inline-flex items-center rounded-full border border-white/20 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm'
                 style={{ backgroundColor: categoryColor }}>
-                {post.category.title}
+                {categoryTitle}
               </span>
             </div>
           )}
@@ -113,7 +153,7 @@ export function BlogCard({ post, featured = false, locale, index }: BlogCardProp
         </div>
 
         {/* Content */}
-        <div className={`p-6 ${featured ? 'lg:p-8' : 'lg:p-6'}`}>
+        <div className={`p-6 flex-1 flex flex-col ${featured ? 'lg:p-8' : 'lg:p-6'}`}>
           {/* Date */}
           <time className='text-sm font-medium text-gray-500' dateTime={post.publishedAt}>
             {formattedDate}
@@ -138,7 +178,7 @@ export function BlogCard({ post, featured = false, locale, index }: BlogCardProp
           )}
 
           {/* Author & Read More */}
-          <div className='mt-6 flex items-center justify-between'>
+          <div className='mt-auto pt-6 flex items-center justify-between'>
             <div className='flex items-center space-x-3'>
               <div className='flex h-10 w-10 items-center justify-center rounded-full bg-black'>
                 <span className='text-sm font-bold text-white'>{AUTHOR_INFO.avatar}</span>
