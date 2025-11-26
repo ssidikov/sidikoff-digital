@@ -192,7 +192,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
               '@type': 'ProfessionalService',
               '@id':
                 'https://www.sidikoff.com/services/creation-site-internet-paris-16#ProfessionalService',
-              name: 'Création Site Internet Paris 16ème - Agence Web Auteuil',
+              name: 'Création Site Internet Paris 16ème',
               alternateName: 'Développement Web Paris 16ème',
               description:
                 'Service professionnel de création de sites internet sur mesure pour les entreprises, commerces et professionnels du 16ème arrondissement de Paris.',
@@ -249,8 +249,7 @@ export default async function CreationSiteInternetParis16Page({ params }: Paris1
                       Création de site internet professionnel{' '}
                       <span className='bg-linear-to-r from-[#3F72AF] to-[#112D4E] bg-clip-text text-transparent'>
                         Paris 16ème
-                      </span>{' '}
-                      - Agence Web Auteuil
+                      </span>
                     </h1>
 
                     <p className='text-xl text-gray-600 mb-8 leading-relaxed'>
