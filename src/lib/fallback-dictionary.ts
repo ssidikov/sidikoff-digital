@@ -230,8 +230,8 @@ export const fallbackDictionary: Dictionary = {
       cta: 'Request Quote',
     },
     plans: {
-      essentiel: {
-        name: 'Essential',
+      pro: {
+        name: 'Pro',
         price: 'from €800',
         description: 'Perfect for launching your business or modernizing your online image',
         features: [
@@ -246,8 +246,8 @@ export const fallbackDictionary: Dictionary = {
         ],
         cta: 'Get Started',
       },
-      pro: {
-        name: 'Pro',
+      premium: {
+        name: 'Premium',
         price: 'from €900',
         description: 'Complete solution for growing businesses with advanced needs',
         features: [
@@ -260,7 +260,7 @@ export const fallbackDictionary: Dictionary = {
           'Delivery in 14 business days',
           '🔥 Recommended to create real online authority and generate leads',
         ],
-        cta: 'Choose Pro',
+        cta: 'Choose Premium',
       },
       entreprise: {
         name: 'Enterprise',

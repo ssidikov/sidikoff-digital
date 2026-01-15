@@ -88,8 +88,8 @@ function createNavigationItems(dictionary: Dictionary, locale: Locale): Navigati
     },
     {
       label: dictionary.navigation.blog,
-      href: getLocalizedUrl('/#actualite', locale),
-      section: 'actualite',
+      href: getLocalizedUrl('/blog', locale),
+      section: 'blog',
     },
     {
       label: dictionary.navigation.faq,

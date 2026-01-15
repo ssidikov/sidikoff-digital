@@ -1,7 +1,7 @@
 {
   "restaurant_landing": {
     "meta_title": "Création Site Web Restaurant - Augmentez vos Réservations",
-    "meta_description": "Site web professionnel pour restaurant. Réservations en ligne, menu digital, commandes. Tarif dès 800€. Support mensuel tout inclus dès 100€/mois.",
+    "meta_description": "Site web professionnel pour restaurant. Réservations en ligne, menu digital, commandes. Tarif dès 900€ TTC. Support mensuel tout inclus dès 100€/mois.",
     "keywords": [
       "site web restaurant",
       "création site restaurant",
@@ -93,7 +93,7 @@
       "packages": [
         {
           "name": "Starter Restaurant",
-          "price": "800€",
+          "price": "900€ TTC",
           "period": "Une fois",
           "description": "Site vitrine professionnel pour démarrer",
           "features": [

@@ -114,7 +114,7 @@ interface Dictionary {
       }
     }
     plans?: {
-      essentiel?: {
+      pro?: {
         name?: string
         price?: string
         description?: string
@@ -122,7 +122,7 @@ interface Dictionary {
         cta?: string
         popular?: boolean
       }
-      pro?: {
+      premium?: {
         name?: string
         price?: string
         description?: string
@@ -170,14 +170,14 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
   // Données des plans tarifaires depuis la localisation
   const pricingPlans = [
     {
-      name: dict?.pricing?.plans?.essentiel?.name || 'Essentiel',
-      price: dict?.pricing?.plans?.essentiel?.price || '800 €',
+      name: dict?.pricing?.plans?.pro?.name || 'Pro',
+      price: dict?.pricing?.plans?.pro?.price || '900€ TTC',
       period: '',
       description:
-        dict?.pricing?.plans?.essentiel?.description ||
+        dict?.pricing?.plans?.pro?.description ||
         'Parfait pour lancer votre activité ou moderniser votre image en ligne',
       features: (
-        dict?.pricing?.plans?.essentiel?.features || [
+        dict?.pricing?.plans?.pro?.features || [
           'Page unique claire et professionnelle',
           'Design moderne qui rassure',
           'Texte structuré et impactant',
@@ -188,16 +188,16 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
           '🧩 Objectif : avoir une présence pro, rapidement, sans complexité',
         ]
       ).map((text: string) => ({ text, included: true })),
-      ctaText: dict?.pricing?.plans?.essentiel?.cta || 'Commencer',
+      ctaText: dict?.pricing?.plans?.pro?.cta || 'Commencer',
       isPopular: false,
       isHighlighted: false,
     },
     {
-      name: dict?.pricing?.plans?.pro?.name || 'Pro',
-      price: dict?.pricing?.plans?.pro?.price || '1500 €',
+      name: dict?.pricing?.plans?.premium?.name || 'Premium',
+      price: dict?.pricing?.plans?.premium?.price || '1500€ TTC',
       period: '',
       description:
-        dict?.pricing?.plans?.pro?.description ||
+        dict?.pricing?.plans?.premium?.description ||
         'Solution complète pour les entreprises en croissance avec besoins avancés',
       features: (
         dict?.pricing?.plans?.pro?.features || [

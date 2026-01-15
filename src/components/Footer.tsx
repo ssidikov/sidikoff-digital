@@ -22,7 +22,7 @@ const CONTACT_INFO = {
   phone: '+33626932734',
   emailLabel: 's.sidikoff@gmail.com',
   phoneLabel: '+33 6 26 93 27 34',
-  address: '77 ter Rue Michel Ange, 75016 Paris',
+  address: '69100 Villeurbanne, France',
 } as const
 
 // Copyright and company information

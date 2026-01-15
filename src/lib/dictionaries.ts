@@ -206,7 +206,7 @@ export interface Dictionary {
       cta?: string
     }
     plans: {
-      essentiel: {
+      pro: {
         name: string
         price: string
         description: string
@@ -214,7 +214,7 @@ export interface Dictionary {
         cta: string
         popular?: boolean
       }
-      pro: {
+      premium: {
         name: string
         price: string
         description: string

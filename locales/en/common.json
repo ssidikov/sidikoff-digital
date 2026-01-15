@@ -483,282 +483,281 @@
       "filter_featured": "Featured"
     },
     "pricing": {
-      "title": "Nos Offres",
-      "subtitle": "Transparentes & Adaptées",
-      "description": "Choisissez la solution qui correspond parfaitement à vos besoins et à votre budget. Tous nos projets incluent un design moderne, un développement professionnel et un support complet.",
-      "guarantee_badge": "Résultats garantis • Livraison garantie",
-      "website_creation_title": "Tarifs Création de Sites Web",
+      "title": "Our Pricing Plans",
+      "subtitle": "Transparent & Tailored",
+      "description": "Choose the solution that perfectly fits your needs and budget. All our projects include modern design, professional development, and comprehensive support.",
+      "guarantee_badge": "Guaranteed Results • On-time Delivery",
+      "website_creation_title": "Website Creation Pricing",
       "plans": {
-        "essentiel": {
-          "name": "Essentiel",
-          "price": "800 €",
-          "description": "Parfait pour lancer votre activité ou moderniser votre image en ligne",
-          "features": [
-            "Page unique claire et professionnelle",
-            "Design moderne qui rassure",
-            "Texte structuré et impactant",
-            "Optimisation SEO de base",
-            "Formulaire de contact intégré",
-            "Compatible mobile/tablette/ordinateur",
-            "Livraison en 7 jours ouvrés",
-            "🧩 Objectif : avoir une présence pro, rapidement, sans complexité"
-          ],
-          "cta": "Commencer"
-        },
         "pro": {
           "name": "Pro",
-          "price": "1500 €",
-          "description": "Solution complète pour les entreprises en croissance avec besoins avancés",
+          "price": "900€ TTC",
+          "description": "Perfect to launch your activity or modernize your online image",
           "features": [
-            "Site complet 4 à 6 pages (Accueil, Services, À propos, Contact, etc.)",
-            "Rédaction de contenus sur-mesure",
-            "Optimisation SEO avancée (Google Business, balises, structure)",
-            "Statistiques simples (Google Analytics)",
-            "Design premium avec animations modernes",
-            "Formation courte pour gérer votre site",
-            "Livraison en 7-14 jours ouvrés",
-            "🔥 Recommandé pour créer une vraie autorité en ligne et générer des leads"
+            "Single-page showcase site",
+            "Custom responsive design",
+            "Basic SEO optimization (meta tags, sitemap)",
+            "Google My Business setup",
+            "Contact form integration",
+            "Training to manage your site",
+            "Delivery in 7-10 business days"
           ],
-          "cta": "Choisir Pro"
+          "cta": "Get Started"
+        },
+        "premium": {
+          "name": "Premium",
+          "price": "1500€ TTC",
+          "description": "Complete solution for growing businesses with advanced needs",
+          "features": [
+            "Full site 4 to 6 pages (Home, Services, About, Contact, etc.)",
+            "Custom content writing",
+            "Advanced SEO optimization (Google Business, tags, structure)",
+            "Simple statistics (Google Analytics)",
+            "Premium design with modern animations",
+            "Short training to manage your site",
+            "Delivery in 7-14 business days",
+            "🔥 Recommended to create real online authority and generate leads"
+          ],
+          "cta": "Choose Premium"
         },
         "entreprise": {
-          "name": "Entreprise",
-          "price": "Sur devis",
-          "description": "Solution haut de gamme adaptée à votre stratégie business",
+          "name": "Enterprise",
+          "price": "Custom Quote",
+          "description": "High-end solution tailored to your business strategy and specific needs",
           "features": [
-            "Analyse personnalisée de vos objectifs et de votre marché",
-            "Développement spécifique (ex : réservation, espace client, boutique en ligne)",
-            "Design unique et totalement sur-mesure",
-            "Stratégie SEO complète (contenu, technique, sémantique)",
-            "Accompagnement digital sur 1 à 3 mois",
-            "Fonctionnalités avancées (automatisation, blog, podcast, etc.)",
-            "Intégration de systèmes de paiement (PayPal, Stripe)",
-            "Support continu et conseils personnalisés",
-            "🎯 Objectif : transformer votre site en un outil de croissance et de conversion"
+            "Personalized analysis of your goals and market",
+            "Custom development (e.g., booking, client area, online store)",
+            "Unique and fully custom design",
+            "Comprehensive SEO strategy (content, technical, semantic)",
+            "Digital support for 1 to 3 months",
+            "Advanced features (automation, blog, podcast, etc.)",
+            "Integration of payment systems (PayPal, Stripe)",
+            "Continuous support and personalized advice",
+            "🎯 Goal: transform your site into a growth and conversion tool"
           ],
-          "cta": "Nous contacter"
+          "cta": "Contact Us"
         }
       },
       "maintenance": {
-        "title": "🔧 Maintenance mensuelle – Support continu",
-        "subtitle": "Choisissez le niveau de support adapté à vos besoins",
+        "title": "🔧 Monthly Maintenance – Continuous Support",
+        "subtitle": "Choose the support level that fits your needs",
         "plans": {
           "basic": {
             "name": "Basic",
-            "price": "100 €/mois",
-            "description": "Pour les petits sites web. Mises à jour incluent textes et images. SEO de base aide à maintenir la visibilité sur Google.",
+            "price": "100 €/month",
+            "description": "For small businesses wanting to keep their site secure and up-to-date. Regular updates, backups, and basic SEO checks to ensure smooth operation.",
             "features": [
-              "Hébergement",
-              "Nom de domaine",
-              "Mises à jour de contenu mensuelles (jusqu'à 3 changements)",
-              "Vérification SEO de base"
+              "Hosting",
+              "Domain name",
+              "Monthly content updates (up to 3 changes)",
+              "Basic SEO check"
             ],
-            "cta": "Choisir Basic"
+            "cta": "Choose Basic"
           },
           "advanced": {
             "name": "Advanced",
-            "price": "200 €/mois",
-            "description": "Pour les entreprises souhaitant améliorer leur visibilité et attirer plus de clients. Les rapports aident à prendre des décisions marketing éclairées.",
+            "price": "200 €/month",
+            "description": "For businesses looking to improve their visibility and attract more customers. Reports help make informed marketing decisions.",
             "features": [
-              "Tout ce qui est inclus dans Basic",
-              "Optimisation SEO pour jusqu'à 2 nouvelles pages chaque mois",
-              "Surveillance des performances et de la disponibilité du site",
-              "Rapports de trafic mensuels",
-              "Configuration d'analyses des visiteurs",
-              "Configuration de Google Ads"
+              "Everything included in Basic",
+              "SEO optimization for up to 2 new pages each month",
+              "Performance and uptime monitoring",
+              "Monthly traffic reports",
+              "Visitor analytics setup",
+              "Google Ads setup assistance"
             ],
-            "cta": "Choisir Advanced"
+            "cta": "Choose Advanced"
           },
           "premium": {
             "name": "Premium",
-            "price": "400 €/mois",
-            "description": "Package complet pour les entreprises. Gestion complète du site web, possibilité d'accepter les paiements en ligne, analyses détaillées et consultations d'experts.",
+            "price": "400 €/month",
+            "description": "Complete package for businesses. Full website management, ability to accept online payments, detailed analytics, and expert consultations.",
             "features": [
-              "Tout ce qui est inclus dans Advanced",
-              "Mises à jour de contenu régulières à la demande",
-              "Intégration de systèmes de paiement (PayPal, Stripe)",
-              "Consultation pour les améliorations du site web",
-              "Support premium et rapide via WhatsApp/Telegram",
-              "Google Analytics, Google Ads, analyses et rapports mensuels"
+              "Everything included in Advanced",
+              "Regular content updates on demand",
+              "Integration of payment systems (PayPal, Stripe)",
+              "Consultation for website improvements",
+              "Premium and fast support via WhatsApp/Telegram",
+              "Google Analytics, Google Ads, monthly analysis and reports"
             ],
             "cta": "Choisir Premium"
           }
         }
       },
       "guide_section": {
-        "title": "🎯 Guide Complet : Comment Choisir le Bon Plan pour Votre Site Web",
-        "subtitle": "Découvrez quelle solution correspond parfaitement à votre projet et pourquoi la maintenance continue est essentielle",
+        "title": "🎯 Complete Guide: How to Choose the Right Plan for Your Website",
+        "subtitle": "Discover which solution perfectly matches your project and why ongoing maintenance is essential",
         "intro": {
-          "title": "Pourquoi Investir Dans un Site Web Professionnel ?",
-          "content": "Votre site web est la vitrine de votre entreprise 24h/24, 7j/7. Il travaille pour vous même quand vous dormez, attire de nouveaux clients et renforce votre crédibilité. Un site bien conçu peut transformer des visiteurs en clients fidèles."
+          "title": "Why Invest in a Professional Website?",
+          "content": "Your website is your business's storefront 24/7. It works for you even while you sleep, attracts new clients, and strengthens your credibility. A well-designed website can transform visitors into loyal customers."
         },
         "website_types": {
-          "title": "🏗️ Types de Sites Web : Lequel Correspond à Votre Activité ?",
+          "title": "🏗️ Website Types: Which One Matches Your Business?",
           "types": [
             {
-              "name": "Site Vitrine (1 Page)",
-              "description": "Idéal pour les artisans, consultants, professions libérales qui souhaitent une présence en ligne rapidement",
-              "best_for": "Coiffeurs, plombiers, avocats, coaches, thérapeutes",
-              "plan_recommendation": "Plan Essentiel (800€)",
-              "maintenance": "Maintenance Basic (100€/mois) recommandée pour garder le site à jour et sécurisé",
-              "why_important": "Même un site simple nécessite des mises à jour de sécurité et sauvegarde régulières"
+              "name": "Single-Page Website",
+              "description": "Ideal for craftsmen, consultants, and professionals who want an online presence quickly",
+              "best_for": "Hairdressers, plumbers, lawyers, coaches, therapists",
+              "plan_recommendation": "Pro Plan (900€ TTC)",
+              "maintenance": "Basic Maintenance (100€/month) recommended to keep your site updated and secure",
+              "why_important": "Even a simple site requires regular security updates and backups"
             },
             {
-              "name": "Site Multi-pages (4-6 pages)",
-              "description": "Pour les entreprises qui veulent présenter leurs services détaillés, équipe, témoignages",
-              "best_for": "Restaurants, agences, boutiques, services B2B, consultants",
-              "plan_recommendation": "Plan Pro (1500€)",
-              "maintenance": "Maintenance Advanced (200€/mois) pour optimiser le référencement et analyser les performances",
-              "why_important": "Les rapports mensuels vous aident à comprendre vos visiteurs et améliorer vos conversions"
+              "name": "Multi-page Website (4-6 pages)",
+              "description": "For businesses wanting to showcase detailed services, team, and testimonials",
+              "best_for": "Restaurants, agencies, shops, B2B services, consultants",
+              "plan_recommendation": "Premium Plan (1500€ TTC)",
+              "maintenance": "Advanced Maintenance (200€/month) to optimize SEO and analyze performance",
+              "why_important": "Monthly reports help you understand your visitors and improve your conversions"
             },
             {
-              "name": "Site E-commerce/Complexe",
-              "description": "Pour vendre en ligne, gérer les réservations, espaces clients ou fonctionnalités spécifiques",
-              "best_for": "Boutiques en ligne, restaurants avec réservation, centres de formation, services SaaS",
-              "plan_recommendation": "Plan Entreprise (Sur devis)",
-              "maintenance": "Maintenance Premium (400€/mois) indispensable pour la sécurité des paiements et optimisations continues",
-              "why_important": "Les sites e-commerce nécessitent une surveillance constante, mises à jour sécurité et optimisations conversion"
+              "name": "E-commerce/Complex Website",
+              "description": "For selling online, managing reservations, client areas, or specific features",
+              "best_for": "Online shops, restaurants with reservations, training centers, SaaS services",
+              "plan_recommendation": "Enterprise Plan (Custom Quote)",
+              "maintenance": "Premium Maintenance (400€/month) essential for payment security and continuous optimizations",
+              "why_important": "E-commerce sites require constant monitoring, security updates, and conversion optimizations"
             }
           ]
         },
         "support_importance": {
-          "title": "🛡️ Pourquoi la Maintenance est-elle Cruciale ?",
-          "subtitle": "Votre site web est un investissement qui nécessite un entretien régulier",
+          "title": "🛡️ Why is Maintenance Crucial?",
+          "subtitle": "Your website is an investment that requires regular maintenance",
           "benefits": [
             {
               "icon": "🔒",
-              "title": "Sécurité & Fiabilité",
-              "content": "Mises à jour de sécurité automatiques, sauvegardes quotidiennes, protection contre les cyberattaques. Votre site reste accessible 24h/24."
+              "title": "Security & Reliability",
+              "content": "Automatic security updates, daily backups, protection against cyberattacks. Your site remains accessible 24/7."
             },
             {
               "icon": "🚀",
-              "title": "Performance Optimale",
-              "content": "Surveillance de la vitesse, optimisation des images, cache optimisé. Un site rapide améliore votre classement Google."
+              "title": "Optimal Performance",
+              "content": "Speed monitoring, image optimization, optimized caching. A fast site improves your Google ranking."
             },
             {
               "icon": "📈",
-              "title": "Croissance Continue",
-              "content": "Ajout de nouvelles pages, optimisation SEO, intégration de nouvelles fonctionnalités selon vos besoins business."
+              "title": "Continuous Growth",
+              "content": "Adding new pages, SEO optimization, integration of new features according to your business needs."
             },
             {
               "icon": "🎯",
-              "title": "Support Expert",
-              "content": "Je m'occupe de la technique, vous vous concentrez sur votre business. Conseils personnalisés pour améliorer vos résultats."
+              "title": "Expert Support",
+              "content": "I handle the technical side, you focus on your business. Personalized advice to improve your results."
             }
           ]
         },
         "single_payment_option": {
-          "title": "💡 Option Paiement Unique",
-          "content": "Vous pouvez choisir uniquement la création de site sans maintenance (paiement unique). Cependant, un site sans maintenance c'est comme une voiture sans entretien : ça fonctionne au début, mais les problèmes arrivent rapidement.",
+          "title": "💡 One-Time Payment Option",
+          "content": "You can choose only the website creation without maintenance (one-time payment). However, a website without maintenance is like a car without maintenance: it works at first, but problems arise quickly.",
           "risks": [
-            "Risques de sécurité et piratage",
-            "Perte de position sur Google",
-            "Site qui devient lent ou inaccessible",
-            "Pas de conseils pour améliorer vos résultats"
+            "Security risks and hacking",
+            "Loss of Google ranking",
+            "Website becomes slow or inaccessible",
+            "No advice to improve your results"
           ]
         },
         "business_focus": {
-          "title": "🎯 Concentrez-vous sur votre Business",
-          "content": "Pendant que je m'occupe de votre site web (technique, sécurité, optimisations), vous pouvez vous concentrer sur ce que vous faites de mieux : développer votre activité et servir vos clients.",
+          "title": "🎯 Focus on Your Business",
+          "content": "While I take care of your website (technical, security, optimizations), you can focus on what you do best: growing your business and serving your clients.",
           "what_i_handle": [
-            "Mises à jour techniques et de sécurité",
-            "Optimisation SEO continue",
-            "Ajout de nouveaux contenus",
-            "Analyses et rapports de performance",
-            "Conseils pour améliorer les conversions",
-            "Support technique rapide"
+            "Technical and security updates",
+            "Continuous SEO optimization",
+            "Adding new content",
+            "Performance analysis and reports",
+            "Advice to improve conversions",
+            "Fast technical support"
           ]
         },
         "seo_benefits": {
-          "title": "📊 Améliorez Votre Positionnement Google",
-          "subtitle": "La maintenance SEO continue fait la différence",
+          "title": "📊 Improve Your Google Ranking",
+          "subtitle": "Continuous SEO maintenance makes the difference",
           "benefits": [
             {
-              "title": "Contenu Frais",
-              "content": "Ajout régulier de nouveaux contenus, optimisation des pages existantes pour maintenir votre visibilité Google"
+              "title": "Fresh Content",
+              "content": "Regular addition of new content, optimization of existing pages to maintain your Google visibility"
             },
             {
-              "title": "Analyse Concurrentielle",
-              "content": "Surveillance de vos concurrents, identification de nouvelles opportunités de mots-clés"
+              "title": "Competitive Analysis",
+              "content": "Monitoring your competitors, identifying new keyword opportunities"
             },
             {
-              "title": "Backlinks Qualité",
-              "content": "Stratégie de liens retour naturels vers vos services et pages importantes pour booster votre autorité"
+              "title": "Quality Backlinks",
+              "content": "Natural backlink strategy to your services and important pages to boost your authority"
             },
             {
-              "title": "Reporting Mensuel",
-              "content": "Rapports détaillés sur vos positions, trafic, conversions avec recommandations d'amélioration"
+              "title": "Monthly Reporting",
+              "content": "Detailed reports on your rankings, traffic, conversions with improvement recommendations"
             }
           ]
         },
         "future_services": {
-          "title": "🚀 Évolution et Nouveaux Services",
-          "content": "Votre business évolue, votre site aussi ! Avec une maintenance active, vous pouvez facilement :",
+          "title": "🚀 Evolution and New Services",
+          "content": "Your business evolves, so does your website! With active maintenance, you can easily:",
           "services": [
-            "Ajouter de nouvelles pages de services",
-            "Intégrer un système de réservation en ligne",
-            "Créer une boutique e-commerce",
-            "Ajouter un blog pour le SEO",
-            "Intégrer des outils de marketing (newsletter, chat)",
-            "Développer une app mobile companion"
+            "Add new service pages",
+            "Integrate an online booking system",
+            "Create an e-commerce shop",
+            "Add a blog for SEO",
+            "Integrate marketing tools (newsletter, chat)",
+            "Develop a companion mobile app"
           ]
         },
         "call_to_action": {
-          "title": "🎯 Prêt à Lancer Votre Projet ?",
-          "content": "Chaque jour sans site web professionnel, c'est des clients potentiels qui passent chez la concurrence. Investissez dans votre présence digitale dès maintenant.",
-          "contact_text": "Discutons de votre projet et trouvons la solution parfaite pour votre business.",
-          "button": "Contactez-moi maintenant"
+          "title": "🎯 Ready to Launch Your Project?",
+          "content": "Every day without a professional website means potential clients going to your competitors. Invest in your digital presence now.",
+          "contact_text": "Let's discuss your project and find the perfect solution for your business.",
+          "button": "Contact me now"
         },
         "labels": {
-          "ideal_for": "Idéal pour:",
-          "recommended_plan": "Plan recommandé:",
+          "ideal_for": "Ideal for:",
+          "recommended_plan": "Recommended plan:",
           "maintenance": "Maintenance:",
-          "why_important": "Pourquoi c'est important:",
-          "risks_without_maintenance": "Risques sans maintenance:",
+          "why_important": "Why it's important:",
+          "risks_without_maintenance": "Risks without maintenance:",
           "siren": "943 266 213",
-          "address_label": "Adresse du siège social",
-          "address": "Paris, France",
-          "phone_label": "Téléphone",
+          "address_label": "Registered office address",
+          "address": "69100 Villeurbanne, FRANCE",
+          "phone_label": "Phone",
           "phone": "+33 6 26 93 27 34",
           "email_label": "Email",
           "email": "s.sidikoff@gmail.com",
-          "director_title": "Directeur de la publication",
+          "director_title": "Publishing Director",
           "director_name": "Sardorbek SIDIKOV",
-          "hosting_title": "Hébergement",
-          "host_label": "Hébergeur",
+          "hosting_title": "Hosting",
+          "host_label": "Host",
           "host": "Vercel Inc.",
-          "host_address_label": "Adresse",
-          "host_address": "340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis",
-          "host_website_label": "Site web",
+          "host_address_label": "Address",
+          "host_address": "340 S Lemon Ave #4133, Walnut, CA 91789, United States",
+          "host_website_label": "Website",
           "host_website": "vercel.com",
-          "ip_title": "Propriété intellectuelle",
-          "ip_text": "Ce site web et tous ses éléments (textes, images, logos, etc.) sont protégés par le droit d'auteur. Toute reproduction, même partielle, est interdite sans autorisation préalable.",
-          "data_title": "Protection des données personnelles",
-          "data_text": "Conformément au RGPD, vous disposez de droits sur vos données personnelles. Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes et ne sont pas transmises à des tiers. Vous pouvez exercer vos droits concernant vos données personnelles en contactant à l'adresse e-mail : s.sidikoff@gmail.com.",
+          "ip_title": "Intellectual Property",
+          "ip_text": "This website and all its elements (text, images, logos, etc.) are protected by copyright. Any reproduction, even partial, is prohibited without prior authorization.",
+          "data_title": "Personal Data Protection",
+          "data_text": "In accordance with GDPR, you have rights over your personal data. Data collected via the contact form is used only to respond to your requests and is not transmitted to third parties. You can exercise your rights regarding your personal data by contacting the email address: s.sidikoff@gmail.com.",
           "cookies_title": "Cookies",
-          "cookies_text": "Ce site utilise des cookies essentiels au fonctionnement du site. En continuant à naviguer sur ce site, vous acceptez leur utilisation."
+          "cookies_text": "This site uses essential cookies for the functioning of the site. By continuing to browse this site, you accept their use."
         },
         "portfolio": {
           "title": "Portfolio",
-          "subtitle": "Découvrez nos réalisations web",
+          "subtitle": "Discover our web projects",
           "filter": {
-            "all": "Tous",
-            "web": "Sites Web",
+            "all": "All",
+            "web": "Websites",
             "mobile": "Mobile",
             "design": "Design"
           },
           "projects": {},
-          "view_project": "Voir Tous les Projets",
-          "live_demo": "Démo Live",
-          "github": "Code Source"
+          "view_project": "View All Projects",
+          "live_demo": "Live Demo",
+          "github": "Source Code"
         },
         "testimonials": {
-          "title": "Témoignages clients",
-          "subtitle": "Ce que nos clients disent de nous",
+          "title": "Client testimonials",
+          "subtitle": "What our clients say about us",
           "cta": {
-            "title": "Prêt à rejoindre nos clients satisfaits ?",
-            "description": "Contactez-nous dès aujourd'hui et découvrez comment nous pouvons aider votre entreprise à croître.",
-            "button": "Démarrer un projet"
+            "title": "Ready to join our satisfied clients?",
+            "description": "Contact us today and discover how we can help your business grow.",
+            "button": "Start a project"
           },
           "seo_optimization_landing": {
             "meta_title": "Optimisation SEO et Référencement - Première Page Google Garantie",
@@ -982,7 +981,7 @@
             "showcase": {
               "title": "Site vitrine",
               "description": "Site web professionnel pour présenter votre entreprise, vos services et vos valeurs. Design moderne et responsive.",
-              "price": "À partir de 800€"
+              "price": "À partir de 900€ TTC"
             },
             "ecommerce": {
               "title": "Boutique e-commerce",
@@ -1000,14 +999,14 @@
               "price": "À partir de 290€/mois"
             },
             "redesign": {
-              "title": "Refonte de site",
-              "description": "Modernisation de votre site existant : nouveau design, amélioration des performances et SEO.",
-              "price": "À partir de 800€"
+              "title": "Website Redesign",
+              "description": "Modernization of your existing site: new design, performance improvement, and SEO.",
+              "price": "Starting from 900€ TTC"
             },
             "maintenance": {
               "title": "Maintenance",
-              "description": "Mises à jour, sauvegardes automatiques, sécurité et support technique pour votre site web.",
-              "price": "49€/mois"
+              "description": "Updates, automatic backups, security, and technical support for your website.",
+              "price": "49€/month"
             }
           },
           "advantages": {
@@ -1042,7 +1041,7 @@
         },
         "restaurant_landing": {
           "meta_title": "Création Site Web Restaurant - Augmentez vos Réservations",
-          "meta_description": "Site web professionnel pour restaurant. Réservations en ligne, menu digital, commandes. Tarif dès 800€ TTC. Support mensuel tout inclus dès 24€/mois. Solutions transparentes et complètes.",
+          "meta_description": "Site web professionnel pour restaurant. Réservations en ligne, menu digital, commandes. Tarif dès 900€ TTC TTC. Support mensuel tout inclus dès 24€/mois. Solutions transparentes et complètes.",
           "keywords": [
             "site web restaurant",
             "création site restaurant",
@@ -1198,55 +1197,55 @@
             },
             "support_plans": {
               "title": "Support & Maintenance Mensuelle",
-              "subtitle": "Sérénité totale pour votre restaurant en ligne",
-              "commitment": "Engagement minimum 3 mois, puis sans engagement (préavis 7-14 jours)",
+              "subtitle": "Complete peace of mind for your restaurant online",
+              "commitment": "3-month minimum commitment, then no commitment (7-14 days notice)",
               "plans": [
                 {
                   "name": "Basic",
                   "price": "24",
                   "currency": "€",
-                  "period": "/mois",
-                  "description": "L'essentiel pour rester en ligne",
+                  "period": "/month",
+                  "description": "The essentials to stay online",
                   "features": [
-                    "Hébergement inclus",
-                    "Nom de domaine inclus",
-                    "Maintenance technique",
-                    "Mises à jour les prix des plats",
-                    "Support email 48h"
+                    "Hosting included",
+                    "Domain name included",
+                    "Technical maintenance",
+                    "Dish price updates",
+                    "48h email support"
                   ]
                 },
                 {
                   "name": "Professional",
                   "price": "49",
                   "currency": "€",
-                  "period": "/mois",
-                  "description": "Gestion quotidienne simplifiée",
+                  "period": "/month",
+                  "description": "Simplified daily management",
                   "features": [
-                    "Tout du plan Basic",
-                    "Modifications menu/prix/horaires illimitées",
-                    "1h contenu/mois (bannières, photos, sections)",
-                    "SEO technique + 1 page locale/trimestre",
-                    "Support prioritaire 24h"
+                    "Everything in Basic plan",
+                    "Unlimited menu/price/hours modifications",
+                    "1h content/month (banners, photos, sections)",
+                    "Technical SEO + 1 local page/quarter",
+                    "24h priority support"
                   ]
                 },
                 {
                   "name": "Premium",
                   "price": "79",
                   "currency": "€",
-                  "period": "/mois",
-                  "description": "Accompagnement stratégique complet",
+                  "period": "/month",
+                  "description": "Complete strategic support",
                   "features": [
-                    "Tout du plan Professional",
-                    "2h contenu/mois ou 1 mini-fonctionnalité/trimestre",
-                    "1 article SEO/mois",
-                    "Support rapide WhatsApp/Telegram"
+                    "Everything in Professional plan",
+                    "2h content/month or 1 mini-feature/quarter",
+                    "1 SEO article/month",
+                    "Fast WhatsApp/Telegram support"
                   ]
                 }
               ],
               "additional_work": {
-                "title": "Travaux hors forfait",
-                "rate": "60€/heure",
-                "description": "Pour les demandes dépassant les limites des forfaits"
+                "title": "Work outside of package",
+                "rate": "60€/hour",
+                "description": "For requests exceeding package limits"
               }
             },
             "included_excluded": {
@@ -1404,7 +1403,7 @@
             "questions": [
               {
                 "question": "Combien coûte un site web pour restaurant ?",
-                "answer": "Nos sites web restaurant démarrent à 800€ TTC pour une solution complète avec réservations en ligne, menu numérique et optimisation mobile. Tarif Professional 1299€ inclut vente en ligne + Click&Collect. Plans de support mensuel dès 24€/mois incluant hébergement, maintenance et mises à jour. Aucun frais caché, tarification transparente. Délais 3-8 semaines selon complexité."
+                "answer": "Nos sites web restaurant démarrent à 900€ TTC TTC pour une solution complète avec réservations en ligne, menu numérique et optimisation mobile. Tarif Professional 1299€ inclut vente en ligne + Click&Collect. Plans de support mensuel dès 24€/mois incluant hébergement, maintenance et mises à jour. Aucun frais caché, tarification transparente. Délais 3-8 semaines selon complexité."
               },
               {
                 "question": "Ai-je besoin de connaissances techniques pour gérer mon site restaurant ?",
@@ -1631,7 +1630,7 @@
             "packages": [
               {
                 "name": "Site Vitrine",
-                "price": "800€",
+                "price": "900€ TTC",
                 "period": "projet",
                 "description": "Parfait pour présenter votre boulangerie",
                 "delivery_time": "3-4 semaines",
@@ -1687,7 +1686,7 @@
             "questions": [
               {
                 "question": "Quel est le prix d'un site internet pour ma boulangerie ?",
-                "answer": "Nos tarifs commencent à 800€ pour un site vitrine et vont jusqu'à 2299€ pour une solution premium multilingue. Nous proposons un devis gratuit et personnalisé selon vos besoins spécifiques."
+                "answer": "Nos tarifs commencent à 900€ TTC pour un site vitrine et vont jusqu'à 2299€ pour une solution premium multilingue. Nous proposons un devis gratuit et personnalisé selon vos besoins spécifiques."
               },
               {
                 "question": "Combien de temps faut-il pour créer mon site ?",
@@ -2691,7 +2690,7 @@
             "description": "Complete solutions with integrated appointment booking and GDPR compliance",
             "packages": [
               {
-                "name": "Practice Essential",
+                "name": "Practice Pro",
                 "price": "€1,299",
                 "period": "complete project",
                 "delivery_time": "Delivered in 2-3 weeks",
@@ -2707,14 +2706,14 @@
                 ]
               },
               {
-                "name": "Practice Pro",
+                "name": "Practice Premium",
                 "price": "€1,899",
                 "period": "complete project",
-                "delivery_time": "Livré en 3-4 semaines",
+                "delivery_time": "Delivered in 3-4 weeks",
                 "is_popular": true,
                 "description": "Complete solution with online appointment booking",
                 "features": [
-                  "Everything in Essential package",
+                  "Everything in Pro package",
                   "Online appointment booking system",
                   "Custom interactive calendar",
                   "Automatic email and SMS notifications",
@@ -2956,7 +2955,7 @@
             "description": "Complete solutions for boutiques, stores, and marketplaces",
             "packages": [
               {
-                "name": "Boutique Essential",
+                "name": "Boutique Pro",
                 "price": "€2,499",
                 "period": "complete project",
                 "delivery_time": "Delivered in 4-6 weeks",
@@ -2973,7 +2972,7 @@
                 ]
               },
               {
-                "name": "Commerce Pro",
+                "name": "Commerce Premium",
                 "price": "€4,299",
                 "period": "complete project",
                 "delivery_time": "Delivered in 6-8 weeks",
@@ -2981,7 +2980,7 @@
                 "description": "Complete solution for ambitious businesses",
                 "features": [
                   "Unlimited products",
-                  "Everything in Essential package",
+                  "Everything in Pro package",
                   "Advanced promotion system",
                   "Customer accounts and loyalty",
                   "Detailed e-commerce analytics",
