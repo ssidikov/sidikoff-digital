@@ -160,6 +160,42 @@ export const businessLocations: LocalBusiness[] = [
     hasMap: 'https://maps.app.goo.gl/lyon',
   },
   {
+    name: 'SIDIKOFF DIGITAL - Développeur Web Freelance à Villeurbanne',
+    url: 'https://sidikoff.com',
+    address: {
+      streetAddress: '73 Rue Racine',
+      addressLocality: 'Villeurbanne',
+      postalCode: '69100',
+      addressCountry: 'FR',
+    },
+    telephone: '+33626932734',
+    email: 's.sidikoff@gmail.com',
+    geo: {
+      latitude: '45.7667',
+      longitude: '4.8799',
+    },
+    areaServed: ['Villeurbanne', 'Lyon', 'Lyon métropole', 'Rhône'],
+    hasMap: 'https://maps.app.goo.gl/villeurbanne',
+  },
+  {
+    name: 'SIDIKOFF DIGITAL - Développeur Web Freelance à Caluire-et-Cuire',
+    url: 'https://sidikoff.com',
+    address: {
+      streetAddress: 'Service à domicile',
+      addressLocality: 'Caluire-et-Cuire',
+      postalCode: '69300',
+      addressCountry: 'FR',
+    },
+    telephone: '+33626932734',
+    email: 's.sidikoff@gmail.com',
+    geo: {
+      latitude: '45.7867',
+      longitude: '4.8599',
+    },
+    areaServed: ['Caluire-et-Cuire', 'Lyon', 'Lyon métropole', 'Rhône'],
+    hasMap: 'https://maps.app.goo.gl/caluire-et-cuire',
+  },
+  {
     name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Strasbourg',
     url: 'https://sidikoff.com',
     address: {
@@ -348,7 +384,7 @@ export function generateLocalizedSEOMetadata(locale: Locale): Metadata {
 // Generate language alternates
 export function generateLanguageAlternates(
   path: string,
-  locales: Locale[] = ['fr', 'en', 'ru']
+  locales: Locale[] = ['fr', 'en', 'ru'],
 ): Record<string, string> {
   const alternates: Record<string, string> = {}
 
@@ -378,7 +414,7 @@ export function createCanonicalUrl(path: string, locale: Locale): string {
 // Generate local business schema
 export function generateLocalBusinessSchema(
   business: LocalBusiness,
-  includeRating: boolean = true
+  includeRating: boolean = true,
 ) {
   const baseSchema = {
     '@context': 'https://schema.org',
@@ -550,7 +586,7 @@ export const organizationSchema = {
 
 // Generate breadcrumb structured data
 export function generateBreadcrumbStructuredData(
-  breadcrumbs: Array<{ name: string; url: string }>
+  breadcrumbs: Array<{ name: string; url: string }>,
 ) {
   return {
     '@context': 'https://schema.org',
@@ -618,7 +654,7 @@ export function generateReviewStructuredData(
     rating: number
     reviewBody: string
     datePublished: string
-  }>
+  }>,
 ) {
   // Calculate aggregate rating
   const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0)
@@ -666,7 +702,7 @@ export function generatePageMetadata(
   description: string,
   path: string,
   locale: Locale,
-  additionalConfig?: Partial<SEOConfig>
+  additionalConfig?: Partial<SEOConfig>,
 ): Metadata {
   const canonicalUrl = createCanonicalUrl(path, locale)
   const alternateUrls = generateAlternateUrls(path)

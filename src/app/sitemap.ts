@@ -30,6 +30,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/services/creation-site-internet-lyon',
     '/services/creation-site-internet-toulouse',
     '/services/creation-site-internet-boulogne-billancourt',
+    '/services/creation-site-web-villeurbanne',
+    '/services/creation-site-web-caluire-et-cuire',
     '/services/creation-site-internet-cafe-paris',
     '/blog',
     '/tarifs',
