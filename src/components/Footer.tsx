@@ -70,6 +70,14 @@ const createNavigationLinks = (dictionary: Dictionary, locale: Locale): FooterLi
     href: getLocalizedUrl('/services/creation-site-internet-lyon', locale),
   },
   {
+    name: 'Création Site Internet Caluire-et-Cuire',
+    href: getLocalizedUrl('/services/creation-site-web-caluire-et-cuire', locale),
+  },
+  {
+    name: 'Création Site Internet Villeurbanne',
+    href: getLocalizedUrl('/services/creation-site-web-villeurbanne', locale),
+  },
+  {
     name: 'Création Site Internet Café Paris',
     href: getLocalizedUrl('/services/creation-site-internet-cafe-paris', locale),
   },

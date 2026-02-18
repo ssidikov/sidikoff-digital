@@ -131,7 +131,7 @@ export default function CaluireLandingContent({ content: c, faqs, structuredData
             </span>
             {c.badge}
             <span className='h-3 w-px bg-white/20' />
-            <span className='text-slate-400'>2024</span>
+            <span className='text-slate-400'>2026</span>
           </motion.div>
 
           {/* Headline - Massive Scale */}
@@ -140,7 +140,7 @@ export default function CaluireLandingContent({ content: c, faqs, structuredData
               initial={{ opacity: 0, y: 40 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className='text-5xl font-semibold leading-[0.95] tracking-tighter text-white sm:text-7xl md:text-8xl lg:text-9xl'>
+              className='text-4xl font-semibold leading-[0.95] tracking-tighter text-white sm:text-6xl md:text-7xl lg:text-8xl'>
               {c.h1Start}
               <br />
               <span className='bg-linear-to-r from-blue-400 via-indigo-400 to-white bg-clip-text text-transparent'>
@@ -221,7 +221,7 @@ export default function CaluireLandingContent({ content: c, faqs, structuredData
 
           <div className='grid gap-6 md:grid-cols-3'>
             {/* Feature 1 */}
-            <div className='group relative flex flex-col justify-between rounded-[2rem] border border-white/10 bg-white/5 p-10 backdrop-blur-2xl transition-all duration-500 hover:-translate-y-2 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10'>
+            <div className='group relative flex flex-col justify-between rounded-4xl border border-white/10 bg-white/5 p-10 backdrop-blur-2xl transition-all duration-500 hover:-translate-y-2 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10'>
               <div className='mb-12 h-16 w-16 rounded-2xl bg-linear-to-br from-blue-600 to-indigo-700 opacity-80 shadow-lg shadow-blue-900/50' />
               <div>
                 <h3 className='mb-4 text-2xl font-semibold text-white'>Développement Premium</h3>
@@ -233,7 +233,7 @@ export default function CaluireLandingContent({ content: c, faqs, structuredData
             </div>
 
             {/* Feature 2 (Main) */}
-            <div className='group relative flex flex-col justify-between rounded-[2rem] border border-white/10 bg-linear-to-b from-blue-900/20 to-slate-900/40 p-10 backdrop-blur-2xl transition-all duration-500 hover:-translate-y-2 hover:border-blue-400/40 hover:shadow-2xl hover:shadow-blue-500/10 md:col-span-2 lg:col-span-1'>
+            <div className='group relative flex flex-col justify-between rounded-4xl border border-white/10 bg-linear-to-b from-blue-900/20 to-slate-900/40 p-10 backdrop-blur-2xl transition-all duration-500 hover:-translate-y-2 hover:border-blue-400/40 hover:shadow-2xl hover:shadow-blue-500/10 md:col-span-2 lg:col-span-1'>
               <div className='mb-12 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-2xl font-bold text-white'>
                 24h
               </div>
@@ -247,7 +247,7 @@ export default function CaluireLandingContent({ content: c, faqs, structuredData
             </div>
 
             {/* Feature 3 */}
-            <div className='group relative flex flex-col justify-between rounded-[2rem] border border-white/10 bg-white/5 p-10 backdrop-blur-2xl transition-all duration-500 hover:-translate-y-2 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10'>
+            <div className='group relative flex flex-col justify-between rounded-4xl border border-white/10 bg-white/5 p-10 backdrop-blur-2xl transition-all duration-500 hover:-translate-y-2 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10'>
               <div className='mb-12 h-16 w-16 rounded-2xl bg-linear-to-br from-slate-700 to-slate-800 opacity-80 shadow-lg' />
               <div>
                 <h3 className='mb-4 text-2xl font-semibold text-white'>SEO & Performance</h3>
@@ -277,7 +277,7 @@ export default function CaluireLandingContent({ content: c, faqs, structuredData
             {c.services.slice(0, 4).map((svc, i) => (
               <div
                 key={i}
-                className='group grid gap-8 py-12 transition-colors duration-500 hover:bg-white/[0.02] md:grid-cols-12 md:gap-12'>
+                className='group grid gap-8 py-12 transition-colors duration-500 hover:bg-white/2 md:grid-cols-12 md:gap-12'>
                 <div className='md:col-span-4'>
                   <h3 className='text-2xl font-semibold text-white group-hover:text-blue-400 transition-colors'>
                     {svc.title}
@@ -338,7 +338,7 @@ export default function CaluireLandingContent({ content: c, faqs, structuredData
             {c.pricingTiers.map((tier, i) => (
               <div
                 key={i}
-                className={`relative flex flex-col rounded-[2rem] border p-10 transition-transform duration-500 hover:-translate-y-2 ${
+                className={`relative flex flex-col rounded-4xl border p-10 transition-transform duration-500 hover:-translate-y-2 ${
                   tier.featured
                     ? 'border-blue-500/50 bg-blue-900/10 backdrop-blur-3xl'
                     : 'border-white/10 bg-white/5 backdrop-blur-xl'

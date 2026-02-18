@@ -15,7 +15,7 @@ export const fallbackDictionary: Dictionary = {
     badge_quality: 'Quality',
     badge_response: 'Fast Response',
     badge_support: 'Support',
-    footer_copyright: '© 2024 Web Agency. All rights reserved.',
+    footer_copyright: '© 2026 Web Agency. All rights reserved.',
     legal_link: 'Legal Notice',
   },
   blog: {

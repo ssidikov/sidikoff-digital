@@ -512,21 +512,16 @@ function getPageContent(locale: Locale): VilleurbannContent {
         },
         {
           step: '02',
-          title: 'Design & Prototype',
-          desc: 'Creation of mockups and validation of the visual direction.',
-        },
-        {
-          step: '03',
           title: 'Development',
           desc: 'Clean and performant coding with React and Next.js.',
         },
         {
-          step: '04',
+          step: '03',
           title: 'Testing & Optimization',
           desc: 'Quality control, SEO and cross-browser performance.',
         },
         {
-          step: '05',
+          step: '04',
           title: 'Launch & Support',
           desc: 'Go-live, training and ongoing maintenance.',
         },
@@ -651,17 +646,12 @@ function getPageContent(locale: Locale): VilleurbannContent {
         },
         {
           step: '02',
-          title: 'Дизайн и прототип',
-          desc: 'Создание макетов и утверждение визуального направления.',
-        },
-        {
-          step: '03',
           title: 'Разработка',
           desc: 'Чистый и производительный код на React и Next.js.',
         },
-        { step: '04', title: 'Тестирование', desc: 'Контроль качества, SEO и кросс-браузерность.' },
+        { step: '03', title: 'Тестирование', desc: 'Контроль качества, SEO и кросс-браузерность.' },
         {
-          step: '05',
+          step: '04',
           title: 'Запуск и поддержка',
           desc: 'Публикация, обучение и текущее обслуживание.',
         },
@@ -787,21 +777,16 @@ function getPageContent(locale: Locale): VilleurbannContent {
       },
       {
         step: '02',
-        title: 'Design & Maquette',
-        desc: 'Création des maquettes graphiques et validation de la direction visuelle.',
-      },
-      {
-        step: '03',
         title: 'Développement',
         desc: 'Codage propre et performant respectant les standards (React, Next.js).',
       },
       {
-        step: '04',
+        step: '03',
         title: 'Recette & Optimisation',
         desc: 'Tests complets, vérification SEO, performance et compatibilité mobile.',
       },
       {
-        step: '05',
+        step: '04',
         title: 'Mise en ligne',
         desc: 'Déploiement sécurisé, formation à l’administration et suivi.',
       },

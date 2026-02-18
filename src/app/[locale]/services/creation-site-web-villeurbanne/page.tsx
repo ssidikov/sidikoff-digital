@@ -549,21 +549,16 @@ function getPageContent(locale: Locale) {
         },
         {
           step: '02',
-          title: 'Design & Prototype',
-          desc: 'Creation of mockups and validation of the visual direction.',
-        },
-        {
-          step: '03',
           title: 'Development',
           desc: 'Clean and performant coding with React and Next.js.',
         },
         {
-          step: '04',
+          step: '03',
           title: 'Testing & Optimization',
           desc: 'Quality control, SEO and cross-browser performance.',
         },
         {
-          step: '05',
+          step: '04',
           title: 'Launch & Support',
           desc: 'Go-live, training and ongoing maintenance.',
         },
@@ -768,17 +763,12 @@ function getPageContent(locale: Locale) {
         },
         {
           step: '02',
-          title: 'Дизайн и прототип',
-          desc: 'Создание макетов и утверждение визуального направления.',
-        },
-        {
-          step: '03',
           title: 'Разработка',
           desc: 'Чистый и производительный код на React и Next.js.',
         },
-        { step: '04', title: 'Тестирование', desc: 'Контроль качества, SEO и кросс-браузерность.' },
+        { step: '03', title: 'Тестирование', desc: 'Контроль качества, SEO и кросс-браузерность.' },
         {
-          step: '05',
+          step: '04',
           title: 'Запуск и поддержка',
           desc: 'Публикация, обучение и текущее обслуживание.',
         },
@@ -976,21 +966,16 @@ function getPageContent(locale: Locale) {
       },
       {
         step: '02',
-        title: 'Design & maquettes',
-        desc: 'Création des maquettes et validation de la direction visuelle.',
-      },
-      {
-        step: '03',
         title: 'Développement',
         desc: 'Codage propre et performant avec React et Next.js.',
       },
       {
-        step: '04',
+        step: '03',
         title: 'Tests & optimisation',
         desc: 'Contrôle qualité, SEO et performance cross-navigateurs.',
       },
       {
-        step: '05',
+        step: '04',
         title: 'Lancement & suivi',
         desc: 'Mise en ligne, formation et maintenance continue.',
       },
