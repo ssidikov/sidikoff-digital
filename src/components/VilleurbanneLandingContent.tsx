@@ -84,12 +84,51 @@ export default function VilleurbanneLandingContent({
   const heroInView = useInView(heroRef, { once: true, margin: '-80px' })
 
   return (
-    <main className='relative bg-slate-50 selection:bg-blue-100 selection:text-blue-900'>
+    <main className='relative bg-transparent selection:bg-blue-100 selection:text-blue-900'>
       {/* Global Background Gradient Mesh */}
+      {/* Global Background Gradient Mesh & Noise */}
       <div className='fixed inset-0 z-0 pointer-events-none'>
-        <div className='absolute top-0 left-0 w-full h-[120vh] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(219,234,254,0.5),rgba(255,255,255,0))]' />
-        <div className='absolute top-[20%] right-0 w-[50vw] h-[50vw] bg-blue-100/40 rounded-full blur-3xl opacity-60 mix-blend-multiply filter' />
-        <div className='absolute bottom-0 left-0 w-[60vw] h-[60vw] bg-slate-100/60 rounded-full blur-3xl opacity-60 mix-blend-multiply filter' />
+        <div className='absolute inset-0 bg-slate-50' />
+        {/* Subtle noise texture for premium feel */}
+        <div
+          className='absolute inset-0 opacity-[0.03] mix-blend-overlay'
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
+          }}
+        />
+
+        {/* GLOBAL ANIMATED AURORA GRADIENTS - Continuous flow */}
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 0.9, 1],
+            rotate: [0, 5, -5, 0],
+            x: [0, 50, -30, 0],
+            y: [0, -30, 50, 0],
+          }}
+          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+          className='absolute -top-[20%] -right-[10%] w-[800px] h-[800px] rounded-full bg-linear-to-br from-blue-600/10 via-violet-500/10 to-fuchsia-400/10 blur-[130px]'
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, -5, 5, 0],
+            x: [0, -40, 40, 0],
+            y: [0, 40, -40, 0],
+          }}
+          transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          className='absolute top-[10%] -left-[20%] w-[700px] h-[700px] rounded-full bg-linear-to-tr from-cyan-400/10 via-sky-500/10 to-blue-600/10 blur-[120px]'
+        />
+        <motion.div
+          animate={{
+            scale: [1, 0.9, 1.1, 1],
+            x: [0, -30, 30, 0],
+            y: [0, 30, -30, 0],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
+          className='absolute bottom-0 right-[20%] w-[600px] h-[600px] rounded-full bg-linear-to-t from-indigo-300/10 via-blue-200/10 to-transparent blur-[100px]'
+        />
       </div>
       {/* JSON-LD */}
       {structuredData.map((schema, i) => (
@@ -105,12 +144,27 @@ export default function VilleurbanneLandingContent({
         ref={heroRef}
         className='relative z-10 min-h-screen flex flex-col justify-center py-32 md:py-40 overflow-hidden'>
         {/* Ambient background blobs */}
+        {/* Modern Dynamic Hero Background */}
         <div className='absolute inset-0 pointer-events-none'>
-          <div className='absolute -top-32 -right-32 w-[560px] h-[560px] rounded-full bg-blue-100/50 blur-[120px]' />
-          <div className='absolute -bottom-32 -left-32 w-[480px] h-[480px] rounded-full bg-indigo-100/40 blur-[100px]' />
-          <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-sky-50/60 blur-[80px]' />
+          {/* Geometric Grid Pattern */}
+          <svg
+            className='absolute inset-0 h-full w-full stroke-slate-900/5 mask-[radial-gradient(100%_100%_at_top_right,white,transparent)]'
+            aria-hidden='true'>
+            <defs>
+              <pattern
+                id='hero-grid'
+                width={40}
+                height={40}
+                x='50%'
+                y={-1}
+                patternUnits='userSpaceOnUse'>
+                <path d='M.5 40V.5H40' fill='none' />
+              </pattern>
+            </defs>
+            <rect width='100%' height='100%' strokeWidth={0} fill='url(#hero-grid)' />
+          </svg>
         </div>
-        <div className='absolute inset-0 bg-linear-to-b from-white/70 via-white/40 to-transparent pointer-events-none' />
+        <div className='absolute inset-0 bg-linear-to-b from-white/30 via-transparent to-slate-50/80 pointer-events-none' />
 
         <div className='relative mx-auto max-w-6xl px-6 md:px-8 w-full'>
           {/* ── Text Content ── */}
@@ -188,7 +242,7 @@ export default function VilleurbanneLandingContent({
           <div className='overflow-hidden py-4'>
             <div
               className='flex w-max gap-10 whitespace-nowrap'
-              style={{ animation: 'marquee-scroll 32s linear infinite' }}>
+              style={{ animation: 'marquee-scroll 64s linear infinite' }}>
               {/* Render 3× for seamless looping */}
               {[0, 1, 2].map((set) => (
                 <div key={set} className='flex shrink-0 items-center gap-10 pr-10'>
@@ -342,7 +396,17 @@ export default function VilleurbanneLandingContent({
       </section>
 
       {/* ═══ VALUE PROPOSITION — Varied Density ═══ */}
-      <section className='relative z-10 py-20 md:py-32'>
+      <section className='relative z-10 py-20 md:py-32 overflow-hidden'>
+        {/* Modern Background Elements */}
+        {/* Only keeping texture elements, removing colors to allow global bg to show */}
+        <div className='absolute inset-0 -z-10 pointer-events-none'>
+          {/* Subtle Top Separator with sheen */}
+          <div className='absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-slate-200 to-transparent opacity-80' />
+
+          {/* Dot Matrix Pattern - very subtle tech feel */}
+          <div className='absolute inset-0 bg-[radial-gradient(#475569_1px,transparent_1px)] bg-size-[32px_32px] opacity-[0.03] mask-[radial-gradient(ellipse_60%_60%_at_50%_50%,black,transparent)]' />
+        </div>
+
         <div className='mx-auto max-w-6xl px-6 md:px-8'>
           <div className='mb-12 md:mb-16 max-w-2xl'>
             <h2 className='mb-4 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-5xl'>
