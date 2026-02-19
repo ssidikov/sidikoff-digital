@@ -100,100 +100,245 @@ export default function VilleurbanneLandingContent({
         />
       ))}
 
-      {/* ═══ HERO — Asymmetric Composition ═══ */}
+      {/* ═══ HERO — Centered with Stats Band ═══ */}
       <section
         ref={heroRef}
-        className='relative z-10 min-h-screen flex items-center py-24 md:py-32 overflow-hidden'>
-        {/* Hero Specific Background Overlay */}
-        <div className='absolute inset-0 bg-linear-to-b from-white/80 via-white/50 to-transparent pointer-events-none' />
+        className='relative z-10 min-h-screen flex flex-col justify-center py-32 md:py-40 overflow-hidden'>
+        {/* Ambient background blobs */}
+        <div className='absolute inset-0 pointer-events-none'>
+          <div className='absolute -top-32 -right-32 w-[560px] h-[560px] rounded-full bg-blue-100/50 blur-[120px]' />
+          <div className='absolute -bottom-32 -left-32 w-[480px] h-[480px] rounded-full bg-indigo-100/40 blur-[100px]' />
+          <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-sky-50/60 blur-[80px]' />
+        </div>
+        <div className='absolute inset-0 bg-linear-to-b from-white/70 via-white/40 to-transparent pointer-events-none' />
 
-        <div className='relative mx-auto max-w-6xl px-6 md:px-8'>
-          <div className='grid grid-cols-12 gap-12 lg:gap-16'>
-            {/* Content Column — 7 cols */}
-            <div className='col-span-12 lg:col-span-7'>
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={heroInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
-                className='mb-6 inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600'>
-                <div className='h-1.5 w-1.5 rounded-full bg-blue-600' />
-                {c.badge}
-              </motion.div>
+        <div className='relative mx-auto max-w-6xl px-6 md:px-8 w-full'>
+          {/* ── Text Content ── */}
+          <div className='mx-auto max-w-3xl text-center'>
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={heroInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className='mb-8 inline-flex items-center gap-2.5 rounded-full border border-blue-100 bg-white/80 backdrop-blur-md px-5 py-2.5 text-sm font-semibold text-slate-800 shadow-sm ring-1 ring-slate-900/5 transition-transform hover:scale-105'>
+              <span className='relative flex h-2.5 w-2.5'>
+                <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75'></span>
+                <span className='relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-600'></span>
+              </span>
+              {c.badge}
+            </motion.div>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 16 }}
-                animate={heroInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-                className='mb-6 text-4xl font-bold leading-[1.05] tracking-tight text-slate-900 md:text-5xl lg:text-7xl'>
-                {c.h1Start}
-                <span className='relative inline-block'>
-                  <span className='relative z-10 text-blue-600'>{c.h1City}</span>
-                  <div className='absolute -bottom-2 left-0 h-3 w-full bg-blue-600/10 -rotate-1' />
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={heroInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.65, delay: 0.1, ease: 'easeOut' }}
+              className='mb-6 text-4xl font-extrabold leading-[1.05] tracking-tight text-slate-900 md:text-6xl lg:text-7xl'>
+              {c.h1Start}
+              <span className='relative inline-block'>
+                <span className='relative z-10 text-blue-600'>{c.h1City}</span>
+                <div className='absolute -bottom-1 left-0 h-[5px] w-full rounded-full bg-gradient-to-r from-blue-600/30 to-indigo-600/20' />
+              </span>
+              {c.h1Suffix && (
+                <span className='mt-3 block bg-gradient-to-r from-slate-700 via-slate-600 to-slate-500 bg-clip-text text-2xl font-semibold leading-tight text-transparent md:text-3xl lg:text-4xl'>
+                  {c.h1Suffix}
                 </span>
-                {c.h1Suffix && (
-                  <span className='mt-3 block bg-gradient-to-r from-slate-700 via-slate-600 to-slate-500 bg-clip-text text-2xl font-semibold leading-tight text-transparent md:text-3xl lg:text-4xl'>
-                    {c.h1Suffix}
-                  </span>
-                )}
-              </motion.h1>
+              )}
+            </motion.h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                animate={heroInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-                className='mb-8 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg lg:text-xl'>
-                {c.subtitle}
-              </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={heroInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+              className='mb-10 text-base leading-relaxed text-slate-600 md:text-lg lg:text-xl'>
+              {c.subtitle}
+            </motion.p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={heroInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
-                className='flex flex-col gap-4 sm:flex-row'>
-                <CTAButton
-                  href='/contact'
-                  size='lg'
-                  className='border-0 bg-blue-600 font-semibold text-white shadow-soft-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-soft-lg'>
-                  {c.cta1}
-                </CTAButton>
-                <CTAButton
-                  href='#services'
-                  size='lg'
-                  variant='outline'
-                  className='border-slate-200 font-semibold text-slate-700 transition-all duration-200 hover:border-slate-300 hover:bg-slate-50'>
-                  {c.cta2}
-                </CTAButton>
-              </motion.div>
-            </div>
-
-            {/* Visual Column — 5 cols */}
-            <div className='col-span-12 lg:col-span-5'>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={heroInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.7, delay: 0.35, ease: 'easeOut' }}
-                className='relative'>
-                {/* Stats Grid */}
-                <div className='space-y-3 md:space-y-4'>
-                  {[
-                    { value: c.stat1, label: c.stat1Label },
-                    { value: c.stat2, label: c.stat2Label },
-                    { value: c.stat3, label: c.stat3Label },
-                  ].map((stat, i) => (
-                    <div
-                      key={i}
-                      className='group rounded-xl md:rounded-2xl bg-white/70 backdrop-blur-md border border-white/50 p-6 md:p-8 shadow-soft-md transition-all duration-300 hover:-translate-y-1 hover:shadow-soft-lg hover:border-blue-100/50'>
-                      <div className='mb-2 text-3xl md:text-4xl font-bold text-slate-900'>
-                        {stat.value}
-                      </div>
-                      <div className='text-sm font-medium text-slate-600'>{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={heroInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
+              className='flex flex-col items-center gap-4 sm:flex-row sm:justify-center'>
+              <CTAButton
+                href='/contact'
+                size='lg'
+                className='border-0 bg-blue-600 font-semibold text-white shadow-lg shadow-blue-500/30 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/40'>
+                {c.cta1}
+              </CTAButton>
+              <CTAButton
+                href='#services'
+                size='lg'
+                variant='outline'
+                className='border-slate-200 bg-white/60 font-semibold text-slate-700 backdrop-blur-sm transition-all duration-200 hover:border-slate-300 hover:bg-white/90'>
+                {c.cta2}
+              </CTAButton>
+            </motion.div>
           </div>
         </div>
+
+        {/* ── Marquee Stats Ticker — full viewport width ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={heroInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.45, ease: 'easeOut' }}
+          className='relative mt-16 xl:mt-20 -mx-6 md:-mx-8 lg:-mx-12 xl:-mx-20 2xl:-mx-32'>
+          {/* Edge fades */}
+          <div className='pointer-events-none absolute left-0 top-0 z-10 h-full w-32 bg-gradient-to-r from-white to-transparent' />
+          <div className='pointer-events-none absolute right-0 top-0 z-10 h-full w-32 bg-gradient-to-l from-white to-transparent' />
+
+          {/* Scrolling track */}
+          <div className='overflow-hidden py-4'>
+            <div
+              className='flex w-max gap-10 whitespace-nowrap'
+              style={{ animation: 'marquee-scroll 32s linear infinite' }}>
+              {/* Render 3× for seamless looping */}
+              {[0, 1, 2].map((set) => (
+                <div key={set} className='flex shrink-0 items-center gap-10 pr-10'>
+                  {/* Item — Projects */}
+                  <div className='flex items-center gap-3'>
+                    <span className='flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600'>
+                      <svg
+                        className='h-4 w-4'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'>
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth={2.5}
+                          d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'
+                        />
+                      </svg>
+                    </span>
+                    <span className='text-xl font-extrabold text-slate-900'>{c.stat1}</span>
+                    <span className='text-sm font-semibold uppercase tracking-widest text-slate-500'>
+                      {c.stat1Label}
+                    </span>
+                  </div>
+
+                  <span className='text-slate-300 text-2xl select-none'>✦</span>
+
+                  {/* Item — Timeline */}
+                  <div className='flex items-center gap-3'>
+                    <span className='flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-500'>
+                      <svg
+                        className='h-4 w-4'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'>
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth={2.5}
+                          d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
+                        />
+                      </svg>
+                    </span>
+                    <span className='text-xl font-extrabold text-slate-900'>{c.stat2}</span>
+                    <span className='text-sm font-semibold uppercase tracking-widest text-slate-500'>
+                      {c.stat2Label}
+                    </span>
+                  </div>
+
+                  <span className='text-slate-300 text-2xl select-none'>✦</span>
+
+                  {/* Item — Support */}
+                  <div className='flex items-center gap-3'>
+                    <span className='flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600'>
+                      <svg
+                        className='h-4 w-4'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'>
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth={2.5}
+                          d='M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z'
+                        />
+                      </svg>
+                    </span>
+                    <span className='text-xl font-extrabold text-slate-900'>{c.stat3}</span>
+                    <span className='text-sm font-semibold uppercase tracking-widest text-slate-500'>
+                      {c.stat3Label}
+                    </span>
+                  </div>
+
+                  <span className='text-slate-300 text-2xl select-none'>✦</span>
+
+                  {/* Item — Satisfaction */}
+                  <div className='flex items-center gap-3'>
+                    <span className='flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-violet-100 text-violet-600'>
+                      <svg className='h-4 w-4' fill='currentColor' viewBox='0 0 24 24'>
+                        <path d='M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z' />
+                      </svg>
+                    </span>
+                    <span className='text-xl font-extrabold text-slate-900'>5/5</span>
+                    <span className='text-sm font-semibold uppercase tracking-widest text-slate-500'>
+                      Satisfaction
+                    </span>
+                  </div>
+
+                  <span className='text-slate-300 text-2xl select-none'>✦</span>
+
+                  {/* Item — Lighthouse */}
+                  <div className='flex items-center gap-3'>
+                    <span className='flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-indigo-600'>
+                      <svg
+                        className='h-4 w-4'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'>
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth={2.5}
+                          d='M13 10V3L4 14h7v7l9-11h-7z'
+                        />
+                      </svg>
+                    </span>
+                    <span className='text-xl font-extrabold text-slate-900'>95+</span>
+                    <span className='text-sm font-semibold uppercase tracking-widest text-slate-500'>
+                      Lighthouse
+                    </span>
+                  </div>
+
+                  <span className='text-slate-300 text-2xl select-none'>✦</span>
+
+                  {/* Item — Free Quote */}
+                  <div className='flex items-center gap-3'>
+                    <span className='flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-rose-100 text-rose-500'>
+                      <svg
+                        className='h-4 w-4'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'>
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth={2.5}
+                          d='M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z'
+                        />
+                      </svg>
+                    </span>
+                    <span className='text-xl font-extrabold text-slate-900'>24h</span>
+                    <span className='text-sm font-semibold uppercase tracking-widest text-slate-500'>
+                      Réponse garantie
+                    </span>
+                  </div>
+
+                  <span className='text-slate-300 text-2xl select-none'>✦</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Keyframe */}
+          <style>{`
+            @keyframes marquee-scroll {
+              0%   { transform: translateX(0); }
+              100% { transform: translateX(-33.3334%); }
+            }
+          `}</style>
+        </motion.div>
       </section>
 
       {/* ═══ VALUE PROPOSITION — Varied Density ═══ */}
