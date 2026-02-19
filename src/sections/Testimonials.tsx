@@ -85,7 +85,7 @@ const TESTIMONIALS_DATA: Testimonial[] = [
     text: {
       ru: 'Сардорбек был очень отзывчив и эффективно реагировал на мои запросы. Отличная коммуникация, а конечный результат — именно то, что я ожидал. Смело рекомендую его.',
       en: 'Sardorbek was extremely responsive and answered my requests effectively. Communication was excellent, and the final result is exactly what I expected. I highly recommend him.',
-      fr: "Sardobek a été hyper réactif, il a su répondre efficacement à mes demandes, une excellente communication et le résultat final est précisément ce que j'attendais, je ne peux que le recommander.",
+      fr: "Sardorbek a été hyper réactif, il a su répondre efficacement à mes demandes, une excellente communication et le résultat final est précisément ce que j'attendais, je ne peux que le recommander.",
     },
     author: {
       ru: 'Лоран Карре',
