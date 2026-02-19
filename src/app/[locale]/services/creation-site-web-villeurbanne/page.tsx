@@ -410,9 +410,9 @@ function getPageContent(locale: Locale) {
         'Freelance web developer based in the Lyon metropolitan area. I design high-performance, modern websites optimized for local SEO in Villeurbanne (69100).',
       cta1: 'Free Quote',
       cta2: 'View Projects',
-      stat1: '75+',
+      stat1: '20+',
       stat1Label: 'Projects Delivered',
-      stat2: '3-5 wk',
+      stat2: '2-4  wk',
       stat2Label: 'Average Timeline',
       stat3: '24/7',
       stat3Label: 'Support',
@@ -464,7 +464,7 @@ function getPageContent(locale: Locale) {
         {
           name: 'Showcase Site',
           price: 'From €1,500',
-          timeline: '3-5 weeks',
+          timeline: '2-4  weeks',
           features: [
             'Custom responsive design',
             'Technical SEO integrated',
@@ -578,7 +578,7 @@ function getPageContent(locale: Locale) {
         },
         { metric: '5/5', label: 'Client Rating', desc: 'Satisfaction based on 20+ reviews' },
         {
-          metric: '75+',
+          metric: '20+',
           label: 'Projects Delivered',
           desc: 'Showcase sites, e-commerce, custom apps',
         },
@@ -627,9 +627,9 @@ function getPageContent(locale: Locale) {
         'Фриланс веб-разработчик в метрополии Лиона. Создаю высокопроизводительные, современные сайты, оптимизированные для локального SEO в Вильюрбане (69100).',
       cta1: 'Бесплатный расчёт',
       cta2: 'Наши работы',
-      stat1: '75+',
+      stat1: '20+',
       stat1Label: 'Проектов',
-      stat2: '3-5 нед',
+      stat2: '2-4  нед',
       stat2Label: 'Средний срок',
       stat3: '24/7',
       stat3Label: 'Поддержка',
@@ -681,7 +681,7 @@ function getPageContent(locale: Locale) {
         {
           name: 'Сайт-визитка',
           price: 'От €1 500',
-          timeline: '3-5 недель',
+          timeline: '2-4  недель',
           features: [
             'Индивидуальный дизайн',
             'Техническое SEO',
@@ -779,7 +779,7 @@ function getPageContent(locale: Locale) {
         { metric: '95+', label: 'Lighthouse', desc: 'Средняя оценка производительности' },
         { metric: '< 24ч', label: 'Время ответа', desc: 'Гарантированная оперативность' },
         { metric: '5/5', label: 'Оценка клиентов', desc: 'На основе 20+ отзывов' },
-        { metric: '75+', label: 'Проектов', desc: 'Визитки, магазины, приложения' },
+        { metric: '20+', label: 'Проектов', desc: 'Визитки, магазины, приложения' },
       ],
       quartiersTitle: 'Веб-разработчик для всего Вильюрбана',
       quartiersText:
@@ -819,17 +819,18 @@ function getPageContent(locale: Locale) {
   // French (default)
   return {
     badge: 'Expert Web Villeurbanne',
-    h1Start: 'Création de site web à ',
+    h1Start: 'Développeur web à ',
     h1City: 'Villeurbanne',
+    h1Suffix: '– création de sites modernes et optimisés SEO',
     subtitle:
       'Développeur web freelance basé dans la métropole de Lyon. Je conçois des sites internet performants, modernes et optimisés pour le référencement local à Villeurbanne (69100).',
     cta1: 'Devis gratuit',
     cta2: 'Voir les réalisations',
-    stat1: '75+',
+    stat1: '20+',
     stat1Label: 'Projets livrés',
-    stat2: '3-5 sem',
+    stat2: '2-4  sem',
     stat2Label: 'Délai moyen',
-    stat3: '24/7',
+    stat3: '7j/7',
     stat3Label: 'Support',
     servicesTitle: 'Services de création de site web à Villeurbanne',
     servicesSubtitle:
@@ -879,7 +880,7 @@ function getPageContent(locale: Locale) {
       {
         name: 'Site Vitrine',
         price: 'À partir de 1 500 €',
-        timeline: '3-5 semaines',
+        timeline: '2-4  semaines',
         features: [
           'Design responsive sur mesure',
           'SEO technique intégré',
@@ -995,7 +996,7 @@ function getPageContent(locale: Locale) {
       },
       { metric: '5/5', label: 'Note clients', desc: 'Satisfaction basée sur 20+ avis' },
       {
-        metric: '75+',
+        metric: '20+',
         label: 'Projets livrés',
         desc: 'Sites vitrines, e-commerce, apps sur mesure',
       },

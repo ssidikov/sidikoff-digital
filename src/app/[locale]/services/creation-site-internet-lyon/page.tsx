@@ -128,7 +128,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
                 {/* Floating Metrics */}
                 <div className='grid grid-cols-3 gap-6 pt-8'>
                   <div className='bg-white/80 backdrop-blur-sm rounded-xl p-4 text-center shadow-lg border border-white/20'>
-                    <div className='text-2xl font-bold text-[#112D4E]'>75+</div>
+                    <div className='text-2xl font-bold text-[#112D4E]'>20+</div>
                     <div className='text-sm text-gray-600'>Lyon Projects</div>
                   </div>
                   <div className='bg-white/80 backdrop-blur-sm rounded-xl p-4 text-center shadow-lg border border-white/20'>
@@ -230,7 +230,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
                 {/* Floating Metrics */}
                 <div className='grid grid-cols-3 gap-6 pt-8'>
                   <div className='bg-white/80 backdrop-blur-sm rounded-xl p-4 text-center shadow-lg border border-white/20'>
-                    <div className='text-2xl font-bold text-[#112D4E]'>75+</div>
+                    <div className='text-2xl font-bold text-[#112D4E]'>20+</div>
                     <div className='text-sm text-gray-600'>Проектов в Лионе</div>
                   </div>
                   <div className='bg-white/80 backdrop-blur-sm rounded-xl p-4 text-center shadow-lg border border-white/20'>
@@ -335,7 +335,7 @@ export default async function LyonPage({ params }: LyonPageProps) {
               {/* Floating Metrics */}
               <div className='grid grid-cols-3 gap-6 pt-8'>
                 <div className='bg-white/80 backdrop-blur-sm rounded-xl p-4 text-center shadow-lg border border-white/20'>
-                  <div className='text-2xl font-bold text-[#112D4E]'>75+</div>
+                  <div className='text-2xl font-bold text-[#112D4E]'>20+</div>
                   <div className='text-sm text-gray-600'>Projets à Lyon</div>
                 </div>
                 <div className='bg-white/80 backdrop-blur-sm rounded-xl p-4 text-center shadow-lg border border-white/20'>

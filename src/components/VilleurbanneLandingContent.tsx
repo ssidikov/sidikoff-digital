@@ -37,6 +37,7 @@ export interface VilleurbannContent {
   badge: string
   h1Start: string
   h1City: string
+  h1Suffix?: string
   subtitle: string
   cta1: string
   cta2: string
@@ -125,10 +126,15 @@ export default function VilleurbanneLandingContent({
                 transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
                 className='mb-6 text-4xl font-bold leading-[1.05] tracking-tight text-slate-900 md:text-5xl lg:text-7xl'>
                 {c.h1Start}
-                <span className='relative mt-2 block'>
+                <span className='relative inline-block'>
                   <span className='relative z-10 text-blue-600'>{c.h1City}</span>
-                  <div className='absolute -bottom-2 left-0 h-3 w-32 bg-blue-600/10' />
+                  <div className='absolute -bottom-2 left-0 h-3 w-full bg-blue-600/10 -rotate-1' />
                 </span>
+                {c.h1Suffix && (
+                  <span className='mt-3 block bg-gradient-to-r from-slate-700 via-slate-600 to-slate-500 bg-clip-text text-2xl font-semibold leading-tight text-transparent md:text-3xl lg:text-4xl'>
+                    {c.h1Suffix}
+                  </span>
+                )}
               </motion.h1>
 
               <motion.p
