@@ -85,9 +85,8 @@ export default function VilleurbanneLandingContent({
 
   return (
     <main className='relative bg-transparent selection:bg-blue-100 selection:text-blue-900'>
-      {/* Global Background Gradient Mesh */}
       {/* Global Background Gradient Mesh & Noise */}
-      <div className='fixed inset-0 z-0 pointer-events-none'>
+      <div className='absolute inset-0 z-0 pointer-events-none'>
         <div className='absolute inset-0 bg-slate-50' />
         {/* Subtle noise texture for premium feel */}
         <div
@@ -98,37 +97,10 @@ export default function VilleurbanneLandingContent({
           }}
         />
 
-        {/* GLOBAL ANIMATED AURORA GRADIENTS - Continuous flow */}
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 0.9, 1],
-            rotate: [0, 5, -5, 0],
-            x: [0, 50, -30, 0],
-            y: [0, -30, 50, 0],
-          }}
-          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-          className='absolute -top-[20%] -right-[10%] w-[800px] h-[800px] rounded-full bg-linear-to-br from-blue-600/10 via-violet-500/10 to-fuchsia-400/10 blur-[130px]'
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, -5, 5, 0],
-            x: [0, -40, 40, 0],
-            y: [0, 40, -40, 0],
-          }}
-          transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-          className='absolute top-[10%] -left-[20%] w-[700px] h-[700px] rounded-full bg-linear-to-tr from-cyan-400/10 via-sky-500/10 to-blue-600/10 blur-[120px]'
-        />
-        <motion.div
-          animate={{
-            scale: [1, 0.9, 1.1, 1],
-            x: [0, -30, 30, 0],
-            y: [0, 30, -30, 0],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
-          className='absolute bottom-0 right-[20%] w-[600px] h-[600px] rounded-full bg-linear-to-t from-indigo-300/10 via-blue-200/10 to-transparent blur-[100px]'
-        />
+        {/* GLOBAL AMBIENT GRADIENTS - CSS-only, GPU-composited */}
+        <div className='absolute -top-[20%] -right-[10%] w-[800px] h-[800px] rounded-full bg-linear-to-br from-blue-600/10 via-violet-500/10 to-fuchsia-400/10 blur-[130px]' />
+        <div className='absolute top-[10%] -left-[20%] w-[700px] h-[700px] rounded-full bg-linear-to-tr from-cyan-400/10 via-sky-500/10 to-blue-600/10 blur-[120px]' />
+        <div className='absolute bottom-0 right-[20%] w-[600px] h-[600px] rounded-full bg-linear-to-t from-indigo-300/10 via-blue-200/10 to-transparent blur-[100px] opacity-40' />
       </div>
       {/* JSON-LD */}
       {structuredData.map((schema, i) => (
@@ -796,17 +768,13 @@ export default function VilleurbanneLandingContent({
 
           <div className='space-y-4'>
             {faqs.map((faq, i) => (
-              <motion.details
+              <details
                 key={i}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
                 className='group overflow-hidden rounded-2xl bg-white shadow-soft border border-slate-100/50 hover:border-blue-100 transition-colors duration-300'>
-                <summary className='flex cursor-pointer items-center justify-between px-6 md:px-8 py-5 md:py-6 font-semibold text-slate-900 transition-colors hover:bg-slate-50/50'>
+                <summary className='flex cursor-pointer list-none items-center justify-between px-6 md:px-8 py-5 md:py-6 font-semibold text-slate-900 transition-colors hover:bg-slate-50/50'>
                   <span>{faq.question}</span>
                   <svg
-                    className='h-5 w-5 shrink-0 text-slate-600 transition-transform group-open:rotate-180'
+                    className='h-5 w-5 shrink-0 text-slate-600 transition-transform duration-300 group-open:rotate-180'
                     fill='none'
                     stroke='currentColor'
                     viewBox='0 0 24 24'>
@@ -819,7 +787,7 @@ export default function VilleurbanneLandingContent({
                   </svg>
                 </summary>
                 <div className='px-6 md:px-8 pb-6 leading-relaxed text-slate-600'>{faq.answer}</div>
-              </motion.details>
+              </details>
             ))}
           </div>
         </div>

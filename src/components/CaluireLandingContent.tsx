@@ -80,12 +80,12 @@ export default function CaluireLandingContent({ content: c, faqs, structuredData
   const heroInView = useInView(heroRef, { once: true, margin: '-10%' })
 
   return (
-    <main className='relative min-h-screen w-full overflow-hidden bg-slate-950 text-slate-200 selection:bg-blue-500/30 selection:text-blue-200'>
+    <main className='relative w-full bg-slate-950 text-slate-200 selection:bg-blue-500/30 selection:text-blue-200'>
       {/* 
         ─── GLOBAL ATMOSPHERE (CSS-ONLY MESH) ──────────────────────────────
         Deep, rich background with moving gradient orbs using CSS.
       */}
-      <div className='fixed inset-0 z-0 pointer-events-none'>
+      <div className='absolute inset-0 z-0 pointer-events-none'>
         {/* Base dark layer */}
         <div className='absolute inset-0 bg-slate-950' />
 
@@ -98,8 +98,14 @@ export default function CaluireLandingContent({ content: c, faqs, structuredData
         {/* Ambient Gradient 3 (Bottom Left - subtle Cyan) */}
         <div className='absolute -bottom-[20%] left-[10%] w-[60vw] h-[60vw] bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.08),transparent_70%)] blur-[90px] opacity-50' />
 
-        {/* Noise Texture Overlay (Optional for grit) */}
-        <div className='absolute inset-0 bg-[url("https://grainy-gradients.vercel.app/noise.svg")] opacity-[0.03] mix-blend-overlay' />
+        {/* Noise Texture Overlay */}
+        <div
+          className='absolute inset-0 opacity-[0.03] mix-blend-overlay'
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
+          }}
+        />
       </div>
 
       {/* JSON-LD Structured Data */}
