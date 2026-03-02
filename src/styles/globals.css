@@ -272,15 +272,7 @@ body {
   }
 }
 
-/* Hide scrollbar — keeps scroll behaviour, removes visual bar */
-html {
-  scrollbar-width: none;        /* Firefox */
-  -ms-overflow-style: none;     /* IE / Edge */
-}
 
-::-webkit-scrollbar {
-  display: none;                /* Chrome / Safari / Opera */
-}
 
 /* Custom animations */
 @keyframes fadeInUp {
