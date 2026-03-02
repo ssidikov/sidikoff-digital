@@ -446,7 +446,7 @@
     }
   },
   "footer": {
-    "description": "SIDIKOFF DIGITAL – Agence web à Paris spécialisée dans la création de sites vitrine, landing pages et applications modernes. Développeur expert React et Next.js, nous accompagnons les entreprises dans leur transformation digitale avec des solutions rapides, performantes et optimisées SEO. Solutions numériques professionnelles qui génèrent de vrais résultats pour votre entreprise.",
+    "description": "SIDIKOFF DIGITAL – Agence web à Lyon spécialisée dans la création de sites vitrine, landing pages et applications web modernes. Développeur expert React et Next.js, nous accompagnons les entreprises dans leur transformation digitale avec des solutions rapides, performantes et optimisées SEO.",
     "quick_links": "Liens Rapides",
     "services_links": "Services",
     "contact_info": "Infos Contact",
@@ -749,6 +749,45 @@
     "data_text": "Conformément au RGPD, vous disposez de droits sur vos données personnelles. Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes et ne sont pas transmises à des tiers. Vous pouvez exercer vos droits concernant vos données personnelles en contactant à l'adresse e-mail : s.sidikoff@gmail.com.",
     "cookies_title": "Cookies",
     "cookies_text": "Ce site utilise des cookies essentiels au fonctionnement du site. En continuant à naviguer sur ce site, vous acceptez leur utilisation."
+  },
+  "privacy": {
+    "title": "Politique de Confidentialité",
+    "subtitle": "Nous accordons une importance primordiale au respect de votre vie privée et à la protection de vos données personnelles.",
+    "last_updated": "Dernière mise à jour : 2 Mars 2026",
+    "sections": [
+      {
+        "title": "1. Collecte des données",
+        "content": "Dans le cadre de l'utilisation de notre site, nous sommes susceptibles de collecter les données suivantes : nom, prénom, adresse e-mail, numéro de téléphone (via le formulaire de contact), ainsi que des données de navigation anonymisées à des fins statistiques."
+      },
+      {
+        "title": "2. Utilisation des données",
+        "content": "Vos données personnelles sont collectées uniquement dans le but de : répondre à vos demandes de contact ou de devis, assurer le suivi commercial, améliorer l'expérience utilisateur sur notre site web, et vous envoyer des communications pertinentes si vous y avez consenti."
+      },
+      {
+        "title": "3. Conservation",
+        "content": "Nous conservons vos données uniquement le temps nécessaire à l'accomplissement des finalités pour lesquelles elles ont été collectées, conformément aux obligations légales. Les données prospects sont conservées pour une durée maximale de 3 ans après notre dernier contact."
+      },
+      {
+        "title": "4. Partage des données",
+        "content": "Vos données personnelles sont strictement confidentielles. Elles ne sont ni vendues, ni louées, ni communiquées à des tiers à des fins commerciales. Elles peuvent être occasionnellement transmises à nos prestataires techniques (hébergeur, outils d'analytics) agissant pour notre compte, dans le strict respect du RGPD."
+      },
+      {
+        "title": "5. Sécurité",
+        "content": "Nous mettons en œuvre toutes les mesures techniques et organisationnelles appropriées pour garantir un niveau de sécurité adapté au risque et protéger vos données personnelles contre toute altération, perte ou accès non autorisé."
+      },
+      {
+        "title": "6. Vos droits personnels",
+        "content": "Conformément à la réglementation applicable (RGPD), vous disposez d'un droit d'accès, de rectification, de portabilité, d'effacement de vos données ou d'une limitation de leur traitement. Vous pouvez également vous opposer au traitement de vos données."
+      },
+      {
+        "title": "7. Exercer vos droits",
+        "content": "Pour exercer ces droits ou pour toute question sur le traitement de vos données dans ce dispositif, vous pouvez nous contacter à : s.sidikoff@gmail.com"
+      },
+      {
+        "title": "8. Cookies",
+        "content": "Notre site utilise des cookies strictement nécessaires à son bon fonctionnement et des cookies d'analyse d'audience pour mesurer notre trafic. Vous pouvez gérer vos préférences en matière de cookies via les paramètres de votre navigateur."
+      }
+    ]
   },
   "portfolio": {
     "title": "Portfolio",

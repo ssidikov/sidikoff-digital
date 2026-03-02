@@ -708,34 +708,51 @@
           "contact_text": "Let's discuss your project and find the perfect solution for your business.",
           "button": "Contact me now"
         },
-        "labels": {
-          "ideal_for": "Ideal for:",
-          "recommended_plan": "Recommended plan:",
-          "maintenance": "Maintenance:",
-          "why_important": "Why it's important:",
-          "risks_without_maintenance": "Risks without maintenance:",
+        "legal": {
+          "title": "Legal Notice",
+          "company_info_title": "Company Information",
+          "company_name_label": "Trade Name",
+          "company_name": "SIDIKOFF DIGITAL",
+          "company_type_label": "Legal Form",
+          "company_type": "Micro-entreprise",
+          "siren_label": "SIREN Number",
           "siren": "943 266 213",
-          "address_label": "Registered office address",
+          "address_label": "Registered Address",
           "address": "69100 Villeurbanne, FRANCE",
           "phone_label": "Phone",
           "phone": "+33 6 26 93 27 34",
           "email_label": "Email",
           "email": "s.sidikoff@gmail.com",
-          "director_title": "Publishing Director",
+          "director_title": "Publication Director",
           "director_name": "Sardorbek SIDIKOV",
           "hosting_title": "Hosting",
           "host_label": "Host",
           "host": "Vercel Inc.",
           "host_address_label": "Address",
-          "host_address": "340 S Lemon Ave #4133, Walnut, CA 91789, United States",
+          "host_address": "340 S Lemon Ave #4133, Walnut, CA 91789, USA",
           "host_website_label": "Website",
           "host_website": "vercel.com",
           "ip_title": "Intellectual Property",
-          "ip_text": "This website and all its elements (text, images, logos, etc.) are protected by copyright. Any reproduction, even partial, is prohibited without prior authorization.",
+          "ip_text": "This website and all its elements (texts, images, logos, etc.) are protected by copyright. Any reproduction, even partial, is prohibited without prior authorization.",
           "data_title": "Personal Data Protection",
-          "data_text": "In accordance with GDPR, you have rights over your personal data. Data collected via the contact form is used only to respond to your requests and is not transmitted to third parties. You can exercise your rights regarding your personal data by contacting the email address: s.sidikoff@gmail.com.",
+          "data_text": "In accordance with the GDPR, you have rights regarding your personal data. Data collected via the contact form is used solely to respond to your requests and is not shared with third parties. You can exercise your rights concerning your personal data by contacting the email address: s.sidikoff@gmail.com.",
           "cookies_title": "Cookies",
-          "cookies_text": "This site uses essential cookies for the functioning of the site. By continuing to browse this site, you accept their use."
+          "cookies_text": "This site uses cookies essential for the site to function. By continuing to browse this site, you agree to their use."
+        },
+        "privacy": {
+          "title": "Privacy Policy",
+          "subtitle": "We attach paramount importance to respecting your privacy and protecting your personal data.",
+          "last_updated": "Last updated: March 2, 2026",
+          "sections": [
+            {
+              "title": "1. Data Collection",
+              "content": "When using our site, we may collect the following data: last name, first name, email address, phone number (via the contact form), as well as anonymized browsing data for statistical purposes."
+            },
+            {
+              "title": "2. Data Usage",
+              "content": "Your personal data is collected solely for the purpose of: responding to your contact or quote requests, providing commercial follow-up, improving the user experience on our website, and sending you relevant communications if you have consented to them."
+            }
+          ]
         },
         "portfolio": {
           "title": "Portfolio",

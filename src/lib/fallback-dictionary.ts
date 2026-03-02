@@ -309,7 +309,19 @@ export const fallbackDictionary: Dictionary = {
     data_title: 'Data Protection',
     data_text: 'Your data is safe.',
     cookies_title: 'Cookies',
-    cookies_text: 'This site uses cookies.',
+    cookies_text: 'This site uses cookies essential for its operation.',
+  },
+  privacy: {
+    title: 'Privacy Policy',
+    subtitle:
+      'We attach paramount importance to respecting your privacy and protecting your personal data.',
+    last_updated: 'Last updated',
+    sections: [
+      {
+        title: 'Data Collection',
+        content: 'Content placeholder',
+      },
+    ],
   },
   web_creation_landing: {
     meta_title: 'Custom Website Creation - Professional Web Development',

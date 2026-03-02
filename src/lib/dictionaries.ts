@@ -356,6 +356,15 @@ export interface Dictionary {
     cookies_title: string
     cookies_text: string
   }
+  privacy: {
+    title: string
+    subtitle: string
+    last_updated: string
+    sections: Array<{
+      title: string
+      content: string
+    }>
+  }
   web_creation_landing: {
     meta_title: string
     meta_description: string

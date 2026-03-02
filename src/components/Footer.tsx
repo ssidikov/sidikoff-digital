@@ -34,80 +34,16 @@ const COMPANY_INFO = {
 } as const
 
 /**
- * Generate navigation links based on dictionary and locale
+ * Generate core navigation links
  */
-const createNavigationLinks = (dictionary: Dictionary, locale: Locale): FooterLink[] => [
+const createCoreLinks = (dictionary: Dictionary, locale: Locale): FooterLink[] => [
   {
     name: dictionary.navigation?.services || 'Services',
     href: getLocalizedUrl('/#services', locale),
   },
   {
-    name: 'Agence Web Paris',
-    href: getLocalizedUrl('/services/agence-web-paris', locale),
-  },
-  {
-    name: 'Création Site Internet Paris',
-    href: getLocalizedUrl('/services/creation-site-internet-paris', locale),
-  },
-  {
-    name: 'Création Site Internet Paris 16',
-    href: getLocalizedUrl('/services/creation-site-internet-paris-16', locale),
-  },
-  {
-    name: 'Agence Web Paris 15',
-    href: getLocalizedUrl('/services/agence-web-paris-15', locale),
-  },
-  {
-    name: 'Création Site Internet Boulogne-Billancourt',
-    href: getLocalizedUrl('/services/creation-site-internet-boulogne-billancourt', locale),
-  },
-  {
-    name: 'Création Site Internet Toulouse',
-    href: getLocalizedUrl('/services/creation-site-internet-toulouse', locale),
-  },
-  {
-    name: 'Création Site Internet Lyon',
-    href: getLocalizedUrl('/services/creation-site-internet-lyon', locale),
-  },
-  {
-    name: 'Création Site Internet Caluire-et-Cuire',
-    href: getLocalizedUrl('/services/creation-site-web-caluire-et-cuire', locale),
-  },
-  {
-    name: 'Création Site Internet Villeurbanne',
-    href: getLocalizedUrl('/services/creation-site-web-villeurbanne', locale),
-  },
-  {
-    name: 'Création Site Internet Café Paris',
-    href: getLocalizedUrl('/services/creation-site-internet-cafe-paris', locale),
-  },
-  {
-    name: 'Création Site Internet Boulangerie',
-    href: getLocalizedUrl('/services/creation-site-internet-boulangerie', locale),
-  },
-  {
-    name: 'Création Site Internet Barbershop',
-    href: getLocalizedUrl('/services/creation-site-internet-barbershop', locale),
-  },
-  {
-    name: 'Création Site Internet Freelance',
-    href: getLocalizedUrl('/services/creation-site-internet-freelance', locale),
-  },
-  {
-    name: 'Création Site Internet Photographe',
-    href: getLocalizedUrl('/services/creation-site-internet-photographe', locale),
-  },
-  {
-    name: 'Création Site Internet Médecin',
-    href: getLocalizedUrl('/services/creation-site-internet-medecin', locale),
-  },
-  {
-    name: 'Création Site E-commerce',
-    href: getLocalizedUrl('/services/creation-site-ecommerce', locale),
-  },
-  {
     name: dictionary.navigation?.portfolio || 'Portfolio',
-    href: getLocalizedUrl('/#portfolio', locale),
+    href: getLocalizedUrl('/portfolio', locale),
   },
   {
     name: dictionary.navigation?.blog || 'Blog',
@@ -120,6 +56,70 @@ const createNavigationLinks = (dictionary: Dictionary, locale: Locale): FooterLi
   {
     name: dictionary.navigation?.contact || 'Contact',
     href: getLocalizedUrl('/#contact', locale),
+  },
+]
+
+/**
+ * Generate SEO Niche/Expertise links
+ */
+const createSecteurLinks = (locale: Locale): FooterLink[] => [
+  { name: 'Site E-commerce', href: getLocalizedUrl('/services/creation-site-ecommerce', locale) },
+  {
+    name: 'Site Agence Voyage',
+    href: getLocalizedUrl('/services/creation-site-internet-agence-voyage', locale),
+  },
+  {
+    name: 'Site Médical',
+    href: getLocalizedUrl('/services/creation-site-internet-medecin', locale),
+  },
+  {
+    name: 'Site Freelance',
+    href: getLocalizedUrl('/services/creation-site-internet-freelance', locale),
+  },
+  {
+    name: 'Site Photographe',
+    href: getLocalizedUrl('/services/creation-site-internet-photographe', locale),
+  },
+  {
+    name: 'Site Boulangerie',
+    href: getLocalizedUrl('/services/creation-site-internet-boulangerie', locale),
+  },
+  {
+    name: 'Site Café & Resto',
+    href: getLocalizedUrl('/services/creation-site-internet-cafe-paris', locale),
+  },
+  {
+    name: 'Site Barbershop',
+    href: getLocalizedUrl('/services/creation-site-internet-barbershop', locale),
+  },
+]
+
+/**
+ * Generate SEO Location/Ville links
+ */
+const createVilleLinks = (locale: Locale): FooterLink[] => [
+  { name: 'Agence Web Paris', href: getLocalizedUrl('/services/agence-web-paris', locale) },
+  { name: 'Agence Web Paris 15', href: getLocalizedUrl('/services/agence-web-paris-15', locale) },
+  {
+    name: 'Site Web Paris 16',
+    href: getLocalizedUrl('/services/creation-site-internet-paris-16', locale),
+  },
+  {
+    name: 'Site Web Boulogne',
+    href: getLocalizedUrl('/services/creation-site-internet-boulogne-billancourt', locale),
+  },
+  { name: 'Site Web Lyon', href: getLocalizedUrl('/services/creation-site-internet-lyon', locale) },
+  {
+    name: 'Site Web Toulouse',
+    href: getLocalizedUrl('/services/creation-site-internet-toulouse', locale),
+  },
+  {
+    name: 'Site Web Villeurbanne',
+    href: getLocalizedUrl('/services/creation-site-web-villeurbanne', locale),
+  },
+  {
+    name: 'Site Web Caluire',
+    href: getLocalizedUrl('/services/creation-site-web-caluire-et-cuire', locale),
   },
 ]
 
@@ -138,7 +138,9 @@ const createLegalLinks = (dictionary: Dictionary, locale: Locale): FooterLink[] 
  * Features responsive design and accessible links
  */
 export function Footer({ dictionary, locale }: FooterProps) {
-  const navigationLinks = createNavigationLinks(dictionary, locale)
+  const coreLinks = createCoreLinks(dictionary, locale)
+  const secteurLinks = createSecteurLinks(locale)
+  const villeLinks = createVilleLinks(locale)
   const legalLinks = createLegalLinks(dictionary, locale)
 
   const footerDescription =
@@ -146,41 +148,81 @@ export function Footer({ dictionary, locale }: FooterProps) {
     'Votre partenaire digital pour créer des sites web modernes et performants.'
 
   return (
-    <footer className='bg-[#FCFBFE] px-6 py-16 text-black lg:px-16'>
-      {/* Main Content */}
-      <div className='mb-16 grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24'>
-        {/* Left Side - Company Info */}
-        <div className='space-y-8'>
+    <footer className='bg-[#FCFBFE] px-6 py-20 text-black lg:px-16'>
+      {/* Main Content Grid */}
+      <div className='mb-24 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-8'>
+        {/* Left Side - Brand & Contact */}
+        <div className='space-y-8 lg:pr-8'>
           <div>
-            <h2 className='mb-4 text-xl font-light leading-tight'>{footerDescription}</h2>
+            <h2 className='text-xl font-light tracking-tight leading-snug text-[#112D4E]'>
+              {footerDescription}
+            </h2>
           </div>
 
-          {/* Contact Info */}
-          <div className='space-y-2'>
+          <div className='space-y-3 text-[#112D4E]/80'>
             <a
               href={`mailto:${CONTACT_INFO.email}`}
-              className='block text-lg transition-opacity duration-200 hover:opacity-70'
+              className='block text-lg hover:text-[#3377FF] transition-colors'
               aria-label={`Envoyer un email à ${CONTACT_INFO.emailLabel}`}>
               {CONTACT_INFO.emailLabel}
             </a>
             <div className='block text-lg'>{CONTACT_INFO.address}</div>
             <a
               href={`tel:${CONTACT_INFO.phone}`}
-              className='block text-lg transition-opacity duration-200 hover:opacity-70'
+              className='block text-lg hover:text-[#3377FF] transition-colors'
               aria-label={`Appeler ${CONTACT_INFO.phoneLabel}`}>
               {CONTACT_INFO.phoneLabel}
             </a>
           </div>
         </div>
 
-        {/* Right Side - Navigation */}
-        <div className='lg:pl-16'>
-          <nav className='space-y-4' aria-label='Navigation du pied de page'>
-            {navigationLinks.map((link) => (
+        {/* Column 2: Core Navigation */}
+        <div className='lg:pl-8'>
+          <h3 className='mb-8 text-xs font-semibold uppercase tracking-[0.2em] text-[#112D4E]/40'>
+            Menu
+          </h3>
+          <nav className='space-y-4' aria-label='Navigation principale'>
+            {coreLinks.map((link) => (
               <div key={`nav-${link.href}`}>
                 <Link
                   href={link.href}
-                  className='block transition-opacity duration-200 hover:opacity-70'>
+                  className='block text-lg font-medium text-[#112D4E] transition-all hover:text-[#3377FF] hover:-translate-y-0.5'>
+                  {link.name}
+                </Link>
+              </div>
+            ))}
+          </nav>
+        </div>
+
+        {/* Column 3: Secteurs / Expertises (SEO) */}
+        <div>
+          <h3 className='mb-8 text-xs font-semibold uppercase tracking-[0.2em] text-[#112D4E]/40'>
+            Expertises
+          </h3>
+          <nav className='space-y-4' aria-label='Nos secteurs d expertise'>
+            {secteurLinks.map((link) => (
+              <div key={`nav-${link.href}`}>
+                <Link
+                  href={link.href}
+                  className='block text-[15px] font-medium text-[#112D4E]/60 transition-all hover:text-[#3377FF] hover:-translate-y-0.5'>
+                  {link.name}
+                </Link>
+              </div>
+            ))}
+          </nav>
+        </div>
+
+        {/* Column 4: Villes (SEO) */}
+        <div>
+          <h3 className='mb-8 text-xs font-semibold uppercase tracking-[0.2em] text-[#112D4E]/40'>
+            Villes
+          </h3>
+          <nav className='space-y-4' aria-label='Nos agences locales'>
+            {villeLinks.map((link) => (
+              <div key={`nav-${link.href}`}>
+                <Link
+                  href={link.href}
+                  className='block text-[15px] font-medium text-[#112D4E]/60 transition-all hover:text-[#3377FF] hover:-translate-y-0.5'>
                   {link.name}
                 </Link>
               </div>
@@ -190,36 +232,36 @@ export function Footer({ dictionary, locale }: FooterProps) {
       </div>
 
       {/* Large SIDIKOFF Text */}
-      <div className='mb-8'>
+      <div className='mb-12 overflow-hidden'>
         <div
-          className='text-[clamp(3.5rem,-0.1429rem+18.2143vw,16.25rem)] font-bold leading-none tracking-wider text-[#EFEEF3]'
+          className='text-[clamp(3.5rem,-0.1429rem+16vw,17rem)] font-bold leading-[0.85] tracking-tight text-[#112D4E]/[0.03]'
           aria-hidden='true'>
           SIDIKOFF
         </div>
       </div>
 
       {/* Bottom Section */}
-      <div className='border-t border-gray-200 pt-8'>
-        <div className='flex flex-col items-center justify-between space-y-6 lg:flex-row lg:items-center lg:space-y-0'>
-          {/* Copyright and Legal */}
-          <div className='hidden text-sm text-gray-600 lg:block'>{COMPANY_INFO.copyright}</div>
-
-          <div className='text-center text-sm text-gray-600 lg:hidden'>
-            {COMPANY_INFO.description}
+      <div className='border-t border-[#112D4E]/10 pt-8'>
+        <div className='flex flex-col items-center justify-between space-y-6 lg:flex-row lg:space-y-0'>
+          <div className='hidden text-sm uppercase tracking-wider text-[#112D4E]/40 lg:block'>
+            {COMPANY_INFO.copyright}
           </div>
 
-          <div className='space-x-6 text-center'>
-            {legalLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className='text-sm uppercase text-gray-600 transition-opacity duration-200 hover:opacity-70'>
-                {link.name}
-                <p className='md:hidden'>
-                  © Copyright {COMPANY_INFO.year} | {COMPANY_INFO.name}
-                </p>
-              </Link>
-            ))}
+          <div className='text-center text-sm uppercase tracking-wider text-[#112D4E]/40 lg:hidden'>
+            {COMPANY_INFO.copyright}
+          </div>
+
+          <div className='flex flex-col items-center space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0'>
+            <Link
+              href='/mentions-legales'
+              className='text-sm uppercase tracking-wider text-[#112D4E]/60 transition-colors hover:text-[#3377FF]'>
+              Mentions Légales
+            </Link>
+            <Link
+              href='/politique-de-confidentialite'
+              className='text-sm uppercase tracking-wider text-[#112D4E]/60 transition-colors hover:text-[#3377FF]'>
+              Politique de Confidentialité
+            </Link>
           </div>
         </div>
       </div>
