@@ -108,7 +108,7 @@ export function generateServicePageMetadata(service: string, locale: Locale): Me
       'creation-sites-web':
         'Services professionnels de création de sites web modernes, responsive et optimisés SEO. Expert React, Next.js, TypeScript.',
       'creation-site-internet-paris':
-        'Agence web Paris spécialisée en création de sites internet professionnels. Sites modernes, SEO optimisés, React Next.js.',
+        'Agence web spécialisée en création de sites internet professionnels. Sites modernes, SEO optimisés, React Next.js.',
       'creation-site-internet-toulouse':
         'Création de sites internet à Toulouse. Développeur web expert en React, Next.js. Devis gratuit.',
       'creation-site-internet-lyon':

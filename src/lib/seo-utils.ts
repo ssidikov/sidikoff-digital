@@ -293,21 +293,21 @@ export function generateLocalizedSEOMetadata(locale: Locale): Metadata {
   // Enhanced SEO-optimized titles with primary keywords and call-to-action
   const titles = {
     fr: isHomePage
-      ? 'Agence Web Paris | Création Site Internet & Développement Sur Mesure'
-      : 'SIDIKOFF DIGITAL - Agence Web Expert Paris | Développement React',
+      ? 'Agence Web | Création Site Internet & Développement Sur Mesure'
+      : 'SIDIKOFF DIGITAL - Agence Web Expert | Développement React',
     en: isHomePage
-      ? 'Web Agency Paris | Custom Website Creation & Development'
-      : 'SIDIKOFF DIGITAL - Expert Web Agency Paris | React Development',
+      ? 'Web Agency | Custom Website Creation & Development'
+      : 'SIDIKOFF DIGITAL - Expert Web Agency | React Development',
     ru: isHomePage
-      ? 'Веб-Агентство Париж | Создание Сайтов и Разработка'
-      : 'SIDIKOFF DIGITAL - Экспертное Веб-агентство Париж | React Разработка',
+      ? 'Веб-Агентство | Создание Сайтов и Разработка'
+      : 'SIDIKOFF DIGITAL - Экспертное Веб-агентство | React Разработка',
   }
 
   // Enhanced SEO-optimized descriptions with better keyword density and local targeting
   const descriptions = {
-    fr: 'Agence web Paris spécialisée en création de sites internet modernes et performants. Développement sur mesure, design professionnel, SEO optimisé. Votre projet digital commence ici.',
-    en: 'Paris web agency specialized in modern and high-performance website creation. Custom development, professional design, SEO optimized. Your digital project starts here.',
-    ru: 'Веб-агентство в Париже, специализирующееся на создании современных и производительных сайтов. Разработка на заказ, профессиональный дизайн, SEO оптимизация.',
+    fr: 'Agence web spécialisée en création de sites internet modernes et performants. Développement sur mesure, design professionnel, SEO optimisé. Votre projet digital commence ici.',
+    en: 'Web agency specialized in modern and high-performance website creation. Custom development, professional design, SEO optimized. Your digital project starts here.',
+    ru: 'Веб-агентство, специализирующееся на создании современных и производительных сайтов. Разработка на заказ, профессиональный дизайн, SEO оптимизация.',
   }
 
   const seoData = {

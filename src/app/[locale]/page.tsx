@@ -64,12 +64,12 @@ function generateWebPageSchema(locale: Locale) {
     url,
     name:
       locale === 'fr'
-        ? 'Agence Web Paris - SIDIKOFF DIGITAL'
-        : 'Web Agency Paris - SIDIKOFF DIGITAL',
+        ? 'Agence Web - SIDIKOFF DIGITAL'
+        : 'Web Agency - SIDIKOFF DIGITAL',
     description:
       locale === 'fr'
-        ? 'Agence web Paris spécialisée dans la création de sites internet modernes et applications web. React, Next.js, SEO optimisé.'
-        : 'Paris web agency specialized in modern website creation and web applications. React, Next.js, SEO optimized.',
+        ? 'Agence web spécialisée dans la création de sites internet modernes et applications web. React, Next.js, SEO optimisé.'
+        : 'Web agency specialized in modern website creation and web applications. React, Next.js, SEO optimized.',
     inLanguage: locale,
     isPartOf: {
       '@type': 'WebSite',
