@@ -1,0 +1,27 @@
+# SIDIKOFF DIGITAL
+
+> Création de sites web | Agence Web | Développement Web Paris, Lyon, Toulouse, Strasbourg
+
+SIDIKOFF DIGITAL est une agence web spécialisée dans la création de sites Internet, applications web, et le webmarketing.
+
+## Services
+- Développement web sur mesure
+- Création site web professionnels (React, Next.js)
+- Solutions e-commerce
+- Conception d'applications web
+- Optimisation SEO et performance
+
+## Expertises
+- Site E-commerce
+- Site Agence Voyage
+- Site Médical
+- Site Freelance
+- Site Photographe
+- Site Boulangerie
+- Site Café & Resto
+- Site Barbershop
+
+## Contact
+- **Email:** s.sidikoff@gmail.com
+- **Téléphone:** +33 6 26 93 27 34
+- **Site web:** https://sidikoff.com
