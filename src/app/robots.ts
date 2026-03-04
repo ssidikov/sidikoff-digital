@@ -74,6 +74,22 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: ['AhrefsBot', 'SemrushBot', 'MJ12bot'],
         disallow: '/',
       },
+      // Explicitly allow AI search and LLM bots
+      {
+        userAgent: [
+          'GPTBot',
+          'ChatGPT-User',
+          'Google-Extended',
+          'anthropic-ai',
+          'Claude-Web',
+          'ClaudeBot',
+          'PerplexityBot',
+          'CCBot',
+          'OAI-SearchBot',
+        ],
+        allow: ['/'],
+        disallow: ['/api/', '/admin/', '/studio/', '/private/'],
+      },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
     host: baseUrl,
