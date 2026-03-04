@@ -232,9 +232,9 @@ export function Footer({ dictionary, locale }: FooterProps) {
       </div>
 
       {/* Large SIDIKOFF Text */}
-      <div className='mb-12 overflow-hidden'>
+      <div className='flex w-full justify-center overflow-hidden'>
         <div
-          className='text-[clamp(3.5rem,-0.1429rem+16vw,17rem)] font-bold leading-[0.85] tracking-tight text-[#112D4E]/[0.03]'
+          className='w-full text-[clamp(4rem,21.5vw,999rem)] font-bold leading-[0.85] tracking-tighter text-[#112D4E]/[0.03] whitespace-nowrap'
           aria-hidden='true'>
           SIDIKOFF
         </div>
