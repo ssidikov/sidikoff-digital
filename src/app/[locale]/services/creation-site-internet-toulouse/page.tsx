@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
-import { DEFAULT_SEO } from '@/lib/seo-utils'
+import { DEFAULT_SEO, createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 
 import { Section } from '@/components/ui'
 import CTAButton from '@/components/ui/CTAButton'
@@ -43,9 +43,8 @@ export async function generateMetadata({ params }: ToulousePageProps): Promise<M
       },
     },
     alternates: {
-      canonical: `${DEFAULT_SEO.siteUrl}/${
-        locale === 'fr' ? '' : locale + '/'
-      }services/creation-site-internet-toulouse`,
+      canonical: createCanonicalUrl('services/creation-site-internet-toulouse', locale),
+      languages: generateAlternateUrls('services/creation-site-internet-toulouse'),
     },
     openGraph: {
       title,

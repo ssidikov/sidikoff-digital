@@ -1,3 +1,4 @@
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils';
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
 import { getDictionary } from '@/lib/dictionaries'
@@ -19,7 +20,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       follow: true,
     },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}mentions-legales`,
+      canonical: createCanonicalUrl('mentions-legales', locale),
+      languages: generateAlternateUrls('mentions-legales'),
     },
   }
 }

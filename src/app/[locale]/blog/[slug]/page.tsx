@@ -1,3 +1,4 @@
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils';
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
@@ -64,13 +65,8 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       creator: '@sidikoffdigital',
     },
     alternates: {
-      canonical: canonicalUrl,
-      languages: {
-        fr: `https://sidikoff.com/blog/${slug}`,
-        en: `https://sidikoff.com/en/blog/${slug}`,
-        ru: `https://sidikoff.com/ru/blog/${slug}`,
-        'x-default': `https://sidikoff.com/blog/${slug}`,
-      },
+      canonical: createCanonicalUrl('blog/[slug]', locale),
+      languages: generateAlternateUrls('blog/[slug]'),
     },
   }
 }

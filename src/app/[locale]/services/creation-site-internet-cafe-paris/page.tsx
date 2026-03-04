@@ -1,3 +1,4 @@
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils';
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
 
@@ -42,7 +43,8 @@ export async function generateMetadata({ params }: CafeParisPageProps): Promise<
       },
     },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'}/${locale === 'fr' ? '' : locale + '/'}services/creation-site-internet-cafe-paris`,
+      canonical: createCanonicalUrl('services/creation-site-internet-cafe-paris', locale),
+      languages: generateAlternateUrls('services/creation-site-internet-cafe-paris'),
     },
     openGraph: {
       title,

@@ -1,3 +1,4 @@
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils';
 import { Metadata } from 'next'
 import { getDictionary } from '@/lib/dictionaries'
 import { type Locale } from '@/lib/i18n'
@@ -38,12 +39,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: ['/images/og/photographer-websites.jpg'],
     },
     alternates: {
-      canonical: `/services/creation-site-internet-photographe`,
-      languages: {
-        fr: '/fr/services/creation-site-internet-photographe',
-        en: '/en/services/creation-site-internet-photographe',
-        ru: '/ru/services/creation-site-internet-photographe',
-      },
+      canonical: createCanonicalUrl('services/creation-site-internet-photographe', locale),
+      languages: generateAlternateUrls('services/creation-site-internet-photographe'),
     },
   }
 }

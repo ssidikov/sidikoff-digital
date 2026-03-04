@@ -1,3 +1,4 @@
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils';
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getDictionary } from '@/lib/dictionaries'
@@ -48,13 +49,8 @@ export async function generateMetadata({ params }: WebCreationPageProps): Promis
       images: ['/images/og-creation-sites-web.jpg'],
     },
     alternates: {
-      canonical:
-        locale === 'fr' ? '/services/creation-sites-web' : `/${locale}/services/creation-sites-web`,
-      languages: {
-        fr: '/services/creation-sites-web',
-        en: '/en/services/creation-sites-web',
-        ru: '/ru/services/creation-sites-web',
-      },
+      canonical: createCanonicalUrl('services/creation-sites-web', locale),
+      languages: generateAlternateUrls('services/creation-sites-web'),
     },
   }
 }

@@ -1,3 +1,4 @@
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils';
 import type { Metadata } from 'next'
 import { getDictionary } from '@/lib/dictionaries'
 import type { Locale } from '@/lib/i18n'
@@ -52,13 +53,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: ['/images/og/agence-web-paris-15-og.jpg'],
     },
     alternates: {
-      canonical: `https://sidikoff.com/${locale}/services/agence-web-paris-15`,
-      languages: {
-        fr: '/fr/services/agence-web-paris-15',
-        en: '/en/services/agence-web-paris-15',
-        ru: '/ru/services/agence-web-paris-15',
-        'x-default': '/fr/services/agence-web-paris-15',
-      },
+      canonical: createCanonicalUrl('services/agence-web-paris-15', locale),
+      languages: generateAlternateUrls('services/agence-web-paris-15'),
     },
     robots: {
       index: true,

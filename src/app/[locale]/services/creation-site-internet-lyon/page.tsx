@@ -1,3 +1,4 @@
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils';
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
 
@@ -42,9 +43,8 @@ export async function generateMetadata({ params }: LyonPageProps): Promise<Metad
       },
     },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${
-        locale === 'fr' ? '' : locale + '/'
-      }services/creation-site-internet-lyon`,
+      canonical: createCanonicalUrl('services/creation-site-internet-lyon', locale),
+      languages: generateAlternateUrls('services/creation-site-internet-lyon'),
     },
     openGraph: {
       title,

@@ -1,3 +1,4 @@
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils';
 import { type Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { type Locale, isValidLocale } from '@/lib/i18n'
@@ -36,12 +37,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: t.meta_description,
     },
     alternates: {
-      canonical: `/${locale}/services/optimisation-seo`,
-      languages: {
-        fr: '/services/optimisation-seo',
-        en: '/en/services/optimisation-seo',
-        ru: '/ru/services/optimisation-seo',
-      },
+      canonical: createCanonicalUrl('services/optimisation-seo', locale),
+      languages: generateAlternateUrls('services/optimisation-seo'),
     },
   }
 }

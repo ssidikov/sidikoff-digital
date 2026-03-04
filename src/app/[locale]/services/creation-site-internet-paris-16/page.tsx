@@ -1,3 +1,4 @@
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils';
 import { Metadata } from 'next'
 import Script from 'next/script'
 import { Locale } from '@/lib/i18n'
@@ -43,9 +44,8 @@ export async function generateMetadata({ params }: Paris16PageProps): Promise<Me
       },
     },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${
-        locale === 'fr' ? '' : locale + '/'
-      }services/creation-site-internet-paris-16`,
+      canonical: createCanonicalUrl('services/creation-site-internet-paris-16', locale),
+      languages: generateAlternateUrls('services/creation-site-internet-paris-16'),
     },
     other: {
       // Preconnect to Unsplash domain for faster image loading

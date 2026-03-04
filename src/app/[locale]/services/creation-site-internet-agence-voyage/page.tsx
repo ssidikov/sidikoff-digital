@@ -1,3 +1,4 @@
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
@@ -38,12 +39,8 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       images: ['/images/og/travel-agency-websites.jpg'],
     },
     alternates: {
-      canonical: `https://www.sidikoff.com/${params.locale}/services/creation-site-internet-agence-voyage`,
-      languages: {
-        fr: 'https://www.sidikoff.com/fr/services/creation-site-internet-agence-voyage',
-        en: 'https://www.sidikoff.com/en/services/creation-site-internet-agence-voyage',
-        ru: 'https://www.sidikoff.com/ru/services/creation-site-internet-agence-voyage',
-      },
+      canonical: createCanonicalUrl('services/creation-site-internet-agence-voyage', params.locale),
+      languages: generateAlternateUrls('services/creation-site-internet-agence-voyage'),
     },
   }
 }

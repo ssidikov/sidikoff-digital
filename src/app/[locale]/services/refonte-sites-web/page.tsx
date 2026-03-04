@@ -1,3 +1,4 @@
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils';
 import { Metadata } from 'next'
 import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
@@ -41,12 +42,8 @@ export async function generateMetadata({ params }: WebRedesignPageProps): Promis
       images: [`${process.env.NEXT_PUBLIC_SITE_URL}/images/opengraph-fr.png`],
     },
     alternates: {
-      canonical: canonicalUrl,
-      languages: {
-        fr: `${process.env.NEXT_PUBLIC_SITE_URL}/fr/services/refonte-sites-web`,
-        en: `${process.env.NEXT_PUBLIC_SITE_URL}/en/services/refonte-sites-web`,
-        ru: `${process.env.NEXT_PUBLIC_SITE_URL}/ru/services/refonte-sites-web`,
-      },
+      canonical: createCanonicalUrl('services/refonte-sites-web', locale),
+      languages: generateAlternateUrls('services/refonte-sites-web'),
     },
     other: {
       google: 'notranslate',

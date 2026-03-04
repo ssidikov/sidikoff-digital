@@ -1,3 +1,4 @@
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
@@ -35,12 +36,8 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     creator: 'SIDIKOFF DIGITAL',
     publisher: 'SIDIKOFF DIGITAL',
     alternates: {
-      canonical: url,
-      languages: {
-        'fr-FR': `${baseUrl}/fr/services/agence-web-paris`,
-        'en-US': `${baseUrl}/en/services/agence-web-paris`,
-        'ru-RU': `${baseUrl}/ru/services/agence-web-paris`,
-      },
+      canonical: createCanonicalUrl('services/agence-web-paris', params.locale),
+      languages: generateAlternateUrls('services/agence-web-paris'),
     },
     openGraph: {
       title: content.meta_title,
