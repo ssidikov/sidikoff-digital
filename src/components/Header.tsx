@@ -173,7 +173,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
       // For other pages, check exact URL match
       return pathname === item.href
     },
-    [pathname, locale, activeSection]
+    [pathname, locale, activeSection],
   )
 
   /**
@@ -205,7 +205,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
       // Close mobile menu after navigation
       setIsMenuOpen(false)
     },
-    [pathname, locale]
+    [pathname, locale],
   )
 
   useEffect(() => {
@@ -275,7 +275,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
         id,
         SCROLL_CONFIG.headerOffset,
         SCROLL_CONFIG.retryAttempts,
-        SCROLL_CONFIG.retryDelay
+        SCROLL_CONFIG.retryDelay,
       )
     }
   }, [pathname])
