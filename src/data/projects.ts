@@ -16,7 +16,7 @@ export type Project = {
 function normalizeProjects(data: unknown[]): Project[] {
   return (Array.isArray(data) ? data : []).filter(
     (p): p is Project =>
-      typeof p === 'object' && p !== null && 'id' in p && 'title' in p && 'category' in p
+      typeof p === 'object' && p !== null && 'id' in p && 'title' in p && 'category' in p,
   )
 }
 

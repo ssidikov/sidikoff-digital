@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils';
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
 
@@ -13,7 +13,8 @@ export async function generateMetadata({ params }: ParisPageProps): Promise<Meta
 
   const title = 'Création site internet Paris – Agence web & SEO local'
 
-  const description = 'SIDIKOFF DIGITAL, agence web 75, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
+  const description =
+    'SIDIKOFF DIGITAL, agence web 75, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
 
   return {
     title,

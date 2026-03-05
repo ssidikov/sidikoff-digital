@@ -1,10 +1,7 @@
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
-import {
-  userConfirmationFR,
-  adminNotificationFR,
-} from './mailTemplates'
+import { userConfirmationFR, adminNotificationFR } from './mailTemplates'
 
 interface ContactFormData {
   name: string
@@ -43,7 +40,7 @@ export async function POST(request: Request) {
     if (!email?.trim() || !email.includes('@')) {
       return NextResponse.json(
         { success: false, error: 'Valid email is required' },
-        { status: 400 }
+        { status: 400 },
       )
     }
 
@@ -55,7 +52,7 @@ export async function POST(request: Request) {
       console.error('ADMIN_EMAIL environment variable is not set')
       return NextResponse.json(
         { success: false, error: 'Server configuration error' },
-        { status: 500 }
+        { status: 500 },
       )
     }
 
@@ -63,7 +60,7 @@ export async function POST(request: Request) {
       console.error('Gmail credentials are not set')
       return NextResponse.json(
         { success: false, error: 'Server configuration error' },
-        { status: 500 }
+        { status: 500 },
       )
     }
 
@@ -89,7 +86,7 @@ export async function POST(request: Request) {
       console.error('SMTP configuration error:', verifyError)
       return NextResponse.json(
         { success: false, error: 'Email service configuration error' },
-        { status: 500 }
+        { status: 500 },
       )
     }
 

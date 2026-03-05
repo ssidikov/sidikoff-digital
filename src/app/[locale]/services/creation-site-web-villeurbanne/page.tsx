@@ -217,8 +217,7 @@ function getStructuredData(locale: Locale) {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Sardorbek SIDIKOV',
-    jobTitle:
-      'Développeur Web Freelance',
+    jobTitle: 'Développeur Web Freelance',
     url: SITE_URL,
     worksFor: {
       '@type': 'Organization',
@@ -240,8 +239,7 @@ function getStructuredData(locale: Locale) {
       url: createCanonicalUrl('services', locale),
     },
     {
-      name:
-        'Création site web Villeurbanne',
+      name: 'Création site web Villeurbanne',
       url: canonical,
     },
   ])
@@ -270,7 +268,6 @@ export default async function VilleurbannePage({ params }: VilleurbannPageProps)
 // ─── Content per locale ─────────────────────────────────────────────────────────
 
 function getPageContent(locale: Locale) {
-
   // French (default)
   return {
     badge: 'Expert Web Villeurbanne',

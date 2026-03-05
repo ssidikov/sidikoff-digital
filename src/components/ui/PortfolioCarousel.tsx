@@ -50,7 +50,7 @@ interface PortfolioCarouselProps {
 // Helper function to convert projects to portfolio items
 export function convertProjectsToPortfolioItems(
   projects: unknown[],
-  maxItems?: number
+  maxItems?: number,
 ): PortfolioItem[] {
   const itemsToShow = maxItems ? projects.slice(0, maxItems) : projects
   return itemsToShow.map((project, index) => {
@@ -486,10 +486,7 @@ export default function PortfolioCarousel({
         <div className='max-w-8xl mx-auto px-4 sm:px-4 xl:px-24 relative z-10'>
           <SectionHeader
             title={title || 'Portfolio'}
-            subtitle={
-              subtitle ||
-              'Découvrez nos réalisations web'
-            }
+            subtitle={subtitle || 'Découvrez nos réalisations web'}
             titleId='portfolio-title'
             as={isHomePage ? 'h2' : 'h1'}
             className='text-left mb-16 px-4'
@@ -541,10 +538,10 @@ export default function PortfolioCarousel({
                         isActive && isScrolling
                           ? `translateX(-50%) translateX(${-dragOffset * 0.8}px)`
                           : isActive
-                          ? 'translateX(-50%)'
-                          : index < currentIndex
-                          ? 'translateX(-50%) translateX(-100%)'
-                          : 'translateX(-50%) translateX(100%)',
+                            ? 'translateX(-50%)'
+                            : index < currentIndex
+                              ? 'translateX(-50%) translateX(-100%)'
+                              : 'translateX(-50%) translateX(100%)',
                     }}>
                     {renderCardContent(item, isEven)}
                   </div>

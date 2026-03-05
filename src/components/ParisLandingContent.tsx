@@ -36,153 +36,153 @@ const CARD_ANIMATION = {
 function getLocalizedContent(locale: Locale) {
   // French only
   return {
-      hero: {
-        badge: 'Expert Web Paris',
-        title: 'Création de site internet professionnel à Paris',
-        titleHighlight: 'Paris',
-        description:
-          'Vous êtes une entreprise, un artisan, une startup ou un indépendant basé à Paris et vous souhaitez développer votre visibilité en ligne ? Notre agence web à Paris est spécialisée dans la création de sites internet sur mesure.',
-        ctaPrimary: 'Demander un devis gratuit',
-        ctaSecondary: 'Voir nos réalisations',
-        trustIndicators: ['100+ Projets à Paris', '7j Délai moyen', '24/7 Support'],
-        metrics: [
-          { number: '100+', label: 'Projets à Paris' },
-          { number: '7j', label: 'Délai moyen' },
-          { number: '24/7', label: 'Support' },
-        ],
-      },
-      services: {
-        title: 'Nos services de création de site web à Paris',
-        description:
-          "Qu'il s'agisse de sites vitrines ou de boutiques e-commerce, avec un référencement optimisé pour Google et un design moderne adapté à vos clients.",
-        items: [
-          {
-            title: 'Site vitrine à Paris',
-            description:
-              'Un site vitrine professionnel pour présenter vos services, attirer de nouveaux clients et renforcer votre image à Paris et en Île-de-France.',
-            icon: '🌐',
-            serviceType: 'creation-sites-web',
-          },
-          {
-            title: 'Site e-commerce Paris',
-            description:
-              'Développement de sites e-commerce performants : gestion de catalogue produits, paiement sécurisé, design responsive et optimisé pour le SEO.',
-            icon: '🛒',
-            serviceType: 'creation-site-ecommerce',
-          },
-          {
-            title: 'Développement web sur mesure',
-            description:
-              "Création de fonctionnalités personnalisées, intégration d'API, mise en place de solutions adaptées à vos besoins spécifiques à Paris.",
-            icon: '⚡',
-            serviceType: 'creation-sites-web',
-          },
-          {
-            title: 'Référencement SEO Paris',
-            description:
-              'Optimisation complète (balises, vitesse, mobile friendly, maillage interne) et stratégie de mots-clés ciblant Paris pour apparaître en tête des résultats Google.',
-            icon: '📈',
-            serviceType: 'optimisation-seo',
-          },
-          {
-            title: 'Design & UX moderne',
-            description:
-              'Conception de sites intuitifs, rapides et esthétiques. Expérience utilisateur optimisée pour convertir vos visiteurs en clients.',
-            icon: '🎨',
-            serviceType: 'refonte-sites-web',
-          },
-          {
-            title: 'Maintenance & accompagnement',
-            description:
-              'Mises à jour, sécurité, sauvegardes, support technique réactif, avec un suivi continu pour assurer la performance de votre site.',
-            icon: '🔧',
-            serviceType: 'maintenance-support',
-          },
-        ],
-      },
-      whyChooseUs: {
-        title: 'Pourquoi choisir notre agence web à Paris ?',
-        subtitle: 'Une expertise locale au service de votre réussite digitale',
-        items: [
-          {
-            title: 'Proximité locale',
-            description: 'Une agence basée à Paris, au plus proche de vos besoins.',
-            icon: '📍',
-          },
-          {
-            title: 'Expertise SEO locale',
-            description: 'Visibilité renforcée dans les recherches "création site internet Paris".',
-            icon: '🎯',
-          },
-          {
-            title: 'Accompagnement personnalisé',
-            description: 'Un interlocuteur dédié tout au long du projet.',
-            icon: '👥',
-          },
-          {
-            title: 'Résultats mesurables',
-            description: 'Trafic qualifié, nouveaux prospects, croissance digitale.',
-            icon: '📊',
-          },
-          {
-            title: 'Devis clair & gratuit',
-            description: 'Pas de frais cachés, vous savez exactement ce que vous payez.',
-            icon: '💰',
-          },
-          {
-            title: 'Garantie de qualité',
-            description: 'Sites performants, sécurisés et conformes aux standards web.',
-            icon: '✅',
-          },
-        ],
-      },
-      faq: {
-        title: 'FAQ – Création de site internet Paris',
-        subtitle: 'Réponses aux questions les plus fréquentes',
-        items: [
-          {
-            question: "Combien coûte la création d'un site internet professionnel à Paris ?",
-            answer:
-              'Les tarifs pour créer un site internet à Paris varient de 900€ TTC à 15 000€ selon le type de projet : site vitrine (900€ TTC-4 000€), site e-commerce (3 000€-8 000€), ou développement sur-mesure (5 000€-15 000€). Nous proposons des devis gratuits personnalisés avec un audit de vos besoins spécifiques et de votre concurrence parisienne. Contactez notre agence web pour obtenir votre estimation détaillée sous 24h.',
-          },
-          {
-            question: 'Quel délai pour créer mon site web avec une agence parisienne ?',
-            answer:
-              "Le délai moyen pour la création d'un site internet à Paris est de 4 à 8 semaines selon la complexité. Site vitrine : 3-4 semaines, site e-commerce : 6-8 semaines, développement sur-mesure : 8-12 semaines. Notre proximité géographique à Paris nous permet d'accélérer les échanges et validations. Nous garantissons un suivi hebdomadaire et une livraison dans les délais convenus.",
-          },
-          {
-            question: 'Mon site sera-t-il bien référencé sur Google Paris ?',
-            answer:
-              "Oui, tous nos sites intègrent une optimisation SEO locale Paris dès la création. Nous optimisons pour les recherches géolocalisées ('votre secteur + Paris'), créons votre fiche Google My Business, et intégrons les mots-clés stratégiques de votre marché parisien. En moyenne, nos clients observent une amélioration de 60% de leur visibilité locale dans les 3 premiers mois après mise en ligne.",
-          },
-          {
-            question: 'Proposez-vous la maintenance et le support technique à Paris ?',
-            answer:
-              'Absolument ! Nous offrons un service de maintenance premium avec intervention sous 2h pour nos clients parisiens. Inclus : sauvegardes quotidiennes, mises à jour de sécurité, monitoring 24/7, et support technique réactif. Notre équipe basée à Paris assure un service de proximité avec possibilité de rendez-vous en personne si nécessaire.',
-          },
-          {
-            question: 'Puis-je gérer mon site internet moi-même après la livraison ?',
-            answer:
-              'Oui, nous utilisons des CMS intuitifs (WordPress, ou sur-mesure selon vos besoins) avec une formation complète incluse. Vous pourrez facilement modifier textes, images, tarifs, et ajouter du contenu. Nous proposons également une formation personnalisée de 2h en présentiel à Paris pour vous rendre totalement autonome sur la gestion quotidienne de votre site.',
-          },
-          {
-            question: 'Quels types de sites web créez-vous pour les entreprises parisiennes ?',
-            answer:
-              'Nous sommes spécialisés dans tous types de projets web : sites vitrines pour artisans et professions libérales, sites e-commerce pour boutiques, sites institutionnels pour entreprises, et solutions sur-mesure. Nous avons une expertise particulière pour les secteurs porteurs à Paris : restaurants, avocats, médecins, architectes, et startups. Chaque projet inclut design responsive et optimisation mobile-first.',
-          },
-        ],
-      },
-      cta: {
-        title: "Demandez un devis gratuit dès aujourd'hui",
-        subtitle:
-          "Prêt à booster votre visibilité en ligne et à attirer de nouveaux clients à Paris ? Confiez-nous la création de votre site internet professionnel et bénéficiez d'un site moderne, performant et optimisé pour le SEO.",
-        buttons: [
-          { text: 'Demander un devis gratuit', href: '/contact', variant: 'primary' },
-          { text: 'Voir nos réalisations', href: '/projects', variant: 'secondary' },
-          { text: 'Consulter nos tarifs', href: '/tarifs', variant: 'secondary' },
-        ],
-      },
-    }
+    hero: {
+      badge: 'Expert Web Paris',
+      title: 'Création de site internet professionnel à Paris',
+      titleHighlight: 'Paris',
+      description:
+        'Vous êtes une entreprise, un artisan, une startup ou un indépendant basé à Paris et vous souhaitez développer votre visibilité en ligne ? Notre agence web à Paris est spécialisée dans la création de sites internet sur mesure.',
+      ctaPrimary: 'Demander un devis gratuit',
+      ctaSecondary: 'Voir nos réalisations',
+      trustIndicators: ['100+ Projets à Paris', '7j Délai moyen', '24/7 Support'],
+      metrics: [
+        { number: '100+', label: 'Projets à Paris' },
+        { number: '7j', label: 'Délai moyen' },
+        { number: '24/7', label: 'Support' },
+      ],
+    },
+    services: {
+      title: 'Nos services de création de site web à Paris',
+      description:
+        "Qu'il s'agisse de sites vitrines ou de boutiques e-commerce, avec un référencement optimisé pour Google et un design moderne adapté à vos clients.",
+      items: [
+        {
+          title: 'Site vitrine à Paris',
+          description:
+            'Un site vitrine professionnel pour présenter vos services, attirer de nouveaux clients et renforcer votre image à Paris et en Île-de-France.',
+          icon: '🌐',
+          serviceType: 'creation-sites-web',
+        },
+        {
+          title: 'Site e-commerce Paris',
+          description:
+            'Développement de sites e-commerce performants : gestion de catalogue produits, paiement sécurisé, design responsive et optimisé pour le SEO.',
+          icon: '🛒',
+          serviceType: 'creation-site-ecommerce',
+        },
+        {
+          title: 'Développement web sur mesure',
+          description:
+            "Création de fonctionnalités personnalisées, intégration d'API, mise en place de solutions adaptées à vos besoins spécifiques à Paris.",
+          icon: '⚡',
+          serviceType: 'creation-sites-web',
+        },
+        {
+          title: 'Référencement SEO Paris',
+          description:
+            'Optimisation complète (balises, vitesse, mobile friendly, maillage interne) et stratégie de mots-clés ciblant Paris pour apparaître en tête des résultats Google.',
+          icon: '📈',
+          serviceType: 'optimisation-seo',
+        },
+        {
+          title: 'Design & UX moderne',
+          description:
+            'Conception de sites intuitifs, rapides et esthétiques. Expérience utilisateur optimisée pour convertir vos visiteurs en clients.',
+          icon: '🎨',
+          serviceType: 'refonte-sites-web',
+        },
+        {
+          title: 'Maintenance & accompagnement',
+          description:
+            'Mises à jour, sécurité, sauvegardes, support technique réactif, avec un suivi continu pour assurer la performance de votre site.',
+          icon: '🔧',
+          serviceType: 'maintenance-support',
+        },
+      ],
+    },
+    whyChooseUs: {
+      title: 'Pourquoi choisir notre agence web à Paris ?',
+      subtitle: 'Une expertise locale au service de votre réussite digitale',
+      items: [
+        {
+          title: 'Proximité locale',
+          description: 'Une agence basée à Paris, au plus proche de vos besoins.',
+          icon: '📍',
+        },
+        {
+          title: 'Expertise SEO locale',
+          description: 'Visibilité renforcée dans les recherches "création site internet Paris".',
+          icon: '🎯',
+        },
+        {
+          title: 'Accompagnement personnalisé',
+          description: 'Un interlocuteur dédié tout au long du projet.',
+          icon: '👥',
+        },
+        {
+          title: 'Résultats mesurables',
+          description: 'Trafic qualifié, nouveaux prospects, croissance digitale.',
+          icon: '📊',
+        },
+        {
+          title: 'Devis clair & gratuit',
+          description: 'Pas de frais cachés, vous savez exactement ce que vous payez.',
+          icon: '💰',
+        },
+        {
+          title: 'Garantie de qualité',
+          description: 'Sites performants, sécurisés et conformes aux standards web.',
+          icon: '✅',
+        },
+      ],
+    },
+    faq: {
+      title: 'FAQ – Création de site internet Paris',
+      subtitle: 'Réponses aux questions les plus fréquentes',
+      items: [
+        {
+          question: "Combien coûte la création d'un site internet professionnel à Paris ?",
+          answer:
+            'Les tarifs pour créer un site internet à Paris varient de 900€ TTC à 15 000€ selon le type de projet : site vitrine (900€ TTC-4 000€), site e-commerce (3 000€-8 000€), ou développement sur-mesure (5 000€-15 000€). Nous proposons des devis gratuits personnalisés avec un audit de vos besoins spécifiques et de votre concurrence parisienne. Contactez notre agence web pour obtenir votre estimation détaillée sous 24h.',
+        },
+        {
+          question: 'Quel délai pour créer mon site web avec une agence parisienne ?',
+          answer:
+            "Le délai moyen pour la création d'un site internet à Paris est de 4 à 8 semaines selon la complexité. Site vitrine : 3-4 semaines, site e-commerce : 6-8 semaines, développement sur-mesure : 8-12 semaines. Notre proximité géographique à Paris nous permet d'accélérer les échanges et validations. Nous garantissons un suivi hebdomadaire et une livraison dans les délais convenus.",
+        },
+        {
+          question: 'Mon site sera-t-il bien référencé sur Google Paris ?',
+          answer:
+            "Oui, tous nos sites intègrent une optimisation SEO locale Paris dès la création. Nous optimisons pour les recherches géolocalisées ('votre secteur + Paris'), créons votre fiche Google My Business, et intégrons les mots-clés stratégiques de votre marché parisien. En moyenne, nos clients observent une amélioration de 60% de leur visibilité locale dans les 3 premiers mois après mise en ligne.",
+        },
+        {
+          question: 'Proposez-vous la maintenance et le support technique à Paris ?',
+          answer:
+            'Absolument ! Nous offrons un service de maintenance premium avec intervention sous 2h pour nos clients parisiens. Inclus : sauvegardes quotidiennes, mises à jour de sécurité, monitoring 24/7, et support technique réactif. Notre équipe basée à Paris assure un service de proximité avec possibilité de rendez-vous en personne si nécessaire.',
+        },
+        {
+          question: 'Puis-je gérer mon site internet moi-même après la livraison ?',
+          answer:
+            'Oui, nous utilisons des CMS intuitifs (WordPress, ou sur-mesure selon vos besoins) avec une formation complète incluse. Vous pourrez facilement modifier textes, images, tarifs, et ajouter du contenu. Nous proposons également une formation personnalisée de 2h en présentiel à Paris pour vous rendre totalement autonome sur la gestion quotidienne de votre site.',
+        },
+        {
+          question: 'Quels types de sites web créez-vous pour les entreprises parisiennes ?',
+          answer:
+            'Nous sommes spécialisés dans tous types de projets web : sites vitrines pour artisans et professions libérales, sites e-commerce pour boutiques, sites institutionnels pour entreprises, et solutions sur-mesure. Nous avons une expertise particulière pour les secteurs porteurs à Paris : restaurants, avocats, médecins, architectes, et startups. Chaque projet inclut design responsive et optimisation mobile-first.',
+        },
+      ],
+    },
+    cta: {
+      title: "Demandez un devis gratuit dès aujourd'hui",
+      subtitle:
+        "Prêt à booster votre visibilité en ligne et à attirer de nouveaux clients à Paris ? Confiez-nous la création de votre site internet professionnel et bénéficiez d'un site moderne, performant et optimisé pour le SEO.",
+      buttons: [
+        { text: 'Demander un devis gratuit', href: '/contact', variant: 'primary' },
+        { text: 'Voir nos réalisations', href: '/projects', variant: 'secondary' },
+        { text: 'Consulter nos tarifs', href: '/tarifs', variant: 'secondary' },
+      ],
+    },
+  }
 }
 
 export default function ParisLandingContent({ locale }: ParisLandingContentProps) {

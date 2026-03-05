@@ -268,8 +268,6 @@ export default async function CaluirePage({ params }: PageProps) {
 // ─── Content per locale ─────────────────────────────────────────────────────────
 
 function getPageContent(locale: Locale): VilleurbannContent {
-
-
   // Fallback to FR
   return {
     badge: 'Expert Web Caluire',

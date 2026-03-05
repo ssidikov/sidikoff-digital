@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils';
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
 
@@ -14,8 +14,7 @@ interface CafeParisPageProps {
 export async function generateMetadata({ params }: CafeParisPageProps): Promise<Metadata> {
   const { locale } = await params
 
-  const title =
-    'Création site internet café Paris – Agence web spécialisée'
+  const title = 'Création site internet café Paris – Agence web spécialisée'
 
   const description =
     'Boostez la visibilité de votre café à Paris avec un site web professionnel : menu en ligne, réservation, multilingue et SEO local optimisé.'

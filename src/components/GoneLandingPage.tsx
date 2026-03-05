@@ -97,8 +97,7 @@ export default function GoneLandingPage({ cityName, locale = 'fr' }: GoneLanding
     {
       icon: <Search className='w-8 h-8' />,
       title: 'Optimisation SEO',
-      description:
-        'Référencement naturel et technique pour améliorer votre visibilité sur Google.',
+      description: 'Référencement naturel et technique pour améliorer votre visibilité sur Google.',
     },
   ]
 

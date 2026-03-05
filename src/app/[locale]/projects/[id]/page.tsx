@@ -96,8 +96,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </span>
               {project.featured && (
                 <span className='px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium'>
-                  ⭐{' '}
-                  {'Projet vedette'}
+                  ⭐ {'Projet vedette'}
                 </span>
               )}
             </div>
@@ -163,25 +162,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     />
                   </svg>
                 </div>
-                <h3 className='text-2xl font-bold text-gray-900'>
-                  {'Détails du projet'}
-                </h3>
+                <h3 className='text-2xl font-bold text-gray-900'>{'Détails du projet'}</h3>
               </div>
 
               <div className='space-y-4 flex-1'>
                 <div>
-                  <dt className='text-sm font-semibold text-gray-600 mb-1'>
-                    {'Description'}
-                  </dt>
+                  <dt className='text-sm font-semibold text-gray-600 mb-1'>{'Description'}</dt>
                   <dd className='text-gray-800 leading-relaxed'>
                     {project.longDescription || project.description}
                   </dd>
                 </div>
 
                 <div>
-                  <dt className='text-sm font-semibold text-gray-600 mb-1'>
-                    {'Catégorie'}
-                  </dt>
+                  <dt className='text-sm font-semibold text-gray-600 mb-1'>{'Catégorie'}</dt>
                   <dd className='text-gray-800'>{project.category}</dd>
                 </div>
               </div>
@@ -212,9 +205,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     />
                   </svg>
                 </div>
-                <h3 className='text-2xl font-bold text-gray-900'>
-                  {'Technologies utilisées'}
-                </h3>
+                <h3 className='text-2xl font-bold text-gray-900'>{'Technologies utilisées'}</h3>
               </div>
 
               {/* Technologies Grid */}
@@ -316,7 +307,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 {'Prêt à démarrer votre projet ?'}
               </h2>
               <p className='text-xl text-gray-600 mb-8 leading-relaxed'>
-                {"Créons ensemble quelque chose d'extraordinaire. Contactez-nous pour discuter de votre vision."}
+                {
+                  "Créons ensemble quelque chose d'extraordinaire. Contactez-nous pour discuter de votre vision."
+                }
               </p>
               <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                 <CTAButton

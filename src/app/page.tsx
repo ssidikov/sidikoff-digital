@@ -59,7 +59,7 @@ function generateHomePageSchemas() {
     organizationSchema,
     // Only the first location gets a rating to avoid duplication
     ...businessLocations.map((location, index) =>
-      generateLocalBusinessSchema(location, index === 0)
+      generateLocalBusinessSchema(location, index === 0),
     ),
     {
       '@context': 'https://schema.org',

@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils';
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
 
@@ -16,7 +16,8 @@ export async function generateMetadata({
 
   const title = 'Création site internet Boulogne-Billancourt – Agence web spécialisée'
 
-  const description = 'SIDIKOFF DIGITAL, agence web 92, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
+  const description =
+    'SIDIKOFF DIGITAL, agence web 92, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
 
   return {
     title,
@@ -40,9 +41,7 @@ export async function generateMetadata({
       title,
       description,
       type: 'website',
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${
-        ''
-      }services/creation-site-internet-boulogne-billancourt`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${''}services/creation-site-internet-boulogne-billancourt`,
       siteName: 'SIDIKOFF Digital',
       locale: 'fr_FR',
       images: [

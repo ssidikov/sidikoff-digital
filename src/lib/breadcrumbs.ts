@@ -83,7 +83,7 @@ export function getPageBreadcrumbs(pathname: string, locale: Locale = 'fr') {
 
 export function getInternalBreadcrumbs(
   pathname: string,
-  locale: Locale = 'fr'
+  locale: Locale = 'fr',
 ): InternalBreadcrumbItem[] {
   const breadcrumbs: InternalBreadcrumbItem[] = [
     {

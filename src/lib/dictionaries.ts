@@ -1463,7 +1463,9 @@ export const getDictionary = cache(async (locale: Locale): Promise<Dictionary> =
     // Load travel agency landing data
     let travelAgencyData: Record<string, unknown> = {}
     try {
-      travelAgencyData = await (travelAgencyDictionaries as Record<string, () => Promise<Record<string, unknown>>>)[locale]!()
+      travelAgencyData = await (
+        travelAgencyDictionaries as Record<string, () => Promise<Record<string, unknown>>>
+      )[locale]!()
     } catch (error) {
       console.warn(`Failed to load travel agency landing data for locale: ${locale}`, error)
     }

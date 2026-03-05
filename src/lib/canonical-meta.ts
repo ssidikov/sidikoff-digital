@@ -104,10 +104,8 @@ export function generateServicePageMetadata(service: string, locale: Locale): Me
     },
   }
 
-  const title =
-    (serviceTitles.fr as Record<string, string>)[service] || service
-  const description =
-    (serviceDescriptions.fr as Record<string, string>)[service] || ''
+  const title = (serviceTitles.fr as Record<string, string>)[service] || service
+  const description = (serviceDescriptions.fr as Record<string, string>)[service] || ''
 
   const pathname = `services/${service}`
 
