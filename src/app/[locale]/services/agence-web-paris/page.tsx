@@ -15,8 +15,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const dict = await getDictionary(params.locale)
   const content = dict.agence_web_paris_landing
 
-  const baseUrl = 'https://sidikoff-digital.fr'
-  const url = `${baseUrl}/${params.locale}/services/agence-web-paris`
+  const url = createCanonicalUrl('services/agence-web-paris', params.locale)
 
   return {
     title: content.meta_title,

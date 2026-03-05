@@ -58,27 +58,27 @@ export function getLocalizedOgImage(locale: Locale, customImage?: string): strin
 // Default SEO configuration
 export const DEFAULT_SEO = {
   siteName: 'SIDIKOFF DIGITAL - Développeur Web Full Stack',
-  siteUrl: 'https://sidikoff.com', // IMPORTANT: Always without www
+  siteUrl: 'https://www.sidikoff.com',
   defaultImage: '/images/og-default.jpg',
   twitterHandle: '@sidikoffdigital',
   locale: 'fr' as Locale,
   keywords: [
     // High-conversion primary keywords - "agence web paris" as #1
-    'agence web paris',
-    'création site web professionnel paris',
-    'développeur web paris',
-    'agence digitale paris',
-    'création site internet paris',
-    'développement web paris',
+    'agence web Lyon',
+    'création site web professionnel Lyon',
+    'développeur web Lyon',
+    'agence digitale Lyon',
+    'création site internet Lyon',
+    'développement web Lyon',
     'agence création site web',
-    'développeur react paris',
+    'développeur react Lyon',
     'expert nextjs',
     'typescript développeur',
     'freelance développeur web',
     'site web professionnel',
     'création site e-commerce',
     'refonte site web',
-    'optimisation seo paris',
+    'optimisation seo Lyon',
     'développement frontend',
     'développement backend',
     'full stack developer',
@@ -94,7 +94,7 @@ export const DEFAULT_SEO = {
 export function generateAlternateUrls(path: string): Record<Locale, string> {
   const alternates: Record<Locale, string> = {} as Record<Locale, string>
 
-  const locales: Locale[] = ['fr', 'en', 'ru']
+  const locales: Locale[] = ['fr']
 
   locales.forEach((locale) => {
     alternates[locale] = createCanonicalUrl(path, locale)
@@ -384,7 +384,7 @@ export function generateLocalizedSEOMetadata(locale: Locale): Metadata {
 // Generate language alternates
 export function generateLanguageAlternates(
   path: string,
-  locales: Locale[] = ['fr', 'en', 'ru'],
+  locales: Locale[] = ['fr'],
 ): Record<string, string> {
   const alternates: Record<string, string> = {}
 

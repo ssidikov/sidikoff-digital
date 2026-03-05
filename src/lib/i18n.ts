@@ -1,7 +1,6 @@
-
 export type Locale = 'fr' | 'en' | 'ru'
 
-export const locales: Locale[] = ['fr', 'en', 'ru']
+export const locales: Locale[] = ['fr']
 export const defaultLocale: Locale = 'fr' // French as default for the French market
 
 // Language metadata configuration
@@ -84,7 +83,7 @@ export function addLocaleToPathname(pathname: string, locale: Locale): string {
 export function getAlternateUrls(pathname: string, baseUrl: string = '') {
   const cleanPath = removeLocaleFromPathname(
     pathname,
-    getLocaleFromPathname(pathname) || defaultLocale
+    getLocaleFromPathname(pathname) || defaultLocale,
   )
 
   return locales.map((locale) => ({

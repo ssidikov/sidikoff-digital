@@ -1,10 +1,33 @@
 {
   "env": {
-    "NEXT_PUBLIC_SITE_URL": "https://sidikoff.com"
+    "NEXT_PUBLIC_SITE_URL": "https://www.sidikoff.com"
   },
   "functions": {
     "src/app/sitemap.ts": {
       "maxDuration": 60
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "sidikoff.com"
+        }
+      ],
+      "destination": "https://www.sidikoff.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/en/:path*",
+      "destination": "/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/ru/:path*",
+      "destination": "/:path*",
+      "permanent": true
+    }
+  ]
 }

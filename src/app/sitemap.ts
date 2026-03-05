@@ -1,9 +1,8 @@
-﻿import { MetadataRoute } from 'next'
+import { MetadataRoute } from 'next'
 import { getBlogPosts, type BlogPost } from '@/lib/sanity'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // IMPORTANT: Always use canonical domain without www
-  const baseUrl = 'https://sidikoff.com'
+  const baseUrl = 'https://www.sidikoff.com'
   const currentDate = new Date()
 
   const routes = [
@@ -37,6 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/tarifs',
     '/faq',
     '/mentions-legales',
+    '/politique-de-confidentialite',
   ]
 
   const sitemap: MetadataRoute.Sitemap = []
@@ -53,7 +53,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.warn('Failed to fetch blog posts for sitemap:', error)
   }
 
-  // French pages (default, no prefix)
+  // French pages (only language — default, no prefix)
   routes.forEach((route) => {
     sitemap.push({
       url: `${baseUrl}${route === '' ? '/' : route}`,
@@ -63,53 +63,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
   })
 
-  // Blog posts - French
+  // Blog posts — French
   blogPosts.forEach((post) => {
     sitemap.push({
       url: `${baseUrl}/blog/${post.slug.current}`,
       lastModified: new Date(post.publishedAt),
       changeFrequency: 'monthly',
       priority: 0.6,
-    })
-  })
-
-  // English pages
-  routes.forEach((route) => {
-    sitemap.push({
-      url: `${baseUrl}/en${route === '' ? '/' : route}`,
-      lastModified: currentDate,
-      changeFrequency: route === '/blog' ? 'daily' : 'weekly',
-      priority: route === '' ? 0.8 : route === '/contact' ? 0.7 : 0.6,
-    })
-  })
-
-  // Blog posts - English
-  blogPosts.forEach((post) => {
-    sitemap.push({
-      url: `${baseUrl}/en/blog/${post.slug.current}`,
-      lastModified: new Date(post.publishedAt),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    })
-  })
-
-  // Russian pages
-  routes.forEach((route) => {
-    sitemap.push({
-      url: `${baseUrl}/ru${route === '' ? '/' : route}`,
-      lastModified: currentDate,
-      changeFrequency: route === '/blog' ? 'daily' : 'weekly',
-      priority: route === '' ? 0.8 : route === '/contact' ? 0.7 : 0.6,
-    })
-  })
-
-  // Blog posts - Russian
-  blogPosts.forEach((post) => {
-    sitemap.push({
-      url: `${baseUrl}/ru/blog/${post.slug.current}`,
-      lastModified: new Date(post.publishedAt),
-      changeFrequency: 'monthly',
-      priority: 0.5,
     })
   })
 

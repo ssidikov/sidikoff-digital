@@ -1,9 +1,9 @@
-import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils';
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { BlogPostContent } from '@/components/BlogPostContent'
-import { getBlogPostBySlug, getBlogPosts, urlFor } from '@/lib/sanity'
+import { getBlogPostBySlug, urlFor } from '@/lib/sanity'
 import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
 
@@ -27,10 +27,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     }
   }
 
-  const canonicalUrl =
-    locale === 'fr'
-      ? `https://sidikoff.com/blog/${slug}`
-      : `https://sidikoff.com/${locale}/blog/${slug}`
+  const canonicalUrl = createCanonicalUrl(`blog/${slug}`, locale)
 
   const imageUrl = post.mainImage ? urlFor(post.mainImage).url() : '/images/opengraph-fr.png'
 
@@ -65,28 +62,14 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       creator: '@sidikoffdigital',
     },
     alternates: {
-      canonical: createCanonicalUrl('blog/[slug]', locale),
-      languages: generateAlternateUrls('blog/[slug]'),
+      canonical: createCanonicalUrl(`blog/${slug}`, locale),
+      languages: generateAlternateUrls(`blog/${slug}`),
     },
   }
 }
 
 export async function generateStaticParams() {
-  const posts = await getBlogPosts()
-  const locales: Locale[] = ['en', 'ru'] // Exclude 'fr' as French pages are served without prefix
-
-  const params = []
-
-  for (const locale of locales) {
-    for (const post of posts) {
-      params.push({
-        locale,
-        slug: post.slug.current,
-      })
-    }
-  }
-
-  return params
+  return []
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {

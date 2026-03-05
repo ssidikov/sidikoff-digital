@@ -10,7 +10,6 @@ import { type Dictionary } from '@/lib/dictionaries'
 import { type Locale } from '@/lib/i18n'
 import { getLocalizedUrl } from '@/utils/navigation'
 import { scrollToElementWithRetry } from '@/utils/scroll'
-import { LanguageSwitcher } from './LanguageSwitcher'
 import PopupContactForm from './ui/PopupContactForm'
 
 interface HeaderProps {
@@ -337,9 +336,6 @@ export function Header({ dictionary, locale }: HeaderProps) {
                 </div>
               ))}
 
-              {/* Language Switcher */}
-              <LanguageSwitcher currentLocale={locale} dict={dictionary} />
-
               {/* CTA Button */}
               <button
                 onClick={() => setIsContactPopupOpen(true)}
@@ -351,11 +347,6 @@ export function Header({ dictionary, locale }: HeaderProps) {
 
             {/* Mobile & Tablet Controls */}
             <div className='lg:hidden flex items-center space-x-2'>
-              {/* Language Switcher */}
-              <div className='scale-90'>
-                <LanguageSwitcher currentLocale={locale} dict={dictionary} />
-              </div>
-
               {/* Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}

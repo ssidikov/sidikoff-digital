@@ -50,22 +50,19 @@ export async function generateMetadata({ params }: HomePageProps) {
 // ОПТИМИЗАЦИЯ: Предгенерация статических параметров для всех локалей
 // Next.js сгенерирует эти страницы на этапе build
 export async function generateStaticParams() {
-  return [{ locale: 'fr' }, { locale: 'en' }, { locale: 'ru' }]
+  return [{ locale: 'fr' }]
 }
 
 // ИСПРАВЛЕНО: Добавлена структурированная разметка WebPage
 function generateWebPageSchema(locale: Locale) {
-  const url = locale === 'fr' ? 'https://sidikoff.com' : `https://sidikoff.com/${locale}`
+  const url = locale === 'fr' ? 'https://www.sidikoff.com' : `https://www.sidikoff.com/${locale}`
 
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     '@id': `${url}#webpage`,
     url,
-    name:
-      locale === 'fr'
-        ? 'Agence Web - SIDIKOFF DIGITAL'
-        : 'Web Agency - SIDIKOFF DIGITAL',
+    name: locale === 'fr' ? 'Agence Web - SIDIKOFF DIGITAL' : 'Web Agency - SIDIKOFF DIGITAL',
     description:
       locale === 'fr'
         ? 'Agence web spécialisée dans la création de sites internet modernes et applications web. React, Next.js, SEO optimisé.'

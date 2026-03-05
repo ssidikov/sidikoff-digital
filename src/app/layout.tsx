@@ -5,7 +5,7 @@ import { inter } from '@/lib/fonts'
 
 // SEO Configuration
 const SITE_CONFIG = {
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com',
+  url: 'https://www.sidikoff.com',
   name: 'SIDIKOFF DIGITAL',
   title:
     'Création de sites web | SIDIKOFF DIGITAL - Agence Web | Développement Web Paris, Lyon, Toulouse, Strasbourg',
@@ -87,7 +87,6 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    alternateLocale: ['en_US', 'ru_RU'],
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
     title: SITE_CONFIG.title,
@@ -115,10 +114,6 @@ export const metadata: Metadata = {
     languages: {
       'fr-FR': `${SITE_CONFIG.url}/`,
       fr: `${SITE_CONFIG.url}/`,
-      'en-US': `${SITE_CONFIG.url}/en`,
-      en: `${SITE_CONFIG.url}/en`,
-      'ru-RU': `${SITE_CONFIG.url}/ru`,
-      ru: `${SITE_CONFIG.url}/ru`,
       'x-default': `${SITE_CONFIG.url}/`,
     },
   },

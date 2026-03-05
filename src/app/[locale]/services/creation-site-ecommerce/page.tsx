@@ -22,12 +22,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       keywords: t.keywords,
       ogImage: '/images/og/ecommerce-websites.jpg',
       ogType: 'website',
-    }
+    },
   )
 }
 
 export async function generateStaticParams() {
-  return [{ locale: 'fr' }, { locale: 'en' }, { locale: 'ru' }]
+  return [{ locale: 'fr' }]
 }
 
 export default async function EcommerceLandingPage({ params }: PageProps) {

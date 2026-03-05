@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { locales, defaultLocale } from './lib/i18n'
 
 // Domain configuration
-const PREFERRED_DOMAIN = 'sidikoff.com'
+const PREFERRED_DOMAIN = 'www.sidikoff.com'
 const CANONICAL_PROTOCOL = 'https'
 
 // Constants for better maintainability
@@ -77,7 +77,7 @@ function isDeletedSEOPage(pathname: string): boolean {
 function hasLocalePrefix(pathname: string): boolean {
   const nonDefaultLocales = locales.filter((locale) => locale !== defaultLocale)
   return nonDefaultLocales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   )
 }
 
@@ -216,22 +216,19 @@ export function proxy(request: NextRequest) {
     }
   }
 
-  // Domain canonicalization: redirect www to non-www
+  // Domain canonicalization: non-www → www
+  // vercel.json handles this at CDN level — this is a belt-and-suspenders fallback
   const host = request.headers.get('host')
   const protocol = request.headers.get('x-forwarded-proto') || 'https'
 
-  // Check if we need to redirect from www to non-www (always, not just in production)
-  if (host && (host === 'www.sidikoff.com' || host.startsWith('www.sidikoff.com:'))) {
+  if (host && (host === 'sidikoff.com' || host.startsWith('sidikoff.com:'))) {
     const redirectUrl = new URL(request.url)
     redirectUrl.host = PREFERRED_DOMAIN
     redirectUrl.protocol = CANONICAL_PROTOCOL
 
     return NextResponse.redirect(redirectUrl, {
       status: 301,
-      headers: {
-        'X-Robots-Tag': 'noindex, nofollow',
-        ...SECURITY_HEADERS,
-      },
+      headers: { ...SECURITY_HEADERS },
     })
   }
 
@@ -335,7 +332,7 @@ function generateCSPHeader(isStudio: boolean): string {
       frame-ancestors 'none';
     `
       .replace(/\s{2,}/g, ' ')
-      .trim();
+      .trim()
   }
 
   return `
@@ -353,7 +350,7 @@ function generateCSPHeader(isStudio: boolean): string {
     upgrade-insecure-requests;
   `
     .replace(/\s{2,}/g, ' ')
-    .trim();
+    .trim()
 }
 
 export const config = {
