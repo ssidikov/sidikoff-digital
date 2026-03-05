@@ -73,7 +73,7 @@ export default async function WebRedesignLandingPage({ params }: WebRedesignPage
     availableLanguage: ['fr'],
     serviceType: 'Website Redesign',
     category: 'Web Development',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/services/refonte-sites-web`,
+    url: createCanonicalUrl('services/refonte-sites-web', locale),
   }
 
   return (
@@ -87,8 +87,8 @@ export default async function WebRedesignLandingPage({ params }: WebRedesignPage
         locale={locale}
         breadcrumbs={{
           items: [
-            { label: 'Accueil', href: `/${locale}` },
-            { label: 'Services', href: `/${locale}/services` },
+            { label: 'Accueil', href: '/' },
+            { label: 'Services', href: '/services' },
             { label: 'Redesign de site web' },
           ],
         }}

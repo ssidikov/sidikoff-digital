@@ -39,9 +39,7 @@ export async function generateMetadata({ params }: ParisPageProps): Promise<Meta
       description,
       type: 'website',
       locale,
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${
-        locale === 'fr' ? '' : locale + '/'
-      }services/creation-site-internet-paris`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/services/creation-site-internet-paris`,
       siteName: 'Sidikoff Digital',
       images: [
         {

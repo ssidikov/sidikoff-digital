@@ -242,7 +242,7 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
 
   const handlePlanSelect = (planName: string) => {
     // Redirection vers la page de contact avec le plan présélectionné
-    const contactUrl = `/${locale === 'fr' ? '' : locale + '/'}contact?plan=${planName.toLowerCase()}`
+    const contactUrl = `/contact?plan=${planName.toLowerCase()}`
     window.location.href = contactUrl
   }
 
@@ -619,8 +619,7 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                   size='lg'
                   className='bg-white text-blue-600 hover:bg-gray-100'
                   onClick={() => {
-                    const contactUrl = `/${locale === 'fr' ? '' : locale + '/'}contact`
-                    window.location.href = contactUrl
+                    window.location.href = '/contact'
                   }}>
                   {dict?.pricing?.guide_section?.call_to_action?.button ||
                     'Contactez-moi maintenant'}

@@ -115,13 +115,13 @@ export default function AgenceWebParis15LandingContent({
                 transition={{ delay: 0.5 }}
                 className='flex flex-col sm:flex-row gap-4 mb-12'>
                 <Link
-                  href={`/${locale}/contact`}
+                  href={`/contact`}
                   className='group inline-flex items-center justify-center gap-3 px-8 py-5 bg-linear-to-r from-pink-500 to-purple-600 text-white rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 hover:scale-105'>
                   {content.hero.cta_primary}
                   <ArrowRight className='w-6 h-6 group-hover:translate-x-1 transition-transform' />
                 </Link>
                 <Link
-                  href={`/${locale}/portfolio`}
+                  href={`/portfolio`}
                   className='inline-flex items-center justify-center gap-3 px-8 py-5 bg-white/10 backdrop-blur-md text-white border-2 border-white/30 rounded-2xl font-bold text-lg hover:bg-white/20 transition-all duration-300'>
                   {content.hero.cta_secondary}
                 </Link>
@@ -467,7 +467,7 @@ export default function AgenceWebParis15LandingContent({
             viewport={{ once: true }}
             className='text-center'>
             <Link
-              href={`/${locale}/portfolio`}
+              href={`/portfolio`}
               className='inline-flex items-center gap-3 px-10 py-6 bg-linear-to-r from-indigo-600 to-purple-600 text-white rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-indigo-500/50 transition-all duration-300 hover:scale-105'>
               {content.portfolio_teaser.cta}
               <ArrowRight className='w-6 h-6' />
@@ -521,13 +521,13 @@ export default function AgenceWebParis15LandingContent({
 
             <div className='flex flex-col sm:flex-row gap-6 justify-center'>
               <Link
-                href={`/${locale}/contact`}
+                href={`/contact`}
                 className='group inline-flex items-center justify-center gap-3 px-12 py-6 bg-linear-to-r from-pink-500 to-purple-600 text-white rounded-2xl font-bold text-xl hover:shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 hover:scale-105'>
                 {content.cta.button}
                 <ArrowRight className='w-7 h-7 group-hover:translate-x-1 transition-transform' />
               </Link>
               <Link
-                href={`/${locale}/portfolio`}
+                href={`/portfolio`}
                 className='inline-flex items-center justify-center gap-3 px-12 py-6 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-2xl font-bold text-xl hover:bg-white/20 transition-all duration-300'>
                 Voir nos projets
               </Link>

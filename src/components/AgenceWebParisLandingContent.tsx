@@ -137,13 +137,13 @@ const AgenceWebParisLandingContent: React.FC<AgenceWebParisLandingContentProps> 
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className='flex flex-col sm:flex-row gap-4'>
                 <Link
-                  href={locale === 'fr' ? '/contact' : `/${locale}/contact`}
+                  href='/contact'
                   className='inline-flex items-center px-8 py-4 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 hover:shadow-xl'>
                   {content.hero.cta_primary}
                   <ArrowRight className='ml-2 h-5 w-5' />
                 </Link>
                 <Link
-                  href={locale === 'fr' ? '/projects' : `/${locale}/projects`}
+                  href='/projects'
                   className='inline-flex items-center px-8 py-4 border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white font-semibold rounded-lg transition-all duration-300'>
                   {content.hero.cta_secondary}
                 </Link>
@@ -349,7 +349,7 @@ const AgenceWebParisLandingContent: React.FC<AgenceWebParisLandingContentProps> 
 
       {/* Portfolio Section - Using existing Portfolio component */}
       <Portfolio
-        locale={locale as 'fr' | 'en' | 'ru'}
+        locale={locale as 'fr'}
         dictionary={{
           title: content.portfolio_teaser.title,
           subtitle: content.portfolio_teaser.description,
@@ -391,7 +391,7 @@ const AgenceWebParisLandingContent: React.FC<AgenceWebParisLandingContentProps> 
             <p className='text-xl mb-8 opacity-90'>{content.cta.description}</p>
 
             <Link
-              href={locale === 'fr' ? '/contact' : `/${locale}/contact`}
+              href='/contact'
               className='inline-flex items-center px-10 py-5 bg-white text-blue-900 font-bold text-lg rounded-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl'>
               {content.cta.button}
               <ArrowRight className='ml-3 h-6 w-6' />

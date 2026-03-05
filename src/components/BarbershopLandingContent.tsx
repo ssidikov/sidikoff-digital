@@ -131,7 +131,7 @@ export default function BarbershopLandingContent({
     }
   }
 
-  const contactUrl = locale === 'fr' ? '/contact' : `/${locale}/contact`
+  const contactUrl = '/contact'
 
   return (
     <div className='min-h-screen bg-linear-to-b from-slate-50 to-white'>

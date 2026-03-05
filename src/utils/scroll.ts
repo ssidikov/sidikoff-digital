@@ -52,8 +52,8 @@ export function scrollToElementWithRetry(
   })
 }
 
-export function handleAnchorNavigation(href: string, currentPath: string, locale: string): boolean {
-  const homeUrl = `/${locale === 'fr' ? '' : locale}`
+export function handleAnchorNavigation(href: string, currentPath: string): boolean {
+  const homeUrl = '/'
   const isOnHomePage = currentPath === homeUrl || currentPath === `${homeUrl}/`
   
   if (href.includes('#')) {

@@ -54,8 +54,8 @@ export async function generateStaticParams() {
 }
 
 // ИСПРАВЛЕНО: Добавлена структурированная разметка WebPage
-function generateWebPageSchema(locale: Locale) {
-  const url = locale === 'fr' ? 'https://www.sidikoff.com' : `https://www.sidikoff.com/${locale}`
+function generateWebPageSchema() {
+  const url = 'https://www.sidikoff.com'
 
   return {
     '@context': 'https://schema.org',
@@ -65,10 +65,10 @@ function generateWebPageSchema(locale: Locale) {
     name: 'Agence Web - SIDIKOFF DIGITAL',
     description:
       'Agence web spécialisée dans la création de sites internet modernes et applications web. React, Next.js, SEO optimisé.',
-    inLanguage: locale,
+    inLanguage: 'fr',
     isPartOf: {
       '@type': 'WebSite',
-      '@id': 'https://sidikoff.com#website',
+      '@id': 'https://www.sidikoff.com#website',
     },
     breadcrumb: {
       '@type': 'BreadcrumbList',
@@ -83,7 +83,7 @@ function generateWebPageSchema(locale: Locale) {
     },
     mainEntity: {
       '@type': 'Organization',
-      '@id': 'https://sidikoff.com#organization',
+      '@id': 'https://www.sidikoff.com#organization',
     },
   }
 }
@@ -94,7 +94,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
   // ИСПРАВЛЕНО: Упрощенная схема данных
   const parisLocation = businessLocations.find((loc) => loc.address.addressLocality === 'Paris')!
-  const webPageSchema = generateWebPageSchema(locale)
+  const webPageSchema = generateWebPageSchema()
 
   return (
     <>

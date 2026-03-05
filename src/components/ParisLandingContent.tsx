@@ -276,7 +276,7 @@ export default function ParisLandingContent({ locale }: ParisLandingContentProps
                   <CTAButton
                     variant='primary'
                     size='md'
-                    href={locale === 'fr' ? '/contact' : `/${locale}/contact`}
+                    href='/contact'
                     className='w-full sm:w-auto flex-1 sm:flex-initial min-w-0 shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base xl:text-lg'>
                     <span className='mr-2 truncate'>{content.hero.ctaPrimary}</span>
                     <ArrowIcon />
@@ -285,7 +285,7 @@ export default function ParisLandingContent({ locale }: ParisLandingContentProps
                   <CTAButton
                     variant='secondary'
                     size='md'
-                    href={locale === 'fr' ? '/projects' : `/${locale}/projects`}
+                    href='/projects'
                     className='w-full sm:w-auto flex-1 sm:flex-initial min-w-0 text-sm sm:text-base lg:text-lg'>
                     <PlayIcon />
                     <span className='ml-2 truncate'>{content.hero.ctaSecondary}</span>
@@ -362,11 +362,7 @@ export default function ParisLandingContent({ locale }: ParisLandingContentProps
                   </h3>
                   <p className='text-gray-600 mb-6 leading-relaxed'>{service.description}</p>
                   <Link
-                    href={
-                      locale === 'fr'
-                        ? `/services/${service.serviceType}`
-                        : `/${locale}/services/${service.serviceType}`
-                    }
+                    href={`/services/${service.serviceType}`}
                     className='text-black hover:text-gray-700 font-semibold inline-flex items-center group-hover:translate-x-1 transition-all'>
                     En savoir plus
                     <svg
@@ -462,7 +458,7 @@ export default function ParisLandingContent({ locale }: ParisLandingContentProps
               {content.cta.buttons.map((button, index) => (
                 <CTAButton
                   key={index}
-                  href={locale === 'fr' ? button.href : `/${locale}${button.href}`}
+                  href={button.href}
                   variant={button.variant === 'primary' ? 'primary' : 'secondary'}
                   size='lg'
                   className={

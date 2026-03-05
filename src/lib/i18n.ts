@@ -1,4 +1,4 @@
-export type Locale = 'fr' | 'en' | 'ru'
+export type Locale = 'fr'
 
 export const locales: Locale[] = ['fr']
 export const defaultLocale: Locale = 'fr' // French as default for the French market
@@ -6,24 +6,16 @@ export const defaultLocale: Locale = 'fr' // French as default for the French ma
 // Language metadata configuration
 export const LANGUAGE_CONFIG = {
   names: {
-    en: 'English',
     fr: 'Français',
-    ru: 'Русский',
   },
   flags: {
-    en: '🇺🇸',
     fr: '🇫🇷',
-    ru: '🇷🇺',
   },
   localeMap: {
-    en: 'en-US',
     fr: 'fr-FR',
-    ru: 'ru-RU',
   },
   currencies: {
-    en: 'USD',
     fr: 'EUR',
-    ru: 'RUB',
   },
 } as const
 
@@ -66,15 +58,10 @@ export function removeLocaleFromPathname(pathname: string, locale: Locale): stri
 
 /**
  * Add locale to pathname
- * For French (default locale), don't add locale prefix - serve at root
+ * French is the only locale, always serve at root (no locale prefix)
  */
 export function addLocaleToPathname(pathname: string, locale: Locale): string {
-  if (locale === defaultLocale) {
-    return pathname.startsWith('/') ? pathname : `/${pathname}`
-  }
-
-  const cleanPath = pathname.startsWith('/') ? pathname.slice(1) : pathname
-  return `/${locale}/${cleanPath}`.replace(/\/+/g, '/').replace(/\/$/, '') || `/${locale}`
+  return pathname.startsWith('/') ? pathname : `/${pathname}`
 }
 
 /**

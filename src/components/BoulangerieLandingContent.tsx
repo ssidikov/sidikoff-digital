@@ -137,7 +137,7 @@ export default function BoulangerieLandingContent({
     }
   }
 
-  const contactUrl = locale === 'fr' ? '/contact' : `/${locale}/contact`
+  const contactUrl = '/contact'
 
   return (
     <div className='min-h-screen bg-linear-to-b from-amber-50 to-white'>
@@ -179,7 +179,7 @@ export default function BoulangerieLandingContent({
                   <ArrowRight className='w-5 h-5 ml-2' />
                 </Link>
                 <Link
-                  href={`/${locale}/projects`}
+                  href='/projects'
                   className='inline-flex items-center justify-center px-8 py-4 border-2 border-amber-600 text-amber-600 rounded-lg font-semibold hover:bg-amber-50 transition-colors'>
                   {t.hero.cta_secondary}
                 </Link>
@@ -525,7 +525,7 @@ export default function BoulangerieLandingContent({
                 <ArrowRight className='w-5 h-5 ml-2' />
               </Link>
               <Link
-                href={`/${locale}/projects`}
+                href='/projects'
                 className='inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-colors'>
                 {t.cta.secondary_button}
               </Link>

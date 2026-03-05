@@ -155,7 +155,7 @@ export default function EcommerceLandingContent({
 
               <div className='flex flex-col sm:flex-row gap-4'>
                 <Link
-                  href={`/${locale}/contact`}
+                  href={`/contact`}
                   className='inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors'>
                   <ShoppingCart className='w-5 h-5 mr-2' />
                   {t.hero.cta_primary}
@@ -440,7 +440,7 @@ export default function EcommerceLandingContent({
                 </ul>
 
                 <Link
-                  href={`/${locale}/contact`}
+                  href={`/contact`}
                   className={`block w-full text-center py-4 px-6 rounded-lg font-semibold transition-colors ${
                     pkg.is_popular
                       ? 'bg-blue-600 text-white hover:bg-blue-700'
@@ -508,7 +508,7 @@ export default function EcommerceLandingContent({
             <h2 className='text-3xl lg:text-4xl font-bold text-white mb-6'>{t.cta.title}</h2>
             <p className='text-xl text-blue-100 mb-8 max-w-2xl mx-auto'>{t.cta.description}</p>
             <Link
-              href={`/${locale}/contact`}
+              href={`/contact`}
               className='inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors'>
               <ShoppingCart className='w-5 h-5 mr-2' />
               {t.cta.button}

@@ -40,19 +40,7 @@ export interface LocalBusiness {
 
 // Helper function to get locale-specific OG image
 export function getLocalizedOgImage(locale: Locale, customImage?: string): string {
-  // If a custom image is provided, return it
-  if (customImage) {
-    return customImage
-  }
-
-  // Return locale-specific default OG image
-  const localeImages = {
-    fr: '/images/opengraph-fr.png',
-    en: '/images/opengraph-en.png',
-    ru: '/images/opengraph-ru.png',
-  }
-
-  return localeImages[locale] || localeImages.fr
+  return customImage ?? '/images/opengraph-fr.png'
 }
 
 // Default SEO configuration
@@ -107,7 +95,7 @@ export function generateAlternateUrls(path: string): Record<Locale, string> {
 export const businessLocations: LocalBusiness[] = [
   {
     name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Paris',
-    url: 'https://sidikoff.com',
+    url: 'https://www.sidikoff.com',
     address: {
       streetAddress: '77 Ter Rue Michel Ange',
       addressLocality: 'Paris',
@@ -125,7 +113,7 @@ export const businessLocations: LocalBusiness[] = [
   },
   {
     name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Toulouse',
-    url: 'https://sidikoff.com',
+    url: 'https://www.sidikoff.com',
     address: {
       streetAddress: 'Service à domicile',
       addressLocality: 'Toulouse',
@@ -143,7 +131,7 @@ export const businessLocations: LocalBusiness[] = [
   },
   {
     name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Lyon',
-    url: 'https://sidikoff.com',
+    url: 'https://www.sidikoff.com',
     address: {
       streetAddress: 'Service à domicile',
       addressLocality: 'Lyon',
@@ -161,7 +149,7 @@ export const businessLocations: LocalBusiness[] = [
   },
   {
     name: 'SIDIKOFF DIGITAL - Développeur Web Freelance à Villeurbanne',
-    url: 'https://sidikoff.com',
+    url: 'https://www.sidikoff.com',
     address: {
       streetAddress: '73 Rue Racine',
       addressLocality: 'Villeurbanne',
@@ -179,7 +167,7 @@ export const businessLocations: LocalBusiness[] = [
   },
   {
     name: 'SIDIKOFF DIGITAL - Développeur Web Freelance à Caluire-et-Cuire',
-    url: 'https://sidikoff.com',
+    url: 'https://www.sidikoff.com',
     address: {
       streetAddress: 'Service à domicile',
       addressLocality: 'Caluire-et-Cuire',
@@ -197,7 +185,7 @@ export const businessLocations: LocalBusiness[] = [
   },
   {
     name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Strasbourg',
-    url: 'https://sidikoff.com',
+    url: 'https://www.sidikoff.com',
     address: {
       streetAddress: 'Service à domicile',
       addressLocality: 'Strasbourg',
@@ -334,16 +322,8 @@ export function generateLanguageAlternates(
 export function createCanonicalUrl(path: string, locale: Locale): string {
   const cleanPath = path.startsWith('/') ? path.slice(1) : path
 
-  // French is the default locale, no prefix needed
-  if (locale === 'fr') {
-    // Always include trailing slash for homepage to match browser behavior
-    // For other pages, add leading slash before the path
-    return `${DEFAULT_SEO.siteUrl}${cleanPath ? '/' + cleanPath : '/'}`
-  }
-
-  // Other locales get prefixes
-  // Always include trailing slash for homepage, leading slash for other pages
-  return `${DEFAULT_SEO.siteUrl}/${locale}${cleanPath ? '/' + cleanPath : '/'}`
+  // French is the only locale, no prefix needed
+  return `${DEFAULT_SEO.siteUrl}${cleanPath ? '/' + cleanPath : '/'}`
 }
 
 // Generate local business schema
@@ -442,13 +422,13 @@ export function generateLocalBusinessSchema(
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  '@id': 'https://sidikoff.com#Organization',
+  '@id': 'https://www.sidikoff.com#Organization',
   name: 'SIDIKOFF DIGITAL',
   legalName: 'SIDIKOFF DIGITAL - Création de Sites Web | Agence Web',
-  url: 'https://sidikoff.com',
+  url: 'https://www.sidikoff.com',
   logo: {
     '@type': 'ImageObject',
-    url: 'https://sidikoff.com/images/logo-sidikoff.svg',
+    url: 'https://www.sidikoff.com/images/logo-sidikoff.svg',
     width: 300,
     height: 100,
   },
@@ -459,7 +439,7 @@ export const organizationSchema = {
     '@type': 'Person',
     name: 'Sardorbek SIDIKOV',
     jobTitle: 'Développeur Web Full Stack',
-    url: 'https://sidikoff.com/',
+    url: 'https://www.sidikoff.com/',
     sameAs: ['https://github.com/ssidikov', 'https://linkedin.com/in/sardorbeksidikov'],
   },
   contactPoint: [
@@ -598,9 +578,9 @@ export function generateReviewStructuredData(
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    '@id': 'https://sidikoff.com#Organization',
+    '@id': 'https://www.sidikoff.com#Organization',
     name: 'SIDIKOFF DIGITAL',
-    url: 'https://sidikoff.com',
+    url: 'https://www.sidikoff.com',
     description: 'Développeur Web Full Stack - Création de sites web professionnels',
     aggregateRating: {
       '@type': 'AggregateRating',
@@ -682,15 +662,15 @@ export function generateArticleSchema(article: {
     author: {
       '@type': 'Person',
       name: article.authorName,
-      url: article.authorUrl || 'https://sidikoff.com',
+      url: article.authorUrl || 'https://www.sidikoff.com',
     },
     publisher: {
       '@type': 'Organization',
       name: 'SIDIKOFF DIGITAL',
-      url: 'https://sidikoff.com',
+      url: 'https://www.sidikoff.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://sidikoff.com/logo-sidikoff.webp',
+        url: 'https://www.sidikoff.com/logo-sidikoff.webp',
         width: 512,
         height: 512,
       },

@@ -69,8 +69,8 @@ export default async function RestaurantWebsitesPage({ params }: Props) {
 
   const breadcrumbs = {
     items: [
-      { label: dictionary.navigation.home, href: `/${locale}` },
-      { label: dictionary.navigation.services, href: `/${locale}/services` },
+      { label: dictionary.navigation.home, href: '/' },
+      { label: dictionary.navigation.services, href: '/services' },
       { label: 'Sites Web Restaurant' },
     ],
   }

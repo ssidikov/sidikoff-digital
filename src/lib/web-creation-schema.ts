@@ -1,4 +1,4 @@
-import { type Locale } from '@/lib/i18n'
+import { DEFAULT_SEO } from '@/lib/seo-utils'
 
 interface WebCreationServiceSchema {
   '@context': string
@@ -22,34 +22,17 @@ interface WebCreationServiceSchema {
   url: string
 }
 
-export function generateWebCreationSchema(locale: Locale): WebCreationServiceSchema {
-  const baseUrl = 'https://sidikoff.com'
-  const serviceUrl =
-    locale === 'fr'
-      ? `${baseUrl}/services/creation-sites-web`
-      : `${baseUrl}/${locale}/services/creation-sites-web`
-
-  const titles = {
-    fr: 'Création de Sites Web Sur Mesure',
-    en: 'Custom Website Creation',
-    ru: 'Создание Сайтов на Заказ',
-  }
-
-  const descriptions = {
-    fr: 'Service professionnel de création de sites web modernes, rapides et optimisés SEO. De la conception UX/UI à la mise en ligne avec React, Next.js, Tailwind CSS.',
-    en: 'Professional service for creating modern, fast and SEO-optimized websites. From UX/UI design to launch with React, Next.js, Tailwind CSS.',
-    ru: 'Профессиональный сервис создания современных, быстрых и SEO-оптимизированных сайтов. От UX/UI дизайна до запуска с React, Next.js, Tailwind CSS.',
-  }
-
+export function generateWebCreationSchema(): WebCreationServiceSchema {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: titles[locale],
-    description: descriptions[locale],
+    name: 'Création de Sites Web Sur Mesure',
+    description:
+      'Service professionnel de création de sites web modernes, rapides et optimisés SEO. De la conception UX/UI à la mise en ligne avec React, Next.js, Tailwind CSS.',
     provider: {
       '@type': 'Organization',
       name: 'SIDIKOFF DIGITAL',
-      url: baseUrl,
+      url: DEFAULT_SEO.siteUrl,
     },
     offers: {
       '@type': 'Offer',
@@ -60,6 +43,6 @@ export function generateWebCreationSchema(locale: Locale): WebCreationServiceSch
     },
     serviceType: 'Web Development',
     areaServed: 'France',
-    url: serviceUrl,
+    url: `${DEFAULT_SEO.siteUrl}/services/creation-sites-web`,
   }
 }

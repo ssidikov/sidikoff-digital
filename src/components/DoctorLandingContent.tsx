@@ -148,7 +148,7 @@ export default function DoctorLandingContent({ dictionary, locale }: DoctorLandi
 
               <div className='flex flex-col sm:flex-row gap-4'>
                 <Link
-                  href={`/${locale}/contact`}
+                  href={`/contact`}
                   className='inline-flex items-center px-8 py-4 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors'>
                   <Calendar className='w-5 h-5 mr-2' />
                   {t.hero.cta_primary}
@@ -438,7 +438,7 @@ export default function DoctorLandingContent({ dictionary, locale }: DoctorLandi
                 </ul>
 
                 <Link
-                  href={`/${locale}/contact`}
+                  href={`/contact`}
                   className={`block w-full text-center py-4 px-6 rounded-lg font-semibold transition-colors ${
                     pkg.is_popular
                       ? 'bg-green-600 text-white hover:bg-green-700'
@@ -506,7 +506,7 @@ export default function DoctorLandingContent({ dictionary, locale }: DoctorLandi
             <h2 className='text-3xl lg:text-4xl font-bold text-white mb-6'>{t.cta.title}</h2>
             <p className='text-xl text-green-100 mb-8 max-w-2xl mx-auto'>{t.cta.description}</p>
             <Link
-              href={`/${locale}/contact`}
+              href={`/contact`}
               className='inline-flex items-center px-8 py-4 bg-white text-green-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors'>
               <Calendar className='w-5 h-5 mr-2' />
               {t.cta.button}

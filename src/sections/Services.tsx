@@ -36,17 +36,17 @@ const CTA_BANNER_ANIMATIONS = {
 } as const
 
 /**
- * Generate contact URL based on locale
+ * Generate contact URL
  */
-const getContactUrl = (locale: Locale): string => {
-  return locale === 'fr' ? '/contact' : `/${locale}/contact`
+const getContactUrl = (): string => {
+  return '/contact'
 }
 
 /**
- * Generate service landing page URL based on locale and service type
+ * Generate service landing page URL based on service type
  */
-const getServiceUrl = (locale: Locale, service: string): string => {
-  return locale === 'fr' ? `/services/${service}` : `/${locale}/services/${service}`
+const getServiceUrl = (service: string): string => {
+  return `/services/${service}`
 }
 
 /**
@@ -133,12 +133,12 @@ export function Services({
     },
   ] as const
 
-  const contactUrl = getContactUrl(locale)
-  const webCreationUrl = getServiceUrl(locale, 'creation-sites-web')
-  const webRedesignUrl = getServiceUrl(locale, 'refonte-sites-web')
-  const seoOptimizationUrl = getServiceUrl(locale, 'optimisation-seo')
-  const restaurantUrl = getServiceUrl(locale, 'restaurant-websites')
-  const maintenanceUrl = getServiceUrl(locale, 'maintenance-support')
+  const contactUrl = getContactUrl()
+  const webCreationUrl = getServiceUrl('creation-sites-web')
+  const webRedesignUrl = getServiceUrl('refonte-sites-web')
+  const seoOptimizationUrl = getServiceUrl('optimisation-seo')
+  const restaurantUrl = getServiceUrl('restaurant-websites')
+  const maintenanceUrl = getServiceUrl('maintenance-support')
 
   return (
     <Section

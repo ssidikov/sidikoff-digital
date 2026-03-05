@@ -145,7 +145,7 @@ const TravelAgencyLandingContent: React.FC<TravelAgencyLandingContentProps> = ({
               <p className='text-xl md:text-2xl mb-8 text-blue-100'>{content.hero.subtitle}</p>
               <div className='flex flex-col sm:flex-row gap-4 justify-center lg:justify-start'>
                 <Link
-                  href={`/${locale}/contact`}
+                  href={`/contact`}
                   className='inline-flex items-center px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg'>
                   {content.hero.cta_primary}
                   <ArrowRight className='ml-2 h-5 w-5' />
@@ -578,13 +578,13 @@ const TravelAgencyLandingContent: React.FC<TravelAgencyLandingContentProps> = ({
             <p className='text-xl text-blue-100 mb-8 max-w-2xl mx-auto'>{content.cta.subtitle}</p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               <Link
-                href={`/${locale}/contact`}
+                href={`/contact`}
                 className='inline-flex items-center px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg'>
                 {content.cta.primary}
                 <ArrowRight className='ml-2 h-5 w-5' />
               </Link>
               <Link
-                href={`/${locale}/portfolio`}
+                href={`/portfolio`}
                 className='inline-flex items-center px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-blue-900 font-semibold rounded-lg transition-all duration-300'>
                 {content.cta.secondary}
               </Link>

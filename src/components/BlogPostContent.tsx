@@ -12,7 +12,7 @@ import { getBlogUrl, getLocalizedUrl } from '@/utils/navigation'
 
 import { BlogPost, urlFor } from '@/lib/sanity'
 import Section from '@/components/ui/Section'
-import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo-utils'
+import { generateArticleSchema, generateBreadcrumbSchema, DEFAULT_SEO } from '@/lib/seo-utils'
 
 interface BlogPostContentProps {
   post: BlogPost
@@ -304,10 +304,7 @@ export function BlogPostContent({ post, dictionary, locale }: BlogPostContentPro
   }
 
   // Generate structured data
-  const articleUrl =
-    locale === 'fr'
-      ? `https://sidikoff.com/blog/${post.slug.current}`
-      : `https://sidikoff.com/${locale}/blog/${post.slug.current}`
+  const articleUrl = `${DEFAULT_SEO.siteUrl}/blog/${post.slug.current}`
 
   const articleSchema = generateArticleSchema({
     title: post.title,
@@ -316,11 +313,10 @@ export function BlogPostContent({ post, dictionary, locale }: BlogPostContentPro
     imageUrl: imageUrl,
     publishedAt: post.publishedAt,
     authorName: post.author?.name || 'SIDIKOFF DIGITAL',
-    authorUrl: 'https://sidikoff.com',
+    authorUrl: 'https://www.sidikoff.com',
   })
 
-  const blogUrl =
-    locale === 'fr' ? 'https://sidikoff.com/blog' : `https://sidikoff.com/${locale}/blog`
+  const blogUrl = `${DEFAULT_SEO.siteUrl}/blog`
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: dictionary.back_to_blog, url: blogUrl },
     { name: post.title, url: articleUrl },

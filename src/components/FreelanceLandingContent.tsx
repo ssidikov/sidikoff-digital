@@ -145,7 +145,7 @@ export default function FreelanceLandingContent({
     }
   }
 
-  const contactUrl = locale === 'fr' ? '/contact' : `/${locale}/contact`
+  const contactUrl = '/contact'
 
   return (
     <div className='min-h-screen bg-linear-to-b from-blue-50 to-white'>

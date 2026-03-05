@@ -227,13 +227,13 @@ export default function RestaurantLandingContent({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}>
                 <Link
-                  href={`/${locale}/contact`}
+                  href={`/contact`}
                   className='inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-[var(--accent)] rounded-lg hover:bg-[var(--accent-dark)] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'>
                   {t.hero.cta_primary}
                   <ArrowRight className='w-5 h-5 ml-2' />
                 </Link>
                 <Link
-                  href={`/${locale}/projects`}
+                  href={`/projects`}
                   className='inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-[var(--accent)] bg-white border-2 border-[var(--accent)] rounded-lg hover:bg-[var(--accent)] hover:text-white transition-all duration-300'>
                   {t.hero.cta_secondary}
                 </Link>
@@ -417,7 +417,7 @@ export default function RestaurantLandingContent({
                 )}
 
                 <Link
-                  href={`/${locale}/contact`}
+                  href={`/contact`}
                   className={`block w-full text-center py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${
                     pkg.is_popular || pkg.popular
                       ? 'bg-[var(--accent)] text-white hover:bg-[var(--accent-dark)]'
@@ -471,7 +471,7 @@ export default function RestaurantLandingContent({
                 </ul>
 
                 <Link
-                  href={`/${locale}/contact`}
+                  href={`/contact`}
                   className='block w-full text-center py-3 px-6 rounded-lg font-semibold bg-gray-100 text-gray-800 hover:bg-gray-200 transition-all duration-300'>
                   Choisir ce Support
                 </Link>
@@ -693,13 +693,13 @@ export default function RestaurantLandingContent({
             <p className='text-xl mb-8 opacity-90 max-w-2xl mx-auto'>{t.cta.description}</p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center mb-6'>
               <Link
-                href={`/${locale}/contact`}
+                href={`/contact`}
                 className='bg-white text-[var(--accent)] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2'>
                 {t.cta.primary_button}
                 <ArrowRight className='w-5 h-5' />
               </Link>
               <Link
-                href={`/${locale}/contact`}
+                href={`/contact`}
                 className='border-2 border-white text-white hover:bg-white hover:text-[var(--accent)] px-8 py-4 rounded-lg font-semibold transition-all duration-300'>
                 {t.cta.secondary_button}
               </Link>

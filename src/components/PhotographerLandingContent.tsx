@@ -157,13 +157,13 @@ export default function PhotographerLandingContent({
               </div>
 
               <div className='flex flex-col sm:flex-row gap-4'>
-                <Link href={`/${locale}#contact`} className='group'>
+                <Link href={`/#contact`} className='group'>
                   <button className='w-full sm:w-auto px-8 py-4 bg-orange-600 text-white rounded-xl font-semibold hover:bg-orange-700 transition-all duration-300 flex items-center justify-center group-hover:shadow-lg group-hover:shadow-orange-200'>
                     {t.hero.cta_primary}
                     <ArrowRight className='w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform' />
                   </button>
                 </Link>
-                <Link href={`/${locale}#portfolio`}>
+                <Link href={`/#portfolio`}>
                   <button className='w-full sm:w-auto px-8 py-4 border-2 border-orange-200 text-orange-600 rounded-xl font-semibold hover:border-orange-300 hover:bg-orange-50 transition-all duration-300'>
                     {t.hero.cta_secondary}
                   </button>
@@ -463,7 +463,7 @@ export default function PhotographerLandingContent({
                     </li>
                   ))}
                 </ul>
-                <Link href={`/${locale}#contact`}>
+                <Link href={`/#contact`}>
                   <button
                     className={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-300 ${
                       pkg.is_popular

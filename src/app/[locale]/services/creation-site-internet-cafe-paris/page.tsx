@@ -42,11 +42,11 @@ export async function generateMetadata({ params }: CafeParisPageProps): Promise<
       description,
       type: 'website',
       locale,
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'}/services/creation-site-internet-cafe-paris`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/services/creation-site-internet-cafe-paris`,
       siteName: 'Sidikoff Digital',
       images: [
         {
-          url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'}/images/og/creation-site-cafe-paris.jpg`,
+          url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/images/og/creation-site-cafe-paris.jpg`,
           width: 1200,
           height: 630,
           alt: title,
@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: CafeParisPageProps): Promise<
       title,
       description,
       images: [
-        `${process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'}/images/og/creation-site-cafe-paris.jpg`,
+        `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/images/og/creation-site-cafe-paris.jpg`,
       ],
     },
   }

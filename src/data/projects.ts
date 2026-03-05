@@ -20,9 +20,9 @@ function normalizeProjects(data: unknown[]): Project[] {
   )
 }
 
-export const getProjects = (locale: string = 'fr'): Project[] => {
+export const getProjects = (): Project[] => {
   return normalizeProjects(frProjects as unknown[]).reverse()
 }
 
 // Export a default projects array for backwards compatibility
-export const projects: Project[] = getProjects('fr')
+export const projects: Project[] = getProjects()

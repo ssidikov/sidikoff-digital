@@ -137,7 +137,7 @@ export default function WebCreationLandingContent({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}>
                 <Link
-                  href={`/${locale}/contact`}
+                  href={`/contact`}
                   className='inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-[var(--accent)] rounded-lg hover:bg-[var(--accent-dark)] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'>
                   {t.hero.cta_primary}
                   <ArrowRight className='w-5 h-5 ml-2' />
@@ -292,7 +292,7 @@ export default function WebCreationLandingContent({
             <p className='text-xl mb-8 opacity-90 max-w-2xl mx-auto'>{t.cta.description}</p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               <Link
-                href={`/${locale}/contact`}
+                href={`/contact`}
                 className='bg-white text-[var(--accent)] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2'>
                 {t.cta.primary_button}
                 <ArrowRight className='w-5 h-5' />

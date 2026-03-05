@@ -5,6 +5,7 @@ import {
   generateAlternateUrls,
   generateFAQStructuredData,
   generateBreadcrumbStructuredData,
+  DEFAULT_SEO,
 } from '@/lib/seo-utils'
 
 import VilleurbanneLandingContent from '@/components/VilleurbanneLandingContent'
@@ -18,7 +19,6 @@ interface VilleurbannPageProps {
 // ─── SEO Slug (same across locales, route is locale-prefixed) ────────────────
 
 const PAGE_PATH = 'services/creation-site-web-villeurbanne'
-const SITE_URL = 'https://sidikoff.com'
 
 // ─── Content Data ───────────────────────────────────────────────────────────────
 
@@ -131,7 +131,7 @@ export async function generateMetadata({ params }: VilleurbannPageProps): Promis
       siteName: 'SIDIKOFF DIGITAL',
       images: [
         {
-          url: `${SITE_URL}/images/og/creation-site-web-villeurbanne.jpg`,
+          url: `${DEFAULT_SEO.siteUrl}/images/og/creation-site-web-villeurbanne.jpg`,
           width: 1200,
           height: 630,
           alt: content.title,
@@ -142,7 +142,7 @@ export async function generateMetadata({ params }: VilleurbannPageProps): Promis
       card: 'summary_large_image',
       title: content.title,
       description: content.description,
-      images: [`${SITE_URL}/images/og/creation-site-web-villeurbanne.jpg`],
+      images: [`${DEFAULT_SEO.siteUrl}/images/og/creation-site-web-villeurbanne.jpg`],
       creator: '@sidikoffdigital',
     },
   }
@@ -156,14 +156,14 @@ function getStructuredData(locale: Locale) {
   const professionalService = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    '@id': `${SITE_URL}#LocalBusiness-villeurbanne`,
+    '@id': `${DEFAULT_SEO.siteUrl}#LocalBusiness-villeurbanne`,
     name: 'SIDIKOFF DIGITAL – Développeur Web Freelance à Villeurbanne',
     description:
       'Développeur web freelance spécialisé en création de sites internet à Villeurbanne et Lyon métropole. Sites vitrines, e-commerce, SEO technique.',
     url: canonical,
     telephone: '+33626932734',
     email: 's.sidikoff@gmail.com',
-    image: `${SITE_URL}/images/og/creation-site-web-villeurbanne.jpg`,
+    image: `${DEFAULT_SEO.siteUrl}/images/og/creation-site-web-villeurbanne.jpg`,
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Villeurbanne',
@@ -218,7 +218,7 @@ function getStructuredData(locale: Locale) {
     '@type': 'Person',
     name: 'Sardorbek SIDIKOV',
     jobTitle: 'Développeur Web Freelance',
-    url: SITE_URL,
+    url: DEFAULT_SEO.siteUrl,
     worksFor: {
       '@type': 'Organization',
       name: 'SIDIKOFF DIGITAL',

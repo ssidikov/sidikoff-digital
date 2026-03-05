@@ -71,18 +71,18 @@ export default async function WebCreationPage({ params }: WebCreationPageProps) 
       items: [
         {
           label: 'Accueil',
-          href: `/${locale === 'fr' ? '' : locale}`,
+          href: '/',
         },
         {
           label: 'Services',
-          href: `/${locale === 'fr' ? '' : locale}services`,
+          href: '/services',
         },
         { label: dictionary.web_creation_landing.hero.title },
       ],
     }
 
     // Generate JSON-LD schema
-    const schema = generateWebCreationSchema(locale)
+    const schema = generateWebCreationSchema()
 
     return (
       <LocaleProvider locale={locale}>

@@ -15,7 +15,7 @@ interface ProjectPageProps {
 }
 
 function findProject(locale: Locale, id: string) {
-  const localizedProject = getProjects(locale).find((project) => project.id === id)
+  const localizedProject = getProjects().find((project) => project.id === id)
 
   if (localizedProject) {
     return localizedProject
@@ -55,8 +55,6 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
       canonical: `${baseUrl}${projectUrl}`,
       languages: {
         fr: `${baseUrl}${getProjectUrl(id, 'fr')}`,
-        en: `${baseUrl}${getProjectUrl(id, 'en')}`,
-        ru: `${baseUrl}${getProjectUrl(id, 'ru')}`,
       },
     },
     openGraph: {

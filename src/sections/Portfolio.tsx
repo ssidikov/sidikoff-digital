@@ -24,7 +24,7 @@ export default function Portfolio({
   className,
   isHomePage = false,
 }: PortfolioProps) {
-  const projects = getProjects(locale)
+  const projects = getProjects()
   const carouselItems = convertProjectsToPortfolioItems(projects)
 
   return (

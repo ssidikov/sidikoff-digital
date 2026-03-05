@@ -123,7 +123,7 @@ export default function MaintenanceLandingContent({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.8 }}>
                 <Link
-                  href={`/${locale}/contact`}
+                  href={`/contact`}
                   className='inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-[var(--accent)] rounded-lg hover:bg-[var(--accent-dark)] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'>
                   {t.hero.cta_primary}
                 </Link>
@@ -271,7 +271,7 @@ export default function MaintenanceLandingContent({
             <h2 className='text-4xl font-bold text-white'>{t.cta.title}</h2>
             <p className='text-xl text-white/90 max-w-2xl mx-auto'>{t.cta.description}</p>
             <Link
-              href={`/${locale}/contact`}
+              href={`/contact`}
               className='inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-[var(--accent)] bg-white rounded-lg hover:bg-gray-50 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'>
               {t.cta.primary_button}
             </Link>

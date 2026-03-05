@@ -15,8 +15,8 @@ export function CTASection({ dictionary, locale, industryConfig }: SectionProps)
     return null
   }
 
-  // Generate contact URL based on locale
-  const contactUrl = locale === 'fr' ? '/contact' : `/${locale}/contact`
+  // Contact URL
+  const contactUrl = '/contact'
 
   return (
     <section

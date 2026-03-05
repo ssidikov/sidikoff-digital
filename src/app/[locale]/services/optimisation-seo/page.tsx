@@ -56,11 +56,11 @@ export default async function SeoOptimizationLandingPage({ params }: PageProps) 
     items: [
       {
         label: dictionary.navigation.home,
-        href: locale === 'fr' ? '/' : `/${locale}`,
+        href: '/',
       },
       {
         label: dictionary.navigation.services,
-        href: locale === 'fr' ? '/#services' : `/${locale}/#services`,
+        href: '/#services',
       },
       {
         label: dictionary.services.seo_optimization.title,

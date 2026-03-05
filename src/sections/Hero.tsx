@@ -30,13 +30,12 @@ const HERO_IMAGE = {
 } as const
 
 /**
- * Generates CTA button href based on locale
+ * Generates CTA button href for a section
  * @param section - The section to link to
- * @param locale - Current locale
- * @returns Localized section URL
+ * @returns Section URL
  */
-function getCTAHref(section: string, locale: Locale): string {
-  return locale === 'fr' ? `/#${section}` : `/${locale}#${section}`
+function getCTAHref(section: string): string {
+  return `/#${section}`
 }
 
 /**
@@ -47,8 +46,8 @@ export function Hero({ dict, locale }: HeroProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
-  const primaryCTAHref = getCTAHref('contact', locale)
-  const secondaryCTAHref = getCTAHref('portfolio', locale)
+  const primaryCTAHref = getCTAHref('contact')
+  const secondaryCTAHref = getCTAHref('portfolio')
 
   return (
     <ViewportHeightProvider>

@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: content.meta_description,
       type: 'website',
       locale: locale,
-      url: `https://sidikoff.com/${locale}/services/agence-web-paris-15`,
+      url: `https://sidikoff.com/services/agence-web-paris-15`,
       siteName: 'SIDIKOFF DIGITAL',
       images: [
         {

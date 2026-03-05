@@ -1,4 +1,5 @@
 import { Locale } from '@/lib/i18n'
+import { DEFAULT_SEO } from '@/lib/seo-utils'
 
 interface BreadcrumbItem {
   position: number
@@ -26,22 +27,18 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
 }
 
 export function getPageBreadcrumbs(pathname: string, locale: Locale = 'fr') {
-  const baseUrl = 'https://sidikoff.com'
   const breadcrumbs: BreadcrumbItem[] = [
     {
       position: 1,
       name: 'Accueil',
-      item: locale === 'fr' ? baseUrl : `${baseUrl}/${locale}`,
+      item: DEFAULT_SEO.siteUrl,
     },
   ]
 
   const pathSegments = pathname.split('/').filter(Boolean)
-  let currentPath = locale === 'fr' ? baseUrl : `${baseUrl}/${locale}`
+  let currentPath = DEFAULT_SEO.siteUrl
 
   pathSegments.forEach((segment) => {
-    // Skip locale segment as it's already handled
-    if (segment === locale) return
-
     currentPath += `/${segment}`
 
     let name = segment
@@ -89,17 +86,14 @@ export function getInternalBreadcrumbs(
     {
       position: 1,
       name: 'Accueil',
-      href: locale === 'fr' ? '/' : `/${locale}`,
+      href: '/',
     },
   ]
 
   const pathSegments = pathname.split('/').filter(Boolean)
-  let currentPath = locale === 'fr' ? '' : `/${locale}`
+  let currentPath = ''
 
   pathSegments.forEach((segment) => {
-    // Skip locale segment as it's already handled
-    if (segment === locale) return
-
     currentPath += `/${segment}`
 
     let name = segment

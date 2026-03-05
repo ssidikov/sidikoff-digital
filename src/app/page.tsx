@@ -64,29 +64,29 @@ function generateHomePageSchemas() {
     {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
-      '@id': 'https://sidikoff.com/#website',
+      '@id': 'https://www.sidikoff.com/#website',
       name: 'SIDIKOFF DIGITAL',
-      alternateName: 'SIDIKOFF DIGITALDigital',
-      url: 'https://sidikoff.com',
+      alternateName: 'SIDIKOFF DIGITAL',
+      url: 'https://www.sidikoff.com',
       description:
         'Agence web premium spécialisée dans la création de sites web modernes à Paris et Toulouse',
       inLanguage: ['fr-FR'],
       isPartOf: {
         '@type': 'Organization',
-        '@id': 'https://sidikoff.com/#organization',
+        '@id': 'https://www.sidikoff.com/#organization',
       },
       potentialAction: {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://sidikoff.com/search?q={search_term_string}',
+          urlTemplate: 'https://www.sidikoff.com/search?q={search_term_string}',
         },
         'query-input': 'required name=search_term_string',
       },
       copyrightYear: 2025,
       copyrightHolder: {
         '@type': 'Organization',
-        '@id': 'https://sidikoff.com/#organization',
+        '@id': 'https://www.sidikoff.com/#organization',
       },
     },
   ]

@@ -812,7 +812,7 @@ export default function VilleurbanneLandingContent({
                 {c.ctaBtn1}
               </CTAButton>
               <CTAButton
-                href={`/${locale}`}
+                href={`/`}
                 size='lg'
                 variant='outline'
                 className='border-slate-600 font-semibold text-white transition-all duration-200 hover:border-slate-500 hover:bg-white/5'>

@@ -19,21 +19,9 @@ interface TestimonialsProps {
 
 interface Testimonial {
   id: string
-  text: {
-    ru: string
-    en: string
-    fr: string
-  }
-  author: {
-    ru: string
-    en: string
-    fr: string
-  }
-  project: {
-    ru: string
-    en: string
-    fr: string
-  }
+  text: string
+  author: string
+  project: string
   rating: number
   date: string
 }
@@ -51,92 +39,37 @@ const CTA_BANNER_ANIMATIONS = {
   button: { duration: 0.6, delay: 0.6 },
 } as const
 
-/**
- * Generate contact URL based on locale
- */
-const getContactUrl = (locale: Locale): string => {
-  return locale === 'fr' ? '/contact' : `/${locale}/contact`
-}
-
 // Testimonials data
 const TESTIMONIALS_DATA: Testimonial[] = [
   {
     id: 'new-2',
-    text: {
-      ru: 'Отличная работа Сардорбека по созданию нашего лендинга. Результат безупречен, всё было сделано очень быстро. Особенно оценил его отзывчивость и доступность. Настоятельно рекомендую его услуги.',
-      en: 'Excellent work by Sardorbek on creating our landing page. The result is impeccable and was delivered very quickly. I particularly appreciated his responsiveness and availability. I highly recommend his services.',
-      fr: "Excellent travail de la part de Sardorbek pour la création de notre landing page. Le résultat est impeccable et livré très rapidement. J'ai particulièrement apprécié sa réactivité et sa disponibilité. Je recommande vivement ses services.",
-    },
-    author: {
-      ru: 'Матье',
-      en: 'Mathieu',
-      fr: 'Mathieu',
-    },
-    project: {
-      ru: 'Degaus',
-      en: 'Degaus',
-      fr: 'Degaus',
-    },
+    text: "Excellent travail de la part de Sardorbek pour la création de notre landing page. Le résultat est impeccable et livré très rapidement. J'ai particulièrement apprécié sa réactivité et sa disponibilité. Je recommande vivement ses services.",
+    author: 'Mathieu',
+    project: 'Degaus',
     rating: 5,
     date: '2025-11-24',
   },
   {
     id: 'new-1',
-    text: {
-      ru: 'Сардорбек был очень отзывчив и эффективно реагировал на мои запросы. Отличная коммуникация, а конечный результат — именно то, что я ожидал. Смело рекомендую его.',
-      en: 'Sardorbek was extremely responsive and answered my requests effectively. Communication was excellent, and the final result is exactly what I expected. I highly recommend him.',
-      fr: "Sardorbek a été hyper réactif, il a su répondre efficacement à mes demandes, une excellente communication et le résultat final est précisément ce que j'attendais, je ne peux que le recommander.",
-    },
-    author: {
-      ru: 'Лоран Карре',
-      en: 'Laurent Carre',
-      fr: 'Laurent Carre',
-    },
-    project: {
-      ru: 'Websavoie - Менеджер',
-      en: 'Websavoie - Manager',
-      fr: 'Websavoie - Gérant',
-    },
+    text: "Sardorbek a été hyper réactif, il a su répondre efficacement à mes demandes, une excellente communication et le résultat final est précisément ce que j'attendais, je ne peux que le recommander.",
+    author: 'Laurent Carre',
+    project: 'Websavoie - Gérant',
     rating: 5,
     date: '2025-11-12',
   },
   {
     id: '1',
-    text: {
-      ru: 'Sardor помог нам исправить ошибки на нашем e-commerce сайте, из-за которых он неправильно работал на мобильных устройствах. Всё было сделано быстро и качественно, теперь сайт работает без проблем.',
-      en: 'Sardor helped us fix several issues on our e-commerce website that were causing problems on mobile devices. Everything was done quickly and professionally, and the site now runs smoothly.',
-      fr: 'Sardor nous a aidés à corriger des erreurs sur notre site e-commerce qui causaient des problèmes sur la version mobile. Tout a été fait rapidement et avec professionnalisme, et le site fonctionne parfaitement maintenant.',
-    },
-    author: {
-      ru: 'Данияр Рахметов',
-      en: 'Daniyar Rakhmetov',
-      fr: 'Daniyar Rakhmetov',
-    },
-    project: {
-      ru: 'E-commerce сайт',
-      en: 'E-commerce website',
-      fr: 'Site e-commerce',
-    },
+    text: 'Sardor nous a aidés à corriger des erreurs sur notre site e-commerce qui causaient des problèmes sur la version mobile. Tout a été fait rapidement et avec professionnalisme, et le site fonctionne parfaitement maintenant.',
+    author: 'Daniyar Rakhmetov',
+    project: 'Site e-commerce',
     rating: 5,
     date: '2025-07-01',
   },
   {
     id: '2',
-    text: {
-      ru: 'Sardor профессионально разработал сайт для нашего ресторана китайской кухни Chez Liqi. Он сделал современный дизайн, удобную навигацию и продумал все детали, чтобы сайт передавал атмосферу нашего заведения. Мы очень довольны результатом.',
-      en: "Sardor professionally built the website for our Chinese restaurant Chez Liqi. He created a modern design, user-friendly navigation, and carefully worked on every detail to capture the restaurant's atmosphere. We are very satisfied with the result.",
-      fr: "Sardor a réalisé le site de notre restaurant chinois Chez Liqi de manière professionnelle. Il a conçu un design moderne, une navigation intuitive et a soigné chaque détail pour refléter l'atmosphère de notre établissement. Nous sommes très satisfaits du résultat.",
-    },
-    author: {
-      ru: 'Команда ресторана Chez Liqi',
-      en: 'Chez Liqi Team',
-      fr: 'Équipe du restaurant Chez Liqi',
-    },
-    project: {
-      ru: 'Ресторан Chez Liqi',
-      en: 'Chez Liqi Restaurant',
-      fr: 'Restaurant Chez Liqi',
-    },
+    text: "Sardor a réalisé le site de notre restaurant chinois Chez Liqi de manière professionnelle. Il a conçu un design moderne, une navigation intuitive et a soigné chaque détail pour refléter l'atmosphère de notre établissement. Nous sommes très satisfaits du résultat.",
+    author: 'Équipe du restaurant Chez Liqi',
+    project: 'Restaurant Chez Liqi',
     rating: 5,
     date: '2025-08-01',
   },
@@ -147,14 +80,14 @@ const TESTIMONIALS_DATA: Testimonial[] = [
  * Features responsive design, animations, and accessibility
  */
 export function Testimonials({ dictionary: dict, locale, className }: TestimonialsProps) {
-  const contactUrl = getContactUrl(locale)
+  const contactUrl = '/contact'
 
   // Generate structured data for reviews
   const reviewsData = TESTIMONIALS_DATA.map((testimonial) => ({
-    author: testimonial.author[locale],
-    reviewBody: testimonial.text[locale],
+    author: testimonial.author,
+    reviewBody: testimonial.text,
     rating: testimonial.rating,
-    projectName: testimonial.project[locale],
+    projectName: testimonial.project,
     datePublished: testimonial.date,
   }))
 
@@ -218,13 +151,13 @@ export function Testimonials({ dictionary: dict, locale, className }: Testimonia
 
                   {/* Testimonial Text */}
                   <blockquote className='text-lg leading-relaxed text-gray-700 xl:text-xl xl:min-h-[195px]'>
-                    &ldquo;{testimonial.text[locale]}&rdquo;
+                    &ldquo;{testimonial.text}&rdquo;
                   </blockquote>
 
                   {/* Author Information */}
                   <div className='space-y-2'>
-                    <div className='font-semibold text-gray-900'>{testimonial.author[locale]}</div>
-                    <div className='text-sm text-gray-600'>{testimonial.project[locale]}</div>
+                    <div className='font-semibold text-gray-900'>{testimonial.author}</div>
+                    <div className='text-sm text-gray-600'>{testimonial.project}</div>
                   </div>
                 </div>
               </motion.div>

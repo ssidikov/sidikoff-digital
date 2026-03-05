@@ -50,9 +50,9 @@ export function HeroSection({ dictionary, locale, industryConfig, breadcrumbs }:
     >) || {}
   const heroData = (restaurantData.hero as Record<string, unknown>) || {}
 
-  // Generate contact URL based on locale
-  const contactUrl = locale === 'fr' ? '/contact' : `/${locale}/contact`
-  const portfolioUrl = locale === 'fr' ? '/portfolio' : `/${locale}/portfolio`
+  // Generate contact and portfolio URLs
+  const contactUrl = '/contact'
+  const portfolioUrl = '/portfolio'
 
   return (
     <section

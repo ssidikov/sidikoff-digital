@@ -105,14 +105,11 @@ export const footerNavigation = {
  */
 export function breadcrumbGenerator(pathname: string, locale?: string) {
   const segments = pathname.split('/').filter(Boolean)
-  const breadcrumbs = [{ label: 'Accueil', href: locale ? `/${locale}` : '/' }]
+  const breadcrumbs = [{ label: 'Accueil', href: '/' }]
 
-  let currentPath = locale ? `/${locale}` : ''
+  let currentPath = ''
 
   segments.forEach((segment) => {
-    // Skip locale segment
-    if (segment === locale) return
-
     currentPath += `/${segment}`
 
     const label = ROUTE_LABELS[segment] || segment.charAt(0).toUpperCase() + segment.slice(1)
@@ -127,7 +124,7 @@ export function breadcrumbGenerator(pathname: string, locale?: string) {
 }
 
 /**
- * Get localized path by adding/replacing locale
+ * Get localized path by removing locale if present
  */
 export function getLocalizedPath(path: string, locale: string, currentLocale?: string): string {
   // Remove current locale from path if present
@@ -135,8 +132,7 @@ export function getLocalizedPath(path: string, locale: string, currentLocale?: s
     path = path.replace(`/${currentLocale}`, '')
   }
 
-  // Add new locale
-  return locale === 'fr' ? path || '/' : `/${locale}${path || ''}`
+  return path || '/'
 }
 
 /**
@@ -144,7 +140,7 @@ export function getLocalizedPath(path: string, locale: string, currentLocale?: s
  */
 export function isActiveLink(href: string, pathname: string): boolean {
   if (href === '/') {
-    return ['/', '/en', '/ru'].includes(pathname)
+    return pathname === '/'
   }
 
   return pathname.includes(href)
