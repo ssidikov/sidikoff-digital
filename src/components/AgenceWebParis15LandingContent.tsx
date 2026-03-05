@@ -263,7 +263,7 @@ export default function AgenceWebParis15LandingContent({
                     <div className='absolute inset-0 border-2 border-transparent group-hover:border-indigo-500/20 rounded-3xl transition-all duration-300 pointer-events-none' />
                   </motion.div>
                 )
-              }
+              },
             )}
           </div>
         </div>
@@ -365,7 +365,7 @@ export default function AgenceWebParis15LandingContent({
                         </div>
                       </motion.div>
                     )
-                  }
+                  },
                 )}
               </div>
             </motion.div>
@@ -434,7 +434,7 @@ export default function AgenceWebParis15LandingContent({
                     </div>
                   </div>
                 </motion.div>
-              )
+              ),
             )}
           </div>
         </div>

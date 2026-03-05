@@ -65,7 +65,7 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
     if (!linkMark) {
       linkMark = span.marks.find(
         (mark: string | any) =>
-          typeof mark === 'object' && (mark._type === 'link' || mark._key?.includes('link'))
+          typeof mark === 'object' && (mark._type === 'link' || mark._key?.includes('link')),
       )
     }
 
@@ -129,7 +129,7 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
                 key={`list-${rendered.length}`}
                 className={`my-6 ${currentListType === 'bullet' ? 'list-disc' : 'list-decimal'} list-inside space-y-2`}>
                 {currentList}
-              </ListTag>
+              </ListTag>,
             )
           }
           currentList = []
@@ -142,7 +142,7 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
             {block.children?.map((child: any, childIndex: number) => (
               <span key={childIndex}>{renderSpan(child, childIndex, block)}</span>
             ))}
-          </li>
+          </li>,
         )
         return
       }
@@ -155,7 +155,7 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
             key={`list-${rendered.length}`}
             className={`my-6 ${currentListType === 'bullet' ? 'list-disc' : 'list-decimal'} list-inside space-y-2`}>
             {currentList}
-          </ListTag>
+          </ListTag>,
         )
         currentList = null
         currentListType = null
@@ -172,7 +172,7 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
                 {block.children?.map((child: any, childIndex: number) => (
                   <span key={childIndex}>{renderSpan(child, childIndex, block)}</span>
                 ))}
-              </h2>
+              </h2>,
             )
             break
           case 'h2':
@@ -181,7 +181,7 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
                 {block.children?.map((child: any, childIndex: number) => (
                   <span key={childIndex}>{renderSpan(child, childIndex, block)}</span>
                 ))}
-              </h2>
+              </h2>,
             )
             break
           case 'h3':
@@ -190,7 +190,7 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
                 {block.children?.map((child: any, childIndex: number) => (
                   <span key={childIndex}>{renderSpan(child, childIndex, block)}</span>
                 ))}
-              </h3>
+              </h3>,
             )
             break
           case 'blockquote':
@@ -201,7 +201,7 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
                 {block.children?.map((child: any, childIndex: number) => (
                   <span key={childIndex}>{renderSpan(child, childIndex, block)}</span>
                 ))}
-              </blockquote>
+              </blockquote>,
             )
             break
           default:
@@ -210,7 +210,7 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
                 {block.children?.map((child: any, childIndex: number) => (
                   <span key={childIndex}>{renderSpan(child, childIndex, block)}</span>
                 ))}
-              </p>
+              </p>,
             )
         }
         return
@@ -237,7 +237,7 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
             {block.caption && (
               <p className='text-center text-gray-500 text-sm mt-3 italic'>{block.caption}</p>
             )}
-          </div>
+          </div>,
         )
       }
     })
@@ -250,7 +250,7 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
           key={`list-${rendered.length}`}
           className={`my-6 ${currentListType === 'bullet' ? 'list-disc' : 'list-decimal'} list-inside space-y-2`}>
           {currentList}
-        </ListTag>
+        </ListTag>,
       )
     }
 

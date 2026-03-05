@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils';
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { type Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { type Locale, isValidLocale } from '@/lib/i18n'

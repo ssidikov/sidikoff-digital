@@ -29,14 +29,14 @@ interface HeroSectionProps extends SectionProps {
 // Type guards for safe property access
 function isStringProperty(
   obj: Record<string, unknown>,
-  key: string
+  key: string,
 ): obj is Record<string, string> {
   return typeof obj[key] === 'string'
 }
 
 function isArrayProperty(
   obj: Record<string, unknown>,
-  key: string
+  key: string,
 ): obj is Record<string, unknown[]> {
   return Array.isArray(obj[key])
 }

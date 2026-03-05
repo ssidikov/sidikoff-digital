@@ -3,7 +3,7 @@
 export function smoothScrollToElement(elementId: string, offset: number = 100): Promise<boolean> {
   return new Promise((resolve) => {
     const element = document.getElementById(elementId)
-    
+
     if (!element) {
       resolve(false)
       return
@@ -15,7 +15,7 @@ export function smoothScrollToElement(elementId: string, offset: number = 100): 
 
     window.scrollTo({
       top: offsetPosition,
-      behavior: 'smooth'
+      behavior: 'smooth',
     })
 
     // Wait for scroll to complete
@@ -24,30 +24,30 @@ export function smoothScrollToElement(elementId: string, offset: number = 100): 
 }
 
 export function scrollToElementWithRetry(
-  elementId: string, 
-  offset: number = 100, 
+  elementId: string,
+  offset: number = 100,
   maxRetries: number = 5,
-  retryDelay: number = 200
+  retryDelay: number = 200,
 ): Promise<boolean> {
   return new Promise((resolve) => {
     let attempts = 0
-    
+
     const tryScroll = () => {
       attempts++
       const element = document.getElementById(elementId)
-      
+
       if (element) {
         smoothScrollToElement(elementId, offset).then(resolve)
         return
       }
-      
+
       if (attempts < maxRetries) {
         setTimeout(tryScroll, retryDelay)
       } else {
         resolve(false)
       }
     }
-    
+
     tryScroll()
   })
 }
@@ -55,22 +55,22 @@ export function scrollToElementWithRetry(
 export function handleAnchorNavigation(href: string, currentPath: string): boolean {
   const homeUrl = '/'
   const isOnHomePage = currentPath === homeUrl || currentPath === `${homeUrl}/`
-  
+
   if (href.includes('#')) {
     const sectionId = href.split('#')[1]
-    
+
     if (sectionId) {
       if (isOnHomePage) {
         // Same page scroll
         smoothScrollToElement(sectionId)
         return true
       } else {
-        // Different page - let Next.js handle navigation, 
+        // Different page - let Next.js handle navigation,
         // scroll will be handled by useEffect in Header
         return false
       }
     }
   }
-  
+
   return false
 }

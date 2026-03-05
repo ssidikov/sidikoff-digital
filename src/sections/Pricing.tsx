@@ -490,7 +490,7 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                             <span className='text-red-500 mt-1'>•</span>
                             {risk}
                           </li>
-                        )
+                        ),
                       )}
                     </ul>
                   </div>
@@ -523,7 +523,7 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                             <span className='text-green-500 mt-1'>✓</span>
                             {item}
                           </li>
-                        )
+                        ),
                       )}
                     </ul>
                   </div>
