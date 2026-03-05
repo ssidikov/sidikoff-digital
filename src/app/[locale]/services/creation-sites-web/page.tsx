@@ -70,11 +70,11 @@ export default async function WebCreationPage({ params }: WebCreationPageProps) 
     const breadcrumbs = {
       items: [
         {
-          label: locale === 'fr' ? 'Accueil' : locale === 'en' ? 'Home' : 'Главная',
+          label: 'Accueil',
           href: `/${locale === 'fr' ? '' : locale}`,
         },
         {
-          label: locale === 'fr' ? 'Services' : locale === 'en' ? 'Services' : 'Услуги',
+          label: 'Services',
           href: `/${locale === 'fr' ? '' : locale}services`,
         },
         { label: dictionary.web_creation_landing.hero.title },

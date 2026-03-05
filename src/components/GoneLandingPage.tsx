@@ -20,7 +20,7 @@ import {
 
 interface GoneLandingPageProps {
   cityName?: string | undefined
-  locale?: 'fr' | 'en' | 'ru'
+  locale?: 'fr'
 }
 
 export default function GoneLandingPage({ cityName, locale = 'fr' }: GoneLandingPageProps) {
@@ -62,79 +62,9 @@ export default function GoneLandingPage({ cityName, locale = 'fr' }: GoneLanding
       footerLegal: 'Mentions légales',
       footerRights: 'Tous droits réservés.',
     },
-    en: {
-      notice: "Optimized page: We've simplified our site to offer you a better experience",
-      mainTitle: 'Modern web development',
-      titleHighlight: 'in France',
-      subtitle:
-        'React/Next.js developer specialized in custom digital solutions. Transform your online presence with high-performance, optimized websites.',
-      ctaPrimary: 'Request a quote',
-      ctaSecondary: 'View our services',
-      statsProjects: 'Projects completed',
-      statsClients: 'Satisfied clients',
-      statsExperience: 'Years of experience',
-      servicesTitle: 'Services',
-      servicesSubtitle: 'Complete solutions for your digital presence',
-      whyTitle: 'Why choose us',
-      whySubtitle: 'Technical expertise at the service of your success',
-      realizationsTitle: 'Portfolio',
-      realizationsSubtitle: 'Client satisfaction at the heart of our work',
-      testimonial:
-        'Exceptional work! My e-commerce site developed by Sidikoff Digital exceeded all my expectations. Performance, design and SEO at the top. I highly recommend!',
-      testimonialAuthor: 'Marie Dubois',
-      testimonialRole: 'Fashion & Accessories Online Store',
-      contactTitle: 'Contact',
-      contactSubtitle: "Ready to transform your digital project? Let's get in touch!",
-      contactCta: 'Start my project',
-      footerDescription:
-        'React/Next.js developer specialized in creating modern and performant websites.',
-      footerLocation: '🇫🇷 Based in France • Expert in custom digital solutions',
-      footerServices: 'Services',
-      footerLinks: 'Links',
-      footerPortfolio: 'Portfolio',
-      footerContact: 'Contact',
-      footerBlog: 'Blog',
-      footerLegal: 'Legal Notice',
-      footerRights: 'All rights reserved.',
-    },
-    ru: {
-      notice: 'Оптимизированная страница: Мы упростили наш сайт, чтобы предложить вам лучший опыт',
-      mainTitle: 'Создание современных',
-      titleHighlight: 'веб-сайтов во Франции',
-      subtitle:
-        'React/Next.js разработчик, специализирующийся на индивидуальных цифровых решениях. Преобразите свое онлайн-присутствие с помощью высокопроизводительных, оптимизированных веб-сайтов.',
-      ctaPrimary: 'Запросить цену',
-      ctaSecondary: 'Посмотреть наши услуги',
-      statsProjects: 'Завершенных проектов',
-      statsClients: 'Довольных клиентов',
-      statsExperience: 'Лет опыта',
-      servicesTitle: 'Услуги',
-      servicesSubtitle: 'Комплексные решения для вашего цифрового присутствия',
-      whyTitle: 'Почему выбирают нас',
-      whySubtitle: 'Техническая экспертиза на службе вашего успеха',
-      realizationsTitle: 'Портфолио',
-      realizationsSubtitle: 'Удовлетворенность клиентов в центре нашей работы',
-      testimonial:
-        'Исключительная работа! Мой сайт электронной коммерции, разработанный Sidikoff Digital, превзошел все мои ожидания. Производительность, дизайн и SEO на высшем уровне. Настоятельно рекомендую!',
-      testimonialAuthor: 'Мари Дюбуа',
-      testimonialRole: 'Интернет-магазин моды и аксессуаров',
-      contactTitle: 'Контакт',
-      contactSubtitle: 'Готовы преобразить ваш цифровой проект? Давайте свяжемся!',
-      contactCta: 'Начать мой проект',
-      footerDescription:
-        'React/Next.js разработчик, специализирующийся на создании современных и производительных веб-сайтов.',
-      footerLocation: '🇫🇷 Базируется во Франции • Эксперт в индивидуальных цифровых решениях',
-      footerServices: 'Услуги',
-      footerLinks: 'Ссылки',
-      footerPortfolio: 'Портфолио',
-      footerContact: 'Контакт',
-      footerBlog: 'Блог',
-      footerLegal: 'Правовая информация',
-      footerRights: 'Все права защищены.',
-    },
   }
 
-  const t = translations[locale]
+  const t = translations.fr
 
   // Animation variants
   const fadeInUp = {
@@ -154,87 +84,39 @@ export default function GoneLandingPage({ cityName, locale = 'fr' }: GoneLanding
   const services = [
     {
       icon: <Globe className='w-8 h-8' />,
-      title:
-        locale === 'fr'
-          ? 'Sites Web Modernes'
-          : locale === 'en'
-            ? 'Modern Websites'
-            : 'Современные веб-сайты',
+      title: 'Sites Web Modernes',
       description:
-        locale === 'fr'
-          ? 'Création de sites internet avec React, Next.js et design responsive pour tous les appareils.'
-          : locale === 'en'
-            ? 'Website creation with React, Next.js and responsive design for all devices.'
-            : 'Создание веб-сайтов с React, Next.js и адаптивным дизайном для всех устройств.',
+        'Création de sites internet avec React, Next.js et design responsive pour tous les appareils.',
     },
     {
       icon: <Smartphone className='w-8 h-8' />,
-      title:
-        locale === 'fr' ? 'E-commerce' : locale === 'en' ? 'E-commerce' : 'Электронная коммерция',
+      title: 'E-commerce',
       description:
-        locale === 'fr'
-          ? 'Boutiques en ligne performantes avec solutions de paiement sécurisées et gestion des stocks.'
-          : locale === 'en'
-            ? 'High-performance online stores with secure payment solutions and inventory management.'
-            : 'Высокопроизводительные интернет-магазины с безопасными платежными решениями и управлением запасами.',
+        'Boutiques en ligne performantes avec solutions de paiement sécurisées et gestion des stocks.',
     },
     {
       icon: <Search className='w-8 h-8' />,
-      title:
-        locale === 'fr'
-          ? 'Optimisation SEO'
-          : locale === 'en'
-            ? 'SEO Optimization'
-            : 'SEO оптимизация',
+      title: 'Optimisation SEO',
       description:
-        locale === 'fr'
-          ? 'Référencement naturel et technique pour améliorer votre visibilité sur Google.'
-          : locale === 'en'
-            ? 'Natural and technical SEO to improve your visibility on Google.'
-            : 'Естественная и техническая SEO для улучшения вашей видимости в Google.',
+        'Référencement naturel et technique pour améliorer votre visibilité sur Google.',
     },
   ]
 
   const features = [
     {
       icon: <Code className='w-6 h-6' />,
-      title:
-        locale === 'fr'
-          ? 'Technologies Modernes'
-          : locale === 'en'
-            ? 'Modern Technologies'
-            : 'Современные технологии',
+      title: 'Technologies Modernes',
       description: 'React, Next.js, TypeScript',
     },
     {
       icon: <Zap className='w-6 h-6' />,
-      title:
-        locale === 'fr'
-          ? 'Performance Optimisée'
-          : locale === 'en'
-            ? 'Optimized Performance'
-            : 'Оптимизированная производительность',
-      description:
-        locale === 'fr'
-          ? 'Sites ultra-rapides et optimisés'
-          : locale === 'en'
-            ? 'Ultra-fast and optimized sites'
-            : 'Сверхбыстрые и оптимизированные сайты',
+      title: 'Performance Optimisée',
+      description: 'Sites ultra-rapides et optimisés',
     },
     {
       icon: <Award className='w-6 h-6' />,
-      title:
-        locale === 'fr'
-          ? 'Qualité Garantie'
-          : locale === 'en'
-            ? 'Guaranteed Quality'
-            : 'Гарантированное качество',
-      description:
-        locale === 'fr'
-          ? 'Code propre et maintenable'
-          : locale === 'en'
-            ? 'Clean and maintainable code'
-            : 'Чистый и поддерживаемый код',
+      title: 'Qualité Garantie',
+      description: 'Code propre et maintenable',
     },
   ]
 
@@ -528,11 +410,7 @@ export default function GoneLandingPage({ cityName, locale = 'fr' }: GoneLanding
                   <ul className='space-y-2 text-gray-400'>
                     <li>
                       <Link href='/services' className='hover:text-blue-400 transition-colors'>
-                        {locale === 'fr'
-                          ? 'Création de sites web'
-                          : locale === 'en'
-                            ? 'Web Development'
-                            : 'Веб-разработка'}
+                        {'Création de sites web'}
                       </Link>
                     </li>
                     <li>
@@ -546,22 +424,14 @@ export default function GoneLandingPage({ cityName, locale = 'fr' }: GoneLanding
                       <Link
                         href='/services/optimisation-seo'
                         className='hover:text-blue-400 transition-colors'>
-                        {locale === 'fr'
-                          ? 'SEO & Référencement'
-                          : locale === 'en'
-                            ? 'SEO & Optimization'
-                            : 'SEO и оптимизация'}
+                        {'SEO & Référencement'}
                       </Link>
                     </li>
                     <li>
                       <Link
                         href='/services/maintenance-support'
                         className='hover:text-blue-400 transition-colors'>
-                        {locale === 'fr'
-                          ? 'Maintenance'
-                          : locale === 'en'
-                            ? 'Maintenance'
-                            : 'Поддержка'}
+                        {'Maintenance'}
                       </Link>
                     </li>
                   </ul>

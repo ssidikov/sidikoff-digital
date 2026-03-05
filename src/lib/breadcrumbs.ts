@@ -30,7 +30,7 @@ export function getPageBreadcrumbs(pathname: string, locale: Locale = 'fr') {
   const breadcrumbs: BreadcrumbItem[] = [
     {
       position: 1,
-      name: locale === 'fr' ? 'Accueil' : locale === 'en' ? 'Home' : 'Главная',
+      name: 'Accueil',
       item: locale === 'fr' ? baseUrl : `${baseUrl}/${locale}`,
     },
   ]
@@ -47,30 +47,25 @@ export function getPageBreadcrumbs(pathname: string, locale: Locale = 'fr') {
     let name = segment
     switch (segment) {
       case 'services':
-        name = locale === 'fr' ? 'Services' : locale === 'en' ? 'Services' : 'Услуги'
+        name = 'Services'
         break
       case 'projects':
-        name = locale === 'fr' ? 'Portfolio' : locale === 'en' ? 'Portfolio' : 'Портфолио'
+        name = 'Portfolio'
         break
       case 'tarifs':
-        name = locale === 'fr' ? 'Tarifs' : locale === 'en' ? 'Pricing' : 'Цены'
+        name = 'Tarifs'
         break
       case 'creation-sites-web':
-        name =
-          locale === 'fr'
-            ? 'Création de Sites Web'
-            : locale === 'en'
-              ? 'Website Creation'
-              : 'Создание Сайтов'
+        name = 'Création de Sites Web'
         break
       case 'faq':
-        name = locale === 'fr' ? 'FAQ' : locale === 'en' ? 'FAQ' : 'Вопросы и ответы'
+        name = 'FAQ'
         break
       case 'contact':
-        name = locale === 'fr' ? 'Contact' : locale === 'en' ? 'Contact' : 'Контакты'
+        name = 'Contact'
         break
       case 'blog':
-        name = locale === 'fr' ? 'Blog' : locale === 'en' ? 'Blog' : 'Блог'
+        name = 'Blog'
         break
       default:
         name = segment.charAt(0).toUpperCase() + segment.slice(1)
@@ -93,7 +88,7 @@ export function getInternalBreadcrumbs(
   const breadcrumbs: InternalBreadcrumbItem[] = [
     {
       position: 1,
-      name: locale === 'fr' ? 'Accueil' : locale === 'en' ? 'Home' : 'Главная',
+      name: 'Accueil',
       href: locale === 'fr' ? '/' : `/${locale}`,
     },
   ]
@@ -110,21 +105,16 @@ export function getInternalBreadcrumbs(
     let name = segment
     switch (segment) {
       case 'services':
-        name = locale === 'fr' ? 'Services' : locale === 'en' ? 'Services' : 'Услуги'
+        name = 'Services'
         break
       case 'projects':
-        name = locale === 'fr' ? 'Portfolio' : locale === 'en' ? 'Portfolio' : 'Портфолио'
+        name = 'Portfolio'
         break
       case 'tarifs':
-        name = locale === 'fr' ? 'Tarifs' : locale === 'en' ? 'Pricing' : 'Цены'
+        name = 'Tarifs'
         break
       case 'creation-sites-web':
-        name =
-          locale === 'fr'
-            ? 'Création de Sites Web'
-            : locale === 'en'
-              ? 'Website Creation'
-              : 'Создание Сайтов'
+        name = 'Création de Sites Web'
         break
       case 'faq':
         name = 'FAQ'

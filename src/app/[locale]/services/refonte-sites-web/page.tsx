@@ -70,7 +70,7 @@ export default async function WebRedesignLandingPage({ params }: WebRedesignPage
       '@type': 'Country',
       name: 'France',
     },
-    availableLanguage: ['fr', 'en', 'ru'],
+    availableLanguage: ['fr'],
     serviceType: 'Website Redesign',
     category: 'Web Development',
     url: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/services/refonte-sites-web`,

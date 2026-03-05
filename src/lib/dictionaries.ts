@@ -1434,8 +1434,6 @@ export interface Dictionary {
  */
 const dictionaries = {
   fr: () => import('../../locales/fr/common.json').then((module) => module.default),
-  en: () => import('../../locales/en/common.json').then((module) => module.default),
-  ru: () => import('../../locales/ru/common.json').then((module) => module.default),
 } as const
 
 /**
@@ -1443,8 +1441,6 @@ const dictionaries = {
  */
 const travelAgencyDictionaries = {
   fr: () => import('../../locales/fr/travel_agency_landing.json').then((module) => module.default),
-  en: () => import('../../locales/en/travel_agency_landing.json').then((module) => module.default),
-  ru: () => import('../../locales/ru/travel_agency_landing.json').then((module) => module.default),
 } as const
 
 /**
@@ -1462,12 +1458,12 @@ export const getDictionary = cache(async (locale: Locale): Promise<Dictionary> =
   }
 
   try {
-    const localeData = await dictionaries[locale]()
+    const localeData = await (dictionaries as Record<string, () => Promise<unknown>>)[locale]!()
 
     // Load travel agency landing data
     let travelAgencyData: Record<string, unknown> = {}
     try {
-      travelAgencyData = await travelAgencyDictionaries[locale]()
+      travelAgencyData = await (travelAgencyDictionaries as Record<string, () => Promise<Record<string, unknown>>>)[locale]!()
     } catch (error) {
       console.warn(`Failed to load travel agency landing data for locale: ${locale}`, error)
     }
@@ -1580,7 +1576,7 @@ export const getDictionary = cache(async (locale: Locale): Promise<Dictionary> =
  * ОПТИМИЗИРОВАНО: Предзагрузка всех локалей для быстрого первого запроса
  */
 export async function preloadDictionaries(): Promise<void> {
-  const locales: Locale[] = ['en', 'fr', 'ru']
+  const locales: Locale[] = ['fr']
   await Promise.allSettled(locales.map((locale) => getDictionary(locale)))
 }
 

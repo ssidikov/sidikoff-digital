@@ -11,19 +11,9 @@ interface ParisPageProps {
 export async function generateMetadata({ params }: ParisPageProps): Promise<Metadata> {
   const { locale } = await params
 
-  const title =
-    locale === 'fr'
-      ? 'Création site internet Paris – Agence web & SEO local'
-      : locale === 'en'
-      ? 'Website Creation Paris | Expert Local Web Developer'
-      : 'Создание Сайтов Париж | Эксперт Веб-Разработчик'
+  const title = 'Création site internet Paris – Agence web & SEO local'
 
-  const description =
-    locale === 'fr'
-      ? 'SIDIKOFF DIGITAL, agence web 75, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
-      : locale === 'en'
-      ? 'SIDIKOFF DIGITAL, Paris web agency (75), specializes in website creation and web marketing. Contact us now.'
-      : 'SIDIKOFF DIGITAL, веб-агентство Париж (75), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.'
+  const description = 'SIDIKOFF DIGITAL, agence web 75, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
 
   return {
     title,

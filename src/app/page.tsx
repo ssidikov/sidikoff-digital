@@ -45,7 +45,7 @@ export async function generateMetadata() {
       'SIDIKOFF DIGITAL, agence web 75, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.',
     locale: defaultLocale,
     canonicalUrl: createCanonicalUrl('', defaultLocale),
-    alternateLanguages: generateLanguageAlternates('', ['fr', 'en', 'ru']),
+    alternateLanguages: generateLanguageAlternates('', ['fr']),
     ogImage: SEO_CONFIG.ogImage,
     keywords: [...SEO_CONFIG.keywords],
   })
@@ -70,7 +70,7 @@ function generateHomePageSchemas() {
       url: 'https://sidikoff.com',
       description:
         'Agence web premium spécialisée dans la création de sites web modernes à Paris et Toulouse',
-      inLanguage: ['fr-FR', 'en-US', 'ru-RU'],
+      inLanguage: ['fr-FR'],
       isPartOf: {
         '@type': 'Organization',
         '@id': 'https://sidikoff.com/#organization',

@@ -354,16 +354,15 @@ const AgenceWebParisLandingContent: React.FC<AgenceWebParisLandingContentProps> 
           title: content.portfolio_teaser.title,
           subtitle: content.portfolio_teaser.description,
           filter: {
-            all: locale === 'fr' ? 'Tous' : locale === 'en' ? 'All' : 'Все',
-            web: locale === 'fr' ? 'Web' : locale === 'en' ? 'Web' : 'Веб',
-            mobile: locale === 'fr' ? 'Mobile' : locale === 'en' ? 'Mobile' : 'Мобильные',
-            design: locale === 'fr' ? 'Design' : locale === 'en' ? 'Design' : 'Дизайн',
+            all: 'Tous',
+            web: 'Web',
+            mobile: 'Mobile',
+            design: 'Design',
           },
           projects: {},
           view_project: content.portfolio_teaser.cta,
-          live_demo: locale === 'fr' ? 'Démo' : locale === 'en' ? 'Demo' : 'Демо',
-          github:
-            locale === 'fr' ? 'Code source' : locale === 'en' ? 'Source Code' : 'Исходный код',
+          live_demo: 'Démo',
+          github: 'Code source',
         }}
         className='py-20 bg-linear-to-br from-gray-50 to-blue-50'
       />

@@ -4,62 +4,30 @@ import nodemailer from 'nodemailer'
 import {
   userConfirmationFR,
   adminNotificationFR,
-  userConfirmationEN,
-  adminNotificationEN,
-  userConfirmationRU,
-  adminNotificationRU,
 } from './mailTemplates'
 
 interface ContactFormData {
   name: string
   email: string
   message: string
-  locale?: 'fr' | 'en' | 'ru'
+  locale?: 'fr'
 }
 
 // Function to get the appropriate template based on locale
-const getUserTemplate = (locale: 'fr' | 'en' | 'ru' = 'fr') => {
-  switch (locale) {
-    case 'en':
-      return userConfirmationEN
-    case 'ru':
-      return userConfirmationRU
-    case 'fr':
-    default:
-      return userConfirmationFR
-  }
+const getUserTemplate = (locale: 'fr' = 'fr') => {
+  return userConfirmationFR
 }
 
-const getAdminTemplate = (locale: 'fr' | 'en' | 'ru' = 'fr') => {
-  switch (locale) {
-    case 'en':
-      return adminNotificationEN
-    case 'ru':
-      return adminNotificationRU
-    case 'fr':
-    default:
-      return adminNotificationFR
-  }
+const getAdminTemplate = (locale: 'fr' = 'fr') => {
+  return adminNotificationFR
 }
 
 // Function to get subject based on locale
-const getEmailSubjects = (locale: 'fr' | 'en' | 'ru' = 'fr') => {
-  const subjects = {
-    fr: {
-      user: 'Confirmation de votre demande - SIDIKOFF DIGITAL',
-      admin: 'Nouvelle demande reçue - SIDIKOFF DIGITAL',
-    },
-    en: {
-      user: 'Confirmation of your request - SIDIKOFF DIGITAL',
-      admin: 'New request received - SIDIKOFF DIGITAL',
-    },
-    ru: {
-      user: 'Подтверждение вашего запроса - SIDIKOFF DIGITAL',
-      admin: 'Получен новый запрос - SIDIKOFF DIGITAL',
-    },
+const getEmailSubjects = (locale: 'fr' = 'fr') => {
+  return {
+    user: 'Confirmation de votre demande - SIDIKOFF DIGITAL',
+    admin: 'Nouvelle demande reçue - SIDIKOFF DIGITAL',
   }
-
-  return subjects[locale]
 }
 
 export async function POST(request: Request) {

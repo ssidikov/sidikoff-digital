@@ -295,81 +295,16 @@ export function generateLocalizedSEOMetadata(locale: Locale): Metadata {
     fr: isHomePage
       ? 'Agence Web | Création Site Internet & Développement Sur Mesure'
       : 'SIDIKOFF DIGITAL - Agence Web Expert | Développement React',
-    en: isHomePage
-      ? 'Web Agency | Custom Website Creation & Development'
-      : 'SIDIKOFF DIGITAL - Expert Web Agency | React Development',
-    ru: isHomePage
-      ? 'Веб-Агентство | Создание Сайтов и Разработка'
-      : 'SIDIKOFF DIGITAL - Экспертное Веб-агентство | React Разработка',
   }
 
-  // Enhanced SEO-optimized descriptions with better keyword density and local targeting
   const descriptions = {
     fr: 'Agence web spécialisée en création de sites internet modernes et performants. Développement sur mesure, design professionnel, SEO optimisé. Votre projet digital commence ici.',
-    en: 'Web agency specialized in modern and high-performance website creation. Custom development, professional design, SEO optimized. Your digital project starts here.',
-    ru: 'Веб-агентство, специализирующееся на создании современных и производительных сайтов. Разработка на заказ, профессиональный дизайн, SEO оптимизация.',
   }
 
   const seoData = {
-    title: titles[locale],
-    description: descriptions[locale],
-    keywords:
-      locale === 'fr'
-        ? [
-            // French keywords
-            ...DEFAULT_SEO.keywords,
-          ]
-        : locale === 'en'
-          ? [
-              // English keywords
-              'web developer',
-              'freelance web developer',
-              'web development services',
-              'website creation',
-              'React developer',
-              'Next.js expert',
-              'TypeScript developer',
-              'full stack developer',
-              'frontend development',
-              'backend development',
-              'website development',
-              'web agency',
-              'digital agency',
-              'web design',
-              'responsive design',
-              'SEO optimization',
-              'web performance',
-              'e-commerce development',
-              'custom web solutions',
-              'web consultation',
-              'professional websites',
-              'modern web applications',
-            ]
-          : [
-              // Russian keywords
-              'веб-разработчик',
-              'фриланс веб-разработчик',
-              'создание сайтов',
-              'веб-разработка',
-              'React разработчик',
-              'Next.js эксперт',
-              'TypeScript разработчик',
-              'full stack разработчик',
-              'frontend разработка',
-              'backend разработка',
-              'разработка сайтов',
-              'веб-агентство',
-              'цифровое агентство',
-              'веб-дизайн',
-              'адаптивный дизайн',
-              'SEO оптимизация',
-              'производительность веб-сайтов',
-              'разработка электронной коммерции',
-              'индивидуальные веб-решения',
-              'веб-консультации',
-              'профессиональные сайты',
-              'современные веб-приложения',
-            ],
+    title: titles[locale as keyof typeof titles] || titles.fr,
+    description: descriptions[locale as keyof typeof descriptions] || descriptions.fr,
+    keywords: [...DEFAULT_SEO.keywords],
     canonicalUrl: createCanonicalUrl('', locale),
     locale: locale as Locale,
     alternateLanguages: generateAlternateUrls(''),
@@ -534,7 +469,7 @@ export const organizationSchema = {
       email: 's.sidikoff@gmail.com',
       contactType: 'Customer Service',
       areaServed: 'FR',
-      availableLanguage: ['French', 'English', 'Russian'],
+      availableLanguage: ['French'],
     },
   ],
   address: {

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 interface PageProps {
   searchParams: {
     city?: string
-    locale?: 'fr' | 'en' | 'ru'
+    locale?: 'fr'
   }
 }
 

@@ -1,6 +1,4 @@
-import enProjects from '../../locales/en/projects.json'
 import frProjects from '../../locales/fr/projects.json'
-import ruProjects from '../../locales/ru/projects.json'
 
 export type Project = {
   id: string
@@ -22,15 +20,8 @@ function normalizeProjects(data: unknown[]): Project[] {
   )
 }
 
-export const getProjects = (locale: 'en' | 'fr' | 'ru'): Project[] => {
-  switch (locale) {
-    case 'fr':
-      return normalizeProjects(frProjects as unknown[]).reverse()
-    case 'ru':
-      return normalizeProjects(ruProjects as unknown[]).reverse()
-    default:
-      return normalizeProjects(enProjects as unknown[]).reverse()
-  }
+export const getProjects = (locale: string = 'fr'): Project[] => {
+  return normalizeProjects(frProjects as unknown[]).reverse()
 }
 
 // Export a default projects array for backwards compatibility

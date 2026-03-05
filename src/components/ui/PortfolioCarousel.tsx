@@ -24,6 +24,7 @@ import Image from 'next/image'
 
 import { useState, useRef, useEffect } from 'react'
 import { getProjectUrl } from '@/utils/navigation'
+import type { Locale } from '@/lib/i18n'
 import Section, { SectionHeader } from '@/components/ui/Section'
 import '@/styles/portfolio-carousel.css'
 
@@ -39,7 +40,7 @@ interface PortfolioItem {
 
 interface PortfolioCarouselProps {
   items: PortfolioItem[]
-  locale: 'en' | 'fr' | 'ru'
+  locale: string
   title?: string
   subtitle?: string
   className?: string
@@ -333,7 +334,7 @@ export default function PortfolioCarousel({
   }
 
   const handleNumberClick = (id: string) => {
-    const url = getProjectUrl(id, locale)
+    const url = getProjectUrl(id, locale as Locale)
     window.open(url, '_blank')
   }
 
@@ -487,11 +488,7 @@ export default function PortfolioCarousel({
             title={title || 'Portfolio'}
             subtitle={
               subtitle ||
-              (locale === 'fr'
-                ? 'Découvrez nos réalisations web'
-                : locale === 'en'
-                ? 'Discover our web projects'
-                : 'Ознакомьтесь с нашими веб-проектами')
+              'Découvrez nos réalisations web'
             }
             titleId='portfolio-title'
             as={isHomePage ? 'h2' : 'h1'}

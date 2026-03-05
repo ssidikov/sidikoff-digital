@@ -15,18 +15,10 @@ export async function generateMetadata({ params }: LyonPageProps): Promise<Metad
   const { locale } = await params
 
   const title =
-    locale === 'fr'
-      ? 'Création site internet Lyon – Agence web & SEO local'
-      : locale === 'en'
-        ? 'Website Creation Lyon | Expert Local Web Developer'
-        : 'Создание Сайтов Лион | Эксперт Веб-Разработчик'
+    'Création site internet Lyon – Agence web & SEO local'
 
   const description =
-    locale === 'fr'
-      ? 'SIDIKOFF DIGITAL, agence web 69, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
-      : locale === 'en'
-        ? 'SIDIKOFF DIGITAL, Lyon web agency (69), specializes in website creation and web marketing. Contact us now.'
-        : 'SIDIKOFF DIGITAL, веб-агентство Лион (69), специализируется на создании сайтов и веб-маркетинге. Свяжитесь с нами.'
+    'SIDIKOFF DIGITAL, agence web 69, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
 
   return {
     title,
@@ -51,9 +43,7 @@ export async function generateMetadata({ params }: LyonPageProps): Promise<Metad
       description,
       type: 'website',
       locale,
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${
-        locale === 'fr' ? '' : locale + '/'
-      }services/creation-site-internet-lyon`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/services/creation-site-internet-lyon`,
       siteName: 'Sidikoff Digital',
       images: [
         {
@@ -81,211 +71,6 @@ export async function generateMetadata({ params }: LyonPageProps): Promise<Metad
 
 export default async function LyonPage({ params }: LyonPageProps) {
   const { locale } = await params
-
-  if (locale === 'en') {
-    return (
-      <div className='min-h-screen'>
-        {/* Hero Section */}
-        <Section className='pt-32 pb-20 bg-linear-to-br from-[#DBE2EF] via-[#F9F7FF] to-white relative overflow-hidden'>
-          <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-top-right opacity-5'></div>
-          <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
-            <div className='grid lg:grid-cols-2 gap-12 items-center'>
-              <div className='space-y-8'>
-                <div className='space-y-4'>
-                  <div className='inline-flex items-center bg-[#3F72AF]/10 text-[#3F72AF] px-4 py-2 rounded-full text-sm font-medium'>
-                    <svg className='w-4 h-4 mr-2' fill='currentColor' viewBox='0 0 20 20'>
-                      <path
-                        fillRule='evenodd'
-                        d='M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z'
-                        clipRule='evenodd'
-                      />
-                    </svg>
-                    Lyon Web Expert
-                  </div>
-                  <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] leading-tight'>
-                    Professional Website Creation in <span className='text-[#3F72AF]'>Lyon</span>
-                  </h1>
-                  <p className='text-xl text-gray-600 leading-relaxed'>
-                    Lyon web agency specialized in custom website creation. Whether showcase or
-                    e-commerce sites, with optimized SEO for Google and modern design adapted to
-                    your clients.
-                  </p>
-                </div>
-
-                <div className='flex flex-col sm:flex-row gap-4'>
-                  <CTAButton href='/contact' size='md' className='w-full sm:w-auto'>
-                    Get Free Quote
-                  </CTAButton>
-                  <CTAButton
-                    href='/projects'
-                    variant='outline'
-                    size='md'
-                    className='w-full sm:w-auto'>
-                    View Our Work
-                  </CTAButton>
-                </div>
-
-                {/* Floating Metrics */}
-                <div className='grid grid-cols-3 gap-6 pt-8'>
-                  <div className='bg-white/80 backdrop-blur-sm rounded-xl p-4 text-center shadow-lg border border-white/20'>
-                    <div className='text-2xl font-bold text-[#112D4E]'>20+</div>
-                    <div className='text-sm text-gray-600'>Lyon Projects</div>
-                  </div>
-                  <div className='bg-white/80 backdrop-blur-sm rounded-xl p-4 text-center shadow-lg border border-white/20'>
-                    <div className='text-2xl font-bold text-[#112D4E]'>5 weeks</div>
-                    <div className='text-sm text-gray-600'>Average Delivery</div>
-                  </div>
-                  <div className='bg-white/80 backdrop-blur-sm rounded-xl p-4 text-center shadow-lg border border-white/20'>
-                    <div className='text-2xl font-bold text-[#112D4E]'>24/7</div>
-                    <div className='text-sm text-gray-600'>Support</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className='relative'>
-                <div className='relative z-10'>
-                  <Image
-                    src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
-                    alt='Website creation Lyon - Modern office'
-                    className='rounded-2xl shadow-2xl'
-                    width={600}
-                    height={400}
-                  />
-                  <div className='absolute inset-0 bg-linear-to-tr from-[#3F72AF]/20 to-transparent rounded-2xl'></div>
-                </div>
-
-                {/* Floating Elements */}
-                <div className='absolute -top-4 -left-4 bg-white rounded-xl p-3 shadow-lg z-20'>
-                  <div className='flex items-center space-x-2'>
-                    <div className='w-3 h-3 bg-green-500 rounded-full animate-pulse'></div>
-                    <span className='text-sm font-medium text-gray-700'>Online Now</span>
-                  </div>
-                </div>
-
-                <div className='absolute -bottom-4 -right-4 bg-white rounded-xl p-4 shadow-lg z-20'>
-                  <div className='text-center'>
-                    <div className='text-lg font-bold text-[#112D4E]'>SEO</div>
-                    <div className='text-xs text-gray-600'>Optimized</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Section>
-
-        <div className='flex flex-col gap-0'>
-          <Section className='py-20 bg-linear-to-b from-white to-[#F8F9FA]'>
-            <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-              <h2 className='text-3xl font-bold text-[#112D4E] mb-8'>Coming Soon</h2>
-              <p className='text-lg text-gray-600'>English content is being prepared.</p>
-            </div>
-          </Section>
-        </div>
-      </div>
-    )
-  }
-
-  if (locale === 'ru') {
-    return (
-      <div className='min-h-screen'>
-        {/* Hero Section */}
-        <Section className='pt-32 pb-20 bg-linear-to-br from-[#DBE2EF] via-[#F9F7FF] to-white relative overflow-hidden'>
-          <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-top-right opacity-5'></div>
-          <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
-            <div className='grid lg:grid-cols-2 gap-12 items-center'>
-              <div className='space-y-8'>
-                <div className='space-y-4'>
-                  <div className='inline-flex items-center bg-[#3F72AF]/10 text-[#3F72AF] px-4 py-2 rounded-full text-sm font-medium'>
-                    <svg className='w-4 h-4 mr-2' fill='currentColor' viewBox='0 0 20 20'>
-                      <path
-                        fillRule='evenodd'
-                        d='M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z'
-                        clipRule='evenodd'
-                      />
-                    </svg>
-                    Веб-эксперт в Лионе
-                  </div>
-                  <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] leading-tight'>
-                    Профессиональное создание сайтов в <span className='text-[#3F72AF]'>Лионе</span>
-                  </h1>
-                  <p className='text-xl text-gray-600 leading-relaxed'>
-                    Веб-агентство в Лионе, специализирующееся на создании сайтов под заказ.
-                    Современные, SEO-оптимизированные сайты, адаптированные для ваших клиентов.
-                  </p>
-                </div>
-
-                <div className='flex flex-col sm:flex-row gap-4'>
-                  <CTAButton href='/contact' size='md' className='w-full sm:w-auto'>
-                    Получить расчет
-                  </CTAButton>
-                  <CTAButton
-                    href='/projects'
-                    variant='outline'
-                    size='md'
-                    className='w-full sm:w-auto'>
-                    Наши работы
-                  </CTAButton>
-                </div>
-
-                {/* Floating Metrics */}
-                <div className='grid grid-cols-3 gap-6 pt-8'>
-                  <div className='bg-white/80 backdrop-blur-sm rounded-xl p-4 text-center shadow-lg border border-white/20'>
-                    <div className='text-2xl font-bold text-[#112D4E]'>20+</div>
-                    <div className='text-sm text-gray-600'>Проектов в Лионе</div>
-                  </div>
-                  <div className='bg-white/80 backdrop-blur-sm rounded-xl p-4 text-center shadow-lg border border-white/20'>
-                    <div className='text-2xl font-bold text-[#112D4E]'>5 недель</div>
-                    <div className='text-sm text-gray-600'>Средний срок</div>
-                  </div>
-                  <div className='bg-white/80 backdrop-blur-sm rounded-xl p-4 text-center shadow-lg border border-white/20'>
-                    <div className='text-2xl font-bold text-[#112D4E]'>24/7</div>
-                    <div className='text-sm text-gray-600'>Поддержка</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className='relative'>
-                <div className='relative z-10'>
-                  <Image
-                    src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
-                    alt='Создание сайтов Лион - Современный офис'
-                    className='rounded-2xl shadow-2xl'
-                    width={600}
-                    height={400}
-                  />
-                  <div className='absolute inset-0 bg-linear-to-tr from-[#3F72AF]/20 to-transparent rounded-2xl'></div>
-                </div>
-
-                {/* Floating Elements */}
-                <div className='absolute -top-4 -left-4 bg-white rounded-xl p-3 shadow-lg z-20'>
-                  <div className='flex items-center space-x-2'>
-                    <div className='w-3 h-3 bg-green-500 rounded-full animate-pulse'></div>
-                    <span className='text-sm font-medium text-gray-700'>Онлайн</span>
-                  </div>
-                </div>
-
-                <div className='absolute -bottom-4 -right-4 bg-white rounded-xl p-4 shadow-lg z-20'>
-                  <div className='text-center'>
-                    <div className='text-lg font-bold text-[#112D4E]'>SEO</div>
-                    <div className='text-xs text-gray-600'>Оптимизировано</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Section>
-
-        <div className='flex flex-col gap-0'>
-          <Section className='py-20 bg-linear-to-b from-white to-[#F8F9FA]'>
-            <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-              <h2 className='text-3xl font-bold text-[#112D4E] mb-8'>Скоро</h2>
-              <p className='text-lg text-gray-600'>Контент на русском языке готовится.</p>
-            </div>
-          </Section>
-        </div>
-      </div>
-    )
-  }
 
   // French content (default)
   return (

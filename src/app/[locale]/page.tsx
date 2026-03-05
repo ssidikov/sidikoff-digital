@@ -62,11 +62,9 @@ function generateWebPageSchema(locale: Locale) {
     '@type': 'WebPage',
     '@id': `${url}#webpage`,
     url,
-    name: locale === 'fr' ? 'Agence Web - SIDIKOFF DIGITAL' : 'Web Agency - SIDIKOFF DIGITAL',
+    name: 'Agence Web - SIDIKOFF DIGITAL',
     description:
-      locale === 'fr'
-        ? 'Agence web spécialisée dans la création de sites internet modernes et applications web. React, Next.js, SEO optimisé.'
-        : 'Web agency specialized in modern website creation and web applications. React, Next.js, SEO optimized.',
+      'Agence web spécialisée dans la création de sites internet modernes et applications web. React, Next.js, SEO optimisé.',
     inLanguage: locale,
     isPartOf: {
       '@type': 'WebSite',
@@ -78,7 +76,7 @@ function generateWebPageSchema(locale: Locale) {
         {
           '@type': 'ListItem',
           position: 1,
-          name: locale === 'fr' ? 'Accueil' : locale === 'en' ? 'Home' : 'Главная',
+          name: 'Accueil',
           item: url,
         },
       ],
@@ -124,11 +122,7 @@ export default async function HomePage({ params }: HomePageProps) {
       <main className='relative'>
         {/* ИСПРАВЛЕНО: Skip-to-content скрыт по умолчанию, показывается только при фокусе */}
         <a href='#main-content' className='skip-to-content sr-only'>
-          {locale === 'fr'
-            ? 'Aller au contenu principal'
-            : locale === 'en'
-              ? 'Skip to main content'
-              : 'Перейти к основному содержанию'}
+          {'Aller au contenu principal'}
         </a>
 
         <div id='main-content'>

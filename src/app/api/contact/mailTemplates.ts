@@ -1,14 +1,14 @@
 // Types for template parameters
 interface UserConfirmationParams {
   name: string
-  locale?: 'fr' | 'en' | 'ru'
+  locale?: 'fr'
 }
 
 interface AdminNotificationParams {
   name: string
   email: string
   message: string
-  locale?: 'fr' | 'en' | 'ru'
+  locale?: 'fr'
 }
 
 // Translations for email templates
@@ -28,37 +28,6 @@ const translations = {
     thankYou: 'Merci pour votre confiance',
     quickResponse: 'Réponse sous 24h garantie',
     professionalService: 'Service professionnel',
-  },
-  en: {
-    greeting: 'Hello',
-    userSubject: 'Confirmation of your request',
-    userMessage: 'We have received your request. Our team will contact you shortly to discuss it.',
-    regards: 'Best regards,\nThe SIDIKOFF DIGITALteam',
-    adminSubject: 'New request received',
-    newRequest: 'New request received',
-    nameLabel: 'Name',
-    emailLabel: 'Email',
-    messageLabel: 'Message',
-    autoNotification: 'SIDIKOFF DIGITALautomatic notification',
-    thankYou: 'Thank you for your trust',
-    quickResponse: '24h response guaranteed',
-    professionalService: 'Professional service',
-  },
-  ru: {
-    greeting: 'Здравствуйте',
-    userSubject: 'Подтверждение вашего запроса',
-    userMessage:
-      'Мы получили ваш запрос. Наша команда свяжется с вами в ближайшее время для обсуждения.',
-    regards: 'С уважением,\nКоманда SIDIKOFF DIGITAL',
-    adminSubject: 'Получен новый запрос',
-    newRequest: 'Получен новый запрос',
-    nameLabel: 'Имя',
-    emailLabel: 'Email',
-    messageLabel: 'Сообщение',
-    autoNotification: 'Автоматическое уведомление SIDIKOFF DIGITAL',
-    thankYou: 'Благодарим за доверие',
-    quickResponse: 'Ответ в течение 24ч',
-    professionalService: 'Профессиональный сервис',
   },
 }
 
@@ -293,11 +262,11 @@ const baseStyles = `
 `
 
 export const userConfirmationFR = ({ name, locale = 'fr' }: UserConfirmationParams) => {
-  const t = translations[locale]
+  const t = translations.fr
 
   return `
     <!DOCTYPE html>
-    <html lang="${locale}">
+    <html lang="fr">
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -361,11 +330,11 @@ export const adminNotificationFR = ({
   message,
   locale = 'fr',
 }: AdminNotificationParams) => {
-  const t = translations[locale]
+  const t = translations.fr
 
   return `
     <!DOCTYPE html>
-    <html lang="${locale}">
+    <html lang="fr">
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -416,12 +385,8 @@ export const adminNotificationFR = ({
             ${t.autoNotification}
           </p>
           <p style="margin: 0; color: #9ca3af; font-size: 12px;">
-            ${new Date().toLocaleDateString(
-              locale === 'fr' ? 'fr-FR' : locale === 'ru' ? 'ru-RU' : 'en-US'
-            )} - 
-            ${new Date().toLocaleTimeString(
-              locale === 'fr' ? 'fr-FR' : locale === 'ru' ? 'ru-RU' : 'en-US'
-            )}
+            ${new Date().toLocaleDateString('fr-FR')} -
+            ${new Date().toLocaleTimeString('fr-FR')}
           </p>
         </div>
       </div>
@@ -430,15 +395,3 @@ export const adminNotificationFR = ({
   `
 }
 
-// Export specific language templates for backward compatibility
-export const userConfirmationEN = (params: UserConfirmationParams) =>
-  userConfirmationFR({ ...params, locale: 'en' })
-
-export const userConfirmationRU = (params: UserConfirmationParams) =>
-  userConfirmationFR({ ...params, locale: 'ru' })
-
-export const adminNotificationEN = (params: AdminNotificationParams) =>
-  adminNotificationFR({ ...params, locale: 'en' })
-
-export const adminNotificationRU = (params: AdminNotificationParams) =>
-  adminNotificationFR({ ...params, locale: 'ru' })

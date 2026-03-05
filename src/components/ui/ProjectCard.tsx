@@ -3,6 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getProjectUrl } from '@/utils/navigation'
+import type { Locale } from '@/lib/i18n'
 import { cardStyles } from '@/utils/styles'
 
 export interface ProjectCardProps {
@@ -15,14 +16,14 @@ export interface ProjectCardProps {
     technologies?: string[]
     link?: string
   }
-  locale: 'en' | 'fr' | 'ru'
+  locale: string
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, locale }) => (
   <div
     className={`group flex flex-col items-stretch p-6 lg:p-4 3xl:p-6 focus-visible:ring-2 focus-visible:ring-accent outline-none relative overflow-hidden h-[480px] md:h-[520px] lg:h-[640px] xl:h-[664px] ${cardStyles.card}`}>
     <Link
-      href={getProjectUrl(project.id, locale)}
+      href={getProjectUrl(project.id, locale as Locale)}
       className='absolute inset-0 z-10'
       tabIndex={-1}
       aria-label={`Подробнее о проекте ${project.title}`}

@@ -120,45 +120,9 @@ export function proxy(request: NextRequest) {
     return enhanceResponse(NextResponse.next(), pathname)
   }
 
-  // Handle pricing page redirects (pricing -> tarifs)
-  if (pathname === '/en/pricing' || pathname === '/ru/pricing') {
-    const locale = pathname.startsWith('/en/') ? 'en' : 'ru'
-    const redirectPath = `/${locale}/tarifs`
-    const redirectUrl = new URL(redirectPath, request.url)
-    return NextResponse.redirect(redirectUrl, {
-      status: 301,
-      headers: {
-        'X-Robots-Tag': 'noindex, nofollow',
-        ...SECURITY_HEADERS,
-      },
-    })
-  }
-
-  // Handle services URLs without slash
-  if (pathname === '/enservices' || pathname === '/ruservices') {
-    const locale = pathname === '/enservices' ? 'en' : 'ru'
-    const redirectPath = `/${locale}/services`
-    const redirectUrl = new URL(redirectPath, request.url)
-    return NextResponse.redirect(redirectUrl, {
-      status: 301,
-      headers: {
-        'X-Robots-Tag': 'noindex, nofollow',
-        ...SECURITY_HEADERS,
-      },
-    })
-  }
-
   // Handle deprecated /services/consultation URLs - redirect to contact
-  if (
-    pathname === '/services/consultation' ||
-    pathname === '/en/services/consultation' ||
-    pathname === '/ru/services/consultation'
-  ) {
-    let redirectPath = '/contact'
-    if (pathname.startsWith('/en/')) redirectPath = '/en/contact'
-    if (pathname.startsWith('/ru/')) redirectPath = '/ru/contact'
-
-    const redirectUrl = new URL(redirectPath, request.url)
+  if (pathname === '/services/consultation') {
+    const redirectUrl = new URL('/contact', request.url)
     return NextResponse.redirect(redirectUrl, {
       status: 301,
       headers: {
@@ -186,10 +150,8 @@ export function proxy(request: NextRequest) {
       locationName = shortFormatMatch[1].replace(/-/g, ' ')
     }
 
-    // Determine locale from pathname
-    let locale: 'fr' | 'en' | 'ru' = 'fr'
-    if (pathname.startsWith('/en/')) locale = 'en'
-    if (pathname.startsWith('/ru/')) locale = 'ru'
+    // Determine locale from pathname (always FR now)
+    const locale = 'fr'
 
     // Create URL for our landing page with parameters
     const landingUrl = new URL('/gone-landing', request.url)
@@ -272,7 +234,7 @@ export function proxy(request: NextRequest) {
     })
   }
 
-  // If pathname already has a locale (en/ru), continue normally
+  // If pathname already has a locale (fr used as prefix), continue normally
   if (pathnameHasLocale) {
     return enhanceResponse(NextResponse.next(), pathname)
   }
