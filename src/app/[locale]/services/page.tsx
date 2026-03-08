@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: ServicesPageProps): Promise<M
     {
       ogImage: '/images/services/web-development.webp',
       ogType: 'website',
-    }
+    },
   )
 }
 

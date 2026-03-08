@@ -14,8 +14,7 @@ interface ToulousePageProps {
 export async function generateMetadata({ params }: ToulousePageProps): Promise<Metadata> {
   const { locale } = await params
 
-  const title =
-    'Création site internet Toulouse – Agence web & SEO local'
+  const title = 'Création site internet Toulouse – Agence web & SEO local'
 
   const description =
     'SIDIKOFF DIGITAL, agence web 31, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
