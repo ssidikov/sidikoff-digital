@@ -54,9 +54,7 @@ export async function generateMetadata({ params }: ParisPageProps): Promise<Meta
       card: 'summary_large_image',
       title,
       description,
-      images: [
-        '/images/opengraph-fr.png',
-      ],
+      images: ['/images/opengraph-fr.png'],
     },
   }
 }

@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils';
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
 
@@ -14,8 +14,7 @@ interface LyonPageProps {
 export async function generateMetadata({ params }: LyonPageProps): Promise<Metadata> {
   const { locale } = await params
 
-  const title =
-    'Création site internet Lyon – Agence web & SEO local'
+  const title = 'Création site internet Lyon – Agence web & SEO local'
 
   const description =
     'SIDIKOFF DIGITAL, agence web 69, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
@@ -58,9 +57,7 @@ export async function generateMetadata({ params }: LyonPageProps): Promise<Metad
       card: 'summary_large_image',
       title,
       description,
-      images: [
-        '/images/opengraph-fr.png',
-      ],
+      images: ['/images/opengraph-fr.png'],
     },
   }
 }
