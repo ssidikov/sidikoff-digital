@@ -39,7 +39,7 @@ export function generateWebCreationSchema(): WebCreationServiceSchema {
       price: '800',
       priceCurrency: 'EUR',
       availability: 'https://schema.org/InStock',
-      validFrom: new Date().toISOString().split('T')[0] || new Date().toISOString(),
+      validFrom: '2025-01-01',
     },
     serviceType: 'Web Development',
     areaServed: 'France',

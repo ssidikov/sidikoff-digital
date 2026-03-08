@@ -41,9 +41,9 @@ export async function generateMetadata({ params }: LyonPageProps): Promise<Metad
       title,
       description,
       type: 'website',
-      locale,
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/services/creation-site-internet-lyon`,
-      siteName: 'Sidikoff Digital',
+      locale: 'fr_FR',
+      url: 'https://www.sidikoff.com/services/creation-site-internet-lyon',
+      siteName: 'SIDIKOFF DIGITAL',
       images: [
         {
           url: '/images/opengraph-fr.png',

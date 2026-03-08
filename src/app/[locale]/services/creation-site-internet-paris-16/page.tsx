@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Paris16PageProps): Promise<Me
   const title = 'Création de site internet professionnel Paris 16ème - Agence Web'
 
   const description =
-    'SIDIKOFF DIGITAL, agence web 75016, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
+    'SIDIKOFF DIGITAL, agence web Paris 16, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
 
   return {
     title,

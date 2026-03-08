@@ -43,7 +43,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       description: content.meta_description,
       url: url,
       siteName: 'SIDIKOFF DIGITAL',
-      locale: params.locale,
+      locale: 'fr_FR',
       type: 'website',
       images: [
         {
@@ -59,7 +59,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       title: content.meta_title,
       description: content.meta_description,
       images: ['https://www.sidikoff.com/images/opengraph-fr.png'],
-      creator: '@sidikoff_digital',
+      creator: '@sidikoffdigital',
     },
     robots: {
       index: true,

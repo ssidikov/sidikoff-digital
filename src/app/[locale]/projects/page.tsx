@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: ProjectsPageProps): Promise<M
     'Découvrez nos réalisations web : sites vitrines, e-commerce, applications sur mesure. Projets modernes, performants et optimisés SEO développés avec React et Next.js.'
 
   return generatePageMetadata(
-    `${dictionary.portfolio?.title || 'Portfolio'} | SIDIKOFF DIGITAL`,
+    `${dictionary.portfolio?.title || 'Portfolio'}`,
     description,
     '/projects',
     locale,

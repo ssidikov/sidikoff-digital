@@ -26,7 +26,7 @@ import {
 import LocaleProvider from '@/components/LocaleProvider'
 
 const SEO_CONFIG = {
-  title: 'Création de Sites Web Professionnels | SIDIKOFF DIGITAL',
+  title: 'Création de Sites Web Professionnels',
   keywords: [
     'développeur web freelance',
     'création site internet',
@@ -42,7 +42,7 @@ export async function generateMetadata() {
   return generateSEOMetadata({
     title: SEO_CONFIG.title,
     description:
-      'SIDIKOFF DIGITAL, agence web 75, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.',
+      'SIDIKOFF DIGITAL, agence web Lyon, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.',
     locale: defaultLocale,
     canonicalUrl: createCanonicalUrl('', defaultLocale),
     alternateLanguages: generateLanguageAlternates('', ['fr']),
@@ -70,18 +70,10 @@ function generateHomePageSchemas() {
       url: 'https://www.sidikoff.com',
       description:
         'Agence web premium spécialisée dans la création de sites web modernes à Paris et Toulouse',
-      inLanguage: ['fr-FR'],
+      inLanguage: 'fr-FR',
       isPartOf: {
         '@type': 'Organization',
         '@id': 'https://www.sidikoff.com/#organization',
-      },
-      potentialAction: {
-        '@type': 'SearchAction',
-        target: {
-          '@type': 'EntryPoint',
-          urlTemplate: 'https://www.sidikoff.com/search?q={search_term_string}',
-        },
-        'query-input': 'required name=search_term_string',
       },
       copyrightYear: 2025,
       copyrightHolder: {

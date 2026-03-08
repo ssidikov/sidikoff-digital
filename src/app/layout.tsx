@@ -7,10 +7,9 @@ import { inter } from '@/lib/fonts'
 const SITE_CONFIG = {
   url: 'https://www.sidikoff.com',
   name: 'SIDIKOFF DIGITAL',
-  title:
-    'Création de sites web | SIDIKOFF DIGITAL - Agence Web | Développement Web Paris, Lyon, Toulouse, Strasbourg',
+  title: 'Agence Web France | Développement Web — SIDIKOFF DIGITAL',
   description:
-    'SIDIKOFF DIGITAL, agence web 75, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.',
+    'SIDIKOFF DIGITAL, agence web Lyon, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.',
   keywords: [
     'agence web france',
     'développement web',
@@ -33,7 +32,7 @@ const SITE_CONFIG = {
     'développeur freelance france',
   ],
   image: '/images/opengraph-fr.png', // French default OG image
-  twitter: '@sidikoff',
+  twitter: '@sidikoffdigital',
 } as const
 
 export const metadata: Metadata = {

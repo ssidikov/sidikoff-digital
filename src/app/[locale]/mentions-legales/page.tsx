@@ -12,12 +12,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const dict = await getDictionary(locale)
 
   return {
-    title: `${dict.legal.title} | SIDIKOFF DIGITAL- Agence Web`,
+    title: dict.legal.title,
     description:
       'Mentions légales et informations légales de Sidikoff, agence web spécialisée dans la création de sites internet et applications.',
     robots: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
     },
     alternates: {
       canonical: createCanonicalUrl('mentions-legales', locale),

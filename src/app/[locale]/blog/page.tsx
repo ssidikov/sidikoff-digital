@@ -5,6 +5,7 @@ import { BlogPageContent } from '@/components/BlogPageContent'
 import { getBlogPosts, getBlogCategories } from '@/lib/sanity'
 import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
+import { createCanonicalUrl } from '@/lib/seo-utils'
 
 interface BlogPageProps {
   params: Promise<{
@@ -19,17 +20,25 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
   const dict = await getDictionary(locale)
 
   return {
-    title: `${dict.blog.title} | SIDIKOFF DIGITAL`,
+    title: dict.blog.title,
     description: dict.blog.subtitle,
+    alternates: {
+      canonical: createCanonicalUrl('blog', locale),
+    },
     openGraph: {
       title: dict.blog.title,
       description: dict.blog.subtitle,
       type: 'website',
+      locale: 'fr_FR',
+      siteName: 'SIDIKOFF DIGITAL',
+      url: createCanonicalUrl('blog', locale),
+      images: [{ url: '/images/opengraph-fr.png', width: 1200, height: 630, alt: dict.blog.title }],
     },
     twitter: {
       card: 'summary_large_image',
       title: dict.blog.title,
       description: dict.blog.subtitle,
+      creator: '@sidikoffdigital',
     },
   }
 }

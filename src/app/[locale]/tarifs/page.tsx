@@ -13,9 +13,7 @@ export async function generateMetadata({ params }: TarifsPageProps): Promise<Met
   const { locale } = await params
   const dict = await getDictionary(locale)
 
-  const title = dict?.pricing?.title
-    ? `${dict.pricing.title} | Sidikoff Digital`
-    : 'Tarifs & Prix - Création de Sites Web | Sidikoff Digital'
+  const title = dict?.pricing?.title ?? 'Tarifs & Prix — Création de Sites Web'
 
   const description =
     dict?.pricing?.description ||

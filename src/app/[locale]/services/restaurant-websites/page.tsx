@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getDictionary } from '@/lib/dictionaries'
 import { locales, type Locale } from '@/lib/i18n'
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import RestaurantLandingContent from '@/components/RestaurantLandingContent'
 
 type Props = {
@@ -24,15 +25,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t.meta_title,
     description: t.meta_description,
     keywords: t.keywords,
+    alternates: {
+      canonical: createCanonicalUrl('services/restaurant-websites', locale as Locale),
+      languages: generateAlternateUrls('services/restaurant-websites'),
+    },
     openGraph: {
       title: t.meta_title,
       description: t.meta_description,
       type: 'website',
-      locale: locale,
-      siteName: 'Sidikoff Digital',
+      locale: 'fr_FR',
+      siteName: 'SIDIKOFF DIGITAL',
       images: [
         {
-          url: '/images/og/restaurant-websites.jpg',
+          url: '/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: t.meta_title,
@@ -43,7 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: t.meta_title,
       description: t.meta_description,
-      images: ['/images/og/restaurant-websites.jpg'],
+      images: ['/images/opengraph-fr.png'],
     },
     robots: {
       index: true,

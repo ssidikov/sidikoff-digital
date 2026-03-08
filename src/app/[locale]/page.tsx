@@ -60,15 +60,15 @@ function generateWebPageSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    '@id': `${url}#webpage`,
+    '@id': `${url}/#webpage`,
     url,
     name: 'Agence Web - SIDIKOFF DIGITAL',
     description:
       'Agence web spécialisée dans la création de sites internet modernes et applications web. React, Next.js, SEO optimisé.',
-    inLanguage: 'fr',
+    inLanguage: 'fr-FR',
     isPartOf: {
       '@type': 'WebSite',
-      '@id': 'https://www.sidikoff.com#website',
+      '@id': 'https://www.sidikoff.com/#website',
     },
     breadcrumb: {
       '@type': 'BreadcrumbList',
@@ -83,7 +83,7 @@ function generateWebPageSchema() {
     },
     mainEntity: {
       '@type': 'Organization',
-      '@id': 'https://www.sidikoff.com#organization',
+      '@id': 'https://www.sidikoff.com/#organization',
     },
   }
 }

@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: ContactPageProps): Promise<Me
     'Contactez SIDIKOFF DIGITAL pour discuter de votre projet web. Développement sur mesure, site vitrine, e-commerce. Devis gratuit, réponse sous 24h.'
 
   return generatePageMetadata(
-    `${dictionary.contact.title} | SIDIKOFF DIGITAL`,
+    `${dictionary.contact.title}`,
     description,
     '/contact',
     locale,

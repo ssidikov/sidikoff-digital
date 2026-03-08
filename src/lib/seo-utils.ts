@@ -35,7 +35,7 @@ export interface LocalBusiness {
     longitude: string
   }
   areaServed: string[]
-  hasMap: string
+  hasMap?: string
 }
 
 // Helper function to get locale-specific OG image
@@ -52,7 +52,14 @@ export const DEFAULT_SEO = {
   locale: 'fr' as Locale,
   keywords: [
     // High-conversion primary keywords - "agence web paris" as #1
+    'agence web Villeurbanne',
+    'agence web Next.js',
+    'agence web React',
+    'expert développement web',
+    'expert React',
+    'expert Next.js',
     'agence web Lyon',
+    'agence web Paris',
     'création site web professionnel Lyon',
     'développeur web Lyon',
     'agence digitale Lyon',
@@ -94,22 +101,51 @@ export function generateAlternateUrls(path: string): Record<Locale, string> {
 // Business locations - Main business addresses for structured data
 export const businessLocations: LocalBusiness[] = [
   {
-    name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Paris',
+    name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Villeurbanne',
     url: 'https://www.sidikoff.com',
     address: {
-      streetAddress: '77 Ter Rue Michel Ange',
-      addressLocality: 'Paris',
-      postalCode: '75016',
+      streetAddress: '73 Rue Racine',
+      addressLocality: 'Villeurbanne',
+      postalCode: '69100',
       addressCountry: 'FR',
     },
     telephone: '+33626932734',
     email: 's.sidikoff@gmail.com',
     geo: {
-      latitude: '48.8566',
-      longitude: '2.3522',
+      latitude: '45.7719019',
+      longitude: '4.8508612',
     },
-    areaServed: ['Paris', 'Île-de-France', 'France'],
-    hasMap: 'https://maps.app.goo.gl/7219cD6xWk5tdYpb6',
+    areaServed: [
+      'Villeurbanne',
+      'Lyon',
+      'Lyon métropole',
+      'Rhône',
+      'Paris',
+      'Toulouse',
+      'Strasbourg',
+      'Lille',
+      'Nantes',
+      'Grenoble',
+      'Montpellier',
+      'Bordeaux',
+      'Marseille',
+      'Nice',
+      'Clermont-Ferrand',
+      'Mulhouse',
+      'Geneva',
+      'Lugano',
+      'Haute-Garonne',
+      'Occitanie',
+      'Auvergne-Rhône-Alpes',
+      'Grand Est',
+      'Savie',
+      'Hautes-Alpes',
+      'Haute-Savoie',
+      'Normandie',
+      'Lisieux',
+      'France',
+    ],
+    hasMap: 'https://maps.app.goo.gl/villeurbanne',
   },
   {
     name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Toulouse',
@@ -247,7 +283,7 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
           alt: title,
         },
       ],
-      locale,
+      locale: 'fr_FR',
       type: ogType,
       publishedTime,
       modifiedTime,
@@ -281,7 +317,7 @@ export function generateLocalizedSEOMetadata(locale: Locale): Metadata {
   // Enhanced SEO-optimized titles with primary keywords and call-to-action
   const titles = {
     fr: isHomePage
-      ? 'Agence Web | Création Site Internet & Développement Sur Mesure'
+      ? 'Agence Web | Création de Sites Internet'
       : 'SIDIKOFF DIGITAL - Agence Web Expert | Développement React',
   }
 
@@ -454,10 +490,10 @@ export const organizationSchema = {
   ],
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '77 Ter Rue Michel Ange',
-    postalCode: '75016',
-    addressLocality: 'Paris',
-    addressRegion: 'Île-de-France',
+    streetAddress: '73 Rue Racine',
+    postalCode: '69100',
+    addressLocality: 'Villeurbanne',
+    addressRegion: 'Auvergne-Rhône-Alpes',
     addressCountry: 'FR',
   },
   areaServed: [
@@ -471,7 +507,7 @@ export const organizationSchema = {
     },
     {
       '@type': 'City',
-      name: 'Paris',
+      name: 'Villeurbanne',
     },
   ],
   knowsAbout: [

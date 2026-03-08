@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
 import { getDictionary } from '@/lib/dictionaries'
+import { createCanonicalUrl } from '@/lib/seo-utils'
 import { PremiumLegalTemplate } from '@/components/ui/PremiumLegalTemplate'
 
 interface Props {
@@ -12,8 +13,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const dict = await getDictionary(locale)
 
   return {
-    title: `${dict.privacy.title} | ${dict.legal.company_name}`,
+    title: dict.privacy.title,
     description: dict.privacy.subtitle,
+    robots: {
+      index: false,
+      follow: false,
+    },
+    alternates: {
+      canonical: createCanonicalUrl('politique-de-confidentialite', locale),
+    },
   }
 }
 

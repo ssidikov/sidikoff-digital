@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: FAQPageProps): Promise<Metada
   const dictionary = await getDictionary(locale)
 
   return generatePageMetadata(
-    `${dictionary.faq.title} | SIDIKOFF DIGITAL`,
+    `${dictionary.faq.title}`,
     dictionary.faq.subtitle,
     '/faq',
     locale,

@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: ParisPageProps): Promise<Meta
   const title = 'Création site internet Paris – Agence web & SEO local'
 
   const description =
-    'SIDIKOFF DIGITAL, agence web 75, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
+    'SIDIKOFF DIGITAL, agence web Paris, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
 
   return {
     title,
@@ -38,9 +38,9 @@ export async function generateMetadata({ params }: ParisPageProps): Promise<Meta
       title,
       description,
       type: 'website',
-      locale,
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/services/creation-site-internet-paris`,
-      siteName: 'Sidikoff Digital',
+      locale: 'fr_FR',
+      url: 'https://www.sidikoff.com/services/creation-site-internet-paris',
+      siteName: 'SIDIKOFF DIGITAL',
       images: [
         {
           url: '/images/opengraph-fr.png',
