@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: ProjectsPageProps): Promise<M
     {
       ogImage: '/images/projects-bg.webp',
       ogType: 'website',
-    }
+    },
   )
 }
 

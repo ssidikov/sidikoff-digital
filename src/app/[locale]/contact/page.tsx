@@ -17,16 +17,10 @@ export async function generateMetadata({ params }: ContactPageProps): Promise<Me
     dictionary.contact.description ||
     'Contactez SIDIKOFF DIGITAL pour discuter de votre projet web. Développement sur mesure, site vitrine, e-commerce. Devis gratuit, réponse sous 24h.'
 
-  return generatePageMetadata(
-    `${dictionary.contact.title}`,
-    description,
-    '/contact',
-    locale,
-    {
-      ogImage: '/images/opengraph-fr.png',
-      ogType: 'website',
-    }
-  )
+  return generatePageMetadata(`${dictionary.contact.title}`, description, '/contact', locale, {
+    ogImage: '/images/opengraph-fr.png',
+    ogType: 'website',
+  })
 }
 
 export default async function ContactPage({ params }: ContactPageProps) {

@@ -15,16 +15,10 @@ export async function generateMetadata({ params }: FAQPageProps): Promise<Metada
   const { locale } = await params
   const dictionary = await getDictionary(locale)
 
-  return generatePageMetadata(
-    `${dictionary.faq.title}`,
-    dictionary.faq.subtitle,
-    '/faq',
-    locale,
-    {
-      ogImage: '/images/opengraph-fr.png',
-      ogType: 'website',
-    }
-  )
+  return generatePageMetadata(`${dictionary.faq.title}`, dictionary.faq.subtitle, '/faq', locale, {
+    ogImage: '/images/opengraph-fr.png',
+    ogType: 'website',
+  })
 }
 
 export default async function FAQPage({ params }: FAQPageProps) {
