@@ -47,9 +47,7 @@ export async function generateMetadata({ params }: LyonPageProps): Promise<Metad
       siteName: 'Sidikoff Digital',
       images: [
         {
-          url: `${
-            process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
-          }/images/og/creation-sites-web-lyon.jpg`,
+          url: '/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: title,
@@ -61,9 +59,7 @@ export async function generateMetadata({ params }: LyonPageProps): Promise<Metad
       title,
       description,
       images: [
-        `${
-          process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
-        }/images/og/creation-sites-web-lyon.jpg`,
+        '/images/opengraph-fr.png',
       ],
     },
   }

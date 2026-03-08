@@ -43,9 +43,7 @@ export async function generateMetadata({ params }: ParisPageProps): Promise<Meta
       siteName: 'Sidikoff Digital',
       images: [
         {
-          url: `${
-            process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
-          }/images/og/creation-sites-web-paris.jpg`,
+          url: '/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: title,
@@ -57,9 +55,7 @@ export async function generateMetadata({ params }: ParisPageProps): Promise<Meta
       title,
       description,
       images: [
-        `${
-          process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
-        }/images/og/creation-sites-web-paris.jpg`,
+        '/images/opengraph-fr.png',
       ],
     },
   }

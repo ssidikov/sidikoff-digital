@@ -47,7 +47,7 @@ export function getLocalizedOgImage(locale: Locale, customImage?: string): strin
 export const DEFAULT_SEO = {
   siteName: 'SIDIKOFF DIGITAL - Développeur Web Full Stack',
   siteUrl: 'https://www.sidikoff.com',
-  defaultImage: '/images/og-default.jpg',
+  defaultImage: '/images/opengraph-fr.png',
   twitterHandle: '@sidikoffdigital',
   locale: 'fr' as Locale,
   keywords: [
@@ -422,7 +422,7 @@ export function generateLocalBusinessSchema(
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  '@id': 'https://www.sidikoff.com#Organization',
+  '@id': 'https://www.sidikoff.com/#organization',
   name: 'SIDIKOFF DIGITAL',
   legalName: 'SIDIKOFF DIGITAL - Création de Sites Web | Agence Web',
   url: 'https://www.sidikoff.com',
@@ -578,7 +578,7 @@ export function generateReviewStructuredData(
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    '@id': 'https://www.sidikoff.com#Organization',
+    '@id': 'https://www.sidikoff.com/#organization',
     name: 'SIDIKOFF DIGITAL',
     url: 'https://www.sidikoff.com',
     description: 'Développeur Web Full Stack - Création de sites web professionnels',

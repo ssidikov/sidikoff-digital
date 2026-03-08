@@ -35,11 +35,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: content.meta_description,
       type: 'website',
       locale: locale,
-      url: `https://sidikoff.com/services/agence-web-paris-15`,
+      url: `https://www.sidikoff.com/services/agence-web-paris-15`,
       siteName: 'SIDIKOFF DIGITAL',
       images: [
         {
-          url: '/images/og/agence-web-paris-15-og.jpg',
+          url: '/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: 'Agence Web Paris 15ème - Création Site Internet',
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: content.meta_title,
       description: content.meta_description,
-      images: ['/images/og/agence-web-paris-15-og.jpg'],
+      images: ['/images/opengraph-fr.png'],
     },
     alternates: {
       canonical: createCanonicalUrl('services/agence-web-paris-15', locale),

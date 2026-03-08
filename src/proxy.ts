@@ -300,9 +300,9 @@ function generateCSPHeader(isStudio: boolean): string {
   return `
     ${baseCSP}
     script-src 'self' 'unsafe-eval' 'unsafe-inline' https://va.vercel-scripts.com;
-    style-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline' fonts.googleapis.com;
     img-src 'self' blob: data:;
-    font-src 'self';
+    font-src 'self' fonts.gstatic.com;
     connect-src 'self' https://vitals.vercel-insights.com;
     frame-src 'none';
     object-src 'none';

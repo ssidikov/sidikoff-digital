@@ -36,37 +36,13 @@ const AUTHOR_INFO = {
   avatar: 'SD',
 } as const
 
-const CATEGORY_TRANSLATIONS: Record<string, Record<Locale, string>> = {
-  'Web Development': {
-    fr: 'Développement Web',
-    ru: 'Веб-разработка',
-    en: 'Web Development',
-  },
-  'Web Design': {
-    fr: 'Web Design',
-    ru: 'Веб-дизайн',
-    en: 'Web Design',
-  },
-  SEO: {
-    fr: 'SEO',
-    ru: 'SEO',
-    en: 'SEO',
-  },
-  Marketing: {
-    fr: 'Marketing',
-    ru: 'Маркетинг',
-    en: 'Marketing',
-  },
-  Tutorial: {
-    fr: 'Tutoriel',
-    ru: 'Урок',
-    en: 'Tutorial',
-  },
-  News: {
-    fr: 'Actualités',
-    ru: 'Новости',
-    en: 'News',
-  },
+const CATEGORY_TRANSLATIONS: Record<string, string> = {
+  'Web Development': 'Développement Web',
+  'Web Design': 'Web Design',
+  SEO: 'SEO',
+  Marketing: 'Marketing',
+  Tutorial: 'Tutoriel',
+  News: 'Actualités',
 }
 
 /**
@@ -86,26 +62,14 @@ export function BlogCard({ post, featured = false, locale, index }: BlogCardProp
   const imageAlt = post.mainImage?.alt || post.title
   const categoryColor = post.category?.color || DEFAULT_CATEGORY_COLOR
   const categoryTitle = post.category
-    ? CATEGORY_TRANSLATIONS[post.category.title]?.[locale] || post.category.title
+    ? CATEGORY_TRANSLATIONS[post.category.title] || post.category.title
     : ''
 
   // Localized strings
   const localizedStrings = {
-    author: {
-      fr: 'Auteur',
-      ru: 'Автор',
-      en: 'Author',
-    }[locale],
-    readMore: {
-      fr: 'Lire la suite',
-      ru: 'Читать далее',
-      en: 'Read more',
-    }[locale],
-    readTime: {
-      fr: `${post.estimatedReadingTime} min de lecture`,
-      ru: `${post.estimatedReadingTime} мин чтения`,
-      en: `${post.estimatedReadingTime} min read`,
-    }[locale],
+    author: 'Auteur',
+    readMore: 'Lire la suite',
+    readTime: `${post.estimatedReadingTime} min de lecture`,
   }
 
   return (

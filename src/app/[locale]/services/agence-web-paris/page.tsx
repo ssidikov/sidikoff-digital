@@ -47,7 +47,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       type: 'website',
       images: [
         {
-          url: 'https://www.sidikoff.com/images/og-creation-sites-web.jpg',
+          url: 'https://www.sidikoff.com/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: content.meta_title,
@@ -58,7 +58,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: content.meta_title,
       description: content.meta_description,
-      images: ['https://www.sidikoff.com/images/og-creation-sites-web.jpg'],
+      images: ['https://www.sidikoff.com/images/opengraph-fr.png'],
       creator: '@sidikoff_digital',
     },
     robots: {

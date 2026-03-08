@@ -46,12 +46,7 @@ const SECURITY_HEADERS = [
           value: 'no-store',
         },
       ]
-    : [
-        {
-          key: 'Cache-Control',
-          value: 'public, max-age=31536000, immutable',
-        },
-      ]),
+    : []),
   // ИСПРАВЛЕНО: Добавлен Content Security Policy
   {
     key: 'Content-Security-Policy',

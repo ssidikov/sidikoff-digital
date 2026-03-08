@@ -76,7 +76,7 @@ export default async function MaintenanceLandingPage({ params }: PageProps) {
     provider: {
       '@type': 'Organization',
       name: 'Sidikoff Digital',
-      url: 'https://sidikoff.digital',
+      url: 'https://www.sidikoff.com',
     },
     serviceType: 'Website Maintenance',
     areaServed: 'Global',
