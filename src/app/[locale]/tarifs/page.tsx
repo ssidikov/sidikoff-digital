@@ -32,6 +32,10 @@ export async function generateMetadata({ params }: TarifsPageProps): Promise<Met
   })
 }
 
+export function generateStaticParams() {
+  return [{ locale: 'fr' }]
+}
+
 export default async function TarifsPage({ params }: TarifsPageProps) {
   const { locale } = await params
 

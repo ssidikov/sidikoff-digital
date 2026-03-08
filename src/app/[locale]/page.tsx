@@ -92,8 +92,8 @@ export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params
   const dict = await getDictionary(locale)
 
-  // ИСПРАВЛЕНО: Упрощенная схема данных
-  const parisLocation = businessLocations.find((loc) => loc.address.addressLocality === 'Paris')!
+  // Use first business location for the schema
+  const mainLocation = businessLocations[0]!
   const webPageSchema = generateWebPageSchema()
 
   return (
@@ -105,10 +105,10 @@ export default async function HomePage({ params }: HomePageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
       <Script
-        id='structured-data-paris'
+        id='structured-data-lb'
         type='application/ld+json'
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(generateLocalBusinessSchema(parisLocation, true)),
+          __html: JSON.stringify(generateLocalBusinessSchema(mainLocation, true)),
         }}
       />
       <Script

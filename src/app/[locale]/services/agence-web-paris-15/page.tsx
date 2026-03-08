@@ -70,6 +70,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+export function generateStaticParams() {
+  return [{ locale: 'fr' }]
+}
+
 export default async function AgenceWebParis15Page({ params }: Props) {
   const { locale } = await params
   const dictionary = await getDictionary(locale)

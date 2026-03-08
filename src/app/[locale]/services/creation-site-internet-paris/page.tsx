@@ -59,6 +59,10 @@ export async function generateMetadata({ params }: ParisPageProps): Promise<Meta
   }
 }
 
+export function generateStaticParams() {
+  return [{ locale: 'fr' }]
+}
+
 export default async function ParisPage({ params }: ParisPageProps) {
   const { locale } = await params
 

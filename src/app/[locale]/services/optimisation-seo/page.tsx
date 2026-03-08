@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: t.meta_title,
       description: t.meta_description,
       type: 'website',
-      locale: locale,
+      locale: 'fr_FR',
     },
     twitter: {
       card: 'summary_large_image',
@@ -41,6 +41,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       languages: generateAlternateUrls('services/optimisation-seo'),
     },
   }
+}
+
+export function generateStaticParams() {
+  return [{ locale: 'fr' }]
 }
 
 export default async function SeoOptimizationLandingPage({ params }: PageProps) {
@@ -75,8 +79,8 @@ export default async function SeoOptimizationLandingPage({ params }: PageProps) 
     description: dictionary.seo_optimization_landing.hero.description,
     provider: {
       '@type': 'Organization',
-      name: 'Sidikoff Digital',
-      url: 'https://sidikoff.digital',
+      name: 'SIDIKOFF DIGITAL',
+      url: 'https://www.sidikoff.com',
     },
     serviceType: 'SEO Optimization',
     areaServed: 'Global',

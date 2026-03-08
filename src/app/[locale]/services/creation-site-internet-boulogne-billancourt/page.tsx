@@ -70,6 +70,10 @@ export async function generateMetadata({
   }
 }
 
+export function generateStaticParams() {
+  return [{ locale: 'fr' }]
+}
+
 export default async function BoulogneBillancourtPage({ params }: BoulogneBillancourtPageProps) {
   const { locale } = await params
 

@@ -23,6 +23,10 @@ export async function generateMetadata({ params }: ContactPageProps): Promise<Me
   })
 }
 
+export function generateStaticParams() {
+  return [{ locale: 'fr' }]
+}
+
 export default async function ContactPage({ params }: ContactPageProps) {
   const { locale } = await params
   const dictionary = await getDictionary(locale)

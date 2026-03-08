@@ -156,7 +156,7 @@ function getStructuredData(locale: Locale) {
   const professionalService = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    '@id': `${DEFAULT_SEO.siteUrl}#LocalBusiness-villeurbanne`,
+    '@id': `${DEFAULT_SEO.siteUrl}/services/creation-site-web-villeurbanne#LocalBusiness`,
     name: 'SIDIKOFF DIGITAL – Développeur Web Freelance à Villeurbanne',
     description:
       'Développeur web freelance spécialisé en création de sites internet à Villeurbanne et Lyon métropole. Sites vitrines, e-commerce, SEO technique.',
@@ -248,6 +248,10 @@ function getStructuredData(locale: Locale) {
 }
 
 // ─── Page Component ─────────────────────────────────────────────────────────────
+
+export function generateStaticParams() {
+  return [{ locale: 'fr' }]
+}
 
 export default async function VilleurbannePage({ params }: VilleurbannPageProps) {
   const { locale } = await params

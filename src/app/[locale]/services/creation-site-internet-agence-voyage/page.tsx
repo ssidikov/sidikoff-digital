@@ -45,6 +45,10 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   }
 }
 
+export function generateStaticParams() {
+  return [{ locale: 'fr' }]
+}
+
 export default async function TravelAgencyLandingPage(props: Props) {
   const params = await props.params
   const dict = await getDictionary(params.locale)

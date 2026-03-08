@@ -249,6 +249,10 @@ function getStructuredData(locale: Locale) {
 
 // ─── Page Component ─────────────────────────────────────────────────────────────
 
+export function generateStaticParams() {
+  return [{ locale: 'fr' }]
+}
+
 export default async function CaluirePage({ params }: PageProps) {
   const { locale } = await params
   const faqs = faqData.fr

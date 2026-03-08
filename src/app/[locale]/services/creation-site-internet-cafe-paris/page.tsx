@@ -64,6 +64,10 @@ export async function generateMetadata({ params }: CafeParisPageProps): Promise<
   }
 }
 
+export function generateStaticParams() {
+  return [{ locale: 'fr' }]
+}
+
 export default async function CafeParisPage({ params }: CafeParisPageProps) {
   const { locale } = await params
 

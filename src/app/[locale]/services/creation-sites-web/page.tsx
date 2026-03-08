@@ -55,6 +55,10 @@ export async function generateMetadata({ params }: WebCreationPageProps): Promis
   }
 }
 
+export function generateStaticParams() {
+  return [{ locale: 'fr' }]
+}
+
 export default async function WebCreationPage({ params }: WebCreationPageProps) {
   const { locale } = await params
 

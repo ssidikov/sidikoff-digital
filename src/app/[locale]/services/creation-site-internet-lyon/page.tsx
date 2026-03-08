@@ -62,6 +62,10 @@ export async function generateMetadata({ params }: LyonPageProps): Promise<Metad
   }
 }
 
+export function generateStaticParams() {
+  return [{ locale: 'fr' }]
+}
+
 export default async function LyonPage({ params }: LyonPageProps) {
   const { locale } = await params
 

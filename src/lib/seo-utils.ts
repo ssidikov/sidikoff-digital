@@ -145,7 +145,6 @@ export const businessLocations: LocalBusiness[] = [
       'Lisieux',
       'France',
     ],
-    hasMap: 'https://maps.app.goo.gl/villeurbanne',
   },
   {
     name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Toulouse',
@@ -163,7 +162,6 @@ export const businessLocations: LocalBusiness[] = [
       longitude: '1.4442',
     },
     areaServed: ['Toulouse', 'Haute-Garonne', 'Occitanie'],
-    hasMap: 'https://maps.app.goo.gl/toulouse',
   },
   {
     name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Lyon',
@@ -181,7 +179,6 @@ export const businessLocations: LocalBusiness[] = [
       longitude: '4.8357',
     },
     areaServed: ['Lyon', 'Rhône', 'Auvergne-Rhône-Alpes'],
-    hasMap: 'https://maps.app.goo.gl/lyon',
   },
   {
     name: 'SIDIKOFF DIGITAL - Développeur Web Freelance à Villeurbanne',
@@ -199,7 +196,6 @@ export const businessLocations: LocalBusiness[] = [
       longitude: '4.8799',
     },
     areaServed: ['Villeurbanne', 'Lyon', 'Lyon métropole', 'Rhône'],
-    hasMap: 'https://maps.app.goo.gl/villeurbanne',
   },
   {
     name: 'SIDIKOFF DIGITAL - Développeur Web Freelance à Caluire-et-Cuire',
@@ -217,7 +213,6 @@ export const businessLocations: LocalBusiness[] = [
       longitude: '4.8599',
     },
     areaServed: ['Caluire-et-Cuire', 'Lyon', 'Lyon métropole', 'Rhône'],
-    hasMap: 'https://maps.app.goo.gl/caluire-et-cuire',
   },
   {
     name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Strasbourg',
@@ -235,7 +230,6 @@ export const businessLocations: LocalBusiness[] = [
       longitude: '7.7521',
     },
     areaServed: ['Strasbourg', 'Bas-Rhin', 'Grand Est'],
-    hasMap: 'https://maps.app.goo.gl/strasbourg',
   },
 ]
 
@@ -370,7 +364,7 @@ export function generateLocalBusinessSchema(
   const baseSchema = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    '@id': `${business.url}#LocalBusiness-${business.address.addressLocality
+    '@id': `${business.url}/#lb-${business.address.addressLocality
       .toLowerCase()
       .replace(/\s+/g, '-')}`,
     name: business.name,
@@ -430,7 +424,7 @@ export function generateLocalBusinessSchema(
       jobTitle: 'Développeur Web Full Stack',
       worksFor: {
         '@type': 'Organization',
-        '@id': `${business.url}#LocalBusiness-${business.address.addressLocality
+        '@id': `${business.url}/#lb-${business.address.addressLocality
           .toLowerCase()
           .replace(/\s+/g, '-')}`,
         name: business.name,

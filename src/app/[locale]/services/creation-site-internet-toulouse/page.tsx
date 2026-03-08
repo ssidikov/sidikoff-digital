@@ -63,6 +63,10 @@ export async function generateMetadata({ params }: ToulousePageProps): Promise<M
   }
 }
 
+export function generateStaticParams() {
+  return [{ locale: 'fr' }]
+}
+
 export default async function ToulousePage({ params }: ToulousePageProps) {
   const { locale } = await params
 

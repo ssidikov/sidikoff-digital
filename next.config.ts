@@ -56,7 +56,7 @@ const SECURITY_HEADERS = [
       style-src 'self' 'unsafe-inline' fonts.googleapis.com;
       img-src 'self' data: blob: https://images.unsplash.com https://cdn.sanity.io;
       font-src 'self' fonts.gstatic.com;
-      connect-src 'self' *.vercel-insights.com *.sanity.io;
+      connect-src 'self' *.vercel-insights.com *.sanity.io *.googletagmanager.com;
       frame-src 'none';
       object-src 'none';
       base-uri 'self';
@@ -171,11 +171,6 @@ const nextConfig: NextConfig = {
       return config
     },
   }),
-
-  // Environment variables
-  env: {
-    CUSTOM_KEY: 'my-value',
-  },
 
   // Redirects to handle EN/RU → FR migration and legacy paths
   async redirects() {

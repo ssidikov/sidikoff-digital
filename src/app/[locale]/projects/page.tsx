@@ -29,6 +29,10 @@ export async function generateMetadata({ params }: ProjectsPageProps): Promise<M
   )
 }
 
+export function generateStaticParams() {
+  return [{ locale: 'fr' }]
+}
+
 export default async function ProjectsPage({ params }: ProjectsPageProps) {
   const { locale } = await params
   const dictionary = await getDictionary(locale)

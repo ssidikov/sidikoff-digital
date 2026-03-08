@@ -26,6 +26,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+export function generateStaticParams() {
+  return [{ locale: 'fr' }]
+}
+
 export default async function MentionsLegalesPage({ params }: Props) {
   const { locale } = await params
   const dict = await getDictionary(locale)

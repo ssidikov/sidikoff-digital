@@ -21,6 +21,10 @@ export async function generateMetadata({ params }: FAQPageProps): Promise<Metada
   })
 }
 
+export function generateStaticParams() {
+  return [{ locale: 'fr' }]
+}
+
 export default async function FAQPage({ params }: FAQPageProps) {
   const { locale } = await params
   const dictionary = await getDictionary(locale)

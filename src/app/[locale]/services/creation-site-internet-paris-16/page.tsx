@@ -73,6 +73,10 @@ export async function generateMetadata({ params }: Paris16PageProps): Promise<Me
   }
 }
 
+export function generateStaticParams() {
+  return [{ locale: 'fr' }]
+}
+
 export default async function CreationSiteInternetParis16Page({ params }: Paris16PageProps) {
   const { locale } = await params
 
