@@ -41,14 +41,12 @@ export async function generateMetadata({
       title,
       description,
       type: 'website',
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/${''}services/creation-site-internet-boulogne-billancourt`,
-      siteName: 'SIDIKOFF Digital',
+      url: 'https://www.sidikoff.com/services/creation-site-internet-boulogne-billancourt',
+      siteName: 'SIDIKOFF DIGITAL',
       locale: 'fr_FR',
       images: [
         {
-          url: `${
-            process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
-          }/images/og-creation-sites-web.jpg`,
+          url: '/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: title,
@@ -59,10 +57,9 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title,
       description,
+      creator: '@sidikoffdigital',
       images: [
-        `${
-          process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
-        }/images/og-creation-sites-web.jpg`,
+        '/images/opengraph-fr.png',
       ],
     },
     keywords:

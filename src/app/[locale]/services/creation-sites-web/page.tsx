@@ -25,17 +25,18 @@ export async function generateMetadata({ params }: WebCreationPageProps): Promis
     'Services de création de sites web sur mesure'
 
   return {
-    title: `${title} | SIDIKOFF DIGITAL`,
+    title: `${title}`,
     description: description,
     keywords: ['création site web', 'développement web', 'site internet', 'web design'],
     openGraph: {
       title: title,
       description: description,
       type: 'website',
-      locale: locale,
+      locale: 'fr_FR',
+      siteName: 'SIDIKOFF DIGITAL',
       images: [
         {
-          url: '/images/og-creation-sites-web.jpg',
+          url: '/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: title,
@@ -46,7 +47,8 @@ export async function generateMetadata({ params }: WebCreationPageProps): Promis
       card: 'summary_large_image',
       title: title,
       description: description,
-      images: ['/images/og-creation-sites-web.jpg'],
+      creator: '@sidikoffdigital',
+      images: ['/images/opengraph-fr.png'],
     },
     alternates: {
       canonical: createCanonicalUrl('services/creation-sites-web', locale),

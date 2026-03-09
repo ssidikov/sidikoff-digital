@@ -57,6 +57,7 @@ export async function generateMetadata({ params }: LyonPageProps): Promise<Metad
       card: 'summary_large_image',
       title,
       description,
+      creator: '@sidikoffdigital',
       images: ['/images/opengraph-fr.png'],
     },
   }

@@ -24,7 +24,7 @@ const PAGE_PATH = 'services/creation-site-web-villeurbanne'
 
 const seoContent = {
   fr: {
-    title: 'Création site web à Villeurbanne | Développeur freelance premium – SIDIKOFF DIGITAL',
+    title: 'Création site web à Villeurbanne | Développeur freelance premium',
     description:
       'Développeur web freelance à Villeurbanne (69100). Création de sites vitrines, e-commerce, refonte et SEO technique. Devis gratuit sous 24h.',
     keywords: [

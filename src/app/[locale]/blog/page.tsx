@@ -9,6 +9,10 @@ import { createCanonicalUrl } from '@/lib/seo-utils'
 
 export const revalidate = 3600 // 1 hour ISR
 
+export function generateStaticParams() {
+  return [{ locale: 'fr' }]
+}
+
 interface BlogPageProps {
   params: Promise<{
     locale: Locale

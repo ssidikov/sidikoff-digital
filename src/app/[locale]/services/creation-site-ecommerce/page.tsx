@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     locale,
     {
       keywords: t.keywords,
-      ogImage: '/images/og/ecommerce-websites.jpg',
+      ogImage: '/images/opengraph-fr.png',
       ogType: 'website',
     },
   )

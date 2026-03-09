@@ -50,6 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: content.meta_title,
       description: content.meta_description,
+      creator: '@sidikoffdigital',
       images: ['/images/opengraph-fr.png'],
     },
     alternates: {

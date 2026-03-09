@@ -46,14 +46,12 @@ export async function generateMetadata({ params }: Paris16PageProps): Promise<Me
       title,
       description,
       type: 'website',
-      locale,
+      locale: 'fr_FR',
       url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/services/creation-site-internet-paris-16`,
-      siteName: 'Sidikoff Digital',
+      siteName: 'SIDIKOFF DIGITAL',
       images: [
         {
-          url: `${
-            process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
-          }/images/services/web-creation-paris-16.jpg`,
+          url: '/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: title,
@@ -64,10 +62,9 @@ export async function generateMetadata({ params }: Paris16PageProps): Promise<Me
       card: 'summary_large_image',
       title,
       description,
+      creator: '@sidikoffdigital',
       images: [
-        `${
-          process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'
-        }/images/services/web-creation-paris-16.jpg`,
+        '/images/opengraph-fr.png',
       ],
     },
   }

@@ -29,12 +29,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: t.meta_title,
       description: t.meta_description,
       type: 'website',
-      locale: locale,
+      locale: 'fr_FR',
+      siteName: 'SIDIKOFF DIGITAL',
+      images: [{ url: '/images/opengraph-fr.png', width: 1200, height: 630, alt: t.meta_title }],
     },
     twitter: {
       card: 'summary_large_image',
       title: t.meta_title,
       description: t.meta_description,
+      creator: '@sidikoffdigital',
+      images: ['/images/opengraph-fr.png'],
     },
     alternates: {
       canonical: createCanonicalUrl('services/maintenance-support', locale),
@@ -79,7 +83,7 @@ export default async function MaintenanceLandingPage({ params }: PageProps) {
     description: dictionary.maintenance_landing.hero.description,
     provider: {
       '@type': 'Organization',
-      name: 'Sidikoff Digital',
+      name: 'SIDIKOFF DIGITAL',
       url: 'https://www.sidikoff.com',
     },
     serviceType: 'Website Maintenance',

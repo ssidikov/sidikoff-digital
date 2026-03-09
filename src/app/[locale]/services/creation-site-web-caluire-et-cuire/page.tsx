@@ -24,7 +24,7 @@ const PAGE_PATH = 'services/creation-site-web-caluire-et-cuire'
 
 const seoContent = {
   fr: {
-    title: 'Création site web Caluire-et-Cuire | Développeur freelance premium – SIDIKOFF DIGITAL',
+    title: 'Création site web Caluire-et-Cuire | Développeur freelance premium',
     description:
       'Développeur web freelance à Caluire-et-Cuire (69300). Création de sites vitrines, e-commerce, refonte et SEO technique. Devis gratuit sous 24h.',
     keywords: [
@@ -156,7 +156,7 @@ function getStructuredData(locale: Locale) {
   const professionalService = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    '@id': `${DEFAULT_SEO.siteUrl}#LocalBusiness-caluire`,
+    '@id': `${DEFAULT_SEO.siteUrl}/services/creation-site-web-caluire-et-cuire#LocalBusiness`,
     name: 'SIDIKOFF DIGITAL – Développeur Web Freelance à Caluire-et-Cuire',
     description:
       'Développeur web freelance spécialisé en création de sites internet à Caluire-et-Cuire et Lyon métropole. Sites vitrines, e-commerce, SEO technique.',

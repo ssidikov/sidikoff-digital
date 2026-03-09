@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getDictionary } from '@/lib/dictionaries'
 import { locales, type Locale } from '@/lib/i18n'
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import BoulangerieLandingContent from '@/components/BoulangerieLandingContent'
 
 type Props = {
@@ -28,8 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t.meta_title,
       description: t.meta_description,
       type: 'website',
-      locale: locale,
-      siteName: 'Sidikoff Digital',
+      locale: 'fr_FR',
+      siteName: 'SIDIKOFF DIGITAL',
       images: [
         {
           url: '/images/opengraph-fr.png',
@@ -43,7 +44,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: t.meta_title,
       description: t.meta_description,
+      creator: '@sidikoffdigital',
       images: ['/images/opengraph-fr.png'],
+    },
+    alternates: {
+      canonical: createCanonicalUrl('services/creation-site-internet-boulangerie', locale as Locale),
+      languages: generateAlternateUrls('services/creation-site-internet-boulangerie'),
     },
     robots: {
       index: true,
@@ -52,10 +58,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export async function generateStaticParams() {
-  return locales.map((locale: Locale) => ({
-    locale,
-  }))
+export function generateStaticParams() {
+  return [{ locale: 'fr' }]
 }
 
 export default async function BoulangerieWebsitesPage({ params }: Props) {

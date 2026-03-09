@@ -45,7 +45,7 @@ export function getLocalizedOgImage(locale: Locale, customImage?: string): strin
 
 // Default SEO configuration
 export const DEFAULT_SEO = {
-  siteName: 'SIDIKOFF DIGITAL - Développeur Web Full Stack',
+  siteName: 'SIDIKOFF DIGITAL',
   siteUrl: 'https://www.sidikoff.com',
   defaultImage: '/images/opengraph-fr.png',
   twitterHandle: '@sidikoffdigital',

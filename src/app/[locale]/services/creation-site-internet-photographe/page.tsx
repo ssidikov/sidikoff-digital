@@ -21,8 +21,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: t.meta_title,
       description: t.meta_description,
       type: 'website',
-      locale: locale,
-      siteName: 'Sidikoff Digital',
+      locale: 'fr_FR',
+      siteName: 'SIDIKOFF DIGITAL',
       images: [
         {
           url: '/images/opengraph-fr.png',
@@ -36,6 +36,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: 'summary_large_image',
       title: t.meta_title,
       description: t.meta_description,
+      creator: '@sidikoffdigital',
       images: ['/images/opengraph-fr.png'],
     },
     alternates: {
