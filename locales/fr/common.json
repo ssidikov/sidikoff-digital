@@ -19,15 +19,15 @@
     "cta": "Devis gratuit"
   },
   "hero": {
-    "badge": "Agence Web Moderne",
-    "title": "Développeur web freelance orienté performance & SEO",
-    "subtitle": "Je conçois des sites web rapides, structurés et optimisés pour le référencement afin de transformer votre présence en ligne en véritable levier de croissance.",
+    "badge": "Agence Web à Lyon",
+    "title": "Création de Sites Web Professionnels pour Votre Entreprise",
+    "subtitle": "Je crée des sites web modernes, rapides et optimisés SEO pour les PME et entrepreneurs. Livrés en 7 à 14 jours, avec accompagnement inclus. Devis gratuit sous 24h.",
     "cta_primary": "Discuter de votre projet",
     "cta_secondary": "Voir mes réalisations",
     "trust_indicators": [
-      "20+ projets réussis",
-      "SEO optimisé",
-      "Support 7j/7"
+      "50+ projets livrés",
+      "SEO intégré dès la création",
+      "Devis gratuit sous 24h"
     ],
     "features": [
       {
@@ -45,8 +45,8 @@
     ]
   },
   "services": {
-    "title": "Services",
-    "subtitle": "Des solutions web accessibles et sur mesure pour votre entreprise",
+    "title": "Nos Services Web",
+    "subtitle": "Création de site internet, refonte, SEO et maintenance — des solutions sur mesure pour votre croissance",
     "web_creation": {
       "title": "Création de sites web sur mesure",
       "subtitle": "Création de Sites Web – De A à Z",

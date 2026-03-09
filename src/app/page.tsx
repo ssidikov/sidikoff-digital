@@ -26,14 +26,16 @@ import {
 import LocaleProvider from '@/components/LocaleProvider'
 
 const SEO_CONFIG = {
-  title: 'Création de Sites Web Professionnels',
+  title: 'Agence Web Lyon — Création de Sites Internet Sur Mesure',
   keywords: [
-    'développeur web freelance',
-    'création site internet',
-    'développement React',
-    'Next.js expert',
-    'typescript développeur',
-    'consultant digital',
+    'agence web Lyon',
+    'création site internet Lyon',
+    'site web professionnel',
+    'création site vitrine',
+    'création site e-commerce',
+    'refonte site web',
+    'agence web France',
+    'site web PME',
   ],
   ogImage: '/images/opengraph-fr.png',
 } as const
@@ -42,7 +44,7 @@ export async function generateMetadata() {
   return generateSEOMetadata({
     title: SEO_CONFIG.title,
     description:
-      'SIDIKOFF DIGITAL, agence web Lyon, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.',
+      'Agence web Lyon spécialisée en création de sites internet sur mesure, SEO et refonte. Sites modernes, rapides, livrés en 7–14 jours. Devis gratuit sous 24h.',
     locale: defaultLocale,
     canonicalUrl: createCanonicalUrl('', defaultLocale),
     alternateLanguages: generateLanguageAlternates('', ['fr']),
@@ -69,7 +71,7 @@ function generateHomePageSchemas() {
       alternateName: 'SIDIKOFF DIGITAL',
       url: 'https://www.sidikoff.com',
       description:
-        'Agence web premium spécialisée dans la création de sites web modernes à Paris et Toulouse',
+        'Agence web à Lyon et Paris spécialisée en création de sites internet sur mesure, refonte et SEO. Développement React et Next.js.',
       inLanguage: 'fr-FR',
       isPartOf: {
         '@type': 'Organization',

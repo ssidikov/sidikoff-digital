@@ -294,6 +294,37 @@ const nextConfig: NextConfig = {
         destination: '/:path*',
         permanent: true,
       },
+
+      // ── 8. /fr/ prefix → clean URL (FR is default, no locale prefix)
+      {
+        source: '/fr',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/fr/:path+',
+        destination: '/:path+',
+        permanent: true,
+      },
+    ]
+  },
+
+  // Rewrites: serve [locale] pages at clean URLs (no /fr/ prefix)
+  // The [locale] directory generates pages at /fr/... — rewrites map the
+  // clean canonical URL (without locale) to the internal /fr/... route.
+  async rewrites() {
+    return [
+      { source: '/services', destination: '/fr/services' },
+      { source: '/services/:path+', destination: '/fr/services/:path+' },
+      { source: '/blog', destination: '/fr/blog' },
+      { source: '/blog/:path+', destination: '/fr/blog/:path+' },
+      { source: '/contact', destination: '/fr/contact' },
+      { source: '/faq', destination: '/fr/faq' },
+      { source: '/mentions-legales', destination: '/fr/mentions-legales' },
+      { source: '/politique-de-confidentialite', destination: '/fr/politique-de-confidentialite' },
+      { source: '/projects', destination: '/fr/projects' },
+      { source: '/projects/:path+', destination: '/fr/projects/:path+' },
+      { source: '/tarifs', destination: '/fr/tarifs' },
     ]
   },
 

@@ -64,7 +64,7 @@ function generateWebPageSchema() {
     url,
     name: 'Agence Web - SIDIKOFF DIGITAL',
     description:
-      'Agence web spécialisée dans la création de sites internet modernes et applications web. React, Next.js, SEO optimisé.',
+      'Agence web Lyon spécialisée en création de sites internet sur mesure. Sites professionnels, rapides et optimisés SEO avec React et Next.js.',
     inLanguage: 'fr-FR',
     isPartOf: {
       '@type': 'WebSite',

@@ -51,35 +51,29 @@ export const DEFAULT_SEO = {
   twitterHandle: '@sidikoffdigital',
   locale: 'fr' as Locale,
   keywords: [
-    // High-conversion primary keywords - "agence web paris" as #1
-    'agence web Villeurbanne',
-    'agence web Next.js',
-    'agence web React',
-    'expert développement web',
-    'expert React',
-    'expert Next.js',
+    // Primary geo + service keywords (buyer intent)
     'agence web Lyon',
     'agence web Paris',
+    'agence web Villeurbanne',
+    'création site internet Lyon',
     'création site web professionnel Lyon',
     'développeur web Lyon',
     'agence digitale Lyon',
-    'création site internet Lyon',
-    'développement web Lyon',
-    'agence création site web',
-    'développeur react Lyon',
-    'expert nextjs',
-    'typescript développeur',
-    'freelance développeur web',
+    'création site internet',
     'site web professionnel',
+    'création site vitrine',
     'création site e-commerce',
+    'site web PME',
+    'création site web petite entreprise',
     'refonte site web',
     'optimisation seo Lyon',
-    'développement frontend',
-    'développement backend',
-    'full stack developer',
-    'consultant web',
-    'développement sur mesure',
+    'agence web France',
+    'développement web sur mesure',
     'applications web modernes',
+    // Technical differentiators (secondary)
+    'développeur React Lyon',
+    'expert Next.js',
+    'freelance développeur web',
   ],
 }
 
@@ -311,12 +305,12 @@ export function generateLocalizedSEOMetadata(locale: Locale): Metadata {
   // Enhanced SEO-optimized titles with primary keywords and call-to-action
   const titles = {
     fr: isHomePage
-      ? 'Agence Web | Création de Sites Internet'
+      ? 'Agence Web Lyon — Création de Sites Internet Sur Mesure'
       : 'SIDIKOFF DIGITAL - Agence Web Expert | Développement React',
   }
 
   const descriptions = {
-    fr: 'Agence web spécialisée en création de sites internet modernes et performants. Développement sur mesure, design professionnel, SEO optimisé. Votre projet digital commence ici.',
+    fr: 'Agence web Lyon spécialisée en création de sites internet sur mesure, SEO et refonte. Sites modernes, rapides, livrés en 7–14 jours. Devis gratuit sous 24h.',
   }
 
   const seoData = {
