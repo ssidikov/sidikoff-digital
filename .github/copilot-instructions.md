@@ -193,7 +193,7 @@ url: createCanonicalUrl('services/creation-site-internet-medecin', locale)
 
 // ❌ WRONG
 url: `https://www.sidikoff.com/${locale}/services/creation-site-internet-medecin`
-url: `${process.env.NEXT_PUBLIC_SITE_URL}/services/...`  // env var may be undefined at build
+url: `${process.env.NEXT_PUBLIC_SITE_URL}/services/...` // env var may be undefined at build
 ```
 
 ### 6. OG image — single canonical path
@@ -286,14 +286,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const t = dict.your_section // adjust to your dictionary key
 
   return {
-    title: t.meta_title,           // NO '| SIDIKOFF DIGITAL' suffix
+    title: t.meta_title, // NO '| SIDIKOFF DIGITAL' suffix
     description: t.meta_description,
     keywords: t.keywords,
     openGraph: {
       title: t.meta_title,
       description: t.meta_description,
       type: 'website',
-      locale: 'fr_FR',             // hardcoded — never use locale variable
+      locale: 'fr_FR', // hardcoded — never use locale variable
       siteName: 'SIDIKOFF DIGITAL', // exact caps
       url: createCanonicalUrl(PAGE_SLUG, locale),
       images: [
@@ -368,17 +368,17 @@ return (
 
 ## Available SEO Helper Functions (`@/lib/seo-utils`)
 
-| Function | Use |
-|---|---|
-| `createCanonicalUrl(path, locale)` | Canonical URL without locale prefix |
-| `generateAlternateUrls(path)` | `{ fr: '...', 'x-default': '...' }` object |
-| `generateSEOMetadata(config)` | Full Metadata from SEOConfig object |
-| `generatePageMetadata(path, locale, config)` | Convenience wrapper for service pages |
-| `generateLocalBusinessSchema(location)` | JSON-LD LocalBusiness schema |
-| `generateBreadcrumbSchema(items)` | JSON-LD BreadcrumbList |
-| `generateFAQStructuredData(faqs)` | JSON-LD FAQPage |
-| `generateArticleStructuredData(article)` | JSON-LD Article |
-| `DEFAULT_SEO` | Central constants: `siteUrl`, `siteName`, `twitterHandle`, `keywords` |
+| Function                                     | Use                                                                   |
+| -------------------------------------------- | --------------------------------------------------------------------- |
+| `createCanonicalUrl(path, locale)`           | Canonical URL without locale prefix                                   |
+| `generateAlternateUrls(path)`                | `{ fr: '...', 'x-default': '...' }` object                            |
+| `generateSEOMetadata(config)`                | Full Metadata from SEOConfig object                                   |
+| `generatePageMetadata(path, locale, config)` | Convenience wrapper for service pages                                 |
+| `generateLocalBusinessSchema(location)`      | JSON-LD LocalBusiness schema                                          |
+| `generateBreadcrumbSchema(items)`            | JSON-LD BreadcrumbList                                                |
+| `generateFAQStructuredData(faqs)`            | JSON-LD FAQPage                                                       |
+| `generateArticleStructuredData(article)`     | JSON-LD Article                                                       |
+| `DEFAULT_SEO`                                | Central constants: `siteUrl`, `siteName`, `twitterHandle`, `keywords` |
 
 ## Pre-Commit SEO Validation
 
