@@ -2,14 +2,14 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'SIDIKOFF DIGITAL- Agence Web & Développement Digital',
+    name: 'SIDIKOFF DIGITAL — Agence Web & Développement Digital',
     short_name: 'Sidikoff',
     description:
       'Agence web française spécialisée dans la création de sites internet modernes, applications web et mobiles. Expertise React, Next.js, développement sur mesure.',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',
-    theme_color: '#667eea',
+    theme_color: '#112D4E',
     orientation: 'portrait',
     scope: '/',
     lang: 'fr',

@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: 'Sidikoff Digital',
       images: [
         {
-          url: '/images/og/creation-site-boulangerie.jpg',
+          url: '/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: t.meta_title,
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: t.meta_title,
       description: t.meta_description,
-      images: ['/images/og/boulangerie-websites.jpg'],
+      images: ['/images/opengraph-fr.png'],
     },
     robots: {
       index: true,

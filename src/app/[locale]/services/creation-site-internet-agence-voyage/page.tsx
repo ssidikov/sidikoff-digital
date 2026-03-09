@@ -25,7 +25,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       siteName: 'Sidikoff Digital',
       images: [
         {
-          url: '/images/og/travel-agency-websites.jpg',
+          url: '/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: dict.travel_agency_landing.meta_title,
@@ -36,7 +36,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: dict.travel_agency_landing.meta_title,
       description: dict.travel_agency_landing.meta_description,
-      images: ['/images/og/travel-agency-websites.jpg'],
+      images: ['/images/opengraph-fr.png'],
     },
     alternates: {
       canonical: createCanonicalUrl('services/creation-site-internet-agence-voyage', params.locale),

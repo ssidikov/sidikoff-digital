@@ -7,6 +7,8 @@ import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
 import { createCanonicalUrl } from '@/lib/seo-utils'
 
+export const revalidate = 3600 // 1 hour ISR
+
 interface BlogPageProps {
   params: Promise<{
     locale: Locale

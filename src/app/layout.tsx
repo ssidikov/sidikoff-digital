@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
     apple: '/favicon.png',
   },
-  manifest: '/manifest.json',
+  manifest: '/manifest.webmanifest',
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
     yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
@@ -180,7 +180,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
         <link rel='icon' href='/favicon.ico' type='image/x-icon' />
         <link rel='shortcut icon' href='/favicon.ico' />
-        <link rel='apple-touch-icon' href='/favicon.svg' />
+        <link rel='apple-touch-icon' href='/favicon.png' />
       </head>
       <body className={inter.className} suppressHydrationWarning>
         {children}

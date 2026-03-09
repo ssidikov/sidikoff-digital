@@ -131,7 +131,7 @@ export async function generateMetadata({ params }: VilleurbannPageProps): Promis
       siteName: 'SIDIKOFF DIGITAL',
       images: [
         {
-          url: `${DEFAULT_SEO.siteUrl}/images/og/creation-site-web-villeurbanne.jpg`,
+          url: '/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: content.title,
@@ -142,7 +142,7 @@ export async function generateMetadata({ params }: VilleurbannPageProps): Promis
       card: 'summary_large_image',
       title: content.title,
       description: content.description,
-      images: [`${DEFAULT_SEO.siteUrl}/images/og/creation-site-web-villeurbanne.jpg`],
+      images: ['/images/opengraph-fr.png'],
       creator: '@sidikoffdigital',
     },
   }
@@ -163,7 +163,7 @@ function getStructuredData(locale: Locale) {
     url: canonical,
     telephone: '+33626932734',
     email: 's.sidikoff@gmail.com',
-    image: `${DEFAULT_SEO.siteUrl}/images/og/creation-site-web-villeurbanne.jpg`,
+    image: '/images/opengraph-fr.png',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Villeurbanne',

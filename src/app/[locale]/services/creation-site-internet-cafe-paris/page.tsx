@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: CafeParisPageProps): Promise<
       siteName: 'Sidikoff Digital',
       images: [
         {
-          url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/images/og/creation-site-cafe-paris.jpg`,
+          url: '/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: title,
@@ -57,9 +57,7 @@ export async function generateMetadata({ params }: CafeParisPageProps): Promise<
       card: 'summary_large_image',
       title,
       description,
-      images: [
-        `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/images/og/creation-site-cafe-paris.jpg`,
-      ],
+      images: ['/images/opengraph-fr.png'],
     },
   }
 }

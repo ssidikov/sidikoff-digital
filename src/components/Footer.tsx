@@ -43,7 +43,7 @@ const createCoreLinks = (dictionary: Dictionary, locale: Locale): FooterLink[] =
   },
   {
     name: dictionary.navigation?.portfolio || 'Portfolio',
-    href: getLocalizedUrl('/portfolio', locale),
+    href: getLocalizedUrl('/projects', locale),
   },
   {
     name: dictionary.navigation?.blog || 'Blog',

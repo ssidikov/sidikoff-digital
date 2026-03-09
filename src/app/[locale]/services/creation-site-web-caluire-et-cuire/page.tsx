@@ -131,7 +131,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       siteName: 'SIDIKOFF DIGITAL',
       images: [
         {
-          url: `${DEFAULT_SEO.siteUrl}/images/og/default.jpg`,
+          url: '/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: content.title,
@@ -142,7 +142,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: 'summary_large_image',
       title: content.title,
       description: content.description,
-      images: [`${DEFAULT_SEO.siteUrl}/images/og/default.jpg`],
+      images: ['/images/opengraph-fr.png'],
       creator: '@sidikoffdigital',
     },
   }
@@ -163,7 +163,7 @@ function getStructuredData(locale: Locale) {
     url: canonical,
     telephone: '+33626932734',
     email: 's.sidikoff@gmail.com',
-    image: `${DEFAULT_SEO.siteUrl}/images/og/default.jpg`,
+    image: '/images/opengraph-fr.png',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Caluire-et-Cuire',

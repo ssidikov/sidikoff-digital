@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: ToulousePageProps): Promise<M
       siteName: 'Sidikoff Digital',
       images: [
         {
-          url: `${DEFAULT_SEO.siteUrl}/images/og/creation-sites-web-toulouse.jpg`,
+          url: '/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: title,
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: ToulousePageProps): Promise<M
       card: 'summary_large_image',
       title,
       description,
-      images: [`${DEFAULT_SEO.siteUrl}/images/og/creation-sites-web-toulouse.jpg`],
+      images: ['/images/opengraph-fr.png'],
     },
   }
 }

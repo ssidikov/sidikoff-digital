@@ -75,7 +75,7 @@ function generateHomePageSchemas() {
         '@type': 'Organization',
         '@id': 'https://www.sidikoff.com/#organization',
       },
-      copyrightYear: 2025,
+      copyrightYear: new Date().getFullYear(),
       copyrightHolder: {
         '@type': 'Organization',
         '@id': 'https://www.sidikoff.com/#organization',
