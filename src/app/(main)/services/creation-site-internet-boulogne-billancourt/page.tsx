@@ -52,9 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       creator: '@sidikoffdigital',
-      images: [
-        '/images/opengraph-fr.png',
-      ],
+      images: ['/images/opengraph-fr.png'],
     },
     keywords:
       'création site internet Boulogne-Billancourt, agence web Boulogne-Billancourt, site vitrine Boulogne-Billancourt, site e-commerce Boulogne-Billancourt, référencement local Boulogne-Billancourt, développement web Hauts-de-Seine, site internet professionnel, site responsive, SEO local, design moderne, Core Web Vitals, multilingue',
@@ -62,7 +60,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function BoulogneBillancourtPage() {
-
   const content = {
     fr: {
       h1: 'Création de site internet professionnel à Boulogne-Billancourt (92)',

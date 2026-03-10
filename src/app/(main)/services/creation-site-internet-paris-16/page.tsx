@@ -59,15 +59,12 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       creator: '@sidikoffdigital',
-      images: [
-        '/images/opengraph-fr.png',
-      ],
+      images: ['/images/opengraph-fr.png'],
     },
   }
 }
 
 export default async function CreationSiteInternetParis16Page() {
-
   // French content (primary target)
   return (
     <>

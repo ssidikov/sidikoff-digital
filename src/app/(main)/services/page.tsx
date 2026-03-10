@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
     '/services',
     locale,
     {
-      ogImage: '/images/services/web-development.webp',
+      ogImage: '/images/opengraph-fr.png',
       ogType: 'website',
     },
   )

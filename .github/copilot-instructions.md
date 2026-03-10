@@ -2,16 +2,33 @@
 
 ## Project Overview
 
-This is a **multi-language Next.js 15 digital agency website** specializing in industry-specific landing pages for web creation services. The project uses the App Router with dynamic locale routing, Sanity CMS for blog content, and Tailwind CSS with Framer Motion for animations.
+This is a **French-only Next.js 16 digital agency website** specializing in industry-specific landing pages for web creation services. The project uses the App Router with a `(main)` route group, Sanity CMS for blog content, and Tailwind CSS with Framer Motion for animations.
 
 ## Architecture Patterns
 
-### Multi-Language Structure
+### Route Structure
 
-- **Dynamic locale routing**: `src/app/[locale]/` with French as default (`defaultLocale: 'fr'`)
-- **Supported locales**: `fr`, `en`, `ru` defined in `src/lib/i18n.ts`
-- **Dictionary system**: JSON files in `locales/{locale}/` with fallback handling in `src/lib/dictionaries.ts`
-- **Middleware**: `src/middleware.ts` handles locale detection, redirects, and security headers
+- **Route group**: `src/app/(main)/` — all pages except home; the `(main)` name is invisible in URLs
+- **French only**: `defaultLocale = 'fr'` is the only locale; no locale segment in URLs
+- **Dictionary system**: JSON files in `locales/fr/` loaded via `src/lib/dictionaries.ts`
+- **Request proxy**: `src/proxy.ts` handles redirects and security headers (no locale rewriting)
+
+```
+src/app/
+├── page.tsx                    # Home page (/)
+├── layout.tsx                  # Root layout (html/body, Analytics)
+├── (main)/
+│   ├── layout.tsx              # Shared layout: Header + Footer + LocaleProvider
+│   ├── contact/page.tsx
+│   ├── services/
+│   │   ├── page.tsx
+│   │   └── [service-slug]/page.tsx
+│   ├── blog/
+│   ├── faq/
+│   ├── tarifs/
+│   ├── projects/
+│   └── ...
+```
 
 ### Industry-Specific Landing Pages
 
@@ -24,13 +41,14 @@ src/components/
 ├── RestaurantLandingContent.tsx      # Restaurants
 ├── BarbershopLandingContent.tsx      # Barbershops
 ├── DoctorLandingContent.tsx          # Medical practices
+├── VilleurbanneLandingContent.tsx    # Location pages
 └── [Industry]LandingContent.tsx      # Pattern for new industries
 ```
 
 ### Content Management
 
 - **Sanity CMS**: Blog posts only (`sanity/` directory, config in `sanity.config.ts`)
-- **Static content**: JSON dictionaries for all landing page content
+- **Static content**: JSON dictionaries (`locales/fr/common.json`) for landing page content
 - **Images**: Optimized with Next.js Image component, stored in `public/images/`
 
 ## Development Workflow
@@ -39,60 +57,49 @@ src/components/
 
 ```bash
 npm run dev              # Development with Turbopack
-npm run dev:mobile       # Mobile testing (0.0.0.0:3000)
 npm run build:check      # Full validation (type-check + lint + build)
 npm run sanity           # Start Sanity Studio
-npm run postbuild        # Auto-generates sitemap
 ```
 
 ### Creating New Industry Landing Pages
 
-1. **Component**: Create `src/components/[Industry]LandingContent.tsx` following the pattern:
+1. **Component**: Create `src/components/[Industry]LandingContent.tsx`:
 
    ```tsx
-   interface [Industry]LandingContentProps {
-     dictionary: Dictionary
+   'use client'
+   import { VilleurbannContent } from './VilleurbanneLandingContent' // reference type pattern
+
+   interface Props {
+     content: YourContentType
      locale: string
    }
+
+   export default function YourLandingContent({ content, locale }: Props) { ... }
    ```
 
-2. **Route**: Add `src/app/[locale]/services/creation-site-internet-[industry]/page.tsx`:
+2. **Route**: Add `src/app/(main)/services/creation-site-internet-[industry]/page.tsx` — see complete template below.
 
-   ```tsx
-   import { getDictionary } from '@/lib/dictionaries'
-   import [Industry]LandingContent from '@/components/[Industry]LandingContent'
-
-   export async function generateMetadata({ params }: Props): Promise<Metadata> {
-     const dict = await getDictionary(params.locale)
-     return {
-       title: dict.[industry]_landing.meta_title,
-       description: dict.[industry]_landing.meta_description,
-       // ... SEO metadata
-     }
-   }
-   ```
-
-3. **Content**: Add `[industry]_landing` object to all locale files in `locales/{locale}/`
+3. **Content**: Add content directly in the page file as a `getPageContent()` function (French only — no locale JSON needed for location pages).
 
 ### Component Patterns
 
 - **Icon mapping**: Use `lucide-react` with icon maps for dynamic icon rendering
 - **Motion components**: Import from `src/components/ui/MotionWrapper.tsx` for SSR-safe animations
 - **SEO**: Always implement `generateMetadata()` with OpenGraph and Twitter cards
-- **Responsive**: Mobile-first Tailwind classes, use `ViewportHeightProvider` for mobile height issues
+- **Responsive**: Mobile-first Tailwind classes
 
 ## Critical Integration Points
 
 ### Dictionary System
 
-- Main dictionary loader: `src/lib/dictionaries.ts` with complex fallback logic
-- Always add new content to ALL three locales (`fr`, `en`, `ru`)
+- Main dictionary loader: `src/lib/dictionaries.ts` with fallback logic
+- **French only**: Only `locales/fr/common.json` — do not create `en` or `ru` files
 - Fallback dictionary: `src/lib/fallback-dictionary.ts` prevents crashes
 
-### Middleware Configuration
+### Request Proxy
 
-- Locale detection via `Accept-Language` header and pathname
-- Security headers applied to all routes
+- `src/proxy.ts` handles `/fr/:path*` → `/:path*` redirects and security headers
+- **Does NOT rewrite locale paths** — all pages live at clean URLs (e.g., `/services/creation-site-internet-lyon`)
 - Static paths bypass: `/_next`, `/api`, `/studio`, etc.
 
 ### Image Optimization
@@ -112,34 +119,50 @@ npm run postbuild        # Auto-generates sitemap
 ### SEO Strategy
 
 - Industry-specific meta titles/descriptions
-- Canonical URLs with locale alternatives
-- Structured data via `generateWebCreationSchema()` for rich snippets
+- Canonical URLs (no locale prefix)
+- Structured data (JSON-LD) for rich snippets
 - Native Next.js sitemap generation via `src/app/sitemap.ts`
 
 ---
 
 ## Technical SEO — Mandatory Checklist for Every New Page
 
-> All patterns below were established and validated across a 5-phase SEO audit.
+> All patterns below were established and validated across a multi-phase SEO audit.
 > Deviating from any of these rules will cause broken OG previews, duplicate brand names, or invalid schema.
 
-### 1. `generateStaticParams` — FR-only, always sync
+### 1. No `generateStaticParams` needed
 
-The site is **French-only**. Never use `locales.map()`. This converts the route from `ƒ` (SSR) to `●` (SSG):
+The site uses a `(main)` route group — no `[locale]` dynamic segment exists. Pages are statically rendered without `generateStaticParams`. The build outputs `○ (Static)` automatically.
 
 ```ts
-// ✅ CORRECT — always this exact form
+// ✅ CORRECT — no generateStaticParams needed at all
+
+// ❌ WRONG — do not add this
 export function generateStaticParams() {
   return [{ locale: 'fr' }]
 }
+```
 
-// ❌ WRONG — do not map locales
-export async function generateStaticParams() {
-  return locales.map((locale) => ({ locale }))
+### 2. Use `defaultLocale` instead of route params
+
+```ts
+import { defaultLocale } from '@/lib/i18n'
+
+// ✅ CORRECT
+export default async function MyPage() {
+  const locale = defaultLocale
+  const dictionary = await getDictionary(locale)
+  ...
+}
+
+// ❌ WRONG — no [locale] segment exists
+export default async function MyPage({ params }: { params: Promise<{ locale: Locale }> }) {
+  const { locale } = await params
+  ...
 }
 ```
 
-### 2. Page `title` — no brand suffix
+### 3. Page `title` — no brand suffix
 
 The root layout applies the template `'%s | SIDIKOFF DIGITAL'` automatically.
 **Never** include `| SIDIKOFF DIGITAL` or `– SIDIKOFF DIGITAL` in the title string itself.
@@ -148,13 +171,13 @@ The root layout applies the template `'%s | SIDIKOFF DIGITAL'` automatically.
 // ✅ CORRECT
 title: 'Création de site internet pour médecins'
 
-// ❌ WRONG — produces "Création de site internet pour médecins | SIDIKOFF DIGITAL | SIDIKOFF DIGITAL"
+// ❌ WRONG — produces "... | SIDIKOFF DIGITAL | SIDIKOFF DIGITAL"
 title: 'Création de site internet pour médecins | SIDIKOFF DIGITAL'
 ```
 
-### 3. `openGraph.locale` — hardcoded `'fr_FR'`
+### 4. `openGraph.locale` — hardcoded `'fr_FR'`
 
-OG/Facebook requires the `language_TERRITORY` format. The locale route param is `'fr'` (URL format) — never pass it directly.
+OG/Facebook requires the `language_TERRITORY` format.
 
 ```ts
 // ✅ CORRECT
@@ -164,12 +187,11 @@ openGraph: {
 
 // ❌ WRONG
 openGraph: {
-  locale: locale,       // 'fr' — invalid OG format
-  locale: params.locale, // same problem
+  locale: locale, // 'fr' — invalid OG format
 }
 ```
 
-### 4. `openGraph.siteName` — exact casing
+### 5. `openGraph.siteName` — exact casing
 
 ```ts
 // ✅ CORRECT
@@ -178,25 +200,22 @@ siteName: 'SIDIKOFF DIGITAL'
 // ❌ WRONG
 siteName: 'Sidikoff Digital'
 siteName: 'SIDIKOFF Digital'
-siteName: 'SIDIKOFF DIGITAL - Développeur Web Full Stack'
 ```
 
-### 5. `openGraph.url` — no locale prefix
+### 6. `openGraph.url` — no locale prefix
 
-The canonical URL is the French URL **without** the `/fr/` segment.
+The canonical URL has no `/fr/` segment.
 
 ```ts
 // ✅ CORRECT
-url: 'https://www.sidikoff.com/services/creation-site-internet-medecin'
-// or using helper:
 url: createCanonicalUrl('services/creation-site-internet-medecin', locale)
 
 // ❌ WRONG
-url: `https://www.sidikoff.com/${locale}/services/creation-site-internet-medecin`
+url: `https://www.sidikoff.com/fr/services/...`
 url: `${process.env.NEXT_PUBLIC_SITE_URL}/services/...` // env var may be undefined at build
 ```
 
-### 6. OG image — single canonical path
+### 7. OG image — single canonical path
 
 One image exists on disk. Always use it.
 
@@ -206,23 +225,22 @@ images: [{ url: '/images/opengraph-fr.png', width: 1200, height: 630, alt: pageT
 
 // ❌ WRONG — these paths do not exist
 images: ['/images/og/creation-site-barbershop.jpg']
-images: ['/images/og-creation-sites-web.jpg']
 images: [`${process.env.NEXT_PUBLIC_SITE_URL}/images/...`]
 ```
 
-### 7. `twitter.creator` — always required
+### 8. `twitter.creator` — always required
 
 ```ts
 twitter: {
   card: 'summary_large_image',
   title: pageTitle,
   description: pageDescription,
-  creator: '@sidikoffdigital',   // ← mandatory
+  creator: '@sidikoffdigital', // ← mandatory
   images: ['/images/opengraph-fr.png'],
 }
 ```
 
-### 8. `alternates` — canonical + languages
+### 9. `alternates` — canonical + languages
 
 ```ts
 import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
@@ -233,29 +251,29 @@ alternates: {
 }
 ```
 
-`createCanonicalUrl` drops the locale prefix. `generateAlternateUrls` builds `{ fr: '...', 'x-default': '...' }`.
+`createCanonicalUrl` produces the clean URL without locale prefix. `generateAlternateUrls` builds `{ fr: '...', 'x-default': '...' }`.
 
-### 9. JSON-LD `@id` — page-specific URI fragment
+### 10. JSON-LD `@id` — page-specific URI fragment
 
 ```ts
 import { DEFAULT_SEO } from '@/lib/seo-utils'
 
 // ✅ CORRECT — fragment anchored to this page's URL
-'@id': `${DEFAULT_SEO.siteUrl}/services/creation-site-web-caluire-et-cuire#LocalBusiness`
+'@id': `${DEFAULT_SEO.siteUrl}/services/creation-site-web-villeurbanne#LocalBusiness`
 
 // ❌ WRONG — anchored to site root (schema validator error)
-'@id': `${DEFAULT_SEO.siteUrl}#LocalBusiness-caluire`
+'@id': `${DEFAULT_SEO.siteUrl}#LocalBusiness-villeurbanne`
 ```
 
-### 10. ISR / Revalidation for data-driven pages
+### 11. ISR / Revalidation for data-driven pages
 
-Pages that fetch from Sanity or other APIs should declare revalidation:
+Pages that fetch from Sanity should declare revalidation:
 
 ```ts
 export const revalidate = 3600 // 1 hour — use for blog, project listings, etc.
 ```
 
-Static service/landing pages do **not** need `revalidate` (they are fully static).
+Static service/landing pages do **not** need `revalidate` (fully static).
 
 ---
 
@@ -265,50 +283,43 @@ Use this as the starting point for any new service or location landing page:
 
 ```tsx
 import { Metadata } from 'next'
-import { createCanonicalUrl, generateAlternateUrls, DEFAULT_SEO } from '@/lib/seo-utils'
-import { getDictionary } from '@/lib/dictionaries'
-import { type Locale } from '@/lib/i18n'
+import { defaultLocale } from '@/lib/i18n'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import YourLandingContent from '@/components/YourLandingContent'
-
-interface PageProps {
-  params: Promise<{ locale: Locale }>
-}
 
 const PAGE_SLUG = 'services/your-page-slug' // no leading slash
 
-export function generateStaticParams() {
-  return [{ locale: 'fr' }]
-}
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { locale } = await params
-  const dict = await getDictionary(locale)
-  const t = dict.your_section // adjust to your dictionary key
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = defaultLocale
+  const pageTitle = 'Your Page Title' // NO '| SIDIKOFF DIGITAL' suffix
+  const pageDescription = 'Your page description.'
 
   return {
-    title: t.meta_title, // NO '| SIDIKOFF DIGITAL' suffix
-    description: t.meta_description,
-    keywords: t.keywords,
+    title: pageTitle,
+    description: pageDescription,
+    keywords: ['keyword 1', 'keyword 2'],
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
+    },
     openGraph: {
-      title: t.meta_title,
-      description: t.meta_description,
+      title: pageTitle,
+      description: pageDescription,
       type: 'website',
       locale: 'fr_FR', // hardcoded — never use locale variable
       siteName: 'SIDIKOFF DIGITAL', // exact caps
       url: createCanonicalUrl(PAGE_SLUG, locale),
-      images: [
-        {
-          url: '/images/opengraph-fr.png',
-          width: 1200,
-          height: 630,
-          alt: t.meta_title,
-        },
-      ],
+      images: [{ url: '/images/opengraph-fr.png', width: 1200, height: 630, alt: pageTitle }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: t.meta_title,
-      description: t.meta_description,
+      title: pageTitle,
+      description: pageDescription,
       creator: '@sidikoffdigital',
       images: ['/images/opengraph-fr.png'],
     },
@@ -319,17 +330,41 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 }
 
-export default async function YourPage({ params }: PageProps) {
-  const { locale } = await params
-  const dict = await getDictionary(locale)
+export default async function YourPage() {
+  const locale = defaultLocale
 
-  return <YourLandingContent dictionary={dict} locale={locale} />
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${DEFAULT_SEO.siteUrl}/${PAGE_SLUG}#LocalBusiness`,
+    name: 'SIDIKOFF DIGITAL',
+    url: `${DEFAULT_SEO.siteUrl}/${PAGE_SLUG}`,
+    telephone: '+33626932734',
+    email: 's.sidikoff@gmail.com',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Villeurbanne',
+      postalCode: '69100',
+      addressRegion: 'Auvergne-Rhône-Alpes',
+      addressCountry: 'FR',
+    },
+    areaServed: { '@type': 'Country', name: 'France' },
+    inLanguage: 'fr-FR',
+  }
+
+  return (
+    <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <YourLandingContent locale={locale} />
+    </>
+  )
 }
 ```
 
 ## JSON-LD Schema Template (LocalBusiness)
-
-When adding structured data for a location or service page:
 
 ```tsx
 const jsonLd = {
@@ -337,7 +372,7 @@ const jsonLd = {
   '@type': 'LocalBusiness',
   '@id': `${DEFAULT_SEO.siteUrl}/${PAGE_SLUG}#LocalBusiness`, // page-specific @id
   name: 'SIDIKOFF DIGITAL',
-  description: t.meta_description,
+  description: pageDescription,
   url: `${DEFAULT_SEO.siteUrl}/${PAGE_SLUG}`,
   telephone: '+33626932734',
   email: 's.sidikoff@gmail.com',
@@ -351,50 +386,37 @@ const jsonLd = {
   },
   areaServed: { '@type': 'Country', name: 'France' },
   inLanguage: 'fr-FR',
-  // ...additional schema fields
 }
-
-// Inject in JSX:
-return (
-  <>
-    <script
-      type='application/ld+json'
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
-    <YourLandingContent ... />
-  </>
-)
 ```
 
 ## Available SEO Helper Functions (`@/lib/seo-utils`)
 
-| Function                                     | Use                                                                   |
-| -------------------------------------------- | --------------------------------------------------------------------- |
-| `createCanonicalUrl(path, locale)`           | Canonical URL without locale prefix                                   |
-| `generateAlternateUrls(path)`                | `{ fr: '...', 'x-default': '...' }` object                            |
-| `generateSEOMetadata(config)`                | Full Metadata from SEOConfig object                                   |
-| `generatePageMetadata(path, locale, config)` | Convenience wrapper for service pages                                 |
-| `generateLocalBusinessSchema(location)`      | JSON-LD LocalBusiness schema                                          |
-| `generateBreadcrumbSchema(items)`            | JSON-LD BreadcrumbList                                                |
-| `generateFAQStructuredData(faqs)`            | JSON-LD FAQPage                                                       |
-| `generateArticleStructuredData(article)`     | JSON-LD Article                                                       |
-| `DEFAULT_SEO`                                | Central constants: `siteUrl`, `siteName`, `twitterHandle`, `keywords` |
+| Function | Use |
+| --- | --- |
+| `createCanonicalUrl(path, locale)` | Canonical URL without locale prefix |
+| `generateAlternateUrls(path)` | `{ fr: '...', 'x-default': '...' }` object |
+| `generatePageMetadata(title, desc, path, locale, opts)` | Convenience wrapper for service pages |
+| `generateLocalBusinessSchema(location)` | JSON-LD LocalBusiness schema |
+| `generateBreadcrumbStructuredData(items)` | JSON-LD BreadcrumbList |
+| `generateFAQStructuredData(faqs)` | JSON-LD FAQPage |
+| `generateArticleStructuredData(article)` | JSON-LD Article |
+| `DEFAULT_SEO` | Central constants: `siteUrl`, `siteName`, `twitterHandle`, `keywords` |
 
 ## Pre-Commit SEO Validation
 
 Before committing a new page, verify:
 
-- [ ] `generateStaticParams` returns `[{ locale: 'fr' }]` (not `locales.map()`)
+- [ ] No `generateStaticParams` (not needed — `(main)` group, no `[locale]` segment)
 - [ ] `title` has no `| SIDIKOFF DIGITAL` or `– SIDIKOFF DIGITAL` suffix
-- [ ] `openGraph.locale` is `'fr_FR'` (not the `locale` variable)
+- [ ] `openGraph.locale` is `'fr_FR'` (hardcoded, not a variable)
 - [ ] `openGraph.siteName` is `'SIDIKOFF DIGITAL'` (exact)
-- [ ] `openGraph.url` has no `/fr/` prefix
+- [ ] `openGraph.url` has no `/fr/` prefix (use `createCanonicalUrl`)
 - [ ] OG image path is `/images/opengraph-fr.png`
 - [ ] `twitter.creator` is `'@sidikoffdigital'`
-- [ ] `alternates.canonical` is set via `createCanonicalUrl`
-- [ ] JSON-LD `@id` ends with `#LocalBusiness` anchored to the page URL (not root)
+- [ ] `alternates.canonical` set via `createCanonicalUrl`
+- [ ] JSON-LD `@id` ends with `#LocalBusiness` anchored to the page URL (not site root)
 - [ ] `pnpm type-check` passes with 0 errors
-- [ ] `pnpm build` completes — new page shows as `●` (static), not `ƒ` (dynamic)
+- [ ] `pnpm build` shows page as `○ (Static)`, not `ƒ (Dynamic)`
 
 ## Development Notes
 
@@ -402,5 +424,6 @@ Before committing a new page, verify:
 - **ESLint**: Ignores during builds (`ignoreDuringBuilds: true`)
 - **Performance**: Turbopack for dev, component-level code splitting
 - **Deployment**: Vercel-optimized with analytics integration
+- **French only**: Do not add `en` or `ru` content — the site is FR-only
 
-When adding new industries, follow the established pattern of Component + Route + Dictionary content across all three languages.
+When adding new industries, follow the established pattern: Component + Route page (no dictionary JSON needed for self-contained landing pages).
