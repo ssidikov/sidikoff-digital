@@ -84,7 +84,7 @@ export default function VilleurbanneLandingContent({
   const heroInView = useInView(heroRef, { once: true, margin: '-80px' })
 
   return (
-    <main className='relative bg-transparent selection:bg-blue-100 selection:text-blue-900'>
+    <main className='relative overflow-x-hidden bg-transparent selection:bg-blue-100 selection:text-blue-900'>
       {/* Global Background Gradient Mesh & Noise */}
       <div className='absolute inset-0 z-0 pointer-events-none'>
         <div className='absolute inset-0 bg-slate-50' />

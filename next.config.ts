@@ -309,25 +309,6 @@ const nextConfig: NextConfig = {
     ]
   },
 
-  // Rewrites: serve [locale] pages at clean URLs (no /fr/ prefix)
-  // The [locale] directory generates pages at /fr/... — rewrites map the
-  // clean canonical URL (without locale) to the internal /fr/... route.
-  async rewrites() {
-    return [
-      { source: '/services', destination: '/fr/services' },
-      { source: '/services/:path+', destination: '/fr/services/:path+' },
-      { source: '/blog', destination: '/fr/blog' },
-      { source: '/blog/:path+', destination: '/fr/blog/:path+' },
-      { source: '/contact', destination: '/fr/contact' },
-      { source: '/faq', destination: '/fr/faq' },
-      { source: '/mentions-legales', destination: '/fr/mentions-legales' },
-      { source: '/politique-de-confidentialite', destination: '/fr/politique-de-confidentialite' },
-      { source: '/projects', destination: '/fr/projects' },
-      { source: '/projects/:path+', destination: '/fr/projects/:path+' },
-      { source: '/tarifs', destination: '/fr/tarifs' },
-    ]
-  },
-
   // Headers for security and performance
   async headers() {
     return [

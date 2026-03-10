@@ -218,9 +218,6 @@ export function proxy(request: NextRequest) {
     })
   }
 
-  // Check if there is any supported locale in the pathname
-  const pathnameHasLocale = hasLocalePrefix(pathname)
-
   // Handle French redirects properly to avoid redirect chains
   if (pathname.startsWith('/fr/') || pathname === '/fr') {
     const newPath = pathname === '/fr' ? '/' : pathname.replace('/fr', '')
@@ -234,21 +231,8 @@ export function proxy(request: NextRequest) {
     })
   }
 
-  // If pathname already has a locale (fr used as prefix), continue normally
-  if (pathnameHasLocale) {
-    return enhanceResponse(NextResponse.next(), pathname)
-  }
-
-  // For App Router with French as default:
-  // Root path "/" should be handled by root page.tsx (French content)
-  // Other paths without locale should be rewritten to French locale internally
-  if (pathname !== '/' && !pathnameHasLocale) {
-    // Rewrite to French locale path internally (no redirect)
-    const rewriteUrl = new URL(`/${defaultLocale}${pathname}`, request.url)
-    return enhanceResponse(NextResponse.rewrite(rewriteUrl), pathname)
-  }
-
-  // For root path, let it go to page.tsx (French content)
+  // French is the only locale and served at clean URLs (no prefix needed).
+  // All (main) routes live at their clean paths directly — no rewrite required.
   return enhanceResponse(NextResponse.next(), pathname)
 }
 
