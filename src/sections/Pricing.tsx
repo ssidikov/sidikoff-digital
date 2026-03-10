@@ -90,21 +90,21 @@ interface Dictionary {
       title?: string
       subtitle?: string
       plans?: {
-        basic?: {
+        essentiel?: {
           name?: string
           price?: string
           description?: string
           features?: string[]
           cta?: string
         }
-        advanced?: {
+        croissance?: {
           name?: string
           price?: string
           description?: string
           features?: string[]
           cta?: string
         }
-        premium?: {
+        performance?: {
           name?: string
           price?: string
           description?: string
@@ -113,7 +113,37 @@ interface Dictionary {
         }
       }
     }
+    subscription?: {
+      title?: string
+      subtitle?: string
+      plans?: {
+        pro_all_in?: {
+          name?: string
+          price?: string
+          period?: string
+          description?: string
+          features?: string[]
+          cta?: string
+        }
+        business_all_in?: {
+          name?: string
+          price?: string
+          period?: string
+          description?: string
+          features?: string[]
+          cta?: string
+        }
+      }
+    }
     plans?: {
+      vitrine?: {
+        name?: string
+        price?: string
+        description?: string
+        features?: string[]
+        cta?: string
+        popular?: boolean
+      }
       pro?: {
         name?: string
         price?: string
@@ -122,15 +152,7 @@ interface Dictionary {
         cta?: string
         popular?: boolean
       }
-      premium?: {
-        name?: string
-        price?: string
-        description?: string
-        features?: string[]
-        cta?: string
-        popular?: boolean
-      }
-      entreprise?: {
+      business?: {
         name?: string
         price?: string
         description?: string
@@ -170,45 +192,41 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
   // Données des plans tarifaires depuis la localisation
   const pricingPlans = [
     {
-      name: dict?.pricing?.plans?.pro?.name || 'Pro',
-      price: dict?.pricing?.plans?.pro?.price || '900€ TTC',
+      name: dict?.pricing?.plans?.vitrine?.name || 'Vitrine',
+      price: dict?.pricing?.plans?.vitrine?.price || '690€ TTC',
       period: '',
       description:
-        dict?.pricing?.plans?.pro?.description ||
-        'Parfait pour lancer votre activité ou moderniser votre image en ligne',
+        dict?.pricing?.plans?.vitrine?.description ||
+        'Une page professionnelle pour lancer votre activité rapidement',
       features: (
-        dict?.pricing?.plans?.pro?.features || [
-          'Page unique claire et professionnelle',
-          'Design moderne qui rassure',
-          'Texte structuré et impactant',
-          'Optimisation SEO de base',
+        dict?.pricing?.plans?.vitrine?.features || [
+          'Site 1 page Next.js — rapide & moderne',
+          'Design responsive (mobile, tablette, desktop)',
           'Formulaire de contact intégré',
-          'Compatible mobile/tablette/ordinateur',
-          'Livraison en 7 jours ouvrés',
-          '🧩 Objectif : avoir une présence pro, rapidement, sans complexité',
+          'SEO de base + RGPD inclus',
+          'Certificat SSL + mise en ligne',
+          'Livraison en 5 jours ouvrés',
         ]
       ).map((text: string) => ({ text, included: true })),
-      ctaText: dict?.pricing?.plans?.pro?.cta || 'Commencer',
+      ctaText: dict?.pricing?.plans?.vitrine?.cta || 'Commencer',
       isPopular: false,
       isHighlighted: false,
     },
     {
-      name: dict?.pricing?.plans?.premium?.name || 'Premium',
-      price: dict?.pricing?.plans?.premium?.price || '1500€ TTC',
+      name: dict?.pricing?.plans?.pro?.name || 'Pro',
+      price: dict?.pricing?.plans?.pro?.price || '1 290€ TTC',
       period: '',
       description:
-        dict?.pricing?.plans?.premium?.description ||
-        'Solution complète pour les entreprises en croissance avec besoins avancés',
+        dict?.pricing?.plans?.pro?.description ||
+        'Le site complet pour attirer des clients et asseoir votre crédibilité',
       features: (
         dict?.pricing?.plans?.pro?.features || [
-          'Site complet 4 à 6 pages (Accueil, Services, À propos, Contact, etc.)',
-          'Rédaction de contenus sur-mesure',
-          'Optimisation SEO avancée (Google Business, balises, structure)',
-          'Statistiques simples (Google Analytics)',
-          'Design premium avec animations modernes',
-          'Formation courte pour gérer votre site',
-          'Livraison en 7-14 jours ouvrés',
-          '🔥 Recommandé pour créer une vraie autorité en ligne et générer des leads',
+          'Site 3 à 5 pages (Accueil, Services, À propos, Contact, Blog)',
+          'Rédaction des contenus sur-mesure',
+          'SEO avancé + Google Business Profile',
+          'Google Search Console',
+          'RGPD complet (mentions légales, cookies)',
+          'Livraison en 10 jours ouvrés',
         ]
       ).map((text: string) => ({ text, included: true })),
       ctaText: dict?.pricing?.plans?.pro?.cta || 'Choisir Pro',
@@ -216,25 +234,23 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
       isHighlighted: true,
     },
     {
-      name: dict?.pricing?.plans?.entreprise?.name || 'Entreprise',
-      price: dict?.pricing?.plans?.entreprise?.price || 'Sur devis',
+      name: dict?.pricing?.plans?.business?.name || 'Business',
+      price: dict?.pricing?.plans?.business?.price || 'à partir de 1 990€ TTC',
       period: '',
       description:
-        dict?.pricing?.plans?.entreprise?.description ||
-        'Solution haut de gamme adaptée à votre stratégie business',
+        dict?.pricing?.plans?.business?.description ||
+        'Un projet sur-mesure : site étendu, e-commerce ou fonctionnalités avancées',
       features: (
-        dict?.pricing?.plans?.entreprise?.features || [
-          'Analyse personnalisée de vos objectifs et de votre marché',
-          'Développement spécifique (ex : réservation, espace client, boutique en ligne)',
-          'Design unique et totalement sur-mesure',
-          'Stratégie SEO complète (contenu, technique, sémantique)',
-          'Accompagnement digital sur 1 à 3 mois',
-          'Fonctionnalités avancées (automatisation, blog, podcast, etc.)',
-          'Support continu et conseils personnalisés',
-          '🎯 Objectif : transformer votre site en un outil de croissance et de conversion',
+        dict?.pricing?.plans?.business?.features || [
+          'Site 6+ pages, blog ou boutique en ligne',
+          'Développement sur-mesure (réservation, paiement, espace client…)',
+          'Stratégie SEO complète + Google Search Console',
+          'RGPD complet (CGV, politique de confidentialité)',
+          'Formation 1h + 1 mois de support inclus',
+          'Délai et prix définis ensemble selon le projet',
         ]
       ).map((text: string) => ({ text, included: true })),
-      ctaText: dict?.pricing?.plans?.entreprise?.cta || 'Nous contacter',
+      ctaText: dict?.pricing?.plans?.business?.cta || 'Nous contacter',
       isPopular: false,
       isHighlighted: false,
     },
@@ -647,7 +663,7 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
           </div>
 
           <div className='grid md:grid-cols-3 gap-6 max-w-6xl mx-auto'>
-            {/* Plan Basic */}
+            {/* Plan Essentiel */}
             <div className='relative'>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -658,23 +674,23 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                 <div className='flex-1'>
                   <div className='p-6'>
                     <h4 className='text-xl font-bold text-primary mb-2'>
-                      {dict?.pricing?.maintenance?.plans?.basic?.name || 'Basique'}
+                      {dict?.pricing?.maintenance?.plans?.essentiel?.name || 'Essentiel'}
                     </h4>
                     <div className='text-3xl font-bold mb-2'>
-                      {dict?.pricing?.maintenance?.plans?.basic?.price || '100 €/mois'}
+                      {dict?.pricing?.maintenance?.plans?.essentiel?.price || '49 €/mois'}
                     </div>
                     <p className='mb-6'>
-                      {dict?.pricing?.maintenance?.plans?.basic?.description ||
-                        "L'essentiel pour rester en ligne"}
+                      {dict?.pricing?.maintenance?.plans?.essentiel?.description ||
+                        "L'essentiel pour rester en ligne, sécurisé et à jour"}
                     </p>
                     <ul className='space-y-3 text-left'>
                       {(
-                        dict?.pricing?.maintenance?.plans?.basic?.features || [
+                        dict?.pricing?.maintenance?.plans?.essentiel?.features || [
                           'Hébergement sécurisé',
-                          'Nom de domaine',
-                          "Mises à jour de contenu mensuelles (jusqu'à 3 changements)",
-                          'Vérification SEO de base',
-                          'Support technique par email',
+                          'Certificat SSL actif',
+                          'Surveillance de disponibilité 24/7',
+                          '2 modifications de contenu par mois',
+                          'Support par email (réponse sous 48h)',
                         ]
                       ).map((feature: string, index: number) => (
                         <li key={index} className='flex items-start gap-3'>
@@ -692,14 +708,14 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                     variant='secondary'
                     size='md'
                     className='w-full'
-                    onClick={() => handlePlanSelect('basic')}>
-                    {dict?.pricing?.maintenance?.plans?.basic?.cta || 'Choisir Basique'}
+                    onClick={() => handlePlanSelect('essentiel')}>
+                    {dict?.pricing?.maintenance?.plans?.essentiel?.cta || 'Choisir Essentiel'}
                   </CTAButton>
                 </div>
               </motion.div>
             </div>
 
-            {/* Plan Advanced */}
+            {/* Plan Croissance */}
             <div className='relative'>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -715,24 +731,23 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                 <div className='flex-1'>
                   <div className='p-6'>
                     <h4 className='text-xl font-bold text-primary mb-2'>
-                      {dict?.pricing?.maintenance?.plans?.advanced?.name || 'Avancé'}
+                      {dict?.pricing?.maintenance?.plans?.croissance?.name || 'Croissance'}
                     </h4>
                     <div className='text-3xl font-bold mb-2'>
-                      {dict?.pricing?.maintenance?.plans?.advanced?.price || '200 €/mois'}
+                      {dict?.pricing?.maintenance?.plans?.croissance?.price || '149 €/mois'}
                     </div>
                     <p className='mb-6'>
-                      {dict?.pricing?.maintenance?.plans?.advanced?.description ||
-                        'Pour les entreprises qui veulent croître'}
+                      {dict?.pricing?.maintenance?.plans?.croissance?.description ||
+                        'Pour les entreprises qui veulent progresser sur Google'}
                     </p>
                     <ul className='space-y-3 text-left'>
                       {(
-                        dict?.pricing?.maintenance?.plans?.advanced?.features || [
-                          'Tout ce qui est inclus dans Basique',
-                          "SEO optimisation jusqu'à 2 nouvelles pages chaque mois",
-                          'Surveillance des performances et de la disponibilité du site',
-                          'Rapports de trafic mensuels',
-                          "Configuration d'analyses des visiteurs",
-                          'Configuration de Google Ads',
+                        dict?.pricing?.maintenance?.plans?.croissance?.features || [
+                          'Tout ce qui est inclus dans Essentiel',
+                          '5 modifications de contenu par mois',
+                          'Optimisation SEO mensuelle (1 page/mois)',
+                          'Rapport de trafic mensuel (Google Analytics)',
+                          'Support par email prioritaire (réponse sous 24h)',
                         ]
                       ).map((feature: string, index: number) => (
                         <li key={index} className='flex items-start gap-3'>
@@ -750,14 +765,14 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                     variant='primary'
                     size='md'
                     className='w-full'
-                    onClick={() => handlePlanSelect('advanced')}>
-                    {dict?.pricing?.maintenance?.plans?.advanced?.cta || 'Choisir Avancé'}
+                    onClick={() => handlePlanSelect('croissance')}>
+                    {dict?.pricing?.maintenance?.plans?.croissance?.cta || 'Choisir Croissance'}
                   </CTAButton>
                 </div>
               </motion.div>
             </div>
 
-            {/* Plan Premium */}
+            {/* Plan Performance */}
             <div className='relative'>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -768,24 +783,25 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                 <div className='flex-1'>
                   <div className='p-6'>
                     <h4 className='text-xl font-bold text-primary mb-2'>
-                      {dict?.pricing?.maintenance?.plans?.premium?.name || 'Premium'}
+                      {dict?.pricing?.maintenance?.plans?.performance?.name || 'Performance'}
                     </h4>
                     <div className='text-3xl font-bold mb-2'>
-                      {dict?.pricing?.maintenance?.plans?.premium?.price || '400 €/mois'}
+                      {dict?.pricing?.maintenance?.plans?.performance?.price || '299 €/mois'}
                     </div>
                     <p className='mb-6'>
-                      {dict?.pricing?.maintenance?.plans?.premium?.description ||
+                      {dict?.pricing?.maintenance?.plans?.performance?.description ||
                         'Solution complète pour entreprises ambitieuses'}
                     </p>
                     <ul className='space-y-3 text-left'>
                       {(
-                        dict?.pricing?.maintenance?.plans?.premium?.features || [
-                          'Tout ce qui est inclus dans Avancé',
-                          'Mises à jour de contenu régulières à la demande',
-                          'Intégration de systèmes de paiement (PayPal, Stripe)',
-                          'Consultation pour les améliorations du site web',
-                          'Support premium et rapide via WhatsApp/Telegram',
-                          'Google Analytics, Google Ads, analyses et rapports mensuels',
+                        dict?.pricing?.maintenance?.plans?.performance?.features || [
+                          'Tout ce qui est inclus dans Croissance',
+                          'Modifications de contenu illimitées à la demande',
+                          'Audit SEO trimestriel complet',
+                          'Rapport mensuel complet (trafic, conversions, Google Ads)',
+                          'Intégration paiement en ligne (si besoin)',
+                          'Support WhatsApp prioritaire — réponse sous 4h',
+                          'Consultation stratégie digitale mensuelle (30 min)',
                         ]
                       ).map((feature: string, index: number) => (
                         <li key={index} className='flex items-start gap-3'>
@@ -803,8 +819,8 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
                     variant='primary'
                     size='md'
                     className='w-full'
-                    onClick={() => handlePlanSelect('premium')}>
-                    {dict?.pricing?.maintenance?.plans?.premium?.cta || 'Choisir Premium'}
+                    onClick={() => handlePlanSelect('performance')}>
+                    {dict?.pricing?.maintenance?.plans?.performance?.cta || 'Choisir Performance'}
                   </CTAButton>
                 </div>
               </motion.div>

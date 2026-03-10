@@ -489,52 +489,46 @@
     "guarantee_badge": "Résultats garantis • Livraison garantie",
     "website_creation_title": "Tarifs Création de Sites Web",
     "plans": {
-      "pro": {
-        "name": "Pro",
-        "price": "900€ TTC",
-        "description": "Parfait pour lancer votre activité ou moderniser votre image en ligne",
+      "vitrine": {
+        "name": "Vitrine",
+        "price": "690€ TTC",
+        "description": "Une page professionnelle pour lancer votre activité rapidement",
         "features": [
-          "Page unique claire et professionnelle",
-          "Design moderne qui rassure",
-          "Texte structuré et impactant",
-          "Optimisation SEO de base",
+          "Site Vitrine — rapide & moderne",
+          "Design responsive (mobile, tablette, desktop)",
           "Formulaire de contact intégré",
-          "Compatible mobile/tablette/ordinateur",
-          "Livraison en 7 jours ouvrés",
-          "🧩 Objectif : avoir une présence pro, rapidement, sans complexité"
+          "SEO de base + RGPD inclus",
+          "Mise en ligne",
+          "Livraison en 5 jours ouvrés"
         ],
         "cta": "Commencer"
       },
-      "premium": {
-        "name": "Premium",
-        "price": "1500€ TTC",
-        "description": "Solution complète pour les entreprises en croissance avec besoins avancés",
+      "pro": {
+        "name": "Pro",
+        "price": "1 290€ TTC",
+        "description": "Le site complet pour attirer des clients et asseoir votre crédibilité",
         "features": [
-          "Site complet 4 à 6 pages (Accueil, Services, À propos, Contact, etc.)",
-          "Rédaction de contenus sur-mesure",
-          "Optimisation SEO avancée (Google Business, balises, structure)",
-          "Statistiques simples (Google Analytics)",
-          "Design premium avec animations modernes",
-          "Formation courte pour gérer votre site",
-          "Livraison en 7-14 jours ouvrés",
-          "🔥 Recommandé pour créer une vraie autorité en ligne et générer des leads"
+          "Site 3 à 5 pages (Accueil, Services, À propos, Contact, Blog)",
+          "Rédaction des contenus sur-mesure",
+          "SEO avancé + Google Business Profile",
+          "Google Search Console",
+          "RGPD complet (mentions légales, cookies)",
+          "Livraison en 10 jours ouvrés"
         ],
-        "cta": "Choisir Premium"
+        "cta": "Choisir Pro",
+        "popular": true
       },
-      "entreprise": {
-        "name": "Entreprise",
-        "price": "Sur devis",
-        "description": "Solution haut de gamme adaptée à votre stratégie business",
+      "business": {
+        "name": "Business",
+        "price": "à partir de 1 990€ TTC",
+        "description": "Un projet sur-mesure : site étendu, e-commerce ou fonctionnalités avancées",
         "features": [
-          "Analyse personnalisée de vos objectifs et de votre marché",
-          "Développement spécifique (ex : réservation, espace client, boutique en ligne)",
-          "Design unique et totalement sur-mesure",
-          "Stratégie SEO complète (contenu, technique, sémantique)",
-          "Accompagnement digital sur 1 à 3 mois",
-          "Fonctionnalités avancées (automatisation, blog, podcast, etc.)",
-          "Intégration de systèmes de paiement (PayPal, Stripe)",
-          "Support continu et conseils personnalisés",
-          "🎯 Objectif : transformer votre site en un outil de croissance et de conversion"
+          "Site 6+ pages, blog ou boutique en ligne",
+          "Développement sur-mesure (réservation, paiement, espace client…)",
+          "Stratégie SEO complète + Google Search Console",
+          "RGPD complet (CGV, politique de confidentialité)",
+          "Formation 1h + 1 mois de support inclus",
+          "Délai et prix définis ensemble selon le projet"
         ],
         "cta": "Nous contacter"
       }
@@ -543,45 +537,85 @@
       "title": "🔧 Maintenance mensuelle – Support continu",
       "subtitle": "Choisissez le niveau de support adapté à vos besoins",
       "plans": {
-        "basic": {
-          "name": "Basic",
-          "price": "100 €/mois",
-          "description": "Pour les petits sites web. Mises à jour incluent textes et images. SEO de base aide à maintenir la visibilité sur Google.",
+        "essentiel": {
+          "name": "Essentiel",
+          "price": "49 €/mois",
+          "description": "L'essentiel pour rester en ligne, sécurisé et à jour",
           "features": [
-            "Hébergement",
-            "Nom de domaine",
-            "Mises à jour de contenu mensuelles (jusqu'à 3 changements)",
-            "Vérification SEO de base"
+            "Hébergement sécurisé",
+            "Certificat SSL actif",
+            "Surveillance de disponibilité 24/7",
+            "2 modifications de contenu par mois",
+            "Support par email (réponse sous 48h)"
           ],
-          "cta": "Choisir Basic"
+          "cta": "Choisir Essentiel"
         },
-        "advanced": {
-          "name": "Advanced",
-          "price": "200 €/mois",
-          "description": "Pour les entreprises souhaitant améliorer leur visibilité et attirer plus de clients. Les rapports aident à prendre des décisions marketing éclairées.",
+        "croissance": {
+          "name": "Croissance",
+          "price": "149 €/mois",
+          "description": "Pour les entreprises qui veulent progresser sur Google et fidéliser leurs clients",
           "features": [
-            "Tout ce qui est inclus dans Basic",
-            "Optimisation SEO pour jusqu'à 2 nouvelles pages chaque mois",
-            "Surveillance des performances et de la disponibilité du site",
-            "Rapports de trafic mensuels",
-            "Configuration d'analyses des visiteurs",
-            "Configuration de Google Ads"
+            "Tout ce qui est inclus dans Essentiel",
+            "5 modifications de contenu par mois",
+            "Optimisation SEO mensuelle (1 page/mois)",
+            "Rapport de trafic mensuel (Google Analytics)",
+            "Google Business Profile — mise à jour mensuelle",
+            "Support par email prioritaire (réponse sous 24h)"
           ],
-          "cta": "Choisir Advanced"
+          "cta": "Choisir Croissance"
         },
-        "premium": {
-          "name": "Premium",
-          "price": "400 €/mois",
-          "description": "Package complet pour les entreprises. Gestion complète du site web, possibilité d'accepter les paiements en ligne, analyses détaillées et consultations d'experts.",
+        "performance": {
+          "name": "Performance",
+          "price": "299 €/mois",
+          "description": "Solution complète pour les entreprises ambitieuses qui veulent des résultats mesurables",
           "features": [
-            "Tout ce qui est inclus dans Advanced",
-            "Mises à jour de contenu régulières à la demande",
-            "Intégration de systèmes de paiement (PayPal, Stripe)",
-            "Consultation pour les améliorations du site web",
-            "Support premium et rapide via WhatsApp/Telegram",
-            "Google Analytics, Google Ads, analyses et rapports mensuels"
+            "Tout ce qui est inclus dans Croissance",
+            "Modifications de contenu illimitées à la demande",
+            "Audit SEO trimestriel complet",
+            "Rapport mensuel complet (trafic, conversions, Google Ads)",
+            "Intégration paiement en ligne (si besoin)",
+            "Support WhatsApp prioritaire — réponse sous 4h",
+            "Consultation stratégie digitale mensuelle (30 min)"
           ],
-          "cta": "Choisir Premium"
+          "cta": "Choisir Performance"
+        }
+      }
+    },
+    "subscription": {
+      "title": "💡 Offres Tout Inclus – Sans frais initiaux",
+      "subtitle": "Création + maintenance réunies dans un abonnement mensuel. Votre site vous appartient après 12 mois.",
+      "plans": {
+        "pro_all_in": {
+          "name": "Tout Inclus Pro",
+          "price": "199 €/mois",
+          "period": "engagement 12 mois",
+          "description": "Équivalent du plan Pro + maintenance Croissance. Aucune avance, juste un abonnement mensuel.",
+          "features": [
+            "Création complète site Pro (3–5 pages)",
+            "Maintenance Croissance incluse chaque mois",
+            "Conformité RGPD complète",
+            "Google Analytics + Google Business Profile",
+            "5 modifications/mois incluses",
+            "Support prioritaire sous 24h",
+            "Le site vous appartient après 12 mois"
+          ],
+          "cta": "Découvrir l'offre"
+        },
+        "business_all_in": {
+          "name": "Tout Inclus Business",
+          "price": "299 €/mois",
+          "period": "engagement 12 mois",
+          "description": "Équivalent du plan Business + maintenance Performance. Investissement mensuel, résultats immédiats.",
+          "features": [
+            "Création complète site Business (6–8 pages + blog)",
+            "Maintenance Performance incluse chaque mois",
+            "Stratégie SEO complète dès le départ",
+            "Modifications illimitées chaque mois",
+            "Audit SEO trimestriel + rapports mensuels",
+            "Support WhatsApp prioritaire (réponse sous 4h)",
+            "Le site vous appartient après 12 mois"
+          ],
+          "cta": "Découvrir l'offre"
         }
       }
     },
@@ -599,24 +633,24 @@
             "name": "Site Vitrine (1 Page)",
             "description": "Idéal pour les artisans, consultants, professions libérales qui souhaitent une présence en ligne rapidement",
             "best_for": "Coiffeurs, plombiers, avocats, coaches, thérapeutes",
-            "plan_recommendation": "Plan Pro (900€ TTC)",
-            "maintenance": "Maintenance Basic (100€/mois) recommandée pour garder le site à jour et sécurisé",
+            "plan_recommendation": "Plan Vitrine (690€ TTC)",
+            "maintenance": "Maintenance Essentiel (49€/mois) recommandée pour garder le site à jour et sécurisé",
             "why_important": "Même un site simple nécessite des mises à jour de sécurité et sauvegarde régulières"
           },
           {
-            "name": "Site Multi-pages (4-6 pages)",
+            "name": "Site Multi-pages (3-5 pages)",
             "description": "Pour les entreprises qui veulent présenter leurs services détaillés, équipe, témoignages",
             "best_for": "Restaurants, agences, boutiques, services B2B, consultants",
-            "plan_recommendation": "Plan  (1500€ TTC)",
-            "maintenance": "Maintenance Advanced (200€/mois) pour optimiser le référencement et analyser les performances",
+            "plan_recommendation": "Plan Pro (1 290€ TTC)",
+            "maintenance": "Maintenance Croissance (149€/mois) pour optimiser le référencement et analyser les performances",
             "why_important": "Les rapports mensuels vous aident à comprendre vos visiteurs et améliorer vos conversions"
           },
           {
-            "name": "Site E-commerce/Complexe",
+            "name": "Site E-commerce / Sur mesure",
             "description": "Pour vendre en ligne, gérer les réservations, espaces clients ou fonctionnalités spécifiques",
             "best_for": "Boutiques en ligne, restaurants avec réservation, centres de formation, services SaaS",
-            "plan_recommendation": "Plan Entreprise (Sur devis)",
-            "maintenance": "Maintenance Premium (400€/mois) indispensable pour la sécurité des paiements et optimisations continues",
+            "plan_recommendation": "Plan Business (à partir de 1 990€ TTC)",
+            "maintenance": "Maintenance Performance (299€/mois) indispensable pour la sécurité des paiements et optimisations continues",
             "why_important": "Les sites e-commerce nécessitent une surveillance constante, mises à jour sécurité et optimisations conversion"
           }
         ]
