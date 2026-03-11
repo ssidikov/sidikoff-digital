@@ -22,6 +22,7 @@ import {
 } from 'lucide-react'
 
 import common from '@/locales/fr/common.json'
+import Pricing from '@/sections/Pricing'
 
 interface BreadcrumbItem {
   label: string
@@ -48,25 +49,7 @@ interface Feature {
   description: string
 }
 
-interface Package {
-  name: string
-  price: string
-  currency?: string
-  period: string
-  description: string
-  delivery_time?: string
-  features: string[]
-  options?: string[]
-  is_popular?: boolean
-  popular?: boolean
-}
 
-interface SupportPlan {
-  name: string
-  price: string
-  period: string
-  features: string[]
-}
 
 interface Restaurant {
   name: string
@@ -336,144 +319,7 @@ export default function RestaurantLandingContent({ breadcrumbs }: RestaurantLand
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className='py-16 md:py-24 bg-linear-to-br from-gray-50 to-white'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
-            className='text-center mb-16'
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}>
-            <h2 className='text-3xl md:text-4xl font-bold mb-4 text-gray-900'>{t.pricing.title}</h2>
-            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>{t.pricing.subtitle}</p>
-          </motion.div>
-
-          {/* Website Packages */}
-          <div className='grid md:grid-cols-3 gap-8 mb-20'>
-            {t.pricing.packages.map((pkg: Package, index: number) => (
-              <motion.div
-                key={index}
-                className={`relative bg-white rounded-2xl p-8 shadow-lg ${
-                  pkg.is_popular || pkg.popular ? 'ring-2 ring-[var(--accent)] scale-105' : ''
-                }`}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}>
-                {(pkg.is_popular || pkg.popular) && (
-                  <div className='absolute -top-4 left-1/2 transform -translate-x-1/2'>
-                    <span className='bg-[var(--accent)] text-white px-4 py-2 rounded-full text-sm font-medium'>
-                      Populaire
-                    </span>
-                  </div>
-                )}
-
-                <div className='text-center mb-8'>
-                  <h3 className='text-2xl font-bold text-gray-900 mb-2'>{pkg.name}</h3>
-                  <div className='flex items-center justify-center mb-2'>
-                    <span className='text-4xl font-bold text-[var(--accent)]'>
-                      {pkg.currency || '€'}
-                      {pkg.price}
-                    </span>
-                    <span className='text-gray-600 ml-2'>
-                      / {pkg.period === 'one-time' ? 'projet' : pkg.period}
-                    </span>
-                  </div>
-                  <p className='text-gray-600'>{pkg.description}</p>
-                  {pkg.delivery_time && (
-                    <p className='text-sm text-gray-500 mt-1'>Délai: {pkg.delivery_time}</p>
-                  )}
-                </div>
-
-                <ul className='space-y-4 mb-8'>
-                  {pkg.features.map((feature: string, featureIndex: number) => (
-                    <li key={featureIndex} className='flex items-start space-x-3'>
-                      <CheckCircle className='w-5 h-5 text-green-500 flex-shrink-0 mt-0.5' />
-                      <span className='text-gray-700 text-sm'>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {pkg.options && pkg.options.length > 0 && (
-                  <div className='mb-6'>
-                    <ul className='space-y-2'>
-                      {pkg.options.map((option: string, optionIndex: number) => (
-                        <li key={optionIndex} className='flex items-start space-x-3'>
-                          <span className='w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5 text-sm'>
-                            💡
-                          </span>
-                          <span className='text-gray-600 text-sm'>{option}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                <Link
-                  href={`/contact`}
-                  className={`block w-full text-center py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${
-                    pkg.is_popular || pkg.popular
-                      ? 'bg-[var(--accent)] text-white hover:bg-[var(--accent-dark)]'
-                      : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-                  }`}>
-                  Choisir ce Pack
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Support Plans */}
-          <motion.div
-            className='text-center mb-12'
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}>
-            <h3 className='text-2xl md:text-3xl font-bold mb-4 text-gray-900'>
-              {t.pricing.support_plans.title}
-            </h3>
-            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
-              {t.pricing.support_plans.subtitle}
-            </p>
-          </motion.div>
-
-          <div className='grid md:grid-cols-3 gap-8'>
-            {t.pricing.support_plans.plans.map((plan: SupportPlan, index: number) => (
-              <motion.div
-                key={index}
-                className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300'
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}>
-                <div className='text-center mb-8'>
-                  <h4 className='text-xl font-bold text-gray-900 mb-2'>{plan.name}</h4>
-                  <div className='flex items-center justify-center mb-2'>
-                    <span className='text-3xl font-bold text-[var(--accent)]'>€{plan.price}</span>
-                    <span className='text-gray-600 ml-2'>/ {plan.period}</span>
-                  </div>
-                </div>
-
-                <ul className='space-y-3 mb-8'>
-                  {plan.features.map((feature: string, featureIndex: number) => (
-                    <li key={featureIndex} className='flex items-start space-x-3'>
-                      <CheckCircle className='w-4 h-4 text-green-500 flex-shrink-0 mt-1' />
-                      <span className='text-sm text-gray-700'>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  href={`/contact`}
-                  className='block w-full text-center py-3 px-6 rounded-lg font-semibold bg-gray-100 text-gray-800 hover:bg-gray-200 transition-all duration-300'>
-                  Choisir ce Support
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Pricing />
 
       {/* Portfolio Section */}
       <section className='py-16 md:py-24 bg-gray-50'>

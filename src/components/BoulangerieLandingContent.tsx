@@ -25,6 +25,7 @@ import {
 } from 'lucide-react'
 
 import common from '@/locales/fr/common.json'
+import Pricing from '@/sections/Pricing'
 
 interface PainPoint {
   icon: string
@@ -38,18 +39,6 @@ interface Feature {
   description: string
 }
 
-interface Package {
-  name: string
-  price: string
-  currency?: string
-  period: string
-  description: string
-  delivery_time?: string
-  features: string[]
-  options?: string[]
-  is_popular?: boolean
-  popular?: boolean
-}
 
 interface Boulangerie {
   name: string
@@ -393,57 +382,7 @@ export default function BoulangerieLandingContent() {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className='py-16 bg-linear-to-br from-amber-50 to-orange-50'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className='text-center mb-16'>
-            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>{t.pricing.title}</h2>
-            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.pricing.description}</p>
-          </motion.div>
-
-          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-            {t.pricing.packages?.map((pkg: Package, index: number) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className={`bg-white p-8 rounded-xl shadow-md ${pkg.is_popular ? 'ring-2 ring-amber-500' : ''}`}>
-                {pkg.is_popular && (
-                  <div className='bg-amber-500 text-white text-sm font-medium px-3 py-1 rounded-full inline-block mb-4'>
-                    Le plus populaire
-                  </div>
-                )}
-                <h3 className='text-xl font-bold text-gray-900 mb-2'>{pkg.name}</h3>
-                <div className='text-3xl font-bold text-amber-600 mb-2'>
-                  {pkg.price}
-                  <span className='text-lg text-gray-600'>/{pkg.period}</span>
-                </div>
-                <p className='text-gray-600 mb-6'>{pkg.description}</p>
-                <ul className='space-y-3 mb-8'>
-                  {pkg.features?.map((feature: string, featureIndex: number) => (
-                    <li key={featureIndex} className='flex items-center'>
-                      <CheckCircle className='w-5 h-5 text-green-500 mr-3 flex-shrink-0' />
-                      <span className='text-gray-700'>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={contactUrl}
-                  className='block w-full bg-amber-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors'>
-                  Choisir ce forfait
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Pricing />
 
       {/* FAQ Section */}
       <section className='py-16 bg-white'>

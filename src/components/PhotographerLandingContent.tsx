@@ -27,6 +27,7 @@ import {
 } from 'lucide-react'
 
 import common from '@/locales/fr/common.json'
+import Pricing from '@/sections/Pricing'
 
 interface PainPoint {
   icon: string
@@ -62,15 +63,6 @@ interface Review {
   image?: string
 }
 
-interface Package {
-  name: string
-  price: string
-  period: string
-  description: string
-  delivery_time?: string
-  is_popular?: boolean
-  features: string[]
-}
 
 interface FAQ {
   question: string
@@ -405,71 +397,7 @@ export default function PhotographerLandingContent() {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className='py-24 bg-white'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className='text-center mb-16'>
-            <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>{t.pricing.title}</h2>
-            <p className='text-xl text-gray-600'>{t.pricing.description}</p>
-          </motion.div>
-
-          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-            {t.pricing.packages?.map((pkg: Package, index: number) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className={`relative bg-white rounded-2xl shadow-lg border-2 p-8 ${
-                  pkg.is_popular ? 'border-orange-300 scale-105' : 'border-gray-200'
-                }`}>
-                {pkg.is_popular && (
-                  <div className='absolute -top-4 left-1/2 transform -translate-x-1/2'>
-                    <span className='bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold'>
-                      Le plus populaire
-                    </span>
-                  </div>
-                )}
-                <div className='text-center mb-8'>
-                  <h3 className='text-xl font-semibold text-gray-900 mb-2'>{pkg.name}</h3>
-                  <div className='flex items-baseline justify-center mb-2'>
-                    <span className='text-4xl font-bold text-orange-600'>{pkg.price}</span>
-                    <span className='text-gray-500 ml-2'>/{pkg.period}</span>
-                  </div>
-                  <p className='text-gray-600 text-sm mb-4'>{pkg.description}</p>
-                  <p className='text-orange-600 font-medium text-sm'>
-                    Livraison: {pkg.delivery_time}
-                  </p>
-                </div>
-                <ul className='space-y-4 mb-8'>
-                  {pkg.features?.map((feature: string, i: number) => (
-                    <li key={i} className='flex items-start space-x-3'>
-                      <CheckCircle className='w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5' />
-                      <span className='text-gray-700'>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link href={`/#contact`}>
-                  <button
-                    className={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-300 ${
-                      pkg.is_popular
-                        ? 'bg-orange-600 text-white hover:bg-orange-700'
-                        : 'bg-orange-100 text-orange-600 hover:bg-orange-200'
-                    }`}>
-                    Choisir ce forfait
-                  </button>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Pricing />
 
       {/* FAQ Section */}
       <section className='py-24 bg-gray-50'>

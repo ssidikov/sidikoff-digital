@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 import CTAButton from '@/components/ui/CTAButton'
+import Pricing from '@/sections/Pricing'
 
 // ─── Types ──────────────────────────────────────────────────────────────────────
 
@@ -18,14 +19,6 @@ interface ProcessStep {
   step: string
   title: string
   desc: string
-}
-
-interface PricingTier {
-  name: string
-  price: string
-  timeline: string
-  features: string[]
-  featured?: boolean
 }
 
 interface FaqItem {
@@ -49,11 +42,6 @@ export interface VilleurbannContent {
   servicesTitle: string
   servicesSubtitle: string
   services: ServiceItem[]
-  pricingTitle: string
-  pricingSubtitle: string
-  pricingTiers: PricingTier[]
-  pricingCta: string
-  pricingPopular: string
   processTitle: string
   processSubtitle: string
   processSteps: ProcessStep[]
@@ -326,78 +314,9 @@ export default function CaluireLandingContent({ content: c, faqs, structuredData
         </div>
       </section>
 
-      {/* 
-        ─── PRICING ────────────────────────────────────────────────────────
-        Clean, elevated cards
-      */}
-      <section className='relative z-10 py-32'>
-        <div className='mx-auto max-w-[1400px] px-6 md:px-12 lg:px-24'>
-          <h2 className='mb-6 text-center text-4xl font-medium tracking-tighter text-white md:text-6xl'>
-            Tarification Transparente
-          </h2>
-          <p className='mx-auto mb-24 max-w-2xl text-center text-xl text-slate-400'>
-            {c.pricingSubtitle}
-          </p>
+      <Pricing />
 
-          <div className='grid gap-8 md:grid-cols-3'>
-            {c.pricingTiers.map((tier, i) => (
-              <div
-                key={i}
-                className={`relative flex flex-col rounded-4xl border p-10 transition-transform duration-500 hover:-translate-y-2 ${
-                  tier.featured
-                    ? 'border-blue-500/50 bg-blue-900/10 backdrop-blur-3xl'
-                    : 'border-white/10 bg-white/5 backdrop-blur-xl'
-                }`}>
-                {tier.featured && (
-                  <span className='absolute top-6 right-6 rounded-full bg-blue-600 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-blue-600/20'>
-                    Populaire
-                  </span>
-                )}
-
-                <h3
-                  className={`mb-2 text-xl font-medium ${tier.featured ? 'text-blue-400' : 'text-slate-200'}`}>
-                  {tier.name}
-                </h3>
-                <div className='mb-8 flex items-baseline gap-1'>
-                  <span className='text-4xl font-bold tracking-tight text-white'>{tier.price}</span>
-                </div>
-
-                <ul className='mb-10 flex-1 space-y-4'>
-                  {tier.features.map((f, j) => (
-                    <li key={j} className='flex items-start gap-3 text-slate-400'>
-                      <svg
-                        className={`h-5 w-5 shrink-0 ${tier.featured ? 'text-blue-400' : 'text-slate-600'}`}
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'>
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M5 13l4 4L19 7'
-                        />
-                      </svg>
-                      <span className='text-sm'>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <CTAButton
-                  href='/contact'
-                  className={`w-full justify-center py-4 font-semibold transition-all ${
-                    tier.featured
-                      ? 'border-0 bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-900/40'
-                      : 'border-white/20 bg-transparent text-white hover:bg-white/10'
-                  }`}>
-                  {c.pricingCta}
-                </CTAButton>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 
+      {/*
         ─── FAQ ────────────────────────────────────────────────────────────
       */}
       <section className='relative z-10 py-32'>

@@ -310,51 +310,6 @@ function getPageContent(): VilleurbannContent {
         link: '/services/maintenance-support',
       },
     ],
-    pricingTitle: 'Une tarification transparente',
-    pricingSubtitle:
-      'Des forfaits clairs, sans frais cachés. Chaque projet inclut le SEO, le design responsive et le support post-livraison.',
-    pricingTiers: [
-      {
-        name: 'Site Vitrine',
-        price: 'Dès 1 500 €',
-        timeline: '3 à 5 semaines',
-        features: [
-          'Design responsive sur mesure',
-          'SEO technique intégré',
-          'CMS pour gérer vos contenus',
-          'Sécurisation SSL & performance',
-          'Formation à l’utilisation',
-        ],
-      },
-      {
-        name: 'E-commerce',
-        price: 'Dès 3 000 €',
-        timeline: '6 à 10 semaines',
-        featured: true,
-        features: [
-          'Boutique complète',
-          'Paiement sécurisé intégré',
-          'Gestion catalogue & stocks',
-          'Optimisation SEO local',
-          'Tableau de bord analytics',
-          '3 mois de support inclus',
-        ],
-      },
-      {
-        name: 'Projet Sur Mesure',
-        price: 'Sur devis',
-        timeline: '8 à 12 semaines',
-        features: [
-          'Intégration d’API externes',
-          'Fonctionnalités complexes',
-          'Architecture dédiée',
-          'Performance avancée',
-          'Support prioritaire',
-        ],
-      },
-    ],
-    pricingCta: 'Demander un devis',
-    pricingPopular: '\u2605 Populaire',
     processTitle: 'Notre process de collaboration',
     processSubtitle:
       'Une méthodologie éprouvée pour livrer votre projet dans les meilleures conditions.',

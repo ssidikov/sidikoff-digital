@@ -26,6 +26,7 @@ import {
 } from 'lucide-react'
 
 import common from '@/locales/fr/common.json'
+import Pricing from '@/sections/Pricing'
 
 interface PainPoint {
   icon: string
@@ -61,15 +62,6 @@ interface Review {
   image?: string
 }
 
-interface Package {
-  name: string
-  price: string
-  period: string
-  description: string
-  delivery_time?: string
-  features: string[]
-  is_popular?: boolean
-}
 
 interface FAQ {
   question: string
@@ -416,74 +408,7 @@ export default function BarbershopLandingContent() {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className='py-24 bg-slate-50'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className='text-center mb-16'>
-            <h2 className='text-3xl md:text-4xl font-bold text-slate-900 mb-6'>
-              {t.pricing.title}
-            </h2>
-            <p className='text-xl text-slate-600 max-w-3xl mx-auto'>{t.pricing.description}</p>
-          </motion.div>
-
-          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-            {t.pricing.packages?.map((pkg: Package, index: number) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className={`bg-white rounded-xl shadow-md p-8 border-2 ${
-                  pkg.is_popular ? 'border-slate-900 relative' : 'border-slate-100'
-                } hover:shadow-lg transition-shadow`}>
-                {pkg.is_popular && (
-                  <div className='absolute -top-4 left-1/2 transform -translate-x-1/2'>
-                    <span className='bg-slate-900 text-white px-4 py-2 rounded-full text-sm font-medium'>
-                      Le plus populaire
-                    </span>
-                  </div>
-                )}
-
-                <div className='text-center mb-8'>
-                  <h3 className='text-2xl font-bold text-slate-900 mb-2'>{pkg.name}</h3>
-                  <div className='text-4xl font-bold text-slate-900 mb-2'>{pkg.price}</div>
-                  <p className='text-slate-600'>{pkg.period}</p>
-                  {pkg.delivery_time && (
-                    <p className='text-sm text-slate-500 mt-2'>Livraison en {pkg.delivery_time}</p>
-                  )}
-                </div>
-
-                <p className='text-slate-600 mb-6 text-center'>{pkg.description}</p>
-
-                <ul className='space-y-3 mb-8'>
-                  {pkg.features.map((feature: string, idx: number) => (
-                    <li key={idx} className='flex items-start space-x-3'>
-                      <CheckCircle className='w-5 h-5 text-green-500 flex-shrink-0 mt-0.5' />
-                      <span className='text-slate-700'>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  href={contactUrl}
-                  className={`block w-full text-center py-3 rounded-lg font-semibold transition-colors ${
-                    pkg.is_popular
-                      ? 'bg-slate-900 text-white hover:bg-slate-800'
-                      : 'bg-slate-100 text-slate-900 hover:bg-slate-200'
-                  }`}>
-                  Choisir ce forfait
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Pricing />
 
       {/* FAQ Section */}
       <section className='py-24 bg-white'>

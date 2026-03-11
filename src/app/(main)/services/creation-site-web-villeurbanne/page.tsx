@@ -311,51 +311,6 @@ function getPageContent() {
         link: '/services/maintenance-support',
       },
     ],
-    pricingTitle: 'Tarifs transparents',
-    pricingSubtitle:
-      'Des tarifs clairs, sans frais cachés. Chaque projet inclut le SEO, le design responsive et le support post-lancement.',
-    pricingTiers: [
-      {
-        name: 'Site Vitrine',
-        price: 'À partir de 1 500 €',
-        timeline: '2-4  semaines',
-        features: [
-          'Design responsive sur mesure',
-          'SEO technique intégré',
-          'CMS pour gestion facile',
-          'SSL & optimisation performance',
-          'Formation post-lancement',
-        ],
-      },
-      {
-        name: 'E-commerce',
-        price: 'À partir de 3 000 €',
-        timeline: '6-10 semaines',
-        featured: true,
-        features: [
-          'Boutique complète',
-          'Paiement sécurisé intégré',
-          'Gestion de catalogue produits',
-          'SEO local optimisé',
-          'Tableau de bord analytics',
-          '3 mois de support',
-        ],
-      },
-      {
-        name: 'Sur Mesure',
-        price: 'Sur devis',
-        timeline: '8-12 semaines',
-        features: [
-          'Intégration API',
-          'Fonctionnalités personnalisées',
-          'Architecture dédiée',
-          'Performance avancée',
-          'Support prioritaire',
-        ],
-      },
-    ],
-    pricingCta: 'Demander un devis',
-    pricingPopular: '\u2605 Le plus populaire',
     whyTitle: 'Pourquoi me choisir à Villeurbanne ?',
     whySubtitle:
       'Une expertise technique premium et un accompagnement de proximité pour votre projet digital.',
