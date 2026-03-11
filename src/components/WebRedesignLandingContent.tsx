@@ -19,9 +19,7 @@ interface WebRedesignLandingContentProps {
   breadcrumbs: Breadcrumbs
 }
 
-export default function WebRedesignLandingContent({
-  breadcrumbs,
-}: WebRedesignLandingContentProps) {
+export default function WebRedesignLandingContent({ breadcrumbs }: WebRedesignLandingContentProps) {
   const t = common.services.web_redesign_landing
 
   return (

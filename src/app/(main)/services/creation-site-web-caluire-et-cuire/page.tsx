@@ -248,13 +248,7 @@ export default async function CaluirePage() {
   const structuredData = getStructuredData()
   const t = getPageContent()
 
-  return (
-    <CaluireLandingContent
-      content={t}
-      faqs={faqs}
-      structuredData={structuredData}
-    />
-  )
+  return <CaluireLandingContent content={t} faqs={faqs} structuredData={structuredData} />
 }
 
 // ─── Content per locale ─────────────────────────────────────────────────────────

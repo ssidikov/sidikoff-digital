@@ -324,11 +324,7 @@ export const userConfirmationFR = ({ name }: UserConfirmationParams) => {
   `
 }
 
-export const adminNotificationFR = ({
-  name,
-  email,
-  message,
-}: AdminNotificationParams) => {
+export const adminNotificationFR = ({ name, email, message }: AdminNotificationParams) => {
   const t = translations.fr
 
   return `

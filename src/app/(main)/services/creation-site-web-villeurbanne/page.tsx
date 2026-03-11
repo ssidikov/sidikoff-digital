@@ -248,13 +248,7 @@ export default async function VilleurbannePage() {
   const structuredData = getStructuredData()
   const t = getPageContent()
 
-  return (
-    <VilleurbanneLandingContent
-      content={t}
-      faqs={faqs}
-      structuredData={structuredData}
-    />
-  )
+  return <VilleurbanneLandingContent content={t} faqs={faqs} structuredData={structuredData} />
 }
 
 // ─── Content per locale ─────────────────────────────────────────────────────────

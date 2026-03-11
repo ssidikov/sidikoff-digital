@@ -19,9 +19,7 @@ interface MaintenanceLandingContentProps {
   breadcrumbs: Breadcrumbs
 }
 
-export default function MaintenanceLandingContent({
-  breadcrumbs,
-}: MaintenanceLandingContentProps) {
+export default function MaintenanceLandingContent({ breadcrumbs }: MaintenanceLandingContentProps) {
   const t = common.testimonials.maintenance_landing
 
   return (

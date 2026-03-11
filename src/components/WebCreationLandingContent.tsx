@@ -37,9 +37,7 @@ interface WebCreationLandingContentProps {
   breadcrumbs: Breadcrumbs
 }
 
-export default function WebCreationLandingContent({
-  breadcrumbs,
-}: WebCreationLandingContentProps) {
+export default function WebCreationLandingContent({ breadcrumbs }: WebCreationLandingContentProps) {
   const t = common.services.web_creation_landing
 
   return (

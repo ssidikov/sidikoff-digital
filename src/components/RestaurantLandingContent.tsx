@@ -95,9 +95,7 @@ interface FAQ {
   answer: string
 }
 
-export default function RestaurantLandingContent({
-  breadcrumbs,
-}: RestaurantLandingContentProps) {
+export default function RestaurantLandingContent({ breadcrumbs }: RestaurantLandingContentProps) {
   const t = common.restaurant_landing
   const [openFAQ, setOpenFAQ] = useState<number | null>(null)
 
