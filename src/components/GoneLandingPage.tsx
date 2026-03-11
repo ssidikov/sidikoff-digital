@@ -20,10 +20,9 @@ import {
 
 interface GoneLandingPageProps {
   cityName?: string | undefined
-  locale?: 'fr'
 }
 
-export default function GoneLandingPage({ cityName, locale = 'fr' }: GoneLandingPageProps) {
+export default function GoneLandingPage({ cityName }: GoneLandingPageProps) {
   // Translations
   const translations = {
     fr: {

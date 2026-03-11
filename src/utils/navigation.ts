@@ -1,5 +1,3 @@
-import { Locale, addLocaleToPathname } from '@/lib/i18n'
-
 export interface NavigationItem {
   label: string
   href: string
@@ -18,38 +16,38 @@ const ROUTE_LABELS: Record<string, string> = {
 } as const
 
 /**
- * Generate locale-aware URL
+ * Generate URL (French-only site, no locale prefix needed)
  */
-export function getLocalizedUrl(path: string, locale: Locale): string {
-  return addLocaleToPathname(path, locale)
+export function getLocalizedUrl(path: string): string {
+  return path.startsWith('/') ? path : `/${path}`
 }
 
 /**
- * Generate project URL for specific locale
+ * Generate project URL
  */
-export function getProjectUrl(projectId: string, locale: Locale): string {
-  return getLocalizedUrl(`/projects/${projectId}`, locale)
+export function getProjectUrl(projectId: string): string {
+  return `/projects/${projectId}`
 }
 
 /**
- * Generate projects list URL for specific locale
+ * Generate projects list URL
  */
-export function getProjectsUrl(locale: Locale): string {
-  return getLocalizedUrl('/projects', locale)
+export function getProjectsUrl(): string {
+  return '/projects'
 }
 
 /**
- * Generate blog URL for specific locale
+ * Generate blog URL
  */
-export function getBlogUrl(locale: Locale): string {
-  return getLocalizedUrl('/blog', locale)
+export function getBlogUrl(): string {
+  return '/blog'
 }
 
 /**
- * Generate blog post URL for specific locale
+ * Generate blog post URL
  */
-export function getBlogPostUrl(slug: string, locale: Locale): string {
-  return getLocalizedUrl(`/blog/${slug}`, locale)
+export function getBlogPostUrl(slug: string): string {
+  return `/blog/${slug}`
 }
 
 // Navigation configurations
@@ -103,7 +101,7 @@ export const footerNavigation = {
 /**
  * Generate breadcrumb navigation based on pathname
  */
-export function breadcrumbGenerator(pathname: string, locale?: string) {
+export function breadcrumbGenerator(pathname: string) {
   const segments = pathname.split('/').filter(Boolean)
   const breadcrumbs = [{ label: 'Accueil', href: '/' }]
 

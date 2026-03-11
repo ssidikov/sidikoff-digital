@@ -5,8 +5,8 @@ import Link from 'next/link'
 import { ReactNode } from 'react'
 import Script from 'next/script'
 
-import { Dictionary } from '@/lib/dictionaries'
-import { formatDate, Locale } from '@/lib/i18n'
+import common from '@/locales/fr/common.json'
+import { formatDate } from '@/lib/i18n'
 import { motion } from 'framer-motion'
 import { getBlogUrl, getLocalizedUrl } from '@/utils/navigation'
 
@@ -16,8 +16,6 @@ import { generateArticleSchema, generateBreadcrumbSchema, DEFAULT_SEO } from '@/
 
 interface BlogPostContentProps {
   post: BlogPost
-  dictionary: Dictionary['blog']
-  locale: Locale
 }
 
 // Enhanced portable text renderer with support for links and formatting
@@ -260,8 +258,9 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
   return <div className='prose prose-lg max-w-none'>{renderBlocks()}</div>
 }
 
-export function BlogPostContent({ post, dictionary, locale }: BlogPostContentProps) {
-  const formattedDate = formatDate(new Date(post.publishedAt), locale)
+export function BlogPostContent({ post }: BlogPostContentProps) {
+  const dictionary = common.blog
+  const formattedDate = formatDate(new Date(post.publishedAt))
   const imageUrl = post.mainImage
     ? urlFor(post.mainImage).quality(100).url()
     : '/images/misc/technology-bg.jpg'
@@ -366,7 +365,7 @@ export function BlogPostContent({ post, dictionary, locale }: BlogPostContentPro
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className='mb-8'>
                 <Link
-                  href={getBlogUrl(locale)}
+                  href={getBlogUrl()}
                   className='inline-flex items-center text-white/80 hover:text-white transition-colors group'>
                   <svg
                     className='w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform'
@@ -539,12 +538,12 @@ export function BlogPostContent({ post, dictionary, locale }: BlogPostContentPro
 
               <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                 <Link
-                  href={getLocalizedUrl('/contact', locale)}
+                  href={getLocalizedUrl('/contact')}
                   className='bg-linear-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1'>
                   {dictionary.cta.button}
                 </Link>
                 <Link
-                  href={getBlogUrl(locale)}
+                  href={getBlogUrl()}
                   className='bg-transparent text-white border-2 border-white/30 px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:-translate-y-1'>
                   {dictionary.back_to_blog}
                 </Link>

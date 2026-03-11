@@ -4,7 +4,6 @@ import React, { useState, useCallback, useEffect } from 'react'
 import { X, Mail, CheckCircle, AlertCircle } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-import { type Locale } from '@/lib/i18n'
 import { cardStyles } from '@/utils/styles'
 
 interface ContactFormField {
@@ -36,7 +35,6 @@ interface PopupContactFormProps {
   isOpen: boolean
   onClose: () => void
   dictionary?: ContactDictionary
-  locale?: Locale
 }
 
 interface FormData {
@@ -60,7 +58,6 @@ const PopupContactForm = ({
   isOpen,
   onClose,
   dictionary,
-  locale = 'fr',
 }: PopupContactFormProps) => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -148,7 +145,7 @@ const PopupContactForm = ({
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             ...submitData,
-            locale: locale || 'fr',
+            locale: 'fr',
           }),
         })
 
@@ -173,7 +170,7 @@ const PopupContactForm = ({
         setIsSubmitting(false)
       }
     },
-    [formData, locale, onClose]
+    [formData, onClose]
   )
 
   const handleChange = useCallback(

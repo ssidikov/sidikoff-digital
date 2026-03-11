@@ -6,16 +6,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
-import { type Dictionary } from '@/lib/dictionaries'
-import { type Locale } from '@/lib/i18n'
+import common from '@/locales/fr/common.json'
 import { getLocalizedUrl } from '@/utils/navigation'
 import { scrollToElementWithRetry } from '@/utils/scroll'
 import PopupContactForm from './ui/PopupContactForm'
-
-interface HeaderProps {
-  dictionary: Dictionary
-  locale: Locale
-}
 
 interface NavigationItem {
   label: string
@@ -65,39 +59,39 @@ const CloseIcon = () => (
 )
 
 /**
- * Creates navigation items array based on dictionary and locale
+ * Creates navigation items array based on dictionary
  */
-function createNavigationItems(dictionary: Dictionary, locale: Locale): NavigationItem[] {
+function createNavigationItems(): NavigationItem[] {
   return [
-    { label: dictionary.navigation.home, href: getLocalizedUrl('/', locale), section: '' },
+    { label: common.navigation.home, href: getLocalizedUrl('/'), section: '' },
     {
-      label: dictionary.navigation.services,
-      href: getLocalizedUrl('/services', locale),
+      label: common.navigation.services,
+      href: getLocalizedUrl('/services'),
       section: 'services',
     },
     {
-      label: dictionary.navigation.portfolio,
-      href: getLocalizedUrl('/projects', locale),
+      label: common.navigation.portfolio,
+      href: getLocalizedUrl('/projects'),
       section: 'portfolio',
     },
     {
-      label: dictionary.navigation.pricing,
-      href: getLocalizedUrl('/tarifs', locale),
+      label: common.navigation.pricing,
+      href: getLocalizedUrl('/tarifs'),
       section: 'pricing',
     },
     {
-      label: dictionary.navigation.blog,
-      href: getLocalizedUrl('/blog', locale),
+      label: common.navigation.blog,
+      href: getLocalizedUrl('/blog'),
       section: 'blog',
     },
     {
-      label: dictionary.navigation.faq,
-      href: getLocalizedUrl('/faq', locale),
+      label: common.navigation.faq,
+      href: getLocalizedUrl('/faq'),
       section: 'faq',
     },
     {
-      label: dictionary.navigation.contact,
-      href: getLocalizedUrl('/contact', locale),
+      label: common.navigation.contact,
+      href: getLocalizedUrl('/contact'),
       section: 'contact',
     },
   ]
@@ -143,7 +137,7 @@ function getActiveSectionFromPath(pathname: string): string {
  * Header component with responsive navigation and scroll-based active states
  * Features smooth scrolling, mobile menu, and accessibility support
  */
-export function Header({ dictionary, locale }: HeaderProps) {
+export function Header() {
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false)
@@ -151,14 +145,14 @@ export function Header({ dictionary, locale }: HeaderProps) {
 
   // Memoized computed values
   const isBlogPage = useMemo(() => pathname.includes('/blog'), [pathname])
-  const navigation = useMemo(() => createNavigationItems(dictionary, locale), [dictionary, locale])
+  const navigation = useMemo(() => createNavigationItems(), [])
 
   /**
    * Determines if a navigation item is currently active
    */
   const isActive = useCallback(
     (item: NavigationItem): boolean => {
-      const homeUrl = getLocalizedUrl('/', locale)
+      const homeUrl = getLocalizedUrl('/')
       const isOnHomePage = pathname === homeUrl || pathname === homeUrl + '/'
 
       if (isOnHomePage) {
@@ -173,7 +167,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
       // For other pages, check exact URL match
       return pathname === item.href
     },
-    [pathname, locale, activeSection],
+    [pathname, activeSection],
   )
 
   /**
@@ -181,7 +175,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
    */
   const handleNavClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, item: NavigationItem) => {
-      const homeUrl = getLocalizedUrl('/', locale)
+      const homeUrl = getLocalizedUrl('/')
       const isOnHomePage = pathname === homeUrl || pathname === homeUrl + '/'
 
       // If we're on the home page and clicking a section link
@@ -205,12 +199,12 @@ export function Header({ dictionary, locale }: HeaderProps) {
       // Close mobile menu after navigation
       setIsMenuOpen(false)
     },
-    [pathname, locale],
+    [pathname],
   )
 
   useEffect(() => {
     const handleScroll = () => {
-      const homeUrl = getLocalizedUrl('/', locale)
+      const homeUrl = getLocalizedUrl('/')
       const isOnHomePage = pathname === homeUrl || pathname === homeUrl + '/'
 
       if (isOnHomePage) {
@@ -239,7 +233,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [pathname, locale])
+  }, [pathname])
 
   // Manage body scroll when menu is open/closed
   useEffect(() => {
@@ -302,7 +296,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
             {/* Logo */}
             <div className='flex-shrink-0'>
               <Link
-                href={getLocalizedUrl('/', locale)}
+                href={getLocalizedUrl('/')}
                 className='flex items-center transition-all duration-300 focus:outline-none outline-none cursor-pointer'
                 style={{ outline: 'none !important', boxShadow: 'none !important' }}>
                 <Image
@@ -341,7 +335,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
                 onClick={() => setIsContactPopupOpen(true)}
                 className='text-sm md:text-sm xl:text-base font-semibold transition-all duration-300 px-4 xl:px-5 py-2.5 rounded-lg bg-[var(--accent)] text-white hover:bg-[var(--accent-dark)] hover:scale-105 focus:outline-none outline-none cursor-pointer shadow-md hover:shadow-lg'
                 style={{ outline: 'none !important', boxShadow: 'none !important' }}>
-                {(dictionary?.navigation as Record<string, string>)?.cta || 'Devis gratuit'}
+                Devis gratuit
               </button>
             </div>
 
@@ -399,7 +393,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
                       setIsMenuOpen(false)
                     }}
                     className='w-full py-3 px-4 rounded-lg font-semibold transition-all duration-300 bg-[var(--accent)] text-white hover:bg-[var(--accent-dark)] cursor-pointer'>
-                    {(dictionary?.navigation as Record<string, string>)?.cta || 'Devis gratuit'}
+                    Devis gratuit
                   </button>
                 </div>
               </div>
@@ -413,12 +407,10 @@ export function Header({ dictionary, locale }: HeaderProps) {
         isOpen={isContactPopupOpen}
         onClose={() => setIsContactPopupOpen(false)}
         dictionary={{
-          title: dictionary?.hero?.cta_primary || 'Devis gratuit',
-          subtitle:
-            (dictionary?.navigation as Record<string, string>)?.cta || 'Décrivez votre projet',
-          form: dictionary?.contact?.form,
+          title: common.hero.cta_primary || 'Devis gratuit',
+          subtitle: 'Décrivez votre projet',
+          form: common.contact.form,
         }}
-        locale={locale}
       />
     </>
   )

@@ -7,8 +7,6 @@ import {
   ArrowRight,
   CheckCircle2,
   Code2,
-  Rocket,
-  Search,
   ShoppingCart,
   Smartphone,
   MapPin,
@@ -19,13 +17,7 @@ import {
   Target,
   TrendingUp,
 } from 'lucide-react'
-import type { Dictionary } from '@/lib/dictionaries'
-import type { Locale } from '@/lib/i18n'
-
-interface AgenceWebParis15LandingContentProps {
-  dictionary: Dictionary
-  locale: Locale
-}
+import common from '@/locales/fr/common.json'
 
 const iconMap = {
   'âš›ï¸': Code2,
@@ -37,20 +29,8 @@ const iconMap = {
   'ðŸ’¼': Briefcase,
 }
 
-// Modern color palette - Vibrant purple & electric blue
-const colors = {
-  primary: '#6366F1', // Indigo
-  secondary: '#EC4899', // Pink
-  accent: '#8B5CF6', // Purple
-  dark: '#0F172A', // Slate
-  light: '#F8FAFC',
-}
-
-export default function AgenceWebParis15LandingContent({
-  dictionary,
-  locale,
-}: AgenceWebParis15LandingContentProps) {
-  const content = dictionary.agence_web_paris_15_landing
+export default function AgenceWebParis15LandingContent() {
+  const content = common.agence_web_paris_15_landing
 
   return (
     <main

@@ -4,7 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Dictionary } from '@/lib/dictionaries'
+import common from '@/locales/fr/common.json'
 
 interface BreadcrumbItem {
   label: string
@@ -16,17 +16,13 @@ interface Breadcrumbs {
 }
 
 interface WebRedesignLandingContentProps {
-  dictionary: Dictionary
-  locale: string
   breadcrumbs: Breadcrumbs
 }
 
 export default function WebRedesignLandingContent({
-  dictionary,
-  locale,
   breadcrumbs,
 }: WebRedesignLandingContentProps) {
-  const t = dictionary.web_redesign_landing
+  const t = common.services.web_redesign_landing
 
   return (
     <div className='min-h-screen'>

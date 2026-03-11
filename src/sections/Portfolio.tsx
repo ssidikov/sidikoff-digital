@@ -4,12 +4,9 @@ import PortfolioCarousel, {
   convertProjectsToPortfolioItems,
 } from '@/components/ui/PortfolioCarousel'
 import { getProjects } from '@/data/projects'
-import { type Dictionary } from '@/lib/dictionaries'
-import { type Locale } from '@/lib/i18n'
+import common from '@/locales/fr/common.json'
 
 interface PortfolioProps {
-  locale: Locale
-  dictionary: Dictionary['portfolio']
   className?: string
   isHomePage?: boolean // Add prop to determine if on homepage
 }
@@ -18,21 +15,15 @@ interface PortfolioProps {
  * Portfolio section component displaying project carousel
  * Features responsive design and localized content
  */
-export default function Portfolio({
-  locale,
-  dictionary,
-  className,
-  isHomePage = false,
-}: PortfolioProps) {
+export default function Portfolio({ className, isHomePage = false }: PortfolioProps) {
   const projects = getProjects()
   const carouselItems = convertProjectsToPortfolioItems(projects)
 
   return (
     <PortfolioCarousel
       items={carouselItems}
-      locale={locale}
-      title={dictionary?.title || 'Portfolio'}
-      subtitle={dictionary?.subtitle || ''}
+      title={common.portfolio?.title || 'Portfolio'}
+      subtitle={common.portfolio?.subtitle || ''}
       isHomePage={isHomePage}
       {...(className && { className })}
     />

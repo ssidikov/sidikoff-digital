@@ -25,12 +25,7 @@ import {
   EyeOff,
 } from 'lucide-react'
 
-import { Dictionary } from '@/lib/dictionaries'
-
-interface BarbershopLandingContentProps {
-  dictionary: Dictionary
-  locale: string
-}
+import common from '@/locales/fr/common.json'
 
 interface PainPoint {
   icon: string
@@ -81,11 +76,8 @@ interface FAQ {
   answer: string
 }
 
-export default function BarbershopLandingContent({
-  dictionary,
-  locale,
-}: BarbershopLandingContentProps) {
-  const t = dictionary.barbershop_landing
+export default function BarbershopLandingContent() {
+  const t = common.barbershop_landing
   const [openFAQ, setOpenFAQ] = useState<number | null>(null)
 
   const toggleFAQ = (index: number) => {

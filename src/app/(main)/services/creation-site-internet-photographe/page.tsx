@@ -1,14 +1,11 @@
 import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { Metadata } from 'next'
-import { getDictionary } from '@/lib/dictionaries'
-import { defaultLocale } from '@/lib/i18n'
+import common from '@/locales/fr/common.json'
 import PhotographerLandingContent from '@/components/PhotographerLandingContent'
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = defaultLocale
-  const dictionary = await getDictionary(locale)
-  const t = dictionary.photographer_landing
+const t = common.photographer_landing
 
+export function generateMetadata(): Metadata {
   return {
     title: t.meta_title,
     description: t.meta_description,
@@ -19,14 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       locale: 'fr_FR',
       siteName: 'SIDIKOFF DIGITAL',
-      images: [
-        {
-          url: '/images/opengraph-fr.png',
-          width: 1200,
-          height: 630,
-          alt: t.meta_title,
-        },
-      ],
+      images: [{ url: '/images/opengraph-fr.png', width: 1200, height: 630, alt: t.meta_title }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -36,15 +26,12 @@ export async function generateMetadata(): Promise<Metadata> {
       images: ['/images/opengraph-fr.png'],
     },
     alternates: {
-      canonical: createCanonicalUrl('services/creation-site-internet-photographe', locale),
+      canonical: createCanonicalUrl('services/creation-site-internet-photographe', 'fr'),
       languages: generateAlternateUrls('services/creation-site-internet-photographe'),
     },
   }
 }
 
-export default async function PhotographerLandingPage() {
-  const locale = defaultLocale
-  const dictionary = await getDictionary(locale)
-
-  return <PhotographerLandingContent dictionary={dictionary} locale={locale} />
+export default function PhotographerLandingPage() {
+  return <PhotographerLandingContent />
 }

@@ -1,16 +1,12 @@
 import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { Metadata } from 'next'
-import { getDictionary } from '@/lib/dictionaries'
-import { defaultLocale } from '@/lib/i18n'
 import WebRedesignLandingContent from '@/components/WebRedesignLandingContent'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = defaultLocale
-
   const title = 'Redesign de site web professionnel'
   const description = 'Modernisez votre site existant avec notre service de redesign professionnel'
 
-  const canonicalUrl = createCanonicalUrl('services/refonte-sites-web', locale)
+  const canonicalUrl = createCanonicalUrl('services/refonte-sites-web', 'fr')
 
   return {
     title,
@@ -39,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
       images: ['/images/opengraph-fr.png'],
     },
     alternates: {
-      canonical: createCanonicalUrl('services/refonte-sites-web', locale),
+      canonical: createCanonicalUrl('services/refonte-sites-web', 'fr'),
       languages: generateAlternateUrls('services/refonte-sites-web'),
     },
     other: {
@@ -48,10 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default async function WebRedesignLandingPage() {
-  const locale = defaultLocale
-  const dictionary = await getDictionary(locale)
-
+export default function WebRedesignLandingPage() {
   // JSON-LD Schema
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -70,7 +63,7 @@ export default async function WebRedesignLandingPage() {
     availableLanguage: ['fr'],
     serviceType: 'Website Redesign',
     category: 'Web Development',
-    url: createCanonicalUrl('services/refonte-sites-web', locale),
+    url: createCanonicalUrl('services/refonte-sites-web', 'fr'),
   }
 
   return (
@@ -80,8 +73,6 @@ export default async function WebRedesignLandingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <WebRedesignLandingContent
-        dictionary={dictionary}
-        locale={locale}
         breadcrumbs={{
           items: [
             { label: 'Accueil', href: '/' },

@@ -27,12 +27,7 @@ import {
   FileText,
 } from 'lucide-react'
 
-import { Dictionary } from '@/lib/dictionaries'
-
-interface EcommerceLandingContentProps {
-  dictionary: Dictionary
-  locale: string
-}
+import common from '@/locales/fr/common.json'
 
 interface PainPoint {
   icon: string
@@ -102,12 +97,9 @@ const iconMap = {
   palette: Palette,
 }
 
-export default function EcommerceLandingContent({
-  dictionary,
-  locale,
-}: EcommerceLandingContentProps) {
+export default function EcommerceLandingContent() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
-  const t = dictionary.ecommerce_landing
+  const t = common.ecommerce_landing
 
   const renderIcon = (iconName: string, className: string = 'w-6 h-6') => {
     const IconComponent = iconMap[iconName as keyof typeof iconMap]

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
-import { formatDate, type Locale } from '@/lib/i18n'
+import { formatDate } from '@/lib/i18n'
 import { getBlogPostUrl } from '@/utils/navigation'
 import { type BlogPost, urlFor } from '@/lib/sanity'
 import { cardStyles } from '@/utils/styles'
@@ -12,7 +12,6 @@ import { cardStyles } from '@/utils/styles'
 interface BlogCardProps {
   post: BlogPost
   featured?: boolean
-  locale: Locale
   index: number
 }
 
@@ -49,8 +48,8 @@ const CATEGORY_TRANSLATIONS: Record<string, string> = {
  * BlogCard component for displaying blog post previews
  * Supports featured layout with enhanced styling and animations
  */
-export function BlogCard({ post, featured = false, locale, index }: BlogCardProps) {
-  const formattedDate = formatDate(new Date(post.publishedAt), locale)
+export function BlogCard({ post, featured = false, index }: BlogCardProps) {
+  const formattedDate = formatDate(new Date(post.publishedAt))
 
   const imageUrl = post.mainImage
     ? urlFor(post.mainImage)
@@ -82,7 +81,7 @@ export function BlogCard({ post, featured = false, locale, index }: BlogCardProp
       className={`group relative overflow-hidden h-full flex flex-col ${cardStyles.card} ${
         featured ? 'lg:col-span-1' : ''
       }`}>
-      <Link href={getBlogPostUrl(post.slug.current, locale)} className='h-full flex flex-col'>
+      <Link href={getBlogPostUrl(post.slug.current)} className='h-full flex flex-col'>
         {/* Image Container */}
         <div className={`relative overflow-hidden ${featured ? 'h-72 lg:h-80' : 'h-56 lg:h-64'}`}>
           <Image

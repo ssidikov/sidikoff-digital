@@ -3,49 +3,38 @@ import { Metadata } from 'next'
 
 import { BlogPageContent } from '@/components/BlogPageContent'
 import { getBlogPosts, getBlogCategories } from '@/lib/sanity'
-import { getDictionary } from '@/lib/dictionaries'
-import { defaultLocale } from '@/lib/i18n'
+import common from '@/locales/fr/common.json'
 import { createCanonicalUrl } from '@/lib/seo-utils'
 
 export const revalidate = 3600 // 1 hour ISR
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = defaultLocale
-
-  const dict = await getDictionary(locale)
-
   return {
-    title: dict.blog.title,
-    description: dict.blog.subtitle,
+    title: common.blog.title,
+    description: common.blog.subtitle,
     alternates: {
-      canonical: createCanonicalUrl('blog', locale),
+      canonical: createCanonicalUrl('blog', 'fr'),
     },
     openGraph: {
-      title: dict.blog.title,
-      description: dict.blog.subtitle,
+      title: common.blog.title,
+      description: common.blog.subtitle,
       type: 'website',
       locale: 'fr_FR',
       siteName: 'SIDIKOFF DIGITAL',
-      url: createCanonicalUrl('blog', locale),
-      images: [{ url: '/images/opengraph-fr.png', width: 1200, height: 630, alt: dict.blog.title }],
+      url: createCanonicalUrl('blog', 'fr'),
+      images: [{ url: '/images/opengraph-fr.png', width: 1200, height: 630, alt: common.blog.title }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: dict.blog.title,
-      description: dict.blog.subtitle,
+      title: common.blog.title,
+      description: common.blog.subtitle,
       creator: '@sidikoffdigital',
     },
   }
 }
 
 export default async function BlogPage() {
-  const locale = defaultLocale
-
-  const [posts, categories, dict] = await Promise.all([
-    getBlogPosts(),
-    getBlogCategories(),
-    getDictionary(locale),
-  ])
+  const [posts, categories] = await Promise.all([getBlogPosts(), getBlogCategories()])
 
   return (
     <div className='min-h-screen bg-gray-50'>
@@ -55,12 +44,7 @@ export default async function BlogPage() {
             <div className='animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600'></div>
           </div>
         }>
-        <BlogPageContent
-          posts={posts}
-          categories={categories}
-          dictionary={dict.blog}
-          locale={locale}
-        />
+        <BlogPageContent posts={posts} categories={categories} />
       </Suspense>
     </div>
   )

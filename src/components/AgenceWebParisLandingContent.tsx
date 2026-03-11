@@ -16,13 +16,8 @@ import {
   Briefcase,
 } from 'lucide-react'
 
-import { Dictionary } from '@/lib/dictionaries'
+import common from '@/locales/fr/common.json'
 import Portfolio from '@/sections/Portfolio'
-
-interface AgenceWebParisLandingContentProps {
-  dictionary: Dictionary
-  locale: string
-}
 
 interface ServiceItem {
   icon: string
@@ -42,11 +37,8 @@ interface ProcessStep {
   description: string
 }
 
-const AgenceWebParisLandingContent: React.FC<AgenceWebParisLandingContentProps> = ({
-  dictionary,
-  locale,
-}) => {
-  const content = dictionary.agence_web_paris_landing
+const AgenceWebParisLandingContent: React.FC = () => {
+  const content = common.agence_web_paris_landing
 
   // Icon mapping for services
   const getServiceIcon = (iconName: string) => {
@@ -349,21 +341,6 @@ const AgenceWebParisLandingContent: React.FC<AgenceWebParisLandingContentProps> 
 
       {/* Portfolio Section - Using existing Portfolio component */}
       <Portfolio
-        locale={locale as 'fr'}
-        dictionary={{
-          title: content.portfolio_teaser.title,
-          subtitle: content.portfolio_teaser.description,
-          filter: {
-            all: 'Tous',
-            web: 'Web',
-            mobile: 'Mobile',
-            design: 'Design',
-          },
-          projects: {},
-          view_project: content.portfolio_teaser.cta,
-          live_demo: 'Démo',
-          github: 'Code source',
-        }}
         className='py-20 bg-linear-to-br from-gray-50 to-blue-50'
       />
 

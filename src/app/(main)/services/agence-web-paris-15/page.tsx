@@ -1,13 +1,10 @@
 import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import type { Metadata } from 'next'
-import { getDictionary } from '@/lib/dictionaries'
-import { defaultLocale } from '@/lib/i18n'
+import common from '@/locales/fr/common.json'
 import AgenceWebParis15LandingContent from '@/components/AgenceWebParis15LandingContent'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = defaultLocale
-  const dict = await getDictionary(locale)
-  const content = dict.agence_web_paris_15_landing
+  const content = common.agence_web_paris_15_landing
 
   return {
     title: content.meta_title,
@@ -50,7 +47,7 @@ export async function generateMetadata(): Promise<Metadata> {
       images: ['/images/opengraph-fr.png'],
     },
     alternates: {
-      canonical: createCanonicalUrl('services/agence-web-paris-15', locale),
+      canonical: createCanonicalUrl('services/agence-web-paris-15', 'fr'),
       languages: generateAlternateUrls('services/agence-web-paris-15'),
     },
     robots: {
@@ -67,9 +64,6 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default async function AgenceWebParis15Page() {
-  const locale = defaultLocale
-  const dictionary = await getDictionary(locale)
-
-  return <AgenceWebParis15LandingContent dictionary={dictionary} locale={locale} />
+export default function AgenceWebParis15Page() {
+  return <AgenceWebParis15LandingContent />
 }

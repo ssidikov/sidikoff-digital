@@ -21,7 +21,7 @@ import {
   ChevronUp,
 } from 'lucide-react'
 
-import { Dictionary } from '@/lib/dictionaries'
+import common from '@/locales/fr/common.json'
 
 interface BreadcrumbItem {
   label: string
@@ -33,8 +33,6 @@ interface Breadcrumbs {
 }
 
 interface RestaurantLandingContentProps {
-  dictionary: Dictionary
-  locale: string
   breadcrumbs: Breadcrumbs
 }
 
@@ -98,11 +96,9 @@ interface FAQ {
 }
 
 export default function RestaurantLandingContent({
-  dictionary,
-  locale,
   breadcrumbs,
 }: RestaurantLandingContentProps) {
-  const t = dictionary.restaurant_landing
+  const t = common.restaurant_landing
   const [openFAQ, setOpenFAQ] = useState<number | null>(null)
 
   const toggleFAQ = (index: number) => {
@@ -319,7 +315,7 @@ export default function RestaurantLandingContent({
             <h2 className='text-3xl md:text-4xl font-bold mb-4 text-gray-900'>
               {t.solution.title}
             </h2>
-            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>{t.solution.description}</p>
+            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>{t.solution.subtitle}</p>
           </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -352,7 +348,7 @@ export default function RestaurantLandingContent({
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}>
             <h2 className='text-3xl md:text-4xl font-bold mb-4 text-gray-900'>{t.pricing.title}</h2>
-            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>{t.pricing.description}</p>
+            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>{t.pricing.subtitle}</p>
           </motion.div>
 
           {/* Website Packages */}
@@ -546,7 +542,7 @@ export default function RestaurantLandingContent({
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}>
             <h2 className='text-3xl md:text-4xl font-bold mb-4 text-gray-900'>{t.process.title}</h2>
-            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>{t.process.description}</p>
+            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>{t.process.subtitle}</p>
           </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
@@ -704,7 +700,6 @@ export default function RestaurantLandingContent({
                 {t.cta.secondary_button}
               </Link>
             </div>
-            <p className='text-white/80 text-sm'>{t.cta.guarantee}</p>
           </motion.div>
         </div>
       </section>

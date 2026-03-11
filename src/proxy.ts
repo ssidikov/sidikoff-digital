@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { locales, defaultLocale } from './lib/i18n'
 
 // Domain configuration
 const PREFERRED_DOMAIN = 'www.sidikoff.com'
@@ -69,16 +68,6 @@ function isDeletedSEOPage(pathname: string): boolean {
   }
 
   return false
-}
-
-/**
- * Checks if pathname has a valid locale prefix (excluding French as it's default)
- */
-function hasLocalePrefix(pathname: string): boolean {
-  const nonDefaultLocales = locales.filter((locale) => locale !== defaultLocale)
-  return nonDefaultLocales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
-  )
 }
 
 /**

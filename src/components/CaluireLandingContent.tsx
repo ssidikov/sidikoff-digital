@@ -67,13 +67,12 @@ export interface VilleurbannContent {
 interface Props {
   content: VilleurbannContent
   faqs: FaqItem[]
-  structuredData: any[]
-  locale: string
+  structuredData: Record<string, unknown>[]
 }
 
 // ─── Component ──────────────────────────────────────────────────────────────────
 
-export default function CaluireLandingContent({ content: c, faqs, structuredData, locale }: Props) {
+export default function CaluireLandingContent({ content: c, faqs, structuredData }: Props) {
   const heroRef = useRef<HTMLDivElement>(null)
 
   // Trigger animations slightly earlier for a snappier feel

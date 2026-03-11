@@ -1,14 +1,10 @@
 import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { Metadata } from 'next'
-import { defaultLocale } from '@/lib/i18n'
-import { getDictionary } from '@/lib/dictionaries'
+import common from '@/locales/fr/common.json'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = defaultLocale
-  const dict = await getDictionary(locale)
-
   return {
-    title: dict.legal.title,
+    title: common.legal.title,
     description:
       'Mentions légales et informations légales de Sidikoff, agence web spécialisée dans la création de sites internet et applications.',
     robots: {
@@ -16,15 +12,14 @@ export async function generateMetadata(): Promise<Metadata> {
       follow: false,
     },
     alternates: {
-      canonical: createCanonicalUrl('mentions-legales', locale),
+      canonical: createCanonicalUrl('mentions-legales', 'fr'),
       languages: generateAlternateUrls('mentions-legales'),
     },
   }
 }
 
-export default async function MentionsLegalesPage() {
-  const locale = defaultLocale
-  const dict = await getDictionary(locale)
+export default function MentionsLegalesPage() {
+  const legal = common.legal
 
   return (
     <div className='min-h-screen bg-linear-to-br from-[#F9F7FF] via-[#F9F7FF] to-[#DBE2EF]'>
@@ -33,7 +28,7 @@ export default async function MentionsLegalesPage() {
           {/* Header */}
           <div className='text-center mb-16'>
             <h1 className='text-5xl md:text-6xl font-bold text-[#112D4E] mb-6'>
-              {dict.legal.title}
+              {legal.title}
             </h1>
             <div className='w-24 h-1 bg-linear-to-r from-[#3F72AF] to-[#112D4E] mx-auto'></div>
           </div>
@@ -44,64 +39,64 @@ export default async function MentionsLegalesPage() {
             <section className='bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/30'>
               <h2 className='text-3xl font-bold text-[#112D4E] mb-6 flex items-center'>
                 <div className='w-8 h-8 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg mr-3'></div>
-                {dict.legal.company_info_title}
+                {legal.company_info_title}
               </h2>
 
               <div className='grid md:grid-cols-2 gap-6'>
                 <div className='space-y-4'>
                   <div className='flex flex-col'>
                     <span className='text-sm font-semibold text-[#3F72AF] uppercase tracking-wide'>
-                      {dict.legal.company_name_label}
+                      {legal.company_name_label}
                     </span>
                     <span className='text-lg text-[#112D4E] font-medium'>
-                      {dict.legal.company_name}
+                      {legal.company_name}
                     </span>
                   </div>
 
                   <div className='flex flex-col'>
                     <span className='text-sm font-semibold text-[#3F72AF] uppercase tracking-wide'>
-                      {dict.legal.company_type_label}
+                      {legal.company_type_label}
                     </span>
                     <span className='text-lg text-[#112D4E] font-medium'>
-                      {dict.legal.company_type}
+                      {legal.company_type}
                     </span>
                   </div>
 
                   <div className='flex flex-col'>
                     <span className='text-sm font-semibold text-[#3F72AF] uppercase tracking-wide'>
-                      {dict.legal.siren_label}
+                      {legal.siren_label}
                     </span>
-                    <span className='text-lg text-[#112D4E] font-medium'>{dict.legal.siren}</span>
+                    <span className='text-lg text-[#112D4E] font-medium'>{legal.siren}</span>
                   </div>
                 </div>
 
                 <div className='space-y-4'>
                   <div className='flex flex-col'>
                     <span className='text-sm font-semibold text-[#3F72AF] uppercase tracking-wide'>
-                      {dict.legal.address_label}
+                      {legal.address_label}
                     </span>
-                    <span className='text-lg text-[#112D4E] font-medium'>{dict.legal.address}</span>
+                    <span className='text-lg text-[#112D4E] font-medium'>{legal.address}</span>
                   </div>
 
                   <div className='flex flex-col'>
                     <span className='text-sm font-semibold text-[#3F72AF] uppercase tracking-wide'>
-                      {dict.legal.phone_label}
+                      {legal.phone_label}
                     </span>
                     <a
-                      href={`tel:${dict.legal.phone}`}
+                      href={`tel:${legal.phone}`}
                       className='text-lg text-[#112D4E] font-medium hover:text-[#3F72AF] transition-colors'>
-                      {dict.legal.phone}
+                      {legal.phone}
                     </a>
                   </div>
 
                   <div className='flex flex-col'>
                     <span className='text-sm font-semibold text-[#3F72AF] uppercase tracking-wide'>
-                      {dict.legal.email_label}
+                      {legal.email_label}
                     </span>
                     <a
-                      href={`mailto:${dict.legal.email}`}
+                      href={`mailto:${legal.email}`}
                       className='text-lg text-[#112D4E] font-medium hover:text-[#3F72AF] transition-colors'>
-                      {dict.legal.email}
+                      {legal.email}
                     </a>
                   </div>
                 </div>
@@ -112,45 +107,45 @@ export default async function MentionsLegalesPage() {
             <section className='bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/30'>
               <h2 className='text-3xl font-bold text-[#112D4E] mb-6 flex items-center'>
                 <div className='w-8 h-8 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg mr-3'></div>
-                {dict.legal.director_title}
+                {legal.director_title}
               </h2>
-              <p className='text-lg text-[#112D4E] font-medium'>{dict.legal.director_name}</p>
+              <p className='text-lg text-[#112D4E] font-medium'>{legal.director_name}</p>
             </section>
 
             {/* Hosting */}
             <section className='bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/30'>
               <h2 className='text-3xl font-bold text-[#112D4E] mb-6 flex items-center'>
                 <div className='w-8 h-8 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg mr-3'></div>
-                {dict.legal.hosting_title}
+                {legal.hosting_title}
               </h2>
 
               <div className='space-y-4'>
                 <div className='flex flex-col'>
                   <span className='text-sm font-semibold text-[#3F72AF] uppercase tracking-wide'>
-                    {dict.legal.host_label}
+                    {legal.host_label}
                   </span>
-                  <span className='text-lg text-[#112D4E] font-medium'>{dict.legal.host}</span>
+                  <span className='text-lg text-[#112D4E] font-medium'>{legal.host}</span>
                 </div>
 
                 <div className='flex flex-col'>
                   <span className='text-sm font-semibold text-[#3F72AF] uppercase tracking-wide'>
-                    {dict.legal.host_address_label}
+                    {legal.host_address_label}
                   </span>
                   <span className='text-lg text-[#112D4E] font-medium'>
-                    {dict.legal.host_address}
+                    {legal.host_address}
                   </span>
                 </div>
 
                 <div className='flex flex-col'>
                   <span className='text-sm font-semibold text-[#3F72AF] uppercase tracking-wide'>
-                    {dict.legal.host_website_label}
+                    {legal.host_website_label}
                   </span>
                   <a
-                    href={`https://${dict.legal.host_website}`}
+                    href={`https://${legal.host_website}`}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='text-lg text-[#112D4E] font-medium hover:text-[#3F72AF] transition-colors'>
-                    {dict.legal.host_website}
+                    {legal.host_website}
                   </a>
                 </div>
               </div>
@@ -160,27 +155,27 @@ export default async function MentionsLegalesPage() {
             <section className='bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/30'>
               <h2 className='text-3xl font-bold text-[#112D4E] mb-6 flex items-center'>
                 <div className='w-8 h-8 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg mr-3'></div>
-                {dict.legal.ip_title}
+                {legal.ip_title}
               </h2>
-              <p className='text-lg text-[#112D4E] leading-relaxed'>{dict.legal.ip_text}</p>
+              <p className='text-lg text-[#112D4E] leading-relaxed'>{legal.ip_text}</p>
             </section>
 
             {/* Data Protection */}
             <section className='bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/30'>
               <h2 className='text-3xl font-bold text-[#112D4E] mb-6 flex items-center'>
                 <div className='w-8 h-8 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg mr-3'></div>
-                {dict.legal.data_title}
+                {legal.data_title}
               </h2>
-              <p className='text-lg text-[#112D4E] leading-relaxed'>{dict.legal.data_text}</p>
+              <p className='text-lg text-[#112D4E] leading-relaxed'>{legal.data_text}</p>
             </section>
 
             {/* Cookies */}
             <section className='bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/30'>
               <h2 className='text-3xl font-bold text-[#112D4E] mb-6 flex items-center'>
                 <div className='w-8 h-8 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg mr-3'></div>
-                {dict.legal.cookies_title}
+                {legal.cookies_title}
               </h2>
-              <p className='text-lg text-[#112D4E] leading-relaxed'>{dict.legal.cookies_text}</p>
+              <p className='text-lg text-[#112D4E] leading-relaxed'>{legal.cookies_text}</p>
             </section>
           </div>
         </div>

@@ -4,7 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Dictionary } from '@/lib/dictionaries'
+import common from '@/locales/fr/common.json'
 
 interface BreadcrumbItem {
   label: string
@@ -16,17 +16,13 @@ interface Breadcrumbs {
 }
 
 interface SeoOptimizationLandingContentProps {
-  dictionary: Dictionary
-  locale: string
   breadcrumbs: Breadcrumbs
 }
 
 export default function SeoOptimizationLandingContent({
-  dictionary,
-  locale,
   breadcrumbs,
 }: SeoOptimizationLandingContentProps) {
-  const t = dictionary.seo_optimization_landing
+  const t = common.testimonials.seo_optimization_landing
 
   return (
     <div className='min-h-screen'>

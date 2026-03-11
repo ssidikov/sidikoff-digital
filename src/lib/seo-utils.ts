@@ -343,7 +343,7 @@ export function generateLanguageAlternates(
 }
 
 // Create canonical URL
-export function createCanonicalUrl(path: string, locale: Locale): string {
+export function createCanonicalUrl(path: string, _locale: Locale): string {
   const cleanPath = path.startsWith('/') ? path.slice(1) : path
 
   // French is the only locale, no prefix needed

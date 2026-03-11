@@ -25,12 +25,7 @@ import {
   Globe,
 } from 'lucide-react'
 
-import { Dictionary } from '@/lib/dictionaries'
-
-interface DoctorLandingContentProps {
-  dictionary: Dictionary
-  locale: string
-}
+import common from '@/locales/fr/common.json'
 
 interface PainPoint {
   icon: string
@@ -98,9 +93,9 @@ const iconMap = {
   'map-pin': MapPin,
 }
 
-export default function DoctorLandingContent({ dictionary, locale }: DoctorLandingContentProps) {
+export default function DoctorLandingContent() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
-  const t = dictionary.doctor_landing
+  const t = common.doctor_landing
 
   const renderIcon = (iconName: string, className: string = 'w-6 h-6') => {
     const IconComponent = iconMap[iconName as keyof typeof iconMap]

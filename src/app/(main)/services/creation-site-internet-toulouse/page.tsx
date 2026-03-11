@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import { defaultLocale } from '@/lib/i18n'
 import { DEFAULT_SEO, createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 
 import { Section } from '@/components/ui'
@@ -8,8 +7,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = defaultLocale
-
   const title = 'Création site internet Toulouse – Agence web & SEO local'
 
   const description =
@@ -30,7 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     },
     alternates: {
-      canonical: createCanonicalUrl('services/creation-site-internet-toulouse', locale),
+      canonical: createCanonicalUrl('services/creation-site-internet-toulouse', 'fr'),
       languages: generateAlternateUrls('services/creation-site-internet-toulouse'),
     },
     openGraph: {

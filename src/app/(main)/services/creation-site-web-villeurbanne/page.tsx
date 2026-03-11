@@ -1,5 +1,4 @@
 ﻿import { Metadata } from 'next'
-import { Locale, defaultLocale } from '@/lib/i18n'
 import {
   createCanonicalUrl,
   generateAlternateUrls,
@@ -91,10 +90,9 @@ const faqData = {
 // ─── generateMetadata ───────────────────────────────────────────────────────────
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = defaultLocale
   const content = seoContent.fr
   const alternates = generateAlternateUrls(PAGE_PATH)
-  const canonical = createCanonicalUrl(PAGE_PATH, locale)
+  const canonical = createCanonicalUrl(PAGE_PATH, 'fr')
 
   return {
     title: content.title,
@@ -146,8 +144,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 // ─── JSON-LD Schemas ────────────────────────────────────────────────────────────
 
-function getStructuredData(locale: Locale) {
-  const canonical = createCanonicalUrl(PAGE_PATH, locale)
+function getStructuredData() {
+  const canonical = createCanonicalUrl(PAGE_PATH, 'fr')
 
   const professionalService = {
     '@context': 'https://schema.org',
@@ -228,11 +226,11 @@ function getStructuredData(locale: Locale) {
   const breadcrumb = generateBreadcrumbStructuredData([
     {
       name: 'Accueil',
-      url: createCanonicalUrl('', locale),
+      url: createCanonicalUrl('', 'fr'),
     },
     {
       name: 'Services',
-      url: createCanonicalUrl('services', locale),
+      url: createCanonicalUrl('services', 'fr'),
     },
     {
       name: 'Création site web Villeurbanne',
@@ -246,24 +244,22 @@ function getStructuredData(locale: Locale) {
 // ─── Page Component ─────────────────────────────────────────────────────────────
 
 export default async function VilleurbannePage() {
-  const locale = defaultLocale
   const faqs = faqData.fr
-  const structuredData = getStructuredData(locale)
-  const t = getPageContent(locale)
+  const structuredData = getStructuredData()
+  const t = getPageContent()
 
   return (
     <VilleurbanneLandingContent
       content={t}
       faqs={faqs}
       structuredData={structuredData}
-      locale={locale}
     />
   )
 }
 
 // ─── Content per locale ─────────────────────────────────────────────────────────
 
-function getPageContent(locale: Locale) {
+function getPageContent() {
   // French (default)
   return {
     badge: 'Expert Web Villeurbanne',

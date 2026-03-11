@@ -11,16 +11,16 @@ interface ContactFormData {
 }
 
 // Function to get the appropriate template based on locale
-const getUserTemplate = (locale: 'fr' = 'fr') => {
+const getUserTemplate = () => {
   return userConfirmationFR
 }
 
-const getAdminTemplate = (locale: 'fr' = 'fr') => {
+const getAdminTemplate = () => {
   return adminNotificationFR
 }
 
 // Function to get subject based on locale
-const getEmailSubjects = (locale: 'fr' = 'fr') => {
+const getEmailSubjects = () => {
   return {
     user: 'Confirmation de votre demande - SIDIKOFF DIGITAL',
     admin: 'Nouvelle demande reçue - SIDIKOFF DIGITAL',
@@ -30,7 +30,7 @@ const getEmailSubjects = (locale: 'fr' = 'fr') => {
 export async function POST(request: Request) {
   try {
     const data: ContactFormData = await request.json()
-    const { name, email, message, locale = 'fr' } = data
+    const { name, email, message } = data
 
     // Validation
     if (!name?.trim()) {
@@ -90,17 +90,17 @@ export async function POST(request: Request) {
       )
     }
 
-    // Get templates and subjects based on locale
-    const userTemplate = getUserTemplate(locale)
-    const adminTemplate = getAdminTemplate(locale)
-    const subjects = getEmailSubjects(locale)
+    // Get templates and subjects
+    const userTemplate = getUserTemplate()
+    const adminTemplate = getAdminTemplate()
+    const subjects = getEmailSubjects()
 
     // User confirmation email
     const userMail = {
       from: `"SIDIKOFF DIGITAL" <${process.env.GMAIL_USER}>`,
       to: email,
       subject: subjects.user,
-      html: userTemplate({ name, locale }),
+      html: userTemplate({ name }),
       replyTo: process.env.ADMIN_EMAIL,
     }
 
@@ -109,7 +109,7 @@ export async function POST(request: Request) {
       from: `"Contact Form - SIDIKOFF DIGITALDigital" <${process.env.EMAIL_FROM || process.env.SMTP_USER || process.env.GMAIL_USER}>`,
       to: process.env.EMAIL_TO || process.env.ADMIN_EMAIL || 's.sidikoff@gmail.com',
       subject: subjects.admin,
-      html: adminTemplate({ name, email, message, locale }),
+      html: adminTemplate({ name, email, message }),
       replyTo: email, // Admin can reply directly to the user
     }
 
@@ -123,14 +123,12 @@ export async function POST(request: Request) {
       console.log('Emails sent successfully:', {
         userMessageId: userResult.messageId,
         adminMessageId: adminResult.messageId,
-        locale,
         timestamp: new Date().toISOString(),
       })
 
       return NextResponse.json({
         success: true,
         message: 'Emails sent successfully',
-        locale,
       })
     } catch (emailError) {
       console.error('Error sending emails:', emailError)

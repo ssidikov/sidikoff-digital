@@ -9,8 +9,6 @@ import {
   createCanonicalUrl,
 } from '@/lib/seo-utils'
 import { getBlogPosts } from '@/lib/sanity'
-import { defaultLocale } from '@/lib/i18n'
-import { getDictionary } from '@/lib/dictionaries'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import {
@@ -23,7 +21,6 @@ import {
   Contact,
   Actualite,
 } from '@/sections'
-import LocaleProvider from '@/components/LocaleProvider'
 
 const SEO_CONFIG = {
   title: 'Agence Web Lyon — Création de Sites Internet Sur Mesure',
@@ -45,17 +42,14 @@ export async function generateMetadata() {
     title: SEO_CONFIG.title,
     description:
       'Agence web Lyon spécialisée en création de sites internet sur mesure, SEO et refonte. Sites modernes, rapides, livrés en 7–14 jours. Devis gratuit sous 24h.',
-    locale: defaultLocale,
-    canonicalUrl: createCanonicalUrl('', defaultLocale),
+    locale: 'fr',
+    canonicalUrl: createCanonicalUrl('', 'fr'),
     alternateLanguages: generateLanguageAlternates('', ['fr']),
     ogImage: SEO_CONFIG.ogImage,
     keywords: [...SEO_CONFIG.keywords],
   })
 }
 
-/**
- * Generates structured data schemas for the homepage
- */
 function generateHomePageSchemas() {
   return [
     organizationSchema,
@@ -87,40 +81,34 @@ function generateHomePageSchemas() {
 }
 
 export default async function HomePage() {
-  // Serve French content directly at root
-  const dict = await getDictionary(defaultLocale)
   const posts = await getBlogPosts()
   const latestPosts = posts.slice(0, 3)
   const schemas = generateHomePageSchemas()
 
   return (
-    <LocaleProvider locale={defaultLocale}>
-      <div className='min-h-screen'>
-        {/* Structured Data */}
-        {schemas.map((schema, index) => (
-          <Script
-            key={index}
-            id={`structured-data-${index}`}
-            type='application/ld+json'
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(schema, null, 0),
-            }}
-          />
-        ))}
-
-        <Header locale={defaultLocale} dictionary={dict} />
-        <main className='m-0 p-0'>
-          <Hero dict={dict.hero} locale={defaultLocale} />
-          <Services dictionary={dict.services} locale={defaultLocale} isHomePage={true} />
-          <Portfolio dictionary={dict.portfolio} locale={defaultLocale} isHomePage={true} />
-          <Pricing locale={defaultLocale} />
-          <Testimonials dictionary={dict.testimonials} locale={defaultLocale} />
-          <Actualite posts={latestPosts} dictionary={dict.blog} locale={defaultLocale} />
-          <FAQ dictionary={dict.faq} isHomePage={true} />
-          <Contact dictionary={dict.contact} locale={defaultLocale} isHomePage={true} />
-        </main>
-        <Footer dictionary={dict} locale={defaultLocale} />
-      </div>
-    </LocaleProvider>
+    <div className='min-h-screen'>
+      {schemas.map((schema, index) => (
+        <Script
+          key={index}
+          id={`structured-data-${index}`}
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schema, null, 0),
+          }}
+        />
+      ))}
+      <Header />
+      <main className='m-0 p-0'>
+        <Hero />
+        <Services isHomePage={true} />
+        <Portfolio isHomePage={true} />
+        <Pricing />
+        <Testimonials />
+        <Actualite posts={latestPosts} />
+        <FAQ isHomePage={true} />
+        <Contact isHomePage={true} />
+      </main>
+      <Footer />
+    </div>
   )
 }

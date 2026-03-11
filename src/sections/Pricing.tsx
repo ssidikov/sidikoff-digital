@@ -1,11 +1,12 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import CTAButton from '@/components/ui/CTAButton'
 import PricingCard from '@/components/ui/PricingCard'
 import Section, { SectionHeader } from '@/components/ui/Section'
 import { cardStyles } from '@/utils/styles'
+import common from '@/locales/fr/common.json'
 
 // Simple SVG icons
 const CheckIcon = ({ className }: { className?: string }) => (
@@ -14,180 +15,14 @@ const CheckIcon = ({ className }: { className?: string }) => (
   </svg>
 )
 
-interface Dictionary {
-  pricing?: {
-    title?: string
-    subtitle?: string
-    description?: string
-    guarantee_badge?: string
-    website_creation_title?: string
-    guide_section?: {
-      title?: string
-      subtitle?: string
-      intro?: {
-        title?: string
-        content?: string
-      }
-      website_types?: {
-        title?: string
-        types?: Array<{
-          name?: string
-          description?: string
-          best_for?: string
-          plan_recommendation?: string
-          maintenance?: string
-          why_important?: string
-        }>
-      }
-      support_importance?: {
-        title?: string
-        subtitle?: string
-        benefits?: Array<{
-          icon?: string
-          title?: string
-          content?: string
-        }>
-      }
-      single_payment_option?: {
-        title?: string
-        content?: string
-        risks?: string[]
-      }
-      business_focus?: {
-        title?: string
-        content?: string
-        what_i_handle?: string[]
-      }
-      seo_benefits?: {
-        title?: string
-        subtitle?: string
-        benefits?: Array<{
-          title?: string
-          content?: string
-        }>
-      }
-      future_services?: {
-        title?: string
-        content?: string
-        services?: string[]
-      }
-      call_to_action?: {
-        title?: string
-        content?: string
-        contact_text?: string
-        button?: string
-      }
-      labels?: {
-        ideal_for?: string
-        recommended_plan?: string
-        maintenance?: string
-        why_important?: string
-        risks_without_maintenance?: string
-        what_i_handle?: string
-      }
-    }
-    maintenance?: {
-      title?: string
-      subtitle?: string
-      plans?: {
-        essentiel?: {
-          name?: string
-          price?: string
-          description?: string
-          features?: string[]
-          cta?: string
-        }
-        croissance?: {
-          name?: string
-          price?: string
-          description?: string
-          features?: string[]
-          cta?: string
-        }
-        performance?: {
-          name?: string
-          price?: string
-          description?: string
-          features?: string[]
-          cta?: string
-        }
-      }
-    }
-    subscription?: {
-      title?: string
-      subtitle?: string
-      plans?: {
-        pro_all_in?: {
-          name?: string
-          price?: string
-          period?: string
-          description?: string
-          features?: string[]
-          cta?: string
-        }
-        business_all_in?: {
-          name?: string
-          price?: string
-          period?: string
-          description?: string
-          features?: string[]
-          cta?: string
-        }
-      }
-    }
-    plans?: {
-      vitrine?: {
-        name?: string
-        price?: string
-        description?: string
-        features?: string[]
-        cta?: string
-        popular?: boolean
-      }
-      pro?: {
-        name?: string
-        price?: string
-        description?: string
-        features?: string[]
-        cta?: string
-        popular?: boolean
-      }
-      business?: {
-        name?: string
-        price?: string
-        description?: string
-        features?: string[]
-        cta?: string
-        popular?: boolean
-      }
-    }
-  }
-}
-
 interface PricingProps {
-  locale: string
   className?: string
   showGuide?: boolean
 }
 
-export default function Pricing({ locale, className, showGuide = false }: PricingProps) {
-  const [dict, setDict] = useState<Dictionary | null>(null)
-
-  useEffect(() => {
-    const loadDictionary = async () => {
-      try {
-        const dictionary = await import(`../../locales/${locale}/common.json`)
-        setDict(dictionary.default)
-      } catch {
-        // Fallback to French if locale not found
-        const dictionary = await import('../../locales/fr/common.json')
-        setDict(dictionary.default)
-      }
-    }
-    loadDictionary()
-  }, [locale])
-
-  if (!dict) return null
+export default function Pricing({ className, showGuide = false }: PricingProps) {
+  const router = useRouter()
+  const dict = { pricing: common.pricing }
 
   // Données des plans tarifaires depuis la localisation
   const pricingPlans = [
@@ -259,7 +94,7 @@ export default function Pricing({ locale, className, showGuide = false }: Pricin
   const handlePlanSelect = (planName: string) => {
     // Redirection vers la page de contact avec le plan présélectionné
     const contactUrl = `/contact?plan=${planName.toLowerCase()}`
-    window.location.href = contactUrl
+    router.push(contactUrl)
   }
 
   return (

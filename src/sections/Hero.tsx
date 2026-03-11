@@ -4,17 +4,13 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
 
-import { type Dictionary } from '@/lib/dictionaries'
-import { type Locale } from '@/lib/i18n'
+import common from '@/locales/fr/common.json'
 import { ArrowIcon, PlayIcon } from '@/components/ui/icons'
 import CTAButton from '@/components/ui/CTAButton'
 import Section from '@/components/ui/Section'
 import { ViewportHeightProvider } from '@/components/ViewportHeightProvider'
 
-interface HeroProps {
-  dict: Dictionary['hero']
-  locale: Locale
-}
+const dict = common.hero
 
 // Animation configurations for consistent timing
 const ANIMATION_CONFIG = {
@@ -42,7 +38,7 @@ function getCTAHref(section: string): string {
  * Hero section with animated content and responsive design
  * Features dual CTA buttons and hero illustration
  */
-export function Hero({ dict, locale }: HeroProps) {
+export function Hero() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 

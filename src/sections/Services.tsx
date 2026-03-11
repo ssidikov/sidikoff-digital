@@ -3,15 +3,12 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
-import { type Dictionary } from '@/lib/dictionaries'
-import { type Locale } from '@/lib/i18n'
+import common from '@/locales/fr/common.json'
 import CTAButton from '@/components/ui/CTAButton'
 import Section, { SectionHeader } from '@/components/ui/Section'
 import { cardStyles } from '@/utils/styles'
 
 interface ServicesProps {
-  dictionary: Dictionary['services']
-  locale: Locale
   className?: string
   isHomePage?: boolean // Add prop to determine if on homepage
 }
@@ -64,11 +61,10 @@ const scrollToPricing = (): void => {
  * Features responsive design, animations, and accessibility
  */
 export function Services({
-  dictionary: dict,
-  locale,
   className,
   isHomePage = false,
 }: ServicesProps) {
+  const dict = common.services
   const services = [
     {
       title: dict.web_creation.title,

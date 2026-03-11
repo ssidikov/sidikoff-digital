@@ -68,8 +68,7 @@ export interface VilleurbannContent {
 interface Props {
   content: VilleurbannContent
   faqs: FaqItem[]
-  structuredData: any[]
-  locale: string
+  structuredData: Record<string, unknown>[]
 }
 
 // ─── Component ──────────────────────────────────────────────────────────────────
@@ -78,7 +77,6 @@ export default function VilleurbanneLandingContent({
   content: c,
   faqs,
   structuredData,
-  locale,
 }: Props) {
   const heroRef = useRef<HTMLDivElement>(null)
   const heroInView = useInView(heroRef, { once: true, margin: '-80px' })
@@ -620,7 +618,7 @@ export default function VilleurbanneLandingContent({
                 <p>
                   Basé à <strong className='font-semibold text-slate-900'>Villeurbanne</strong>, je
                   connais parfaitement le tissu économique local et les enjeux des entreprises de la
-                  métropole lyonnaise. Cette proximité géographique me permet d'offrir un service
+                  métropole lyonnaise. Cette proximité géographique me permet d&apos;offrir un service
                   réactif et personnalisé.
                 </p>
                 <p>
@@ -651,7 +649,7 @@ export default function VilleurbanneLandingContent({
 
             <div className='col-span-12 lg:col-span-4'>
               <div className='rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-soft-md border border-white/60'>
-                <h3 className='mb-6 text-xl font-semibold text-slate-900'>Zone d'intervention</h3>
+                <h3 className='mb-6 text-xl font-semibold text-slate-900'>Zone d&apos;intervention</h3>
                 <div className='space-y-4'>
                   {[
                     { area: 'Villeurbanne', distance: 'Sur place' },

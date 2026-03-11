@@ -1,4 +1,3 @@
-import { Locale } from '@/lib/i18n'
 import { DEFAULT_SEO } from '@/lib/seo-utils'
 
 interface BreadcrumbItem {
@@ -26,7 +25,7 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
   }
 }
 
-export function getPageBreadcrumbs(pathname: string, locale: Locale = 'fr') {
+export function getPageBreadcrumbs(pathname: string) {
   const breadcrumbs: BreadcrumbItem[] = [
     {
       position: 1,
@@ -78,10 +77,7 @@ export function getPageBreadcrumbs(pathname: string, locale: Locale = 'fr') {
   return breadcrumbs
 }
 
-export function getInternalBreadcrumbs(
-  pathname: string,
-  locale: Locale = 'fr',
-): InternalBreadcrumbItem[] {
+export function getInternalBreadcrumbs(pathname: string): InternalBreadcrumbItem[] {
   const breadcrumbs: InternalBreadcrumbItem[] = [
     {
       position: 1,

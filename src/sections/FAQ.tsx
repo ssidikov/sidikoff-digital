@@ -3,10 +3,9 @@
 import { useState, useCallback, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
+import common from '@/locales/fr/common.json'
 import CTAButton from '@/components/ui/CTAButton'
 import Section, { SectionHeader } from '@/components/ui/Section'
-import { type Locale } from '@/lib/i18n'
-import { defaultLocale } from '@/lib/i18n'
 
 interface FAQItem {
   id: string
@@ -15,39 +14,7 @@ interface FAQItem {
   category: string
 }
 
-interface FAQCategories {
-  general?: string
-  pricing?: string
-  support?: string
-}
-
-interface FAQQuestionItem {
-  question?: string
-  answer?: string
-  category?: string
-}
-
-interface FAQQuestions {
-  [key: string]: FAQQuestionItem
-}
-
-interface FAQCTA {
-  title?: string
-  description?: string
-  button?: string
-}
-
-interface FAQDictionary {
-  title?: string
-  subtitle?: string
-  categories?: FAQCategories
-  questions?: FAQQuestions
-  cta?: FAQCTA
-}
-
 interface FAQProps {
-  locale?: Locale
-  dictionary?: FAQDictionary
   className?: string
   isHomePage?: boolean // Add prop to determine if on homepage
 }
@@ -114,7 +81,8 @@ const ANIMATION_CONFIG = {
  * FAQ section component with expandable items and responsive layout
  * Features smooth animations, accessibility, and analytics tracking
  */
-export const FAQ = ({ dictionary, className, locale, isHomePage = false }: FAQProps) => {
+export const FAQ = ({ className, isHomePage = false }: FAQProps) => {
+  const dictionary = common.faq
   const [openItems, setOpenItems] = useState<Set<string>>(new Set())
 
   // Memoized FAQ data transformation
@@ -208,7 +176,7 @@ export const FAQ = ({ dictionary, className, locale, isHomePage = false }: FAQPr
             {dictionary?.cta?.description || 'Vous ne trouvez pas la réponse à votre question ?'}
           </p>
           <CTAButton
-            href={`/${locale || defaultLocale}/contact`}
+            href='/contact'
             variant='primary'
             trackingAction='faq_contact'
             trackingCategory='faq'

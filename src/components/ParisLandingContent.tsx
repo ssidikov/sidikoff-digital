@@ -5,16 +5,11 @@ import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { type Locale } from '@/lib/i18n'
 import Section from '@/components/ui/Section'
 import CTAButton from '@/components/ui/CTAButton'
 import { ViewportHeightProvider } from '@/components/ViewportHeightProvider'
 import { ArrowIcon, PlayIcon } from '@/components/ui/icons'
 import { cardStyles } from '@/utils/styles'
-
-interface ParisLandingContentProps {
-  locale: Locale
-}
 
 // Animation configurations
 const ANIMATION_CONFIG = {
@@ -31,9 +26,9 @@ const CARD_ANIMATION = {
 } as const
 
 /**
- * Generate localized content based on locale
+ * Generate localized content (French only)
  */
-function getLocalizedContent(locale: Locale) {
+function getLocalizedContent() {
   // French only
   return {
     hero: {
@@ -185,8 +180,8 @@ function getLocalizedContent(locale: Locale) {
   }
 }
 
-export default function ParisLandingContent({ locale }: ParisLandingContentProps) {
-  const content = getLocalizedContent(locale)
+export default function ParisLandingContent() {
+  const content = getLocalizedContent()
   const heroRef = useRef(null)
   const servicesRef = useRef(null)
   const isHeroInView = useInView(heroRef, { once: true })

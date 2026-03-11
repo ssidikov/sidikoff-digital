@@ -1,20 +1,16 @@
 import { Metadata } from 'next'
 import { Pricing } from '@/sections'
-import { getDictionary } from '@/lib/dictionaries'
-import { defaultLocale } from '@/lib/i18n'
+import common from '@/locales/fr/common.json'
 import { generatePageMetadata } from '@/lib/seo-utils'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = defaultLocale
-  const dict = await getDictionary(locale)
-
-  const title = dict?.pricing?.title ?? 'Tarifs & Prix — Création de Sites Web'
+  const title = common?.pricing?.title ?? 'Tarifs & Prix — Création de Sites Web'
 
   const description =
-    dict?.pricing?.description ||
+    common?.pricing?.description ||
     'Découvrez nos tarifs transparents pour la création de sites web. Solutions adaptées à tous les budgets : site vitrine, site professionnel et solutions sur mesure.'
 
-  return generatePageMetadata(title, description, '/tarifs', locale, {
+  return generatePageMetadata(title, description, '/tarifs', 'fr', {
     keywords: [
       'tarifs site web',
       'prix création site internet',
@@ -27,8 +23,6 @@ export async function generateMetadata(): Promise<Metadata> {
   })
 }
 
-export default async function TarifsPage() {
-  const locale = defaultLocale
-
-  return <Pricing locale={locale} className='pt-[140px]' showGuide={true} />
+export default function TarifsPage() {
+  return <Pricing className='pt-[140px]' showGuide={true} />
 }

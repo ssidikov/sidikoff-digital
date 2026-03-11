@@ -4,8 +4,6 @@ import { notFound } from 'next/navigation'
 
 import { BlogPostContent } from '@/components/BlogPostContent'
 import { getBlogPostBySlug, urlFor } from '@/lib/sanity'
-import { getDictionary } from '@/lib/dictionaries'
-import { defaultLocale } from '@/lib/i18n'
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -15,7 +13,6 @@ interface BlogPostPageProps {
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params
-  const locale = defaultLocale
 
   const post = await getBlogPostBySlug(slug)
 
@@ -26,7 +23,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     }
   }
 
-  const canonicalUrl = createCanonicalUrl(`blog/${slug}`, locale)
+  const canonicalUrl = createCanonicalUrl(`blog/${slug}`, 'fr')
 
   const imageUrl = post.mainImage ? urlFor(post.mainImage).url() : '/images/opengraph-fr.png'
 
@@ -61,7 +58,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       creator: '@sidikoffdigital',
     },
     alternates: {
-      canonical: createCanonicalUrl(`blog/${slug}`, locale),
+      canonical: createCanonicalUrl(`blog/${slug}`, 'fr'),
       languages: generateAlternateUrls(`blog/${slug}`),
     },
   }
@@ -73,9 +70,8 @@ export async function generateStaticParams() {
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params
-  const locale = defaultLocale
 
-  const [post, dict] = await Promise.all([getBlogPostBySlug(slug), getDictionary(locale)])
+  const post = await getBlogPostBySlug(slug)
 
   if (!post) {
     notFound()
@@ -83,7 +79,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <div className='min-h-screen bg-gray-50'>
-      <BlogPostContent post={post} dictionary={dict.blog} locale={locale} />
+      <BlogPostContent post={post} />
     </div>
   )
 }

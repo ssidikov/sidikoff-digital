@@ -7,7 +7,7 @@ import { ArrowRight, Phone } from 'lucide-react'
 import { Button, Heading, Text } from '@/design-system'
 import { SectionProps } from '../types'
 
-export function CTASection({ dictionary, locale, industryConfig }: SectionProps) {
+export function CTASection({ dictionary, industryConfig }: SectionProps) {
   const t = dictionary as unknown as Record<string, Record<string, unknown>>
   const ctaData = t.cta || ({} as Record<string, unknown>)
 

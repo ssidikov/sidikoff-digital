@@ -1,15 +1,12 @@
 import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { Metadata } from 'next'
-import { getDictionary } from '@/lib/dictionaries'
-import { defaultLocale } from '@/lib/i18n'
+import common from '@/locales/fr/common.json'
 import AgenceWebParisLandingContent from '@/components/AgenceWebParisLandingContent'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = defaultLocale
-  const dict = await getDictionary(locale)
-  const content = dict.agence_web_paris_landing
+  const content = common.agence_web_paris_landing
 
-  const url = createCanonicalUrl('services/agence-web-paris', locale)
+  const url = createCanonicalUrl('services/agence-web-paris', 'fr')
 
   return {
     title: content.meta_title,
@@ -29,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: 'SIDIKOFF DIGITAL',
     publisher: 'SIDIKOFF DIGITAL',
     alternates: {
-      canonical: createCanonicalUrl('services/agence-web-paris', locale),
+      canonical: createCanonicalUrl('services/agence-web-paris', 'fr'),
       languages: generateAlternateUrls('services/agence-web-paris'),
     },
     openGraph: {
@@ -70,9 +67,6 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default async function AgenceWebParisLandingPage() {
-  const locale = defaultLocale
-  const dict = await getDictionary(locale)
-
-  return <AgenceWebParisLandingContent dictionary={dict} locale={locale} />
+export default function AgenceWebParisLandingPage() {
+  return <AgenceWebParisLandingContent />
 }

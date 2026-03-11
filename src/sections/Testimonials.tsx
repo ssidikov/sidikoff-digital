@@ -3,8 +3,7 @@
 import { motion } from 'framer-motion'
 import Script from 'next/script'
 
-import { type Dictionary } from '@/lib/dictionaries'
-import { type Locale } from '@/lib/i18n'
+import common from '@/locales/fr/common.json'
 import CTAButton from '@/components/ui/CTAButton'
 import Section, { SectionHeader } from '@/components/ui/Section'
 import StarRating from '@/components/ui/StarRating'
@@ -12,8 +11,6 @@ import { cardStyles } from '@/utils/styles'
 import { generateReviewStructuredData } from '@/lib/seo-utils'
 
 interface TestimonialsProps {
-  dictionary: Dictionary['testimonials']
-  locale: Locale
   className?: string
 }
 
@@ -79,7 +76,8 @@ const TESTIMONIALS_DATA: Testimonial[] = [
  * Testimonials section component with client testimonials and CTA banner
  * Features responsive design, animations, and accessibility
  */
-export function Testimonials({ dictionary: dict, locale, className }: TestimonialsProps) {
+export function Testimonials({ className }: TestimonialsProps) {
+  const dict = common.testimonials
   const contactUrl = '/contact'
 
   // Generate structured data for reviews

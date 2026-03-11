@@ -1,14 +1,11 @@
 import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { type Metadata } from 'next'
-import { getDictionary } from '@/lib/dictionaries'
-import { defaultLocale } from '@/lib/i18n'
+import common from '@/locales/fr/common.json'
 import MaintenanceLandingContent from '@/components/MaintenanceLandingContent'
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = defaultLocale
-  const dictionary = await getDictionary(locale)
-  const t = dictionary.maintenance_landing
+const t = common.testimonials.maintenance_landing
 
+export function generateMetadata(): Metadata {
   return {
     title: t.meta_title,
     description: t.meta_description,
@@ -29,37 +26,26 @@ export async function generateMetadata(): Promise<Metadata> {
       images: ['/images/opengraph-fr.png'],
     },
     alternates: {
-      canonical: createCanonicalUrl('services/maintenance-support', locale),
+      canonical: createCanonicalUrl('services/maintenance-support', 'fr'),
       languages: generateAlternateUrls('services/maintenance-support'),
     },
   }
 }
 
-export default async function MaintenanceLandingPage() {
-  const locale = defaultLocale
-  const dictionary = await getDictionary(locale)
-
+export default function MaintenanceLandingPage() {
   const breadcrumbs = {
     items: [
-      {
-        label: dictionary.navigation.home,
-        href: '/',
-      },
-      {
-        label: dictionary.navigation.services,
-        href: '/#services',
-      },
-      {
-        label: dictionary.services.maintenance.title,
-      },
+      { label: common.navigation.home, href: '/' },
+      { label: common.navigation.services, href: '/#services' },
+      { label: common.services.maintenance.title },
     ],
   }
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: dictionary.maintenance_landing.hero.title,
-    description: dictionary.maintenance_landing.hero.description,
+    name: t.hero.title,
+    description: t.hero.description,
     provider: {
       '@type': 'Organization',
       name: 'SIDIKOFF DIGITAL',
@@ -69,7 +55,7 @@ export default async function MaintenanceLandingPage() {
     areaServed: 'Global',
     offers: {
       '@type': 'Offer',
-      description: dictionary.maintenance_landing.hero.description,
+      description: t.hero.description,
     },
   }
 
@@ -79,11 +65,7 @@ export default async function MaintenanceLandingPage() {
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <MaintenanceLandingContent
-        dictionary={dictionary}
-        locale={locale}
-        breadcrumbs={breadcrumbs}
-      />
+      <MaintenanceLandingContent breadcrumbs={breadcrumbs} />
     </>
   )
 }

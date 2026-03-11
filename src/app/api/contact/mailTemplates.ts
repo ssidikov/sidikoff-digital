@@ -261,7 +261,7 @@ const baseStyles = `
   </style>
 `
 
-export const userConfirmationFR = ({ name, locale = 'fr' }: UserConfirmationParams) => {
+export const userConfirmationFR = ({ name }: UserConfirmationParams) => {
   const t = translations.fr
 
   return `
@@ -328,7 +328,6 @@ export const adminNotificationFR = ({
   name,
   email,
   message,
-  locale = 'fr',
 }: AdminNotificationParams) => {
   const t = translations.fr
 

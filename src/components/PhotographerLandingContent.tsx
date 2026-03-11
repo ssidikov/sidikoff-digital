@@ -26,12 +26,7 @@ import {
   Globe,
 } from 'lucide-react'
 
-import { Dictionary } from '@/lib/dictionaries'
-
-interface PhotographerLandingContentProps {
-  dictionary: Dictionary
-  locale: string
-}
+import common from '@/locales/fr/common.json'
 
 interface PainPoint {
   icon: string
@@ -99,12 +94,9 @@ const iconMap = {
   eye: Eye,
 }
 
-export default function PhotographerLandingContent({
-  dictionary,
-  locale,
-}: PhotographerLandingContentProps) {
+export default function PhotographerLandingContent() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null)
-  const t = dictionary.photographer_landing
+  const t = common.photographer_landing
 
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index)
@@ -535,7 +527,7 @@ export default function PhotographerLandingContent({
             <p className='text-xl text-orange-100 mb-8'>{t.cta.description}</p>
 
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-              <Link href={`/${locale}#contact`}>
+              <Link href='/contact'>
                 <button className='px-8 py-4 bg-white text-orange-600 rounded-xl font-semibold hover:bg-gray-100 transition-colors'>
                   {t.cta.primary_button}
                 </button>

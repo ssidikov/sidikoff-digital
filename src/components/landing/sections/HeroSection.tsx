@@ -41,7 +41,7 @@ function isArrayProperty(
   return Array.isArray(obj[key])
 }
 
-export function HeroSection({ dictionary, locale, industryConfig, breadcrumbs }: HeroSectionProps) {
+export function HeroSection({ dictionary, industryConfig, breadcrumbs }: HeroSectionProps) {
   // Access restaurant landing data from dictionary - using safe property access
   const restaurantData =
     ((dictionary as unknown as Record<string, unknown>).restaurant_landing as Record<

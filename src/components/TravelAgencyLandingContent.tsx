@@ -21,12 +21,7 @@ import {
   Users,
 } from 'lucide-react'
 
-import { Dictionary } from '@/lib/dictionaries'
-
-interface TravelAgencyLandingContentProps {
-  dictionary: Dictionary
-  locale: string
-}
+import travelData from '@/locales/fr/travel_agency_landing.json'
 
 interface PainPoint {
   icon: string
@@ -71,14 +66,11 @@ interface Question {
   answer: string
 }
 
-const TravelAgencyLandingContent: React.FC<TravelAgencyLandingContentProps> = ({
-  dictionary,
-  locale,
-}) => {
+const TravelAgencyLandingContent: React.FC = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
   const [activeFeature, setActiveFeature] = useState(0)
 
-  const content = dictionary.travel_agency_landing
+  const content = travelData.travel_agency_landing
 
   const painIcons = {
     globe: Globe,

@@ -1,36 +1,29 @@
 import { Metadata } from 'next'
-import { defaultLocale } from '@/lib/i18n'
-import { getDictionary } from '@/lib/dictionaries'
+import common from '@/locales/fr/common.json'
 import { createCanonicalUrl } from '@/lib/seo-utils'
 import { PremiumLegalTemplate } from '@/components/ui/PremiumLegalTemplate'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = defaultLocale
-  const dict = await getDictionary(locale)
-
   return {
-    title: dict.privacy.title,
-    description: dict.privacy.subtitle,
+    title: common.privacy.title,
+    description: common.privacy.subtitle,
     robots: {
       index: false,
       follow: false,
     },
     alternates: {
-      canonical: createCanonicalUrl('politique-de-confidentialite', locale),
+      canonical: createCanonicalUrl('politique-de-confidentialite', 'fr'),
     },
   }
 }
 
-export default async function PrivacyPolicyPage() {
-  const locale = defaultLocale
-  const dict = await getDictionary(locale)
-
+export default function PrivacyPolicyPage() {
   return (
     <PremiumLegalTemplate
-      title={dict.privacy.title}
-      subtitle={dict.privacy.subtitle}
-      lastUpdated={dict.privacy.last_updated}>
-      {dict.privacy.sections.map((section, index) => (
+      title={common.privacy.title}
+      subtitle={common.privacy.subtitle}
+      lastUpdated={common.privacy.last_updated}>
+      {common.privacy.sections.map((section, index) => (
         <section key={index}>
           <h2>{section.title}</h2>
           <p>{section.content}</p>

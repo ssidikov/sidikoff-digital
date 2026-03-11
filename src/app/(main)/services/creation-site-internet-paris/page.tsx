@@ -1,12 +1,9 @@
 import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { Metadata } from 'next'
-import { defaultLocale } from '@/lib/i18n'
 
 import ParisLandingContent from '@/components/ParisLandingContent'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = defaultLocale
-
   const title = 'Création site internet Paris – Agence web & SEO local'
 
   const description =
@@ -27,7 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     },
     alternates: {
-      canonical: createCanonicalUrl('services/creation-site-internet-paris', locale),
+      canonical: createCanonicalUrl('services/creation-site-internet-paris', 'fr'),
       languages: generateAlternateUrls('services/creation-site-internet-paris'),
     },
     openGraph: {
@@ -57,11 +54,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ParisPage() {
-  const locale = defaultLocale
-
   return (
     <div className='min-h-screen'>
-      <ParisLandingContent locale={locale} />
+      <ParisLandingContent />
     </div>
   )
 }

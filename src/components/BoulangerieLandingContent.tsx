@@ -24,22 +24,7 @@ import {
   Search,
 } from 'lucide-react'
 
-import { Dictionary } from '@/lib/dictionaries'
-
-interface BreadcrumbItem {
-  label: string
-  href?: string
-}
-
-interface Breadcrumbs {
-  items: BreadcrumbItem[]
-}
-
-interface BoulangerieLandingContentProps {
-  dictionary: Dictionary
-  locale: string
-  breadcrumbs?: Breadcrumbs
-}
+import common from '@/locales/fr/common.json'
 
 interface PainPoint {
   icon: string
@@ -93,11 +78,8 @@ interface FAQ {
   answer: string
 }
 
-export default function BoulangerieLandingContent({
-  dictionary,
-  locale,
-}: BoulangerieLandingContentProps) {
-  const t = dictionary.boulangerie_landing
+export default function BoulangerieLandingContent() {
+  const t = common.boulangerie_landing
   const [openFAQ, setOpenFAQ] = useState<number | null>(null)
 
   const toggleFAQ = (index: number) => {

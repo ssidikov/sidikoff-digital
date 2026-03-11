@@ -2,14 +2,8 @@
 
 import Link from 'next/link'
 
-import { type Locale } from '@/lib/i18n'
+import common from '@/locales/fr/common.json'
 import { getLocalizedUrl } from '@/utils/navigation'
-import { type Dictionary } from '@/lib/dictionaries'
-
-interface FooterProps {
-  dictionary: Dictionary
-  locale: Locale
-}
 
 interface FooterLink {
   name: string
@@ -36,100 +30,100 @@ const COMPANY_INFO = {
 /**
  * Generate core navigation links
  */
-const createCoreLinks = (dictionary: Dictionary, locale: Locale): FooterLink[] => [
+const createCoreLinks = (): FooterLink[] => [
   {
-    name: dictionary.navigation?.services || 'Services',
-    href: getLocalizedUrl('/#services', locale),
+    name: common.navigation?.services || 'Services',
+    href: getLocalizedUrl('/#services'),
   },
   {
-    name: dictionary.navigation?.portfolio || 'Portfolio',
-    href: getLocalizedUrl('/projects', locale),
+    name: common.navigation?.portfolio || 'Portfolio',
+    href: getLocalizedUrl('/projects'),
   },
   {
-    name: dictionary.navigation?.blog || 'Blog',
-    href: getLocalizedUrl('/blog', locale),
+    name: common.navigation?.blog || 'Blog',
+    href: getLocalizedUrl('/blog'),
   },
   {
-    name: dictionary.navigation?.faq || 'FAQ',
-    href: getLocalizedUrl('/#faq', locale),
+    name: common.navigation?.faq || 'FAQ',
+    href: getLocalizedUrl('/#faq'),
   },
   {
-    name: dictionary.navigation?.contact || 'Contact',
-    href: getLocalizedUrl('/#contact', locale),
+    name: common.navigation?.contact || 'Contact',
+    href: getLocalizedUrl('/#contact'),
   },
 ]
 
 /**
  * Generate SEO Niche/Expertise links
  */
-const createSecteurLinks = (locale: Locale): FooterLink[] => [
-  { name: 'Site E-commerce', href: getLocalizedUrl('/services/creation-site-ecommerce', locale) },
+const createSecteurLinks = (): FooterLink[] => [
+  { name: 'Site E-commerce', href: getLocalizedUrl('/services/creation-site-ecommerce') },
   {
     name: 'Site Agence Voyage',
-    href: getLocalizedUrl('/services/creation-site-internet-agence-voyage', locale),
+    href: getLocalizedUrl('/services/creation-site-internet-agence-voyage'),
   },
   {
     name: 'Site Médical',
-    href: getLocalizedUrl('/services/creation-site-internet-medecin', locale),
+    href: getLocalizedUrl('/services/creation-site-internet-medecin'),
   },
   {
     name: 'Site Freelance',
-    href: getLocalizedUrl('/services/creation-site-internet-freelance', locale),
+    href: getLocalizedUrl('/services/creation-site-internet-freelance'),
   },
   {
     name: 'Site Photographe',
-    href: getLocalizedUrl('/services/creation-site-internet-photographe', locale),
+    href: getLocalizedUrl('/services/creation-site-internet-photographe'),
   },
   {
     name: 'Site Boulangerie',
-    href: getLocalizedUrl('/services/creation-site-internet-boulangerie', locale),
+    href: getLocalizedUrl('/services/creation-site-internet-boulangerie'),
   },
   {
     name: 'Site Café & Resto',
-    href: getLocalizedUrl('/services/creation-site-internet-cafe-paris', locale),
+    href: getLocalizedUrl('/services/creation-site-internet-cafe-paris'),
   },
   {
     name: 'Site Barbershop',
-    href: getLocalizedUrl('/services/creation-site-internet-barbershop', locale),
+    href: getLocalizedUrl('/services/creation-site-internet-barbershop'),
   },
 ]
 
 /**
  * Generate SEO Location/Ville links
  */
-const createVilleLinks = (locale: Locale): FooterLink[] => [
-  { name: 'Agence Web Paris', href: getLocalizedUrl('/services/agence-web-paris', locale) },
-  { name: 'Agence Web Paris 15', href: getLocalizedUrl('/services/agence-web-paris-15', locale) },
+const createVilleLinks = (): FooterLink[] => [
+  { name: 'Agence Web Paris', href: getLocalizedUrl('/services/agence-web-paris') },
+  { name: 'Agence Web Paris 15', href: getLocalizedUrl('/services/agence-web-paris-15') },
   {
     name: 'Site Web Paris 16',
-    href: getLocalizedUrl('/services/creation-site-internet-paris-16', locale),
+    href: getLocalizedUrl('/services/creation-site-internet-paris-16'),
   },
   {
     name: 'Site Web Boulogne',
-    href: getLocalizedUrl('/services/creation-site-internet-boulogne-billancourt', locale),
+    href: getLocalizedUrl('/services/creation-site-internet-boulogne-billancourt'),
   },
-  { name: 'Site Web Lyon', href: getLocalizedUrl('/services/creation-site-internet-lyon', locale) },
+  { name: 'Site Web Lyon', href: getLocalizedUrl('/services/creation-site-internet-lyon') },
   {
     name: 'Site Web Toulouse',
-    href: getLocalizedUrl('/services/creation-site-internet-toulouse', locale),
+    href: getLocalizedUrl('/services/creation-site-internet-toulouse'),
   },
   {
     name: 'Site Web Villeurbanne',
-    href: getLocalizedUrl('/services/creation-site-web-villeurbanne', locale),
+    href: getLocalizedUrl('/services/creation-site-web-villeurbanne'),
   },
   {
     name: 'Site Web Caluire',
-    href: getLocalizedUrl('/services/creation-site-web-caluire-et-cuire', locale),
+    href: getLocalizedUrl('/services/creation-site-web-caluire-et-cuire'),
   },
 ]
 
 /**
- * Generate legal links based on dictionary and locale
+ * Generate legal links
  */
-const createLegalLinks = (dictionary: Dictionary, locale: Locale): FooterLink[] => [
+const createLegalLinks = (): FooterLink[] => [
   {
-    name: dictionary.common?.legal_link || 'Mentions Légales',
-    href: getLocalizedUrl('/mentions-legales', locale),
+    name: common.common?.legal_link || 'Mentions Légales',
+    href: getLocalizedUrl('/mentions-legales'),
   },
 ]
 
@@ -137,14 +131,14 @@ const createLegalLinks = (dictionary: Dictionary, locale: Locale): FooterLink[] 
  * Footer component with navigation, contact info, and company branding
  * Features responsive design and accessible links
  */
-export function Footer({ dictionary, locale }: FooterProps) {
-  const coreLinks = createCoreLinks(dictionary, locale)
-  const secteurLinks = createSecteurLinks(locale)
-  const villeLinks = createVilleLinks(locale)
-  const legalLinks = createLegalLinks(dictionary, locale)
+export function Footer() {
+  const coreLinks = createCoreLinks()
+  const secteurLinks = createSecteurLinks()
+  const villeLinks = createVilleLinks()
+  const legalLinks = createLegalLinks()
 
   const footerDescription =
-    dictionary.footer?.description ||
+    common.footer?.description ||
     'Votre partenaire digital pour créer des sites web modernes et performants.'
 
   return (
@@ -252,11 +246,14 @@ export function Footer({ dictionary, locale }: FooterProps) {
           </div>
 
           <div className='flex flex-col items-center space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0'>
-            <Link
-              href='/mentions-legales'
-              className='text-sm uppercase tracking-wider text-[#112D4E]/60 transition-colors hover:text-[#3377FF]'>
-              Mentions Légales
-            </Link>
+            {legalLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className='text-sm uppercase tracking-wider text-[#112D4E]/60 transition-colors hover:text-[#3377FF]'>
+                {link.name}
+              </Link>
+            ))}
             <Link
               href='/politique-de-confidentialite'
               className='text-sm uppercase tracking-wider text-[#112D4E]/60 transition-colors hover:text-[#3377FF]'>

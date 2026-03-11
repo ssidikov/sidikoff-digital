@@ -1,7 +1,6 @@
 import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import Script from 'next/script'
-import { defaultLocale } from '@/lib/i18n'
 
 import { Section } from '@/components/ui'
 import CTAButton from '@/components/ui/CTAButton'
@@ -9,8 +8,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = defaultLocale
-
   const title = 'Création de site internet professionnel Paris 16ème - Agence Web'
 
   const description =
@@ -31,7 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     },
     alternates: {
-      canonical: createCanonicalUrl('services/creation-site-internet-paris-16', locale),
+      canonical: createCanonicalUrl('services/creation-site-internet-paris-16', 'fr'),
       languages: generateAlternateUrls('services/creation-site-internet-paris-16'),
     },
     other: {

@@ -3,61 +3,12 @@
 import React, { useState, useCallback, useEffect } from 'react'
 import { Mail, CheckCircle, AlertCircle } from 'lucide-react'
 
+import common from '@/locales/fr/common.json'
 import Section from '@/components/ui/Section'
 import { cardStyles } from '@/utils/styles'
-import { type Locale } from '@/lib/i18n'
-
-interface ContactFormField {
-  label?: string
-  placeholder?: string
-}
-
-interface ContactForm {
-  title?: string
-  name?: ContactFormField
-  email?: ContactFormField
-  message?: ContactFormField
-  submit?: string
-  sending?: string
-  success?: string
-  success_description?: string
-  error?: string
-  error_description?: string
-  responseTime?: string
-}
-
-interface ContactInfo {
-  title?: string
-  localisations?: string
-  locations?: string[]
-  phone_label?: string
-  email_label?: string
-  phone?: string
-  email?: string
-}
-
-interface ContactChannels {
-  email?: string
-  whatsapp?: string
-  telegram?: string
-  phone?: string
-}
-
-interface ContactDictionary {
-  title?: string
-  subtitle?: string
-  quickContact?: string
-  social?: string
-  socialDesc?: string
-  form?: ContactForm
-  info?: ContactInfo
-  channels?: ContactChannels
-}
 
 interface ContactProps {
   className?: string
-  dictionary?: ContactDictionary
-  locale?: Locale
   isHomePage?: boolean // Add prop to determine if on homepage
 }
 
@@ -88,7 +39,8 @@ const STATUS_RESET_TIMEOUT = 5000
  * Contact section component with form and contact information
  * Features validation, status feedback, and accessibility
  */
-const Contact = ({ className, dictionary, locale = 'fr', isHomePage = false }: ContactProps) => {
+const Contact = ({ className, isHomePage = false }: ContactProps) => {
+  const dictionary = common.contact
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -141,7 +93,7 @@ const Contact = ({ className, dictionary, locale = 'fr', isHomePage = false }: C
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             ...submitData,
-            locale: locale || 'fr',
+            locale: 'fr',
           }),
         })
 
@@ -161,7 +113,7 @@ const Contact = ({ className, dictionary, locale = 'fr', isHomePage = false }: C
         setIsSubmitting(false)
       }
     },
-    [formData, locale]
+    [formData]
   )
 
   const handleChange = useCallback(

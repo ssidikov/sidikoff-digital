@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { CheckCircle, Star, Globe, Users, Zap, TrendingUp, ArrowRight, Shield } from 'lucide-react'
-import { Dictionary } from '@/lib/dictionaries'
+import common from '@/locales/fr/common.json'
 
 interface BreadcrumbItem {
   label: string
@@ -34,17 +34,13 @@ interface FeatureItem {
 }
 
 interface WebCreationLandingContentProps {
-  dictionary: Dictionary
-  locale: string
   breadcrumbs: Breadcrumbs
 }
 
 export default function WebCreationLandingContent({
-  dictionary,
-  locale,
   breadcrumbs,
 }: WebCreationLandingContentProps) {
-  const t = dictionary.web_creation_landing
+  const t = common.services.web_creation_landing
 
   return (
     <div className='min-h-screen'>

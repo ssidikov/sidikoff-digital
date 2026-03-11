@@ -6,8 +6,7 @@ import { motion } from 'framer-motion'
 
 import { BlogPost, BlogCategory } from '@/lib/sanity'
 import { CategoryFilter } from '@/components/ui/CategoryFilter'
-import { Dictionary } from '@/lib/dictionaries'
-import { Locale } from '@/lib/i18n'
+import common from '@/locales/fr/common.json'
 import { getLocalizedUrl } from '@/utils/navigation'
 import { BlogCard } from '@/components/ui/BlogCard'
 import Section from '@/components/ui/Section'
@@ -15,8 +14,6 @@ import Section from '@/components/ui/Section'
 interface BlogPageContentProps {
   readonly posts: BlogPost[]
   readonly categories: BlogCategory[]
-  readonly dictionary: Dictionary['blog']
-  readonly locale: Locale
 }
 
 // Animation configuration constants
@@ -131,7 +128,8 @@ const GRID_CONFIG = {
   regularPostsStartIndex: 2,
 } as const
 
-export function BlogPageContent({ posts, categories, dictionary, locale }: BlogPageContentProps) {
+export function BlogPageContent({ posts, categories }: BlogPageContentProps) {
+  const dictionary = common.blog
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
 
   // Filter posts based on selected category
@@ -229,7 +227,6 @@ export function BlogPageContent({ posts, categories, dictionary, locale }: BlogP
                   key={post._id}
                   post={post}
                   featured={true}
-                  locale={locale}
                   index={index}
                 />
               ))}
@@ -244,7 +241,6 @@ export function BlogPageContent({ posts, categories, dictionary, locale }: BlogP
                   key={post._id}
                   post={post}
                   featured={false}
-                  locale={locale}
                   index={index + featuredPosts.length}
                 />
               ))}
@@ -296,7 +292,7 @@ export function BlogPageContent({ posts, categories, dictionary, locale }: BlogP
 
             {/* CTA Buttons */}
             <div className={STYLES.ctaButtons}>
-              <Link href={getLocalizedUrl('/contact', locale)} className={STYLES.primaryButton}>
+              <Link href={getLocalizedUrl('/contact')} className={STYLES.primaryButton}>
                 <span className={STYLES.buttonContent}>
                   {dictionary.cta.button}
                   <svg
@@ -315,7 +311,7 @@ export function BlogPageContent({ posts, categories, dictionary, locale }: BlogP
                 </span>
               </Link>
 
-              <Link href={getLocalizedUrl('/#services', locale)} className={STYLES.secondaryButton}>
+              <Link href={getLocalizedUrl('/#services')} className={STYLES.secondaryButton}>
                 <span className={STYLES.buttonContent}>
                   {dictionary.cta.secondary_button}
                   <svg

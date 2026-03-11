@@ -1,19 +1,15 @@
 import { Services } from '@/sections'
-import { getDictionary } from '@/lib/dictionaries'
-import { defaultLocale } from '@/lib/i18n'
+import common from '@/locales/fr/common.json'
 import { Metadata } from 'next'
 
 import { generatePageMetadata } from '@/lib/seo-utils'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = defaultLocale
-  const dictionary = await getDictionary(locale)
-
   return generatePageMetadata(
-    `${dictionary.services.title}`,
-    dictionary.services.subtitle,
+    `${common.services.title}`,
+    common.services.subtitle,
     '/services',
-    locale,
+    'fr',
     {
       ogImage: '/images/opengraph-fr.png',
       ogType: 'website',
@@ -21,9 +17,6 @@ export async function generateMetadata(): Promise<Metadata> {
   )
 }
 
-export default async function ServicesPage() {
-  const locale = defaultLocale
-  const dictionary = await getDictionary(locale)
-
-  return <Services dictionary={dictionary.services} locale={locale} className='pt-[140px]' />
+export default function ServicesPage() {
+  return <Services className='pt-[140px]' />
 }

@@ -27,13 +27,9 @@ export const metadata: Metadata = {
 interface PageProps {
   searchParams: {
     city?: string
-    locale?: 'fr'
   }
 }
 
 export default function GoneLandingPageRoute({ searchParams }: PageProps) {
-  // Detect locale from various sources
-  const locale = searchParams.locale || 'fr'
-
-  return <GoneLandingPage cityName={searchParams.city} locale={locale} />
+  return <GoneLandingPage cityName={searchParams.city} />
 }

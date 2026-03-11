@@ -31,12 +31,7 @@ import {
   FileText,
 } from 'lucide-react'
 
-import { Dictionary } from '@/lib/dictionaries'
-
-interface FreelanceLandingContentProps {
-  dictionary: Dictionary
-  locale: string
-}
+import common from '@/locales/fr/common.json'
 
 interface PainPoint {
   icon: string
@@ -87,11 +82,8 @@ interface FAQ {
   answer: string
 }
 
-export default function FreelanceLandingContent({
-  dictionary,
-  locale,
-}: FreelanceLandingContentProps) {
-  const t = dictionary.freelance_landing
+export default function FreelanceLandingContent() {
+  const t = common.freelance_landing
   const [openFAQ, setOpenFAQ] = useState<number | null>(null)
 
   const toggleFAQ = (index: number) => {

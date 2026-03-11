@@ -2,8 +2,7 @@ import React from 'react'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { Metadata } from 'next'
-import { getDictionary } from '@/lib/dictionaries'
-import { Locale, defaultLocale } from '@/lib/i18n'
+import common from '@/locales/fr/common.json'
 import { getProjects, projects as fallbackProjects } from '@/data/projects'
 import { getProjectsUrl, getProjectUrl, getLocalizedUrl } from '@/utils/navigation'
 import CTAButton from '@/components/ui/CTAButton'
@@ -14,7 +13,7 @@ interface ProjectPageProps {
   params: Promise<{ id: string }>
 }
 
-function findProject(locale: Locale, id: string) {
+function findProject(id: string) {
   const localizedProject = getProjects().find((project) => project.id === id)
 
   if (localizedProject) {
@@ -26,8 +25,7 @@ function findProject(locale: Locale, id: string) {
 
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
   const { id } = await params
-  const locale = defaultLocale
-  const project = findProject(locale, id)
+  const project = findProject(id)
 
   if (!project) {
     return {
@@ -35,7 +33,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     }
   }
 
-  const projectUrl = getProjectUrl(id, locale)
+  const projectUrl = getProjectUrl(id)
   const baseUrl = DEFAULT_SEO.siteUrl // Always without www
 
   return {
@@ -55,14 +53,14 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     alternates: {
       canonical: `${baseUrl}${projectUrl}`,
       languages: {
-        fr: `${baseUrl}${getProjectUrl(id, 'fr')}`,
+        fr: `${baseUrl}${getProjectUrl(id)}`,
       },
     },
     openGraph: {
       title: project.title,
       description: project.description,
       images: [project.image],
-      locale: locale,
+      locale: 'fr_FR',
     },
   }
 }
@@ -75,14 +73,11 @@ export async function generateStaticParams() {
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { id } = await params
-  const locale = defaultLocale
-  const project = findProject(locale, id)
+  const project = findProject(id)
 
   if (!project) {
     notFound()
   }
-
-  const dict = await getDictionary(locale)
 
   return (
     <Section id='project-detail' variant='project-detail' padding='xl' contentWidth='wide'>
@@ -269,7 +264,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         {/* Back to Portfolio Button - Centered at Bottom */}
         <div className='max-w-7xl mx-auto mt-16 text-center'>
           <CTAButton
-            href={getProjectsUrl(locale)}
+            href={getProjectsUrl()}
             variant='secondary'
             size='lg'
             className='group'
@@ -287,7 +282,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 d='M15 19l-7-7 7-7'
               />
             </svg>
-            {dict.common?.back || 'Retour'} {dict.navigation?.portfolio || 'aux projets'}
+            {common.common?.back || 'Retour'} {common.navigation?.portfolio || 'aux projets'}
           </CTAButton>
         </div>
 
@@ -313,7 +308,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </p>
               <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                 <CTAButton
-                  href={getLocalizedUrl('/contact', locale)}
+                  href={getLocalizedUrl('/contact')}
                   variant='primary'
                   size='lg'
                   trackingAction='contact_from_project'
@@ -333,7 +328,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   {'Discutons de votre projet'}
                 </CTAButton>
                 <CTAButton
-                  href={getProjectsUrl(locale)}
+                  href={getProjectsUrl()}
                   variant='secondary'
                   size='lg'
                   trackingAction='view_more_projects'

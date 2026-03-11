@@ -3,8 +3,7 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
-import { type Dictionary } from '@/lib/dictionaries'
-import { type Locale } from '@/lib/i18n'
+import common from '@/locales/fr/common.json'
 import { type BlogPost } from '@/lib/sanity'
 import { getLocalizedUrl } from '@/utils/navigation'
 import Section, { SectionHeader } from '@/components/ui/Section'
@@ -12,8 +11,6 @@ import { BlogCard } from '@/components/ui/BlogCard'
 
 interface ActualiteProps {
   posts: BlogPost[]
-  dictionary: Dictionary['blog']
-  locale: Locale
 }
 
 const ANIMATION_CONFIG = {
@@ -36,7 +33,9 @@ const ANIMATION_CONFIG = {
   },
 } as const
 
-export function Actualite({ posts, dictionary, locale }: ActualiteProps) {
+export function Actualite({ posts }: ActualiteProps) {
+  const dictionary = common.blog
+
   if (!posts || posts.length === 0) {
     return null
   }
@@ -63,7 +62,7 @@ export function Actualite({ posts, dictionary, locale }: ActualiteProps) {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}>
             <Link
-              href={getLocalizedUrl('/blog', locale)}
+              href={getLocalizedUrl('/blog')}
               className='group inline-flex items-center gap-2 text-lg font-semibold text-accent transition-colors hover:text-accent-dark'>
               <span>{dictionary.all_posts}</span>
               <svg
@@ -90,7 +89,7 @@ export function Actualite({ posts, dictionary, locale }: ActualiteProps) {
           className='grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
           {posts.map((post, index) => (
             <motion.div key={post._id} variants={ANIMATION_CONFIG.item} className='h-full'>
-              <BlogCard post={post} locale={locale} index={index} featured={false} />
+              <BlogCard post={post} index={index} featured={false} />
             </motion.div>
           ))}
         </motion.div>

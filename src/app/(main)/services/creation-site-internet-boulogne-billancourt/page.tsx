@@ -1,13 +1,10 @@
 import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { Metadata } from 'next'
-import { defaultLocale } from '@/lib/i18n'
 
 import { Section } from '@/components/ui'
 import CTAButton from '@/components/ui/CTAButton'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = defaultLocale
-
   const title = 'Création site internet Boulogne-Billancourt – Agence web spécialisée'
 
   const description =
@@ -28,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     },
     alternates: {
-      canonical: createCanonicalUrl('services/creation-site-internet-boulogne-billancourt', locale),
+      canonical: createCanonicalUrl('services/creation-site-internet-boulogne-billancourt', 'fr'),
       languages: generateAlternateUrls('services/creation-site-internet-boulogne-billancourt'),
     },
     openGraph: {

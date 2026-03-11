@@ -1,13 +1,10 @@
 import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { type Metadata } from 'next'
-import { getDictionary } from '@/lib/dictionaries'
-import { defaultLocale } from '@/lib/i18n'
+import common from '@/locales/fr/common.json'
 import SeoOptimizationLandingContent from '@/components/SeoOptimizationLandingContent'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = defaultLocale
-  const dictionary = await getDictionary(locale)
-  const t = dictionary.seo_optimization_landing
+  const t = common.testimonials.seo_optimization_landing
 
   return {
     title: t.meta_title,
@@ -36,28 +33,25 @@ export async function generateMetadata(): Promise<Metadata> {
       images: ['/images/opengraph-fr.png'],
     },
     alternates: {
-      canonical: createCanonicalUrl('services/optimisation-seo', locale),
+      canonical: createCanonicalUrl('services/optimisation-seo', 'fr'),
       languages: generateAlternateUrls('services/optimisation-seo'),
     },
   }
 }
 
-export default async function SeoOptimizationLandingPage() {
-  const locale = defaultLocale
-  const dictionary = await getDictionary(locale)
-
+export default function SeoOptimizationLandingPage() {
   const breadcrumbs = {
     items: [
       {
-        label: dictionary.navigation.home,
+        label: common.navigation.home,
         href: '/',
       },
       {
-        label: dictionary.navigation.services,
+        label: common.navigation.services,
         href: '/#services',
       },
       {
-        label: dictionary.services.seo_optimization.title,
+        label: common.services.seo_optimization.title,
       },
     ],
   }
@@ -65,8 +59,8 @@ export default async function SeoOptimizationLandingPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: dictionary.seo_optimization_landing.hero.title,
-    description: dictionary.seo_optimization_landing.hero.description,
+    name: common.testimonials.seo_optimization_landing.hero.title,
+    description: common.testimonials.seo_optimization_landing.hero.description,
     provider: {
       '@type': 'Organization',
       name: 'SIDIKOFF DIGITAL',
@@ -76,7 +70,7 @@ export default async function SeoOptimizationLandingPage() {
     areaServed: 'Global',
     offers: {
       '@type': 'Offer',
-      description: dictionary.seo_optimization_landing.hero.description,
+      description: common.testimonials.seo_optimization_landing.hero.description,
     },
   }
 
@@ -86,11 +80,7 @@ export default async function SeoOptimizationLandingPage() {
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <SeoOptimizationLandingContent
-        dictionary={dictionary}
-        locale={locale}
-        breadcrumbs={breadcrumbs}
-      />
+      <SeoOptimizationLandingContent breadcrumbs={breadcrumbs} />
     </>
   )
 }

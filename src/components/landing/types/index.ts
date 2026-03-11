@@ -1,5 +1,3 @@
-import { Dictionary } from '@/lib/dictionaries'
-
 export interface IndustryConfig {
   /** Industry identifier */
   name: string
@@ -57,14 +55,14 @@ export interface Breadcrumbs {
 }
 
 export interface BaseLandingContentProps {
-  dictionary: Dictionary
+  dictionary: unknown
   locale: string
   breadcrumbs?: Breadcrumbs
   industryConfig: IndustryConfig
 }
 
 export interface SectionProps {
-  dictionary: Dictionary
+  dictionary: unknown
   locale: string
   industryConfig: IndustryConfig
 }
