@@ -20,7 +20,7 @@ interface MaintenanceLandingContentProps {
 }
 
 export default function MaintenanceLandingContent({ breadcrumbs }: MaintenanceLandingContentProps) {
-  const t = common.maintenance_landing
+  const t = common.testimonials.maintenance_landing
 
   return (
     <div className='min-h-screen'>

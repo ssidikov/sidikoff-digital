@@ -21,7 +21,7 @@ import {
   ChevronUp,
 } from 'lucide-react'
 
-import common from '@/locales/fr/common.json'
+import restaurantData from '@/locales/fr/restaurant.json'
 
 interface BreadcrumbItem {
   label: string
@@ -71,8 +71,9 @@ interface SupportPlan {
 interface Restaurant {
   name: string
   type: string
+  description: string
   image: string
-  results: string[]
+  results: string
 }
 
 interface ProcessStep {
@@ -82,12 +83,11 @@ interface ProcessStep {
 
 interface Testimonial {
   name: string
-  position: string
   restaurant: string
   location: string
-  content: string
+  text: string
   rating: number
-  image?: string
+  result?: string
 }
 
 interface FAQ {
@@ -96,7 +96,7 @@ interface FAQ {
 }
 
 export default function RestaurantLandingContent({ breadcrumbs }: RestaurantLandingContentProps) {
-  const t = common.restaurant_landing
+  const t = restaurantData.restaurant_landing
   const [openFAQ, setOpenFAQ] = useState<number | null>(null)
 
   const toggleFAQ = (index: number) => {
@@ -431,15 +431,15 @@ export default function RestaurantLandingContent({ breadcrumbs }: RestaurantLand
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}>
             <h3 className='text-2xl md:text-3xl font-bold mb-4 text-gray-900'>
-              {t.pricing.support_plans.title}
+              {t.pricing.support_title}
             </h3>
             <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
-              {t.pricing.support_plans.subtitle}
+              {t.pricing.support_description}
             </p>
           </motion.div>
 
           <div className='grid md:grid-cols-3 gap-8'>
-            {t.pricing.support_plans.plans.map((plan: SupportPlan, index: number) => (
+            {t.pricing.support_plans.map((plan: SupportPlan, index: number) => (
               <motion.div
                 key={index}
                 className='bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300'
@@ -487,11 +487,11 @@ export default function RestaurantLandingContent({ breadcrumbs }: RestaurantLand
             <h2 className='text-3xl md:text-4xl font-bold mb-4 text-gray-900'>
               {t.portfolio.title}
             </h2>
-            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>{t.portfolio.subtitle}</p>
+            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>{t.portfolio.description}</p>
           </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-            {t.portfolio.projects.map((restaurant: Restaurant, index: number) => (
+            {t.portfolio.restaurants.map((restaurant: Restaurant, index: number) => (
               <motion.div
                 key={index}
                 className='bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300'
@@ -509,19 +509,17 @@ export default function RestaurantLandingContent({ breadcrumbs }: RestaurantLand
                     className='w-full h-full object-cover'
                   />
                   <div className='absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium'>
-                    {restaurant.results[0]}
+                    {restaurant.results}
                   </div>
                 </div>
                 <div className='p-6'>
                   <h3 className='text-xl font-bold text-gray-900 mb-2'>{restaurant.name}</h3>
                   <p className='text-[var(--accent)] font-medium mb-2'>{restaurant.type}</p>
                   <ul className='space-y-1 text-sm text-gray-600'>
-                    {restaurant.results.map((result, idx) => (
-                      <li key={idx} className='flex items-center'>
-                        <CheckCircle className='w-4 h-4 text-green-500 mr-2' />
-                        {result}
-                      </li>
-                    ))}
+                    <li className='flex items-center'>
+                      <CheckCircle className='w-4 h-4 text-green-500 mr-2' />
+                      {restaurant.results}
+                    </li>
                   </ul>
                 </div>
               </motion.div>
@@ -580,7 +578,7 @@ export default function RestaurantLandingContent({ breadcrumbs }: RestaurantLand
           </motion.div>
 
           <div className='grid md:grid-cols-3 gap-8'>
-            {t.testimonials.reviews.map((testimonial: Testimonial, index: number) => (
+            {t.testimonials.items.map((testimonial: Testimonial, index: number) => (
               <motion.div
                 key={index}
                 className='bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20'
@@ -594,13 +592,13 @@ export default function RestaurantLandingContent({ breadcrumbs }: RestaurantLand
                   ))}
                 </div>
                 <blockquote className='text-white/90 mb-6 italic'>
-                  &ldquo;{testimonial.content}&rdquo;
+                  &ldquo;{testimonial.text}&rdquo;
                 </blockquote>
                 <div className='flex items-center justify-between'>
                   <div>
                     <div className='font-semibold text-white'>{testimonial.name}</div>
                     <div className='text-white/70 text-sm'>
-                      {testimonial.position}, {testimonial.restaurant}
+                      {testimonial.restaurant}
                     </div>
                     <div className='text-white/60 text-sm'>{testimonial.location}</div>
                   </div>
@@ -633,11 +631,10 @@ export default function RestaurantLandingContent({ breadcrumbs }: RestaurantLand
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}>
             <h2 className='text-3xl md:text-4xl font-bold mb-4 text-gray-900'>{t.faq.title}</h2>
-            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>{t.faq.subtitle}</p>
           </motion.div>
 
           <div className='space-y-4'>
-            {t.faq.questions.map((faq: FAQ, index: number) => (
+            {t.faq.items.map((faq: FAQ, index: number) => (
               <motion.div
                 key={index}
                 className='bg-white rounded-xl shadow-lg overflow-hidden'

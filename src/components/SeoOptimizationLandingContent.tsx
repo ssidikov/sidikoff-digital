@@ -22,7 +22,7 @@ interface SeoOptimizationLandingContentProps {
 export default function SeoOptimizationLandingContent({
   breadcrumbs,
 }: SeoOptimizationLandingContentProps) {
-  const t = common.seo_optimization_landing
+  const t = common.testimonials.seo_optimization_landing
 
   return (
     <div className='min-h-screen'>

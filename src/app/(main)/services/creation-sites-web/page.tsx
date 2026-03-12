@@ -6,11 +6,11 @@ import { generateWebCreationSchema } from '@/lib/web-creation-schema'
 
 export async function generateMetadata(): Promise<Metadata> {
   const title =
-    common.web_creation_landing?.hero?.title ||
+    common.services.web_creation_landing?.hero?.title ||
     common.services?.web_creation?.title ||
     'Création de sites web'
   const description =
-    common.web_creation_landing?.hero?.description ||
+    common.services.web_creation_landing?.hero?.description ||
     common.services?.web_creation?.description ||
     'Services de création de sites web sur mesure'
 
@@ -59,7 +59,7 @@ export default function WebCreationPage() {
         label: 'Services',
         href: '/services',
       },
-      { label: common.web_creation_landing.hero.title },
+      { label: common.services.web_creation_landing.hero.title },
     ],
   }
 

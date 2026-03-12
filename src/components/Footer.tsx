@@ -148,13 +148,19 @@ export function Footer() {
     'Votre partenaire digital pour créer des sites web modernes et performants.'
 
   return (
-    <footer className={isDark ? 'bg-slate-950 px-6 py-20 text-slate-200 lg:px-16' : 'bg-[#FCFBFE] px-6 py-20 text-black lg:px-16'}>
+    <footer
+      className={
+        isDark
+          ? 'bg-slate-950 px-6 py-20 text-slate-200 lg:px-16'
+          : 'bg-[#FCFBFE] px-6 py-20 text-black lg:px-16'
+      }>
       {/* Main Content Grid */}
       <div className='mb-24 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-8'>
         {/* Left Side - Brand & Contact */}
         <div className='space-y-8 lg:pr-8'>
           <div>
-            <h2 className={`text-xl font-light tracking-tight leading-snug ${isDark ? 'text-white' : 'text-[#112D4E]'}`}>
+            <h2
+              className={`text-xl font-light tracking-tight leading-snug ${isDark ? 'text-white' : 'text-[#112D4E]'}`}>
               {footerDescription}
             </h2>
           </div>
@@ -178,7 +184,8 @@ export function Footer() {
 
         {/* Column 2: Core Navigation */}
         <div className='lg:pl-8'>
-          <h3 className={`mb-8 text-xs font-semibold uppercase tracking-[0.2em] ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
+          <h3
+            className={`mb-8 text-xs font-semibold uppercase tracking-[0.2em] ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
             Menu
           </h3>
           <nav className='space-y-4' aria-label='Navigation principale'>
@@ -196,7 +203,8 @@ export function Footer() {
 
         {/* Column 3: Secteurs / Expertises (SEO) */}
         <div>
-          <h3 className={`mb-8 text-xs font-semibold uppercase tracking-[0.2em] ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
+          <h3
+            className={`mb-8 text-xs font-semibold uppercase tracking-[0.2em] ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
             Expertises
           </h3>
           <nav className='space-y-4' aria-label='Nos secteurs d expertise'>
@@ -214,7 +222,8 @@ export function Footer() {
 
         {/* Column 4: Villes (SEO) */}
         <div>
-          <h3 className={`mb-8 text-xs font-semibold uppercase tracking-[0.2em] ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
+          <h3
+            className={`mb-8 text-xs font-semibold uppercase tracking-[0.2em] ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
             Villes
           </h3>
           <nav className='space-y-4' aria-label='Nos agences locales'>
@@ -243,11 +252,13 @@ export function Footer() {
       {/* Bottom Section */}
       <div className={`border-t pt-8 ${isDark ? 'border-white/10' : 'border-[#112D4E]/10'}`}>
         <div className='flex flex-col items-center justify-between space-y-6 lg:flex-row lg:space-y-0'>
-          <div className={`hidden text-sm uppercase tracking-wider lg:block ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
+          <div
+            className={`hidden text-sm uppercase tracking-wider lg:block ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
             {COMPANY_INFO.copyright}
           </div>
 
-          <div className={`text-center text-sm uppercase tracking-wider lg:hidden ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
+          <div
+            className={`text-center text-sm uppercase tracking-wider lg:hidden ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
             {COMPANY_INFO.copyright}
           </div>
 
