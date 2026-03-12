@@ -79,7 +79,7 @@ export function StarRating({
       <div
         className={`flex items-center ${containerClasses[size]}`}
         role='img'
-        aria-label={`Рейтинг ${rating} из ${maxRating} звезд`}>
+        aria-label={`Note ${rating} sur ${maxRating} étoiles`}>
         {stars}
       </div>
 

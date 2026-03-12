@@ -24,7 +24,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => (
       href={getProjectUrl(project.id)}
       className='absolute inset-0 z-10'
       tabIndex={-1}
-      aria-label={`Подробнее о проекте ${project.title}`}
+      aria-label={`Voir le projet ${project.title}`}
     />
 
     {/* Image Section - Fixed Height */}

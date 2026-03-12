@@ -4,7 +4,7 @@ import common from '@/locales/fr/common.json'
 import SeoOptimizationLandingContent from '@/components/SeoOptimizationLandingContent'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = common.testimonials.seo_optimization_landing
+  const t = common.seo_optimization_landing
 
   return {
     title: t.meta_title,
@@ -59,8 +59,8 @@ export default function SeoOptimizationLandingPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: common.testimonials.seo_optimization_landing.hero.title,
-    description: common.testimonials.seo_optimization_landing.hero.description,
+    name: common.seo_optimization_landing.hero.title,
+    description: common.seo_optimization_landing.hero.description,
     provider: {
       '@type': 'Organization',
       name: 'SIDIKOFF DIGITAL',
@@ -70,7 +70,7 @@ export default function SeoOptimizationLandingPage() {
     areaServed: 'Global',
     offers: {
       '@type': 'Offer',
-      description: common.testimonials.seo_optimization_landing.hero.description,
+      description: common.seo_optimization_landing.hero.description,
     },
   }
 

@@ -4,7 +4,6 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 import CTAButton from '@/components/ui/CTAButton'
-import Pricing from '@/sections/Pricing'
 
 // ─── Types ──────────────────────────────────────────────────────────────────────
 
@@ -19,6 +18,14 @@ interface ProcessStep {
   step: string
   title: string
   desc: string
+}
+
+interface PricingTier {
+  name: string
+  price: string
+  timeline: string
+  features: string[]
+  featured?: boolean
 }
 
 interface FaqItem {
@@ -43,6 +50,11 @@ export interface VilleurbannContent {
   servicesTitle: string
   servicesSubtitle: string
   services: ServiceItem[]
+  pricingTitle: string
+  pricingSubtitle: string
+  pricingTiers: PricingTier[]
+  pricingCta: string
+  pricingPopular: string
   processTitle: string
   processSubtitle: string
   processSteps: ProcessStep[]
@@ -56,7 +68,7 @@ export interface VilleurbannContent {
 interface Props {
   content: VilleurbannContent
   faqs: FaqItem[]
-  structuredData: Record<string, unknown>[]
+  structuredData: any[]
 }
 
 // ─── Component ──────────────────────────────────────────────────────────────────
@@ -602,8 +614,8 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
                 <p>
                   Basé à <strong className='font-semibold text-slate-900'>Villeurbanne</strong>, je
                   connais parfaitement le tissu économique local et les enjeux des entreprises de la
-                  métropole lyonnaise. Cette proximité géographique me permet d&apos;offrir un
-                  service réactif et personnalisé.
+                  métropole lyonnaise. Cette proximité géographique me permet d'offrir un service
+                  réactif et personnalisé.
                 </p>
                 <p>
                   Que vous soyez dans les quartiers de{' '}
@@ -633,9 +645,7 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
 
             <div className='col-span-12 lg:col-span-4'>
               <div className='rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-soft-md border border-white/60'>
-                <h3 className='mb-6 text-xl font-semibold text-slate-900'>
-                  Zone d&apos;intervention
-                </h3>
+                <h3 className='mb-6 text-xl font-semibold text-slate-900'>Zone d'intervention</h3>
                 <div className='space-y-4'>
                   {[
                     { area: 'Villeurbanne', distance: 'Sur place' },
@@ -656,7 +666,91 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
         </div>
       </section>
 
-      <Pricing />
+      {/* ═══ PRICING ═══ */}
+      <section className='relative z-10 py-20 md:py-32'>
+        <div className='mx-auto max-w-6xl px-6 md:px-8'>
+          <div className='mb-12 md:mb-20 text-center'>
+            <h2 className='mb-4 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-5xl'>
+              {c.pricingTitle}
+            </h2>
+            <p className='mx-auto max-w-2xl text-lg leading-relaxed text-slate-600'>
+              {c.pricingSubtitle}
+            </p>
+          </div>
+
+          <div className='grid grid-cols-12 gap-8'>
+            {c.pricingTiers.map((tier, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className='col-span-12 md:col-span-6 lg:col-span-4'>
+                <div
+                  className={`relative h-full rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-10 transition-all duration-300 ${
+                    tier.featured
+                      ? 'scale-105 bg-linear-to-br from-blue-600 to-blue-700 shadow-xl shadow-blue-500/20 text-white'
+                      : 'bg-white shadow-soft-md hover:-translate-y-1 hover:shadow-soft-lg border border-slate-100 hover:border-blue-100'
+                  }`}>
+                  {tier.featured && (
+                    <div className='mb-4 inline-block rounded-full bg-white/20 backdrop-blur-sm px-3 py-1 text-xs font-semibold text-white'>
+                      {c.pricingPopular}
+                    </div>
+                  )}
+
+                  <h3
+                    className={`mb-2 text-2xl font-bold ${tier.featured ? 'text-white' : 'text-slate-900'}`}>
+                    {tier.name}
+                  </h3>
+
+                  <div
+                    className={`mb-1 text-5xl font-bold ${tier.featured ? 'text-white' : 'text-slate-900'}`}>
+                    {tier.price}
+                  </div>
+
+                  <p
+                    className={`mb-8 text-sm ${tier.featured ? 'text-blue-100' : 'text-slate-600'}`}>
+                    {tier.timeline}
+                  </p>
+
+                  <ul className='mb-8 space-y-3'>
+                    {tier.features.map((feature, j) => (
+                      <li
+                        key={j}
+                        className={`flex items-start gap-3 text-sm ${tier.featured ? 'text-white' : 'text-slate-600'}`}>
+                        <svg
+                          className={`mt-0.5 h-5 w-5 shrink-0 ${tier.featured ? 'text-white' : 'text-blue-600'}`}
+                          fill='none'
+                          stroke='currentColor'
+                          viewBox='0 0 24 24'>
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth={2}
+                            d='M5 13l4 4L19 7'
+                          />
+                        </svg>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <CTAButton
+                    href='/contact'
+                    className={`w-full font-semibold transition-all duration-200 ${
+                      tier.featured
+                        ? 'border-0 bg-white text-blue-600 hover:bg-blue-50'
+                        : 'border-0 bg-blue-600 text-white hover:-translate-y-0.5 hover:bg-blue-700'
+                    }`}>
+                    {c.pricingCta}
+                  </CTAButton>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ═══ FAQ ═══ */}
       <section className='relative z-10 py-20 md:py-32'>

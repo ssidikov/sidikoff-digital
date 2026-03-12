@@ -28,7 +28,10 @@ import {
 } from 'lucide-react'
 
 import common from '@/locales/fr/common.json'
-import Pricing from '@/sections/Pricing'
+
+interface EcommerceLandingContentProps {
+  // no props needed
+}
 
 interface PainPoint {
   icon: string
@@ -64,6 +67,15 @@ interface Review {
   image?: string
 }
 
+interface Package {
+  name: string
+  price: string
+  period: string
+  description: string
+  delivery_time?: string
+  is_popular?: boolean
+  features: string[]
+}
 
 interface FAQ {
   question: string
@@ -371,7 +383,72 @@ export default function EcommerceLandingContent() {
         </div>
       </section>
 
-      <Pricing />
+      {/* Pricing Section */}
+      <section className='py-24 bg-white'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className='text-center mb-16'>
+            <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>{t.pricing.title}</h2>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.pricing.description}</p>
+          </motion.div>
+
+          <div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
+            {t.pricing.packages?.map((pkg: Package, index: number) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className={`relative bg-white rounded-2xl shadow-lg p-8 ${
+                  pkg.is_popular ? 'ring-2 ring-blue-500 shadow-2xl scale-105' : 'hover:shadow-xl'
+                } transition-all duration-300`}>
+                {pkg.is_popular && (
+                  <div className='absolute -top-4 left-1/2 transform -translate-x-1/2'>
+                    <span className='bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium'>
+                      Populaire
+                    </span>
+                  </div>
+                )}
+
+                <div className='text-center mb-8'>
+                  <h3 className='text-2xl font-bold text-gray-900 mb-2'>{pkg.name}</h3>
+                  <div className='text-4xl font-bold text-blue-600 mb-2'>{pkg.price}</div>
+                  <div className='text-gray-600'>{pkg.period}</div>
+                  {pkg.delivery_time && (
+                    <div className='text-sm text-blue-600 mt-2'>{pkg.delivery_time}</div>
+                  )}
+                </div>
+
+                <p className='text-gray-600 mb-8'>{pkg.description}</p>
+
+                <ul className='space-y-4 mb-8'>
+                  {pkg.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className='flex items-start'>
+                      <CheckCircle className='w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0' />
+                      <span className='text-gray-700'>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  href={`/contact`}
+                  className={`block w-full text-center py-4 px-6 rounded-lg font-semibold transition-colors ${
+                    pkg.is_popular
+                      ? 'bg-blue-600 text-white hover:bg-blue-700'
+                      : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
+                  }`}>
+                  Choisir ce forfait
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section className='py-24 bg-gray-50'>

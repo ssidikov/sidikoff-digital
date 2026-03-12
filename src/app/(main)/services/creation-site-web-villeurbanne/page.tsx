@@ -426,5 +426,51 @@ function getPageContent() {
     ctaBtn1: 'Devis gratuit',
     ctaBtn2: 'Me contacter',
     learnMore: 'En savoir plus',
+    pricingTitle: 'Tarification Transparente',
+    pricingSubtitle: 'Des offres claires adaptées à chaque type de projet à Villeurbanne.',
+    pricingCta: 'Demander un devis',
+    pricingPopular: 'Populaire',
+    pricingTiers: [
+      {
+        name: 'Vitrine',
+        price: '690€ TTC',
+        timeline: '5 jours ouvrés',
+        features: [
+          'Site 1 page Next.js — rapide & moderne',
+          'Design responsive (mobile, tablette, desktop)',
+          'Formulaire de contact intégré',
+          'SEO de base + RGPD inclus',
+          'Certificat SSL + mise en ligne',
+          'Livraison en 5 jours ouvrés',
+        ],
+      },
+      {
+        name: 'Pro',
+        price: '1 290€ TTC',
+        timeline: '10 jours ouvrés',
+        features: [
+          'Site 3 à 5 pages (Accueil, Services, À propos, Contact, Blog)',
+          'Rédaction des contenus sur-mesure',
+          'SEO avancé + Google Business Profile',
+          'Google Search Console',
+          'RGPD complet (mentions légales, cookies)',
+          'Livraison en 10 jours ouvrés',
+        ],
+        featured: true,
+      },
+      {
+        name: 'Business',
+        price: 'à partir de 1 990€ TTC',
+        timeline: 'Sur devis',
+        features: [
+          'Site 6+ pages, blog ou boutique en ligne',
+          'Développement sur-mesure (réservation, paiement, espace client…)',
+          'Stratégie SEO complète + Google Search Console',
+          'RGPD complet (CGV, politique de confidentialité)',
+          'Formation 1h + 1 mois de support inclus',
+          'Délai et prix définis ensemble selon le projet',
+        ],
+      },
+    ],
   }
 }

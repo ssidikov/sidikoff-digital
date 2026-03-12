@@ -38,7 +38,7 @@ interface WebCreationLandingContentProps {
 }
 
 export default function WebCreationLandingContent({ breadcrumbs }: WebCreationLandingContentProps) {
-  const t = common.services.web_creation_landing
+  const t = common.web_creation_landing
 
   return (
     <div className='min-h-screen'>

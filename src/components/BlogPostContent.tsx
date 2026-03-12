@@ -260,7 +260,7 @@ function PortableTextRenderer({ blocks }: { blocks: unknown[] }) {
 
 export function BlogPostContent({ post }: BlogPostContentProps) {
   const dictionary = common.blog
-  const formattedDate = formatDate(new Date(post.publishedAt))
+  const formattedDate = formatDate(new Date(post.publishedAt), 'fr')
   const imageUrl = post.mainImage
     ? urlFor(post.mainImage).quality(100).url()
     : '/images/misc/technology-bg.jpg'

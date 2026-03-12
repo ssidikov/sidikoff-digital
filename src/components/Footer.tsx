@@ -1,9 +1,12 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 import common from '@/locales/fr/common.json'
 import { getLocalizedUrl } from '@/utils/navigation'
+
+const DARK_FOOTER_PATHS = ['/services/creation-site-web-villeurbanne']
 
 interface FooterLink {
   name: string
@@ -132,6 +135,9 @@ const createLegalLinks = (): FooterLink[] => [
  * Features responsive design and accessible links
  */
 export function Footer() {
+  const pathname = usePathname()
+  const isDark = DARK_FOOTER_PATHS.includes(pathname)
+
   const coreLinks = createCoreLinks()
   const secteurLinks = createSecteurLinks()
   const villeLinks = createVilleLinks()
@@ -142,28 +148,28 @@ export function Footer() {
     'Votre partenaire digital pour créer des sites web modernes et performants.'
 
   return (
-    <footer className='bg-[#FCFBFE] px-6 py-20 text-black lg:px-16'>
+    <footer className={isDark ? 'bg-slate-950 px-6 py-20 text-slate-200 lg:px-16' : 'bg-[#FCFBFE] px-6 py-20 text-black lg:px-16'}>
       {/* Main Content Grid */}
       <div className='mb-24 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-8'>
         {/* Left Side - Brand & Contact */}
         <div className='space-y-8 lg:pr-8'>
           <div>
-            <h2 className='text-xl font-light tracking-tight leading-snug text-[#112D4E]'>
+            <h2 className={`text-xl font-light tracking-tight leading-snug ${isDark ? 'text-white' : 'text-[#112D4E]'}`}>
               {footerDescription}
             </h2>
           </div>
 
-          <div className='space-y-3 text-[#112D4E]/80'>
+          <div className={`space-y-3 ${isDark ? 'text-slate-300' : 'text-[#112D4E]/80'}`}>
             <a
               href={`mailto:${CONTACT_INFO.email}`}
-              className='block text-lg hover:text-[#3377FF] transition-colors'
+              className={`block text-lg transition-colors ${isDark ? 'hover:text-blue-400' : 'hover:text-[#3377FF]'}`}
               aria-label={`Envoyer un email à ${CONTACT_INFO.emailLabel}`}>
               {CONTACT_INFO.emailLabel}
             </a>
             <div className='block text-lg'>{CONTACT_INFO.address}</div>
             <a
               href={`tel:${CONTACT_INFO.phone}`}
-              className='block text-lg hover:text-[#3377FF] transition-colors'
+              className={`block text-lg transition-colors ${isDark ? 'hover:text-blue-400' : 'hover:text-[#3377FF]'}`}
               aria-label={`Appeler ${CONTACT_INFO.phoneLabel}`}>
               {CONTACT_INFO.phoneLabel}
             </a>
@@ -172,7 +178,7 @@ export function Footer() {
 
         {/* Column 2: Core Navigation */}
         <div className='lg:pl-8'>
-          <h3 className='mb-8 text-xs font-semibold uppercase tracking-[0.2em] text-[#112D4E]/40'>
+          <h3 className={`mb-8 text-xs font-semibold uppercase tracking-[0.2em] ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
             Menu
           </h3>
           <nav className='space-y-4' aria-label='Navigation principale'>
@@ -180,7 +186,7 @@ export function Footer() {
               <div key={`nav-${link.href}`}>
                 <Link
                   href={link.href}
-                  className='block text-lg font-medium text-[#112D4E] transition-all hover:text-[#3377FF] hover:-translate-y-0.5'>
+                  className={`block text-lg font-medium transition-all hover:-translate-y-0.5 ${isDark ? 'text-slate-200 hover:text-blue-400' : 'text-[#112D4E] hover:text-[#3377FF]'}`}>
                   {link.name}
                 </Link>
               </div>
@@ -190,7 +196,7 @@ export function Footer() {
 
         {/* Column 3: Secteurs / Expertises (SEO) */}
         <div>
-          <h3 className='mb-8 text-xs font-semibold uppercase tracking-[0.2em] text-[#112D4E]/40'>
+          <h3 className={`mb-8 text-xs font-semibold uppercase tracking-[0.2em] ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
             Expertises
           </h3>
           <nav className='space-y-4' aria-label='Nos secteurs d expertise'>
@@ -198,7 +204,7 @@ export function Footer() {
               <div key={`nav-${link.href}`}>
                 <Link
                   href={link.href}
-                  className='block text-[15px] font-medium text-[#112D4E]/60 transition-all hover:text-[#3377FF] hover:-translate-y-0.5'>
+                  className={`block text-[15px] font-medium transition-all hover:-translate-y-0.5 ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-[#112D4E]/60 hover:text-[#3377FF]'}`}>
                   {link.name}
                 </Link>
               </div>
@@ -208,7 +214,7 @@ export function Footer() {
 
         {/* Column 4: Villes (SEO) */}
         <div>
-          <h3 className='mb-8 text-xs font-semibold uppercase tracking-[0.2em] text-[#112D4E]/40'>
+          <h3 className={`mb-8 text-xs font-semibold uppercase tracking-[0.2em] ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
             Villes
           </h3>
           <nav className='space-y-4' aria-label='Nos agences locales'>
@@ -216,7 +222,7 @@ export function Footer() {
               <div key={`nav-${link.href}`}>
                 <Link
                   href={link.href}
-                  className='block text-[15px] font-medium text-[#112D4E]/60 transition-all hover:text-[#3377FF] hover:-translate-y-0.5'>
+                  className={`block text-[15px] font-medium transition-all hover:-translate-y-0.5 ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-[#112D4E]/60 hover:text-[#3377FF]'}`}>
                   {link.name}
                 </Link>
               </div>
@@ -228,20 +234,20 @@ export function Footer() {
       {/* Large SIDIKOFF Text */}
       <div className='flex w-full justify-center overflow-hidden'>
         <div
-          className='w-full text-[clamp(4rem,21.5vw,999rem)] font-bold leading-[0.85] tracking-tighter text-[#112D4E]/[0.03] whitespace-nowrap'
+          className={`w-full text-[clamp(4rem,21.5vw,999rem)] font-bold leading-[0.85] tracking-tighter whitespace-nowrap ${isDark ? 'text-white/[0.03]' : 'text-[#112D4E]/[0.03]'}`}
           aria-hidden='true'>
           SIDIKOFF
         </div>
       </div>
 
       {/* Bottom Section */}
-      <div className='border-t border-[#112D4E]/10 pt-8'>
+      <div className={`border-t pt-8 ${isDark ? 'border-white/10' : 'border-[#112D4E]/10'}`}>
         <div className='flex flex-col items-center justify-between space-y-6 lg:flex-row lg:space-y-0'>
-          <div className='hidden text-sm uppercase tracking-wider text-[#112D4E]/40 lg:block'>
+          <div className={`hidden text-sm uppercase tracking-wider lg:block ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
             {COMPANY_INFO.copyright}
           </div>
 
-          <div className='text-center text-sm uppercase tracking-wider text-[#112D4E]/40 lg:hidden'>
+          <div className={`text-center text-sm uppercase tracking-wider lg:hidden ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
             {COMPANY_INFO.copyright}
           </div>
 
@@ -250,13 +256,13 @@ export function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className='text-sm uppercase tracking-wider text-[#112D4E]/60 transition-colors hover:text-[#3377FF]'>
+                className={`text-sm uppercase tracking-wider transition-colors ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-[#112D4E]/60 hover:text-[#3377FF]'}`}>
                 {link.name}
               </Link>
             ))}
             <Link
               href='/politique-de-confidentialite'
-              className='text-sm uppercase tracking-wider text-[#112D4E]/60 transition-colors hover:text-[#3377FF]'>
+              className={`text-sm uppercase tracking-wider transition-colors ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-[#112D4E]/60 hover:text-[#3377FF]'}`}>
               Politique de Confidentialité
             </Link>
           </div>

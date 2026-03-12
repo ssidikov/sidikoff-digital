@@ -21,7 +21,11 @@ import {
   Users,
 } from 'lucide-react'
 
-import travelData from '@/locales/fr/travel_agency_landing.json'
+import common from '@/locales/fr/common.json'
+
+interface TravelAgencyLandingContentProps {
+  // no props needed
+}
 
 interface PainPoint {
   icon: string
@@ -66,11 +70,11 @@ interface Question {
   answer: string
 }
 
-const TravelAgencyLandingContent: React.FC = () => {
+const TravelAgencyLandingContent: React.FC<TravelAgencyLandingContentProps> = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
   const [activeFeature, setActiveFeature] = useState(0)
 
-  const content = travelData.travel_agency_landing
+  const content = common.travel_agency_landing
 
   const painIcons = {
     globe: Globe,

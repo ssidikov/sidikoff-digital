@@ -49,7 +49,7 @@ const CATEGORY_TRANSLATIONS: Record<string, string> = {
  * Supports featured layout with enhanced styling and animations
  */
 export function BlogCard({ post, featured = false, index }: BlogCardProps) {
-  const formattedDate = formatDate(new Date(post.publishedAt))
+  const formattedDate = formatDate(new Date(post.publishedAt), 'fr')
 
   const imageUrl = post.mainImage
     ? urlFor(post.mainImage)

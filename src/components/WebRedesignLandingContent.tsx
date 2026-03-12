@@ -20,7 +20,7 @@ interface WebRedesignLandingContentProps {
 }
 
 export default function WebRedesignLandingContent({ breadcrumbs }: WebRedesignLandingContentProps) {
-  const t = common.services.web_redesign_landing
+  const t = common.web_redesign_landing
 
   return (
     <div className='min-h-screen'>

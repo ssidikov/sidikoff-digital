@@ -1,6 +1,5 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import CTAButton from '@/components/ui/CTAButton'
 import PricingCard from '@/components/ui/PricingCard'
@@ -21,7 +20,6 @@ interface PricingProps {
 }
 
 export default function Pricing({ className, showGuide = false }: PricingProps) {
-  const router = useRouter()
   const dict = { pricing: common.pricing }
 
   // Données des plans tarifaires depuis la localisation
@@ -94,7 +92,7 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
   const handlePlanSelect = (planName: string) => {
     // Redirection vers la page de contact avec le plan présélectionné
     const contactUrl = `/contact?plan=${planName.toLowerCase()}`
-    router.push(contactUrl)
+    window.location.href = contactUrl
   }
 
   return (

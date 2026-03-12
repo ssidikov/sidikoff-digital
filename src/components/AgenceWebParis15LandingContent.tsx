@@ -7,6 +7,8 @@ import {
   ArrowRight,
   CheckCircle2,
   Code2,
+  Rocket,
+  Search,
   ShoppingCart,
   Smartphone,
   MapPin,
@@ -27,6 +29,15 @@ const iconMap = {
   'ðŸ“': MapPin,
   'ðŸ†': Award,
   'ðŸ’¼': Briefcase,
+}
+
+// Modern color palette - Vibrant purple & electric blue
+const colors = {
+  primary: '#6366F1', // Indigo
+  secondary: '#EC4899', // Pink
+  accent: '#8B5CF6', // Purple
+  dark: '#0F172A', // Slate
+  light: '#F8FAFC',
 }
 
 export default function AgenceWebParis15LandingContent() {
