@@ -54,6 +54,9 @@ importers:
         specifier: ^3.3.1
         version: 3.3.1
     devDependencies:
+      '@eslint/eslintrc':
+        specifier: ^3
+        version: 3.3.1
       '@next/bundle-analyzer':
         specifier: ^16.0.1
         version: 16.0.1
@@ -72,9 +75,6 @@ importers:
       '@types/react-dom':
         specifier: ^19.2.2
         version: 19.2.2(@types/react@19.2.2)
-      baseline-browser-mapping:
-        specifier: ^2.10.0
-        version: 2.10.0
       eslint:
         specifier: ^9.39.1
         version: 9.39.1(jiti@2.6.1)
