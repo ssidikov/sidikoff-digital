@@ -61,6 +61,7 @@ const config: Config = {
         'slide-up': 'slideUp 0.3s ease-out',
         'gradient-x': 'gradient-x 3s ease infinite',
         'gradient-rotate': 'gradient-rotate 3s linear infinite',
+        marquee: 'marquee 22s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -78,6 +79,10 @@ const config: Config = {
         'gradient-rotate': {
           '0%, 100%': { 'background-position': '0% 50%' },
           '50%': { 'background-position': '100% 50%' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
       },
     },

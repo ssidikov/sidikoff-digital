@@ -51,3 +51,5 @@ next-env.d.ts
 .turbo
 .cache
 *.cache
+
+.github

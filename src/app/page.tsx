@@ -13,6 +13,7 @@ import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import {
   Hero,
+  About,
   Services,
   Pricing,
   Portfolio,
@@ -101,6 +102,7 @@ export default async function HomePage() {
       <main className='m-0 p-0'>
         <Hero />
         <Services isHomePage={true} />
+        <About />
         <Portfolio isHomePage={true} />
         <Pricing />
         <Testimonials />

@@ -1,5 +1,6 @@
 // Main page sections - optimized for tree shaking
 export { Hero } from './Hero'
+export { default as About } from './About'
 export { Services } from './Services'
 export { default as Portfolio } from './Portfolio'
 export { default as Pricing } from './Pricing'

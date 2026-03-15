@@ -119,7 +119,7 @@ export default function GoneLandingPage({ cityName }: GoneLandingPageProps) {
   ]
 
   const stats = [
-    { number: '50+', label: t.statsProjects },
+    { number: '20+', label: t.statsProjects },
     { number: '98%', label: t.statsClients },
     { number: '5 ans', label: t.statsExperience },
   ]

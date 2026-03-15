@@ -141,7 +141,7 @@ export default function AgenceWebParis15LandingContent() {
               transition={{ delay: 0.4, duration: 0.8 }}
               className='hidden lg:grid grid-cols-2 gap-6'>
               {[
-                { icon: Sparkles, label: '50+ Projets', value: 'Réalisés' },
+                { icon: Sparkles, label: '20+ Projets', value: 'Réalisés' },
                 { icon: Target, label: '98%', value: 'Satisfaction' },
                 { icon: Zap, label: '7-14j', value: 'Livraison' },
                 { icon: TrendingUp, label: 'SEO', value: 'Optimisé' },
@@ -532,7 +532,7 @@ export default function AgenceWebParis15LandingContent() {
               transition={{ delay: 0.4 }}
               className='mt-16 grid grid-cols-2 md:grid-cols-4 gap-8'>
               {[
-                { icon: Sparkles, label: '50+', desc: 'Projets' },
+                { icon: Sparkles, label: '20+', desc: 'Projets' },
                 { icon: Award, label: '98%', desc: 'Satisfaction' },
                 { icon: Zap, label: '7-14j', desc: 'Livraison' },
                 { icon: Target, label: '24/7', desc: 'Support' },

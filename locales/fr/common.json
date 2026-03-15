@@ -25,7 +25,7 @@
     "cta_primary": "Discuter de votre projet",
     "cta_secondary": "Voir mes réalisations",
     "trust_indicators": [
-      "50+ projets livrés",
+      "20+ projets livrés",
       "SEO intégré dès la création",
       "Devis gratuit sous 24h"
     ],
@@ -123,7 +123,7 @@
       },
       "stats": [
         {
-          "number": "50+",
+          "number": "20+",
           "title": "Projets Réalisés",
           "description": "Sites web créés pour des clients satisfaits"
         },
@@ -984,7 +984,7 @@
           "description": "Support prioritaire et résolution rapide"
         },
         {
-          "number": "50+",
+          "number": "20+",
           "title": "Sites Maintenus",
           "description": "Clients qui nous font confiance quotidiennement"
         }
@@ -3004,7 +3004,7 @@
           "type": "Multi-vendeurs Marketplace",
           "image": "ecommerce-marketplace-artisans.webp",
           "results": [
-            "50+ vendeurs actifs",
+            "20+ vendeurs actifs",
             "+250% GMV mensuel"
           ]
         },
@@ -3340,5 +3340,36 @@
       "description": "📍 Agence web de proximité Paris 15 - Convention, Vaugirard, Grenelle",
       "button": "Contactez-Nous"
     }
+  },
+  "about": {
+    "eyebrow": "À propos",
+    "headline": "Je conçois des sites qui travaillent pour vous — pas juste pour faire joli.",
+    "p1": "Je m'appelle Sardor. Développeur web indépendant basé à Lyon, je crée des sites sur-mesure pour les entrepreneurs, artisans et PME qui veulent une vraie présence en ligne — pas un template vu et revu.",
+    "p2": "Je suis spécialisé dans les technologies modernes comme Next.js et React, utilisées par des géants comme Netflix, Uber et Airbnb pour leurs sites ultra-rapides et performants.",
+    "stats": [
+      {
+        "value": "20+",
+        "label": "projets livrés"
+      },
+      {
+        "value": "7 jours",
+        "label": "délai moyen de livraison"
+      },
+      {
+        "value": "Next.js",
+        "label": "technologie principale"
+      }
+    ],
+    "trust_badges": [
+      "Diplômé Bac+5",
+      "Disponible pour nouveaux projets",
+      "Basé à Lyon — France entière"
+    ],
+    "cta": "Discutons de votre projet →",
+    "available_label": "Disponible",
+    "expertise_badge": "Expert Next.js et SEO",
+    "image_alt": "Sardorbek Sidikov — Développeur web Next.js",
+    "author_name": "Sardorbek SIDIKOV",
+    "author_role": "Fondateur · SIDIKOFF DIGITAL"
   }
 }
