@@ -782,12 +782,12 @@
     "data_title": "Protection des données personnelles",
     "data_text": "Conformément au RGPD, vous disposez de droits sur vos données personnelles. Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes et ne sont pas transmises à des tiers. Vous pouvez exercer vos droits concernant vos données personnelles en contactant à l'adresse e-mail : s.sidikoff@gmail.com.",
     "cookies_title": "Cookies",
-    "cookies_text": "Ce site utilise des cookies essentiels au fonctionnement du site. En continuant à naviguer sur ce site, vous acceptez leur utilisation."
+    "cookies_text": "Ce site utilise des cookies essentiels au fonctionnement du site ainsi que des cookies d'analyse (Microsoft Clarity) pour améliorer l'expérience utilisateur. En continuant à naviguer sur ce site, vous acceptez leur utilisation."
   },
   "privacy": {
     "title": "Politique de Confidentialité",
     "subtitle": "Nous accordons une importance primordiale au respect de votre vie privée et à la protection de vos données personnelles.",
-    "last_updated": "Dernière mise à jour : 2 Mars 2026",
+    "last_updated": "Dernière mise à jour : 27 Mars 2026",
     "sections": [
       {
         "title": "1. Collecte des données",
@@ -818,8 +818,12 @@
         "content": "Pour exercer ces droits ou pour toute question sur le traitement de vos données dans ce dispositif, vous pouvez nous contacter à : s.sidikoff@gmail.com"
       },
       {
-        "title": "8. Cookies",
-        "content": "Notre site utilise des cookies strictement nécessaires à son bon fonctionnement et des cookies d'analyse d'audience pour mesurer notre trafic. Vous pouvez gérer vos préférences en matière de cookies via les paramètres de votre navigateur."
+        "title": "8. Microsoft Clarity",
+        "content": "Nous utilisons Microsoft Clarity pour capturer la façon dont vous utilisez et interagissez avec notre site web grâce à des mesures comportementales, des cartes de chaleur (heatmaps) et des relectures de session afin d'améliorer nos services. Les données d'utilisation du site sont capturées à l'aide de cookies propriétaires et tiers et d'autres technologies de suivi. Pour plus d'informations sur la manière dont Microsoft collecte et utilise vos données, consultez la Déclaration de confidentialité de Microsoft."
+      },
+      {
+        "title": "9. Cookies",
+        "content": "Notre site utilise des cookies strictement nécessaires à son bon fonctionnement et des cookies d'analyse d'audience (Microsoft Clarity) pour mesurer notre trafic et comprendre votre navigation. Vous pouvez gérer vos préférences en matière de cookies via les paramètres de votre navigateur."
       }
     ]
   },
