@@ -11,7 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const title = 'Création de site internet professionnel Paris 16ème - Agence Web'
 
   const description =
-    'SIDIKOFF DIGITAL, agence web Paris 16, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
+    'Agence web Paris 16 — sites vitrines et e-commerce sur mesure, livrés en 7–14 jours. SEO local Passy, Trocadéro, Auteuil. Devis gratuit sous 24h ✓'
 
   return {
     title,

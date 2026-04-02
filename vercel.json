@@ -18,6 +18,22 @@
       ],
       "destination": "https://www.sidikoff.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.sidikoff.com"
+        },
+        {
+          "type": "header",
+          "key": "x-forwarded-proto",
+          "value": "http"
+        }
+      ],
+      "destination": "https://www.sidikoff.com/:path*",
+      "permanent": true
     }
   ]
 }

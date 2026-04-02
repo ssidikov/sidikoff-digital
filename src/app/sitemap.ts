@@ -54,21 +54,35 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // French pages (only language — default, no prefix)
   routes.forEach((route) => {
+    // KEY SEO PAGES near Top 10 in GSC get priority boost
+    const highPriorityRoutes = [
+      '/services/agence-web-paris-15',         // pos 8.8, 78 impressions
+      '/services/creation-site-internet-paris-16', // pos 7.3, 68 impressions
+      '/services/creation-site-web-villeurbanne',  // pos 17, 98 impressions
+      '/services/agence-web-paris',            // 1035 impressions
+    ]
+    const isHighPriority = highPriorityRoutes.includes(route)
+
     sitemap.push({
       url: `${baseUrl}${route === '' ? '/' : route}`,
       lastModified: currentDate,
-      changeFrequency: route === '/blog' ? 'daily' : 'weekly',
-      priority: route === '' ? 1.0 : route === '/contact' ? 0.9 : 0.7,
+      changeFrequency: route === '/blog' ? 'daily' : route === '' ? 'weekly' : 'weekly',
+      priority: route === '' ? 1.0
+        : route === '/contact' ? 0.9
+        : isHighPriority ? 0.85
+        : 0.7,
     })
   })
 
-  // Blog posts — French
+  // Blog posts — French only (canonical = www.sidikoff.com/blog/slug)
   blogPosts.forEach((post) => {
+    // Key article about website cost: near position 8, needs high priority
+    const isKeyPost = post.slug.current === 'cout-site-web-professionnel-2025'
     sitemap.push({
       url: `${baseUrl}/blog/${post.slug.current}`,
       lastModified: new Date(post.publishedAt),
-      changeFrequency: 'monthly',
-      priority: 0.6,
+      changeFrequency: isKeyPost ? 'weekly' : 'monthly',
+      priority: isKeyPost ? 0.9 : 0.6, // 0.9: near top 10, actively maintained
     })
   })
 

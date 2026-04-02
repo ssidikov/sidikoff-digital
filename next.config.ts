@@ -306,6 +306,38 @@ const nextConfig: NextConfig = {
         destination: '/:path+',
         permanent: true,
       },
+
+      // ── 9. Broken URLs found by Googlebot (missing slash between locale+path)
+      {
+        source: '/enservices',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/ruservices',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/frservices',
+        destination: '/services',
+        permanent: true,
+      },
+
+      // ── 10. /en/en/ duplicate found in GSC (www.sidikoff.com/en/en)
+      {
+        source: '/en/en/:path*',
+        destination: '/:path*',
+        permanent: true,
+      },
+
+      // ── 11. Blog article slug update: 2025 → 2026 (update slug in Sanity first!)
+      // Uncomment when ready to update the slug in Sanity CMS:
+      // {
+      //   source: '/blog/cout-site-web-professionnel-2025',
+      //   destination: '/blog/cout-site-web-professionnel-2026',
+      //   permanent: true,
+      // },
     ]
   },
 
