@@ -11,6 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/projects',
     '/services',
     '/services/agence-web-paris',
+    '/services/agence-web-lyon',
     '/services/creation-sites-web',
     '/services/refonte-sites-web',
     '/services/optimisation-seo',
@@ -56,10 +57,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   routes.forEach((route) => {
     // KEY SEO PAGES near Top 10 in GSC get priority boost
     const highPriorityRoutes = [
-      '/services/agence-web-paris-15',         // pos 8.8, 78 impressions
+      '/services/agence-web-lyon',                 // 🔥 NEW — main Lyon city page
+      '/services/agence-web-paris-15',             // pos 8.8, 78 impressions
       '/services/creation-site-internet-paris-16', // pos 7.3, 68 impressions
       '/services/creation-site-web-villeurbanne',  // pos 17, 98 impressions
-      '/services/agence-web-paris',            // 1035 impressions
+      '/services/agence-web-paris',                // 1035 impressions
     ]
     const isHighPriority = highPriorityRoutes.includes(route)
 

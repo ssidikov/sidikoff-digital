@@ -16,6 +16,10 @@ export default defineType({
       title: 'SEO & Meta',
     },
     {
+      name: 'faq',
+      title: 'FAQ Schema',
+    },
+    {
       name: 'settings',
       title: 'Settings',
     },
@@ -159,6 +163,56 @@ export default defineType({
           description: 'Check this to prevent search engines from indexing this post',
           initialValue: false,
         },
+      ],
+    }),
+
+    // FAQ Schema Group — for Google Rich Snippets (FAQ carousel in SERPs)
+    defineField({
+      name: 'faq',
+      title: 'FAQ (Rich Snippet)',
+      type: 'array',
+      group: 'faq',
+      description:
+        'Add FAQ questions and answers to generate a schema.org FAQPage for Google rich snippets. Each Q&A pair can appear as an expandable result in Google Search.',
+      of: [
+        defineField({
+          type: 'object',
+          name: 'faqItem',
+          title: 'FAQ Item',
+          icon: () => '❓',
+          fields: [
+            defineField({
+              name: 'question',
+              title: 'Question',
+              type: 'string',
+              description: 'The question as it will appear in Google (e.g. "Combien coûte un site web ?")',
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              validation: (Rule: any) => Rule.required().max(300),
+            }),
+            defineField({
+              name: 'answer',
+              title: 'Answer',
+              type: 'text',
+              rows: 4,
+              description:
+                'A concise, complete answer. Aim for 50–300 words. HTML is not supported — plain text only.',
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              validation: (Rule: any) => Rule.required().min(50).max(2000),
+            }),
+          ],
+          preview: {
+            select: {
+              title: 'question',
+              subtitle: 'answer',
+            },
+            prepare(value: Record<string, string>) {
+              return {
+                title: value.title || 'Question',
+                subtitle: value.subtitle ? value.subtitle.slice(0, 80) + '...' : 'No answer yet',
+              }
+            },
+          },
+        }),
       ],
     }),
 

@@ -8,10 +8,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Création de site internet professionnel Paris 16ème - Agence Web'
+  const title = 'Création Site Internet Paris 16ème | Agence Web — SIDIKOFF DIGITAL'
 
   const description =
-    'Agence web Paris 16 — sites vitrines et e-commerce sur mesure, livrés en 7–14 jours. SEO local Passy, Trocadéro, Auteuil. Devis gratuit sous 24h ✓'
+    'Agence web Paris 16 — sites vitrines dès 690 €, e-commerce dès 1 290 €, livrés en 7–14 jours. SEO local Passy, Trocadéro, Auteuil. Devis gratuit sous 24h ✓'
 
   return {
     title,

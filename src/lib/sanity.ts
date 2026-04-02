@@ -66,7 +66,12 @@ export const BLOG_POST_BY_SLUG_QUERY = `*[_type == "blogPost" && slug.current ==
   seo {
     metaTitle,
     metaDescription,
-    keywords
+    keywords,
+    noIndex
+  },
+  faq[] {
+    question,
+    answer
   },
   category->{
     _id,
@@ -116,7 +121,12 @@ export interface BlogPost {
     metaTitle?: string
     metaDescription?: string
     keywords?: string[]
+    noIndex?: boolean
   }
+  faq?: Array<{
+    question: string
+    answer: string
+  }>
   category?: {
     _id: string
     title: string

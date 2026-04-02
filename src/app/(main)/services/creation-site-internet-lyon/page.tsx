@@ -1,5 +1,6 @@
 import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { Metadata } from 'next'
+import Script from 'next/script'
 
 import { Section } from '@/components/ui'
 import CTAButton from '@/components/ui/CTAButton'
@@ -7,10 +8,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Création site internet Lyon – Agence web & SEO local'
+  const title = 'Création site internet Lyon — Agence web & développeur web à Lyon'
 
   const description =
-    'SIDIKOFF DIGITAL, agence web 69, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
+    'Agence web Lyon (69 / 69100) — sites vitrines, e-commerce et applications sur mesure, livrés en 7–14 jours. SEO local, React & Next.js. Devis gratuit sous 24h ✓'
 
   return {
     title,
@@ -42,7 +43,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: '/images/opengraph-fr.png',
           width: 1200,
           height: 630,
-          alt: title,
+          alt: 'Agence Web Lyon - Création site internet professionnel',
         },
       ],
     },
@@ -56,9 +57,102 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
+const lyonSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': 'https://www.sidikoff.com/services/creation-site-internet-lyon#LocalBusiness',
+    name: 'SIDIKOFF DIGITAL - Agence Web Lyon',
+    description:
+      'Agence web à Lyon spécialisée en création de sites internet professionnels, e-commerce et SEO local. Développement React et Next.js pour entreprises lyonnaises.',
+    url: 'https://www.sidikoff.com/services/creation-site-internet-lyon',
+    telephone: '+33626932734',
+    email: 's.sidikoff@gmail.com',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Lyon',
+      postalCode: '69000',
+      addressRegion: 'Auvergne-Rhône-Alpes',
+      addressCountry: 'FR',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: '45.7640',
+      longitude: '4.8357',
+    },
+    areaServed: [
+      { '@type': 'City', name: 'Lyon' },
+      { '@type': 'City', name: 'Villeurbanne' },
+      { '@type': 'City', name: 'Caluire-et-Cuire' },
+      { '@type': 'Place', name: 'Auvergne-Rhône-Alpes' },
+      { '@type': 'Country', name: 'France' },
+    ],
+    serviceType: ['Création de site internet', 'Site e-commerce', 'SEO local Lyon', 'Développement web'],
+    priceRange: '€€',
+    openingHours: 'Mo-Fr 09:00-18:00',
+    sameAs: [
+      'https://github.com/ssidikov',
+      'https://linkedin.com/in/sardorbeksidikov',
+      'https://www.sidikoff.com/services/agence-web-lyon',
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Services web Lyon',
+      itemListElement: [
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Site vitrine Lyon', description: 'Création de sites vitrines professionnels pour entreprises lyonnaises' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Site e-commerce Lyon', description: 'Boutiques en ligne sécurisées avec gestion de produits et paiement en ligne' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'SEO local Lyon', description: 'Référencement naturel local pour les recherches Google à Lyon et dans le 69' } },
+      ],
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.sidikoff.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.sidikoff.com/services' },
+      { '@type': 'ListItem', position: 3, name: 'Création site internet Lyon', item: 'https://www.sidikoff.com/services/creation-site-internet-lyon' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Quel est le prix pour créer un site internet à Lyon ?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Les tarifs varient selon le type de projet (site vitrine, e-commerce, sur mesure). Un site vitrine démarre à partir de 800€. Contactez-nous pour un devis gratuit et personnalisé sous 24h.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Combien de temps dure la création d\'un site web à Lyon ?',
+        acceptedAnswer: { '@type': 'Answer', text: 'En moyenne 7 à 14 jours pour un site vitrine, 4 à 8 semaines pour un site e-commerce, en fonction de la complexité et du contenu fourni.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Mon site sera-t-il bien référencé sur Google à Lyon ?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Oui. Chaque site est optimisé pour le référencement SEO local à Lyon : balises meta, contenus géolocalisés, Google Business Profile, Core Web Vitals optimisés.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Puis-je mettre à jour mon site moi-même ?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Oui. Nous proposons des CMS intuitifs (Sanity, WordPress) et une formation complète pour gérer vos textes et images en toute autonomie.' },
+      },
+    ],
+  },
+]
+
 export default async function LyonPage() {
   return (
     <div className='min-h-screen'>
+      {lyonSchemas.map((schema, i) => (
+        <Script
+          key={`lyon-schema-${i}`}
+          id={`lyon-schema-${i}`}
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       {/* Hero Section */}
       <Section className='pt-32 pb-20 bg-linear-to-br from-[#DBE2EF] via-[#F9F7FF] to-white relative overflow-hidden'>
         <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-top-right opacity-5'></div>
@@ -100,6 +194,26 @@ export default async function LyonPage() {
                   Voir nos réalisations
                 </CTAButton>
               </div>
+
+              {/* Internal SEO links */}
+              <div className='flex flex-wrap gap-3 pt-2'>
+                <Link
+                  href='/services/agence-web-lyon'
+                  className='text-sm text-[#3F72AF] hover:text-[#112D4E] hover:underline transition-colors'>
+                  → Agence web Lyon
+                </Link>
+                <Link
+                  href='/services/creation-site-web-villeurbanne'
+                  className='text-sm text-[#3F72AF] hover:text-[#112D4E] hover:underline transition-colors'>
+                  → Création site Villeurbanne
+                </Link>
+                <Link
+                  href='/services/creation-site-web-caluire-et-cuire'
+                  className='text-sm text-[#3F72AF] hover:text-[#112D4E] hover:underline transition-colors'>
+                  → Site web Caluire
+                </Link>
+              </div>
+
 
               {/* Floating Metrics */}
               <div className='grid grid-cols-3 gap-6 pt-8'>
