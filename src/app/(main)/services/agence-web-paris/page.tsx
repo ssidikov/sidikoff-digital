@@ -1,12 +1,12 @@
-import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls, generateServiceSchema } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import common from '@/locales/fr/common.json'
 import AgenceWebParisLandingContent from '@/components/AgenceWebParisLandingContent'
 
+const PAGE_URL = createCanonicalUrl('services/agence-web-paris', 'fr')
+
 export async function generateMetadata(): Promise<Metadata> {
   const content = common.agence_web_paris_landing
-
-  const url = createCanonicalUrl('services/agence-web-paris', 'fr')
 
   return {
     title: content.meta_title,
@@ -26,19 +26,19 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: 'SIDIKOFF DIGITAL',
     publisher: 'SIDIKOFF DIGITAL',
     alternates: {
-      canonical: createCanonicalUrl('services/agence-web-paris', 'fr'),
+      canonical: PAGE_URL,
       languages: generateAlternateUrls('services/agence-web-paris'),
     },
     openGraph: {
       title: content.meta_title,
       description: content.meta_description,
-      url: url,
+      url: PAGE_URL,
       siteName: 'SIDIKOFF DIGITAL',
       locale: 'fr_FR',
       type: 'website',
       images: [
         {
-          url: '/images/opengraph-fr.png',
+          url: '/images/og/creation-sites-web-paris.jpg',
           width: 1200,
           height: 630,
           alt: content.meta_title,
@@ -49,7 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: content.meta_title,
       description: content.meta_description,
-      images: ['/images/opengraph-fr.png'],
+      images: ['/images/og/creation-sites-web-paris.jpg'],
       creator: '@sidikoffdigital',
     },
     robots: {
@@ -67,6 +67,25 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
+const serviceSchema = generateServiceSchema({
+  name: 'Agence Web Paris — Création de Sites Internet',
+  description:
+    'Agence web à Paris spécialisée en développement Next.js et React. Création de sites internet professionnels, SEO optimisé, livraison en 7–14 jours. Devis gratuit sous 24h.',
+  url: PAGE_URL,
+  serviceType: 'Création de site internet',
+  areaServed: ['Paris', 'Île-de-France', 'France'],
+  image: 'https://www.sidikoff.com/images/og/creation-sites-web-paris.jpg',
+})
+
 export default function AgenceWebParisLandingPage() {
-  return <AgenceWebParisLandingContent />
+  return (
+    <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <AgenceWebParisLandingContent />
+    </>
+  )
 }
+

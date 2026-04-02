@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: 'SIDIKOFF DIGITAL',
       images: [
         {
-          url: '/images/opengraph-fr.png',
+          url: '/images/og/creation-sites-web-paris.jpg',
           width: 1200,
           height: 630,
           alt: title,
@@ -56,7 +56,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       creator: '@sidikoffdigital',
-      images: ['/images/opengraph-fr.png'],
+      images: ['/images/og/creation-sites-web-paris.jpg'],
     },
   }
 }

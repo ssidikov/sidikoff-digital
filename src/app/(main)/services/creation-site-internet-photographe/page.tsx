@@ -1,9 +1,10 @@
-import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls, generateServiceSchema } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import common from '@/locales/fr/common.json'
 import PhotographerLandingContent from '@/components/PhotographerLandingContent'
 
 const t = common.photographer_landing
+const PAGE_URL = createCanonicalUrl('services/creation-site-internet-photographe', 'fr')
 
 export function generateMetadata(): Metadata {
   return {
@@ -16,6 +17,7 @@ export function generateMetadata(): Metadata {
       type: 'website',
       locale: 'fr_FR',
       siteName: 'SIDIKOFF DIGITAL',
+      url: PAGE_URL,
       images: [{ url: '/images/opengraph-fr.png', width: 1200, height: 630, alt: t.meta_title }],
     },
     twitter: {
@@ -26,12 +28,31 @@ export function generateMetadata(): Metadata {
       images: ['/images/opengraph-fr.png'],
     },
     alternates: {
-      canonical: createCanonicalUrl('services/creation-site-internet-photographe', 'fr'),
+      canonical: PAGE_URL,
       languages: generateAlternateUrls('services/creation-site-internet-photographe'),
     },
+    robots: { index: true, follow: true },
   }
 }
 
+const serviceSchema = generateServiceSchema({
+  name: 'Création de Site Internet pour Photographes Professionnels',
+  description:
+    'Portfolios web haute qualité pour photographes : galeries dynamiques, réservation en ligne, SEO optimisé. Sites sur mesure qui mettent en valeur votre art. Devis gratuit.',
+  url: PAGE_URL,
+  serviceType: 'Création de site internet photographe',
+  areaServed: ['France', 'Lyon', 'Paris', 'Villeurbanne'],
+  image: 'https://www.sidikoff.com/images/opengraph-fr.png',
+})
+
 export default function PhotographerLandingPage() {
-  return <PhotographerLandingContent />
+  return (
+    <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <PhotographerLandingContent />
+    </>
+  )
 }

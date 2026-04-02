@@ -721,3 +721,63 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url: strin
     })),
   }
 }
+
+/**
+ * Generate Service Schema (schema.org/Service)
+ * Use on priority service landing pages to get rich snippets
+ */
+export function generateServiceSchema(service: {
+  name: string
+  description: string
+  url: string
+  serviceType: string
+  areaServed?: string[]
+  provider?: {
+    name: string
+    url: string
+  }
+  priceRange?: string
+  image?: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.name,
+    description: service.description,
+    url: service.url,
+    serviceType: service.serviceType,
+    areaServed: (service.areaServed ?? ['France']).map((area) => ({
+      '@type': 'Place',
+      name: area,
+    })),
+    provider: {
+      '@type': 'Organization',
+      name: service.provider?.name ?? 'SIDIKOFF DIGITAL',
+      url: service.provider?.url ?? DEFAULT_SEO.siteUrl,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${DEFAULT_SEO.siteUrl}/logo-sidikoff.webp`,
+      },
+      telephone: '+33626932734',
+      email: 's.sidikoff@gmail.com',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '73 Rue Racine',
+        postalCode: '69100',
+        addressLocality: 'Villeurbanne',
+        addressRegion: 'Auvergne-Rhône-Alpes',
+        addressCountry: 'FR',
+      },
+    },
+    ...(service.image ? { image: service.image } : {}),
+    ...(service.priceRange ? { priceRange: service.priceRange } : { priceRange: '€€' }),
+    offers: {
+      '@type': 'Offer',
+      availability: 'https://schema.org/InStock',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        priceCurrency: 'EUR',
+      },
+    },
+  }
+}

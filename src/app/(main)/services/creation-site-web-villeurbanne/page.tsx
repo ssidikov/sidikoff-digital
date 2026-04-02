@@ -1,4 +1,4 @@
-﻿import { Metadata } from 'next'
+import { Metadata } from 'next'
 import {
   createCanonicalUrl,
   generateAlternateUrls,
@@ -21,7 +21,7 @@ const seoContent = {
   fr: {
     title: 'Création site web à Villeurbanne | Développeur freelance premium',
     description:
-      'Développeur web freelance à Villeurbanne (69100). Création de sites vitrines, e-commerce, refonte et SEO technique. Devis gratuit sous 24h.',
+      'Développeur web freelance à Villeurbanne (69100). Sites vitrines dès 690 € TTC, e-commerce, refonte et SEO. Livraison en 5–10 jours. Devis gratuit sous 24h.',
     keywords: [
       'création site web villeurbanne',
       'développeur web villeurbanne',
