@@ -30,7 +30,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/services/creation-site-internet-lyon',
     '/services/creation-site-internet-toulouse',
     '/services/creation-site-internet-boulogne-billancourt',
-    '/services/creation-site-web-villeurbanne',
+    '/services/agence-web-villeurbanne',
     '/services/creation-site-web-caluire-et-cuire',
     '/services/creation-site-internet-cafe-paris',
     '/blog',
@@ -60,7 +60,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       '/services/agence-web-lyon',                 // 🔥 NEW — main Lyon city page
       '/services/agence-web-paris-15',             // pos 8.8, 78 impressions
       '/services/creation-site-internet-paris-16', // pos 7.3, 68 impressions
-      '/services/creation-site-web-villeurbanne',  // pos 17, 98 impressions
+      '/services/agence-web-villeurbanne',         // NEW target for Villeurbanne
       '/services/agence-web-paris',                // 1035 impressions
     ]
     const isHighPriority = highPriorityRoutes.includes(route)
