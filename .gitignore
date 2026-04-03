@@ -56,3 +56,9 @@ next-env.d.ts
 
 # temp files
 temp/
+
+# cursor
+.cursor/
+
+# agent
+.agent/

@@ -7,8 +7,10 @@ import {
   generateSEOMetadata,
   generateLanguageAlternates,
   createCanonicalUrl,
+  generateReviewStructuredData,
 } from '@/lib/seo-utils'
 import { getBlogPosts } from '@/lib/sanity'
+import { TESTIMONIALS_DATA } from '@/sections/Testimonials'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import {
@@ -52,6 +54,13 @@ export async function generateMetadata() {
 }
 
 function generateHomePageSchemas() {
+  const reviewsData = TESTIMONIALS_DATA.map((t) => ({
+    author: t.author,
+    reviewBody: t.text,
+    rating: t.rating,
+    datePublished: t.date,
+  }))
+
   return [
     organizationSchema,
     // Only the first location gets a rating to avoid duplication
@@ -78,6 +87,8 @@ function generateHomePageSchemas() {
         '@id': 'https://www.sidikoff.com/#organization',
       },
     },
+    // Review JSON-LD — generated server-side from testimonials data
+    generateReviewStructuredData(reviewsData),
   ]
 }
 

@@ -705,7 +705,7 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
                   </h3>
 
                   <div
-                    className={`mb-1 text-5xl font-bold ${tier.featured ? 'text-white' : 'text-slate-900'}`}>
+                    className={`mb-1 text-3xl font-bold ${tier.featured ? 'text-white' : 'text-slate-900'}`}>
                     {tier.price}
                   </div>
 
@@ -740,7 +740,7 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
                     href='/contact'
                     className={`w-full font-semibold transition-all duration-200 ${
                       tier.featured
-                        ? 'border-0 bg-white text-blue-600 hover:bg-blue-50'
+                        ? 'border-0 bg-white text-blue-600 hover:bg-blue-50 hover:text-blue-600!'
                         : 'border-0 bg-blue-600 text-white hover:-translate-y-0.5 hover:bg-blue-700'
                     }`}>
                     {c.pricingCta}

@@ -1,12 +1,7 @@
-'use client'
-
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 
 import common from '@/locales/fr/common.json'
 import { getLocalizedUrl } from '@/utils/navigation'
-
-const DARK_FOOTER_PATHS = ['/services/creation-site-web-villeurbanne']
 
 interface FooterLink {
   name: string
@@ -134,10 +129,7 @@ const createLegalLinks = (): FooterLink[] => [
  * Footer component with navigation, contact info, and company branding
  * Features responsive design and accessible links
  */
-export function Footer() {
-  const pathname = usePathname()
-  const isDark = DARK_FOOTER_PATHS.includes(pathname)
-
+export function Footer({ isDark = false }: { isDark?: boolean }) {
   const coreLinks = createCoreLinks()
   const secteurLinks = createSecteurLinks()
   const villeLinks = createVilleLinks()

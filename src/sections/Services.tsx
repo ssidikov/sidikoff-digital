@@ -1,9 +1,7 @@
-'use client'
-
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 
 import common from '@/locales/fr/common.json'
+import { MotionDiv, MotionSpan, MotionH2, MotionP } from '@/components/ui/Motion'
 import CTAButton from '@/components/ui/CTAButton'
 import Section, { SectionHeader } from '@/components/ui/Section'
 import { cardStyles } from '@/utils/styles'
@@ -46,15 +44,6 @@ const getServiceUrl = (service: string): string => {
   return `/services/${service}`
 }
 
-/**
- * Scroll to pricing section smoothly
- */
-const scrollToPricing = (): void => {
-  const element = document.getElementById('pricing')
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
-  }
-}
 
 /**
  * Services section component with service cards and CTA banner
@@ -156,7 +145,7 @@ export function Services({
         {/* Services Cards */}
         <div className='space-y-24'>
           {services.map((service, index) => (
-            <motion.div
+            <MotionDiv
               key={service.title}
               initial={CARD_ANIMATION.initial}
               whileInView={CARD_ANIMATION.animate}
@@ -189,7 +178,7 @@ export function Services({
                     {/* Feature Badges */}
                     <div className='grid grid-cols-2 gap-2 md:flex md:flex-wrap'>
                       {service.badges.map((badge, badgeIndex) => (
-                        <motion.span
+                        <MotionSpan
                           key={badge}
                           initial={BADGE_ANIMATION.initial}
                           whileInView={BADGE_ANIMATION.animate}
@@ -197,7 +186,7 @@ export function Services({
                           viewport={{ once: true }}
                           className='inline-flex cursor-default items-center justify-center rounded-full border border-gray-400/50 px-5 py-3 text-sm font-medium xl:px-8 xl:text-xl'>
                           <span className='text-center'>{badge}</span>
-                        </motion.span>
+                        </MotionSpan>
                       ))}
                     </div>
                   </div>
@@ -279,7 +268,7 @@ export function Services({
                         variant='secondary'
                         size='md'
                         className='w-full flex-1 sm:w-auto'
-                        onClick={scrollToPricing}
+                        href='/tarifs'
                         trackingAction='view_pricing'
                         trackingCategory='services'
                         ariaLabel={dict.buttons.view_pricing}>
@@ -289,12 +278,12 @@ export function Services({
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
 
         {/* CTA Banner */}
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -302,25 +291,25 @@ export function Services({
           className='mt-32'>
           <div className='relative flex w-full items-center justify-center overflow-hidden rounded-md bg-accent py-8 md:h-screen'>
             <div className='mx-auto max-w-4xl px-6 text-center lg:px-8'>
-              <motion.h2
+              <MotionH2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={CTA_BANNER_ANIMATIONS.title}
                 viewport={{ once: true }}
                 className='mb-6 text-2xl font-bold leading-tight text-white md:text-5xl lg:mb-8 lg:text-6xl xl:text-7xl'>
                 {dict.cta_banner.background}
-              </motion.h2>
+              </MotionH2>
 
-              <motion.p
+              <MotionP
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={CTA_BANNER_ANIMATIONS.description}
                 viewport={{ once: true }}
                 className='mx-auto mb-12 max-w-3xl text-base leading-relaxed text-white/90 lg:mb-16 lg:text-2xl'>
                 {dict.cta_banner.description}
-              </motion.p>
+              </MotionP>
 
-              <motion.div
+              <MotionDiv
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={CTA_BANNER_ANIMATIONS.button}
@@ -350,10 +339,10 @@ export function Services({
                     </svg>
                   </span>
                 </CTAButton>
-              </motion.div>
+              </MotionDiv>
             </div>
           </div>
-        </motion.div>
+        </MotionDiv>
       </div>
     </Section>
   )

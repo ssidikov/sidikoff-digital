@@ -1,8 +1,41 @@
-'use client'
+import React from 'react'
+import PortfolioCarousel from '@/components/ui/PortfolioCarousel'
 
-import PortfolioCarousel, {
-  convertProjectsToPortfolioItems,
-} from '@/components/ui/PortfolioCarousel'
+interface PortfolioItem {
+  id: string
+  number: string
+  title: string
+  category: string
+  image: string
+  imageAlt: string
+  technologies?: string[] | undefined
+}
+
+// Helper function to convert projects to portfolio items
+export function convertProjectsToPortfolioItems(
+  projects: unknown[],
+  maxItems?: number,
+): PortfolioItem[] {
+  const itemsToShow = maxItems ? projects.slice(0, maxItems) : projects
+  return itemsToShow.map((project, index) => {
+    const p = project as {
+      id: string
+      title: string
+      category: string
+      image: string
+      technologies?: string[]
+    }
+    return {
+      id: p.id,
+      number: String(index + 1).padStart(2, '0'),
+      title: p.title,
+      category: p.category,
+      image: p.image,
+      imageAlt: p.title,
+      technologies: p.technologies ?? undefined,
+    }
+  })
+}
 import { getProjects } from '@/data/projects'
 import common from '@/locales/fr/common.json'
 

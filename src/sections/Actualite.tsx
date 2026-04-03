@@ -1,9 +1,7 @@
-'use client'
-
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 
 import common from '@/locales/fr/common.json'
+import { MotionDiv } from '@/components/ui/Motion'
 import { type BlogPost } from '@/lib/sanity'
 import { getLocalizedUrl } from '@/utils/navigation'
 import Section, { SectionHeader } from '@/components/ui/Section'
@@ -56,7 +54,7 @@ export function Actualite({ posts }: ActualiteProps) {
             as='h2'
           />
 
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -78,21 +76,21 @@ export function Actualite({ posts }: ActualiteProps) {
                 />
               </svg>
             </Link>
-          </motion.div>
+          </MotionDiv>
         </div>
 
-        <motion.div
+        <MotionDiv
           variants={ANIMATION_CONFIG.container}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true }}
           className='grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
           {posts.map((post, index) => (
-            <motion.div key={post._id} variants={ANIMATION_CONFIG.item} className='h-full'>
+            <MotionDiv key={post._id} variants={ANIMATION_CONFIG.item} className='h-full'>
               <BlogCard post={post} index={index} featured={false} />
-            </motion.div>
+            </MotionDiv>
           ))}
-        </motion.div>
+        </MotionDiv>
       </div>
     </Section>
   )
