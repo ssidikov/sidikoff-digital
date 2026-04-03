@@ -17,6 +17,7 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ['400', '700', '800'],
   subsets: ['latin'],
   display: 'swap',
+  variable: '--font-jetbrains-mono',
 })
 
 const fadeIn = {
