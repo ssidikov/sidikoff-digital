@@ -1,11 +1,12 @@
 import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import Script from 'next/script'
-
-import { Section } from '@/components/ui'
-import CTAButton from '@/components/ui/CTAButton'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Cormorant_Garamond, Manrope } from 'next/font/google'
+
+const cormorant = Cormorant_Garamond({ subsets: ['latin'], weight: ['400', '600', '700'] })
+const manrope = Manrope({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'] })
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = 'Agence Web Lyon | Création de Sites Internet — SIDIKOFF DIGITAL'
@@ -206,7 +207,7 @@ const agenceWebLyonSchemas = [
 
 export default async function AgenceWebLyonPage() {
   return (
-    <div className='min-h-screen'>
+    <div className={`min-h-screen bg-[#F6F4EE] text-[#121212] overflow-x-hidden ${manrope.className}`}>
       {agenceWebLyonSchemas.map((schema, i) => (
         <Script
           key={`agence-web-lyon-schema-${i}`}
@@ -217,478 +218,266 @@ export default async function AgenceWebLyonPage() {
       ))}
 
       {/* Hero Section */}
-      <Section className='pt-32 pb-20 bg-linear-to-br from-[#112D4E] via-[#1a3f6f] to-[#3F72AF] relative overflow-hidden text-white'>
-        <div className='absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(63,114,175,0.4),transparent_60%)]' />
-        <div className='absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(17,45,78,0.6),transparent_60%)]' />
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
-          <div className='grid lg:grid-cols-2 gap-12 items-center'>
-            <div className='space-y-8'>
-              <div className='space-y-4'>
-                <div className='inline-flex items-center bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium border border-white/20'>
-                  <svg className='w-4 h-4 mr-2 text-blue-300' fill='currentColor' viewBox='0 0 20 20'>
-                    <path
-                      fillRule='evenodd'
-                      d='M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z'
-                      clipRule='evenodd'
-                    />
-                  </svg>
-                  Agence Web à Lyon — Expert React & Next.js
-                </div>
-
-                <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight'>
-                  Votre{' '}
-                  <span className='bg-linear-to-r from-blue-300 to-cyan-300 bg-clip-text text-transparent'>
-                    Agence Web à Lyon
-                  </span>{' '}
-                  — Sites Modernes & SEO
-                </h1>
-
-                <p className='text-xl text-blue-100 leading-relaxed'>
-                  Vous êtes une entreprise, un artisan ou une startup à{' '}
-                  <strong className='text-white'>Lyon</strong> et vous cherchez une{' '}
-                  <strong className='text-white'>agence web locale</strong> pour créer votre site
-                  internet ? SIDIKOFF DIGITAL crée des sites modernes, rapides et optimisés SEO —
-                  livrés en <strong className='text-white'>7 à 14 jours</strong>, à partir de{' '}
-                  <strong className='text-white'>690 €</strong>.
-                </p>
+      <section className="relative min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 border-b-[3px] border-[#121212] flex flex-col justify-center overflow-hidden">
+        {/* Abstract structural elements */}
+        <div className="absolute top-0 right-0 w-[40%] h-[120%] bg-[#121212] z-0 hidden lg:block -skew-x-12 origin-top" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#FF3E1A] z-0 blur-3xl opacity-20" />
+        
+        <div className="max-w-7xl mx-auto w-full relative z-10 flex-col">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+            <div className="lg:col-span-7 xl:col-span-8 order-2 lg:order-1 pt-12 lg:pt-0">
+              <div className="flex items-center gap-4 mb-8 relative z-20">
+                <div className="h-[2px] w-12 bg-[#FF3E1A]" />
+                <span className="uppercase tracking-[0.3em] text-xs font-bold text-[#121212]">Creative Studio</span>
               </div>
+              <h1 className={`${cormorant.className} text-[14vw] lg:text-[8vw] leading-[0.85] font-bold flex flex-col uppercase tracking-tighter relative z-20`}>
+                <span className="block text-[#121212]">Agence</span>
+                <span className="block text-[#FF3E1A] ml-[10%] italic">Web</span>
+                <span className="block text-[#121212] ml-[20%] lg:ml-[25%] mt-2">Lyon</span>
+              </h1>
+              
+              <p className="mt-12 max-w-xl text-lg sm:text-xl font-medium leading-relaxed border-l-[3px] border-[#FF3E1A] pl-6 text-[#121212] relative z-20">
+                Design moderne. Référencement SEO dominant.<br/>
+                Nous construisons des expériences digitales mémorables pour les marques ambitieuses dans le grand Lyon.
+              </p>
 
-              <div className='flex flex-col sm:flex-row gap-4'>
-                <CTAButton
-                  href='/contact'
-                  size='md'
-                  className='bg-white text-[#112D4E] hover:bg-blue-50 font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300'>
-                  Devis gratuit sous 24h
-                </CTAButton>
-                <CTAButton
-                  href='/projects'
-                  variant='outline'
-                  size='md'
-                  className='border-2 border-white/50 text-white hover:bg-white/10 transition-all duration-300'>
-                  Voir nos réalisations
-                </CTAButton>
-              </div>
-
-              {/* Internal SEO links */}
-              <div className='flex flex-wrap gap-3 pt-2'>
-                <Link
-                  href='/services/creation-site-internet-lyon'
-                  className='text-sm text-blue-200 hover:text-white hover:underline transition-colors'>
-                  → Création site internet Lyon
+              <div className="mt-12 flex flex-col sm:flex-row gap-8 items-start sm:items-center relative z-20">
+                <Link href="/contact" className="group relative inline-flex items-center justify-center bg-[#FF3E1A] text-[#121212] px-8 py-5 font-bold uppercase tracking-widest text-sm overflow-hidden border-[3px] border-[#121212] transition-colors">
+                  <span className="absolute inset-0 bg-[#F6F4EE] transform origin-bottom translate-y-full transition-transform duration-400 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:translate-y-0"></span>
+                  <span className="relative z-10 flex items-center gap-4 group-hover:text-[#121212]">
+                    Démarrer un projet
+                    <svg className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                  </span>
                 </Link>
-                <Link
-                  href='/services/creation-site-web-villeurbanne'
-                  className='text-sm text-blue-200 hover:text-white hover:underline transition-colors'>
-                  → Site web Villeurbanne
-                </Link>
-                <Link
-                  href='/services/creation-site-web-caluire-et-cuire'
-                  className='text-sm text-blue-200 hover:text-white hover:underline transition-colors'>
-                  → Site web Caluire
-                </Link>
-              </div>
-
-              {/* Stats */}
-              <div className='grid grid-cols-3 gap-6 pt-4'>
-                <div className='bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20'>
-                  <div className='text-2xl font-bold text-white'>20+</div>
-                  <div className='text-sm text-blue-200'>Projets à Lyon</div>
-                </div>
-                <div className='bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20'>
-                  <div className='text-2xl font-bold text-white'>7–14j</div>
-                  <div className='text-sm text-blue-200'>Délai livraison</div>
-                </div>
-                <div className='bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20'>
-                  <div className='text-2xl font-bold text-white'>690€</div>
-                  <div className='text-sm text-blue-200'>Dès</div>
+                <div className="uppercase tracking-widest text-xs font-bold flex flex-col gap-1 text-[#121212]">
+                  <span className="opacity-70">À partir de 690€</span>
+                  <span className="text-[#FF3E1A] font-extrabold flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-[#FF3E1A] rounded-full animate-pulse" />
+                    Livraison 7-14 Jours
+                  </span>
                 </div>
               </div>
             </div>
 
-            <div className='relative'>
-              <div className='relative z-10'>
-                <Image
-                  src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
-                  alt='Agence web Lyon - Création site internet professionnel'
-                  className='rounded-2xl shadow-2xl'
-                  width={600}
-                  height={400}
-                  priority
-                />
-                <div className='absolute inset-0 bg-linear-to-tr from-[#112D4E]/30 to-transparent rounded-2xl' />
-              </div>
-
-              {/* Floating Elements */}
-              <div className='absolute -top-4 -left-4 bg-white rounded-xl p-3 shadow-lg z-20'>
-                <div className='flex items-center space-x-2'>
-                  <div className='w-3 h-3 bg-green-500 rounded-full animate-pulse' />
-                  <span className='text-sm font-medium text-gray-700'>Disponible à Lyon</span>
-                </div>
-              </div>
-
-              <div className='absolute -bottom-4 -right-4 bg-white rounded-xl p-4 shadow-lg z-20'>
-                <div className='text-center'>
-                  <div className='text-lg font-bold text-[#112D4E]'>Top 3</div>
-                  <div className='text-xs text-gray-600'>Google Lyon</div>
-                </div>
+            <div className="lg:col-span-5 xl:col-span-4 relative h-[50vh] lg:h-[75vh] w-full order-1 lg:order-2 mt-8 lg:mt-0 grayscale hover:grayscale-0 transition-all duration-[800ms] group">
+              <div className="absolute inset-0 border-[3px] border-[#121212] translate-x-4 translate-y-4 z-0 bg-transparent group-hover:translate-x-6 group-hover:translate-y-6 transition-transform duration-500" />
+              <Image 
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1769&auto=format&fit=crop" 
+                layout="fill" 
+                objectFit="cover" 
+                alt="Bureau Agence Web Lyon" 
+                className="z-10 border-[3px] border-[#121212]" 
+                priority 
+              />
+              <div className="absolute -bottom-6 -left-6 lg:-left-12 bg-[#FF3E1A] text-[#121212] px-6 py-4 border-[3px] border-[#121212] font-black uppercase tracking-widest text-sm z-20 shadow-[8px_8px_0px_#121212]">
+                Studio Local
               </div>
             </div>
           </div>
         </div>
-      </Section>
 
-      <div className='flex flex-col gap-0'>
-        {/* Services Section */}
-        <Section className='py-20 bg-white'>
-          <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-            <div className='text-center mb-16'>
-              <h2 className='text-4xl font-bold text-[#112D4E] mb-6'>
-                Nos services d&apos;agence web à Lyon
-              </h2>
-              <div className='w-24 h-1 bg-linear-to-r from-[#3F72AF] to-[#112D4E] mx-auto mb-6' />
-              <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-                De la création de votre site vitrine à la boutique e-commerce, en passant par le
-                référencement SEO local à Lyon.
-              </p>
-            </div>
-
-            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-              {/* Site vitrine */}
-              <div className='bg-linear-to-br from-[#F9F7FF] to-[#DBE2EF] rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-white'>
-                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
-                  <svg className='w-6 h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' />
-                  </svg>
-                </div>
-                <h3 className='text-xl font-bold text-[#112D4E] mb-4'>Site vitrine Lyon</h3>
-                <p className='text-gray-600 mb-4'>
-                  Un <strong>site vitrine professionnel</strong> pour présenter vos services, attirer
-                  des clients locaux et vous démarquer de la concurrence à Lyon.
-                </p>
-                <div className='text-[#3F72AF] font-bold text-lg mb-4'>À partir de 690 €</div>
-                <Link href='/services/creation-sites-web' className='text-[#3F72AF] hover:text-[#112D4E] font-semibold inline-flex items-center group'>
-                  En savoir plus
-                  <svg className='w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
-                  </svg>
-                </Link>
+        {/* Marquee ticker */}
+        <div className="absolute bottom-0 left-0 w-full bg-[#121212] text-[#F6F4EE] py-3 border-t-[3px] border-[#121212] overflow-hidden flex whitespace-nowrap z-20">
+          <div className="animate-[marquee_50s_linear_infinite] flex items-center shrink-0 min-w-full">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="flex items-center">
+                <span className="uppercase tracking-[0.2em] text-sm font-bold mx-8">CRÉATION SUR MESURE</span>
+                <span className="text-[#FF3E1A] text-xl">&times;</span>
+                <span className="uppercase tracking-[0.2em] text-sm font-bold mx-8">RÉFÉRENCEMENT LOCAL</span>
+                <span className="text-[#FF3E1A] text-xl">&times;</span>
+                <span className="uppercase tracking-[0.2em] text-sm font-bold mx-8">PERFORMANCE NEXT.JS</span>
+                <span className="text-[#FF3E1A] text-xl">&times;</span>
               </div>
-
-              {/* Site e-commerce */}
-              <div className='bg-linear-to-br from-[#F9F7FF] to-[#DBE2EF] rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-white'>
-                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
-                  <svg className='w-6 h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13a2 2 0 100 4 2 2 0 000-4zM9 19a2 2 0 100 4 2 2 0 000-4z' />
-                  </svg>
-                </div>
-                <h3 className='text-xl font-bold text-[#112D4E] mb-4'>Site e-commerce Lyon</h3>
-                <p className='text-gray-600 mb-4'>
-                  Boutique en ligne avec paiement sécurisé, gestion des stocks et interface
-                  d&apos;administration pour vendre 24h/24 à Lyon et dans toute la France.
-                </p>
-                <div className='text-[#3F72AF] font-bold text-lg mb-4'>À partir de 1 990 €</div>
-                <Link href='/services/creation-site-ecommerce' className='text-[#3F72AF] hover:text-[#112D4E] font-semibold inline-flex items-center group'>
-                  En savoir plus
-                  <svg className='w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
-                  </svg>
-                </Link>
-              </div>
-
-              {/* SEO local Lyon */}
-              <div className='bg-linear-to-br from-[#F9F7FF] to-[#DBE2EF] rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-white'>
-                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
-                  <svg className='w-6 h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' />
-                  </svg>
-                </div>
-                <h3 className='text-xl font-bold text-[#112D4E] mb-4'>SEO local Lyon</h3>
-                <p className='text-gray-600 mb-4'>
-                  Référencement naturel ciblé sur Lyon et sa région : balises meta, contenus
-                  géolocalisés, Google Business Profile, Core Web Vitals optimisés.
-                </p>
-                <div className='text-[#3F72AF] font-bold text-lg mb-4'>Dès 149 €/mois</div>
-                <Link href='/services/optimisation-seo' className='text-[#3F72AF] hover:text-[#112D4E] font-semibold inline-flex items-center group'>
-                  En savoir plus
-                  <svg className='w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
-                  </svg>
-                </Link>
-              </div>
-
-              {/* Refonte web */}
-              <div className='bg-linear-to-br from-[#F9F7FF] to-[#DBE2EF] rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-white'>
-                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
-                  <svg className='w-6 h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15' />
-                  </svg>
-                </div>
-                <h3 className='text-xl font-bold text-[#112D4E] mb-4'>Refonte de site Lyon</h3>
-                <p className='text-gray-600 mb-4'>
-                  Votre site est obsolète ou lent ? Nous le modernisons avec un nouveau design,
-                  de meilleures performances et un SEO amélioré.
-                </p>
-                <div className='text-[#3F72AF] font-bold text-lg mb-4'>À partir de 690 €</div>
-                <Link href='/services/refonte-sites-web' className='text-[#3F72AF] hover:text-[#112D4E] font-semibold inline-flex items-center group'>
-                  En savoir plus
-                  <svg className='w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
-                  </svg>
-                </Link>
-              </div>
-
-              {/* Maintenance */}
-              <div className='bg-linear-to-br from-[#F9F7FF] to-[#DBE2EF] rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-white'>
-                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
-                  <svg className='w-6 h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z' />
-                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 12a3 3 0 11-6 0 3 3 0 016 0z' />
-                  </svg>
-                </div>
-                <h3 className='text-xl font-bold text-[#112D4E] mb-4'>Maintenance & Support</h3>
-                <p className='text-gray-600 mb-4'>
-                  Mises à jour de sécurité, sauvegardes automatiques, monitoring et support
-                  technique réactif pour garder votre site performant.
-                </p>
-                <div className='text-[#3F72AF] font-bold text-lg mb-4'>Dès 49 €/mois</div>
-                <Link href='/services/maintenance-support' className='text-[#3F72AF] hover:text-[#112D4E] font-semibold inline-flex items-center group'>
-                  En savoir plus
-                  <svg className='w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
-                  </svg>
-                </Link>
-              </div>
-
-              {/* Développement sur mesure */}
-              <div className='bg-linear-to-br from-[#F9F7FF] to-[#DBE2EF] rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-white'>
-                <div className='w-12 h-12 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-lg flex items-center justify-center mb-6'>
-                  <svg className='w-6 h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4' />
-                  </svg>
-                </div>
-                <h3 className='text-xl font-bold text-[#112D4E] mb-4'>Application web sur mesure</h3>
-                <p className='text-gray-600 mb-4'>
-                  Développement React / Next.js de fonctionnalités avancées : espace client, outil
-                  interne, API, intégrations tierces.
-                </p>
-                <div className='text-[#3F72AF] font-bold text-lg mb-4'>Sur devis</div>
-                <Link href='/contact' className='text-[#3F72AF] hover:text-[#112D4E] font-semibold inline-flex items-center group'>
-                  Demander un devis
-                  <svg className='w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
-                  </svg>
-                </Link>
-              </div>
-            </div>
+            ))}
           </div>
-        </Section>
+        </div>
+        <style dangerouslySetInnerHTML={{__html: `
+          @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        `}} />
+      </section>
 
-        {/* Why Choose Us */}
-        <Section className='py-20 bg-linear-to-br from-[#F8F9FA] to-[#DBE2EF]'>
-          <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-            <div className='text-center mb-16'>
-              <h2 className='text-4xl font-bold text-[#112D4E] mb-6'>
-                Pourquoi choisir SIDIKOFF DIGITAL comme agence web à Lyon ?
-              </h2>
-              <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-                Une expertise locale au service de votre visibilité digitale
-              </p>
-            </div>
-
-            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-              {[
-                {
-                  icon: (
-                    <svg className='w-8 h-8 text-white' fill='currentColor' viewBox='0 0 20 20'>
-                      <path fillRule='evenodd' d='M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z' clipRule='evenodd' />
-                    </svg>
-                  ),
-                  title: 'Expertise locale Lyon',
-                  desc: 'Basés à Lyon, nous connaissons le tissu économique local et les enjeux des entreprises lyonnaises.',
-                },
-                {
-                  icon: (
-                    <svg className='w-8 h-8 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M13 10V3L4 14h7v7l9-11h-7z' />
-                    </svg>
-                  ),
-                  title: 'Technologies modernes',
-                  desc: 'React, Next.js et Tailwind CSS — les mêmes technologies utilisées par Netflix, Airbnb et Vercel.',
-                },
-                {
-                  icon: (
-                    <svg className='w-8 h-8 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' />
-                    </svg>
-                  ),
-                  title: 'Livraison rapide',
-                  desc: 'Site vitrine en 7–14 jours. Projet e-commerce en 4–8 semaines. Délais respectés, résultats garantis.',
-                },
-                {
-                  icon: (
-                    <svg className='w-8 h-8 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z' />
-                    </svg>
-                  ),
-                  title: 'SEO local intégré',
-                  desc: 'Chaque site est optimisé pour les recherches locales à Lyon. Balises, contenu géolocalisé, Google Business.',
-                },
-                {
-                  icon: (
-                    <svg className='w-8 h-8 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z' />
-                    </svg>
-                  ),
-                  title: 'Tarifs transparents',
-                  desc: 'Devis gratuit et détaillé sous 24h. Aucun frais caché. À partir de 690 € pour un site vitrine professionnel.',
-                },
-                {
-                  icon: (
-                    <svg className='w-8 h-8 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z' />
-                    </svg>
-                  ),
-                  title: 'Accompagnement dédié',
-                  desc: 'De la conception à la mise en ligne et au-delà : formation, maintenance et conseil stratégique inclus.',
-                },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className='bg-white/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300'>
-                  <div className='w-16 h-16 bg-linear-to-r from-[#3F72AF] to-[#112D4E] rounded-full flex items-center justify-center mx-auto mb-4'>
-                    {item.icon}
-                  </div>
-                  <h3 className='text-xl font-bold text-[#112D4E] mb-3'>{item.title}</h3>
-                  <p className='text-gray-600'>{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Section>
-
-        {/* Zone d'intervention */}
-        <Section className='py-20 bg-white'>
-          <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-            <div className='grid lg:grid-cols-2 gap-12 items-center'>
-              <div>
-                <h2 className='text-4xl font-bold text-[#112D4E] mb-6'>
-                  Zone d&apos;intervention — Agence web Lyon et région
-                </h2>
-                <p className='text-xl text-gray-600 mb-8'>
-                  Notre agence web intervient dans tout le grand Lyon et ses communes
-                  environnantes. Nous travaillons aussi à distance pour toute la France.
-                </p>
-
-                <div className='grid grid-cols-2 gap-4 mb-8'>
-                  {[
-                    { city: 'Lyon (tous arrondissements)', href: '/services/creation-site-internet-lyon' },
-                    { city: 'Villeurbanne', href: '/services/creation-site-web-villeurbanne' },
-                    { city: 'Caluire-et-Cuire', href: '/services/creation-site-web-caluire-et-cuire' },
-                    { city: 'Bron', href: null },
-                    { city: 'Vénissieux', href: null },
-                    { city: 'Décines-Charpieu', href: null },
-                    { city: 'Meyzieu', href: null },
-                    { city: 'Toute la France', href: null },
-                  ].map((item, i) => (
-                    <div key={i} className='flex items-center space-x-2'>
-                      <div className='w-2 h-2 bg-[#3F72AF] rounded-full flex-shrink-0' />
-                      {item.href ? (
-                        <Link href={item.href} className='text-[#3F72AF] hover:text-[#112D4E] hover:underline transition-colors font-medium'>
-                          {item.city}
-                        </Link>
-                      ) : (
-                        <span className='text-gray-700'>{item.city}</span>
-                      )}
-                    </div>
-                  ))}
-                </div>
-
-                <CTAButton href='/contact' size='md'>
-                  Obtenir un devis gratuit
-                </CTAButton>
-              </div>
-
-              <div className='relative'>
-                <Image
-                  src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
-                  alt='Agence web Lyon - zone intervention'
-                  className='rounded-2xl shadow-xl'
-                  width={600}
-                  height={400}
-                />
-                <div className='absolute inset-0 bg-linear-to-tr from-[#3F72AF]/10 to-transparent rounded-2xl' />
-              </div>
-            </div>
-          </div>
-        </Section>
-
-        {/* FAQ Section */}
-        <Section className='py-20 bg-linear-to-b from-[#F8F9FA] to-white'>
-          <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-            <div className='text-center mb-16'>
-              <h2 className='text-4xl font-bold text-[#112D4E] mb-6'>
-                FAQ — Agence web Lyon
-              </h2>
-              <p className='text-xl text-gray-600'>Réponses aux questions les plus fréquentes</p>
-            </div>
-
-            <div className='space-y-8'>
-              {[
-                {
-                  q: 'Quelle est la meilleure agence web à Lyon ?',
-                  a: 'SIDIKOFF DIGITAL est une agence web à Lyon spécialisée en création de sites internet sur mesure avec React et Next.js. Nous livrons des sites modernes, rapides et optimisés SEO en 7 à 14 jours, avec un accompagnement personnalisé.',
-                },
-                {
-                  q: "Combien coûte un site web à Lyon ?",
-                  a: "La création d'un site web à Lyon démarre à 690 € pour un site vitrine, 1 290 € pour un site multi-pages Pro et à partir de 1 990 € pour un e-commerce ou un site sur mesure. Devis gratuit sous 24h.",
-                },
-                {
-                  q: 'Quel est le délai de création de votre agence web à Lyon ?',
-                  a: 'Nous livrons un site vitrine en 7 à 14 jours, un site e-commerce en 4 à 8 semaines. Nous proposons également un service express pour les projets urgents.',
-                },
-                {
-                  q: "L'agence intervient-elle dans toute la région lyonnaise ?",
-                  a: "Oui. Nous intervenons à Lyon (tous arrondissements), Villeurbanne, Caluire-et-Cuire, Bron, Vénissieux et dans toute la région Auvergne-Rhône-Alpes. Nous travaillons aussi à distance pour toute la France.",
-                },
-              ].map((faq, i) => (
-                <div key={i} className='bg-white rounded-2xl p-8 shadow-lg border border-gray-100'>
-                  <h3 className='text-xl font-bold text-[#112D4E] mb-4'>{faq.q}</h3>
-                  <p className='text-gray-600 leading-relaxed'>{faq.a}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Section>
-
-        {/* CTA Section */}
-        <Section className='py-20 bg-linear-to-br from-[#112D4E] to-[#3F72AF] text-white'>
-          <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-            <h2 className='text-4xl font-bold mb-6'>
-              Lancez votre projet avec notre agence web à Lyon
+      {/* Services Section */}
+      <section className="py-24 lg:py-32 bg-[#F6F4EE] border-b-[3px] border-[#121212]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
+            <h2 className={`${cormorant.className} text-5xl lg:text-7xl font-bold text-[#121212] uppercase leading-none`}>
+              Expertise <br/><span className="text-transparent bg-clip-text" style={{ WebkitTextStroke: '2px #121212' }}>Brute</span>
             </h2>
-            <p className='text-xl mb-8 opacity-90'>
-              Contactez-nous pour un devis gratuit sous 24h. Sites livrés en 7–14 jours, à partir
-              de <strong>690 €</strong>.
+            <p className="max-w-xs text-lg font-medium border-l-[3px] border-[#FF3E1A] pl-4 text-gray-700">
+              Des solutions sur-mesure pour dominer votre marché local.
             </p>
-            <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-              <CTAButton
-                href='/contact'
-                variant='outline'
-                size='lg'
-                className='bg-white text-[#112D4E] hover:bg-gray-100 border-white font-bold'>
-                Devis gratuit sous 24h
-              </CTAButton>
-              <CTAButton
-                href='/tarifs'
-                variant='outline'
-                size='lg'
-                className='border-white text-white hover:bg-white/10'>
-                Consulter nos tarifs
-              </CTAButton>
+          </div>
+
+          <div className="border-t-[3px] border-[#121212]">
+            {[
+              {
+                num: '01',
+                title: 'Site Vitrine',
+                desc: 'Un design exclusif pour affirmer votre identité. Expérience fluide, optimisation mobile et conversions maximisées. L\'outil parfait pour captiver vos futurs clients.',
+                price: 'Dès 690 €',
+                link: '/services/creation-sites-web'
+              },
+              {
+                num: '02',
+                title: 'E-Commerce',
+                desc: 'Architecture pensée pour la vente. Taux de conversion optimisé, gestion fluide du catalogue et paiements sécurisés pour exploser votre chiffre d\'affaires.',
+                price: 'Dès 1 990 €',
+                link: '/services/creation-site-ecommerce'
+              },
+              {
+                num: '03',
+                title: 'SEO Local',
+                desc: 'Dominez les recherches sur Lyon et le 69. Nous plaçons votre entreprise là où vos clients vous cherchent. Stratégie agressive et résultats traçables.',
+                price: 'Dès 149 €/mois',
+                link: '/services/optimisation-seo'
+              },
+              {
+                num: '04',
+                title: 'Refonte & Dev',
+                desc: 'Migration Next.js, modernisation d\'interface ou développement d\'app sur mesure. Nous réparons le passé pour construire le futur.',
+                price: 'Sur devis',
+                link: '/services/refonte-sites-web'
+              }
+            ].map((srv, i) => (
+              <div key={i} className="group flex flex-col lg:flex-row border-b-[3px] border-[#121212] lg:hover:bg-[#121212] transition-colors duration-500">
+                <div className="lg:w-32 py-8 px-4 flex items-start border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-[#121212] lg:group-hover:border-[#333]">
+                  <span className={`${cormorant.className} text-4xl lg:text-5xl font-bold text-[#FF3E1A]`}>{srv.num}</span>
+                </div>
+                <div className="flex-1 py-10 px-4 lg:px-12">
+                  <h3 className={`${cormorant.className} text-4xl lg:text-5xl font-bold text-[#121212] mb-6 lg:group-hover:text-[#F6F4EE] transition-colors duration-500 uppercase`}>
+                    {srv.title}
+                  </h3>
+                  <div className="flex flex-col lg:flex-row gap-8 justify-between items-start lg:items-end">
+                    <p className="max-w-xl text-lg text-gray-700 lg:group-hover:text-gray-400 transition-colors duration-500 leading-relaxed">
+                      {srv.desc}
+                    </p>
+                    <div className="flex flex-col items-start lg:items-end gap-4 shrink-0">
+                      <span className="font-bold text-[#121212] lg:group-hover:text-[#FF3E1A] transition-colors duration-500 tracking-widest uppercase text-sm border-b-2 border-transparent lg:group-hover:border-[#FF3E1A] pb-1">
+                        {srv.price}
+                      </span>
+                      <Link href={srv.link} className="flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-[#F6F4EE] bg-[#121212] lg:group-hover:bg-[#FF3E1A] lg:group-hover:text-[#121212] px-6 py-3 border-[3px] border-transparent lg:hover:border-[#121212] transition-all">
+                        Découvrir
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us - Brutalist Grid */}
+      <section className="py-24 lg:py-32 bg-[#121212] text-[#F6F4EE] border-b-[3px] border-[#121212]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-16">
+            <h2 className={`${cormorant.className} text-5xl lg:text-7xl font-bold uppercase leading-none`}>
+              Contre La <span className="text-[#FF3E1A] italic">Médiocrité</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-min gap-0 border-[3px] border-[#F6F4EE] bg-[#F6F4EE]">
+            {[
+               { title: 'Vitesse Extrême', desc: 'Architecture Next.js. Chargement instantané. Nous refusons les sites lents.', color: 'bg-[#121212]', text: 'text-[#F6F4EE]' },
+               { title: 'Local, Sans Filtre', desc: 'Basés à Lyon. Nous comprenons le marché local parce que nous l\'y vivons. Pas de sous-traitance à l\'autre bout du monde.', color: 'bg-[#FF3E1A]', text: 'text-[#121212]' },
+               { title: 'ROI Obsessif', desc: 'Nos designs ne sont pas juste esthétiques, ils sont mathématiquement conçus pour engager et convertir.', color: 'bg-[#1A311F]', text: 'text-[#F6F4EE]' },
+               { title: '0 Bullshit', desc: 'Tarification claire. Délais tenus (7-14 jours pour un vitrine). On fait ce qu\'on dit.', color: 'bg-[#F6F4EE]', text: 'text-[#121212]' },
+               { title: 'SEO Natif', desc: 'Chaque ligne de code est structurée pour satisfaire les algorithmes de Google. Le SEO n\'est pas une option.', color: 'bg-[#121212]', text: 'text-[#F6F4EE]' },
+            ].map((item, i) => (
+              <div key={i} className={`p-8 lg:p-12 ${item.color} ${item.text} border-[3px] border-[#F6F4EE] ${i === 4 ? 'lg:col-span-2' : ''} hover:scale-[0.98] transition-transform duration-300`}>
+                <div className="text-4xl lg:text-5xl font-black mb-6 border-b-[3px] border-current pb-6 inline-block w-full">{`0${i+1}`}</div>
+                <h3 className={`${cormorant.className} text-3xl font-bold uppercase mb-4`}>{item.title}</h3>
+                <p className="text-lg font-medium opacity-90 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Areas of intervention */}
+      <section className="py-20 bg-[#FF3E1A] border-b-[3px] border-[#121212] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <h2 className={`${cormorant.className} text-6xl lg:text-8xl font-black text-[#121212] uppercase mb-12 flex flex-wrap gap-4 leading-none`}>
+             <span className="text-transparent" style={{ WebkitTextStroke: '2px #121212' }}>Partout Dans </span>
+             <span>Le 69</span>
+           </h2>
+           <div className="flex flex-wrap gap-4 lg:gap-6 items-center">
+             {[
+               { city: 'Lyon', link: '/services/creation-site-internet-lyon' },
+               { city: 'Villeurbanne', link: '/services/creation-site-web-villeurbanne' },
+               { city: 'Caluire-et-Cuire', link: '/services/creation-site-web-caluire-et-cuire' },
+               { city: 'Bron', link: null },
+               { city: 'Vénissieux', link: null },
+               { city: 'Décines-Charpieu', link: null },
+               { city: 'Meyzieu', link: null }
+             ].map((loc, i) => (
+                loc.link ? (
+                  <Link key={i} href={loc.link} className="text-xl lg:text-3xl font-bold uppercase tracking-wider text-[#121212] hover:text-[#F6F4EE] border-b-4 border-[#121212] hover:border-[#F6F4EE] pb-2 transition-colors">
+                    {loc.city}
+                  </Link>
+                ) : (
+                  <span key={i} className="text-xl lg:text-3xl font-bold uppercase tracking-wider text-[#121212] opacity-50 pb-2">
+                    {loc.city}
+                  </span>
+                )
+             ))}
+           </div>
+        </div>
+      </section>
+
+      {/* FAQ & Final CTA Section */}
+      <section className="bg-[#F6F4EE] border-b-[3px] border-[#121212]">
+        <div className="grid lg:grid-cols-2">
+          <div className="border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-[#121212] p-8 lg:p-20">
+             <h2 className={`${cormorant.className} text-5xl font-bold text-[#121212] uppercase mb-12`}>F.A.Q.</h2>
+             <div className="space-y-0 border-t-[3px] border-[#121212]">
+               {[
+                  {
+                    q: 'Meilleure agence web à Lyon ?',
+                    a: 'C\'est subjectif, mais si vous cherchez des designs audacieux, des temps de chargement éclair et un SEO agressif, SIDIKOFF DIGITAL s\'impose comme l\'évidence.',
+                  },
+                  {
+                    q: "Le vrai prix d'un site à Lyon ?",
+                    a: "Dès 690 € pour un vitrine percutant. 1 990 € minimum pour un e-commerce. On ne fait pas dans l'usurpation, chaque euro investi a un impact. Devis précis gratuit sous 24h.",
+                  },
+                  {
+                    q: 'Délai de création réel ?',
+                    a: '7 à 14 jours pour un vitrine. On travaille vite parce qu\'on travaille bien. Les e-commerces prennent 4 à 8 semaines selon la complexité.',
+                  }
+               ].map((faq, i) => (
+                 <details key={i} className="group border-b-[3px] border-[#121212] bg-[#F6F4EE] open:bg-[#121212] open:text-[#F6F4EE] transition-colors duration-300">
+                   <summary className="flex justify-between items-center py-6 px-4 cursor-pointer list-none text-xl lg:text-2xl font-bold uppercase tracking-wide">
+                     {faq.q}
+                     <span className="text-3xl font-light transform group-open:rotate-45 transition-transform duration-300 group-open:text-[#FF3E1A]">+</span>
+                   </summary>
+                   <div className="px-4 pb-8 pt-0 text-lg leading-relaxed font-medium">
+                     {faq.a}
+                   </div>
+                 </details>
+               ))}
+             </div>
+          </div>
+
+          <div className="p-8 lg:p-20 flex flex-col justify-center bg-[#121212] text-[#F6F4EE]">
+            <div className="mb-8">
+              <span className="inline-block bg-[#FF3E1A] text-[#121212] px-4 py-2 font-black uppercase text-sm -rotate-2 mb-6">Action Immédiate</span>
+              <h2 className={`${cormorant.className} text-5xl lg:text-7xl font-bold uppercase leading-none mb-6`}>
+                Lancer Votre <br/>Projet.
+              </h2>
+              <p className="text-xl text-gray-400 font-medium">
+                Devis sous 24h. Livré en 7 à 14 jours.
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-6 mt-8">
+              <Link href="/contact" className="inline-flex items-center justify-center bg-[#FF3E1A] text-[#121212] px-8 py-5 font-black uppercase tracking-widest text-sm hover:bg-[#F6F4EE] hover:scale-105 transition-all">
+                Demander Un Devis
+              </Link>
             </div>
           </div>
-        </Section>
-      </div>
+        </div>
+      </section>
     </div>
   )
 }

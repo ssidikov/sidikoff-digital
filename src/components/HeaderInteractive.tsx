@@ -290,8 +290,8 @@ export function HeaderInteractive() {
         className='fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-[120] w-full max-w-7xl px-3 sm:px-4'>
         <nav className='relative z-[110] px-2 xs:px-3 sm:px-4'>
           <div
-            className={`flex items-center justify-between px-3 sm:px-4 py-3 sm:py-4 lg:px-4 3xl:p-4 transition-all duration-500 rounded-2xl sm:rounded-3xl backdrop-blur-xl border-2 border-white/30 shadow-xl ${
-              isBlogPage ? 'bg-white/90' : 'bg-white/20'
+            className={`flex items-center justify-between px-3 sm:px-4 py-3 sm:py-4 lg:px-4 3xl:p-4 transition-all duration-500 rounded-2xl sm:rounded-3xl backdrop-blur-2xl backdrop-saturate-[200%] backdrop-brightness-125 border border-white/60 shadow-[0_8px_32px_rgba(31,38,135,0.12)] border-t-white/80 border-l-white/80 ${
+              isBlogPage ? 'bg-white/90' : 'bg-white/40'
             }`}>
             {/* Logo */}
             <div className='flex-shrink-0'>
@@ -360,11 +360,11 @@ export function HeaderInteractive() {
               transition={{ duration: 0.2 }}
               className='absolute top-24 left-3.5 xs:left-4 right-3.5 xs:right-4 lg:hidden z-[110] rounded-3xl'
               style={{
-                background: 'rgba(249, 247, 247, 0.5)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                backdropFilter: 'blur(20px) saturate(180%)',
-                WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+                background: 'rgba(255, 255, 255, 0.5)',
+                border: '1px solid rgba(255, 255, 255, 0.6)',
+                backdropFilter: 'blur(24px) saturate(200%) brightness(125%)',
+                WebkitBackdropFilter: 'blur(24px) saturate(200%) brightness(125%)',
+                boxShadow: '0 8px 32px rgba(31, 38, 135, 0.12)',
               }}>
               <div className='py-3 sm:py-4 space-y-1 sm:space-y-2 px-3 sm:px-4'>
                 {navigation.map((item) => (

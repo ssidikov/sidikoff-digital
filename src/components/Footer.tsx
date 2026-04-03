@@ -90,6 +90,8 @@ const createSecteurLinks = (): FooterLink[] => [
  * Generate SEO Location/Ville links
  */
 const createVilleLinks = (): FooterLink[] => [
+  { name: 'Agence Web Villeurbanne', href: getLocalizedUrl('/services/agence-web-villeurbanne') },
+  { name: 'Agence Web Lyon', href: getLocalizedUrl('/services/agence-web-lyon') },
   { name: 'Agence Web Paris', href: getLocalizedUrl('/services/agence-web-paris') },
   { name: 'Agence Web Paris 15', href: getLocalizedUrl('/services/agence-web-paris-15') },
   {
