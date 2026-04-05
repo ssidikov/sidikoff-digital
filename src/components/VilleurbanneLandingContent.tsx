@@ -614,8 +614,8 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
                 <p>
                   Basé à <strong className='font-semibold text-slate-900'>Villeurbanne</strong>, je
                   connais parfaitement le tissu économique local et les enjeux des entreprises de la
-                  métropole lyonnaise. Cette proximité géographique me permet d&apos;offrir un service
-                  réactif et personnalisé.
+                  métropole lyonnaise. Cette proximité géographique me permet d&apos;offrir un
+                  service réactif et personnalisé.
                 </p>
                 <p>
                   Que vous soyez dans les quartiers de{' '}
@@ -645,7 +645,9 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
 
             <div className='col-span-12 lg:col-span-4'>
               <div className='rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-soft-md border border-white/60'>
-                <h3 className='mb-6 text-xl font-semibold text-slate-900'>Zone d&apos;intervention</h3>
+                <h3 className='mb-6 text-xl font-semibold text-slate-900'>
+                  Zone d&apos;intervention
+                </h3>
                 <div className='space-y-4'>
                   {[
                     { area: 'Villeurbanne', distance: 'Sur place' },

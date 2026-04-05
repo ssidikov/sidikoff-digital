@@ -202,7 +202,9 @@ export default function CaluireLandingContent({ content: c, faqs, structuredData
             <div className='group relative flex flex-col justify-between rounded-4xl border border-slate-200 bg-white p-10 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-500/5'>
               <div className='mb-12 h-16 w-16 rounded-2xl bg-linear-to-br from-blue-600 to-indigo-700 shadow-lg shadow-blue-200' />
               <div>
-                <h3 className='mb-4 text-2xl font-semibold text-slate-900'>Développement Premium</h3>
+                <h3 className='mb-4 text-2xl font-semibold text-slate-900'>
+                  Développement Premium
+                </h3>
                 <p className='text-lg leading-relaxed text-slate-600'>
                   Pas de templates génériques. Une architecture sur-mesure optimisée pour votre
                   croissance.
@@ -324,7 +326,9 @@ export default function CaluireLandingContent({ content: c, faqs, structuredData
                   {tier.name}
                 </h3>
                 <div className='mb-8 flex items-baseline gap-1'>
-                  <span className='text-4xl font-bold tracking-tight text-slate-900'>{tier.price}</span>
+                  <span className='text-4xl font-bold tracking-tight text-slate-900'>
+                    {tier.price}
+                  </span>
                 </div>
 
                 <ul className='mb-10 flex-1 space-y-4'>
