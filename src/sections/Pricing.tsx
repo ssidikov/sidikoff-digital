@@ -92,7 +92,7 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
   const handlePlanSelect = (planName: string) => {
     // Redirection vers la page de contact avec le plan présélectionné
     const contactUrl = `/contact?plan=${planName.toLowerCase()}`
-    window.location.href = contactUrl
+    window.location.assign(contactUrl)
   }
 
   return (

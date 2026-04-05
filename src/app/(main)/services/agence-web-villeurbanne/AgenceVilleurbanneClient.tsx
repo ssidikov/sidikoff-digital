@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowUpRight, Code2, Globe, Sparkles, CheckSquare } from 'lucide-react'
 import Link from 'next/link'
@@ -35,14 +35,6 @@ const staggerContainer = {
 }
 
 export default function AgenceVilleurbanneClient() {
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) return null
-
   return (
     <div className={`relative min-h-screen bg-[#FFFFFF] text-[#111827] selection:bg-[#3B82F6] selection:text-white pt-28 pb-16 font-sans overflow-x-hidden ${jetbrainsMono.variable}`}>
       
@@ -154,7 +146,7 @@ export default function AgenceVilleurbanneClient() {
             <span className={`${jetbrainsMono.className} text-4xl font-bold opacity-20 block mb-8`}>02</span>
             <h3 className={`${limelight.className} text-3xl mb-6 tracking-wide`}>GÉNIE LOGICIEL</h3>
             <p className="text-white/80 font-medium leading-relaxed mb-8 flex-grow">
-              Automatisation et conception d'ERP/CRM sur-mesure. Intégration IA pour optimiser la logistique interne.
+              Automatisation et conception d&apos;ERP/CRM sur-mesure. Intégration IA pour optimiser la logistique interne.
             </p>
             <div className="flex gap-2 flex-wrap">
               {['REACT', 'NODE', 'PYTHON'].map(tag => (
@@ -193,7 +185,7 @@ export default function AgenceVilleurbanneClient() {
           >
             <span className={`${jetbrainsMono.className} text-[#3B82F6] font-bold text-xl uppercase mb-4 block`}>[02] Pourquoi le local ?</span>
             <h2 className={`${limelight.className} text-5xl md:text-6xl text-[#111827] mb-8 uppercase`}>
-              L'excellence à l'échelle de votre territoire
+              L&apos;excellence à l&apos;échelle de votre territoire
             </h2>
             <div className="space-y-4 font-medium text-lg text-[#111827]">
               {[
@@ -257,7 +249,7 @@ export default function AgenceVilleurbanneClient() {
             PRÊT À REDÉFINIR LES STANDARDS ?
           </h2>
           <p className="text-xl text-[#111827] font-medium mb-12 max-w-2xl mx-auto">
-            Contactez notre centre d'ingénierie situé dans l'environnement stratégique de Villeurbanne. Actionnez immédiatement la conception.
+            Contactez notre centre d&apos;ingénierie situé dans l&apos;environnement stratégique de Villeurbanne. Actionnez immédiatement la conception.
           </p>
           <Link href="/contact" className={`group relative inline-flex px-12 py-6 bg-[#111827] text-white border-4 border-transparent hover:bg-white hover:text-[#111827] hover:border-[#111827] hover:shadow-[12px_12px_0px_#8B5CF6] transition-all duration-300`}>
             <span className={`${jetbrainsMono.className} font-bold uppercase text-2xl flex items-center gap-4`}>

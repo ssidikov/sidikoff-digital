@@ -33,10 +33,6 @@ import {
 
 import common from '@/locales/fr/common.json'
 
-interface FreelanceLandingContentProps {
-  // no props needed
-}
-
 interface PainPoint {
   icon: string
   title: string

@@ -29,10 +29,6 @@ import {
 
 import common from '@/locales/fr/common.json'
 
-interface EcommerceLandingContentProps {
-  // no props needed
-}
-
 interface PainPoint {
   icon: string
   title: string

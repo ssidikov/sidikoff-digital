@@ -28,10 +28,6 @@ import {
 
 import common from '@/locales/fr/common.json'
 
-interface PhotographerLandingContentProps {
-  // no props needed
-}
-
 interface PainPoint {
   icon: string
   title: string

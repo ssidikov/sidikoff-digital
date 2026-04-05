@@ -27,10 +27,6 @@ import {
 
 import common from '@/locales/fr/common.json'
 
-interface BarbershopLandingContentProps {
-  // no props needed
-}
-
 interface PainPoint {
   icon: string
   title: string

@@ -23,10 +23,6 @@ import {
 
 import travelData from '@/locales/fr/travel_agency_landing.json'
 
-interface TravelAgencyLandingContentProps {
-  // no props needed
-}
-
 interface PainPoint {
   icon: string
   title: string
@@ -70,7 +66,7 @@ interface Question {
   answer: string
 }
 
-const TravelAgencyLandingContent: React.FC<TravelAgencyLandingContentProps> = () => {
+const TravelAgencyLandingContent = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
   const [activeFeature, setActiveFeature] = useState(0)
 

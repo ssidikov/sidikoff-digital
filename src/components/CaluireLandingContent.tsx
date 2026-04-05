@@ -67,7 +67,7 @@ export interface VilleurbannContent {
 interface Props {
   content: VilleurbannContent
   faqs: FaqItem[]
-  structuredData: any[]
+  structuredData: unknown[]
 }
 
 // ─── Component ──────────────────────────────────────────────────────────────────
