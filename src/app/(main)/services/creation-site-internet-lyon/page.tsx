@@ -86,7 +86,12 @@ const lyonSchemas = [
       { '@type': 'Place', name: 'Auvergne-Rhône-Alpes' },
       { '@type': 'Country', name: 'France' },
     ],
-    serviceType: ['Création de site internet', 'Site e-commerce', 'SEO local Lyon', 'Développement web'],
+    serviceType: [
+      'Création de site internet',
+      'Site e-commerce',
+      'SEO local Lyon',
+      'Développement web',
+    ],
     priceRange: '€€',
     openingHours: 'Mo-Fr 09:00-18:00',
     sameAs: [
@@ -98,9 +103,32 @@ const lyonSchemas = [
       '@type': 'OfferCatalog',
       name: 'Services web Lyon',
       itemListElement: [
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Site vitrine Lyon', description: 'Création de sites vitrines professionnels pour entreprises lyonnaises' } },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Site e-commerce Lyon', description: 'Boutiques en ligne sécurisées avec gestion de produits et paiement en ligne' } },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'SEO local Lyon', description: 'Référencement naturel local pour les recherches Google à Lyon et dans le 69' } },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Site vitrine Lyon',
+            description: 'Création de sites vitrines professionnels pour entreprises lyonnaises',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Site e-commerce Lyon',
+            description:
+              'Boutiques en ligne sécurisées avec gestion de produits et paiement en ligne',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'SEO local Lyon',
+            description:
+              'Référencement naturel local pour les recherches Google à Lyon et dans le 69',
+          },
+        },
       ],
     },
   },
@@ -109,8 +137,18 @@ const lyonSchemas = [
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.sidikoff.com/' },
-      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.sidikoff.com/services' },
-      { '@type': 'ListItem', position: 3, name: 'Création site internet Lyon', item: 'https://www.sidikoff.com/services/creation-site-internet-lyon' },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Services',
+        item: 'https://www.sidikoff.com/services',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'Création site internet Lyon',
+        item: 'https://www.sidikoff.com/services/creation-site-internet-lyon',
+      },
     ],
   },
   {
@@ -120,22 +158,34 @@ const lyonSchemas = [
       {
         '@type': 'Question',
         name: 'Quel est le prix pour créer un site internet à Lyon ?',
-        acceptedAnswer: { '@type': 'Answer', text: 'Les tarifs varient selon le type de projet (site vitrine, e-commerce, sur mesure). Un site vitrine démarre à partir de 800€. Contactez-nous pour un devis gratuit et personnalisé sous 24h.' },
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Les tarifs varient selon le type de projet (site vitrine, e-commerce, sur mesure). Un site vitrine démarre à partir de 800€. Contactez-nous pour un devis gratuit et personnalisé sous 24h.',
+        },
       },
       {
         '@type': 'Question',
-        name: 'Combien de temps dure la création d\'un site web à Lyon ?',
-        acceptedAnswer: { '@type': 'Answer', text: 'En moyenne 7 à 14 jours pour un site vitrine, 4 à 8 semaines pour un site e-commerce, en fonction de la complexité et du contenu fourni.' },
+        name: "Combien de temps dure la création d'un site web à Lyon ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'En moyenne 7 à 14 jours pour un site vitrine, 4 à 8 semaines pour un site e-commerce, en fonction de la complexité et du contenu fourni.',
+        },
       },
       {
         '@type': 'Question',
         name: 'Mon site sera-t-il bien référencé sur Google à Lyon ?',
-        acceptedAnswer: { '@type': 'Answer', text: 'Oui. Chaque site est optimisé pour le référencement SEO local à Lyon : balises meta, contenus géolocalisés, Google Business Profile, Core Web Vitals optimisés.' },
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Oui. Chaque site est optimisé pour le référencement SEO local à Lyon : balises meta, contenus géolocalisés, Google Business Profile, Core Web Vitals optimisés.',
+        },
       },
       {
         '@type': 'Question',
         name: 'Puis-je mettre à jour mon site moi-même ?',
-        acceptedAnswer: { '@type': 'Answer', text: 'Oui. Nous proposons des CMS intuitifs (Sanity, WordPress) et une formation complète pour gérer vos textes et images en toute autonomie.' },
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Oui. Nous proposons des CMS intuitifs (Sanity, WordPress) et une formation complète pour gérer vos textes et images en toute autonomie.',
+        },
       },
     ],
   },
@@ -211,7 +261,6 @@ export default async function LyonPage() {
                   → Site web Caluire
                 </Link>
               </div>
-
 
               {/* Floating Metrics */}
               <div className='grid grid-cols-3 gap-6 pt-8'>

@@ -59,11 +59,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   routes.forEach((route) => {
     // KEY SEO PAGES near Top 10 in GSC get priority boost
     const highPriorityRoutes = [
-      '/services/agence-web-lyon',                 // 🔥 NEW — main Lyon city page
-      '/services/agence-web-paris-15',             // pos 8.8, 78 impressions
+      '/services/agence-web-lyon', // 🔥 NEW — main Lyon city page
+      '/services/agence-web-paris-15', // pos 8.8, 78 impressions
       '/services/creation-site-internet-paris-16', // pos 7.3, 68 impressions
-      '/services/agence-web-villeurbanne',         // NEW target for Villeurbanne
-      '/services/agence-web-paris',                // 1035 impressions
+      '/services/agence-web-villeurbanne', // NEW target for Villeurbanne
+      '/services/agence-web-paris', // 1035 impressions
     ]
     const isHighPriority = highPriorityRoutes.includes(route)
 
@@ -71,10 +71,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}${route === '' ? '/' : route}`,
       lastModified: currentDate,
       changeFrequency: route === '/blog' ? 'daily' : route === '' ? 'weekly' : 'weekly',
-      priority: route === '' ? 1.0
-        : route === '/contact' ? 0.9
-        : isHighPriority ? 0.85
-        : 0.7,
+      priority: route === '' ? 1.0 : route === '/contact' ? 0.9 : isHighPriority ? 0.85 : 0.7,
     })
   })
 
