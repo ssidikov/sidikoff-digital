@@ -45,6 +45,31 @@ interface PortfolioCarouselProps {
   isHomePage?: boolean // Add prop to determine if on homepage
 }
 
+// Helper function to convert projects to portfolio items
+export function convertProjectsToPortfolioItems(
+  projects: unknown[],
+  maxItems?: number,
+): PortfolioItem[] {
+  const itemsToShow = maxItems ? projects.slice(0, maxItems) : projects
+  return itemsToShow.map((project, index) => {
+    const p = project as {
+      id: string
+      title: string
+      category: string
+      image: string
+      technologies?: string[]
+    }
+    return {
+      id: p.id,
+      number: String(index + 1).padStart(2, '0'),
+      title: p.title,
+      category: p.category,
+      image: p.image,
+      imageAlt: p.title,
+      technologies: p.technologies ?? undefined,
+    }
+  })
+}
 
 export default function PortfolioCarousel({
   items,

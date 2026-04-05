@@ -1,9 +1,7 @@
-import { createCanonicalUrl, generateAlternateUrls, generateServiceSchema } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import type { Metadata } from 'next'
 import common from '@/locales/fr/common.json'
 import AgenceWebParis15LandingContent from '@/components/AgenceWebParis15LandingContent'
-
-const PAGE_URL = createCanonicalUrl('services/agence-web-paris-15', 'fr')
 
 export async function generateMetadata(): Promise<Metadata> {
   const content = common.agence_web_paris_15_landing
@@ -30,11 +28,11 @@ export async function generateMetadata(): Promise<Metadata> {
       description: content.meta_description,
       type: 'website',
       locale: 'fr_FR',
-      url: PAGE_URL,
+      url: `https://www.sidikoff.com/services/agence-web-paris-15`,
       siteName: 'SIDIKOFF DIGITAL',
       images: [
         {
-          url: '/images/og/agence-web-paris-15-og.jpg',
+          url: '/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: 'Agence Web Paris 15ème - Création Site Internet',
@@ -46,10 +44,10 @@ export async function generateMetadata(): Promise<Metadata> {
       title: content.meta_title,
       description: content.meta_description,
       creator: '@sidikoffdigital',
-      images: ['/images/og/agence-web-paris-15-og.jpg'],
+      images: ['/images/opengraph-fr.png'],
     },
     alternates: {
-      canonical: PAGE_URL,
+      canonical: createCanonicalUrl('services/agence-web-paris-15', 'fr'),
       languages: generateAlternateUrls('services/agence-web-paris-15'),
     },
     robots: {
@@ -66,24 +64,6 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-const serviceSchema = generateServiceSchema({
-  name: 'Agence Web Paris 15ème — Création de Sites Internet',
-  description:
-    'Agence web Paris 15 spécialisée en création de sites vitrines, e-commerce et SEO local. Next.js/React, livraison en 7–14 jours, devis gratuit sous 24h. Convention, Vaugirard, Grenelle.',
-  url: PAGE_URL,
-  serviceType: 'Création de site internet Paris 15',
-  areaServed: ['Paris 15', 'Paris', 'Île-de-France', 'France'],
-  image: 'https://www.sidikoff.com/images/og/agence-web-paris-15-og.jpg',
-})
-
 export default function AgenceWebParis15Page() {
-  return (
-    <>
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-      <AgenceWebParis15LandingContent />
-    </>
-  )
+  return <AgenceWebParis15LandingContent />
 }

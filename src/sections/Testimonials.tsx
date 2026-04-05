@@ -1,21 +1,18 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import Script from 'next/script'
+
 import common from '@/locales/fr/common.json'
-import { MotionDiv, MotionH2, MotionP } from '@/components/ui/Motion'
 import CTAButton from '@/components/ui/CTAButton'
 import Section, { SectionHeader } from '@/components/ui/Section'
 import StarRating from '@/components/ui/StarRating'
+import { TESTIMONIALS_DATA } from '@/data/testimonials'
 import { cardStyles } from '@/utils/styles'
+import { generateReviewStructuredData } from '@/lib/seo-utils'
 
 interface TestimonialsProps {
   className?: string
-}
-
-interface Testimonial {
-  id: string
-  text: string
-  author: string
-  project: string
-  rating: number
-  date: string
 }
 
 // Animation configurations
@@ -31,42 +28,6 @@ const CTA_BANNER_ANIMATIONS = {
   button: { duration: 0.6, delay: 0.6 },
 } as const
 
-// Testimonials data — also exported so page.tsx can generate JSON-LD on the server
-export const TESTIMONIALS_DATA: Testimonial[] = [
-  {
-    id: 'new-2',
-    text: "Excellent travail de la part de Sardorbek pour la création de notre landing page. Le résultat est impeccable et livré très rapidement. J'ai particulièrement apprécié sa réactivité et sa disponibilité. Je recommande vivement ses services.",
-    author: 'Mathieu',
-    project: 'Degaus',
-    rating: 5,
-    date: '2025-11-24',
-  },
-  {
-    id: 'new-1',
-    text: "Sardorbek a été hyper réactif, il a su répondre efficacement à mes demandes, une excellente communication et le résultat final est précisément ce que j'attendais, je ne peux que le recommander.",
-    author: 'Laurent Carre',
-    project: 'Websavoie - Gérant',
-    rating: 5,
-    date: '2025-11-12',
-  },
-  {
-    id: '1',
-    text: 'Sardor nous a aidés à corriger des erreurs sur notre site e-commerce qui causaient des problèmes sur la version mobile. Tout a été fait rapidement et avec professionnalisme, et le site fonctionne parfaitement maintenant.',
-    author: 'Daniyar Rakhmetov',
-    project: 'Site e-commerce',
-    rating: 5,
-    date: '2025-07-01',
-  },
-  {
-    id: '2',
-    text: "Sardor a réalisé le site de notre restaurant chinois Chez Liqi de manière professionnelle. Il a conçu un design moderne, une navigation intuitive et a soigné chaque détail pour refléter l'atmosphère de notre établissement. Nous sommes très satisfaits du résultat.",
-    author: 'Équipe du restaurant Chez Liqi',
-    project: 'Restaurant Chez Liqi',
-    rating: 5,
-    date: '2025-08-01',
-  },
-]
-
 /**
  * Testimonials section component with client testimonials and CTA banner
  * Features responsive design, animations, and accessibility
@@ -75,8 +36,28 @@ export function Testimonials({ className }: TestimonialsProps) {
   const dict = common.testimonials
   const contactUrl = '/contact'
 
+  // Generate structured data for reviews
+  const reviewsData = TESTIMONIALS_DATA.map((testimonial) => ({
+    author: testimonial.author,
+    reviewBody: testimonial.text,
+    rating: testimonial.rating,
+    projectName: testimonial.project,
+    datePublished: testimonial.date,
+  }))
+
+  const reviewStructuredData = generateReviewStructuredData(reviewsData)
+
   return (
     <>
+      {/* Structured Data for Reviews */}
+      <Script
+        id='testimonials-structured-data'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(reviewStructuredData, null, 0),
+        }}
+      />
+
       <Section
         id='testimonials'
         variant='services'
@@ -95,7 +76,7 @@ export function Testimonials({ className }: TestimonialsProps) {
           {/* Testimonials Cards */}
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
             {TESTIMONIALS_DATA.map((testimonial, index) => (
-              <MotionDiv
+              <motion.div
                 key={testimonial.id}
                 initial={CARD_ANIMATION.initial}
                 whileInView={CARD_ANIMATION.animate}
@@ -133,12 +114,12 @@ export function Testimonials({ className }: TestimonialsProps) {
                     <div className='text-sm text-gray-600'>{testimonial.project}</div>
                   </div>
                 </div>
-              </MotionDiv>
+              </motion.div>
             ))}
           </div>
 
           {/* CTA Banner */}
-          <MotionDiv
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -146,25 +127,25 @@ export function Testimonials({ className }: TestimonialsProps) {
             className='mt-20'>
             <div className='relative flex w-full items-center justify-center overflow-hidden rounded-md bg-accent py-8 md:h-screen'>
               <div className='mx-auto max-w-4xl px-6 text-center lg:px-8'>
-                <MotionH2
+                <motion.h2
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={CTA_BANNER_ANIMATIONS.title}
                   viewport={{ once: true }}
                   className='mb-6 text-2xl font-bold leading-tight text-white md:text-5xl lg:mb-8 lg:text-6xl xl:text-7xl'>
                   {dict.cta.title}
-                </MotionH2>
+                </motion.h2>
 
-                <MotionP
+                <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={CTA_BANNER_ANIMATIONS.description}
                   viewport={{ once: true }}
                   className='mx-auto mb-12 max-w-3xl text-base leading-relaxed text-white/90 lg:mb-16 lg:text-2xl'>
                   {dict.cta.description}
-                </MotionP>
+                </motion.p>
 
-                <MotionDiv
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={CTA_BANNER_ANIMATIONS.button}
@@ -194,10 +175,10 @@ export function Testimonials({ className }: TestimonialsProps) {
                       </svg>
                     </span>
                   </CTAButton>
-                  </MotionDiv>
+                </motion.div>
               </div>
             </div>
-          </MotionDiv>
+          </motion.div>
         </div>
       </Section>
     </>

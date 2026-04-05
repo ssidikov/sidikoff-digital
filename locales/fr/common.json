@@ -351,7 +351,7 @@
     "questions": {
       "prix_site_web": {
         "question": "Combien coûte la création d'un site internet professionnel ?",
-        "answer": "Le coût dépend des objectifs du projet, du nombre de pages et des fonctionnalités.\nEn moyenne, le prix de création d'un site web professionnel varie de 900€ TTC à 1900€ TTC.\nCela inclut le design responsive, l'optimisation SEO, la configuration des analytics et le support technique de base après le lancement.\n\nAudit gratuit et devis détaillé fournis après discussion de votre projet.",
+        "answer": "Le coût dépend des objectifs du projet, du nombre de pages et des fonctionnalités.\nEn moyenne, le prix de création d'un site web professionnel varie de 690€ TTC à 1690€ TTC.\nCela inclut le design responsive, l'optimisation SEO, la configuration des analytics et le support technique de base après le lancement.\n\nAudit gratuit et devis détaillé fournis après discussion de votre projet.",
         "category": "pricing"
       },
       "delai_creation": {
@@ -1071,7 +1071,7 @@
       "showcase": {
         "title": "Site vitrine",
         "description": "Site web professionnel pour présenter votre entreprise, vos services et vos valeurs. Design moderne et responsive.",
-        "price": "À partir de 900€ TTC"
+        "price": "À partir de 690€ TTC"
       },
       "ecommerce": {
         "title": "Boutique e-commerce",
@@ -1091,7 +1091,7 @@
       "redesign": {
         "title": "Refonte de site",
         "description": "Modernisation de votre site existant : nouveau design, amélioration des performances et SEO.",
-        "price": "À partir de 900€ TTC"
+        "price": "À partir de 690€ TTC"
       },
       "maintenance": {
         "title": "Maintenance",
@@ -1131,7 +1131,7 @@
   },
   "restaurant_landing": {
     "meta_title": "Création Site Web Restaurant - Augmentez vos Réservations",
-    "meta_description": "Site web professionnel pour restaurant. Réservations en ligne, menu digital, commandes. Tarif dès 900€ TTC TTC. Support mensuel tout inclus dès 24€/mois. Solutions transparentes et complètes.",
+    "meta_description": "Site web professionnel pour restaurant. Réservations en ligne, menu digital, commandes. Tarif dès 690€ TTC TTC. Support mensuel tout inclus dès 24€/mois. Solutions transparentes et complètes.",
     "keywords": [
       "site web restaurant",
       "création site restaurant",
@@ -1493,7 +1493,7 @@
       "questions": [
         {
           "question": "Combien coûte un site web pour restaurant ?",
-          "answer": "Nos sites web restaurant démarrent à 900€ TTC TTC pour une solution complète avec réservations en ligne, menu numérique et optimisation mobile. Tarif Professional 1299€ inclut vente en ligne + Click&Collect. Plans de support mensuel dès 24€/mois incluant hébergement, maintenance et mises à jour. Aucun frais caché, tarification transparente. Délais 3-8 semaines selon complexité."
+          "answer": "Nos sites web restaurant démarrent à 690€ TTC TTC pour une solution complète avec réservations en ligne, menu numérique et optimisation mobile. Tarif Professional 1299€ inclut vente en ligne + Click&Collect. Plans de support mensuel dès 24€/mois incluant hébergement, maintenance et mises à jour. Aucun frais caché, tarification transparente. Délais 3-8 semaines selon complexité."
         },
         {
           "question": "Ai-je besoin de connaissances techniques pour gérer mon site restaurant ?",
@@ -1720,7 +1720,7 @@
       "packages": [
         {
           "name": "Site Vitrine",
-          "price": "900€ TTC",
+          "price": "690€ TTC",
           "period": "projet",
           "description": "Parfait pour présenter votre boulangerie",
           "delivery_time": "3-4 semaines",
@@ -1776,7 +1776,7 @@
       "questions": [
         {
           "question": "Quel est le prix d'un site internet pour ma boulangerie ?",
-          "answer": "Nos tarifs commencent à 900€ TTC pour un site vitrine et vont jusqu'à 2299€ pour une solution premium multilingue. Nous proposons un devis gratuit et personnalisé selon vos besoins spécifiques."
+          "answer": "Nos tarifs commencent à 690€ TTC pour un site vitrine et vont jusqu'à 2299€ pour une solution premium multilingue. Nous proposons un devis gratuit et personnalisé selon vos besoins spécifiques."
         },
         {
           "question": "Combien de temps faut-il pour créer mon site ?",

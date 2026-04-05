@@ -1,7 +1,10 @@
+'use client'
+
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
 
 import common from '@/locales/fr/common.json'
-import { MotionDiv, MotionH1, MotionP } from '@/components/ui/Motion'
 import { ArrowIcon, PlayIcon } from '@/components/ui/icons'
 import CTAButton from '@/components/ui/CTAButton'
 import Section from '@/components/ui/Section'
@@ -36,41 +39,41 @@ function getCTAHref(section: string): string {
  * Features dual CTA buttons and hero illustration
  */
 export function Hero() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
+
   const primaryCTAHref = getCTAHref('contact')
   const secondaryCTAHref = getCTAHref('portfolio')
 
   return (
     <ViewportHeightProvider>
       <Section id='hero' variant='hero' background='transparent' padding='none' contentWidth='wide'>
-        <div className='relative z-10 hero-height flex items-center'>
+        <div ref={ref} className='relative z-10 hero-height flex items-center'>
           <div className='w-full grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center px-4 sm:px-6 lg:px-8'>
             {/* Content Column */}
             <div className='order-1 max-w-[800px] space-y-6 md:space-y-8 lg:pr-8'>
               {/* Main Heading */}
-              <MotionH1
+              <motion.h1
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={ANIMATION_CONFIG.title}
                 className='text-3xl xl:text-5xl font-black text-black leading-[1.1] tracking-tight drop-shadow-xl'>
                 <span>{dict.title}</span>
-              </MotionH1>
+              </motion.h1>
 
               {/* Subtitle */}
-              <MotionP
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={ANIMATION_CONFIG.subtitle}
                 className='max-w-2xl text-lg xl:text-2xl text-black/85 leading-[1.4] font-light drop-shadow-lg'>
                 {dict.subtitle}
-              </MotionP>
+              </motion.p>
 
               {/* Trust indicators */}
-              <MotionDiv
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ ...ANIMATION_CONFIG.subtitle, delay: 0.2 }}
                 className='flex flex-wrap items-center gap-4 text-sm font-medium text-black/70'>
                 {dict.trust_indicators?.map((indicator: string, index: number) => (
@@ -79,13 +82,12 @@ export function Hero() {
                     {indicator}
                   </span>
                 ))}
-              </MotionDiv>
+              </motion.div>
 
               {/* CTA Buttons */}
-              <MotionDiv
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={ANIMATION_CONFIG.buttons}
                 className='flex flex-col xl:flex-row gap-3 sm:gap-4 lg:gap-6 pt-2'>
                 <CTAButton
@@ -109,15 +111,14 @@ export function Hero() {
                   <PlayIcon />
                   <span className='ml-2 truncate'>{dict.cta_secondary}</span>
                 </CTAButton>
-              </MotionDiv>
+              </motion.div>
             </div>
 
             {/* Hero Illustration */}
             <div className='relative order-2 lg:pl-8'>
-              <MotionDiv
+              <motion.div
                 initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={ANIMATION_CONFIG.image}
                 className='relative w-full h-[200px] md:h-[250px] xl:h-[700px]'>
                 <Image
@@ -131,7 +132,7 @@ export function Hero() {
                   sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw'
                   quality={95}
                 />
-              </MotionDiv>
+              </motion.div>
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@ import {
   generateReviewStructuredData,
 } from '@/lib/seo-utils'
 import { getBlogPosts } from '@/lib/sanity'
-import { TESTIMONIALS_DATA } from '@/sections/Testimonials'
+import { TESTIMONIALS_DATA } from '@/data/testimonials'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import {
