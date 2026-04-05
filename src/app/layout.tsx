@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Analytics from '@/components/analytics'
 import '@/styles/globals.css'
-import { inter } from '@/lib/fonts'
+import { inter, grotesk } from '@/lib/fonts'
 
 // SEO Configuration
 const SITE_CONFIG = {
@@ -182,7 +182,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <link rel='shortcut icon' href='/favicon.ico' />
         <link rel='apple-touch-icon' href='/favicon.png' />
       </head>
-      <body className={inter.className} suppressHydrationWarning>
+      <body className={`${inter.className} ${grotesk.variable}`} suppressHydrationWarning>
         {children}
         <Analytics />
       </body>

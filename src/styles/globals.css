@@ -146,6 +146,16 @@ body {
   position: relative;
 }
 
+/* Global heading style uses the same display font as Testimonials title */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-grotesk), 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
 /* Loading state для предотвращения layout shift */
 .hero-loading {
   min-height: 100vh;
