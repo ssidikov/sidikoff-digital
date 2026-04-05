@@ -9,6 +9,22 @@ export interface Testimonial {
 
 export const TESTIMONIALS_DATA: Testimonial[] = [
   {
+    id: 'new-4',
+    text: "Je recommande vivement Sardor pour la création de sites internet. C'est une personne extrêmement professionnelle, sérieuse et surtout digne de confiance. Dès le premier échange, on se sent tout de suite à l'aise, il est à l'écoute et très réactif. Il a réalisé le site de mon salon L'Instant Barbier, et le résultat est tout simplement excellent. Tous les retours que je reçois sont très positifs, le site est moderne, fluide et très professionnel. En plus de ses compétences techniques, Sardor est quelqu'un de très poli, respectueux et humain, ce qui rend la collaboration encore plus agréable. C'est un vrai plaisir de travailler avec lui. Je recommande les yeux fermés 💯",
+    author: "L'Instant Barbier Paris",
+    project: "Salon L'Instant Barbier",
+    rating: 5,
+    date: '2026-04-05',
+  },
+  {
+    id: 'new-3',
+    text: "Je tiens à laisser un avis très positif pour cette entreprise de développement web. Un ami m'a recommandé ce développeur et, dès le premier appel, j'ai immédiatement ressenti un vrai climat de confiance. Nous nous sommes rencontrés le jour même, preuve de son sérieux et de sa motivation. C'est une personne très professionnelle, à l'écoute, et surtout passionnée par son travail. Il prend vraiment le temps d'expliquer chaque étape, de A à Z, avec beaucoup de clarté, même sur les petits détails. On se sent tout de suite à l'aise avec lui, ce qui est très important lorsqu'on lance un projet. Le travail fourni est de grande qualité, soigné et créatif, avec un vrai sens du détail. Je recommande les yeux fermés, c'est un véritable professionnel en qui vous pouvez avoir totalement confiance.",
+    author: 'Rayssen 4R',
+    project: 'Projet de développement web',
+    rating: 5,
+    date: '2026-04-05',
+  },
+  {
     id: 'new-2',
     text: "Excellent travail de la part de Sardorbek pour la création de notre landing page. Le résultat est impeccable et livré très rapidement. J'ai particulièrement apprécié sa réactivité et sa disponibilité. Je recommande vivement ses services.",
     author: 'Mathieu',

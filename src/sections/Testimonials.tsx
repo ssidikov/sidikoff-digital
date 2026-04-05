@@ -35,6 +35,7 @@ const CTA_BANNER_ANIMATIONS = {
 export function Testimonials({ className }: TestimonialsProps) {
   const dict = common.testimonials
   const contactUrl = '/contact'
+  const googleReviewsUrl = 'https://maps.app.goo.gl/1aArF53esMA5vco28'
 
   // Generate structured data for reviews
   const reviewsData = TESTIMONIALS_DATA.map((testimonial) => ({
@@ -117,6 +118,44 @@ export function Testimonials({ className }: TestimonialsProps) {
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className='mt-10 flex justify-center'>
+            <CTAButton
+              variant='outline'
+              size='lg'
+              href={googleReviewsUrl}
+              className='group'
+              trackingAction='google_reviews_click'
+              trackingCategory='testimonials'
+              ariaLabel='Lire les avis sur Google'>
+              <span className='flex items-center gap-3'>
+                <span>Lire les avis sur Google</span>
+                <svg
+                  className='h-6 w-6 transition-transform duration-300 group-hover:translate-x-1'
+                  fill='none'
+                  stroke='currentColor'
+                  viewBox='0 0 24 24'>
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth={2}
+                    d='M13.5 3H21m0 0v7.5M21 3l-9 9'
+                  />
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth={2}
+                    d='M10.5 6H8.25A2.25 2.25 0 006 8.25v7.5A2.25 2.25 0 008.25 18h7.5A2.25 2.25 0 0018 15.75V13.5'
+                  />
+                </svg>
+              </span>
+            </CTAButton>
+          </motion.div>
 
           {/* CTA Banner */}
           <motion.div
