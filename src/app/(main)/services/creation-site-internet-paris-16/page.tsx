@@ -1,6 +1,5 @@
 import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { Metadata } from 'next'
-import Script from 'next/script'
 
 import { Section } from '@/components/ui'
 import CTAButton from '@/components/ui/CTAButton'
@@ -8,7 +7,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Création Site Internet Paris 16ème | Agence Web — SIDIKOFF DIGITAL'
+  const title = 'Création Site Internet Paris 16ème | Agence Web'
+  const pageUrl = createCanonicalUrl('services/creation-site-internet-paris-16', 'fr')
 
   const description =
     'Agence web Paris 16 — sites vitrines dès 690 €, e-commerce dès 1 290 €, livrés en 7–14 jours. SEO local Passy, Trocadéro, Auteuil. Devis gratuit sous 24h ✓'
@@ -28,7 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     },
     alternates: {
-      canonical: createCanonicalUrl('services/creation-site-internet-paris-16', 'fr'),
+      canonical: pageUrl,
       languages: generateAlternateUrls('services/creation-site-internet-paris-16'),
     },
     other: {
@@ -40,7 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description,
       type: 'website',
       locale: 'fr_FR',
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sidikoff.com'}/services/creation-site-internet-paris-16`,
+      url: pageUrl,
       siteName: 'SIDIKOFF DIGITAL',
       images: [
         {
@@ -66,7 +66,7 @@ export default async function CreationSiteInternetParis16Page() {
   return (
     <>
       {/* Schema Markup for Local Business and Web Development Services */}
-      <Script
+      <script
         id='schema-local-business-paris-16'
         type='application/ld+json'
         dangerouslySetInnerHTML={{
@@ -157,7 +157,7 @@ export default async function CreationSiteInternetParis16Page() {
         }}
       />
 
-      <Script
+      <script
         id='schema-web-development-service'
         type='application/ld+json'
         dangerouslySetInnerHTML={{

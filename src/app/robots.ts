@@ -11,7 +11,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/_next/static/media/', // Prevent crawling of font files (.woff2) — wastes crawl budget
-          '/_next/image',          // Next.js image optimizer — not indexable
           '/admin/',
           '/private/',
           '/studio/',

@@ -1,14 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Script from 'next/script'
 
 import common from '@/locales/fr/common.json'
 import CTAButton from '@/components/ui/CTAButton'
 import Section from '@/components/ui/Section'
 import StarRating from '@/components/ui/StarRating'
 import { TESTIMONIALS_DATA } from '@/data/testimonials'
-import { generateReviewStructuredData } from '@/lib/seo-utils'
 import { grotesk } from '@/lib/fonts'
 
 interface TestimonialsProps {
@@ -77,28 +75,8 @@ export function Testimonials({ className }: TestimonialsProps) {
 
   const averageRatingMetric = { label: 'Note moyenne', value: `${averageRating}/5` }
 
-  // Generate structured data for reviews
-  const reviewsData = TESTIMONIALS_DATA.map((testimonial) => ({
-    author: testimonial.author,
-    reviewBody: testimonial.text,
-    rating: testimonial.rating,
-    projectName: testimonial.project,
-    datePublished: testimonial.date,
-  }))
-
-  const reviewStructuredData = generateReviewStructuredData(reviewsData)
-
   return (
     <>
-      {/* Structured Data for Reviews */}
-      <Script
-        id='testimonials-structured-data'
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(reviewStructuredData, null, 0),
-        }}
-      />
-
       <Section
         id='testimonials'
         variant='services'

@@ -1,4 +1,10 @@
-import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  DEFAULT_SEO,
+  generateAlternateUrls,
+  generateArticleSchema,
+  generateBreadcrumbSchema,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
@@ -77,9 +83,41 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound()
   }
 
+  const articleUrl = `${DEFAULT_SEO.siteUrl}/blog/${post.slug.current}`
+  const imageUrl = post.mainImage
+    ? urlFor(post.mainImage).quality(100).url()
+    : `${DEFAULT_SEO.siteUrl}/images/misc/technology-bg.jpg`
+
+  const articleSchema = generateArticleSchema({
+    title: post.title,
+    description: post.excerpt || post.title,
+    url: articleUrl,
+    imageUrl,
+    publishedAt: post.publishedAt,
+    authorName: post.author?.name || 'SIDIKOFF DIGITAL',
+    authorUrl: DEFAULT_SEO.siteUrl,
+  })
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Blog', url: `${DEFAULT_SEO.siteUrl}/blog` },
+    { name: post.title, url: articleUrl },
+  ])
+
   return (
-    <div className='min-h-screen bg-gray-50'>
-      <BlogPostContent post={post} />
-    </div>
+    <>
+      <script
+        id='article-schema'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        id='breadcrumb-schema'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <div className='min-h-screen bg-gray-50'>
+        <BlogPostContent post={post} />
+      </div>
+    </>
   )
 }

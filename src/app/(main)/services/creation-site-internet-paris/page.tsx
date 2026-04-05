@@ -6,7 +6,7 @@ import ParisLandingContent from '@/components/ParisLandingContent'
 const PAGE_URL = createCanonicalUrl('services/creation-site-internet-paris', 'fr')
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Création site internet Paris — Sites vitrines & e-commerce | SIDIKOFF DIGITAL'
+  const title = 'Création site internet Paris — Sites vitrines & e-commerce'
 
   const description =
     'Agence web Paris : sites vitrines dès 690 €, livrés en 7–14 jours. React & Next.js, SEO local, Lighthouse 95+. Devis gratuit sous 24h pour votre projet à Paris.'

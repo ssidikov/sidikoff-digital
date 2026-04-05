@@ -54,7 +54,7 @@ export default function WebRedesignLandingPage() {
     provider: {
       '@type': 'Organization',
       name: 'SIDIKOFF DIGITAL',
-      url: process.env.NEXT_PUBLIC_SITE_URL,
+      url: createCanonicalUrl('', 'fr'),
     },
     areaServed: {
       '@type': 'Country',

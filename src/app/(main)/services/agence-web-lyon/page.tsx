@@ -1,6 +1,5 @@
 import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { Metadata } from 'next'
-import Script from 'next/script'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Cormorant_Garamond, Manrope } from 'next/font/google'
@@ -9,7 +8,7 @@ const cormorant = Cormorant_Garamond({ subsets: ['latin'], weight: ['400', '600'
 const manrope = Manrope({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'] })
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Agence Web Lyon | Création de Sites Internet — SIDIKOFF DIGITAL'
+  const title = 'Agence Web Lyon | Création de Sites Internet'
 
   const description =
     'Agence web à Lyon — création de sites internet sur mesure, SEO local et refonte web. Sites livrés en 7–14 jours, dès 690 €. Expert React & Next.js. Devis gratuit sous 24h ✓'
@@ -209,9 +208,8 @@ export default async function AgenceWebLyonPage() {
   return (
     <div className={`min-h-screen bg-[#F6F4EE] text-[#121212] overflow-x-hidden ${manrope.className}`}>
       {agenceWebLyonSchemas.map((schema, i) => (
-        <Script
+        <script
           key={`agence-web-lyon-schema-${i}`}
-          id={`agence-web-lyon-schema-${i}`}
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />

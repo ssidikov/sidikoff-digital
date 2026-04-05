@@ -1,5 +1,3 @@
-import Script from 'next/script'
-
 import {
   businessLocations,
   generateLocalBusinessSchema,
@@ -100,9 +98,8 @@ export default async function HomePage() {
   return (
     <div className='min-h-screen'>
       {schemas.map((schema, index) => (
-        <Script
+        <script
           key={index}
-          id={`structured-data-${index}`}
           type='application/ld+json'
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(schema, null, 0),

@@ -38,6 +38,17 @@ export interface LocalBusiness {
   hasMap?: string
 }
 
+function normalizeSeoTitle(title: string): string {
+  let normalized = title.trim()
+  const brandSuffixPattern = /\s*(?:\||-|—)\s*sidikoff\s+digital\s*$/i
+
+  while (brandSuffixPattern.test(normalized)) {
+    normalized = normalized.replace(brandSuffixPattern, '').trim()
+  }
+
+  return normalized
+}
+
 // Helper function to get locale-specific OG image
 export function getLocalizedOgImage(locale: Locale, customImage?: string): string {
   return customImage ?? '/images/opengraph-fr.png'
@@ -246,11 +257,14 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
     tags,
   } = config
 
+  const normalizedTitle = normalizeSeoTitle(title)
+
   // Get locale-specific OG image (will use custom if provided, otherwise locale-specific default)
   const localizedOgImage = getLocalizedOgImage(locale, ogImage)
+  const defaultAlternateUrl = canonicalUrl ?? createCanonicalUrl('', locale)
 
   const metadata: Metadata = {
-    title,
+    title: normalizedTitle,
     description,
     keywords: [...DEFAULT_SEO.keywords, ...keywords],
     authors: authors?.map((author) => ({ name: author })),
@@ -259,7 +273,7 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
     robots: noIndex ? 'noindex,nofollow' : 'index,follow',
 
     openGraph: {
-      title,
+      title: normalizedTitle,
       description,
       url: canonicalUrl,
       siteName: DEFAULT_SEO.siteName,
@@ -268,7 +282,7 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
           url: localizedOgImage,
           width: 1200,
           height: 630,
-          alt: title,
+          alt: normalizedTitle,
         },
       ],
       locale: 'fr_FR',
@@ -280,7 +294,7 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
 
     twitter: {
       card: twitterCard,
-      title,
+      title: normalizedTitle,
       description,
       images: [localizedOgImage],
       creator: DEFAULT_SEO.twitterHandle,
@@ -290,7 +304,7 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
       canonical: canonicalUrl,
       languages: {
         ...alternateLanguages,
-        'x-default': `${DEFAULT_SEO.siteUrl}/`, // Default to French version
+        'x-default': defaultAlternateUrl,
       },
     },
   }

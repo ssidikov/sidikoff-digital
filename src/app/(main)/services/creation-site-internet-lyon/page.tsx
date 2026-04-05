@@ -1,6 +1,5 @@
 import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import { Metadata } from 'next'
-import Script from 'next/script'
 
 import { Section } from '@/components/ui'
 import CTAButton from '@/components/ui/CTAButton'
@@ -146,9 +145,8 @@ export default async function LyonPage() {
   return (
     <div className='min-h-screen'>
       {lyonSchemas.map((schema, i) => (
-        <Script
+        <script
           key={`lyon-schema-${i}`}
-          id={`lyon-schema-${i}`}
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />

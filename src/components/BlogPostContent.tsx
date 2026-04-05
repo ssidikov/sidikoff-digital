@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ReactNode } from 'react'
-import Script from 'next/script'
 
 import common from '@/locales/fr/common.json'
 import { formatDate } from '@/lib/i18n'
@@ -12,7 +11,6 @@ import { getBlogUrl, getLocalizedUrl } from '@/utils/navigation'
 
 import { BlogPost, urlFor } from '@/lib/sanity'
 import Section from '@/components/ui/Section'
-import { generateArticleSchema, generateBreadcrumbSchema, DEFAULT_SEO } from '@/lib/seo-utils'
 
 interface BlogPostContentProps {
   post: BlogPost
@@ -302,39 +300,8 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
     },
   }
 
-  // Generate structured data
-  const articleUrl = `${DEFAULT_SEO.siteUrl}/blog/${post.slug.current}`
-
-  const articleSchema = generateArticleSchema({
-    title: post.title,
-    description: post.excerpt || post.title,
-    url: articleUrl,
-    imageUrl: imageUrl,
-    publishedAt: post.publishedAt,
-    authorName: post.author?.name || 'SIDIKOFF DIGITAL',
-    authorUrl: 'https://www.sidikoff.com',
-  })
-
-  const blogUrl = `${DEFAULT_SEO.siteUrl}/blog`
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: dictionary.back_to_blog, url: blogUrl },
-    { name: post.title, url: articleUrl },
-  ])
-
   return (
     <Section variant='blog' background='transparent' padding='none' contentWidth='full'>
-      {/* Structured Data */}
-      <Script
-        id='article-schema'
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
-      <Script
-        id='breadcrumb-schema'
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-
       <article className='min-h-screen'>
         {/* Hero Section */}
         <section className='relative pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-32 overflow-hidden'>
