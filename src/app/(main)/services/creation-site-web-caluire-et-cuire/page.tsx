@@ -46,7 +46,7 @@ const faqData = {
     {
       question: 'Combien coûte la création d\u2019un site web à Caluire-et-Cuire ?',
       answer:
-        'Le tarif dépend du type de projet. Un site vitrine démarre à partir de 1 500 €, un site e-commerce à partir de 3 000 €. Je vous envoie un devis détaillé et gratuit sous 24 h après notre premier échange.',
+        'Le tarif dépend du type de projet. Un site vitrine démarre à partir de 690 €, un site e-commerce à partir de 3 000 €. Je vous envoie un devis détaillé et gratuit sous 24 h après notre premier échange.',
     },
     {
       question: 'Quel est le délai de livraison d\u2019un site internet à Caluire ?',

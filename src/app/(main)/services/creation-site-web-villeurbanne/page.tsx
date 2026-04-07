@@ -19,7 +19,7 @@ const PAGE_PATH = 'services/creation-site-web-villeurbanne'
 
 const seoContent = {
   fr: {
-    title: 'Création site web à Villeurbanne | Développeur freelance premium',
+    title: 'Création site web à Villeurbanne | ',
     description:
       'Développeur web freelance à Villeurbanne (69100). Sites vitrines dès 690 € TTC, e-commerce, refonte et SEO. Livraison en 5–10 jours. Devis gratuit sous 24h.',
     keywords: [
@@ -46,7 +46,7 @@ const faqData = {
     {
       question: 'Combien coûte la création d\u2019un site web à Villeurbanne ?',
       answer:
-        'Le tarif dépend du type de projet. Un site vitrine démarre à partir de 1 500 €, un site e-commerce à partir de 3 000 €. Je vous envoie un devis détaillé et gratuit sous 24 h après notre premier échange.',
+        'Le tarif dépend du type de projet. Un site vitrine démarre à partir de 690 €, un site e-commerce à partir de 3 000 €. Je vous envoie un devis détaillé et gratuit sous 24 h après notre premier échange.',
     },
     {
       question: 'Quel est le délai de livraison d\u2019un site internet à Villeurbanne ?',
