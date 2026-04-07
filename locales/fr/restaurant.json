@@ -108,7 +108,7 @@
         },
         {
           "name": "Restaurant Pro",
-          "price": "1499",
+          "price": "1 290€ TTC",
           "period": "Une fois",
           "description": "Solution complète avec réservations",
           "features": [
@@ -124,7 +124,7 @@
         },
         {
           "name": "Restaurant Premium",
-          "price": "2299",
+          "price": "1 990€ TTC",
           "period": "Une fois",
           "description": "Solution haut de gamme personnalisée",
           "features": [
@@ -144,7 +144,7 @@
       "support_plans": [
         {
           "name": "Support Essentiel",
-          "price": "29",
+          "price": "49",
           "period": "mois",
           "features": [
             "Hébergement haute performance",
@@ -156,7 +156,7 @@
         },
         {
           "name": "Support Professionnel",
-          "price": "59",
+          "price": "149",
           "period": "mois",
           "features": [
             "Tout du Support Essentiel",
@@ -168,7 +168,7 @@
         },
         {
           "name": "Support Premium",
-          "price": "99",
+          "price": "299",
           "period": "mois",
           "features": [
             "Tout du Support Pro",
@@ -188,42 +188,42 @@
           "name": "Bistrot Le Gourmet",
           "type": "Cuisine Française",
           "description": "Site élégant avec réservations en ligne",
-          "image": "bistrot-gourmet.webp",
+          "image": "/images/portfolio/restaurants/bistrot-gourmet.jpg",
           "results": "+65% réservations en 3 mois"
         },
         {
           "name": "Pizzeria Bella Vista",
           "type": "Pizzeria",
           "description": "Commandes en ligne et livraison",
-          "image": "pizzeria-bella.webp",
+          "image": "/images/portfolio/restaurants/pizzeria-bella.jpg",
           "results": "+40% commandes à emporter"
         },
         {
           "name": "Sushi Zen",
           "type": "Restaurant Japonais",
           "description": "Design moderne et épuré",
-          "image": "sushi-zen.webp",
+          "image": "/images/portfolio/restaurants/sushi-zen.jpg",
           "results": "+80% visibilité Google"
         },
         {
           "name": "Brasserie du Port",
           "type": "Brasserie",
           "description": "Site traditionnel avec menu digital",
-          "image": "brasserie-port.webp",
+          "image": "/images/portfolio/restaurants/brasserie-port.jpg",
           "results": "+50% nouveaux clients"
         },
         {
           "name": "Café Gourmand",
           "type": "Café-Restaurant",
           "description": "Site polyvalent café et restaurant",
-          "image": "cafe-gourmand.webp",
+          "image": "/images/portfolio/restaurants/cafe-gourmand.jpg",
           "results": "+35% fréquentation"
         },
         {
           "name": "La Table d'Or",
           "type": "Gastronomique",
           "description": "Site haut de gamme avec galerie",
-          "image": "table-or.webp",
+          "image": "/images/portfolio/restaurants/table-or.jpg",
           "results": "+90% réservations premium"
         }
       ]
@@ -313,7 +313,7 @@
       "description": "Rejoignez les centaines de restaurateurs qui ont doublé leurs réservations grâce à leur nouveau site web.",
       "primary_button": "Obtenir mon Devis Gratuit",
       "secondary_button": "Programmer un Appel",
-      "guarantee": "Satisfait ou remboursé - 30 jours"
+      "guarantee": ""
     }
   }
 }

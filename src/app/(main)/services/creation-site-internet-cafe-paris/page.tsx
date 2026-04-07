@@ -5,6 +5,7 @@ import { Section } from '@/components/ui'
 import CTAButton from '@/components/ui/CTAButton'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Portfolio } from '@/sections'
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = 'Création site internet café Paris – Agence web spécialisée'
@@ -627,20 +628,7 @@ export default async function CafeParisPage() {
         </Section>
 
         {/* Portfolio Section */}
-        <Section className='py-20 bg-linear-to-b from-[#F8F9FA] to-white'>
-          <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-            <h2 className='text-4xl font-bold text-[#112D4E] mb-6'>
-              Exemple de projet / Portfolio
-            </h2>
-            <p className='text-xl text-gray-600 mb-8'>
-              Découvrez nos réalisations pour des cafés et restaurants parisiens. Constatez nos
-              résultats en SEO local et design moderne.
-            </p>
-            <CTAButton href='/projects' size='lg' className='mx-auto'>
-              Voir nos projets
-            </CTAButton>
-          </div>
-        </Section>
+        <Portfolio isHomePage={false} />
 
         {/* FAQ Section */}
         <Section className='py-20 bg-white'>

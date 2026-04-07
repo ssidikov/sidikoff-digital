@@ -98,19 +98,6 @@ export function Services({ className, isHomePage = false }: ServicesProps) {
       isWebRedesign: false,
       isSeoOptimization: true, // Add flag to identify SEO service
       isMaintenance: false,
-      isRestaurant: false,
-    },
-    {
-      title: dict.restaurant.title,
-      description: dict.restaurant.description,
-      image: '/images/services/resto.webp',
-      alt: dict.restaurant.title,
-      badges: dict.restaurant.features,
-      isWebCreation: false,
-      isWebRedesign: false,
-      isSeoOptimization: false,
-      isMaintenance: false,
-      isRestaurant: true, // Add flag to identify restaurant service
     },
     {
       title: dict.maintenance.title,

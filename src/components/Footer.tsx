@@ -81,6 +81,10 @@ const createSecteurLinks = (): FooterLink[] => [
     href: getLocalizedUrl('/services/creation-site-internet-cafe-paris'),
   },
   {
+    name: 'Sites Web pour Restaurants',
+    href: getLocalizedUrl('/services/restaurant-websites'),
+  },
+  {
     name: 'Site Barbershop',
     href: getLocalizedUrl('/services/creation-site-internet-barbershop'),
   },

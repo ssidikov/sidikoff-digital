@@ -1984,7 +1984,7 @@
       "packages": [
         {
           "name": "Vitrine",
-          "price": "€800",
+          "price": "€690",
           "period": "unique",
           "description": "Parfait pour présenter votre barbershop et attirer des clients locaux",
           "delivery_time": "2 semaines",
@@ -1993,8 +1993,7 @@
             "Galerie photos de vos coupes",
             "Informations contact et horaires",
             "Intégration Google Maps",
-            "Optimisation mobile",
-            "1 an de maintenance inclus"
+            "Optimisation mobile"
           ]
         },
         {
