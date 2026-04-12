@@ -1,0 +1,9 @@
+node_modules/
+.next/
+out/
+dist/
+public/
+.vercel/
+*.generated.ts
+*.generated.js
+coverage/

@@ -62,3 +62,6 @@ temp/
 
 # agent
 .agent/
+
+# graphify
+graphify-out/
