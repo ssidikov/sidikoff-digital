@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { ArrowUpRight, Code2, Globe, Sparkles, CheckSquare } from 'lucide-react'
 import Link from 'next/link'
 import { Limelight, JetBrains_Mono } from 'next/font/google'
+import { generateServiceSchema } from '@/lib/seo-utils'
 
 // Font configurations
 const limelight = Limelight({
@@ -35,9 +36,22 @@ const staggerContainer = {
 }
 
 export default function AgenceVilleurbanneClient() {
+  const serviceSchema = generateServiceSchema({
+    name: 'Agence Web Villeurbanne - SIDIKOFF DIGITAL',
+    description:
+      'Expertise en création de sites internet, référencement SEO et génie logiciel à Villeurbanne. Solutions sur-mesure pour entreprises.',
+    url: 'https://www.sidikoff.com/services/agence-web-villeurbanne',
+    serviceType: 'Agence Web & SEO',
+    areaServed: ['Villeurbanne', 'Lyon', 'Grand Lyon'],
+  })
+
   return (
     <div
       className={`relative min-h-screen bg-[#FFFFFF] text-[#111827] selection:bg-[#3B82F6] selection:text-white pt-28 pb-16 font-sans overflow-x-hidden ${jetbrainsMono.variable}`}>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       {/* Decorative Grid - replaces blurred orbs */}
       <div
         className='absolute inset-0 pointer-events-none opacity-[0.04]'
@@ -76,6 +90,7 @@ export default function AgenceVilleurbanneClient() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}>
+          <h1 className='sr-only'>Agence Web Villeurbanne</h1>
           AGENCE WEB.
           <br />
           <span className='text-[#3B82F6] block mt-2'>VILLEURBANNE</span>
@@ -111,6 +126,20 @@ export default function AgenceVilleurbanneClient() {
               Explorer
             </span>
           </Link>
+        </motion.div>
+
+        {/* Freshness & Author Attribution */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.4 }}
+          transition={{ delay: 0.8 }}
+          className='mt-12 flex flex-col items-center gap-2'>
+          <p className={`${jetbrainsMono.className} text-[10px] uppercase font-bold`}>
+            Par <span rel='author'>Sardorbek Sidikov</span> — SIDIKOFF DIGITAL
+          </p>
+          <p className={`${jetbrainsMono.className} text-[10px] uppercase`}>
+            Mis à jour le 12 Avril 2026
+          </p>
         </motion.div>
       </section>
 

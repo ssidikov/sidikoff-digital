@@ -6,6 +6,7 @@ import {
   generateLanguageAlternates,
   createCanonicalUrl,
   generateReviewStructuredData,
+  generatePersonSchema,
 } from '@/lib/seo-utils'
 import { getBlogPosts } from '@/lib/sanity'
 import { TESTIMONIALS_DATA } from '@/data/testimonials'
@@ -87,6 +88,14 @@ function generateHomePageSchemas() {
     },
     // Review JSON-LD — generated server-side from testimonials data
     generateReviewStructuredData(reviewsData),
+    // Author Schema
+    generatePersonSchema({
+      name: 'Sardorbek SIDIKOV',
+      jobTitle: 'Développeur Web Full Stack',
+      url: 'https://www.sidikoff.com',
+      image: 'https://www.sidikoff.com/images/sidikov-web.png',
+      sameAs: ['https://github.com/ssidikov', 'https://linkedin.com/in/sardorbeksidikov'],
+    }),
   ]
 }
 

@@ -795,3 +795,52 @@ export function generateServiceSchema(service: {
     },
   }
 }
+
+/**
+ * Generate Person Schema
+ */
+export function generatePersonSchema(person: {
+  name: string
+  jobTitle: string
+  url: string
+  sameAs?: string[]
+  image?: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: person.name,
+    jobTitle: person.jobTitle,
+    url: person.url,
+    ...(person.sameAs ? { sameAs: person.sameAs } : {}),
+    ...(person.image ? { image: person.image } : {}),
+  }
+}
+
+/**
+ * Generate HowTo Schema (good for step-by-step guides)
+ */
+export function generateHowToSchema(howto: {
+  name: string
+  description: string
+  steps: Array<{ name: string; text: string; image?: string }>
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: howto.name,
+    description: howto.description,
+    step: howto.steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.name,
+      itemListElement: [
+        {
+          '@type': 'HowToDirection',
+          text: step.text,
+        },
+      ],
+      ...(step.image ? { image: step.image } : {}),
+    })),
+  }
+}

@@ -7,6 +7,7 @@ import common from '@/locales/fr/common.json'
 import CTAButton from '@/components/ui/CTAButton'
 import Section, { SectionHeader } from '@/components/ui/Section'
 import { cardStyles } from '@/utils/styles'
+import { generateServiceSchema } from '@/lib/seo-utils'
 
 interface ServicesProps {
   className?: string
@@ -136,6 +137,24 @@ export function Services({ className, isHomePage = false }: ServicesProps) {
           as={isHomePage ? 'h2' : 'h1'}
           className='mb-16 text-left'
         />
+
+        {/* SEO Schemas for Services */}
+        {services.map((service) => {
+          const serviceSchema = generateServiceSchema({
+            name: service.title,
+            description: service.description,
+            url: `https://www.sidikoff.com#${service.title.toLowerCase().replace(/\s+/g, '-')}`,
+            serviceType: service.title,
+            image: `https://www.sidikoff.com${service.image}`,
+          })
+          return (
+            <script
+              key={`schema-${service.title}`}
+              type='application/ld+json'
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+            />
+          )
+        })}
 
         {/* Services Cards */}
         <div className='space-y-24'>

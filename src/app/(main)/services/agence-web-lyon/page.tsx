@@ -502,7 +502,7 @@ export default async function AgenceWebLyonPage() {
           <div className='flex flex-wrap gap-4 lg:gap-6 items-center'>
             {[
               { city: 'Lyon', link: '/services/creation-site-internet-lyon' },
-              { city: 'Villeurbanne', link: '/services/creation-site-web-villeurbanne' },
+              { city: 'Villeurbanne', link: '/services/agence-web-villeurbanne' },
               { city: 'Caluire-et-Cuire', link: '/services/creation-site-web-caluire-et-cuire' },
               { city: 'Bron', link: null },
               { city: 'Vénissieux', link: null },

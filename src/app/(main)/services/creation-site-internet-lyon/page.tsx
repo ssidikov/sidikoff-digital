@@ -251,7 +251,7 @@ export default async function LyonPage() {
                   → Agence web Lyon
                 </Link>
                 <Link
-                  href='/services/creation-site-web-villeurbanne'
+                  href='/services/agence-web-villeurbanne'
                   className='text-sm text-[#3F72AF] hover:text-[#112D4E] hover:underline transition-colors'>
                   → Création site Villeurbanne
                 </Link>

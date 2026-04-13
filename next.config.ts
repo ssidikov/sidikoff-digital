@@ -333,11 +333,12 @@ const nextConfig: NextConfig = {
 
       // ── 11. Blog article slug update: 2025 → 2026 (update slug in Sanity first!)
       // Uncomment when ready to update the slug in Sanity CMS:
-      // {
-      //   source: '/blog/cout-site-web-professionnel-2025',
-      //   destination: '/blog/cout-site-web-professionnel-2026',
-      //   permanent: true,
-      // },
+      // ── 12. Consolidate Villeurbanne pages (Redirect legacy to new target)
+      {
+        source: '/services/creation-site-web-villeurbanne',
+        destination: '/services/agence-web-villeurbanne',
+        permanent: true,
+      },
     ]
   },
 

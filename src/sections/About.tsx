@@ -6,6 +6,7 @@ import Image from 'next/image'
 
 import common from '@/locales/fr/common.json'
 import CTAButton from '@/components/ui/CTAButton'
+import { generatePersonSchema } from '@/lib/seo-utils'
 
 const dict = common.about
 
@@ -28,6 +29,14 @@ export default function About() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-80px' })
 
+  const personSchema = generatePersonSchema({
+    name: dict.author_name,
+    jobTitle: dict.author_role,
+    url: 'https://www.sidikoff.com',
+    sameAs: ['https://github.com/ssidikov', 'https://linkedin.com/in/sardorbeksidikov'],
+    image: 'https://www.sidikoff.com/images/sidikov-web.png',
+  })
+
   return (
     <section
       id='about'
@@ -35,6 +44,10 @@ export default function About() {
       className='relative overflow-hidden'
       style={SECTION_STYLE}
       aria-label='À propos'>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
       <div className='relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28'>
         <div className='grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20'>
           {/* ── LEFT: Photo ── */}
@@ -174,6 +187,13 @@ export default function About() {
                 trackingCategory='About'>
                 {dict.cta}
               </CTAButton>
+            </motion.div>
+
+            {/* GEO Signal: Freshness/Last Updated */}
+            <motion.div variants={FADE_UP} className='mt-8 flex items-center gap-2 opacity-40'>
+              <span className='text-[10px] font-medium uppercase tracking-wider text-foreground'>
+                Dernière mise à jour : 12 avril 2026
+              </span>
             </motion.div>
           </motion.div>
         </div>

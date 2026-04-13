@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import common from '@/locales/fr/common.json'
 import CTAButton from '@/components/ui/CTAButton'
 import Section, { SectionHeader } from '@/components/ui/Section'
+import { generateFAQStructuredData } from '@/lib/seo-utils'
 
 interface FAQItem {
   id: string
@@ -119,6 +120,12 @@ export const FAQ = ({ className, isHomePage = false }: FAQProps) => {
     })
   }, [])
 
+  // Memoized FAQ Schema
+  const faqSchema = useMemo(
+    () => generateFAQStructuredData(faqItems.map((f) => ({ question: f.question, answer: f.answer }))),
+    [faqItems],
+  )
+
   return (
     <Section
       id='faq'
@@ -127,6 +134,10 @@ export const FAQ = ({ className, isHomePage = false }: FAQProps) => {
       padding='lg'
       contentWidth='wide'
       {...(className && { className })}>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className='relative z-10'>
         <SectionHeader
           title={dictionary?.title || 'Questions Fréquentes'}
