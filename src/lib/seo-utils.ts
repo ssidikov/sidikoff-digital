@@ -609,10 +609,6 @@ export function generateReviewStructuredData(
     datePublished: string
   }>,
 ) {
-  // Calculate aggregate rating
-  const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0)
-  const averageRating = reviews.length > 0 ? totalRating / reviews.length : 0
-
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -620,13 +616,9 @@ export function generateReviewStructuredData(
     name: 'SIDIKOFF DIGITAL',
     url: 'https://www.sidikoff.com',
     description: 'Développeur Web Full Stack - Création de sites web professionnels',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: averageRating.toFixed(1),
-      reviewCount: reviews.length.toString(),
-      bestRating: '5',
-      worstRating: '1',
-    },
+    // NOTE: aggregateRating is intentionally omitted here to avoid
+    // "Review has multiple aggregate ratings" GSC error.
+    // AggregateRating lives exclusively on the ProfessionalService (LocalBusiness) schema.
     review: reviews.map((review) => ({
       '@type': 'Review',
       author: {
