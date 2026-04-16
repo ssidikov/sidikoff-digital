@@ -6,7 +6,7 @@ import { Mail, CheckCircle, AlertCircle } from 'lucide-react'
 import common from '@/locales/fr/common.json'
 import Section from '@/components/ui/Section'
 import { cardStyles } from '@/utils/styles'
-import { generateLocalBusinessSchema, businessLocations } from '@/lib/seo-utils'
+
 
 interface ContactProps {
   className?: string
@@ -125,8 +125,6 @@ const Contact = ({ className, isHomePage = false }: ContactProps) => {
     [],
   )
 
-  const businessSchema = businessLocations[0] ? generateLocalBusinessSchema(businessLocations[0]) : null
-
   return (
     <Section
       id='contact'
@@ -135,12 +133,6 @@ const Contact = ({ className, isHomePage = false }: ContactProps) => {
       padding='lg'
       contentWidth='wide'
       className={className || ''}>
-      {businessSchema && (
-        <script
-          type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
-        />
-      )}
       <div className='relative z-10'>
         {/* Mobile Title Section - Above everything on mobile */}
         {/* Section Title - Visible on all screens */}
