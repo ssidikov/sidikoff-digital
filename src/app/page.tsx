@@ -62,9 +62,8 @@ function generateHomePageSchemas() {
 
   return [
     organizationSchema,
-    // Only the first location gets a rating to avoid duplication
-    ...businessLocations.map((location, index) =>
-      generateLocalBusinessSchema(location, index === 0),
+    ...businessLocations.map((location) =>
+      generateLocalBusinessSchema(location, false),
     ),
     {
       '@context': 'https://schema.org',
