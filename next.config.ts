@@ -77,7 +77,7 @@ const SECURITY_HEADERS = [
   {
     key: 'Link',
     value:
-      '<https://fonts.googleapis.com>; rel=preconnect, <https://fonts.gstatic.com>; rel=preconnect; crossorigin, <https://images.unsplash.com>; rel=preconnect; crossorigin, <https://cdn.sanity.io>; rel=preconnect; crossorigin',
+      '<https://fonts.googleapis.com>; rel=preconnect, <https://fonts.gstatic.com>; rel=preconnect; crossorigin, <https://images.unsplash.com>; rel=preconnect; crossorigin, <https://cdn.sanity.io>; rel=preconnect; crossorigin, </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="service-desc", </llms.txt>; rel="service-doc", </.well-known/mcp/server-card.json>; rel="describedby"',
   },
 ]
 
@@ -171,6 +171,16 @@ const nextConfig: NextConfig = {
       return config
     },
   }),
+
+  // Rewrites: map /.well-known/* → /well-known/* (App Router can't use dot-prefixed folders)
+  async rewrites() {
+    return [
+      {
+        source: '/.well-known/:path*',
+        destination: '/well-known/:path*',
+      },
+    ]
+  },
 
   // Redirects to handle EN/RU → FR migration and legacy paths
   async redirects() {

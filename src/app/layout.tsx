@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Analytics from '@/components/analytics'
+import WebMCP from '@/components/webmcp'
 import '@/styles/globals.css'
 import { inter, grotesk } from '@/lib/fonts'
 
@@ -185,6 +186,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body className={`${inter.className} ${grotesk.variable}`} suppressHydrationWarning>
         {children}
         <Analytics />
+        <WebMCP />
       </body>
     </html>
   )

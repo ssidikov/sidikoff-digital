@@ -109,6 +109,24 @@ export function proxy(request: NextRequest) {
     return enhanceResponse(NextResponse.next(), pathname)
   }
 
+  // ── Markdown Content Negotiation (RFC: text/markdown for AI agents) ──────
+  // When a client sends Accept: text/markdown, return Markdown instead of HTML.
+  const acceptHeader = request.headers.get('accept') || ''
+  const isContentPage =
+    !pathname.startsWith('/api/') &&
+    !pathname.startsWith('/well-known/') &&
+    !pathname.startsWith('/studio') &&
+    !pathname.match(/\.well-known/) &&
+    !pathname.match(/\.(ico|png|svg|jpg|jpeg|webp|avif|xml|json|txt|js|css|woff2?)$/)
+
+  if (acceptHeader.includes('text/markdown') && isContentPage) {
+    const url = request.nextUrl.clone()
+    url.pathname = '/api/markdown'
+    url.searchParams.set('path', pathname)
+    return NextResponse.rewrite(url)
+  }
+  // ─────────────────────────────────────────────────────────────────────────
+
   // Handle deprecated /services/consultation URLs - redirect to contact
   if (pathname === '/services/consultation') {
     const redirectUrl = new URL('/contact', request.url)
