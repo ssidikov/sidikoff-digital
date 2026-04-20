@@ -133,7 +133,7 @@ export default function GoneLandingPage({ cityName }: GoneLandingPageProps) {
           content='Agence spécialisée en création de sites web, e-commerce et SEO. Nous accompagnons entreprises, indépendants et startups dans toute la France.'
         />
         <meta name='robots' content='noindex, nofollow' />
-        <link rel='canonical' href='https://sidikoff.com/' />
+        <link rel='canonical' href='https://www.sidikoff.com/' />
         <meta
           property='og:title'
           content='Solutions digitales & création de sites internet en France – Sidikoff'
@@ -143,7 +143,7 @@ export default function GoneLandingPage({ cityName }: GoneLandingPageProps) {
           content='Agence spécialisée en création de sites web, e-commerce et SEO. Nous accompagnons entreprises, indépendants et startups dans toute la France.'
         />
         <meta property='og:type' content='website' />
-        <meta property='og:url' content='https://sidikoff.com/' />
+        <meta property='og:url' content='https://www.sidikoff.com/' />
       </Head>
 
       <div className='min-h-screen bg-white'>
