@@ -114,7 +114,6 @@ Disallow: /studio/
 Disallow: /private/
 
 Sitemap: ${baseUrl}/sitemap.xml
-Host: ${baseUrl}
 `
 
 export async function GET() {
