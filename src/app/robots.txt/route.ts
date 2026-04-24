@@ -21,7 +21,6 @@ Disallow: /404
 Disallow: /500
 Disallow: /fonts/
 Disallow: /favicon.ico
-Content-Signal: ai-train=no, search=yes, ai-input=no
 
 User-agent: Googlebot
 Allow: /
@@ -122,6 +121,7 @@ export async function GET() {
     headers: {
       'Content-Type': 'text/plain; charset=utf-8',
       'Cache-Control': 'public, max-age=86400',
+      'Content-Signal': 'ai-train=no, search=yes, ai-input=no',
     },
   })
 }
