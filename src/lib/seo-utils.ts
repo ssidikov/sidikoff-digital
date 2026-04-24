@@ -103,140 +103,33 @@ export function generateAlternateUrls(path: string): Record<Locale, string> {
   return alternates
 }
 
-// Business locations - Main business addresses for structured data
-export const businessLocations: LocalBusiness[] = [
-  {
-    name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Villeurbanne',
-    url: 'https://www.sidikoff.com',
-    address: {
-      streetAddress: '73 Rue Racine',
-      addressLocality: 'Villeurbanne',
-      postalCode: '69100',
-      addressCountry: 'FR',
-    },
-    telephone: '+33626932734',
-    email: 's.sidikoff@gmail.com',
-    geo: {
-      latitude: '45.7719019',
-      longitude: '4.8508612',
-    },
-    areaServed: [
-      'Villeurbanne',
-      'Lyon',
-      'Lyon métropole',
-      'Rhône',
-      'Paris',
-      'Toulouse',
-      'Strasbourg',
-      'Lille',
-      'Nantes',
-      'Grenoble',
-      'Montpellier',
-      'Bordeaux',
-      'Marseille',
-      'Nice',
-      'Clermont-Ferrand',
-      'Mulhouse',
-      'Geneva',
-      'Lugano',
-      'Haute-Garonne',
-      'Occitanie',
-      'Auvergne-Rhône-Alpes',
-      'Grand Est',
-      'Savie',
-      'Hautes-Alpes',
-      'Haute-Savoie',
-      'Normandie',
-      'Lisieux',
-      'France',
-    ],
+// ─── Primary canonical business location (Villeurbanne/Lyon) ─────────────────
+// ONE entity on homepage. City-specific schemas live on their own landing pages.
+export const primaryBusiness: LocalBusiness = {
+  name: 'SIDIKOFF DIGITAL',
+  url: 'https://www.sidikoff.com',
+  address: {
+    streetAddress: '73 Rue Racine',
+    addressLocality: 'Villeurbanne',
+    postalCode: '69100',
+    addressCountry: 'FR',
   },
-  {
-    name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Toulouse',
-    url: 'https://www.sidikoff.com',
-    address: {
-      streetAddress: 'Service à domicile',
-      addressLocality: 'Toulouse',
-      postalCode: '31000',
-      addressCountry: 'FR',
-    },
-    telephone: '+33626932734',
-    email: 's.sidikoff@gmail.com',
-    geo: {
-      latitude: '43.6047',
-      longitude: '1.4442',
-    },
-    areaServed: ['Toulouse', 'Haute-Garonne', 'Occitanie'],
+  telephone: '+33626932734',
+  email: 's.sidikoff@gmail.com',
+  geo: {
+    latitude: '45.7719019',
+    longitude: '4.8508612',
   },
-  {
-    name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Lyon',
-    url: 'https://www.sidikoff.com',
-    address: {
-      streetAddress: 'Service à domicile',
-      addressLocality: 'Lyon',
-      postalCode: '69000',
-      addressCountry: 'FR',
-    },
-    telephone: '+33626932734',
-    email: 's.sidikoff@gmail.com',
-    geo: {
-      latitude: '45.7640',
-      longitude: '4.8357',
-    },
-    areaServed: ['Lyon', 'Rhône', 'Auvergne-Rhône-Alpes'],
-  },
-  {
-    name: 'SIDIKOFF DIGITAL - Développeur Web Freelance à Villeurbanne',
-    url: 'https://www.sidikoff.com',
-    address: {
-      streetAddress: '73 Rue Racine',
-      addressLocality: 'Villeurbanne',
-      postalCode: '69100',
-      addressCountry: 'FR',
-    },
-    telephone: '+33626932734',
-    email: 's.sidikoff@gmail.com',
-    geo: {
-      latitude: '45.7667',
-      longitude: '4.8799',
-    },
-    areaServed: ['Villeurbanne', 'Lyon', 'Lyon métropole', 'Rhône'],
-  },
-  {
-    name: 'SIDIKOFF DIGITAL - Développeur Web Freelance à Caluire-et-Cuire',
-    url: 'https://www.sidikoff.com',
-    address: {
-      streetAddress: 'Service à domicile',
-      addressLocality: 'Caluire-et-Cuire',
-      postalCode: '69300',
-      addressCountry: 'FR',
-    },
-    telephone: '+33626932734',
-    email: 's.sidikoff@gmail.com',
-    geo: {
-      latitude: '45.7867',
-      longitude: '4.8599',
-    },
-    areaServed: ['Caluire-et-Cuire', 'Lyon', 'Lyon métropole', 'Rhône'],
-  },
-  {
-    name: 'SIDIKOFF DIGITAL - Agence Web | Développeur Web à Strasbourg',
-    url: 'https://www.sidikoff.com',
-    address: {
-      streetAddress: 'Service à domicile',
-      addressLocality: 'Strasbourg',
-      postalCode: '67000',
-      addressCountry: 'FR',
-    },
-    telephone: '+33626932734',
-    email: 's.sidikoff@gmail.com',
-    geo: {
-      latitude: '48.5734',
-      longitude: '7.7521',
-    },
-    areaServed: ['Strasbourg', 'Bas-Rhin', 'Grand Est'],
-  },
-]
+  // Focused on primary service area — national reach expressed via serviceArea
+  areaServed: ['Villeurbanne', 'Lyon', 'Lyon Métropole', 'Auvergne-Rhône-Alpes'],
+  hasMap: 'https://maps.app.goo.gl/WvGqqzNZuJydQ72o6',
+}
+
+/**
+ * @deprecated Use primaryBusiness instead.
+ * Kept for backward-compat with city landing pages that still call generateLocalBusinessSchema.
+ */
+export const businessLocations: LocalBusiness[] = [primaryBusiness]
 
 // Generate SEO metadata
 export function generateSEOMetadata(config: SEOConfig): Metadata {
@@ -456,40 +349,32 @@ export function generateLocalBusinessSchema(
   return baseSchema
 }
 
-// Organization schema
-export const organizationSchema = {
+// ─── Primary ProfessionalService schema (homepage) ────────────────────────────
+// Clean, single entity — passes Google Rich Results Test & Search Console.
+export const primaryBusinessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
-  '@id': 'https://www.sidikoff.com/#organization',
+  '@type': 'ProfessionalService',
+  '@id': 'https://www.sidikoff.com/#professional-service',
   name: 'SIDIKOFF DIGITAL',
-  legalName: 'SIDIKOFF DIGITAL - Création de Sites Web | Agence Web',
+  legalName: 'SIDIKOFF DIGITAL',
   url: 'https://www.sidikoff.com',
+  description:
+    'Agence web à Villeurbanne et Lyon spécialisée en création de sites internet sur mesure, refonte et SEO. Développement React et Next.js. Devis gratuit sous 24h.',
+  image: {
+    '@type': 'ImageObject',
+    url: 'https://www.sidikoff.com/images/sidikov-web.png',
+    width: 800,
+    height: 800,
+  },
   logo: {
     '@type': 'ImageObject',
     url: 'https://www.sidikoff.com/images/logo-sidikoff.svg',
     width: 300,
     height: 100,
   },
-  description:
-    'Expert en développement web full stack spécialisé en React, Next.js, TypeScript. Services professionnels en France : création de sites web modernes, applications sur mesure, optimisation SEO.',
-  foundingDate: '2025',
-  founder: {
-    '@type': 'Person',
-    name: 'Sardorbek SIDIKOV',
-    jobTitle: 'Développeur Web Full Stack',
-    url: 'https://www.sidikoff.com/',
-    sameAs: ['https://github.com/ssidikov', 'https://linkedin.com/in/sardorbeksidikov'],
-  },
-  contactPoint: [
-    {
-      '@type': 'ContactPoint',
-      telephone: '+33626932734',
-      email: 's.sidikoff@gmail.com',
-      contactType: 'Customer Service',
-      areaServed: 'FR',
-      availableLanguage: ['French'],
-    },
-  ],
+  telephone: '+33626932734',
+  email: 's.sidikoff@gmail.com',
+  priceRange: '€€',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '73 Rue Racine',
@@ -498,35 +383,81 @@ export const organizationSchema = {
     addressRegion: 'Auvergne-Rhône-Alpes',
     addressCountry: 'FR',
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '45.7719019',
+    longitude: '4.8508612',
+  },
+  // Primary service area — focused on real operational zone
   areaServed: [
-    {
-      '@type': 'Country',
-      name: 'France',
-    },
-    {
-      '@type': 'Place',
-      name: 'Europe',
-    },
-    {
-      '@type': 'City',
-      name: 'Villeurbanne',
-    },
-  ],
-  knowsAbout: [
-    'React Development',
-    'Next.js Development',
-    'TypeScript Programming',
-    'Full Stack Development',
-    'Frontend Development',
-    'Backend Development',
-    'SEO Optimization',
-    'Web Performance Optimization',
-    'Modern Web Applications',
-    'API Development',
+    { '@type': 'City', name: 'Villeurbanne' },
+    { '@type': 'City', name: 'Lyon' },
+    { '@type': 'AdministrativeArea', name: 'Lyon Métropole' },
+    { '@type': 'AdministrativeArea', name: 'Auvergne-Rhône-Alpes' },
+    { '@type': 'Country', name: 'France' },
   ],
   serviceArea: {
     '@type': 'Country',
     name: 'France',
+  },
+  hasMap: 'https://maps.app.goo.gl/WvGqqzNZuJydQ72o6',
+  openingHours: 'Mo-Fr 09:00-18:00',
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '18:00',
+  },
+  foundingDate: '2025',
+  founder: {
+    '@type': 'Person',
+    '@id': 'https://www.sidikoff.com/#founder',
+    name: 'Sardorbek SIDIKOV',
+    jobTitle: 'Développeur Web Full Stack & Fondateur',
+    url: 'https://www.sidikoff.com',
+    image: 'https://www.sidikoff.com/images/sidikov-web.png',
+    sameAs: ['https://github.com/ssidikov', 'https://linkedin.com/in/sardorbeksidikov'],
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+33626932734',
+    email: 's.sidikoff@gmail.com',
+    contactType: 'customer support',
+    areaServed: 'FR',
+    availableLanguage: ['French', 'English'],
+  },
+  knowsAbout: [
+    'Création de sites internet',
+    'Développement Web React',
+    'Next.js Development',
+    'TypeScript',
+    'SEO & Référencement naturel',
+    'Refonte de sites web',
+    'Web Performance',
+    'Applications web sur mesure',
+  ],
+  sameAs: [
+    'https://github.com/ssidikov',
+    'https://linkedin.com/in/sardorbeksidikov',
+    'https://twitter.com/sidikoffdigital',
+  ],
+}
+
+/**
+ * Lightweight Organization entity — used in @graph on city landing pages
+ * and for cross-referencing from WebSite / Article schemas.
+ */
+export const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://www.sidikoff.com/#organization',
+  name: 'SIDIKOFF DIGITAL',
+  url: 'https://www.sidikoff.com',
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://www.sidikoff.com/images/logo-sidikoff.svg',
+    width: 300,
+    height: 100,
   },
   sameAs: [
     'https://github.com/ssidikov',

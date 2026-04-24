@@ -49,10 +49,11 @@ export const metadata: Metadata = {
   publisher: SITE_CONFIG.name,
   category: 'technology',
   other: {
-    'geo.region': 'FR-75',
-    'geo.placename': 'Paris',
-    'geo.position': '48.8566;2.3522',
-    ICBM: '48.8566, 2.3522',
+    // Geo meta: Villeurbanne (registered address) — consistent with JSON-LD
+    'geo.region': 'FR-69',
+    'geo.placename': 'Villeurbanne',
+    'geo.position': '45.7719;4.8508',
+    ICBM: '45.7719, 4.8508',
     'theme-color': '#112D4E',
     'msapplication-TileColor': '#112D4E',
     'mobile-web-app-capable': 'yes',
@@ -96,7 +97,7 @@ export const metadata: Metadata = {
         url: SITE_CONFIG.image,
         width: 1200,
         height: 630,
-        alt: 'SIDIKOFF DIGITAL - Agence Web France | Développement Paris, Lyon, Toulouse, Strasbourg',
+        alt: 'SIDIKOFF DIGITAL - Agence Web Lyon & Villeurbanne | Création de Sites Internet Sur Mesure',
       },
     ],
   },
@@ -104,9 +105,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: SITE_CONFIG.twitter,
     creator: SITE_CONFIG.twitter,
-    title: 'SIDIKOFF DIGITAL - Agence Web France | Paris, Lyon, Toulouse, Strasbourg',
+    title: 'SIDIKOFF DIGITAL - Agence Web Lyon & Villeurbanne | Création de Sites',
     description:
-      'Agence web française : création sites internet modernes, applications web. Services à Paris, Lyon, Toulouse, Strasbourg. React, Next.js, SEO.',
+      'Agence web à Villeurbanne et Lyon : création de sites internet modernes, applications web sur mesure. React, Next.js, SEO. Devis gratuit sous 24h.',
     images: [SITE_CONFIG.image],
   },
   alternates: {

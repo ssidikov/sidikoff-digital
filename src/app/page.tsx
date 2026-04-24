@@ -1,7 +1,5 @@
 import {
-  businessLocations,
-  generateLocalBusinessSchema,
-  organizationSchema,
+  primaryBusinessSchema,
   generateSEOMetadata,
   generateLanguageAlternates,
   createCanonicalUrl,
@@ -61,33 +59,31 @@ function generateHomePageSchemas() {
   }))
 
   return [
-    organizationSchema,
-    ...businessLocations.map((location) =>
-      generateLocalBusinessSchema(location, false),
-    ),
+    // 1. Primary entity — single ProfessionalService (Villeurbanne/Lyon)
+    primaryBusinessSchema,
+
+    // 2. WebSite entity — enables Sitelinks & Search Action
     {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       '@id': 'https://www.sidikoff.com/#website',
       name: 'SIDIKOFF DIGITAL',
-      alternateName: 'SIDIKOFF DIGITAL',
+      alternateName: 'Agence Web Lyon',
       url: 'https://www.sidikoff.com',
       description:
-        'Agence web à Lyon et Paris spécialisée en création de sites internet sur mesure, refonte et SEO. Développement React et Next.js.',
+        'Agence web à Villeurbanne et Lyon spécialisée en création de sites internet sur mesure, refonte et SEO.',
       inLanguage: 'fr-FR',
-      isPartOf: {
+      publisher: {
         '@type': 'Organization',
         '@id': 'https://www.sidikoff.com/#organization',
       },
       copyrightYear: new Date().getFullYear(),
-      copyrightHolder: {
-        '@type': 'Organization',
-        '@id': 'https://www.sidikoff.com/#organization',
-      },
     },
-    // Review JSON-LD — generated server-side from testimonials data
+
+    // 3. Reviews — generated server-side from testimonials data
     generateReviewStructuredData(reviewsData),
-    // Author Schema
+
+    // 4. Founder / Person schema
     generatePersonSchema({
       name: 'Sardorbek SIDIKOV',
       jobTitle: 'Développeur Web Full Stack',
