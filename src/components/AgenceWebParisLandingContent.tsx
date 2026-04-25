@@ -438,6 +438,100 @@ const AgenceWebParisLandingContent: React.FC = () => {
         </div>
       </section>
 
+      {/* Pricing Section - SEO word count expansion */}
+      <section className='py-20 bg-gray-50 relative overflow-hidden'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-16'>
+             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>
+               Combien coûte la création d'un site web par notre agence à Paris ?
+             </h2>
+             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+               Chez Sidikoff Digital, nous croyons en la transparence totale. Pas de frais cachés, pas de surprises. Voici un aperçu de nos grilles tarifaires pour nos clients parisiens et d'Île-de-France.
+             </p>
+          </div>
+          <div className='grid md:grid-cols-3 gap-8'>
+            <div className='bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition'>
+              <h3 className='text-2xl font-bold text-gray-900 mb-2'>Site Vitrine Standard</h3>
+              <p className='text-gray-500 mb-6'>Pour les artisans et TPE</p>
+              <div className='text-4xl font-bold text-blue-600 mb-6'>Dès 690 €</div>
+              <ul className='space-y-3 text-gray-600 mb-8'>
+                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Design sur-mesure premium</li>
+                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Jusqu'à 5 pages (Accueil, Services, À propos, Contact)</li>
+                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Optimisation mobile (Responsive)</li>
+                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Optimisation SEO locale de base</li>
+                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Livraison sous 7 à 14 jours</li>
+              </ul>
+            </div>
+            <div className='bg-blue-600 text-white p-8 rounded-2xl shadow-xl transform md:-translate-y-4 relative'>
+              <div className='absolute top-0 right-0 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl'>LE PLUS POPULAIRE</div>
+              <h3 className='text-2xl font-bold mb-2'>Site Vitrine Avancé</h3>
+              <p className='text-blue-100 mb-6'>Pour PME & Professions libérales</p>
+              <div className='text-4xl font-bold mb-6'>Dès 1 290 €</div>
+              <ul className='space-y-3 text-blue-50 mb-8'>
+                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-blue-300 mr-2 shrink-0' /> Design UX/UI haute conversion</li>
+                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-blue-300 mr-2 shrink-0' /> Architecture multi-pages (jusqu'à 15 pages)</li>
+                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-blue-300 mr-2 shrink-0' /> Intégration de blog / actualités</li>
+                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-blue-300 mr-2 shrink-0' /> Stratégie SEO sémantique poussée</li>
+                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-blue-300 mr-2 shrink-0' /> Connexion outils (CRM, Analytics)</li>
+              </ul>
+            </div>
+            <div className='bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition'>
+              <h3 className='text-2xl font-bold text-gray-900 mb-2'>E-Commerce & Sur-Mesure</h3>
+              <p className='text-gray-500 mb-6'>Boutiques en ligne & Apps</p>
+              <div className='text-4xl font-bold text-blue-600 mb-6'>Dès 2 490 €</div>
+              <ul className='space-y-3 text-gray-600 mb-8'>
+                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Architecture e-commerce (Stripe, panier)</li>
+                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Design de tunnel d'achat optimisé</li>
+                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Fiches produits dynamiques</li>
+                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Développement Next.js / React.js</li>
+                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Hautes performances (Core Web Vitals)</li>
+              </ul>
+            </div>
+          </div>
+          <div className='mt-12 prose prose-lg text-gray-700 max-w-none'>
+            <p>
+              Créer un site internet professionnel à Paris représente un investissement, et notre rôle d'agence est de nous assurer que cet investissement génère un retour (ROI) positif. Contrairement aux plateformes de création de site basiques, nous livrons des outils sur-mesure qui vous appartiennent à 100%. Nos tarifs incluent toujours une phase d'audit de votre marché parisien (concurrents dans le 15ème, 11ème ou 8ème, habitudes de recherche locale), le web design, le développement technique et la mise en ligne.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Expertise SEO & Accompagnement Section */}
+      <section className='py-20 bg-white relative overflow-hidden border-t border-gray-100'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='grid lg:grid-cols-2 gap-16 items-center'>
+            <div className='space-y-6'>
+              <h2 className='text-3xl md:text-4xl font-bold text-gray-900'>
+                Une agence web parisienne orientée résultats et référencement
+              </h2>
+              <div className='prose prose-lg text-gray-700 space-y-4'>
+                <p>
+                  Avoir un beau site internet ne suffit plus. À Paris, la concurrence digitale est féroce. Si vous tapez "agence immobilière Paris 17" ou "restaurant italien Bastille", vous verrez que seules les premières positions génèrent du trafic qualifié. C'est là qu'intervient notre expertise en <strong>SEO local</strong>.
+                </p>
+                <p>
+                  En tant qu'<strong>agence web à Paris</strong>, nous intégrons la dimension marketing dès la première ligne de code. Nous réalisons une étude sémantique approfondie pour cibler les mots-clés de votre secteur d'activité, nous structurons vos balises Hn (H1, H2, H3), nous optimisons les méta-descriptions et nous nous assurons que le maillage interne est parfait. De plus, la performance technique de nos développements (grâce à des technologies modernes comme Next.js ou TailwindCSS) garantit que Google privilégiera vos pages pour leur vitesse de chargement.
+                </p>
+                <p>
+                  Mais notre accompagnement ne s'arrête pas au lancement. Nous vous formons à l'utilisation de votre nouvel outil, pour que vous soyez autonome sur la publication de vos actualités ou de vos nouveaux produits. Nous proposons également des forfaits de maintenance pour sécuriser votre investissement sur le long terme. Vous bénéficiez ainsi de la proximité d'une équipe dédiée, disponible pour échanger autour d'un café dans vos locaux parisiens ou en visioconférence.
+                </p>
+              </div>
+            </div>
+            <div className='relative h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl'>
+               <Image
+                 src='https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=1200&fit=crop'
+                 alt='Réunion stratégique agence web Paris'
+                 fill
+                 className='object-cover'
+               />
+               <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8'>
+                  <div className='text-white font-bold text-2xl mb-2'>Au-delà du code, une stratégie</div>
+                  <p className='text-white/90'>Nous accompagnons les décideurs parisiens de A à Z : de l'audit initial au monitoring des positions SEO.</p>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Arrondissements Section */}
       <section className='py-20 bg-gray-50 relative overflow-hidden'>
         <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>

@@ -128,19 +128,32 @@ export default function AgenceNextjsReactPage() {
     },
   }
 
-  const serviceJsonLd = generateServiceSchema({
+  const professionalServiceJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    '@id': `${pageUrl}#service`,
+    mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
     name: 'Agence Next.js & React - Développement Web Sur Mesure',
     description: 'Développement sur mesure d\'applications web React et sites Next.js haute performance, avec architecture de pointe et SEO natif.',
     url: pageUrl,
-    serviceType: 'Développement Next.js et React',
     areaServed: ['France', 'Paris', 'International'],
     image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
     priceRange: '€€€',
     provider: {
+      '@type': 'Organization',
       name: 'Sidikoff Digital',
       url: DEFAULT_SEO.siteUrl,
     },
-  })
+  }
+
+  const organizationJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${DEFAULT_SEO.siteUrl}/#organization`,
+    name: 'Sidikoff Digital',
+    url: DEFAULT_SEO.siteUrl,
+    logo: `${DEFAULT_SEO.siteUrl}/images/logo-sidikoff.svg`,
+  }
 
   return (
     <>
@@ -152,7 +165,12 @@ export default function AgenceNextjsReactPage() {
       <script
         id='schema-service-nextjs-react'
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceJsonLd) }}
+      />
+      <script
+        id='schema-organization'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
       <script
         id='schema-breadcrumb-nextjs-react'

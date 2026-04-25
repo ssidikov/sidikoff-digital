@@ -94,20 +94,32 @@ export default async function AgenceWebParis19Page() {
     },
   }
 
-  const serviceJsonLd = generateServiceSchema({
+  const professionalServiceJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    '@id': `${pageUrl}#service`,
+    mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
     name: 'Agence web Paris 19 - Création site internet',
-    description:
-      'Votre partenaire digital dans le 19ème arrondissement : conception web, e-commerce et SEO.',
+    description: 'Votre partenaire digital dans le 19ème arrondissement : conception web, e-commerce et SEO.',
     url: pageUrl,
-    serviceType: 'Création de site web Paris 19',
     areaServed: ['Paris 19ème', 'La Villette', 'Buttes-Chaumont', 'Paris'],
     image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
     priceRange: '€€',
     provider: {
+      '@type': 'Organization',
       name: 'Sidikoff Digital',
       url: DEFAULT_SEO.siteUrl,
     },
-  })
+  }
+
+  const organizationJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${DEFAULT_SEO.siteUrl}/#organization`,
+    name: 'Sidikoff Digital',
+    url: DEFAULT_SEO.siteUrl,
+    logo: `${DEFAULT_SEO.siteUrl}/images/logo-sidikoff.svg`,
+  }
 
   const breadcrumbJsonLd = generateBreadcrumbStructuredData([
     { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
@@ -150,7 +162,12 @@ export default async function AgenceWebParis19Page() {
       <script
         id='schema-service-paris-19'
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceJsonLd) }}
+      />
+      <script
+        id='schema-organization'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
       <script
         id='schema-breadcrumb-paris-19'

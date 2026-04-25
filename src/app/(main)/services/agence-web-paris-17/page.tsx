@@ -95,20 +95,32 @@ export default async function AgenceWebParis17Page() {
     },
   }
 
-  const serviceJsonLd = generateServiceSchema({
+  const professionalServiceJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    '@id': `${pageUrl}#service`,
+    mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
     name: 'Agence web Paris 17 - Création de site internet',
-    description:
-      'Conception de sites web sur-mesure et référencement SEO pour les entreprises du 17e arrondissement.',
+    description: 'Conception de sites web sur-mesure et référencement SEO pour les entreprises du 17e arrondissement.',
     url: pageUrl,
-    serviceType: 'Création de site web Paris 17',
     areaServed: ['Paris 17ème', 'Batignolles', 'Ternes', 'Monceau', 'Paris'],
     image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
     priceRange: '€€',
     provider: {
+      '@type': 'Organization',
       name: 'Sidikoff Digital',
       url: DEFAULT_SEO.siteUrl,
     },
-  })
+  }
+
+  const organizationJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${DEFAULT_SEO.siteUrl}/#organization`,
+    name: 'Sidikoff Digital',
+    url: DEFAULT_SEO.siteUrl,
+    logo: `${DEFAULT_SEO.siteUrl}/images/logo-sidikoff.svg`,
+  }
 
   const breadcrumbJsonLd = generateBreadcrumbStructuredData([
     { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
@@ -151,7 +163,12 @@ export default async function AgenceWebParis17Page() {
       <script
         id='schema-service-paris-17'
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceJsonLd) }}
+      />
+      <script
+        id='schema-organization'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
       <script
         id='schema-breadcrumb-paris-17'

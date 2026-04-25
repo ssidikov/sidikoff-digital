@@ -113,21 +113,29 @@ export default function AgenceWebParisLandingPage() {
     },
   };
   
-  const serviceJsonLd = {
+  const professionalServiceJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Service',
+    '@type': 'ProfessionalService',
     '@id': 'https://www.sidikoff.com/services/agence-web-paris#service',
     mainEntityOfPage: { '@id': 'https://www.sidikoff.com/services/agence-web-paris#webpage' },
     name: 'Agence Web Paris - Création de site internet',
     description: 'Création de sites internet sur-mesure et SEO pour les entreprises de Paris et Île-de-France.',
     url: 'https://www.sidikoff.com/services/agence-web-paris',
-    serviceType: 'Création de site web Paris',
     areaServed: [{ '@type': 'City', name: 'Paris' }, { '@type': 'AdministrativeArea', name: 'Île-de-France' }],
     provider: {
       '@type': 'Organization',
       name: 'Sidikoff Digital',
       url: 'https://www.sidikoff.com',
     },
+  }
+
+  const organizationJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': 'https://www.sidikoff.com/#organization',
+    name: 'Sidikoff Digital',
+    url: 'https://www.sidikoff.com',
+    logo: 'https://www.sidikoff.com/images/logo-sidikoff.svg',
   }
 
   return (
@@ -143,6 +151,14 @@ export default function AgenceWebParisLandingPage() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceJsonLd) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
       <AgenceWebParisLandingContent />
     </>
