@@ -37,7 +37,6 @@ Disallow: /admin/
 Disallow: /studio/
 Disallow: /private/
 Disallow: /_next/static/media/
-Crawl-delay: 1
 
 User-agent: AhrefsBot
 Disallow: /
