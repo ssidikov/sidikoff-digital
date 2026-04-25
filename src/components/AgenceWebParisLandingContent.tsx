@@ -65,26 +65,50 @@ const AgenceWebParisLandingContent: React.FC = () => {
     {
       id: '1',
       question: 'Combien coûte un site internet à Paris ?',
-      answer: 'Le tarif dépend de vos besoins. Un site vitrine de base commence généralement à partir de 690€, tandis qu\'un site e-commerce plus complexe ou un site sur mesure peut démarrer autour de 1500€. Nous fournissons un devis détaillé après un premier appel.',
+      answer: 'Le tarif dépend de vos besoins. Un site vitrine de base commence généralement à partir de 690€, tandis qu\'un site e-commerce plus complexe ou un site sur mesure peut démarrer autour de 1 500€. Nous fournissons un devis détaillé et gratuit après un premier appel de cadrage, sans engagement de votre part.',
       category: 'pricing'
     },
     {
       id: '2',
-      question: 'Combien de temps faut-il pour créer un site internet ?',
-      answer: 'En moyenne, la création d\'un site internet professionnel prend entre 7 et 14 jours pour un site vitrine, et de 4 à 8 semaines pour un site e-commerce ou sur mesure.',
+      question: 'Combien de temps faut-il pour créer un site internet à Paris ?',
+      answer: 'En moyenne, la création d\'un site vitrine professionnel prend entre 7 et 14 jours ouvrés. Un site e-commerce complet ou une application sur mesure nécessite 4 à 8 semaines selon la complexité des fonctionnalités. Nous respectons les délais convenus et vous tenons informé à chaque étape.',
       category: 'timing'
     },
     {
       id: '3',
-      question: 'Votre agence web propose-t-elle l\'optimisation SEO ?',
-      answer: 'Oui, tous nos sites sont optimisés pour le référencement naturel (SEO) dès leur conception (structure technique, balises meta, vitesse de chargement) pour vous aider à être visible sur Google à Paris et ailleurs.',
+      question: 'Votre agence web parisienne propose-t-elle l\'optimisation SEO ?',
+      answer: 'Oui, le SEO est intégré dès la conception de chaque site. Nous optimisons la structure technique (Core Web Vitals, balisage sémantique, sitemap), les contenus (mots-clés locaux Paris, balises meta) et la performance (score Lighthouse 95+) pour vous positionner durablement sur Google dans votre secteur parisien.',
       category: 'seo'
     },
     {
       id: '4',
       question: 'Puis-je gérer mon site moi-même après sa mise en ligne ?',
-      answer: 'Absolument ! Nous utilisons des systèmes de gestion de contenu (CMS) ou des back-offices intuitifs qui vous permettent de modifier vos textes, images et articles de blog facilement et sans compétences techniques.',
+      answer: 'Absolument. Nous développons sur des CMS intuitifs (Sanity, WordPress headless) ou des back-offices sur mesure. Vous pouvez modifier vos textes, ajouter des articles de blog et mettre à jour vos images sans aucune compétence technique. Une formation complète est incluse dans chaque livraison.',
       category: 'maintenance'
+    },
+    {
+      id: '5',
+      question: 'Quelle est la différence entre un site Next.js et un site WordPress ?',
+      answer: 'Next.js est un framework React qui offre des performances supérieures (score Lighthouse 95-100), un chargement quasi-instantané et une sécurité renforcée. WordPress offre un écosystème de plugins plus large mais peut être plus lourd en performances. Nous recommandons Next.js pour les entreprises qui veulent se démarquer techniquement et en SEO, et WordPress pour les projets nécessitant un CMS classique.',
+      category: 'technical'
+    },
+    {
+      id: '6',
+      question: 'Proposez-vous un accompagnement après la livraison du site ?',
+      answer: 'Oui. Nous proposons des contrats de maintenance mensuelle incluant : mises à jour de sécurité, sauvegardes quotidiennes, monitoring des performances, petites évolutions et support technique réactif. Vous n\'êtes jamais seul après le lancement.',
+      category: 'maintenance'
+    },
+    {
+      id: '7',
+      question: 'Travaillez-vous avec des entreprises de tous les arrondissements parisiens ?',
+      answer: 'Oui, nous accompagnons des entreprises dans tout Paris : du 1er au 20ème arrondissement, ainsi qu\'en petite et grande couronne (92, 93, 94). Nos clients sont des restaurants, cabinets médicaux, agences immobilières, boutiques, freelances et startups. Nous nous déplaçons pour les réunions de lancement sur Paris et Île-de-France.',
+      category: 'local'
+    },
+    {
+      id: '8',
+      question: 'Mon site sera-t-il visible sur mobile et tablette ?',
+      answer: 'Tous nos sites sont conçus en "mobile-first" : ils s\'adaptent parfaitement à tous les formats d\'écran (smartphone, tablette, desktop). Google privilégie le responsive design pour le référencement, et plus de 60 % du trafic web provient aujourd\'hui des mobiles. Votre site sera testé sur une dizaine d\'appareils différents avant la livraison.',
+      category: 'technical'
     }
   ]
 
@@ -367,6 +391,53 @@ const AgenceWebParisLandingContent: React.FC = () => {
         </div>
       </section>
 
+      {/* Local Context Section — boosts text-to-HTML ratio */}
+      <section className='py-20 bg-white relative overflow-hidden'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='grid lg:grid-cols-2 gap-16 items-start'>
+            <div>
+              <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>
+                Créer un site web à Paris en 2026 : ce qui a changé
+              </h2>
+              <div className='prose prose-lg text-gray-700 space-y-4'>
+                <p>
+                  Le marché parisien est l'un des plus concurrentiels de France. Que vous soyez une startup dans le Marais, un cabinet d'avocats dans le 8ème, une boutique de mode dans le 6ème ou un restaurant dans le 11ème, votre site web est aujourd'hui votre premier commercial. Un internaute parisien prend sa décision en moins de 5 secondes : design, rapidité, clarté et confiance sont non négociables.
+                </p>
+                <p>
+                  Depuis 2024, Google intègre les <strong>Core Web Vitals</strong> comme facteur de classement majeur. Cela signifie que les sites lents ou mal optimisés pour mobile perdent des positions, quelles que soient leurs autres qualités. C'est pourquoi nous construisons tous nos sites avec <strong>Next.js</strong>, un framework qui garantit des scores Lighthouse 95+ et un chargement en moins d'une seconde.
+                </p>
+                <p>
+                  Notre agence web parisienne accompagne aussi bien les <strong>TPE et PME locales</strong> que les startups en phase de croissance. Nous comprenons les spécificités de chaque arrondissement : le tissu commercial du 10ème, les professions libérales du 16ème, les créatifs du 18ème ou les entreprises B2B de La Défense. Cette connaissance locale se traduit par des contenus ciblés et un référencement local précis.
+                </p>
+                <p>
+                  Nos projets livrés à Paris incluent des sites pour : restaurants gastronomiques, cabinets médicaux, agences immobilières, artisans, e-commerçants et SaaS. Chaque site est pensé pour convertir — pas seulement pour être beau.
+                </p>
+              </div>
+            </div>
+            <div className='space-y-6'>
+              <h3 className='text-2xl font-bold text-gray-900'>Pour qui travaillons-nous à Paris ?</h3>
+              <div className='space-y-4'>
+                {[
+                  { emoji: '🏪', title: 'Commerces & boutiques', desc: 'Vitrines locales, menus en ligne, systèmes de réservation et e-commerce pour capter la clientèle de quartier et touristique.' },
+                  { emoji: '⚕️', title: 'Professions de santé', desc: 'Sites conformes RGPD pour médecins, dentistes, kinésithérapeutes et psychologues. Prise de rendez-vous en ligne intégrée.' },
+                  { emoji: '🏢', title: 'PME & startups', desc: 'Applications web sur mesure, sites institutionnels, landing pages de conversion et outils SaaS pour entreprises en croissance.' },
+                  { emoji: '🎨', title: 'Freelances & créatifs', desc: 'Portfolios premium, sites vitrine et outils de facturation intégrés pour photographes, designers et consultants indépendants.' },
+                  { emoji: '🍽️', title: 'Restauration & hôtellerie', desc: 'Sites avec menus dynamiques, galeries photos, réservation en ligne (Zenchef, TheFork) et SEO local pour apparaître sur Google Maps.' },
+                ].map((item, i) => (
+                  <div key={i} className='flex gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-blue-200 transition-colors'>
+                    <span className='text-2xl flex-shrink-0'>{item.emoji}</span>
+                    <div>
+                      <h4 className='font-bold text-gray-900 mb-1'>{item.title}</h4>
+                      <p className='text-gray-600 text-sm leading-relaxed'>{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Arrondissements Section */}
       <section className='py-20 bg-gray-50 relative overflow-hidden'>
         <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
@@ -374,7 +445,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
             Notre expertise web par arrondissement
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto mb-12'>
-            Nous accompagnons les entreprises locales partout dans Paris avec une approche de proximité. Découvrez nos pages dédiées à chaque arrondissement.
+            Nous accompagnons les entreprises locales partout dans Paris avec une approche de proximité. Que vous soyez dans le Triangle d'Or du 8ème, les Batignolles du 17ème ou Belleville dans le 20ème, nous connaissons votre marché. Découvrez nos pages dédiées à chaque arrondissement.
           </p>
           <div className='flex flex-wrap justify-center gap-4'>
             <Link href='/services/agence-web-paris-15' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 15ème</Link>

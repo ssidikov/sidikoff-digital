@@ -794,7 +794,112 @@ export default async function LyonPage() {
           </div>
         </Section>
 
-        {/* CTA Section */}
+        {/* Local Context Section */}
+        <Section className='py-20 bg-white'>
+          <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+            <div className='grid lg:grid-cols-2 gap-16 items-start'>
+              <div>
+                <h2 className='text-4xl font-bold text-[#112D4E] mb-8'>
+                  Créer un site internet à Lyon en 2026 : ce qui compte vraiment
+                </h2>
+                <div className='space-y-5 text-lg text-gray-700 leading-relaxed'>
+                  <p>
+                    Lyon est la troisième métropole française, avec un tissu économique exceptionnel : plus de
+                    160 000 entreprises dans la métropole, une scène startup dynamique autour de{' '}
+                    <strong>Confluence et Part-Dieu</strong>, et des secteurs porteurs comme la santé (Biopôle),
+                    la gastronomie, le luxe et les industries numériques. Dans cet environnement concurrentiel,
+                    votre site web est votre premier argument commercial.
+                  </p>
+                  <p>
+                    Un client lyonnais effectue sa recherche sur Google avant tout contact téléphonique. Si votre
+                    site n'apparaît pas dans les{' '}<strong>3 premiers résultats locaux</strong>, vous perdez la
+                    majorité de vos prospects au profit de concurrents mieux positionnés. Notre stratégie SEO locale
+                    pour Lyon cible précisément les quartiers où se trouvent vos clients : Presqu'île, Croix-Rousse,
+                    Monplaisir, Gerland, Vaise, La Guillotière ou Villeurbanne.
+                  </p>
+                  <p>
+                    Depuis 2024, Google évalue la qualité d'un site via les <strong>Core Web Vitals</strong> :
+                    vitesse de chargement (LCP &lt; 2,5s), interactivité (INP &lt; 200ms) et stabilité visuelle
+                    (CLS &lt; 0,1). Nos sites construits en <strong>Next.js</strong> atteignent systématiquement
+                    des scores Lighthouse supérieurs à 95, ce qui se traduit par un meilleur positionnement et
+                    une meilleure expérience pour vos visiteurs.
+                  </p>
+                  <p>
+                    En tant qu'agence web lyonnaise, nous intervenons aussi bien pour des{' '}
+                    <strong>boutiques du vieux Lyon</strong>, des <strong>restaurants bouchons</strong>,
+                    des cabinets d'avocats de la Part-Dieu, des cabinets médicaux et des PME industrielles
+                    de la zone de Vénissieux ou Saint-Priest. Chaque projet est contextualisé à votre marché local.
+                  </p>
+                </div>
+
+                {/* Internal linking hub */}
+                <div className='mt-8 p-6 bg-[#DBE2EF]/30 rounded-2xl border border-[#3F72AF]/20'>
+                  <h3 className='text-lg font-bold text-[#112D4E] mb-4'>Nos pages locales connexes</h3>
+                  <div className='flex flex-wrap gap-3'>
+                    <Link href='/services/agence-web-lyon' className='text-sm text-[#3F72AF] hover:text-[#112D4E] hover:underline font-medium'>
+                      → Agence web Lyon
+                    </Link>
+                    <Link href='/services/agence-web-villeurbanne' className='text-sm text-[#3F72AF] hover:text-[#112D4E] hover:underline font-medium'>
+                      → Agence web Villeurbanne
+                    </Link>
+                    <Link href='/services/creation-site-web-caluire-et-cuire' className='text-sm text-[#3F72AF] hover:text-[#112D4E] hover:underline font-medium'>
+                      → Site web Caluire-et-Cuire
+                    </Link>
+                    <Link href='/services/creation-site-internet-toulouse' className='text-sm text-[#3F72AF] hover:text-[#112D4E] hover:underline font-medium'>
+                      → Site internet Toulouse
+                    </Link>
+                    <Link href='/services/optimisation-seo' className='text-sm text-[#3F72AF] hover:text-[#112D4E] hover:underline font-medium'>
+                      → Optimisation SEO
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className='text-2xl font-bold text-[#112D4E] mb-6'>Pour qui créons-nous des sites à Lyon ?</h3>
+                <div className='space-y-4'>
+                  {[
+                    {
+                      icon: '🍽️',
+                      title: 'Restauration & gastronomie',
+                      desc: 'Bouchons lyonnais, restaurants gastronomiques, bars à vin : menus en ligne, réservation en ligne (TheFork, Zenchef), galeries photos et SEO local pour apparaître en tête sur Google Maps et « restaurant Lyon » + quartier.'
+                    },
+                    {
+                      icon: '⚕️',
+                      title: 'Professions médicales & paramédicales',
+                      desc: 'Médecins, dentistes, kinésithérapeutes, psychologues : sites conformes RGPD, prise de RDV en ligne (Doctolib, Calendly), fiches praticiens optimisées pour le référencement local au 69.'
+                    },
+                    {
+                      icon: '🏢',
+                      title: 'PME, industrie & B2B',
+                      desc: 'Entreprises de la zone industrielle de Gerland, Saint-Priest ou Vénissieux : sites institutionnels, catalogues produits, configurateurs en ligne et outils de gestion sur mesure.'
+                    },
+                    {
+                      icon: '🚀',
+                      title: 'Startups & scale-ups tech',
+                      desc: 'Entreprises en croissance de la Confluence ou du Biopôle : landing pages de conversion, applications web React/Next.js, API et solutions SaaS à haute disponibilité.'
+                    },
+                    {
+                      icon: '🏪',
+                      title: 'Commerce & artisanat',
+                      desc: 'Boutiques, artisans, indépendants : sites vitrines avec galerie, prise de contact rapide, Google Business Profile optimisé et ciblage SEO par arrondissement lyonnais.'
+                    },
+                  ].map((item, i) => (
+                    <div key={i} className='flex gap-4 p-4 bg-[#F8F9FA] rounded-xl border border-gray-100 hover:border-[#3F72AF]/30 transition-colors'>
+                      <span className='text-2xl flex-shrink-0'>{item.icon}</span>
+                      <div>
+                        <h4 className='font-bold text-[#112D4E] mb-1'>{item.title}</h4>
+                        <p className='text-gray-600 text-sm leading-relaxed'>{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+
         <Section className='py-20 bg-linear-to-br from-[#112D4E] to-[#3F72AF] text-white'>
           <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
             <h2 className='text-4xl font-bold mb-6'>Demandez un devis gratuit à Lyon</h2>

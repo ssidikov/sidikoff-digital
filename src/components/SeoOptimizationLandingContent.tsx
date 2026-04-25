@@ -255,7 +255,175 @@ export default function SeoOptimizationLandingContent({
         </div>
       </section>
 
-      {/* Final CTA Section */}
+      {/* SEO Context Section */}
+      <section className='py-20 bg-[var(--bg-primary)]'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='grid lg:grid-cols-2 gap-16 items-start'>
+            <div>
+              <motion.h2
+                className='text-4xl font-bold text-[var(--foreground)] mb-8 leading-tight'
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}>
+                Pourquoi le SEO est indispensable en 2026
+              </motion.h2>
+              <motion.div
+                className='space-y-5 text-lg text-gray-700 leading-relaxed'
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}>
+                <p>
+                  En 2026, <strong>93 % des expériences en ligne commencent par un moteur de recherche</strong>.
+                  Vos clients potentiels tapent leurs besoins sur Google avant même de penser à une recommandation.
+                  Si votre site n&apos;apparaît pas dans les 3 premiers résultats organiques, vous laissez 75 %
+                  de ce trafic à vos concurrents. Le SEO n&apos;est plus une option — c&apos;est la colonne
+                  vertébrale de toute stratégie digitale rentable.
+                </p>
+                <p>
+                  Avec l&apos;essor de l&apos;<strong>IA générative</strong> (ChatGPT, Gemini, Perplexity), le
+                  comportement de recherche évolue. Les utilisateurs posent des questions de plus en plus précises
+                  et attendent des réponses expertes. Les sites qui dominent en 2026 sont ceux qui démontrent
+                  leur <strong>autorité thématique</strong> — pas seulement ceux qui ont le plus de backlinks.
+                  Notre approche SEO intègre ces nouvelles réalités : contenu E-E-A-T, structured data, et
+                  optimisation pour les featured snippets et AI Overviews.
+                </p>
+                <p>
+                  Notre méthode combine <strong>SEO technique</strong> (Core Web Vitals, architecture de l&apos;information,
+                  balisage sémantique), <strong>SEO de contenu</strong> (topical authority, FAQ, articles de fond)
+                  et <strong>SEO local</strong> (Google Business Profile, NAP consistency, citations locales).
+                  Nous ciblons des résultats durables — pas des positions artificielles qui s&apos;effondrent
+                  au prochain update Google.
+                </p>
+                <p>
+                  Nous travaillons principalement avec des entreprises en <strong>France, Belgique et Suisse
+                  francophone</strong>. Nos spécialités incluent le SEO local pour Paris, Lyon, Bordeaux,
+                  Marseille et leurs agglomérations. Chaque stratégie est construite sur des données réelles :
+                  analyse concurrentielle, volume de recherche, intention utilisateur et potentiel de conversion.
+                </p>
+              </motion.div>
+            </div>
+
+            <div>
+              <motion.h3
+                className='text-2xl font-bold text-[var(--foreground)] mb-6'
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}>
+                Pour qui nos services SEO sont-ils faits ?
+              </motion.h3>
+              <motion.div
+                className='space-y-4'
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}>
+                {[
+                  {
+                    icon: '🏢',
+                    title: 'PME & entreprises locales',
+                    desc: 'Vous avez un site mais peu de trafic organique. Nous auditons, corrigeons et développons votre visibilité pour capter des prospects qualifiés dans votre zone géographique.'
+                  },
+                  {
+                    icon: '🛒',
+                    title: 'E-commerce & boutiques en ligne',
+                    desc: 'SEO produit, optimisation des pages catégories, netlinking e-commerce et stratégie de contenu blog pour générer du trafic organique rentable sur votre boutique.'
+                  },
+                  {
+                    icon: '⚕️',
+                    title: 'Professions libérales & santé',
+                    desc: 'Médecins, avocats, experts-comptables, consultants : positionnement sur des requêtes à forte intention locale et construction d\'autorité E-E-A-T dans votre domaine.'
+                  },
+                  {
+                    icon: '🚀',
+                    title: 'Startups & scale-ups',
+                    desc: 'Stratégie SEO fondée sur la croissance organique : keyword gap analysis, content marketing, link building et optimisation de conversion pour accélérer votre acquisition.'
+                  },
+                  {
+                    icon: '🌍',
+                    title: 'Entreprises multilingues',
+                    desc: 'SEO international avec stratégie hreflang, ciblage par pays et adaptation culturelle du contenu pour capter du trafic qualifié en France, Belgique, Suisse et au-delà.'
+                  },
+                ].map((item, i) => (
+                  <div key={i} className='flex gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:border-[var(--accent-alpha-20)] hover:shadow-md transition-all duration-300'>
+                    <span className='text-2xl flex-shrink-0'>{item.icon}</span>
+                    <div>
+                      <h4 className='font-bold text-[var(--foreground)] mb-1'>{item.title}</h4>
+                      <p className='text-gray-600 text-sm leading-relaxed'>{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Extended FAQ Section */}
+      <section className='py-20 bg-white'>
+        <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <motion.div
+            className='text-center mb-16'
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}>
+            <h2 className='text-4xl font-bold text-[var(--foreground)] mb-4'>
+              FAQ — Optimisation SEO & Référencement
+            </h2>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+              Toutes vos questions sur le référencement naturel et nos services SEO
+            </p>
+          </motion.div>
+
+          <motion.div
+            className='space-y-0 divide-y divide-gray-200 border border-gray-200 rounded-2xl overflow-hidden'
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}>
+            {[
+              {
+                q: 'Combien de temps faut-il pour voir des résultats en SEO ?',
+                a: 'Les premiers effets sont généralement visibles sous 60 à 90 jours pour les corrections techniques. Pour les gains de positions significatifs sur des mots-clés concurrentiels, comptez 4 à 6 mois. Le SEO est un investissement de moyen-long terme : les résultats sont durables, contrairement au SEA (publicité payante) qui s\'arrête dès que vous coupez le budget.'
+              },
+              {
+                q: 'Quelle est la différence entre SEO local et SEO national ?',
+                a: 'Le SEO local cible des requêtes géolocalisées (« dentiste Paris 15 », « plombier Lyon urgence ») et optimise votre fiche Google Business Profile pour apparaître dans le « pack local » des 3 premiers résultats cartographiques. Le SEO national vise des mots-clés sans intention géographique (« logiciel comptabilité PME »). Nous maîtrisons les deux approches et les adaptons à votre marché.'
+              },
+              {
+                q: 'Comment mesurez-vous les résultats de votre travail SEO ?',
+                a: 'Nous utilisons Google Search Console, Google Analytics 4, Semrush et Ahrefs. Vous recevez chaque mois un rapport détaillé incluant : évolution des positions sur vos mots-clés cibles, trafic organique, taux de clic (CTR), conversions attribuées au SEO et analyse des opportunités. Tout est transparent, chiffré et orienté ROI.'
+              },
+              {
+                q: 'Le SEO est-il rentable pour les petites entreprises ?',
+                a: 'Oui, particulièrement pour les petites entreprises locales. Un artisan, un commerce ou une profession libérale peut capter l\'ensemble des recherches locales avec un investissement SEO modéré — là où une grande enseigne nationale n\'ira pas. Le retour sur investissement est souvent meilleur pour les TPE/PME locales que pour les grandes entreprises sur des mots-clés nationaux.'
+              },
+              {
+                q: 'Travaillez-vous sur des sites déjà existants ou uniquement les nouveaux ?',
+                a: 'Les deux. Nous auditons et optimisons des sites existants (migrations, correctifs techniques, enrichissement de contenu) aussi bien que nous intégrons le SEO dès la création d\'un nouveau site. Un audit SEO complet est inclus dans toute prestation, même pour les sites récents — car même un site neuf peut avoir des problèmes d\'indexation ou de structure.'
+              },
+              {
+                q: 'Utilisez-vous des techniques SEO « black hat » ?',
+                a: 'Non, jamais. Nous pratiquons exclusivement le SEO white hat : contenus utiles et originaux, netlinking naturel via des partenariats légitimes, optimisation technique conforme aux guidelines Google. Les techniques black hat peuvent générer des résultats rapides mais exposent à des pénalités algorithmiques (Google Penguin, Panda) qui peuvent détruire définitivement votre positionnement.'
+              },
+              {
+                q: 'Proposez-vous des audits SEO pour des sites concurrents ?',
+                a: 'Nous réalisons une analyse concurrentielle approfondie dans le cadre de chaque mission SEO. Nous identifions les mots-clés sur lesquels vos concurrents se positionnent, leur stratégie de contenu, leur profil de backlinks et leurs lacunes — pour construire une stratégie qui vous permet de les dépasser.'
+              },
+            ].map((item, i) => (
+              <div key={i} className='p-6 bg-white hover:bg-[var(--bg-primary)] transition-colors'>
+                <h3 className='text-lg font-bold text-[var(--foreground)] mb-3'>{item.q}</h3>
+                <p className='text-gray-600 leading-relaxed'>{item.a}</p>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+
       <section className='py-20 bg-[var(--accent)]'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
           <motion.div
