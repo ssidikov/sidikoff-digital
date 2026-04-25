@@ -19,7 +19,7 @@ const PAGE_PATH = 'services/creation-site-web-caluire-et-cuire'
 
 const seoContent = {
   fr: {
-    title: 'Création site web Caluire-et-Cuire | Développeur freelance premium',
+    title: 'Création Site Web Caluire-et-Cuire | Développeur Freelance',
     description:
       'Développeur web freelance à Caluire-et-Cuire (69300). Création de sites vitrines, e-commerce, refonte et SEO technique. Devis gratuit sous 24h.',
     keywords: [

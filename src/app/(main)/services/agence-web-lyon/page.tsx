@@ -8,7 +8,7 @@ const cormorant = Cormorant_Garamond({ subsets: ['latin'], weight: ['400', '600'
 const manrope = Manrope({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'] })
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Agence Web Lyon | Création de Sites Internet'
+  const title = 'Agence Web Lyon | Création Site Internet'
 
   const description =
     'Agence web à Lyon — création de sites internet sur mesure, SEO local et refonte web. Sites livrés en 7–14 jours, dès 690 €. Expert React & Next.js. Devis gratuit sous 24h ✓'

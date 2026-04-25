@@ -23,7 +23,7 @@ import {
 } from '@/sections'
 
 const SEO_CONFIG = {
-  title: 'Agence Web Lyon — Création de Sites Internet Sur Mesure',
+  title: 'Agence Web Lyon | Création Site Internet',
   keywords: [
     'agence web Lyon',
     'création site internet Lyon',

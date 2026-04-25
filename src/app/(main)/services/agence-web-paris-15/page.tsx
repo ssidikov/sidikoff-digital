@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const pageUrl = createCanonicalUrl(PAGE_SLUG, 'fr')
 
   return {
-    title: 'Agence Web Paris 15 - Création de site internet',
+    title: 'Agence Web Paris 15 | Création Site Internet',
     description: 'Agence web Paris 15ème : sites vitrines dès 690 €, livrés en 7-14 jours. Référencement SEO local, Next.js/React. Convention, Vaugirard, Grenelle. Devis gratuit sous 24h.',
     keywords: [
       'agence web paris 15ème',
@@ -34,7 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
       'react paris 15ème',
     ],
     openGraph: {
-      title: 'Agence Web Paris 15 - Création de site internet',
+      title: 'Agence Web Paris 15 | Création Site Internet',
       description: 'Agence web Paris 15ème : sites vitrines dès 690 €, livrés en 7-14 jours. Référencement SEO local, Next.js/React. Convention, Vaugirard, Grenelle. Devis gratuit sous 24h.',
       type: 'website',
       locale: 'fr_FR',
@@ -51,7 +51,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Agence Web Paris 15 - Création de site internet',
+      title: 'Agence Web Paris 15 | Création Site Internet',
       description: 'Agence web Paris 15ème : sites vitrines dès 690 €, livrés en 7-14 jours. Référencement SEO local, Next.js/React. Convention, Vaugirard, Grenelle. Devis gratuit sous 24h.',
       creator: '@sidikoffdigital',
       images: ['/images/opengraph-fr.png'],

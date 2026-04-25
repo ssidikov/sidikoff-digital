@@ -7,7 +7,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Création site internet Lyon — Agence web & développeur web à Lyon'
+  const title = 'Création Site Internet Lyon'
 
   const description =
     'Agence web Lyon (69 / 69100) — sites vitrines, e-commerce et applications sur mesure, livrés en 7–14 jours. SEO local, React & Next.js. Devis gratuit sous 24h ✓'

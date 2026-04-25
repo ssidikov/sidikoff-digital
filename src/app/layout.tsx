@@ -8,7 +8,7 @@ import { inter, grotesk } from '@/lib/fonts'
 const SITE_CONFIG = {
   url: 'https://www.sidikoff.com',
   name: 'Sidikoff Digital',
-  title: 'Agence Web France | Développement Web — Sidikoff Digital',
+  title: 'Agence Web France | Développement Web',
   description:
     'Sidikoff Digital, agence web Lyon, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.',
   keywords: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
     default: SITE_CONFIG.title,
-    template: '%s | Sidikoff Digital',
+    template: '%s',
   },
   description: SITE_CONFIG.description,
   keywords: [...SITE_CONFIG.keywords],
@@ -105,7 +105,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: SITE_CONFIG.twitter,
     creator: SITE_CONFIG.twitter,
-    title: 'Sidikoff Digital - Agence Web Lyon & Villeurbanne | Création de Sites',
+    title: 'Agence Web Lyon & Villeurbanne | Création Site',
     description:
       'Agence web à Villeurbanne et Lyon : création de sites internet modernes, applications web sur mesure. React, Next.js, SEO. Devis gratuit sous 24h.',
     images: [SITE_CONFIG.image],

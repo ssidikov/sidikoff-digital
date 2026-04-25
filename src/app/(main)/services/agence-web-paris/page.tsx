@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const url = createCanonicalUrl('services/agence-web-paris', 'fr')
 
   return {
-    title: 'Agence Web Paris - Création de Sites Internet Sur Mesure',
+    title: 'Agence Web Paris | Création Site Internet',
     description: 'Votre agence web à Paris experte en création de sites internet, vitrine et e-commerce. Next.js, SEO local, design premium. Devis gratuit sous 24h.',
     keywords: [
       'agence web paris',
@@ -30,7 +30,7 @@ export async function generateMetadata(): Promise<Metadata> {
       languages: generateAlternateUrls('services/agence-web-paris'),
     },
     openGraph: {
-      title: 'Agence Web Paris - Création de Sites Internet Sur Mesure',
+      title: 'Agence Web Paris | Création Site Internet',
       description: 'Votre agence web à Paris experte en création de sites internet, vitrine et e-commerce. Next.js, SEO local, design premium. Devis gratuit sous 24h.',
       url: url,
       siteName: 'Sidikoff Digital',
@@ -47,7 +47,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Agence Web Paris - Création de Sites Internet Sur Mesure',
+      title: 'Agence Web Paris | Création Site Internet',
       description: 'Votre agence web à Paris experte en création de sites internet, vitrine et e-commerce. Next.js, SEO local, design premium. Devis gratuit sous 24h.',
       images: ['/images/opengraph-fr.png'],
       creator: '@sidikoffdigital',

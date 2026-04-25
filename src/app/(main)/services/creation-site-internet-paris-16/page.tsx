@@ -15,7 +15,7 @@ const PAGE_SLUG = 'services/creation-site-internet-paris-16'
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = defaultLocale
-  const pageTitle = 'Agence web Paris 16 - Creation de site web'
+  const pageTitle = 'Agence Web Paris 16 | Création Site Internet'
   const pageDescription =
     'Creation de site web a Paris 16: site vitrine, e-commerce, redesign et SEO local. Agence web orientee conversion pour Passy, Auteuil et Trocadero.'
 

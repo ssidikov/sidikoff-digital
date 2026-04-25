@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 import WebRedesignLandingContent from '@/components/WebRedesignLandingContent'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Redesign de site web professionnel'
+  const title = 'Refonte Site Web Professionnel'
   const description = 'Modernisez votre site existant avec notre service de redesign professionnel'
 
   const canonicalUrl = createCanonicalUrl('services/refonte-sites-web', 'fr')

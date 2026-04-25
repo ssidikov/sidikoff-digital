@@ -14,7 +14,7 @@ const PAGE_SLUG = 'services/agence-web-paris-6'
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = defaultLocale
-  const pageTitle = 'Agence Web Paris 6 - Création de sites web'
+  const pageTitle = 'Agence Web Paris 6 | Création Site Internet'
   const pageDescription =
     'Création de site internet à Paris 6 : Saint-Germain-des-Prés, Odéon. Agence digitale experte pour galeries, cabinets et commerces premium.'
 

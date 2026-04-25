@@ -7,7 +7,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Création site internet Toulouse – Agence web & SEO local'
+  const title = 'Création Site Internet Toulouse'
 
   const description =
     'Sidikoff Digital, agence web 31, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'

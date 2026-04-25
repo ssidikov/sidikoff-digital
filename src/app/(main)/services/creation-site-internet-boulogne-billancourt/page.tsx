@@ -5,7 +5,7 @@ import { Section } from '@/components/ui'
 import CTAButton from '@/components/ui/CTAButton'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Création site internet Boulogne-Billancourt – Agence web spécialisée'
+  const title = 'Création Site Internet Boulogne-Billancourt'
 
   const description =
     'Sidikoff Digital, agence web 92, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
