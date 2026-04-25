@@ -69,6 +69,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/services/wordpress-lyon',
 
     // --- Other geo pages ---
+    '/services/agence-web-bordeaux',
+    '/services/agence-web-nantes',
     '/services/creation-site-internet-toulouse',
     '/services/creation-site-internet-boulogne-billancourt',
   ]
