@@ -3251,8 +3251,8 @@
     "meta_description": "Agence web Paris 15ème — sites vitrines dès 690 €, livrés en 7–14 jours. Référencement SEO local, Next.js/React. Convention, Vaugirard, Grenelle. Devis gratuit sous 24h ✓",
     "hero": {
       "badge": "Agence Web Paris 15ème",
-      "title": "Votre Agence Web dans le 15ème Arrondissement de Paris",
-      "description": "Située au cœur du 15ème arrondissement (Convention, Vaugirard, Grenelle), nous accompagnons les entreprises locales dans leur transformation digitale avec des sites web performants et modernes.",
+      "title": "Création de Sites Internet Paris 15 : Vaugirard, Beaugrenelle, Convention",
+      "description": "Développez votre visibilité dans le 15ème arrondissement. Que vous soyez un commerce près de Beaugrenelle, un cabinet médical vers Vaugirard, ou une entreprise proche du Parc André Citroën, notre équipe experte conçoit des plateformes digitales sur mesure (vitrines et e-commerce) taillées pour convertir votre trafic local en clients fidèles.",
       "cta_primary": "Demander un Devis",
       "cta_secondary": "Nos Réalisations",
       "trust_indicators": [
@@ -3267,39 +3267,39 @@
       "items": [
         {
           "icon": "⚛️",
-          "title": "Sites Web Modernes Next.js",
-          "description": "Création de sites ultra-performants avec Next.js et React pour les commerces et entreprises du quartier Convention, Vaugirard et Grenelle."
+          "title": "Création de Site Vitrine 75015",
+          "description": "Des sites au design premium pour les artisans, indépendants et TPE de Javel à Montparnasse, assurant une navigation fluide et rapide."
         },
         {
           "icon": "🛍️",
-          "title": "E-commerce Paris 15",
-          "description": "Boutiques en ligne optimisées pour les commerçants du 15ème arrondissement avec paiement sécurisé et livraison locale."
+          "title": "Boutiques E-commerce Locales",
+          "description": "Digitalisez votre boutique physique située rue du Commerce ou Convention avec une solution e-commerce robuste, gestion des stocks et Click & Collect."
         },
         {
           "icon": "📱",
-          "title": "Applications Web & Mobile",
-          "description": "Développement d'applications sur mesure pour digitaliser vos services et fidéliser votre clientèle parisienne."
+          "title": "Optimisation SEO Paris 15",
+          "description": "Stratégie de référencement ciblée sur les requêtes locales de votre quartier pour dominer Google Maps et les résultats de recherche."
         }
       ]
     },
     "about": {
       "title": "Pourquoi Choisir Notre Agence Web Paris 15 ?",
-      "subtitle": "Spécialistes du digital dans le 15ème arrondissement, nous connaissons les enjeux des entreprises locales et proposons des solutions adaptées au marché parisien.",
+      "subtitle": "Implantés au cœur du plus grand arrondissement parisien, nous comprenons la dynamique unique du 15e, de l'animation de Beaugrenelle à l'effervescence de la Porte de Versailles.",
       "items": [
         {
           "icon": "📍",
-          "title": "Proximité Garantie",
-          "description": "Intervention rapide dans tout Paris 15 (75015) : Convention, Vaugirard, Grenelle, Montparnasse"
+          "title": "Ancrage Local Fort",
+          "description": "Intervention rapide et rendez-vous physiques possibles dans tout le 15e (Convention, Vaugirard, Grenelle, Necker, Javel)."
         },
         {
           "icon": "🏆",
-          "title": "Technologies de Pointe",
-          "description": "Next.js, React, WordPress – Les meilleures solutions pour votre visibilité en ligne"
+          "title": "Excellence Technique",
+          "description": "Nous n'utilisons que des technologies modernes (Next.js, React) pour garantir des temps de chargement ultra-rapides et une sécurité maximale."
         },
         {
           "icon": "💼",
-          "title": "Accompagnement Personnalisé",
-          "description": "Support dédié, formation et maintenance pour assurer la réussite de votre projet digital"
+          "title": "Accompagnement Sur-Mesure",
+          "description": "De la conception à la mise en ligne, et bien au-delà grâce à notre support et maintenance dédiée à nos partenaires du 15e arrondissement."
         }
       ]
     },

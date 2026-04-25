@@ -10,30 +10,29 @@ import {
   generateServiceSchema,
 } from '@/lib/seo-utils'
 
-const PAGE_SLUG = 'services/creation-site-internet-paris-16'
+const PAGE_SLUG = 'services/agence-web-paris-17'
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = defaultLocale
-  const pageTitle = 'Agence web Paris 16 - Creation de site web'
+  const pageTitle = 'Agence Web Paris 17 - Création de sites internet'
   const pageDescription =
-    'Creation de site web a Paris 16: site vitrine, e-commerce, redesign et SEO local. Agence web orientee conversion pour Passy, Auteuil et Trocadero.'
+    'Création de sites internet à Paris 17 : vitrines, e-commerce et SEO. Agence web locale accompagnant les entreprises des Batignolles, Ternes et Monceau.'
 
   return {
     title: pageTitle,
     description: pageDescription,
     keywords: [
-      'creation site internet paris 16',
-      'agence web paris 16',
-      'creation site web paris 16',
-      'agence creation site web paris 16',
-      'site vitrine paris 16',
-      'site e-commerce paris 16',
-      'refonte site web paris 16',
-      'seo local paris 16',
-      'agence digitale paris 16',
-      'creation site internet passy',
-      'creation site internet auteuil',
-      'creation site internet trocadero',
+      'agence web paris 17',
+      'creation site internet paris 17',
+      'creation site web paris 17',
+      'agence digitale paris 17',
+      'site vitrine paris 17',
+      'site e-commerce paris 17',
+      'refonte site web paris 17',
+      'seo local paris 17',
+      'creation site internet batignolles',
+      'creation site internet ternes',
+      'creation site internet monceau',
     ],
     robots: {
       index: true,
@@ -58,7 +57,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: '/images/opengraph-fr.png',
           width: 1200,
           height: 630,
-          alt: 'Agence web Paris 16 - Creation site web professionnel',
+          alt: 'Agence web Paris 17 - Création site web professionnel',
         },
       ],
     },
@@ -76,7 +75,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default async function CreationSiteInternetParis16Page() {
+export default async function AgenceWebParis17Page() {
   const locale = defaultLocale
   const pageUrl = createCanonicalUrl(PAGE_SLUG, locale)
 
@@ -85,9 +84,9 @@ export default async function CreationSiteInternetParis16Page() {
     '@type': 'ProfessionalService',
     '@id': `${DEFAULT_SEO.siteUrl}/${PAGE_SLUG}#LocalBusiness`,
     name: 'SIDIKOFF DIGITAL',
-    alternateName: 'Agence web Paris 16',
+    alternateName: 'Agence web Paris 17',
     description:
-      'Creation et redesign de sites internet pour les entreprises du 16eme arrondissement de Paris.',
+      'Création et refonte de sites internet pour les professionnels du 17ème arrondissement de Paris.',
     url: pageUrl,
     telephone: '+33626932734',
     email: 's.sidikoff@gmail.com',
@@ -103,30 +102,30 @@ export default async function CreationSiteInternetParis16Page() {
     ],
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 48.86237,
-      longitude: 2.27692,
+      latitude: 48.8835,
+      longitude: 2.3219,
     },
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Paris',
-      postalCode: '75016',
+      postalCode: '75017',
       addressRegion: 'Ile-de-France',
       addressCountry: 'FR',
     },
     areaServed: [
       { '@type': 'City', name: 'Paris' },
-      { '@type': 'Place', name: 'Paris 16eme' },
-      { '@type': 'Place', name: 'Passy' },
-      { '@type': 'Place', name: 'Auteuil' },
-      { '@type': 'Place', name: 'Trocadero' },
-      { '@type': 'Place', name: 'La Muette' },
+      { '@type': 'Place', name: 'Paris 17ème' },
+      { '@type': 'Place', name: 'Batignolles' },
+      { '@type': 'Place', name: 'Ternes' },
+      { '@type': 'Place', name: 'Plaine-de-Monceaux' },
+      { '@type': 'Place', name: 'Épinettes' },
     ],
     serviceType: [
-      'Creation de site web',
+      'Création de site web',
       'Site vitrine',
       'Site e-commerce',
-      'Redesign web',
-      'SEO local',
+      'Refonte de site internet',
+      'Référencement SEO',
     ],
     sameAs: [
       'https://www.linkedin.com/in/sardorbeksidikov',
@@ -136,12 +135,12 @@ export default async function CreationSiteInternetParis16Page() {
   }
 
   const serviceJsonLd = generateServiceSchema({
-    name: 'Agence web Paris 16 - Creation de site web',
+    name: 'Agence web Paris 17 - Création de site internet',
     description:
-      'Creation de sites internet professionnels a Paris 16 avec optimisation SEO locale et orientation conversion.',
+      'Conception de sites web sur-mesure et référencement SEO pour les entreprises du 17e arrondissement.',
     url: pageUrl,
-    serviceType: 'Creation de site web Paris 16',
-    areaServed: ['Paris 16eme', 'Passy', 'Auteuil', 'Trocadero', 'Paris'],
+    serviceType: 'Création de site web Paris 17',
+    areaServed: ['Paris 17ème', 'Batignolles', 'Ternes', 'Monceau', 'Paris'],
     image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
     priceRange: '€€',
     provider: {
@@ -153,58 +152,58 @@ export default async function CreationSiteInternetParis16Page() {
   const breadcrumbJsonLd = generateBreadcrumbStructuredData([
     { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
     { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
-    { name: 'Creation site internet Paris 16', url: pageUrl },
+    { name: 'Agence web Paris 17', url: pageUrl },
   ])
 
   return (
     <>
       <script
-        id='schema-local-business-paris-16'
+        id='schema-local-business-paris-17'
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
       />
       <script
-        id='schema-service-paris-16'
+        id='schema-service-paris-17'
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
       <script
-        id='schema-breadcrumb-paris-16'
+        id='schema-breadcrumb-paris-17'
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <ParisArrondissementLanding
-        arrondissement="16"
+        arrondissement="17"
         heroTitle={
           <>
-            Agence web Paris 16
+            Agence web Paris 17
             <br />
-            creation site web qui convertit.
+            pour des sites qui performent.
           </>
         }
-        heroDescription="Notre service de creation site web a Paris 16 combine design editorial, structure SEO locale et parcours de conversion. Objectif: transformer la visibilite des entreprises de Passy, Auteuil, La Muette et Trocadero en demandes qualifiees."
-        neighborhoods={['Passy', 'Auteuil', 'La Muette', 'Trocadero', 'Porte Dauphine', 'Chaillot']}
-        visionLocaleText="Une page orientee conversion pour les entreprises, cabinets et commerces du 16e."
+        heroDescription="De Batignolles à Ternes en passant par Monceau, nous accompagnons les professionnels et commerçants du 17e arrondissement avec des sites vitrines et e-commerce taillés pour convertir."
+        neighborhoods={['Batignolles', 'Ternes', 'Monceau', 'Épinettes', 'Péreire', 'Wagram']}
+        visionLocaleText="Des solutions digitales sur-mesure adaptées à l'exigence et au dynamisme des professionnels du 17e."
         faqItems={[
           {
-            question: 'Quel budget pour un site internet a Paris 16 ?',
+            question: 'Quel budget prévoir pour un site à Paris 17 ?',
             answer:
-              'Le budget depend du niveau de personnalisation, du volume de contenu et des integrations. En general, un site vitrine demarre a partir de 690 EUR, et un projet e-commerce demarre autour de 1 290 EUR.',
+              'Nos forfaits s\'adaptent à vos besoins réels. Un site vitrine professionnel démarre à partir de 690 €, idéal pour les indépendants et TPE. Les projets e-commerce commencent autour de 1 290 €.',
           },
           {
-            question: 'Combien de temps faut-il pour lancer le projet ?',
+            question: 'Combien de temps faut-il pour créer mon site ?',
             answer:
-              'Pour une page de service ou un site vitrine cible, la mise en ligne peut se faire entre 7 et 14 jours apres validation des contenus et de la direction visuelle.',
+              'Grâce à notre approche agile, un site vitrine peut être mis en ligne sous 7 à 14 jours, incluant le design, le développement et l\'optimisation de base.',
           },
           {
-            question: 'Est-ce que vous optimisez aussi le SEO local ?',
+            question: 'Faites-vous du référencement local ?',
             answer:
-              'Oui. La structure technique, les titres, les sections de preuve et les donnees structurees sont alignees sur les requetes locales du 16e arrondissement.',
+              'Oui, notre priorité est de vous rendre visible là où se trouvent vos clients. Nous optimisons votre site pour des recherches telles que "votre métier + Batignolles" ou "Paris 17".',
           },
           {
-            question: 'Puis-je garder la main sur mon contenu ensuite ?',
+            question: 'Serais-je propriétaire de mon site ?',
             answer:
-              'Absolument. Nous livrons un back-office clair et un cadre d edition simple pour mettre a jour textes, visuels et pages sans blocage technique.',
+              'Totalement. Vous avez accès à votre nom de domaine, votre hébergement, et un back-office pour modifier vos contenus en toute autonomie.',
           },
         ]}
       />

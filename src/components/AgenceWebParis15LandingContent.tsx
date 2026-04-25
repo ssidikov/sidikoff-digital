@@ -533,6 +533,15 @@ export default function AgenceWebParis15LandingContent() {
                 </div>
               ))}
             </motion.div>
+
+            <div className='mt-12 text-center'>
+              <p className='text-purple-200'>
+                Votre entreprise n'est pas dans le 15e ?{' '}
+                <Link href='/services/agence-web-paris' className='font-bold text-white underline hover:text-pink-300 transition'>
+                  Découvrez notre page principale Agence Web Paris
+                </Link>
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>

@@ -26,7 +26,17 @@ const manrope = Manrope({
   variable: '--font-manrope',
 })
 
-const storyBlocks = [
+export interface ParisArrondissementLandingProps {
+  arrondissement: string
+  heroTitle: React.ReactNode
+  heroDescription: string
+  neighborhoods: string[]
+  visionLocaleText: string
+  faqItems: { question: string; answer: string }[]
+  storyBlocks?: { chapter: string; title: string; description: string; icon: React.ElementType }[]
+}
+
+const defaultStoryBlocks = [
   {
     chapter: 'Chapitre 01',
     title: 'Un beau site qui ne genere rien',
@@ -45,14 +55,14 @@ const storyBlocks = [
     chapter: 'Chapitre 03',
     title: 'Un referencement local sous-exploite',
     description:
-      'Passy, Auteuil, Muette, Trocadero: nous structurons vos pages pour capter les requetes locales a forte intention.',
+      'Nous structurons vos pages pour capter les requetes locales a forte intention dans votre arrondissement.',
     icon: Search,
   },
-] as const
+]
 
 const processSteps = [
   {
-    title: 'Audit express Paris 16',
+    title: 'Audit express de votre positionnement',
     description:
       'Analyse de votre positionnement, de vos concurrents locaux et des points de friction sur votre parcours actuel.',
   },
@@ -66,7 +76,7 @@ const processSteps = [
     description:
       'Maquettes, integration Next.js, optimisation mobile, suivi des conversions et ajustements post-lancement.',
   },
-] as const
+]
 
 const servicePillars = [
   {
@@ -93,41 +103,17 @@ const servicePillars = [
       'Mises a jour, monitoring technique, evolution des pages et support reactif en francais.',
     icon: TimerReset,
   },
-] as const
+]
 
-export const paris16FaqItems = [
-  {
-    question: 'Quel budget pour un site internet a Paris 16 ?',
-    answer:
-      'Le budget depend du niveau de personnalisation, du volume de contenu et des integrations. En general, un site vitrine demarre a partir de 690 EUR, et un projet e-commerce demarre autour de 1 290 EUR.',
-  },
-  {
-    question: 'Combien de temps faut-il pour lancer le projet ?',
-    answer:
-      'Pour une page de service ou un site vitrine cible, la mise en ligne peut se faire entre 7 et 14 jours apres validation des contenus et de la direction visuelle.',
-  },
-  {
-    question: 'Est-ce que vous optimisez aussi le SEO local ?',
-    answer:
-      'Oui. La structure technique, les titres, les sections de preuve et les donnees structurees sont alignees sur les requetes locales du 16e arrondissement.',
-  },
-  {
-    question: 'Puis-je garder la main sur mon contenu ensuite ?',
-    answer:
-      'Absolument. Nous livrons un back-office clair et un cadre d edition simple pour mettre a jour textes, visuels et pages sans blocage technique.',
-  },
-] as const
-
-const neighborhoods = [
-  'Passy',
-  'Auteuil',
-  'La Muette',
-  'Trocadero',
-  'Porte Dauphine',
-  'Chaillot',
-] as const
-
-export default function Paris16LandingContent() {
+export default function ParisArrondissementLanding({
+  arrondissement,
+  heroTitle,
+  heroDescription,
+  neighborhoods,
+  visionLocaleText,
+  faqItems,
+  storyBlocks = defaultStoryBlocks,
+}: ParisArrondissementLandingProps) {
   return (
     <main
       className={`${manrope.variable} ${bodoni.variable} relative overflow-hidden bg-[#f5f0e6] text-[#14110f]`}
@@ -143,21 +129,17 @@ export default function Paris16LandingContent() {
           <div>
             <p className='mb-6 inline-flex items-center gap-2 rounded-full border border-[#14110f]/15 bg-white/80 px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#6f3b18]'>
               <MapPin className='h-4 w-4' aria-hidden='true' />
-              Creation site internet Paris 16
+              Creation site internet Paris {arrondissement}
             </p>
 
             <h1
               className='max-w-4xl text-5xl leading-[0.95] text-[#1a1512] sm:text-6xl'
               style={{ fontFamily: 'var(--font-bodoni)' }}>
-              Agence web Paris 16
-              <br />
-              creation site web qui convertit.
+              {heroTitle}
             </h1>
 
             <p className='mt-6 max-w-2xl text-lg leading-relaxed text-[#3a312c] md:text-xl'>
-              Notre service de creation site web a Paris 16 combine design editorial, structure SEO
-              locale et parcours de conversion. Objectif: transformer la visibilite des entreprises
-              de Passy, Auteuil, La Muette et Trocadero en demandes qualifiees.
+              {heroDescription}
             </p>
 
             <div className='mt-9 flex flex-col gap-4 sm:flex-row sm:items-center'>
@@ -194,7 +176,7 @@ export default function Paris16LandingContent() {
             <div className='relative aspect-4/5 overflow-hidden rounded-4xl border border-[#14110f]/15 bg-[#ddd3c1]'>
               <Image
                 src='/images/paris-15/hero-paris.jpg'
-                alt='Agence web Paris 16 - creation site web professionnel et SEO local'
+                alt={`Agence web Paris ${arrondissement} - creation site web professionnel`}
                 fill
                 priority
                 className='object-cover'
@@ -205,7 +187,7 @@ export default function Paris16LandingContent() {
               <div className='absolute bottom-5 left-5 right-5 rounded-2xl border border-white/25 bg-black/55 p-4 text-white backdrop-blur-md'>
                 <p className='text-xs uppercase tracking-[0.16em] text-[#f2dcb5]'>Vision locale</p>
                 <p className='mt-2 text-base leading-snug'>
-                  Une page orientee conversion pour les entreprises, cabinets et commerces du 16e.
+                  {visionLocaleText}
                 </p>
               </div>
             </div>
@@ -230,20 +212,23 @@ export default function Paris16LandingContent() {
           </h2>
 
           <div className='mt-10 grid gap-5 lg:grid-cols-3'>
-            {storyBlocks.map((item) => (
-              <article
-                key={item.title}
-                className='group rounded-3xl border border-[#14110f]/10 bg-white/85 p-7 transition duration-300 hover:-translate-y-1 hover:border-[#1f3a5f]/40 hover:shadow-xl motion-reduce:transform-none'>
-                <item.icon className='h-8 w-8 text-[#1f3a5f]' aria-hidden='true' />
-                <p className='mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-[#6f3b18]'>
-                  {item.chapter}
-                </p>
-                <h3 className='mt-3 text-2xl font-semibold leading-tight text-[#1d1714]'>
-                  {item.title}
-                </h3>
-                <p className='mt-3 text-base leading-relaxed text-[#4d4037]'>{item.description}</p>
-              </article>
-            ))}
+            {storyBlocks.map((item) => {
+              const Icon = item.icon
+              return (
+                <article
+                  key={item.title}
+                  className='group rounded-3xl border border-[#14110f]/10 bg-white/85 p-7 transition duration-300 hover:-translate-y-1 hover:border-[#1f3a5f]/40 hover:shadow-xl motion-reduce:transform-none'>
+                  <Icon className='h-8 w-8 text-[#1f3a5f]' aria-hidden='true' />
+                  <p className='mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-[#6f3b18]'>
+                    {item.chapter}
+                  </p>
+                  <h3 className='mt-3 text-2xl font-semibold leading-tight text-[#1d1714]'>
+                    {item.title}
+                  </h3>
+                  <p className='mt-3 text-base leading-relaxed text-[#4d4037]'>{item.description}</p>
+                </article>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -260,7 +245,7 @@ export default function Paris16LandingContent() {
               Trois etapes pour passer de l intention a l impact.
             </h2>
             <p className='mt-4 text-lg leading-relaxed text-[#4d4037]'>
-              Chaque livraison est pensee pour vos objectifs business et la realite terrain du 16e:
+              Chaque livraison est pensee pour vos objectifs business et la realite terrain du {arrondissement}e:
               prise de rendez-vous, appels entrants, demandes qualifiees.
             </p>
 
@@ -299,7 +284,7 @@ export default function Paris16LandingContent() {
           <h2
             className='mt-4 text-4xl leading-tight text-[#1a1512] md:text-5xl'
             style={{ fontFamily: 'var(--font-bodoni)' }}>
-            Services de creation site web Paris 16 pour les entreprises locales.
+            Services de creation site web Paris {arrondissement} pour les entreprises locales.
           </h2>
 
           <div className='mt-10 grid gap-5 md:grid-cols-2'>
@@ -328,7 +313,7 @@ export default function Paris16LandingContent() {
           <h2
             className='mt-6 text-4xl leading-tight md:text-5xl'
             style={{ fontFamily: 'var(--font-bodoni)' }}>
-            Vous voulez une page qui signe votre difference dans le 16e ?
+            Vous voulez une page qui signe votre difference dans le {arrondissement}e ?
           </h2>
 
           <p className='mt-5 max-w-3xl text-lg leading-relaxed text-[#d8dfeb]'>
@@ -357,11 +342,11 @@ export default function Paris16LandingContent() {
           <h2
             className='text-4xl leading-tight text-[#1a1512] md:text-5xl'
             style={{ fontFamily: 'var(--font-bodoni)' }}>
-            FAQ creation site web Paris 16
+            FAQ creation site web Paris {arrondissement}
           </h2>
 
           <div className='mt-8 space-y-3'>
-            {paris16FaqItems.map((faq) => (
+            {faqItems.map((faq) => (
               <details
                 key={faq.question}
                 className='group rounded-2xl border border-[#14110f]/10 bg-white/85 px-6 py-5'>
@@ -375,7 +360,7 @@ export default function Paris16LandingContent() {
 
           <div className='mt-12 text-center'>
             <p className='text-[#4d4037]'>
-              Votre entreprise n'est pas dans le 16e ?{' '}
+              Votre entreprise n'est pas dans le {arrondissement}e ?{' '}
               <Link href='/services/agence-web-paris' className='font-bold text-[#1f3a5f] underline hover:text-[#1a1512] transition'>
                 Découvrez notre page principale Agence Web Paris
               </Link>

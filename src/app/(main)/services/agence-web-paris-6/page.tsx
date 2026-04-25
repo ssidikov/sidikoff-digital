@@ -10,30 +10,28 @@ import {
   generateServiceSchema,
 } from '@/lib/seo-utils'
 
-const PAGE_SLUG = 'services/creation-site-internet-paris-16'
+const PAGE_SLUG = 'services/agence-web-paris-6'
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = defaultLocale
-  const pageTitle = 'Agence web Paris 16 - Creation de site web'
+  const pageTitle = 'Agence Web Paris 6 - Création de sites web'
   const pageDescription =
-    'Creation de site web a Paris 16: site vitrine, e-commerce, redesign et SEO local. Agence web orientee conversion pour Passy, Auteuil et Trocadero.'
+    'Création de site internet à Paris 6 : Saint-Germain-des-Prés, Odéon. Agence digitale experte pour galeries, cabinets et commerces premium.'
 
   return {
     title: pageTitle,
     description: pageDescription,
     keywords: [
-      'creation site internet paris 16',
-      'agence web paris 16',
-      'creation site web paris 16',
-      'agence creation site web paris 16',
-      'site vitrine paris 16',
-      'site e-commerce paris 16',
-      'refonte site web paris 16',
-      'seo local paris 16',
-      'agence digitale paris 16',
-      'creation site internet passy',
-      'creation site internet auteuil',
-      'creation site internet trocadero',
+      'agence web paris 6',
+      'creation site internet paris 6',
+      'creation site web paris 6',
+      'agence digitale paris 6',
+      'site vitrine paris 6',
+      'site e-commerce paris 6',
+      'refonte site web paris 6',
+      'seo local paris 6',
+      'creation site internet saint-germain-des-pres',
+      'creation site internet odeon',
     ],
     robots: {
       index: true,
@@ -58,7 +56,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: '/images/opengraph-fr.png',
           width: 1200,
           height: 630,
-          alt: 'Agence web Paris 16 - Creation site web professionnel',
+          alt: 'Agence web Paris 6 - Création site web premium',
         },
       ],
     },
@@ -76,7 +74,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default async function CreationSiteInternetParis16Page() {
+export default async function AgenceWebParis6Page() {
   const locale = defaultLocale
   const pageUrl = createCanonicalUrl(PAGE_SLUG, locale)
 
@@ -85,9 +83,9 @@ export default async function CreationSiteInternetParis16Page() {
     '@type': 'ProfessionalService',
     '@id': `${DEFAULT_SEO.siteUrl}/${PAGE_SLUG}#LocalBusiness`,
     name: 'SIDIKOFF DIGITAL',
-    alternateName: 'Agence web Paris 16',
+    alternateName: 'Agence web Paris 6',
     description:
-      'Creation et redesign de sites internet pour les entreprises du 16eme arrondissement de Paris.',
+      'Création de sites internet premium et optimisation SEO pour les professionnels du 6ème arrondissement de Paris.',
     url: pageUrl,
     telephone: '+33626932734',
     email: 's.sidikoff@gmail.com',
@@ -103,26 +101,26 @@ export default async function CreationSiteInternetParis16Page() {
     ],
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 48.86237,
-      longitude: 2.27692,
+      latitude: 48.8504,
+      longitude: 2.3333,
     },
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Paris',
-      postalCode: '75016',
+      postalCode: '75006',
       addressRegion: 'Ile-de-France',
       addressCountry: 'FR',
     },
     areaServed: [
       { '@type': 'City', name: 'Paris' },
-      { '@type': 'Place', name: 'Paris 16eme' },
-      { '@type': 'Place', name: 'Passy' },
-      { '@type': 'Place', name: 'Auteuil' },
-      { '@type': 'Place', name: 'Trocadero' },
-      { '@type': 'Place', name: 'La Muette' },
+      { '@type': 'Place', name: 'Paris 6ème' },
+      { '@type': 'Place', name: 'Saint-Germain-des-Prés' },
+      { '@type': 'Place', name: 'Odéon' },
+      { '@type': 'Place', name: 'Monnaie' },
+      { '@type': 'Place', name: 'Notre-Dame-des-Champs' },
     ],
     serviceType: [
-      'Creation de site web',
+      'Création de site web premium',
       'Site vitrine',
       'Site e-commerce',
       'Redesign web',
@@ -136,12 +134,12 @@ export default async function CreationSiteInternetParis16Page() {
   }
 
   const serviceJsonLd = generateServiceSchema({
-    name: 'Agence web Paris 16 - Creation de site web',
+    name: 'Agence web Paris 6 - Création de site web',
     description:
-      'Creation de sites internet professionnels a Paris 16 avec optimisation SEO locale et orientation conversion.',
+      'Création de sites vitrines et plateformes haut de gamme pour galeries, cabinets et commerces du 6e arrondissement.',
     url: pageUrl,
-    serviceType: 'Creation de site web Paris 16',
-    areaServed: ['Paris 16eme', 'Passy', 'Auteuil', 'Trocadero', 'Paris'],
+    serviceType: 'Création de site web Paris 6',
+    areaServed: ['Paris 6ème', 'Saint-Germain-des-Prés', 'Odéon', 'Paris'],
     image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
     priceRange: '€€',
     provider: {
@@ -153,58 +151,58 @@ export default async function CreationSiteInternetParis16Page() {
   const breadcrumbJsonLd = generateBreadcrumbStructuredData([
     { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
     { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
-    { name: 'Creation site internet Paris 16', url: pageUrl },
+    { name: 'Agence web Paris 6', url: pageUrl },
   ])
 
   return (
     <>
       <script
-        id='schema-local-business-paris-16'
+        id='schema-local-business-paris-6'
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
       />
       <script
-        id='schema-service-paris-16'
+        id='schema-service-paris-6'
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
       <script
-        id='schema-breadcrumb-paris-16'
+        id='schema-breadcrumb-paris-6'
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <ParisArrondissementLanding
-        arrondissement="16"
+        arrondissement="6"
         heroTitle={
           <>
-            Agence web Paris 16
+            Agence web Paris 6
             <br />
-            creation site web qui convertit.
+            l'élégance alliée à la performance.
           </>
         }
-        heroDescription="Notre service de creation site web a Paris 16 combine design editorial, structure SEO locale et parcours de conversion. Objectif: transformer la visibilite des entreprises de Passy, Auteuil, La Muette et Trocadero en demandes qualifiees."
-        neighborhoods={['Passy', 'Auteuil', 'La Muette', 'Trocadero', 'Porte Dauphine', 'Chaillot']}
-        visionLocaleText="Une page orientee conversion pour les entreprises, cabinets et commerces du 16e."
+        heroDescription="De Saint-Germain-des-Prés à l'Odéon, nous concevons des sites vitrines haut de gamme pour les galeries d'art, cabinets prestigieux et commerces d'exception du 6e arrondissement. Une esthétique raffinée pour un taux de conversion maximal."
+        neighborhoods={['Saint-Germain-des-Prés', 'Odéon', 'Monnaie', 'Notre-Dame-des-Champs', 'Luxembourg']}
+        visionLocaleText="Des expériences digitales qui reflètent le prestige et le standing du 6e arrondissement."
         faqItems={[
           {
-            question: 'Quel budget pour un site internet a Paris 16 ?',
+            question: 'Concevez-vous des sites pour les galeries et métiers d\'art ?',
             answer:
-              'Le budget depend du niveau de personnalisation, du volume de contenu et des integrations. En general, un site vitrine demarre a partir de 690 EUR, et un projet e-commerce demarre autour de 1 290 EUR.',
+              'Absolument. Nous portons une attention particulière à la direction artistique, au traitement des images et à la typographie pour mettre en valeur vos œuvres et votre savoir-faire.',
           },
           {
-            question: 'Combien de temps faut-il pour lancer le projet ?',
+            question: 'Quels sont vos délais pour un site premium ?',
             answer:
-              'Pour une page de service ou un site vitrine cible, la mise en ligne peut se faire entre 7 et 14 jours apres validation des contenus et de la direction visuelle.',
+              'Une conception sur-mesure demande de la précision. Comptez généralement 2 à 4 semaines selon la complexité du design et le volume de contenus à intégrer.',
           },
           {
-            question: 'Est-ce que vous optimisez aussi le SEO local ?',
+            question: 'Assurez-vous un référencement spécifique ?',
             answer:
-              'Oui. La structure technique, les titres, les sections de preuve et les donnees structurees sont alignees sur les requetes locales du 16e arrondissement.',
+              'Oui, notre structure SEO est conçue pour capter une clientèle locale et internationale exigeante, recherchant spécifiquement vos services dans Paris 6.',
           },
           {
-            question: 'Puis-je garder la main sur mon contenu ensuite ?',
+            question: 'Quels sont les tarifs pour le 6e arrondissement ?',
             answer:
-              'Absolument. Nous livrons un back-office clair et un cadre d edition simple pour mettre a jour textes, visuels et pages sans blocage technique.',
+              'Bien que notre approche soit premium, nos offres restent accessibles. Les projets de refonte ou de création démarrent à partir de 690 € pour un site vitrine, et s\'ajustent selon vos ambitions.',
           },
         ]}
       />
