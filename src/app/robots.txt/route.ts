@@ -4,9 +4,6 @@ const baseUrl = 'https://www.sidikoff.com'
 
 /**
  * Raw robots.txt route handler.
- * Using a Route Handler instead of MetadataRoute.Robots so we can emit
- * non-standard directives like Content-Signal (Content Signals draft spec).
- * https://contentsignals.org/
  */
 const ROBOTS_CONTENT = `User-agent: *
 Allow: /
@@ -120,7 +117,6 @@ export async function GET() {
     headers: {
       'Content-Type': 'text/plain; charset=utf-8',
       'Cache-Control': 'public, max-age=86400',
-      'Content-Signal': 'ai-train=no, search=yes, ai-input=no',
     },
   })
 }
