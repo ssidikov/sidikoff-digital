@@ -34,6 +34,7 @@ export interface ParisArrondissementLandingProps {
   visionLocaleText: string
   faqItems: { question: string; answer: string }[]
   storyBlocks?: { chapter: string; title: string; description: string; icon: React.ElementType }[]
+  children?: React.ReactNode
 }
 
 const defaultStoryBlocks = [
@@ -113,6 +114,7 @@ export default function ParisArrondissementLanding({
   visionLocaleText,
   faqItems,
   storyBlocks = defaultStoryBlocks,
+  children,
 }: ParisArrondissementLandingProps) {
   return (
     <main
@@ -336,6 +338,8 @@ export default function ParisArrondissementLanding({
           </div>
         </div>
       </section>
+
+      {children}
 
       <section className='relative px-6 pb-24 md:px-10 lg:px-16'>
         <div className='mx-auto max-w-5xl'>
