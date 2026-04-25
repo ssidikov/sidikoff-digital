@@ -349,6 +349,12 @@ const nextConfig: NextConfig = {
         destination: '/services/agence-web-villeurbanne',
         permanent: true,
       },
+      // ── 13. Legacy Restaurant Page Redirect
+      {
+        source: '/services/restaurant-websites',
+        destination: '/services/creation-site-internet-restaurant',
+        permanent: true,
+      },
     ]
   },
 
