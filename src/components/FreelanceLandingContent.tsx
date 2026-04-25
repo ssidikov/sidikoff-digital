@@ -567,6 +567,30 @@ export default function FreelanceLandingContent() {
                 La deuxième erreur concerne les performances techniques. Utiliser des constructeurs de pages (page builders) trop lourds sur WordPress peut ralentir drastiquement le temps de chargement de votre site, ce qui pénalise fortement votre SEO mobile et votre taux de rebond. C'est pourquoi notre agence privilégie des technologies modernes comme Next.js et Tailwind CSS pour garantir un score Lighthouse optimal.
               </p>
 
+              <h3 className='text-2xl font-bold text-gray-900 mt-10 mb-4'>Développeur Web Freelance : L'art de la conversion B2B</h3>
+              <p>
+                Si vous êtes vous-même développeur ou designer, vous savez que les clients n'achètent pas du code ou des maquettes Figma : ils achètent des résultats. Votre <strong>freelance création site web</strong> doit être orientée ROI (Retour sur Investissement). Les appels à l'action (CTA) doivent être stratégiquement placés, et les formulaires de contact doivent être suffisamment qualifiants sans être décourageants. Nous intégrons des formulaires dynamiques (multi-étapes) qui permettent de filtrer les prospects selon leur budget et leur besoin, vous évitant ainsi de perdre du temps en appels découverte non pertinents.
+              </p>
+              <p>
+                La mise en place de systèmes de tracking (Google Analytics 4, Matomo, ou Plausible pour une approche sans cookies) est également primordiale. Cela vous permet d'analyser le comportement de vos visiteurs : quelles pages convertissent le mieux ? Quels articles de blog génèrent le plus de temps passé ? Ces données (analytics) sont l'or noir de votre activité et vous permettent d'affiner votre stratégie de contenu semaine après semaine.
+              </p>
+
+              <h3 className='text-2xl font-bold text-gray-900 mt-10 mb-4'>L'impact des Core Web Vitals sur votre référencement freelance</h3>
+              <p>
+                Google accorde une importance majeure à l'expérience utilisateur, traduite techniquement par les Core Web Vitals (Signaux Web Essentiels). Un <strong>site internet freelance</strong> qui se charge en plus de 3 secondes perdra en moyenne 50 % de ses visiteurs avant même l'affichage de la page d'accueil. Ce taux de rebond catastrophique enverra un signal négatif aux algorithmes, qui vous déclasseront inexorablement, même si votre contenu est de qualité.
+              </p>
+              <p>
+                En choisissant notre agence pour votre <strong>freelance création site internet</strong>, vous vous assurez d'obtenir une plateforme à la pointe de la technologie. Le choix du framework Next.js permet le rendu côté serveur (SSR) et la génération de sites statiques (SSG). Les images sont optimisées automatiquement au format WebP, les scripts tiers sont différés, et le First Input Delay (FID) est réduit à néant. C'est cet avantage technique invisible qui vous permettra de dominer des concurrents disposant de sites WordPress vieillissants.
+              </p>
+
+              <h3 className='text-2xl font-bold text-gray-900 mt-10 mb-4'>Les niches freelance : Photographes, Consultants et Créatifs</h3>
+              <p>
+                Chaque métier indépendant a des besoins spécifiques. Pour un <strong>photographe freelance</strong>, le site web doit avant tout être une galerie immersive, capable d'afficher des images haute définition sans ralentir le temps de chargement. La création de galeries privées avec mot de passe pour la livraison des shootings clients est souvent une fonctionnalité requise.
+              </p>
+              <p>
+                Pour un <strong>consultant en management ou en finance</strong>, l'accent sera mis sur la crédibilité institutionnelle. Le design devra être sobre, inspirer la confiance, et mettre en avant les logos des entreprises accompagnées, les diplômes, et les articles d'expertise pointue. Les pages de capture (landing pages) pour télécharger un livre blanc en échange d'une adresse email (lead magnet) seront au cœur du dispositif de conversion.
+              </p>
+
               <p>
                 Vous possédez déjà un site mais il ne vous apporte pas de clients ? Notre service de{' '}
                 <strong>refonte site web freelance</strong> vous permet d&apos;améliorer votre

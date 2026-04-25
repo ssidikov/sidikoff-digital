@@ -547,6 +547,108 @@ export default function DoctorLandingContent() {
         </div>
       </section>
 
+      {/* Semantic Expansion Section */}
+      <section className='py-24 bg-emerald-50'>
+        <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}>
+            <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
+              Création de site internet pour médecin : digitalisez votre cabinet médical
+            </h2>
+            <div className='prose prose-lg text-gray-700 space-y-5'>
+              <p>
+                La digitalisation de la santé est en marche. En tant que <strong>médecin généraliste</strong>, <strong>spécialiste</strong> ou <strong>chirurgien</strong>, la création d'un site internet professionnel n'est plus une option, c'est une nécessité. Les patients recherchent aujourd'hui leurs professionnels de santé en ligne, comparent les expertises et s'attendent à pouvoir prendre rendez-vous facilement. Un site web médical bien conçu vous permet de désengorger votre secrétariat, de rassurer votre patientèle et de mettre en valeur vos domaines d'expertise, le tout en respectant scrupuleusement la déontologie médicale.
+              </p>
+              <p>
+                Chez Sidikoff Digital, nous concevons des plateformes web sur mesure pour les professionnels de santé. Que vous exerciez en cabinet libéral, en maison de santé ou en clinique, nous développons des solutions <strong>rapides, sécurisées et conformes au RGPD</strong>. Notre expertise technique (Next.js, React) garantit des temps de chargement quasi-instantanés, un critère essentiel pour l'expérience patient sur mobile.
+              </p>
+
+              <h3 className='text-2xl font-bold text-gray-900 mt-10 mb-4'>Les obligations légales d'un site internet médical</h3>
+              <p>
+                La <strong>création de site internet pour médecin</strong> est encadrée par des règles strictes définies par le Conseil National de l'Ordre des Médecins. Votre site doit avoir une vocation strictement informative et ne pas faire de publicité à caractère commercial. Il doit présenter de manière objective vos qualifications, vos diplômes, vos horaires de consultation, ainsi que les tarifs et les conditions de remboursement (secteur 1 ou 2).
+              </p>
+              <p>
+                La protection des données de santé (HDS) et la conformité au <strong>RGPD</strong> sont également incontournables. Tout formulaire de contact ou espace de transmission de documents doit être sécurisé via un certificat SSL (HTTPS) robuste et hébergé sur des serveurs agréés Données de Santé. Nous intégrons toutes ces contraintes légales dès le début du projet pour vous livrer un outil parfaitement conforme, évitant tout risque de litige.
+              </p>
+
+              <h3 className='text-2xl font-bold text-gray-900 mt-10 mb-4'>L'intégration de la prise de rendez-vous en ligne (Doctolib, Maiia...)</h3>
+              <p>
+                L'une des fonctionnalités les plus demandées lors de la <strong>création site web médecin</strong> est l'intégration d'un module de prise de rendez-vous en ligne. Plus de 60 % des patients prennent aujourd'hui leurs rendez-vous médicaux en dehors des heures d'ouverture du secrétariat. Nous connectons votre site internet en toute transparence avec votre plateforme de gestion (Doctolib, Maiia, Keldoc, etc.). 
+              </p>
+              <p>
+                Cette intégration permet à vos patients de visualiser vos disponibilités en temps réel directement depuis la page d'accueil de votre site, réduisant ainsi considérablement le nombre d'appels téléphoniques chronophages pour vos équipes administratives.
+              </p>
+
+              <h3 className='text-2xl font-bold text-gray-900 mt-10 mb-4'>Pourquoi le SEO local est crucial pour les cabinets médicaux ?</h3>
+              <p>
+                Avoir un site conforme et sécurisé est une excellente base, mais encore faut-il qu'il soit trouvé par les patients de votre zone géographique. Le référencement naturel (SEO) local est la clé. Lorsqu'un patient recherche "ophtalmologue à Lyon" ou "dermatologue urgence Paris", votre site doit apparaître dans les premiers résultats.
+              </p>
+              <p>
+                Nous structurons votre site médical avec un balisage <strong>Schema.org MedicalClinic</strong> ou <strong>Physician</strong>. Ce code invisible pour le patient permet aux algorithmes de Google de comprendre exactement quelle est votre spécialité, où se trouve votre cabinet et quelles sont vos horaires d'ouverture. Nous optimisons également votre fiche Google Business Profile, qui fonctionne en synergie avec votre site web pour dominer les résultats de recherche locaux et la carte Google Maps.
+              </p>
+
+              <h3 className='text-2xl font-bold text-gray-900 mt-10 mb-4'>Concevoir un site web rassurant pour les patients</h3>
+              <p>
+                L'angoisse médicale est une réalité. Le design de votre <strong>site internet médecin</strong> doit transmettre immédiatement une sensation de calme, de professionnalisme et d'empathie. Nous privilégions une interface épurée (UI claire, typographie lisible, couleurs apaisantes comme le bleu, le vert ou le blanc). La navigation (UX) est pensée pour que l'information d'urgence (numéro de téléphone, adresse, accès handicapés) soit accessible en moins de deux clics.
+              </p>
+              <p>
+                De plus, nous pouvons intégrer une section FAQ (Foire Aux Questions) pour répondre aux interrogations courantes de vos patients avant leur consultation : Comment se préparer à l'intervention ? Quels documents apporter ? Quels sont les délais d'obtention des résultats ? Cela permet de filtrer les appels inutiles tout en accompagnant psychologiquement le patient.
+              </p>
+
+              <h3 className='text-2xl font-bold text-gray-900 mt-10 mb-4'>Combien coûte la création d'un site web pour médecin ?</h3>
+              <p>
+                Le tarif d'une <strong>création site web cabinet médical</strong> varie selon vos besoins. Pour un praticien seul souhaitant un site vitrine informatif avec connexion Doctolib, comptez à partir de 800 €. Pour une clinique ou un centre médical regroupant plusieurs praticiens, nécessitant un annuaire interne, des pages de spécialités détaillées et un extranet sécurisé, le budget peut s'échelonner entre 2 000 € et 5 000 €.
+              </p>
+              <p>
+                Cet investissement est rapidement rentabilisé par le gain de temps administratif, la valorisation de votre image de marque et la diminution des rendez-vous non honorés (lapins), grâce à une information claire et accessible en permanence.
+              </p>
+            </div>
+
+            <div className='mt-12 flex flex-wrap gap-3'>
+              {[
+                'Création site web médecin',
+                'Site internet cabinet médical',
+                'SEO santé',
+                'Intégration Doctolib',
+                'Site web chirurgien',
+                'Création de site pour praticien',
+                'RGPD santé',
+                'Medical SEO',
+                'Conformité Ordre des Médecins',
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className='inline-flex items-center px-4 py-2 rounded-full bg-white text-green-700 text-sm font-semibold border border-green-200 shadow-sm'>
+                  {tag}
+                </span>
+              ))}
+            </div>
+            
+            <div className='mt-12 p-8 bg-white rounded-xl border border-green-100 shadow-sm'>
+              <p className='text-sm text-green-800 font-bold mb-4 uppercase tracking-wider'>
+                🔗 Explorer nos autres solutions
+              </p>
+              <div className='flex flex-wrap gap-4 text-sm font-medium'>
+                <a href='/services/agence-web-lyon' className='text-green-600 hover:text-green-800 transition-colors'>
+                  Agence web Lyon
+                </a>
+                <span className='text-gray-300'>|</span>
+                <a href='/services/optimisation-seo' className='text-green-600 hover:text-green-800 transition-colors'>
+                  Optimisation SEO
+                </a>
+                <span className='text-gray-300'>|</span>
+                <a href='/services/creation-site-internet-freelance' className='text-green-600 hover:text-green-800 transition-colors'>
+                  Site web Freelance
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className='py-24 bg-gray-50'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
