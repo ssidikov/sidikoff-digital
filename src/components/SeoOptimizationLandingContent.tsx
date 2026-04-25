@@ -361,6 +361,182 @@ export default function SeoOptimizationLandingContent({
         </div>
       </section>
 
+      {/* E-E-A-T Section — Sprint 2 Task 3 */}
+      <section className='py-20 bg-white'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <motion.div
+            className='text-center mb-16'
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}>
+            <h2 className='text-4xl font-bold text-[var(--foreground)] mb-4'>
+              Notre approche E-E-A-T pour dominer Google en 2026
+            </h2>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+              Google évalue chaque page selon quatre critères exigeants. Voici comment nous les
+              construisons concrètement pour votre site.
+            </p>
+          </motion.div>
+
+          <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16'>
+            {[
+              {
+                letter: 'E',
+                color: 'from-blue-500 to-blue-700',
+                title: 'Expérience',
+                desc: "Contenu rédigé par des experts qui ont vécu le sujet. Études de cas réels, résultats mesurés, témoignages clients vérifiables — pas du contenu générique.",
+              },
+              {
+                letter: 'E',
+                color: 'from-purple-500 to-purple-700',
+                title: 'Expertise',
+                desc: "Démonstration de maîtrise technique et sectorielle : statistiques sourcées, méthodologie détaillée, références aux bonnes pratiques Google et aux standards du secteur.",
+              },
+              {
+                letter: 'A',
+                color: 'from-green-500 to-green-700',
+                title: 'Autorité',
+                desc: "Construction d'une réputation thématique via le netlinking de qualité, les mentions presse, les partenariats sectoriels et la cohérence du contenu sur votre domaine.",
+              },
+              {
+                letter: 'T',
+                color: 'from-orange-500 to-orange-700',
+                title: 'Fiabilité',
+                desc: "HTTPS, mentions légales, politique de confidentialité RGPD, informations de contact claires, avis clients vérifiés et transparence totale sur l'identité de l'auteur.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                className='p-6 bg-[var(--bg-primary)] rounded-xl border border-gray-100 hover:shadow-lg transition-all duration-300'
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.15, duration: 0.6 }}
+                viewport={{ once: true }}>
+                <div
+                  className={`w-12 h-12 bg-linear-to-br ${item.color} rounded-lg flex items-center justify-center text-white font-black text-xl mb-4`}>
+                  {item.letter}
+                </div>
+                <h3 className='text-lg font-bold text-[var(--foreground)] mb-3'>{item.title}</h3>
+                <p className='text-gray-600 text-sm leading-relaxed'>{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* YMYL note */}
+          <motion.div
+            className='bg-amber-50 border border-amber-200 rounded-2xl p-6 flex gap-4 items-start'
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}>
+            <span className='text-2xl flex-shrink-0'>⚠️</span>
+            <div>
+              <h4 className='font-bold text-amber-900 mb-1'>
+                YMYL — Your Money or Your Life : exigences renforcées
+              </h4>
+              <p className='text-amber-800 text-sm leading-relaxed'>
+                Les secteurs Santé, Finance, Juridique et Sécurité sont soumis à des{' '}
+                <strong>critères E-E-A-T ultra-stricts</strong>. Pour les médecins, avocats,
+                experts-comptables et thérapeutes, nous appliquons une stratégie d&apos;autorité
+                renforcée : bios d&apos;auteur avec diplômes et affiliations, sources médicales ou
+                juridiques référencées, pages &quot;À propos&quot; détaillées avec accréditations,
+                et données structurées Person/MedicalOrganization pour renforcer la confiance de
+                Google.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* AI Overviews & SEO 2026 — Sprint 2 Task 4 */}
+      <section className='py-20 bg-[var(--bg-primary)]'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='grid lg:grid-cols-2 gap-16 items-start'>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}>
+              <h2 className='text-4xl font-bold text-[var(--foreground)] mb-8 leading-tight'>
+                AI Overviews, ChatGPT & GEO : optimiser pour les moteurs IA en 2026
+              </h2>
+              <div className='space-y-5 text-lg text-gray-700 leading-relaxed'>
+                <p>
+                  Depuis 2024, Google intègre des{' '}
+                  <strong>AI Overviews (anciennement SGE)</strong> en haut des pages de résultats.
+                  Ces encadrés générés par l&apos;IA résument directement les réponses sans que
+                  l&apos;utilisateur ait besoin de cliquer. Pour votre site, cela signifie deux
+                  choses : soit vous êtes <strong>cité comme source</strong> dans ces résumés et
+                  vous capturez de l&apos;autorité, soit vous êtes invisible et vous perdez des
+                  parts de trafic.
+                </p>
+                <p>
+                  La <strong>GEO (Generative Engine Optimization)</strong> est la discipline qui
+                  consiste à optimiser votre contenu pour être sélectionné par les LLMs (ChatGPT,
+                  Gemini, Perplexity, Claude) comme source de référence. Elle repose sur des
+                  contenus structurés, clairs, sourcés et{' '}
+                  <strong>répondant précisément aux questions de votre audience</strong>. Notre
+                  approche intègre la GEO systématiquement : blocs FAQ, données structurées
+                  HowTo/FAQPage/Article, schémas Author et citations vérifiables.
+                </p>
+                <p>
+                  Nous mesurons les performances avec <strong>Google Search Console</strong>,{' '}
+                  <strong>Semrush</strong> et <strong>Ahrefs</strong> : positions, taux de clic
+                  (CTR), impressions par requête et évolution de l&apos;autorité de domaine. Chaque
+                  mois, vous recevez un rapport orienté ROI — pas des métriques creuses, mais des
+                  données directement corrélées à votre chiffre d&apos;affaires.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              viewport={{ once: true }}>
+              <h3 className='text-2xl font-bold text-[var(--foreground)] mb-6'>
+                Comment nous optimisons pour les IA en pratique
+              </h3>
+              <div className='space-y-4'>
+                {[
+                  {
+                    icon: '🏗️',
+                    title: 'Données structurées Schema.org',
+                    desc: 'FAQ, BreadcrumbList, Article, Person, LocalBusiness — chaque page reçoit le balisage JSON-LD approprié pour être correctement interprétée par les LLMs et moteurs de recherche.',
+                  },
+                  {
+                    icon: '❓',
+                    title: 'Contenu FAQs & PAA (People Also Ask)',
+                    desc: "Nous ciblons systématiquement les questions que posent vos prospects dans Google et dans ChatGPT. Chaque FAQ est rédigée pour obtenir la position zéro et apparaître dans les AI Overviews.",
+                  },
+                  {
+                    icon: '✍️',
+                    title: 'Topical authority & clusters thématiques',
+                    desc: "Plutôt que des pages isolées, nous construisons des clusters de contenu cohérents : page pilier + articles de soutien + FAQ + glossaire. Google et les IA récompensent la profondeur thématique.",
+                  },
+                  {
+                    icon: '🔗',
+                    title: 'Netlinking & citations vérifiables',
+                    desc: "Liens entrants depuis des sites d'autorité (presse, annuaires professionnels, partenaires sectoriels) et citations NAP cohérentes pour renforcer la crédibilité aux yeux des algorithmes.",
+                  },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className='flex gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:border-[var(--accent-alpha-20)] hover:shadow-md transition-all duration-300'>
+                    <span className='text-2xl flex-shrink-0'>{item.icon}</span>
+                    <div>
+                      <h4 className='font-bold text-[var(--foreground)] mb-1'>{item.title}</h4>
+                      <p className='text-gray-600 text-sm leading-relaxed'>{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Extended FAQ Section */}
       <section className='py-20 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>

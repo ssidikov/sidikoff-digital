@@ -8,6 +8,7 @@ import {
   generateAlternateUrls,
   generateBreadcrumbStructuredData,
   generateServiceSchema,
+  generateFAQStructuredData,
 } from '@/lib/seo-utils'
 
 const PAGE_SLUG = 'services/agence-web-paris-17'
@@ -115,6 +116,31 @@ export default async function AgenceWebParis17Page() {
     { name: 'Agence web Paris 17', url: pageUrl },
   ])
 
+  const faqItems = [
+    {
+      question: 'Quel budget prévoir pour un site à Paris 17 ?',
+      answer:
+        'Nos forfaits s\'adaptent à vos besoins réels. Un site vitrine professionnel démarre à partir de 690 €, idéal pour les indépendants et TPE. Les projets e-commerce commencent autour de 1 290 €.',
+    },
+    {
+      question: 'Combien de temps faut-il pour créer mon site ?',
+      answer:
+        'Grâce à notre approche agile, un site vitrine peut être mis en ligne sous 7 à 14 jours, incluant le design, le développement et l\'optimisation de base.',
+    },
+    {
+      question: 'Faites-vous du référencement local ?',
+      answer:
+        'Oui, notre priorité est de vous rendre visible là où se trouvent vos clients. Nous optimisons votre site pour des recherches telles que "votre métier + Batignolles" ou "Paris 17".',
+    },
+    {
+      question: 'Serais-je propriétaire de mon site ?',
+      answer:
+        'Totalement. Vous avez accès à votre nom de domaine, votre hébergement, et un back-office pour modifier vos contenus en toute autonomie.',
+    },
+  ]
+
+  const faqJsonLd = generateFAQStructuredData(faqItems)
+
   return (
     <>
       <script
@@ -132,6 +158,11 @@ export default async function AgenceWebParis17Page() {
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      <script
+        id='schema-faq-paris-17'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <ParisArrondissementLanding
         arrondissement="17"
         heroTitle={
@@ -144,28 +175,7 @@ export default async function AgenceWebParis17Page() {
         heroDescription="De Batignolles à Ternes en passant par Monceau, nous accompagnons les professionnels et commerçants du 17e arrondissement avec des sites vitrines et e-commerce taillés pour convertir."
         neighborhoods={['Batignolles', 'Ternes', 'Monceau', 'Épinettes', 'Péreire', 'Wagram']}
         visionLocaleText="Des solutions digitales sur-mesure adaptées à l'exigence et au dynamisme des professionnels du 17e."
-        faqItems={[
-          {
-            question: 'Quel budget prévoir pour un site à Paris 17 ?',
-            answer:
-              'Nos forfaits s\'adaptent à vos besoins réels. Un site vitrine professionnel démarre à partir de 690 €, idéal pour les indépendants et TPE. Les projets e-commerce commencent autour de 1 290 €.',
-          },
-          {
-            question: 'Combien de temps faut-il pour créer mon site ?',
-            answer:
-              'Grâce à notre approche agile, un site vitrine peut être mis en ligne sous 7 à 14 jours, incluant le design, le développement et l\'optimisation de base.',
-          },
-          {
-            question: 'Faites-vous du référencement local ?',
-            answer:
-              'Oui, notre priorité est de vous rendre visible là où se trouvent vos clients. Nous optimisons votre site pour des recherches telles que "votre métier + Batignolles" ou "Paris 17".',
-          },
-          {
-            question: 'Serais-je propriétaire de mon site ?',
-            answer:
-              'Totalement. Vous avez accès à votre nom de domaine, votre hébergement, et un back-office pour modifier vos contenus en toute autonomie.',
-          },
-        ]}
+        faqItems={faqItems}
       />
     </>
   )

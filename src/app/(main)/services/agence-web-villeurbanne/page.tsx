@@ -4,8 +4,8 @@ import AgenceVilleurbanneClient from './AgenceVilleurbanneClient'
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata(
-    'Agence Web Villeurbanne | Création de Site Internet & SEO dans le Grand Lyon',
-    'Votre agence web experte à Villeurbanne. Création de sites internet sur-mesure, développement logiciel métier, applications e-commerce et SEO. Obtenez un devis gratuit.',
+    'Agence Web Villeurbanne | Création Site Internet & SEO',
+    'Création de site internet à Villeurbanne, SEO local et solutions web sur mesure pour entreprises et indépendants.',
     '/services/agence-web-villeurbanne',
     'fr',
     {

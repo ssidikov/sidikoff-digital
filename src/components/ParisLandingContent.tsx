@@ -32,14 +32,14 @@ function getLocalizedContent() {
   // French only
   return {
     hero: {
-      badge: 'Expert Web Paris',
+      badge: 'Expert Web Paris & Île-de-France',
       title: 'Création de site internet professionnel à Paris',
       titleHighlight: 'Paris',
       description:
-        'Vous êtes une entreprise, un artisan, une startup ou un indépendant basé à Paris et vous souhaitez développer votre visibilité en ligne ? Notre agence web à Paris est spécialisée dans la création de sites internet sur mesure.',
+        'Vous êtes une entreprise, un artisan, une startup ou un indépendant basé à Paris ou en Île-de-France et vous souhaitez développer votre visibilité en ligne ? Sidikoff Digital, agence web & développeur web Paris, est spécialisé dans la création de sites internet sur mesure, la refonte web et le référencement SEO local Paris.',
       ctaPrimary: 'Demander un devis gratuit',
       ctaSecondary: 'Voir nos réalisations',
-      trustIndicators: ['100+ Projets à Paris', '7j Délai moyen', '24/7 Support'],
+      trustIndicators: ['100+ Projets Paris & IDF', 'Site livré en 7 jours', 'SEO local Paris inclus'],
       metrics: [
         { number: '100+', label: 'Projets à Paris' },
         { number: '7j', label: 'Délai moyen' },

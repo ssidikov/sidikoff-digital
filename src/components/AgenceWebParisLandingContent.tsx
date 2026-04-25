@@ -448,11 +448,20 @@ const AgenceWebParisLandingContent: React.FC = () => {
             Nous accompagnons les entreprises locales partout dans Paris avec une approche de proximité. Que vous soyez dans le Triangle d'Or du 8ème, les Batignolles du 17ème ou Belleville dans le 20ème, nous connaissons votre marché. Découvrez nos pages dédiées à chaque arrondissement.
           </p>
           <div className='flex flex-wrap justify-center gap-4'>
+            <Link href='/services/agence-web-paris-6' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 6ème</Link>
+            <Link href='/services/agence-web-paris-14' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 14ème</Link>
             <Link href='/services/agence-web-paris-15' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 15ème</Link>
             <Link href='/services/creation-site-internet-paris-16' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 16ème</Link>
             <Link href='/services/agence-web-paris-17' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 17ème</Link>
             <Link href='/services/agence-web-paris-19' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 19ème</Link>
-            <Link href='/services/agence-web-paris-6' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 6ème</Link>
+          </div>
+          <div className='mt-10 p-6 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl border border-indigo-100 text-center'>
+            <p className='text-sm font-semibold text-indigo-600 mb-2'>Stack technique</p>
+            <h3 className='text-xl font-bold text-gray-900 mb-3'>Vous cherchez un expert Next.js ou React ?</h3>
+            <p className='text-gray-600 mb-4 max-w-xl mx-auto text-sm'>Nous développons des applications React et des sites Next.js haute performance pour les clients exigeants qui veulent se démarquer techniquement.</p>
+            <Link href='/services/agence-nextjs-react' className='inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition text-sm'>
+              Découvrir notre expertise Next.js →
+            </Link>
           </div>
         </div>
       </section>

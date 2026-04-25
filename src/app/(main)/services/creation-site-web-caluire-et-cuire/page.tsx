@@ -222,8 +222,104 @@ export default async function CaluirePage() {
   const structuredData = getStructuredData()
   const t = getPageContent()
 
-  return <CaluireLandingContent content={t} faqs={faqs} structuredData={structuredData} />
+  return (
+    <>
+      <CaluireLandingContent content={t} faqs={faqs} structuredData={structuredData} />
+
+      {/* Template A — Semantic Expansion */}
+      <section className='py-16 bg-white'>
+        <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
+            Développeur web freelance à Caluire-et-Cuire : créer ou refondre votre site
+          </h2>
+          <div className='space-y-5 text-gray-700 text-lg leading-relaxed'>
+            <p>
+              Basé dans la <strong>Métropole de Lyon</strong>, Sidikoff Digital intervient comme{' '}
+              <strong>développeur web freelance à Caluire-et-Cuire</strong> (69300) pour les
+              entreprises, artisans, professions libérales et commerces des quartiers du{' '}
+              <strong>Bourg, Cuire le Bas, Montessuy, Saint-Clair et Vassieux</strong>. Nous
+              concevons des <strong>sites internet professionnels sur mesure</strong> avec Next.js et
+              React, optimisés SEO local pour apparaître sur les recherches ciblant Caluire, Lyon et
+              le Grand Lyon (69).
+            </p>
+            <p>
+              Que vous ayez besoin d&apos;un <strong>site vitrine</strong> pour votre cabinet médical
+              ou votre commerce de proximité, d&apos;une <strong>boutique en ligne</strong> sécurisée
+              ou d&apos;une <strong>refonte de site web</strong> pour moderniser votre présence
+              digitale, nous livrons en <strong>3 à 5 semaines</strong> avec hébergement, formation
+              et 3 mois de support inclus. Nos tarifs démarrent à <strong>690 € TTC</strong> pour un
+              site vitrine clé en main.
+            </p>
+            <p>
+              Notre expertise en <strong>SEO local Caluire</strong> vous positionne sur des requêtes
+              clés comme « développeur web Caluire-et-Cuire », « site internet 69300 » ou « agence
+              web Grand Lyon ». Chaque site est développé avec des{' '}
+              <strong>données structurées Schema.org</strong>, des Core Web Vitals optimisés
+              (Lighthouse 95+) et une intégration <strong>Google Business Profile</strong> pour
+              dominer le pack local de Google Maps.
+            </p>
+          </div>
+
+          <div className='mt-8 flex flex-wrap gap-3'>
+            {[
+              'Développeur web Caluire',
+              'SEO local 69300',
+              'Site vitrine sur mesure',
+              'Refonte site web',
+              'Next.js React',
+              'Google Business Profile',
+              'Core Web Vitals',
+              'Métropole de Lyon',
+            ].map((tag) => (
+              <span
+                key={tag}
+                className='inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-medium border border-blue-100'>
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Lyon Cluster Cross-Links */}
+      <section className='py-12 bg-gray-50 border-t border-gray-200'>
+        <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <h2 className='text-xl font-bold text-gray-900 mb-6'>
+            Nos autres pages dans la Métropole de Lyon
+          </h2>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+            {[
+              {
+                title: 'Création site internet Lyon',
+                desc: 'Hub SEO pour Lyon (69) — sites vitrines, e-commerce et refonte web.',
+                href: '/services/creation-site-internet-lyon',
+              },
+              {
+                title: 'Agence web Lyon',
+                desc: 'Notre page flagship — design premium, SEO dominant, livraison 7–14 jours.',
+                href: '/services/agence-web-lyon',
+              },
+              {
+                title: 'Agence web Villeurbanne',
+                desc: 'Développement web et SEO local pour les entreprises de Villeurbanne.',
+                href: '/services/agence-web-villeurbanne',
+              },
+            ].map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className='block bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md hover:border-blue-300 transition-all'>
+                <p className='font-semibold text-gray-900 mb-1 text-sm'>{link.title}</p>
+                <p className='text-gray-500 text-sm'>{link.desc}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  )
 }
+
 
 // ─── Content per locale ─────────────────────────────────────────────────────────
 

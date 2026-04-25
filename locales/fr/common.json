@@ -21,12 +21,12 @@
   "hero": {
     "badge": "Agence Web à Lyon",
     "title": "Création de Sites Web Professionnels pour Votre Entreprise",
-    "subtitle": "Je crée des sites web modernes, rapides et optimisés SEO pour les PME et entrepreneurs. Livrés en 7 à 14 jours, avec accompagnement inclus. Devis gratuit sous 24h.",
+    "subtitle": "Développeur web & agence digitale à Lyon — je crée des sites internet modernes, rapides et optimisés SEO pour les PME et entrepreneurs. Livrés en 7 à 14 jours, avec accompagnement inclus. Devis gratuit sous 24h.",
     "cta_primary": "Discuter de votre projet",
     "cta_secondary": "Voir mes réalisations",
     "trust_indicators": [
-      "20+ projets livrés",
-      "SEO intégré dès la création",
+      "20+ projets livrés à Lyon & Paris",
+      "Développeur web Next.js certifié",
       "Devis gratuit sous 24h"
     ],
     "features": [
@@ -850,25 +850,37 @@
       "button": "Démarrer un projet"
     },
     "seo_optimization_landing": {
-      "meta_title": "Optimisation SEO & Référencement",
-      "meta_description": "Service d'optimisation SEO professionnel. Dominez la première page Google, multipliez votre trafic organique par 5 en 6 mois. Audit SEO gratuit et stratégie personnalisée.",
+      "meta_title": "Optimisation SEO & Référencement Lyon & France",
+      "meta_description": "Service d’optimisation SEO professionnel : audit technique, Core Web Vitals, netlinking, E-E-A-T et données structurées. Dominez la première page Google, multipliez votre trafic organique en 6 mois. Audit SEO gratuit.",
       "keywords": [
         "optimisation SEO",
         "référencement naturel",
         "première page Google",
         "audit SEO",
         "trafic organique",
-        "mots-clés"
+        "mots-clés",
+        "audit technique SEO",
+        "Core Web Vitals",
+        "netlinking",
+        "link building",
+        "E-E-A-T",
+        "données structurées",
+        "SEO local Lyon",
+        "taux de clic CTR",
+        "référencement local"
       ],
       "hero": {
-        "badge": "SEO Expert",
-        "title": "Dominez Google et Multipliez Votre Trafic par 5",
-        "description": "Notre expertise SEO transforme votre site en machine à générer du trafic qualifié. Positionnement première page Google, augmentation du trafic organique, et conversion optimisée.",
+        "badge": "SEO Expert Lyon & France",
+        "title": "Dominez Google et Multipliez Votre Trafic Organique",
+        "description": "Notre expertise SEO transforme votre site en machine à générer du trafic qualifié : audit technique, optimisation Core Web Vitals, stratégie E-E-A-T, données structurées et netlinking. Positionnement première page Google, augmentation du trafic organique et amélioration du taux de clic (CTR) mesurés chaque mois.",
         "benefits": [
-          "Audit SEO complet gratuit",
-          "Stratégie personnalisée par secteur",
-          "Suivi des performances en temps réel",
-          "Résultats visibles en 3 mois",
+          "Audit SEO technique complet gratuit",
+          "Stratégie personnalisée E-E-A-T par secteur",
+          "Optimisation Core Web Vitals (LCP, CLS, INP)",
+          "Netlinking & link building naturel",
+          "Données structurées (Schema.org) pour rich snippets",
+          "Suivi des positions et CTR en temps réel",
+          "Résultats visibles en 60–90 jours",
           "Support expert dédié"
         ],
         "cta_primary": "Audit SEO Gratuit",
@@ -2082,28 +2094,30 @@
     }
   },
   "freelance_landing": {
-    "meta_title": "Création Site Internet Freelance | Portfolio Pro",
-    "meta_description": "Site web freelance dès 800 € : portfolio professionnel, blog, réservation en ligne, SEO optimisé. Décrochez 3× plus de clients. Livré en 2–3 semaines. Devis gratuit sous 24h.",
+    "meta_title": "Site Internet Freelance | Développeur Web Indépendant",
+    "meta_description": "Site web pour freelance & consultant indépendant dès 800 € : portfolio professionnel, blog SEO, réservation en ligne. Lyon, Paris, toute la France. Livré en 2–3 semaines. Devis gratuit sous 24h.",
     "keywords": [
       "création site internet freelance",
+      "développeur web freelance Lyon",
+      "développeur web freelance Paris",
       "site web pour consultant indépendant",
-      "portfolio freelance",
-      "développeur web indépendant",
-      "site vitrine freelance"
+      "portfolio freelance professionnel",
+      "refonte site web freelance",
+      "site vitrine indépendant"
     ],
     "hero": {
-      "badge": "Spécialistes Freelances",
-      "title": "Sites Web Professionnels pour Freelances",
-      "description": "Offrez à votre activité freelance une vitrine professionnelle et visible qui attire de nouveaux clients.",
+      "badge": "Développeur Web Freelance · Consultant Indépendant",
+      "title": "Sites Web Professionnels pour Freelances & Indépendants",
+      "description": "Développeur web freelance et consultant indépendant : obtenez une vitrine digitale professionnelle qui attire des clients qualifiés, renforce votre crédibilité et vous libère des plateformes intermédiaires. Sites livrés en 2 à 4 semaines, SEO inclus, à partir de 800 €.",
       "benefits": [
-        "Portfolio professionnel en ligne",
-        "Génération de leads qualifiés",
-        "Crédibilité et confiance clients",
-        "Autonomie et indépendance"
+        "Portfolio professionnel en ligne — Next.js & React",
+        "Référencement naturel (SEO) pour freelances inclus",
+        "Crédibilité et confiance clients renforcées",
+        "Réservation en ligne & formulaire de contact"
       ],
-      "cta_primary": "Obtenir mon site",
+      "cta_primary": "Obtenir mon devis gratuit",
       "cta_secondary": "Voir nos réalisations",
-      "image_alt": "Exemple de site web freelance moderne"
+      "image_alt": "Exemple de site web freelance moderne — portfolio et vitrine professionnelle"
     },
     "problems": {
       "title": "Défis Communs des Freelances",
@@ -2302,50 +2316,50 @@
       ]
     },
     "faq": {
-      "title": "Questions Fréquentes",
-      "subtitle": "Tout ce qu'il faut savoir sur la création d'un site freelance",
+      "title": "Questions Fréquentes — Site Web Freelance",
+      "subtitle": "Tout ce qu'il faut savoir sur la création de votre site en tant que freelance ou consultant indépendant",
       "questions": [
         {
-          "question": "Combien de temps faut-il pour créer un site freelance ?",
-          "answer": "Selon le forfait choisi, il faut entre 2 à 4 semaines pour créer et lancer votre site. Nous adaptons le planning selon vos contraintes et besoins."
+          "question": "Combien coûte un site web pour freelance ?",
+          "answer": "Le tarif d'un site web pour freelance ou consultant indépendant démarre à 800 € pour un site vitrine professionnel livré en 2 semaines. Notre forfait Pro à 1 299 € inclut un portfolio dynamique, un blog SEO et un système de réservation. Le forfait Expert à 1 899 € ajoute l'e-commerce et un espace client privé. Tous nos tarifs incluent l'hébergement 1 an et la formation. Devis gratuit sous 24h."
         },
         {
-          "question": "Puis-je mettre à jour mon site moi-même ?",
-          "answer": "Absolument ! Tous nos sites incluent une formation complète pour que vous puissiez ajouter vos projets, articles et modifier vos contenus en toute autonomie."
+          "question": "Combien de temps faut-il pour créer un site freelance ?",
+          "answer": "Selon le forfait choisi, il faut entre 2 à 4 semaines pour créer et lancer votre site. Un site vitrine est livré en 2 semaines, un portfolio avec blog en 3 semaines, une solution expert complète en 4 semaines. Nous adaptons le planning selon vos contraintes et urgences."
+        },
+        {
+          "question": "Puis-je faire une refonte de mon site freelance existant ?",
+          "answer": "Absolument ! Nous réalisons des refontes de sites web freelance et indépendant pour améliorer le design, les performances et le référencement. Une refonte comprend l'audit de l'existant, une migration des contenus, un nouveau design responsive et une optimisation SEO complète. Délai : 2 à 3 semaines selon la complexité."
         },
         {
           "question": "Mon site sera-t-il visible sur Google ?",
-          "answer": "Oui, nous optimisons votre site pour le référencement naturel avec vos mots-clés métier et votre localisation pour attirer des clients qualifiés."
+          "answer": "Oui, nous optimisons chaque page de votre site pour le référencement naturel. Cela inclut les balises meta, la structure sémantique H1/H2/H3, les données Schema.org (Person, ProfessionalService), les Core Web Vitals (Lighthouse 95+) et vos mots-clés métier avec votre localisation (Lyon, Paris ou toute la France). Résultats visibles en 4 à 8 semaines."
         },
         {
-          "question": "Que se passe-t-il après la livraison ?",
-          "answer": "Nous restons disponibles pour le support technique, les mises à jour et vos questions. L'hébergement et la maintenance sont inclus selon votre forfait."
+          "question": "Quelle technologie utilisez-vous pour les sites freelances ?",
+          "answer": "Nous développons principalement avec Next.js (React) pour des sites ultra-rapides avec score Lighthouse 95+. C'est la technologie utilisée par des géants comme Netflix et Vercel. Pour les portfolios créatifs, nous utilisons également des animations Framer Motion. Tous nos sites sont hébergés sur des CDN performants (Vercel, Cloudflare) avec HTTPS inclus."
         },
         {
-          "question": "Puis-je vendre mes services en ligne ?",
-          "answer": "Oui, nos forfaits Pro et Expert incluent des systèmes de réservation et de paiement en ligne pour vos consultations, formations ou produits digitaux."
+          "question": "Puis-je vendre mes services ou formations en ligne ?",
+          "answer": "Oui, nos forfaits Pro et Expert incluent des systèmes de réservation et de paiement en ligne (Stripe, PayPal) pour vos consultations, coaching, formations ou produits digitaux. Vous pouvez accepter des paiements directement depuis votre site sans commission de plateforme tierce."
         },
         {
-          "question": "Le site fonctionnera-t-il sur mobile ?",
-          "answer": "Tous nos sites sont 100% responsive et optimisés mobile-first. Plus de 70% de vos visiteurs naviguent depuis leur smartphone."
-        },
-        {
-          "question": "Puis-je avoir un blog pour mon expertise ?",
-          "answer": "Oui, le blog est inclus dans nos forfaits Pro et Expert. C'est un excellent moyen d'attirer du trafic organique et de démontrer votre expertise."
+          "question": "Puis-je avoir un blog pour démontrer mon expertise ?",
+          "answer": "Oui, le blog optimisé SEO est inclus dans nos forfaits Pro et Expert. C'est l'outil le plus efficace pour attirer du trafic organique, démontrer votre expertise et améliorer votre positionnement sur Google. Nous configurons le blog avec les bonnes balises Schema.org (Article, Person) pour maximiser la visibilité dans les AI Overviews et les featured snippets."
         },
         {
           "question": "Gérez-vous l'hébergement et la sécurité ?",
-          "answer": "Oui, l'hébergement sécurisé, les sauvegardes automatiques et les mises à jour de sécurité sont incluses dans tous nos forfaits."
+          "answer": "Oui, l'hébergement sécurisé sur serveurs européens, les sauvegardes automatiques quotidiennes, les mises à jour de sécurité et le certificat SSL sont inclus dans tous nos forfaits. Vous ne gérez rien côté technique : nous monitorons votre site 24h/24 et intervenons en cas d'incident sous 4 heures ouvrées."
         }
       ]
     },
     "cta": {
       "title": "Prêt à booster votre activité freelance ?",
-      "description": "Rejoignez les centaines de freelances qui ont développé leur business avec un site web professionnel.",
+      "description": "Rejoignez les centaines de freelances et consultants indépendants qui ont développé leur business avec un site web professionnel. Devis gratuit sous 24h, livraison en 2 à 4 semaines.",
       "primary_button": "Obtenir mon devis gratuit",
       "secondary_button": "Nous appeler",
       "features": [
-        "Consultation gratuite",
+        "Consultation gratuite 30 min",
         "Devis personnalisé sous 24h",
         "Sans engagement"
       ]
@@ -2622,13 +2636,19 @@
     }
   },
   "doctor_landing": {
-    "meta_title": "Création Site Internet Médecin | Prise Rendez-vous",
-    "meta_description": "Site web médical avec prise de rendez-vous en ligne dès 900 € TTC. Conformité RGPD, design rassurant, SEO local. Augmentez votre patientèle. Devis gratuit sous 24h.",
+    "meta_title": "Création Site Internet Médecin | Sidikoff",
+    "meta_description": "Création site internet médecin : site internet médical avec prise de rendez-vous, certificat SSL, SEO local. Cabinet médical visible sur les moteurs de recherche. Devis gratuit sous 24h.",
     "keywords": [
       "création site internet médecin",
+      "site internet médical",
+      "site internet pour médecins",
+      "création de sites internet",
+      "créer un site web médecin",
+      "nom de domaine médical",
+      "certificat ssl cabinet médical",
+      "moteurs de recherche médecin",
       "site web docteur",
       "prise rendez-vous en ligne",
-      "site médical",
       "cabinet médical",
       "SEO médecin",
       "site dentiste",
@@ -2636,17 +2656,82 @@
     ],
     "hero": {
       "badge": "Sites Web Médicaux",
-      "title": "Site internet professionnel pour médecins avec prise de rendez-vous",
-      "description": "Offrez à votre cabinet médical une présence en ligne moderne qui facilite la prise de rendez-vous et renforce la confiance de vos patients.",
-      "image_alt": "Cabinet médical moderne avec équipement professionnel",
+      "title": "Création Site Internet pour Médecin",
+      "description": "Sites professionnels pour cabinets médicaux : prise de rendez-vous en ligne, certificat SSL, visibilité sur les moteurs de recherche Google. Créez un site internet médical qui attire de nouveaux patients.",
+      "image_alt": "Site internet médical pour cabinet médecin — création de sites internet professionnels",
       "benefits": [
-        "Visibilité locale optimisée (SEO)",
+        "Visibilité sur les moteurs de recherche (SEO local)",
         "Prise de rendez-vous en ligne sécurisée",
-        "Design rassurant et professionnel",
-        "Conformité RGPD et sécurité des données"
+        "Certificat SSL et conformité RGPD",
+        "Nom de domaine et hébergement inclus"
       ],
       "cta_primary": "Demander un devis gratuit",
       "cta_secondary": "Voir nos réalisations"
+    },
+    "why_medical": {
+      "title": "Pourquoi créer un site internet médical ?",
+      "description": "Aujourd'hui, 7 patients sur 10 recherchent leur médecin sur les moteurs de recherche avant de prendre un rendez-vous. Un site internet médical professionnel n'est plus un luxe : c'est un levier stratégique pour votre cabinet.",
+      "reasons": [
+        {
+          "icon": "search",
+          "title": "Visibilité sur Google",
+          "description": "Apparaissez sur les moteurs de recherche quand vos patients tapent \"médecin [votre ville]\". Un site internet médical optimisé vous place en première page et génère des consultations qualifiées."
+        },
+        {
+          "icon": "calendar",
+          "title": "Prise de rendez-vous en ligne 24h/24",
+          "description": "Vos patients prennent rendez-vous directement depuis votre site internet, même la nuit ou le week-end. Réduisez les appels et libérez votre secrétariat."
+        },
+        {
+          "icon": "shield",
+          "title": "Certificat SSL & sécurité des données",
+          "description": "Chaque site internet médical que nous créons intègre un certificat SSL, le chiffrement des données et la conformité RGPD — obligatoires pour les données de santé."
+        },
+        {
+          "icon": "globe",
+          "title": "Nom de domaine médical professionnel",
+          "description": "Nous gérons l'enregistrement de votre nom de domaine, l'hébergement sécurisé et les mises à jour techniques. Vous vous concentrez sur vos patients."
+        }
+      ]
+    },
+    "professionals": {
+      "title": "Pour quels professionnels de santé ?",
+      "description": "Nous créons des sites internet médicaux sur mesure pour tous les professionnels de santé. Chaque site internet pour médecins est adapté à votre spécialité et à votre patientèle.",
+      "specialties": [
+        {
+          "title": "Médecin généraliste",
+          "description": "Site internet pour médecin généraliste avec agenda en ligne, présentation des consultations et référencement local Google Maps."
+        },
+        {
+          "title": "Dentiste",
+          "description": "Création de sites internet pour dentistes : galerie avant/après, prise de rendez-vous par spécialité, photos du cabinet."
+        },
+        {
+          "title": "Dermatologue",
+          "description": "Site internet médical pour dermatologue : télédermatologie, présentation des soins esthétiques et médicaux, visibilité sur les moteurs de recherche."
+        },
+        {
+          "title": "Kinésithérapeute",
+          "description": "Créez un site web pour votre cabinet kiné : planning de séances, présentation des techniques, référencement local optimisé."
+        },
+        {
+          "title": "Pédiatre",
+          "description": "Site internet pour pédiatre : interface rassurante pour les parents, conseils santé, formulaire de contact sécurisé."
+        },
+        {
+          "title": "Ophtalmologue",
+          "description": "Création site internet ophtalmologue : prise de rendez-vous segmentée par type d'examen, map de localisation, certificat SSL."
+        }
+      ]
+    },
+    "seo_content": {
+      "title": "Création de sites internet médicaux : notre expertise",
+      "paragraphs": [
+        "La création de sites internet pour les médecins et professionnels de santé requiert une expertise spécifique. Chez Sidikoff Digital, nous maîtrisons les contraintes légales du secteur médical (RGPD, Ordre des Médecins, données de santé), les meilleures pratiques de référencement sur les moteurs de recherche et les fonctionnalités essentielles d'un site internet médical.",
+        "Chaque site internet pour médecins est développé avec Next.js pour des performances optimales (score Lighthouse 95+), ce qui améliore directement votre positionnement sur les moteurs de recherche comme Google. Le certificat SSL est inclus dans tous nos forfaits, tout comme l'enregistrement de votre nom de domaine et l'hébergement sécurisé sur des serveurs européens.",
+        "La prise de rendez-vous en ligne est intégrée nativement à votre site internet médical. Vos patients voient vos créneaux disponibles en temps réel, reçoivent une confirmation automatique et peuvent annuler ou reprogrammer sans appeler le cabinet. Vous gagnez un temps précieux et réduisez le taux d'absentéisme.",
+        "Notre approche SEO pour les sites internet médicaux combine le référencement local (Google Maps, fiches établissement) et le référencement organique sur les moteurs de recherche. Nous optimisons chaque page pour vos mots-clés métier — \"médecin généraliste [ville]\", \"dermatologue [ville]\", etc. — pour vous amener des patients qualifiés dans votre zone de chalandise."
+      ]
     },
     "problems": {
       "title": "Les défis des cabinets médicaux aujourd'hui",
@@ -2852,27 +2937,43 @@
     },
     "faq": {
       "title": "Questions fréquentes",
-      "description": "Réponses aux questions les plus courantes sur nos sites médicaux",
+      "description": "Tout ce qu'il faut savoir sur la création d'un site internet médical",
       "questions": [
         {
-          "question": "Le site sera-t-il conforme aux réglementations médicales ?",
-          "answer": "Absolument ! Tous nos sites respectent le RGPD, l'Ordre des Médecins et les réglementations sur les données de santé. La sécurité et la confidentialité sont nos priorités."
+          "question": "Combien coûte la création d'un site internet pour médecin ?",
+          "answer": "La création d'un site internet médical démarre à 1 299 € pour un site vitrine professionnel avec 5 pages, hébergement et nom de domaine inclus. Notre forfait Cabinet Premium à 1 899 € ajoute la prise de rendez-vous en ligne, le certificat SSL renforcé et le SEO local avancé. Devis gratuit sous 24h selon votre spécialité."
+        },
+        {
+          "question": "Qu'est-ce qu'un site internet médical ?",
+          "answer": "Un site internet médical est un site web professionnel conçu spécifiquement pour les médecins et professionnels de santé. Il intègre la prise de rendez-vous en ligne, la présentation du cabinet, les horaires, un certificat SSL pour la sécurité des données, et une optimisation SEO pour apparaître sur les moteurs de recherche locaux."
+        },
+        {
+          "question": "Mon site internet pour médecin sera-t-il visible sur Google ?",
+          "answer": "Oui, tous nos sites internet pour médecins sont optimisés pour les moteurs de recherche. Nous travaillons le référencement local (Google Maps, Google My Business) et le SEO organique pour que votre cabinet apparaisse quand vos patients cherchent un médecin dans votre ville. Résultats visibles en 4 à 8 semaines."
+        },
+        {
+          "question": "Le certificat SSL est-il inclus dans le site internet médical ?",
+          "answer": "Oui, le certificat SSL est inclus dans tous nos forfaits de création de sites internet médicaux. Il est indispensable pour sécuriser les données de vos patients, rassurer Google et respecter le RGPD. Votre site internet médical affichera systématiquement le cadenas HTTPS."
         },
         {
           "question": "Comment fonctionne la prise de rendez-vous en ligne ?",
-          "answer": "Le système permet aux patients de voir vos créneaux disponibles en temps réel, choisir leur motif de consultation et recevoir des confirmations automatiques. Vous gardez le contrôle total sur votre planning."
+          "answer": "La prise de rendez-vous en ligne intégrée à votre site internet médical permet à vos patients de voir vos créneaux disponibles en temps réel, de choisir leur motif de consultation et de recevoir une confirmation automatique par email et SMS. Vous gardez le contrôle total sur votre planning et pouvez bloquer des plages horaires à tout moment."
         },
         {
-          "question": "Puis-je intégrer mon logiciel cabinet existant ?",
-          "answer": "Oui, dans notre forfait Master, nous proposons l'intégration avec les principaux logiciels médicaux (Doctolib, MédiClick, etc.) pour synchroniser vos rendez-vous."
+          "question": "Puis-je choisir mon nom de domaine médical ?",
+          "answer": "Oui, nous vous accompagnons dans le choix et l'enregistrement de votre nom de domaine. Nous recommandons un nom de domaine incluant votre spécialité et votre ville (ex : docteur-martin-lyon.fr) pour améliorer votre référencement sur les moteurs de recherche et faciliter la mémorisation."
         },
         {
-          "question": "Le référencement local est-il vraiment efficace ?",
-          "answer": "Nos sites médicaux apparaissent systématiquement en première page pour les recherches locales. Nous optimisons votre fiche Google My Business et votre présence dans les annuaires médicaux."
+          "question": "Le site internet sera-t-il conforme aux réglementations médicales ?",
+          "answer": "Absolument. Tous nos sites internet médicaux respectent le RGPD, les recommandations de l'Ordre des Médecins et les normes sur les données de santé. Le certificat SSL, le chiffrement des formulaires de contact et les mentions légales adaptées au secteur médical sont systématiquement intégrés."
         },
         {
-          "question": "Que se passe-t-il pour la maintenance et les mises à jour ?",
-          "answer": "Nous assurons la maintenance technique, les sauvegardes automatiques et les mises à jour de sécurité. Votre site reste toujours performant et sécurisé."
+          "question": "Puis-je intégrer mon logiciel de gestion de cabinet existant ?",
+          "answer": "Oui, dans notre forfait Cabinet Master, nous proposons l'intégration avec les principaux logiciels médicaux (Doctolib, MédiClick, Maiia, etc.) pour synchroniser vos rendez-vous et éviter la double saisie. Contactez-nous pour évaluer la compatibilité avec votre solution actuelle."
+        },
+        {
+          "question": "Combien de temps faut-il pour créer un site internet médical ?",
+          "answer": "La création d'un site internet pour médecin prend généralement 2 à 3 semaines pour le forfait Cabinet Pro et 3 à 4 semaines pour le forfait Cabinet Premium avec prise de rendez-vous en ligne. Nous adaptons le planning selon vos contraintes et l'urgence de votre projet."
         }
       ]
     },
@@ -2883,29 +2984,29 @@
     }
   },
   "ecommerce_landing": {
-    "meta_title": "Création Site E-commerce Performant",
-    "meta_description": "Boutique en ligne sur mesure dès 1 990 € TTC : Next.js, React, Shopify. SEO optimisé, paiement sécurisé, livraison en 4–6 semaines. Vendez plus en ligne. Devis gratuit.",
+    "meta_title": "Création Site E-commerce | Boutique en Ligne sur Mesure",
+    "meta_description": "Boutique en ligne sur mesure dès 2 499 € : Next.js, React, Shopify, WooCommerce. SEO e-commerce optimisé, paiement sécurisé, livraison en 4–6 semaines. Lyon, Paris, toute la France. Devis gratuit sous 24h.",
     "keywords": [
       "création site e-commerce",
-      "boutique en ligne",
-      "marketplace",
-      "magasin en ligne",
-      "site e-commerce France",
-      "développement e-commerce",
-      "Shopify, WooCommerce",
-      "WooCommerce"
+      "boutique en ligne Lyon",
+      "boutique en ligne France",
+      "site e-commerce Shopify",
+      "site e-commerce WooCommerce",
+      "développeur e-commerce Next.js",
+      "refonte boutique en ligne",
+      "marketplace multi-vendeurs"
     ],
     "hero": {
-      "badge": "E-commerce & Boutiques",
-      "title": "Sites E-commerce : boutiques, magasins et marketplaces",
-      "description": "Offrez à votre entreprise une vitrine en ligne performante. Nous créons des sites E-commerce sur mesure avec un design professionnel et une optimisation SEO pour générer des ventes.",
-      "image_alt": "Boutique en ligne moderne avec interface e-commerce",
+      "badge": "E-commerce & Boutiques en Ligne — Lyon & France",
+      "title": "Sites E-commerce sur Mesure : Boutiques, Magasins & Marketplaces",
+      "description": "Vous souhaitez créer ou refondre votre boutique en ligne ? Nous développons des sites e-commerce performants avec Next.js, Shopify et WooCommerce. SEO e-commerce inclus, paiements sécurisés, gestion des stocks intuitive. Livraison en 4 à 6 semaines pour une boutique prête à vendre.",
+      "image_alt": "Boutique en ligne moderne — interface e-commerce performante et responsive",
       "benefits": [
-        "Sites sur mesure avec Next.js, React, Shopify, WooCommerce",
+        "Sites sur mesure Next.js, Shopify, WooCommerce",
         "Paiements sécurisés : CB, PayPal, Stripe",
-        "SEO optimisé pour le marché français",
-        "Design moderne et UX optimisée",
-        "Gestion facile des produits et stocks"
+        "SEO e-commerce optimisé (Google Shopping inclus)",
+        "Design UX optimisé pour maximiser les conversions",
+        "Gestion des produits, stocks et commandes simplifiée"
       ],
       "cta_primary": "Lancer mon e-commerce",
       "cta_secondary": "Voir nos réalisations"
@@ -3117,34 +3218,46 @@
       ]
     },
     "faq": {
-      "title": "Questions fréquentes",
+      "title": "Questions Fréquentes — Création E-commerce",
       "description": "Réponses aux questions les plus courantes sur nos sites E-commerce",
       "questions": [
         {
+          "question": "Quel est le tarif pour créer un site e-commerce ?",
+          "answer": "Le coût d'une boutique en ligne sur mesure démarre à 2 499 € pour le forfait Boutique Pro (jusqu'à 100 produits, livré en 4–6 semaines). Le forfait Commerce Premium à 4 299 € inclut des produits illimités, un système de fidélisation et le SEO e-commerce avancé. Notre solution Marketplace Master à 7 999 € couvre les plateformes multi-vendeurs. Devis gratuit sous 24h selon votre catalogue."
+        },
+        {
           "question": "Quelle plateforme utilisez-vous pour les sites E-commerce ?",
-          "answer": "Nous utilisons les meilleures technologies selon vos besoins : Next.js/React pour du sur-mesure, Shopify pour du rapide, WooCommerce pour du flexible, ou des solutions custom pour les marketplaces."
+          "answer": "Nous choisissons la technologie la plus adaptée à vos besoins : Next.js/React pour du sur-mesure ultra-rapide (Lighthouse 95+), Shopify pour des boutiques rapides à lancer, WooCommerce pour la flexibilité WordPress, ou des solutions custom pour les marketplaces multi-vendeurs. Nous vous conseillons lors d'une consultation gratuite de 30 minutes."
+        },
+        {
+          "question": "Combien de temps faut-il pour créer un site e-commerce ?",
+          "answer": "Le délai de création varie selon la complexité : 4 à 6 semaines pour une boutique standard, 6 à 8 semaines pour un commerce premium avec systèmes de fidélité, 8 à 12 semaines pour une marketplace multi-vendeurs. La refonte d'une boutique existante est généralement plus rapide (3 à 5 semaines) selon le volume de produits."
+        },
+        {
+          "question": "Puis-je faire la refonte de ma boutique en ligne existante ?",
+          "answer": "Absolument ! La refonte de boutique e-commerce est l'un de nos services clés. Nous auditons votre site existant (performances, UX, taux de conversion, SEO), migrons vos produits et données clients, et reconstruisons votre boutique avec une technologie moderne. Objectif : améliorer le taux de conversion et les positions Google sans perdre votre SEO existant."
         },
         {
           "question": "Comment gérez-vous les paiements et la sécurité ?",
-          "answer": "Nous intégrons les solutions de paiement les plus sûres (Stripe, PayPal, banques françaises) avec chiffrement SSL et conformité aux standards PCI DSS pour protéger vos transactions."
+          "answer": "Nous intégrons les solutions de paiement les plus sûres : Stripe, PayPal, Klarna (paiement en 3 fois), virements SEPA et paiement par carte bancaire. Tous les flux sont chiffrés SSL et conformes aux standards PCI DSS. Votre boutique est hébergée sur des serveurs européens avec sauvegardes quotidiennes."
         },
         {
-          "question": "Le site sera-t-il optimisé pour le SEO ?",
-          "answer": "Absolument ! Chaque page produit, catégorie et contenu est optimisé pour le référencement français. Nous travaillons la vitesse, les mots-clés et l'expérience utilisateur."
+          "question": "Le site sera-t-il optimisé pour le SEO e-commerce ?",
+          "answer": "Oui, chaque page produit et catégorie est optimisée avec des balises meta uniques, des données structurées (Schema.org Product, Offer, BreadcrumbList), la vitesse de chargement (Core Web Vitals), et les fils d'Ariane. Nous optimisons également pour Google Shopping et les fonctionnalités SERP des Rich Results."
         },
         {
           "question": "Puis-je gérer mon stock et mes commandes facilement ?",
-          "answer": "Oui, nous créons un tableau de bord intuitif où vous pouvez gérer vos produits, stocks, commandes et clients. Formation complète incluse."
+          "answer": "Oui, nous créons un tableau de bord intuitif où vous pouvez gérer vos produits, stocks, commandes et clients. Formation complète incluse. Pour Shopify et WooCommerce, vous bénéficiez d'interfaces éprouvées. Pour les solutions sur mesure Next.js, nous développons un back-office adapté à votre workflow."
         },
         {
           "question": "Proposez-vous la maintenance et les mises à jour ?",
-          "answer": "Nous assurons la maintenance technique, les sauvegardes, mises à jour de sécurité et support. Votre e-commerce reste toujours performant et sécurisé."
+          "answer": "Oui, nous assurons la maintenance technique complète : sauvegardes automatisées, mises à jour de sécurité, monitoring 24h/24 et support réactif. Des forfaits de maintenance mensuelle sont disponibles dès 49 €/mois. Votre e-commerce reste toujours performant, sécurisé et à jour."
         }
       ]
     },
     "cta": {
       "title": "Prêt à lancer votre succès E-commerce ?",
-      "description": "Rejoignez les entreprises qui ont choisi l'excellence pour leur boutique en ligne et génèrent des ventes 24h/24.",
+      "description": "Rejoignez les entreprises qui ont choisi l'excellence pour leur boutique en ligne. Création sur mesure, SEO e-commerce optimisé, paiements sécurisés. Devis gratuit sous 24h.",
       "button": "Obtenir mon devis gratuit"
     }
   },

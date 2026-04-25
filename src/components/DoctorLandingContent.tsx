@@ -23,6 +23,7 @@ import {
   Award,
   FileText,
   Globe,
+  Lock,
 } from 'lucide-react'
 
 import common from '@/locales/fr/common.json'
@@ -91,6 +92,7 @@ const iconMap = {
   heart: Heart,
   'user-check': UserCheck,
   'map-pin': MapPin,
+  lock: Lock,
 }
 
 export default function DoctorLandingContent() {
@@ -213,8 +215,106 @@ export default function DoctorLandingContent() {
           </div>
         </div>
       </section>
+      {/* Why Medical Section */}
+      <section className='py-24 bg-white'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className='text-center mb-16'>
+            <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
+              {t.why_medical.title}
+            </h2>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.why_medical.description}</p>
+          </motion.div>
 
-      {/* Solution Section */}
+          <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
+            {t.why_medical.reasons?.map((reason: { icon: string; title: string; description: string }, index: number) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.15 }}
+                viewport={{ once: true }}
+                className='bg-green-50 p-8 rounded-xl border border-green-100 hover:border-green-300 hover:shadow-lg transition-all duration-300'>
+                <div className='w-14 h-14 bg-green-500 rounded-xl flex items-center justify-center mb-6 shadow-md'>
+                  {renderIcon(reason.icon, 'w-7 h-7 text-white')}
+                </div>
+                <h3 className='text-lg font-semibold text-gray-900 mb-3'>{reason.title}</h3>
+                <p className='text-gray-600 leading-relaxed text-sm'>{reason.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Professionals Section */}
+      <section className='py-24 bg-gray-50'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className='text-center mb-16'>
+            <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
+              {t.professionals.title}
+            </h2>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.professionals.description}</p>
+          </motion.div>
+
+          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            {t.professionals.specialties?.map((spec: { title: string; description: string }, index: number) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className='bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow border-l-4 border-green-500'>
+                <h3 className='text-lg font-bold text-gray-900 mb-3 flex items-center gap-2'>
+                  <CheckCircle className='w-5 h-5 text-green-500 flex-shrink-0' />
+                  {spec.title}
+                </h3>
+                <p className='text-gray-600 leading-relaxed text-sm'>{spec.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Content / Expertise Section */}
+      <section className='py-24 bg-white'>
+        <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className='text-center mb-12'>
+            <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
+              {t.seo_content.title}
+            </h2>
+          </motion.div>
+          <div className='prose prose-lg prose-green max-w-none'>
+            {t.seo_content.paragraphs?.map((para: string, index: number) => (
+              <motion.p
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className='text-gray-700 leading-relaxed mb-6 text-lg'>
+                {para}
+              </motion.p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
       <section className='py-24 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div

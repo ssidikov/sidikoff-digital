@@ -158,6 +158,38 @@ const agenceWebLyonSchemas = [
           text: 'Oui. Nous intervenons à Lyon (tous arrondissements), Villeurbanne, Caluire-et-Cuire, Bron, Vénissieux et dans toute la région Auvergne-Rhône-Alpes. Nous travaillons aussi à distance pour toute la France.',
         },
       },
+      {
+        '@type': 'Question',
+        name: 'Proposez-vous des services de développeur web freelance à Lyon ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Oui. Sidikoff Digital intervient comme développeur web freelance à Lyon et dans la Métropole de Lyon. Vous bénéficiez de la flexibilité d’un interlocuteur unique, de tarifs transparents et d’une réactivité accrue, avec la profondeur d’expertise d’une agence digitale spécialisée Next.js. Interventions sur site ou à distance selon vos préférences.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Faites-vous de la refonte de site web à Lyon ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Oui, la refonte de site web est l’un de nos services phares à Lyon. Nous migrons vos anciens sites (WordPress lent, Wix, Squarespace ou site vieillissant) vers Next.js pour un gain de performance immédiat : chargement en moins d’1s, scores Lighthouse > 95, design modernisé et SEO reconstructed. Devis gratuit sous 24h.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Quel est le tarif pour le SEO local à Lyon ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Nos prestations de SEO local à Lyon démarrent à 149 €/mois. Chaque forfait inclut un audit technique complet, l’optimisation des Core Web Vitals (LCP, CLS, INP), la configuration Google Business Profile, la création de contenu géolocalisé (Lyon, Villeurbanne, Métropole de Lyon) et un reporting mensuel. Résultats visibles sous 4 à 8 semaines. Devis gratuit sous 24h.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Créez-vous des sites internet pour les PME lyonnaises ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Oui, nous accompagnons de nombreuses PME lyonnaises. Que vous soyez dans la restauration, les services, l’immobilier, la santé ou l’industrie à Lyon, Villeurbanne ou Caluire, nous créons des sites internet sur mesure adaptés à vos objectifs. Notre stack Next.js garantit des sites rapides, SEO-friendly et évolutifs. Tarifs à partir de 690 € TTC, devis gratuit sous 24h.',
+        },
+      },
     ],
   },
 ]
@@ -199,8 +231,9 @@ export default async function AgenceWebLyonPage() {
               <p className='mt-12 max-w-xl text-lg sm:text-xl font-medium leading-relaxed border-l-[3px] border-[#FF3E1A] pl-6 text-[#121212] relative z-20'>
                 Design moderne. Référencement SEO dominant.
                 <br />
-                Nous construisons des expériences digitales mémorables pour les marques ambitieuses
-                dans le grand Lyon.
+                Agence web & <strong>développeur web freelance à Lyon</strong> — nous construisons
+                des expériences digitales mémorables pour les marques ambitieuses dans le grand
+                Lyon, la Métropole et toute la France.
               </p>
 
               <div className='mt-12 flex flex-col sm:flex-row gap-8 items-start sm:items-center relative z-20'>
@@ -448,26 +481,18 @@ export default async function AgenceWebLyonPage() {
               { city: 'Lyon', link: '/services/creation-site-internet-lyon' },
               { city: 'Villeurbanne', link: '/services/agence-web-villeurbanne' },
               { city: 'Caluire-et-Cuire', link: '/services/creation-site-web-caluire-et-cuire' },
-              { city: 'Bron', link: null },
-              { city: 'Vénissieux', link: null },
-              { city: 'Décines-Charpieu', link: null },
-              { city: 'Meyzieu', link: null },
-            ].map((loc, i) =>
-              loc.link ? (
-                <Link
-                  key={i}
-                  href={loc.link}
-                  className='text-xl lg:text-3xl font-bold uppercase tracking-wider text-[#121212] hover:text-[#F6F4EE] border-b-4 border-[#121212] hover:border-[#F6F4EE] pb-2 transition-colors'>
-                  {loc.city}
-                </Link>
-              ) : (
-                <span
-                  key={i}
-                  className='text-xl lg:text-3xl font-bold uppercase tracking-wider text-[#121212] opacity-50 pb-2'>
-                  {loc.city}
-                </span>
-              ),
-            )}
+              { city: 'Bron', link: '/services/creation-site-internet-lyon' },
+              { city: 'Vénissieux', link: '/services/creation-site-internet-lyon' },
+              { city: 'Décines-Charpieu', link: '/services/creation-site-internet-lyon' },
+              { city: 'Meyzieu', link: '/services/creation-site-internet-lyon' },
+            ].map((loc, i) => (
+              <Link
+                key={i}
+                href={loc.link}
+                className='text-xl lg:text-3xl font-bold uppercase tracking-wider text-[#121212] hover:text-[#F6F4EE] border-b-4 border-[#121212] hover:border-[#F6F4EE] pb-2 transition-colors'>
+                {loc.city}
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -484,15 +509,23 @@ export default async function AgenceWebLyonPage() {
               {[
                 {
                   q: 'Meilleure agence web à Lyon ?',
-                  a: "C'est subjectif, mais si vous cherchez des designs audacieux, des temps de chargement éclair et un SEO agressif, Sidikoff Digital s'impose comme l'évidence.",
+                  a: "C'est subjectif, mais si vous cherchez des designs audacieux, des temps de chargement éclair et un SEO agressif, Sidikoff Digital s'impose comme l'évidence. Nous intervenons aussi comme développeur web freelance Lyon pour les projets ponctuels.",
                 },
                 {
                   q: "Le vrai prix d'un site à Lyon ?",
-                  a: "Dès 690 € pour un vitrine percutant. 1 990 € minimum pour un e-commerce. On ne fait pas dans l'usurpation, chaque euro investi a un impact. Devis précis gratuit sous 24h.",
+                  a: "Dès 690 € pour un vitrine percutant. 1 290€ pour un site multi-pages Pro. 1 990 € minimum pour un e-commerce. On ne fait pas dans l'usurpation, chaque euro investi a un impact. Devis précis gratuit sous 24h.",
                 },
                 {
                   q: 'Délai de création réel ?',
                   a: "7 à 14 jours pour un vitrine. On travaille vite parce qu'on travaille bien. Les e-commerces prennent 4 à 8 semaines selon la complexité.",
+                },
+                {
+                  q: 'Faites-vous de la refonte de site web à Lyon ?',
+                  a: 'Oui. Nous migrons vos anciens sites (WordPress, Wix, Squarespace) vers Next.js pour un gain de performance immédiat : LCP < 2,5s, scores Lighthouse > 95, design modernisé. Chaque refonte inclut un audit technique et une stratégie SEO de reconversion. Devis gratuit sous 24h.',
+                },
+                {
+                  q: 'Proposez-vous des services de développeur web freelance à Lyon ?',
+                  a: 'Oui. En tant que développeur web freelance basé à Lyon, nous intervenons directement chez vous ou à distance pour création de site, refonte, intégration d’API ou développement sur mesure. Flexibilité d’un freelance, ressources d’une agence structurée.',
                 },
               ].map((faq, i) => (
                 <details

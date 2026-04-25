@@ -446,7 +446,94 @@ export default function EcommerceLandingContent() {
         </div>
       </section>
 
+      {/* Semantic Expansion Section — Template A */}
+      <section className='py-20 bg-white'>
+        <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}>
+            <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
+              Création de boutique en ligne sur mesure : notre approche e-commerce
+            </h2>
+            <div className='prose prose-lg text-gray-700 space-y-5'>
+              <p>
+                Chez <strong>Sidikoff Digital</strong>, nous développons des sites e-commerce
+                performants pour les entreprises françaises souhaitant vendre en ligne. Que vous
+                ayez besoin d&apos;une <strong>boutique en ligne</strong> de 10 produits ou
+                d&apos;une marketplace multi-vendeurs, nous choisissons la technologie la plus
+                adaptée : <strong>Next.js</strong> pour du sur-mesure ultra-rapide, <strong>Shopify</strong>{' '}
+                pour un lancement rapide, ou <strong>WooCommerce</strong> pour la flexibilité
+                WordPress. Chaque projet est conçu pour maximiser le{' '}
+                <strong>taux de conversion</strong> et la visibilité sur Google.
+              </p>
+              <p>
+                Notre expertise en <strong>SEO e-commerce</strong> va bien au-delà des balises
+                meta basiques. Nous optimisons chaque page produit et catégorie avec des{' '}
+                <strong>données structurées Schema.org</strong> (Product, Offer, BreadcrumbList),
+                les <strong>Core Web Vitals</strong> (LCP, CLS, FID) pour un score Lighthouse 95+,
+                et l&apos;intégration <strong>Google Shopping</strong>. Résultat : vos produits
+                apparaissent dans les Rich Results, les comparateurs de prix et les AI Overviews.
+              </p>
+              <p>
+                Vous souhaitez <strong>refondre votre boutique en ligne</strong> existante ? Nous
+                réalisons des audits complets (UX, performances, taux de conversion, positionnement
+                SEO) avant de migrer vos données et reconstruire votre e-commerce avec une
+                architecture moderne. Nos clients enregistrent en moyenne +120 % de commandes en
+                ligne dans les 3 mois suivant le lancement. Nous intervenons dans toute la{' '}
+                <strong>France</strong>, avec une expertise particulière à <strong>Lyon</strong>,{' '}
+                <strong>Paris</strong> et en <strong>Île-de-France</strong>.
+              </p>
+            </div>
+
+            <div className='mt-8 flex flex-wrap gap-3'>
+              {[
+                'Next.js e-commerce',
+                'Shopify sur mesure',
+                'WooCommerce',
+                'SEO Google Shopping',
+                'Refonte boutique',
+                'Marketplace multi-vendeurs',
+                'Paiement sécurisé Stripe',
+                'Core Web Vitals',
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className='inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-medium border border-blue-100'>
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <div className='mt-8 p-6 bg-blue-50 rounded-xl border border-blue-100'>
+              <p className='text-sm text-blue-800 font-medium mb-2'>
+                🔗 Nos autres services web
+              </p>
+              <div className='flex flex-wrap gap-3 text-sm'>
+                <a href='/services/creation-site-internet-lyon' className='text-blue-600 hover:underline'>
+                  Création site internet Lyon
+                </a>
+                <span className='text-gray-400'>·</span>
+                <a href='/services/creation-site-internet-freelance' className='text-blue-600 hover:underline'>
+                  Site web freelance
+                </a>
+                <span className='text-gray-400'>·</span>
+                <a href='/services/optimisation-seo' className='text-blue-600 hover:underline'>
+                  Optimisation SEO
+                </a>
+                <span className='text-gray-400'>·</span>
+                <a href='/services/refonte-sites-web' className='text-blue-600 hover:underline'>
+                  Refonte site web
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
+
       <section className='py-24 bg-gray-50'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div

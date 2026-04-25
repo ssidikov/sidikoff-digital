@@ -8,6 +8,7 @@ import {
   generateAlternateUrls,
   generateBreadcrumbStructuredData,
   generateServiceSchema,
+  generateFAQStructuredData,
 } from '@/lib/seo-utils'
 
 const PAGE_SLUG = 'services/agence-web-paris-6'
@@ -114,6 +115,31 @@ export default async function AgenceWebParis6Page() {
     { name: 'Agence web Paris 6', url: pageUrl },
   ])
 
+  const faqItems = [
+    {
+      question: 'Concevez-vous des sites pour les galeries et métiers d\'art ?',
+      answer:
+        'Absolument. Nous portons une attention particulière à la direction artistique, au traitement des images et à la typographie pour mettre en valeur vos œuvres et votre savoir-faire.',
+    },
+    {
+      question: 'Quels sont vos délais pour un site premium ?',
+      answer:
+        'Une conception sur-mesure demande de la précision. Comptez généralement 2 à 4 semaines selon la complexité du design et le volume de contenus à intégrer.',
+    },
+    {
+      question: 'Assurez-vous un référencement spécifique ?',
+      answer:
+        'Oui, notre structure SEO est conçue pour capter une clientèle locale et internationale exigeante, recherchant spécifiquement vos services dans Paris 6.',
+    },
+    {
+      question: 'Quels sont les tarifs pour le 6e arrondissement ?',
+      answer:
+        'Bien que notre approche soit premium, nos offres restent accessibles. Les projets de refonte ou de création démarrent à partir de 690 € pour un site vitrine, et s\'ajustent selon vos ambitions.',
+    },
+  ]
+
+  const faqJsonLd = generateFAQStructuredData(faqItems)
+
   return (
     <>
       <script
@@ -131,6 +157,11 @@ export default async function AgenceWebParis6Page() {
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      <script
+        id='schema-faq-paris-6'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <ParisArrondissementLanding
         arrondissement="6"
         heroTitle={
@@ -143,28 +174,7 @@ export default async function AgenceWebParis6Page() {
         heroDescription="De Saint-Germain-des-Prés à l'Odéon, nous concevons des sites vitrines haut de gamme pour les galeries d'art, cabinets prestigieux et commerces d'exception du 6e arrondissement. Une esthétique raffinée pour un taux de conversion maximal."
         neighborhoods={['Saint-Germain-des-Prés', 'Odéon', 'Monnaie', 'Notre-Dame-des-Champs', 'Luxembourg']}
         visionLocaleText="Des expériences digitales qui reflètent le prestige et le standing du 6e arrondissement."
-        faqItems={[
-          {
-            question: 'Concevez-vous des sites pour les galeries et métiers d\'art ?',
-            answer:
-              'Absolument. Nous portons une attention particulière à la direction artistique, au traitement des images et à la typographie pour mettre en valeur vos œuvres et votre savoir-faire.',
-          },
-          {
-            question: 'Quels sont vos délais pour un site premium ?',
-            answer:
-              'Une conception sur-mesure demande de la précision. Comptez généralement 2 à 4 semaines selon la complexité du design et le volume de contenus à intégrer.',
-          },
-          {
-            question: 'Assurez-vous un référencement spécifique ?',
-            answer:
-              'Oui, notre structure SEO est conçue pour capter une clientèle locale et internationale exigeante, recherchant spécifiquement vos services dans Paris 6.',
-          },
-          {
-            question: 'Quels sont les tarifs pour le 6e arrondissement ?',
-            answer:
-              'Bien que notre approche soit premium, nos offres restent accessibles. Les projets de refonte ou de création démarrent à partir de 690 € pour un site vitrine, et s\'ajustent selon vos ambitions.',
-          },
-        ]}
+        faqItems={faqItems}
       />
     </>
   )

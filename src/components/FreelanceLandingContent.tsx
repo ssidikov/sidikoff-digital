@@ -490,7 +490,97 @@ export default function FreelanceLandingContent() {
         </div>
       </section>
 
+      {/* Semantic Expansion Section — Template A */}
+      <section className='py-20 bg-blue-50'>
+        <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}>
+            <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
+              Développeur web freelance : créez votre site internet professionnel
+            </h2>
+            <div className='prose prose-lg text-gray-700 space-y-5'>
+              <p>
+                En tant que <strong>développeur web freelance</strong> ou consultant indépendant,
+                votre site internet est votre meilleur commercial. Chez{' '}
+                <strong>Sidikoff Digital</strong>, nous créons des sites web sur mesure qui
+                reflètent votre expertise, renforcent votre crédibilité et attirent des clients
+                qualifiés. Que vous soyez <strong>développeur web freelance à Lyon</strong>,{' '}
+                <strong>consultant indépendant à Paris</strong> ou que vous travailliez à distance
+                pour toute la France, nous concevons votre vitrine digitale avec{' '}
+                <strong>Next.js</strong> et React pour un résultat ultra-performant (Lighthouse
+                95+).
+              </p>
+              <p>
+                Notre approche SEO pour freelances intègre les signaux{' '}
+                <strong>E-E-A-T</strong> (Expérience, Expertise, Autorité, Confiance) dès la
+                conception : balisage sémantique structuré avec <strong>Schema.org Person</strong>{' '}
+                et ProfessionalService, <strong>Core Web Vitals</strong> optimisés, blog d&apos;expertise
+                pour le contenu organique et Rich Results pour les featured snippets Google. Vos
+                prospects vous trouvent sur des requêtes clés comme &laquo; développeur web
+                freelance Lyon &raquo;, &laquo; portfolio développeur React &raquo; ou &laquo;
+                consultant digital indépendant &raquo;.
+              </p>
+              <p>
+                Vous possédez déjà un site ? Notre service de{' '}
+                <strong>refonte site web freelance</strong> vous permet d&apos;améliorer votre
+                design, vos performances et votre référencement sans repartir de zéro. Nous
+                migrons vos contenus, optimisons votre structure et modernisons votre stack
+                technologique. Résultat : +150 % de demandes de devis en moyenne dans les 8 premières
+                semaines. Nos <strong>tarifs site web freelance</strong> démarrent à 800 € avec
+                hébergement et formation inclus.
+              </p>
+            </div>
+
+            <div className='mt-8 flex flex-wrap gap-3'>
+              {[
+                'Développeur web freelance Lyon',
+                'Portfolio Next.js',
+                'SEO pour indépendants',
+                'Refonte site freelance',
+                'Blog expertise SEO',
+                'Réservation en ligne',
+                'E-E-A-T signals',
+                'Core Web Vitals',
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className='inline-flex items-center px-3 py-1 rounded-full bg-white text-blue-700 text-sm font-medium border border-blue-200'>
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <div className='mt-8 p-6 bg-white rounded-xl border border-blue-100'>
+              <p className='text-sm text-blue-800 font-medium mb-2'>
+                🔗 Nos autres services
+              </p>
+              <div className='flex flex-wrap gap-3 text-sm'>
+                <a href='/services/creation-site-ecommerce' className='text-blue-600 hover:underline'>
+                  Création e-commerce
+                </a>
+                <span className='text-gray-400'>·</span>
+                <a href='/services/optimisation-seo' className='text-blue-600 hover:underline'>
+                  Optimisation SEO
+                </a>
+                <span className='text-gray-400'>·</span>
+                <a href='/services/agence-web-lyon' className='text-blue-600 hover:underline'>
+                  Agence web Lyon
+                </a>
+                <span className='text-gray-400'>·</span>
+                <a href='/services/refonte-sites-web' className='text-blue-600 hover:underline'>
+                  Refonte site web
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
+
       <section className='py-24 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div

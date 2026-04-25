@@ -7,10 +7,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Création Site Internet Lyon'
+  const title = 'Création Site Internet Lyon | Développeur Web & Agence Digitale'
 
   const description =
-    'Agence web Lyon (69 / 69100) — sites vitrines, e-commerce et applications sur mesure, livrés en 7–14 jours. SEO local, React & Next.js. Devis gratuit sous 24h ✓'
+    'Agence web & développeur web à Lyon (69 / 69100) — sites vitrines, e-commerce et applications sur mesure, livrés en 7–14 jours. SEO local, React & Next.js. Devis gratuit sous 24h ✓'
 
   return {
     title,
@@ -80,6 +80,10 @@ const lyonSchemas = [
       { '@type': 'City', name: 'Lyon' },
       { '@type': 'City', name: 'Villeurbanne' },
       { '@type': 'City', name: 'Caluire-et-Cuire' },
+      { '@type': 'City', name: 'Bron' },
+      { '@type': 'City', name: 'Vénissieux' },
+      { '@type': 'City', name: 'Saint-Priest' },
+      { '@type': 'AdministrativeArea', name: 'Métropole de Lyon' },
       { '@type': 'Place', name: 'Auvergne-Rhône-Alpes' },
       { '@type': 'Country', name: 'France' },
     ],
@@ -117,7 +121,7 @@ const lyonSchemas = [
         name: 'Quel est le prix pour créer un site internet à Lyon ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Les tarifs varient selon le type de projet (site vitrine, e-commerce, sur mesure). Un site vitrine démarre à partir de 800€. Contactez-nous pour un devis gratuit et personnalisé sous 24h.',
+          text: 'Les tarifs varient selon le type de projet. Un site vitrine professionnel à Lyon démarre à 690€ TTC pour une livraison en 5 jours ouvrés. Un site multi-pages (3 à 5 pages) est proposé à partir de 1 290€, idéal pour les PME lyonnaises souhaitant présenter leurs services et obtenir un bon référencement local. Un site e-commerce ou sur mesure est disponible à partir de 1 990€, avec des fonctionnalités avancées (paiement en ligne, réservation, espace client). Tous nos tarifs incluent le SEO de base, le design responsive et la mise en ligne. Contactez-nous pour un devis gratuit et personnalisé sous 24h.',
         },
       },
       {
@@ -125,7 +129,7 @@ const lyonSchemas = [
         name: "Combien de temps dure la création d'un site web à Lyon ?",
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'En moyenne 7 à 14 jours pour un site vitrine, 4 à 8 semaines pour un site e-commerce, en fonction de la complexité et du contenu fourni.',
+          text: "Le délai de création dépend du type de projet. Un site vitrine est livré en 5 à 7 jours ouvrés. Un site professionnel multi-pages prend en moyenne 10 à 14 jours selon la complexité et les contenus fournis. Un site e-commerce ou une application web sur mesure nécessite généralement 4 à 8 semaines. Nous proposons également un service express pour les projets urgents. Un planning détaillé est fourni dès la validation du devis, et vous êtes informé à chaque étape de la création de votre site internet à Lyon.",
         },
       },
       {
@@ -133,7 +137,7 @@ const lyonSchemas = [
         name: 'Mon site sera-t-il bien référencé sur Google à Lyon ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Oui. Chaque site est optimisé pour le référencement SEO local à Lyon : balises meta, contenus géolocalisés, Google Business Profile, Core Web Vitals optimisés.',
+          text: "Oui, le référencement SEO local à Lyon est intégré dès la conception. Nous optimisons les balises meta (title, description), la structure sémantique (h1-h3), les contenus géolocalisés mentionnant les arrondissements et quartiers cibles (Part-Dieu, Confluence, Presqu'île, Villeurbanne…), ainsi que la vitesse de chargement (Core Web Vitals LCP, CLS, INP). Nous configurons également votre fiche Google Business Profile pour apparaître dans le pack local de Google Maps. Chaque site est développé en Next.js, garantissant des scores Lighthouse supérieurs à 95, ce qui améliore directement votre positionnement dans la Métropole de Lyon.",
         },
       },
       {
@@ -141,7 +145,15 @@ const lyonSchemas = [
         name: 'Puis-je mettre à jour mon site moi-même ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Oui. Nous proposons des CMS intuitifs (Sanity, WordPress) et une formation complète pour gérer vos textes et images en toute autonomie.',
+          text: "Oui, nous intégrons des CMS intuitifs (Sanity.io, WordPress) qui vous permettent de modifier vos textes, images, prix et actualités sans aucune compétence technique. Une formation complète de 1 à 2 heures est incluse dans chaque projet pour vous rendre totalement autonome. Si vous préférez déléguer les mises à jour, nos forfaits de maintenance mensuelle (à partir de 49€/mois) incluent jusqu'à 5 modifications par mois, un monitoring 24/7 et un support technique réactif.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Quelle est la différence entre un site vitrine et un site e-commerce à Lyon ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Un site vitrine présente votre activité, vos services et vos coordonnées — idéal pour les artisans, professions libérales, restaurants et PME de la Métropole de Lyon qui souhaitent une présence professionnelle en ligne. Un site e-commerce permet en plus de vendre des produits ou services directement en ligne, avec gestion des stocks, paiement sécurisé (Stripe, PayPal) et suivi des commandes. Dans les deux cas, le référencement SEO local à Lyon est inclus pour maximiser votre visibilité sur Google.",
         },
       },
     ],
@@ -750,24 +762,35 @@ export default async function LyonPage() {
               <p className='text-xl text-gray-600'>Réponses aux questions les plus fréquentes</p>
             </div>
 
-            <div className='space-y-8'>
+            <div className='space-y-6'>
               <div className='bg-white rounded-2xl p-8 shadow-lg border border-gray-100'>
                 <h3 className='text-xl font-bold text-[#112D4E] mb-4'>
                   Quel est le prix pour créer un site internet à Lyon ?
                 </h3>
                 <p className='text-gray-600'>
-                  Les tarifs varient selon le type de projet (site vitrine, e-commerce, sur mesure).
-                  Contactez-nous pour un <strong>devis gratuit et personnalisé</strong>.
+                  Les tarifs varient selon le type de projet : un{' '}
+                  <strong>site vitrine professionnel à Lyon</strong> démarre à{' '}
+                  <strong>690€ TTC</strong>, livré en 5 jours ouvrés. Un site multi-pages (3–5
+                  pages) est proposé à <strong>1 290€</strong>, idéal pour les PME qui souhaitent
+                  présenter leurs services et améliorer leur référencement local. Un{' '}
+                  <strong>site e-commerce ou sur mesure</strong> est disponible à partir de{' '}
+                  <strong>1 990€</strong> avec des fonctionnalités avancées. Tous nos tarifs incluent
+                  le SEO de base et le design responsive.{' '}
+                  <strong>Devis gratuit et personnalisé sous 24h.</strong>
                 </p>
               </div>
 
               <div className='bg-white rounded-2xl p-8 shadow-lg border border-gray-100'>
                 <h3 className='text-xl font-bold text-[#112D4E] mb-4'>
-                  Combien de temps dure la création d&apos;un site web ?
+                  Combien de temps dure la création d&apos;un site web à Lyon ?
                 </h3>
                 <p className='text-gray-600'>
-                  En moyenne <strong>4 à 8 semaines</strong>, en fonction de la complexité et du
-                  contenu fourni.
+                  Le délai dépend du projet : un <strong>site vitrine</strong> est livré en{' '}
+                  <strong>5 à 7 jours ouvrés</strong>. Un site multi-pages prend{' '}
+                  <strong>10 à 14 jours</strong> selon les contenus fournis. Un{' '}
+                  <strong>site e-commerce</strong> nécessite 4 à 8 semaines. Nous proposons aussi un
+                  service express pour les projets urgents. Un planning détaillé est remis dès
+                  validation du devis — vous êtes informé à chaque étape.
                 </p>
               </div>
 
@@ -776,8 +799,13 @@ export default async function LyonPage() {
                   Mon site sera-t-il bien référencé sur Google à Lyon ?
                 </h3>
                 <p className='text-gray-600'>
-                  Oui. Chaque site est optimisé pour le{' '}
-                  <strong>référencement SEO local à Lyon</strong>.
+                  Oui. Le <strong>référencement SEO local à Lyon</strong> est intégré dès la
+                  conception : balises meta, structure sémantique, contenus géolocalisés par
+                  quartier (Part-Dieu, Confluence, Presqu&apos;île, Villeurbanne…), vitesse de
+                  chargement (Core Web Vitals), et fiche{' '}
+                  <strong>Google Business Profile</strong>. Nos sites en Next.js obtiennent
+                  systématiquement des scores Lighthouse &gt; 95 dans toute la{' '}
+                  <strong>Métropole de Lyon</strong>.
                 </p>
               </div>
 
@@ -786,8 +814,26 @@ export default async function LyonPage() {
                   Puis-je mettre à jour mon site moi-même ?
                 </h3>
                 <p className='text-gray-600'>
-                  Oui. Nous proposons des CMS intuitifs et une formation pour gérer vos textes et
-                  images en toute autonomie.
+                  Oui. Nous intégrons des CMS intuitifs (Sanity, WordPress) et incluons une{' '}
+                  <strong>formation complète de 1 à 2h</strong> pour vous rendre autonome sur la
+                  gestion de vos textes, images et actualités. Si vous préférez déléguer, nos{' '}
+                  <strong>forfaits de maintenance mensuelle</strong> (dès 49€/mois) comprennent les
+                  mises à jour, le monitoring 24/7 et un support technique réactif.
+                </p>
+              </div>
+
+              <div className='bg-white rounded-2xl p-8 shadow-lg border border-gray-100'>
+                <h3 className='text-xl font-bold text-[#112D4E] mb-4'>
+                  Quelle est la différence entre un site vitrine et un site e-commerce à Lyon ?
+                </h3>
+                <p className='text-gray-600'>
+                  Un <strong>site vitrine</strong> présente votre activité, vos services et vos
+                  coordonnées — idéal pour les artisans, professions libérales et PME de la{' '}
+                  <strong>Métropole de Lyon</strong>. Un{' '}
+                  <strong>site e-commerce</strong> permet en plus de vendre en ligne : gestion des
+                  stocks, paiement sécurisé (Stripe, PayPal) et suivi des commandes. Dans les deux
+                  cas, le <strong>référencement local à Lyon</strong> et le design responsive sont
+                  inclus pour maximiser votre visibilité sur Google.
                 </p>
               </div>
             </div>
@@ -899,6 +945,152 @@ export default async function LyonPage() {
           </div>
         </Section>
 
+        {/* Template A — Semantic Expansion Section */}
+        <Section className='py-20 bg-[#F8F9FA]'>
+          <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
+            <h2 className='text-3xl font-bold text-[#112D4E] mb-8 leading-tight'>
+              Agence web & développeur web à Lyon : notre approche sur mesure
+            </h2>
+            <div className='space-y-5 text-lg text-gray-700 leading-relaxed'>
+              <p>
+                Sidikoff Digital est une <strong>agence digitale à Lyon</strong> spécialisée dans la{' '}
+                <strong>création de sites internet sur mesure</strong>, la{' '}
+                <strong>refonte de sites web</strong> et l&apos;optimisation SEO locale pour les
+                entreprises de la <strong>Métropole de Lyon</strong>. En tant que{' '}
+                <strong>développeur web freelance à Lyon</strong>, nous combinons la flexibilité
+                d&apos;un interlocuteur unique avec les ressources d&apos;une agence structurée.
+              </p>
+              <p>
+                Chaque projet de <strong>création de site internet à Lyon</strong> commence par une
+                analyse approfondie : étude de votre marché local, recherche des{' '}
+                <strong>mots-clés à fort potentiel dans le 69</strong>, audit de la concurrence dans
+                votre secteur (restauration, santé, B2B, e-commerce, artisanat). Nous définissons
+                ensuite une architecture de l&apos;information optimisée pour Google et pour vos
+                visiteurs — deux impératifs qui vont aujourd&apos;hui de pair.
+              </p>
+              <p>
+                Notre stack technique — <strong>Next.js</strong>, React, Tailwind CSS et Sanity CMS
+                — garantit des performances de haut niveau : chargement instantané (LCP{' '}
+                <strong>&lt; 2,5s</strong>), stabilité visuelle (CLS = 0) et interactivité
+                irréprochable (INP &lt; 200ms). Ces métriques{' '}
+                <strong>Core Web Vitals</strong> ne sont pas cosmétiques : Google les intègre
+                directement dans son algorithme de classement. Résultat : vos concurrents sur des{' '}
+                <strong>sites WordPress lents</strong> perdent des positions que vous gagnez.
+              </p>
+              <p>
+                Nos services couvrent l&apos;intégralité du cycle de vie digital :{' '}
+                <strong>création de site vitrine Lyon</strong> pour lancer votre activité,{' '}
+                <strong>site e-commerce Lyon</strong> pour vendre en ligne,{' '}
+                <strong>refonte site web Lyon</strong> pour moderniser une présence existante, et{' '}
+                <strong>référencement SEO Lyon</strong> pour attirer durablement des prospects
+                qualifiés. Chaque livraison inclut une formation CMS, un rapport de lancement et 3
+                mois de support technique offerts.
+              </p>
+            </div>
+          </div>
+        </Section>
+
+        {/* Template C — Arrondissements & Secteurs Grid */}
+        <Section className='py-20 bg-white'>
+          <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+            <div className='text-center mb-12'>
+              <h2 className='text-3xl font-bold text-[#112D4E] mb-4'>
+                Nous intervenons dans toute la Métropole de Lyon
+              </h2>
+              <p className='text-lg text-gray-600 max-w-2xl mx-auto'>
+                Une expertise de proximité pour les entreprises lyonnaises, quel que soit votre
+                arrondissement ou votre commune.
+              </p>
+            </div>
+            <div className='grid md:grid-cols-2 gap-12'>
+              {/* Arrondissements */}
+              <div>
+                <h3 className='text-xl font-semibold text-[#3F72AF] mb-5 flex items-center'>
+                  <span className='w-8 h-8 bg-[#3F72AF]/10 rounded-lg flex items-center justify-center mr-3 text-[#3F72AF]'>
+                    📍
+                  </span>
+                  Arrondissements & communes
+                </h3>
+                <div className='grid grid-cols-2 gap-2'>
+                  {[
+                    { label: "Lyon 1er \u2013 Presqu\u2019\u00eele", href: '/services/agence-web-lyon' },
+                    { label: 'Lyon 2ème – Confluence', href: '/services/agence-web-lyon' },
+                    { label: 'Lyon 3ème – Part-Dieu', href: '/services/agence-web-lyon' },
+                    { label: 'Lyon 4ème – Croix-Rousse', href: '/services/agence-web-lyon' },
+                    { label: 'Lyon 6ème – Brotteaux', href: '/services/agence-web-lyon' },
+                    { label: 'Lyon 7ème – Guillotière', href: '/services/agence-web-lyon' },
+                    { label: 'Lyon 8ème – Monplaisir', href: '/services/agence-web-lyon' },
+                    { label: 'Villeurbanne', href: '/services/agence-web-villeurbanne' },
+                    { label: 'Caluire-et-Cuire', href: '/services/creation-site-web-caluire-et-cuire' },
+                    { label: 'Bron', href: '/services/agence-web-lyon' },
+                    { label: 'Vénissieux', href: '/services/agence-web-lyon' },
+                    { label: 'Saint-Priest', href: '/services/agence-web-lyon' },
+                  ].map((item, i) => (
+                    <Link
+                      key={i}
+                      href={item.href}
+                      className='flex items-center text-sm text-gray-700 hover:text-[#3F72AF] transition-colors py-1.5 group'>
+                      <span className='w-1.5 h-1.5 bg-[#3F72AF] rounded-full mr-2 group-hover:scale-125 transition-transform'></span>
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Secteurs d'activité */}
+              <div>
+                <h3 className='text-xl font-semibold text-[#3F72AF] mb-5 flex items-center'>
+                  <span className='w-8 h-8 bg-[#3F72AF]/10 rounded-lg flex items-center justify-center mr-3 text-[#3F72AF]'>
+                    🏢
+                  </span>
+                  Secteurs d&apos;activité à Lyon
+                </h3>
+                <div className='space-y-3'>
+                  {[
+                    {
+                      icon: '🍽️',
+                      label: 'Restauration & gastronomie',
+                      desc: 'Bouchons, restaurants gastronomiques, bars, traiteurs',
+                    },
+                    {
+                      icon: '⚕️',
+                      label: 'Santé & paramédical',
+                      desc: 'Médecins, dentistes, kinés, psychologues (Biopôle)',
+                    },
+                    {
+                      icon: '⚖️',
+                      label: 'Professions libérales',
+                      desc: 'Avocats Part-Dieu, experts-comptables, architectes',
+                    },
+                    {
+                      icon: '🏪',
+                      label: 'Commerce & artisanat',
+                      desc: 'Boutiques, artisans, indépendants par arrondissement',
+                    },
+                    {
+                      icon: '🚀',
+                      label: 'Startups & scale-ups tech',
+                      desc: 'Confluence, French Tech Lyon, Biopôle, Gerland',
+                    },
+                    {
+                      icon: '🏭',
+                      label: 'Industrie & B2B',
+                      desc: 'PME industrielles Vénissieux, Saint-Priest, Bron',
+                    },
+                  ].map((item, i) => (
+                    <div key={i} className='flex items-start gap-3 p-3 rounded-lg hover:bg-[#F8F9FA] transition-colors'>
+                      <span className='text-xl flex-shrink-0 mt-0.5'>{item.icon}</span>
+                      <div>
+                        <div className='font-semibold text-[#112D4E] text-sm'>{item.label}</div>
+                        <div className='text-gray-500 text-xs mt-0.5'>{item.desc}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Section>
 
         <Section className='py-20 bg-linear-to-br from-[#112D4E] to-[#3F72AF] text-white'>
           <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
