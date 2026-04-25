@@ -37,7 +37,7 @@ const staggerContainer = {
 
 export default function AgenceVilleurbanneClient() {
   const serviceSchema = generateServiceSchema({
-    name: 'Agence Web Villeurbanne - SIDIKOFF DIGITAL',
+    name: 'Agence Web Villeurbanne - Sidikoff Digital',
     description:
       'Expertise en création de sites internet, référencement SEO et génie logiciel à Villeurbanne. Solutions sur-mesure pour entreprises.',
     url: 'https://www.sidikoff.com/services/agence-web-villeurbanne',
@@ -135,7 +135,7 @@ export default function AgenceVilleurbanneClient() {
           transition={{ delay: 0.8 }}
           className='mt-12 flex flex-col items-center gap-2'>
           <p className={`${jetbrainsMono.className} text-[10px] uppercase font-bold`}>
-            Par <span rel='author'>Sardorbek Sidikov</span> — SIDIKOFF DIGITAL
+            Par <span rel='author'>Sardorbek Sidikov</span> — Sidikoff Digital
           </p>
           <p className={`${jetbrainsMono.className} text-[10px] uppercase`}>
             Mis à jour le 12 Avril 2026

@@ -67,7 +67,7 @@ export default function StudioPage() {
       {/* Studio Header with Logout */}
       <div className='bg-white border-b border-gray-200 px-4 py-2 flex justify-between items-center'>
         <h1 className='text-lg font-semibold text-gray-900'>
-          SIDIKOFF DIGITAL - Content Management
+          Sidikoff Digital - Content Management
         </h1>
         <button
           onClick={handleLogout}

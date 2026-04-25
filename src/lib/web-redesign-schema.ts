@@ -31,7 +31,7 @@ export function generateWebRedesignSchema(): WebRedesignServiceSchema {
       'Service professionnel de refonte et modernisation de sites web. Redesign complet, amélioration des performances, optimisation SEO et mise à jour technologique avec React, Next.js, Tailwind CSS.',
     provider: {
       '@type': 'Organization',
-      name: 'SIDIKOFF DIGITAL',
+      name: 'Sidikoff Digital',
       url: DEFAULT_SEO.siteUrl,
     },
     offers: {

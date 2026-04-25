@@ -122,7 +122,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       locale: 'fr_FR',
       url: canonical,
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       images: [
         {
           url: '/images/opengraph-fr.png',
@@ -147,64 +147,38 @@ export async function generateMetadata(): Promise<Metadata> {
 function getStructuredData() {
   const canonical = createCanonicalUrl(PAGE_PATH, 'fr')
 
-  const professionalService = {
+  const webPageJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    '@id': `${DEFAULT_SEO.siteUrl}/services/creation-site-web-caluire-et-cuire#LocalBusiness`,
-    name: 'SIDIKOFF DIGITAL – Développeur Web Freelance à Caluire-et-Cuire',
-    description:
-      'Développeur web freelance spécialisé en création de sites internet à Caluire-et-Cuire et Lyon métropole. Sites vitrines, e-commerce, SEO technique.',
+    '@type': 'WebPage',
+    '@id': `${canonical}#webpage`,
     url: canonical,
-    telephone: '+33626932734',
-    email: 's.sidikoff@gmail.com',
-    image: '/images/opengraph-fr.png',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Caluire-et-Cuire',
-      postalCode: '69300',
-      addressRegion: 'Auvergne-Rhône-Alpes',
-      addressCountry: 'FR',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: '45.7972',
-      longitude: '4.8464',
-    },
+    name: 'Création site web Caluire-et-Cuire | Développeur freelance premium',
+    description: 'Développeur web freelance à Caluire-et-Cuire (69300). Création de sites vitrines, e-commerce, refonte et SEO technique. Devis gratuit sous 24h.',
+    isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+    about: { '@id': `${canonical}#service` },
+  }
+
+  const serviceJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${canonical}#service`,
+    mainEntityOfPage: { '@id': `${canonical}#webpage` },
+    name: 'Création de site internet à Caluire-et-Cuire',
+    description: 'Développeur web freelance spécialisé en création de sites internet à Caluire-et-Cuire et Lyon métropole. Sites vitrines, e-commerce, SEO technique.',
+    url: canonical,
+    serviceType: 'Création de site web',
     areaServed: [
       { '@type': 'City', name: 'Caluire-et-Cuire' },
       { '@type': 'City', name: 'Lyon' },
       { '@type': 'AdministrativeArea', name: 'Lyon métropole' },
       { '@type': 'AdministrativeArea', name: 'Rhône' },
     ],
-    serviceType: [
-      'Création de site web',
-      'Développement site vitrine',
-      'Site e-commerce',
-      'Refonte de site internet',
-      'SEO technique',
-      'Développement web sur mesure',
-    ],
-    priceRange: '€€',
-    sameAs: [
-      'https://github.com/ssidikov',
-      'https://linkedin.com/in/sardorbeksidikov',
-      'https://twitter.com/sidikoffdigital',
-    ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5.0',
-      reviewCount: '20',
+    provider: {
+      '@type': 'Organization',
+      name: 'Sidikoff Digital',
+      url: DEFAULT_SEO.siteUrl,
     },
-    slogan: 'Votre transformation digitale à Caluire-et-Cuire',
-    foundingDate: '2025',
-    knowsAbout: [
-      'React',
-      'Next.js',
-      'TypeScript',
-      'Tailwind CSS',
-      'SEO Technique',
-      'Web Performance',
-    ],
+    image: '/images/opengraph-fr.png',
   }
 
   const person = {
@@ -215,7 +189,7 @@ function getStructuredData() {
     url: DEFAULT_SEO.siteUrl,
     worksFor: {
       '@type': 'Organization',
-      name: 'SIDIKOFF DIGITAL',
+      name: 'Sidikoff Digital',
     },
     sameAs: ['https://github.com/ssidikov', 'https://linkedin.com/in/sardorbeksidikov'],
     knowsAbout: ['React', 'Next.js', 'TypeScript', 'Node.js', 'SEO'],
@@ -238,7 +212,7 @@ function getStructuredData() {
     },
   ])
 
-  return [professionalService, person, faqSchema, breadcrumb]
+  return [webPageJsonLd, serviceJsonLd, person, faqSchema, breadcrumb]
 }
 
 // ─── Page Component ─────────────────────────────────────────────────────────────

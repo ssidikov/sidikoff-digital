@@ -16,7 +16,7 @@ export function generateMetadata(): Metadata {
       type: 'website',
       locale: 'fr_FR',
       url: 'https://www.sidikoff.com/services/creation-site-internet-agence-voyage',
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       images: [{ url: '/images/opengraph-fr.png', width: 1200, height: 630, alt: t.meta_title }],
     },
     twitter: {

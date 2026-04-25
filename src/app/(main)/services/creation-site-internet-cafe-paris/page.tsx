@@ -37,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       locale: 'fr_FR',
       url: 'https://www.sidikoff.com/services/creation-site-internet-cafe-paris',
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       images: [
         {
           url: '/images/opengraph-fr.png',

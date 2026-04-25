@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       url: canonicalUrl,
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       locale: 'fr_FR',
       type: 'website',
       images: [
@@ -53,7 +53,7 @@ export default function WebRedesignLandingPage() {
     description: 'Professional website redesign service',
     provider: {
       '@type': 'Organization',
-      name: 'SIDIKOFF DIGITAL',
+      name: 'Sidikoff Digital',
       url: createCanonicalUrl('', 'fr'),
     },
     areaServed: {

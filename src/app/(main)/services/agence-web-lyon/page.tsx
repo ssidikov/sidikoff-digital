@@ -49,7 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       locale: 'fr_FR',
       url: 'https://www.sidikoff.com/services/agence-web-lyon',
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       images: [
         {
           url: '/images/og/creation-sites-web-lyon.jpg',
@@ -72,27 +72,23 @@ export async function generateMetadata(): Promise<Metadata> {
 const agenceWebLyonSchemas = [
   {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'ProfessionalService'],
-    '@id': 'https://www.sidikoff.com/services/agence-web-lyon#LocalBusiness',
-    name: 'SIDIKOFF DIGITAL — Agence Web Lyon',
-    description:
-      'Agence web à Lyon spécialisée en création de sites internet sur mesure, SEO local et refonte web. Technologies React et Next.js.',
+    '@type': 'WebPage',
+    '@id': 'https://www.sidikoff.com/services/agence-web-lyon#webpage',
     url: 'https://www.sidikoff.com/services/agence-web-lyon',
-    telephone: '+33626932734',
-    email: 's.sidikoff@gmail.com',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '',
-      addressLocality: 'Lyon',
-      postalCode: '69000',
-      addressRegion: 'Auvergne-Rhône-Alpes',
-      addressCountry: 'FR',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: '45.7640',
-      longitude: '4.8357',
-    },
+    name: 'Agence Web Lyon | Création de Sites Internet',
+    description: 'Agence web à Lyon — création de sites internet sur mesure, SEO local et refonte web. Sites livrés en 7–14 jours, dès 690 €. Expert React & Next.js. Devis gratuit sous 24h ✓',
+    isPartOf: { '@id': 'https://www.sidikoff.com/#website' },
+    about: { '@id': 'https://www.sidikoff.com/services/agence-web-lyon#service' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://www.sidikoff.com/services/agence-web-lyon#service',
+    mainEntityOfPage: { '@id': 'https://www.sidikoff.com/services/agence-web-lyon#webpage' },
+    name: 'Agence Web Lyon | Création de Sites Internet',
+    description: 'Agence web à Lyon spécialisée en création de sites internet sur mesure, SEO local et refonte web. Technologies React et Next.js.',
+    url: 'https://www.sidikoff.com/services/agence-web-lyon',
+    serviceType: 'Création de site internet',
     areaServed: [
       { '@type': 'City', name: 'Lyon' },
       { '@type': 'City', name: 'Villeurbanne' },
@@ -101,62 +97,10 @@ const agenceWebLyonSchemas = [
       { '@type': 'City', name: 'Vénissieux' },
       { '@type': 'Place', name: 'Auvergne-Rhône-Alpes' },
     ],
-    serviceType: [
-      'Création de site internet',
-      'Agence web Lyon',
-      'SEO local Lyon',
-      'Développement web React Next.js',
-      'Refonte de site web',
-      'Site e-commerce Lyon',
-    ],
-    priceRange: '€€',
-    openingHours: 'Mo-Fr 09:00-18:00',
-    sameAs: [
-      'https://github.com/ssidikov',
-      'https://linkedin.com/in/sardorbeksidikov',
-      'https://www.sidikoff.com',
-    ],
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Services agence web Lyon',
-      itemListElement: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Création site vitrine Lyon',
-            description:
-              'Site vitrine professionnel pour entreprises lyonnaises, à partir de 690 €',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Site e-commerce Lyon',
-            description:
-              'Boutique en ligne sécurisée avec paiement et gestion des produits, à partir de 1 990 €',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'SEO local Lyon',
-            description:
-              'Référencement naturel local pour apparaître sur Google à Lyon et dans le 69',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Refonte de site web Lyon',
-            description:
-              'Modernisation de site existant : nouveau design, performance, SEO amélioré',
-          },
-        },
-      ],
+    provider: {
+      '@type': 'Organization',
+      name: 'Sidikoff Digital',
+      url: 'https://www.sidikoff.com',
     },
   },
   {
@@ -187,7 +131,7 @@ const agenceWebLyonSchemas = [
         name: 'Quelle est la meilleure agence web à Lyon ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'SIDIKOFF DIGITAL est une agence web à Lyon spécialisée en création de sites internet sur mesure avec React et Next.js. Nous livrons des sites modernes, rapides et optimisés SEO en 7 à 14 jours.',
+          text: 'Sidikoff Digital est une agence web à Lyon spécialisée en création de sites internet sur mesure avec React et Next.js. Nous livrons des sites modernes, rapides et optimisés SEO en 7 à 14 jours.',
         },
       },
       {
@@ -208,7 +152,7 @@ const agenceWebLyonSchemas = [
       },
       {
         '@type': 'Question',
-        name: "L'agence web SIDIKOFF DIGITAL intervient-elle dans toute la région lyonnaise ?",
+        name: "L'agence web Sidikoff Digital intervient-elle dans toute la région lyonnaise ?",
         acceptedAnswer: {
           '@type': 'Answer',
           text: 'Oui. Nous intervenons à Lyon (tous arrondissements), Villeurbanne, Caluire-et-Cuire, Bron, Vénissieux et dans toute la région Auvergne-Rhône-Alpes. Nous travaillons aussi à distance pour toute la France.',
@@ -540,7 +484,7 @@ export default async function AgenceWebLyonPage() {
               {[
                 {
                   q: 'Meilleure agence web à Lyon ?',
-                  a: "C'est subjectif, mais si vous cherchez des designs audacieux, des temps de chargement éclair et un SEO agressif, SIDIKOFF DIGITAL s'impose comme l'évidence.",
+                  a: "C'est subjectif, mais si vous cherchez des designs audacieux, des temps de chargement éclair et un SEO agressif, Sidikoff Digital s'impose comme l'évidence.",
                 },
                 {
                   q: "Le vrai prix d'un site à Lyon ?",

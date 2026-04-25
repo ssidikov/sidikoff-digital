@@ -31,7 +31,7 @@ const CARD_VARIANTS = {
 } as const
 
 const AUTHOR_INFO = {
-  name: 'SIDIKOFF DIGITAL',
+  name: 'Sidikoff Digital',
   avatar: 'SD',
 } as const
 

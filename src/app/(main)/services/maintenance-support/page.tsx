@@ -15,7 +15,7 @@ export function generateMetadata(): Metadata {
       description: t.meta_description,
       type: 'website',
       locale: 'fr_FR',
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       images: [{ url: '/images/opengraph-fr.png', width: 1200, height: 630, alt: t.meta_title }],
     },
     twitter: {
@@ -48,7 +48,7 @@ export default function MaintenanceLandingPage() {
     description: t.hero.description,
     provider: {
       '@type': 'Organization',
-      name: 'SIDIKOFF DIGITAL',
+      name: 'Sidikoff Digital',
       url: 'https://www.sidikoff.com',
     },
     serviceType: 'Website Maintenance',

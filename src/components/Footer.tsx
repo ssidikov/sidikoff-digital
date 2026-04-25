@@ -19,10 +19,10 @@ const CONTACT_INFO = {
 
 // Copyright and company information
 const COMPANY_INFO = {
-  name: 'SIDIKOFF DIGITAL',
+  name: 'Sidikoff Digital',
   year: new Date().getFullYear(),
   description: 'Agence web | Création de sites web | Développeur web freelance',
-  copyright: `© Copyright ${new Date().getFullYear()} | SIDIKOFF DIGITAL | Agence web | Création de sites web | Développeur web freelance`,
+  copyright: `© Copyright ${new Date().getFullYear()} | Sidikoff Digital | Agence web | Création de sites web | Développeur web freelance`,
 } as const
 
 /**

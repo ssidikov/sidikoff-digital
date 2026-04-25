@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: description,
       type: 'website',
       locale: 'fr_FR',
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       images: [
         {
           url: '/images/opengraph-fr.png',

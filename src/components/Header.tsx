@@ -301,7 +301,7 @@ export function Header() {
                 style={{ outline: 'none !important', boxShadow: 'none !important' }}>
                 <Image
                   src='/logo-sidikoff.webp'
-                  alt='SIDIKOFF DIGITAL'
+                  alt='Sidikoff Digital'
                   width={145}
                   height={40}
                   quality={95}

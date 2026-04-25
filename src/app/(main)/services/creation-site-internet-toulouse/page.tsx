@@ -10,7 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const title = 'Création site internet Toulouse – Agence web & SEO local'
 
   const description =
-    'SIDIKOFF DIGITAL, agence web 31, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
+    'Sidikoff Digital, agence web 31, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
 
   return {
     title,
@@ -36,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       locale: 'fr_FR',
       url: `${DEFAULT_SEO.siteUrl}/services/creation-site-internet-toulouse`,
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       images: [
         {
           url: '/images/opengraph-fr.png',

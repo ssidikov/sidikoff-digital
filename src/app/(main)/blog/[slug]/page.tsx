@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       title: post.title,
       description: post.excerpt || post.title,
       url: canonicalUrl,
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       locale: 'fr_FR',
       type: 'article',
       publishedTime: post.publishedAt,
@@ -94,7 +94,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     url: articleUrl,
     imageUrl,
     publishedAt: post.publishedAt,
-    authorName: post.author?.name || 'SIDIKOFF DIGITAL',
+    authorName: post.author?.name || 'Sidikoff Digital',
     authorUrl: DEFAULT_SEO.siteUrl,
   })
 

@@ -374,7 +374,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                   <div className='w-8 h-8 bg-linear-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-3'>
                     <span className='text-white font-bold text-xs'>SD</span>
                   </div>
-                  <span>SIDIKOFF DIGITAL</span>
+                  <span>Sidikoff Digital</span>
                 </div>
                 <div className='flex items-center'>
                   <svg

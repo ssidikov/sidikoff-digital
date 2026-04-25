@@ -17,7 +17,7 @@ export function generateMetadata(): Metadata {
       description: t.meta_description,
       type: 'website',
       locale: 'fr_FR',
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       url: PAGE_URL,
       images: [
         {

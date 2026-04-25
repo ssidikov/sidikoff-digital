@@ -49,7 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: pageDescription,
       type: 'website',
       locale: 'fr_FR',
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       url: createCanonicalUrl(PAGE_SLUG, locale),
       images: [
         {
@@ -78,59 +78,19 @@ export default async function AgenceWebParis19Page() {
   const locale = defaultLocale
   const pageUrl = createCanonicalUrl(PAGE_SLUG, locale)
 
-  const localBusinessJsonLd = {
+  const webPageJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    '@id': `${DEFAULT_SEO.siteUrl}/${PAGE_SLUG}#LocalBusiness`,
-    name: 'SIDIKOFF DIGITAL',
-    alternateName: 'Agence web Paris 19',
-    description:
-      'Agence spécialisée dans la création de sites internet pour les professionnels du 19e arrondissement.',
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
     url: pageUrl,
-    telephone: '+33626932734',
-    email: 's.sidikoff@gmail.com',
-    image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
-    priceRange: '€€',
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '09:00',
-        closes: '18:00',
-      },
-    ],
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 48.887,
-      longitude: 2.3848,
+    name: 'Agence Web Paris 19 - Création de site internet',
+    description: 'Création de sites internet',
+    isPartOf: {
+      '@id': `${DEFAULT_SEO.siteUrl}/#website`,
     },
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Paris',
-      postalCode: '75019',
-      addressRegion: 'Ile-de-France',
-      addressCountry: 'FR',
+    about: {
+      '@id': `${pageUrl}#service`,
     },
-    areaServed: [
-      { '@type': 'City', name: 'Paris' },
-      { '@type': 'Place', name: 'Paris 19ème' },
-      { '@type': 'Place', name: 'La Villette' },
-      { '@type': 'Place', name: 'Buttes-Chaumont' },
-      { '@type': 'Place', name: 'Pont-de-Flandre' },
-      { '@type': 'Place', name: 'Amérique' },
-    ],
-    serviceType: [
-      'Création de site web',
-      'Site vitrine',
-      'Site e-commerce',
-      'Refonte de site internet',
-      'Référencement SEO',
-    ],
-    sameAs: [
-      'https://www.linkedin.com/in/sardorbeksidikov',
-      'https://github.com/ssidikov',
-      'https://twitter.com/sidikoffdigital',
-    ],
   }
 
   const serviceJsonLd = generateServiceSchema({
@@ -143,7 +103,7 @@ export default async function AgenceWebParis19Page() {
     image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
     priceRange: '€€',
     provider: {
-      name: 'SIDIKOFF DIGITAL',
+      name: 'Sidikoff Digital',
       url: DEFAULT_SEO.siteUrl,
     },
   })
@@ -157,9 +117,9 @@ export default async function AgenceWebParis19Page() {
   return (
     <>
       <script
-        id='schema-local-business-paris-19'
+        id="schema-webpage"
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
       <script
         id='schema-service-paris-19'

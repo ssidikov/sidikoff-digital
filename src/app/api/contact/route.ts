@@ -22,8 +22,8 @@ const getAdminTemplate = () => {
 // Function to get subject based on locale
 const getEmailSubjects = () => {
   return {
-    user: 'Confirmation de votre demande - SIDIKOFF DIGITAL',
-    admin: 'Nouvelle demande reçue - SIDIKOFF DIGITAL',
+    user: 'Confirmation de votre demande - Sidikoff Digital',
+    admin: 'Nouvelle demande reçue - Sidikoff Digital',
   }
 }
 
@@ -97,7 +97,7 @@ export async function POST(request: Request) {
 
     // User confirmation email
     const userMail = {
-      from: `"SIDIKOFF DIGITAL" <${process.env.GMAIL_USER}>`,
+      from: `"Sidikoff Digital" <${process.env.GMAIL_USER}>`,
       to: email,
       subject: subjects.user,
       html: userTemplate({ name }),
@@ -106,7 +106,7 @@ export async function POST(request: Request) {
 
     // Admin notification email
     const adminMail = {
-      from: `"Contact Form - SIDIKOFF DIGITALDigital" <${process.env.EMAIL_FROM || process.env.SMTP_USER || process.env.GMAIL_USER}>`,
+      from: `"Contact Form - Sidikoff DigitalDigital" <${process.env.EMAIL_FROM || process.env.SMTP_USER || process.env.GMAIL_USER}>`,
       to: process.env.EMAIL_TO || process.env.ADMIN_EMAIL || 's.sidikoff@gmail.com',
       subject: subjects.admin,
       html: adminTemplate({ name, email, message }),

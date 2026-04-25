@@ -7,10 +7,10 @@ import { inter, grotesk } from '@/lib/fonts'
 // SEO Configuration
 const SITE_CONFIG = {
   url: 'https://www.sidikoff.com',
-  name: 'SIDIKOFF DIGITAL',
-  title: 'Agence Web France | Développement Web — SIDIKOFF DIGITAL',
+  name: 'Sidikoff Digital',
+  title: 'Agence Web France | Développement Web — Sidikoff Digital',
   description:
-    'SIDIKOFF DIGITAL, agence web Lyon, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.',
+    'Sidikoff Digital, agence web Lyon, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.',
   keywords: [
     'agence web france',
     'développement web',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
     default: SITE_CONFIG.title,
-    template: '%s | SIDIKOFF DIGITAL',
+    template: '%s | Sidikoff Digital',
   },
   description: SITE_CONFIG.description,
   keywords: [...SITE_CONFIG.keywords],
@@ -97,7 +97,7 @@ export const metadata: Metadata = {
         url: SITE_CONFIG.image,
         width: 1200,
         height: 630,
-        alt: 'SIDIKOFF DIGITAL - Agence Web Lyon & Villeurbanne | Création de Sites Internet Sur Mesure',
+        alt: 'Sidikoff Digital - Agence Web Lyon & Villeurbanne | Création de Sites Internet Sur Mesure',
       },
     ],
   },
@@ -105,7 +105,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: SITE_CONFIG.twitter,
     creator: SITE_CONFIG.twitter,
-    title: 'SIDIKOFF DIGITAL - Agence Web Lyon & Villeurbanne | Création de Sites',
+    title: 'Sidikoff Digital - Agence Web Lyon & Villeurbanne | Création de Sites',
     description:
       'Agence web à Villeurbanne et Lyon : création de sites internet modernes, applications web sur mesure. React, Next.js, SEO. Devis gratuit sous 24h.',
     images: [SITE_CONFIG.image],

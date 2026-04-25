@@ -18,13 +18,13 @@ const translations = {
     userSubject: 'Confirmation de votre demande',
     userMessage:
       'Nous avons bien reçu votre demande. Notre équipe vous contactera prochainement pour en discuter.',
-    regards: "Cordialement,\nL'équipe SIDIKOFF DIGITAL",
+    regards: "Cordialement,\nL'équipe Sidikoff Digital",
     adminSubject: 'Nouvelle demande reçue',
     newRequest: 'Nouvelle demande reçue',
     nameLabel: 'Nom',
     emailLabel: 'Email',
     messageLabel: 'Message',
-    autoNotification: 'Notification automatique SIDIKOFF DIGITAL',
+    autoNotification: 'Notification automatique Sidikoff Digital',
     thankYou: 'Merci pour votre confiance',
     quickResponse: 'Réponse sous 24h garantie',
     professionalService: 'Service professionnel',
@@ -279,7 +279,7 @@ export const userConfirmationFR = ({ name }: UserConfirmationParams) => {
       <div class="email-container">
         <!-- Header -->
         <div class="email-header">
-          <h1 class="email-title">SIDIKOFF DIGITAL</h1>
+          <h1 class="email-title">Sidikoff Digital</h1>
           <p class="email-subtitle">Solutions Digitales Professionnelles</p>
         </div>
 

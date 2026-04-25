@@ -6,7 +6,7 @@ import { generatePageMetadata } from '@/lib/seo-utils'
 export async function generateMetadata(): Promise<Metadata> {
   const description =
     common.contact.description ||
-    'Contactez SIDIKOFF DIGITAL pour discuter de votre projet web. Développement sur mesure, site vitrine, e-commerce. Devis gratuit, réponse sous 24h.'
+    'Contactez Sidikoff Digital pour discuter de votre projet web. Développement sur mesure, site vitrine, e-commerce. Devis gratuit, réponse sous 24h.'
 
   return generatePageMetadata(`${common.contact.title}`, description, '/contact', 'fr', {
     ogImage: '/images/opengraph-fr.png',

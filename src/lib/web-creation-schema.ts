@@ -31,7 +31,7 @@ export function generateWebCreationSchema(): WebCreationServiceSchema {
       'Service professionnel de création de sites web modernes, rapides et optimisés SEO. De la conception UX/UI à la mise en ligne avec React, Next.js, Tailwind CSS.',
     provider: {
       '@type': 'Organization',
-      name: 'SIDIKOFF DIGITAL',
+      name: 'Sidikoff Digital',
       url: DEFAULT_SEO.siteUrl,
     },
     offers: {

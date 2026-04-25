@@ -11,7 +11,7 @@ const BASE_URL = 'https://www.sidikoff.com'
 const SERVER_CARD = {
   $schema: 'https://modelcontextprotocol.io/schemas/server-card/v1.json',
   serverInfo: {
-    name: 'SIDIKOFF DIGITAL',
+    name: 'Sidikoff Digital',
     version: '1.0.0',
     description:
       'Agence web française spécialisée dans la création de sites web professionnels, applications React/Next.js et optimisation SEO.',
@@ -29,7 +29,7 @@ const SERVER_CARD = {
     tools: [
       {
         name: 'get-services',
-        description: 'List all web development services offered by SIDIKOFF DIGITAL',
+        description: 'List all web development services offered by Sidikoff Digital',
       },
       {
         name: 'get-projects',

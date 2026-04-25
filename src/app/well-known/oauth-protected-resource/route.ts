@@ -10,7 +10,7 @@ const BASE_URL = 'https://www.sidikoff.com'
 
 const PROTECTED_RESOURCE_METADATA = {
   resource: BASE_URL,
-  resource_name: 'SIDIKOFF DIGITAL Web API',
+  resource_name: 'Sidikoff Digital Web API',
   resource_documentation: `${BASE_URL}/llms.txt`,
   // No authorization servers — this is a public resource
   authorization_servers: [],

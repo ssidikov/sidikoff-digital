@@ -36,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       locale: 'fr_FR',
       url: 'https://www.sidikoff.com/services/creation-site-internet-lyon',
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       images: [
         {
           url: '/images/opengraph-fr.png',
@@ -59,26 +59,23 @@ export async function generateMetadata(): Promise<Metadata> {
 const lyonSchemas = [
   {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': 'https://www.sidikoff.com/services/creation-site-internet-lyon#LocalBusiness',
-    name: 'SIDIKOFF DIGITAL - Agence Web Lyon',
-    description:
-      'Agence web à Lyon spécialisée en création de sites internet professionnels, e-commerce et SEO local. Développement React et Next.js pour entreprises lyonnaises.',
+    '@type': 'WebPage',
+    '@id': 'https://www.sidikoff.com/services/creation-site-internet-lyon#webpage',
     url: 'https://www.sidikoff.com/services/creation-site-internet-lyon',
-    telephone: '+33626932734',
-    email: 's.sidikoff@gmail.com',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Lyon',
-      postalCode: '69000',
-      addressRegion: 'Auvergne-Rhône-Alpes',
-      addressCountry: 'FR',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: '45.7640',
-      longitude: '4.8357',
-    },
+    name: 'Création site internet Lyon — Agence web & développeur web à Lyon',
+    description: 'Agence web Lyon (69 / 69100) — sites vitrines, e-commerce et applications sur mesure, livrés en 7–14 jours. SEO local, React & Next.js. Devis gratuit sous 24h ✓',
+    isPartOf: { '@id': 'https://www.sidikoff.com/#website' },
+    about: { '@id': 'https://www.sidikoff.com/services/creation-site-internet-lyon#service' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://www.sidikoff.com/services/creation-site-internet-lyon#service',
+    mainEntityOfPage: { '@id': 'https://www.sidikoff.com/services/creation-site-internet-lyon#webpage' },
+    name: 'Création de site internet à Lyon',
+    description: 'Agence web à Lyon spécialisée en création de sites internet professionnels, e-commerce et SEO local. Développement React et Next.js pour entreprises lyonnaises.',
+    url: 'https://www.sidikoff.com/services/creation-site-internet-lyon',
+    serviceType: 'Création de site internet',
     areaServed: [
       { '@type': 'City', name: 'Lyon' },
       { '@type': 'City', name: 'Villeurbanne' },
@@ -86,50 +83,10 @@ const lyonSchemas = [
       { '@type': 'Place', name: 'Auvergne-Rhône-Alpes' },
       { '@type': 'Country', name: 'France' },
     ],
-    serviceType: [
-      'Création de site internet',
-      'Site e-commerce',
-      'SEO local Lyon',
-      'Développement web',
-    ],
-    priceRange: '€€',
-    openingHours: 'Mo-Fr 09:00-18:00',
-    sameAs: [
-      'https://github.com/ssidikov',
-      'https://linkedin.com/in/sardorbeksidikov',
-      'https://www.sidikoff.com/services/agence-web-lyon',
-    ],
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Services web Lyon',
-      itemListElement: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Site vitrine Lyon',
-            description: 'Création de sites vitrines professionnels pour entreprises lyonnaises',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Site e-commerce Lyon',
-            description:
-              'Boutiques en ligne sécurisées avec gestion de produits et paiement en ligne',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'SEO local Lyon',
-            description:
-              'Référencement naturel local pour les recherches Google à Lyon et dans le 69',
-          },
-        },
-      ],
+    provider: {
+      '@type': 'Organization',
+      name: 'Sidikoff Digital',
+      url: 'https://www.sidikoff.com',
     },
   },
   {

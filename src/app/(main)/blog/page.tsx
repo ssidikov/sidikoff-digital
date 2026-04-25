@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: common.blog.subtitle,
       type: 'website',
       locale: 'fr_FR',
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       url: createCanonicalUrl('blog', 'fr'),
       images: [{ url: '/images/opengraph-fr.png', width: 1200, height: 630, alt: common.blog.title }],
     },

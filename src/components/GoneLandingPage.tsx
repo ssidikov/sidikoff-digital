@@ -398,7 +398,7 @@ export default function GoneLandingPage({ cityName }: GoneLandingPageProps) {
             <div className='max-w-6xl mx-auto'>
               <div className='grid grid-cols-1 md:grid-cols-4 gap-8'>
                 <div className='md:col-span-2'>
-                  <h3 className='text-xl font-bold mb-4'>SIDIKOFF DIGITAL</h3>
+                  <h3 className='text-xl font-bold mb-4'>Sidikoff Digital</h3>
                   <p className='text-gray-400 mb-4'>{t.footerDescription}</p>
                   <p className='text-gray-400'>{t.footerLocation}</p>
                 </div>
@@ -466,7 +466,7 @@ export default function GoneLandingPage({ cityName }: GoneLandingPageProps) {
 
               <div className='border-t border-gray-700 mt-8 pt-8 text-center text-gray-400'>
                 <p>
-                  &copy; {new Date().getFullYear()} SIDIKOFF DIGITAL. {t.footerRights}
+                  &copy; {new Date().getFullYear()} Sidikoff Digital. {t.footerRights}
                 </p>
               </div>
             </div>

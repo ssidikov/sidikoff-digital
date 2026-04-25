@@ -52,7 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: pageDescription,
       type: 'website',
       locale: 'fr_FR',
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       url: createCanonicalUrl(PAGE_SLUG, locale),
       images: [
         {
@@ -81,59 +81,19 @@ export default async function CreationSiteInternetParis16Page() {
   const locale = defaultLocale
   const pageUrl = createCanonicalUrl(PAGE_SLUG, locale)
 
-  const localBusinessJsonLd = {
+  const webPageJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    '@id': `${DEFAULT_SEO.siteUrl}/${PAGE_SLUG}#LocalBusiness`,
-    name: 'SIDIKOFF DIGITAL',
-    alternateName: 'Agence web Paris 16',
-    description:
-      'Creation et redesign de sites internet pour les entreprises du 16eme arrondissement de Paris.',
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
     url: pageUrl,
-    telephone: '+33626932734',
-    email: 's.sidikoff@gmail.com',
-    image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
-    priceRange: '€€',
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '09:00',
-        closes: '18:00',
-      },
-    ],
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 48.86237,
-      longitude: 2.27692,
+    name: 'Agence web Paris 16 - Creation de site web',
+    description: 'Création de sites internet',
+    isPartOf: {
+      '@id': `${DEFAULT_SEO.siteUrl}/#website`,
     },
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Paris',
-      postalCode: '75016',
-      addressRegion: 'Ile-de-France',
-      addressCountry: 'FR',
+    about: {
+      '@id': `${pageUrl}#service`,
     },
-    areaServed: [
-      { '@type': 'City', name: 'Paris' },
-      { '@type': 'Place', name: 'Paris 16eme' },
-      { '@type': 'Place', name: 'Passy' },
-      { '@type': 'Place', name: 'Auteuil' },
-      { '@type': 'Place', name: 'Trocadero' },
-      { '@type': 'Place', name: 'La Muette' },
-    ],
-    serviceType: [
-      'Creation de site web',
-      'Site vitrine',
-      'Site e-commerce',
-      'Redesign web',
-      'SEO local',
-    ],
-    sameAs: [
-      'https://www.linkedin.com/in/sardorbeksidikov',
-      'https://github.com/ssidikov',
-      'https://twitter.com/sidikoffdigital',
-    ],
   }
 
   const serviceJsonLd = generateServiceSchema({
@@ -146,7 +106,7 @@ export default async function CreationSiteInternetParis16Page() {
     image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
     priceRange: '€€',
     provider: {
-      name: 'SIDIKOFF DIGITAL',
+      name: 'Sidikoff Digital',
       url: DEFAULT_SEO.siteUrl,
     },
   })
@@ -181,9 +141,9 @@ export default async function CreationSiteInternetParis16Page() {
   return (
     <>
       <script
-        id='schema-local-business-paris-16'
+        id="schema-webpage"
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
       <script
         id='schema-service-paris-16'

@@ -16,7 +16,7 @@ export function generateMetadata(): Metadata {
       description: t.meta_description,
       type: 'website',
       locale: 'fr_FR',
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       url: PAGE_URL,
       images: [{ url: '/images/opengraph-fr.png', width: 1200, height: 630, alt: t.meta_title }],
     },

@@ -49,7 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: pageDescription,
       type: 'website',
       locale: 'fr_FR',
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       url: createCanonicalUrl(PAGE_SLUG, locale),
       images: [
         {
@@ -78,59 +78,19 @@ export default async function AgenceWebParis6Page() {
   const locale = defaultLocale
   const pageUrl = createCanonicalUrl(PAGE_SLUG, locale)
 
-  const localBusinessJsonLd = {
+  const webPageJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    '@id': `${DEFAULT_SEO.siteUrl}/${PAGE_SLUG}#LocalBusiness`,
-    name: 'SIDIKOFF DIGITAL',
-    alternateName: 'Agence web Paris 6',
-    description:
-      'Création de sites internet premium et optimisation SEO pour les professionnels du 6ème arrondissement de Paris.',
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
     url: pageUrl,
-    telephone: '+33626932734',
-    email: 's.sidikoff@gmail.com',
-    image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
-    priceRange: '€€',
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '09:00',
-        closes: '18:00',
-      },
-    ],
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 48.8504,
-      longitude: 2.3333,
+    name: 'Agence Web Paris 6 - Création de sites web',
+    description: 'Création de sites internet',
+    isPartOf: {
+      '@id': `${DEFAULT_SEO.siteUrl}/#website`,
     },
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Paris',
-      postalCode: '75006',
-      addressRegion: 'Ile-de-France',
-      addressCountry: 'FR',
+    about: {
+      '@id': `${pageUrl}#service`,
     },
-    areaServed: [
-      { '@type': 'City', name: 'Paris' },
-      { '@type': 'Place', name: 'Paris 6ème' },
-      { '@type': 'Place', name: 'Saint-Germain-des-Prés' },
-      { '@type': 'Place', name: 'Odéon' },
-      { '@type': 'Place', name: 'Monnaie' },
-      { '@type': 'Place', name: 'Notre-Dame-des-Champs' },
-    ],
-    serviceType: [
-      'Création de site web premium',
-      'Site vitrine',
-      'Site e-commerce',
-      'Redesign web',
-      'SEO local',
-    ],
-    sameAs: [
-      'https://www.linkedin.com/in/sardorbeksidikov',
-      'https://github.com/ssidikov',
-      'https://twitter.com/sidikoffdigital',
-    ],
   }
 
   const serviceJsonLd = generateServiceSchema({
@@ -143,7 +103,7 @@ export default async function AgenceWebParis6Page() {
     image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
     priceRange: '€€',
     provider: {
-      name: 'SIDIKOFF DIGITAL',
+      name: 'Sidikoff Digital',
       url: DEFAULT_SEO.siteUrl,
     },
   })
@@ -157,9 +117,9 @@ export default async function AgenceWebParis6Page() {
   return (
     <>
       <script
-        id='schema-local-business-paris-6'
+        id="schema-webpage"
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
       <script
         id='schema-service-paris-6'

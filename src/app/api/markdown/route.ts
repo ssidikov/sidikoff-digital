@@ -25,7 +25,7 @@ export async function GET(_request: NextRequest) {
       },
     })
   } catch {
-    return new NextResponse('# SIDIKOFF DIGITAL\n\nAgence web France — création de sites web professionnels.\n\n**Site:** https://www.sidikoff.com\n**Contact:** s.sidikoff@gmail.com', {
+    return new NextResponse('# Sidikoff Digital\n\nAgence web France — création de sites web professionnels.\n\n**Site:** https://www.sidikoff.com\n**Contact:** s.sidikoff@gmail.com', {
       status: 200,
       headers: {
         'Content-Type': 'text/markdown; charset=utf-8',

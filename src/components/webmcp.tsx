@@ -39,14 +39,14 @@ export default function WebMCP() {
       {
         name: 'get-services',
         description:
-          'List all web development and digital services offered by SIDIKOFF DIGITAL, a French web agency',
+          'List all web development and digital services offered by Sidikoff Digital, a French web agency',
         inputSchema: {
           type: 'object',
           properties: {},
           additionalProperties: false,
         },
         execute: async () => ({
-          agency: 'SIDIKOFF DIGITAL',
+          agency: 'Sidikoff Digital',
           services: [
             {
               name: 'Création de sites web sur mesure',
@@ -84,14 +84,14 @@ export default function WebMCP() {
       {
         name: 'get-contact',
         description:
-          'Get contact information for SIDIKOFF DIGITAL web agency to request a quote or ask a question',
+          'Get contact information for Sidikoff Digital web agency to request a quote or ask a question',
         inputSchema: {
           type: 'object',
           properties: {},
           additionalProperties: false,
         },
         execute: async () => ({
-          agency: 'SIDIKOFF DIGITAL',
+          agency: 'Sidikoff Digital',
           email: 's.sidikoff@gmail.com',
           phone: '+33 6 26 93 27 34',
           website: BASE_URL,
@@ -107,7 +107,7 @@ export default function WebMCP() {
     navigator.modelContext.registerTool(
       {
         name: 'navigate',
-        description: 'Navigate to a specific page on the SIDIKOFF DIGITAL website',
+        description: 'Navigate to a specific page on the Sidikoff Digital website',
         inputSchema: {
           type: 'object',
           properties: {

@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Studio - SIDIKOFF DIGITAL',
+  title: 'Studio - Sidikoff Digital',
   description: 'Content Management System',
   robots: {
     index: false,

@@ -22,9 +22,9 @@ export async function generateMetadata(): Promise<Metadata> {
       'react paris',
       'développement web paris',
     ],
-    authors: [{ name: 'SIDIKOFF DIGITAL' }],
-    creator: 'SIDIKOFF DIGITAL',
-    publisher: 'SIDIKOFF DIGITAL',
+    authors: [{ name: 'Sidikoff Digital' }],
+    creator: 'Sidikoff Digital',
+    publisher: 'Sidikoff Digital',
     alternates: {
       canonical: createCanonicalUrl('services/agence-web-paris', 'fr'),
       languages: generateAlternateUrls('services/agence-web-paris'),
@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: 'Agence Web Paris - Création de Sites Internet Sur Mesure',
       description: 'Votre agence web à Paris experte en création de sites internet, vitrine et e-commerce. Next.js, SEO local, design premium. Devis gratuit sous 24h.',
       url: url,
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       locale: 'fr_FR',
       type: 'website',
       images: [
@@ -97,35 +97,36 @@ export default function AgenceWebParisLandingPage() {
     { name: 'Agence Web Paris', url: pageUrl },
   ])
 
-  const localBusinessSchema = {
+  const webPageJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    '@id': `${DEFAULT_SEO.siteUrl}/services/agence-web-paris#LocalBusiness`,
-    name: 'SIDIKOFF DIGITAL - Agence Web Paris',
-    alternateName: 'Agence web Paris',
-    description: 'Création et redesign de sites internet sur mesure pour les entreprises à Paris.',
-    url: pageUrl,
-    telephone: '+33626932734',
-    email: 's.sidikoff@gmail.com',
-    image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
-    priceRange: '€€',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Paris',
-      addressRegion: 'Île-de-France',
-      addressCountry: 'FR',
+    '@type': 'WebPage',
+    '@id': `https://www.sidikoff.com/services/agence-web-paris#webpage`,
+    url: 'https://www.sidikoff.com/services/agence-web-paris',
+    name: 'Agence Web Paris - Création de site internet',
+    description: 'Agence web à Paris spécialisée dans la création de sites internet sur mesure, SEO local et refonte de site.',
+    isPartOf: {
+      '@id': 'https://www.sidikoff.com/#website',
     },
-    areaServed: [
-      { '@type': 'City', name: 'Paris' },
-      { '@type': 'AdministrativeArea', name: 'Île-de-France' }
-    ],
-    serviceType: [
-      'Création de site web',
-      'Site vitrine',
-      'Site e-commerce',
-      'Redesign web',
-      'SEO local',
-    ],
+    about: {
+      '@id': 'https://www.sidikoff.com/services/agence-web-paris#service',
+    },
+  };
+  
+  const serviceJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://www.sidikoff.com/services/agence-web-paris#service',
+    mainEntityOfPage: { '@id': 'https://www.sidikoff.com/services/agence-web-paris#webpage' },
+    name: 'Agence Web Paris - Création de site internet',
+    description: 'Création de sites internet sur-mesure et SEO pour les entreprises de Paris et Île-de-France.',
+    url: 'https://www.sidikoff.com/services/agence-web-paris',
+    serviceType: 'Création de site web Paris',
+    areaServed: [{ '@type': 'City', name: 'Paris' }, { '@type': 'AdministrativeArea', name: 'Île-de-France' }],
+    provider: {
+      '@type': 'Organization',
+      name: 'Sidikoff Digital',
+      url: 'https://www.sidikoff.com',
+    },
   }
 
   return (
@@ -140,7 +141,7 @@ export default function AgenceWebParisLandingPage() {
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
       <AgenceWebParisLandingContent />
     </>

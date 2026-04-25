@@ -67,7 +67,7 @@ function generateHomePageSchemas() {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       '@id': 'https://www.sidikoff.com/#website',
-      name: 'SIDIKOFF DIGITAL',
+      name: 'Sidikoff Digital',
       alternateName: 'Agence Web Lyon',
       url: 'https://www.sidikoff.com',
       description:

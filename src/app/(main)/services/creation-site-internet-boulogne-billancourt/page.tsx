@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const title = 'Création site internet Boulogne-Billancourt – Agence web spécialisée'
 
   const description =
-    'SIDIKOFF DIGITAL, agence web 92, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
+    'Sidikoff Digital, agence web 92, est spécialisée dans la création de sites Internet et le webmarketing. Contactez-nous dès maintenant.'
 
   return {
     title,
@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description,
       type: 'website',
       url: 'https://www.sidikoff.com/services/creation-site-internet-boulogne-billancourt',
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       locale: 'fr_FR',
       images: [
         {

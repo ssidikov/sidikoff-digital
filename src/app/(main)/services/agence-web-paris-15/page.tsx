@@ -39,7 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       locale: 'fr_FR',
       url: pageUrl,
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       images: [
         {
           url: '/images/opengraph-fr.png',
@@ -77,54 +77,19 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function AgenceWebParis15Page() {
   const pageUrl = createCanonicalUrl(PAGE_SLUG, 'fr')
 
-  const localBusinessJsonLd = {
+  const webPageJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    '@id': `${DEFAULT_SEO.siteUrl}/${PAGE_SLUG}#LocalBusiness`,
-    name: 'SIDIKOFF DIGITAL',
-    alternateName: 'Agence web Paris 15',
-    description: 'Création et redesign de sites internet pour les entreprises du 15ème arrondissement de Paris.',
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
     url: pageUrl,
-    telephone: '+33626932734',
-    email: 's.sidikoff@gmail.com',
-    image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
-    priceRange: '€€',
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '09:00',
-        closes: '18:00',
-      },
-    ],
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 48.8413,
-      longitude: 2.3003,
+    name: 'Agence Web Paris 15 - Création de site internet',
+    description: 'Agence web Paris 15ème : sites vitrines dès 690 €, livrés en 7-14 jours. Référencement SEO local, Next.js/React. Convention, Vaugirard, Grenelle. Devis gratuit sous 24h.',
+    isPartOf: {
+      '@id': `${DEFAULT_SEO.siteUrl}/#website`,
     },
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Paris',
-      postalCode: '75015',
-      addressRegion: 'Île-de-France',
-      addressCountry: 'FR',
+    about: {
+      '@id': `${pageUrl}#service`,
     },
-    areaServed: [
-      { '@type': 'City', name: 'Paris' },
-      { '@type': 'Place', name: 'Paris 15ème' },
-      { '@type': 'Place', name: 'Vaugirard' },
-      { '@type': 'Place', name: 'Grenelle' },
-      { '@type': 'Place', name: 'Convention' },
-      { '@type': 'Place', name: 'Necker' },
-      { '@type': 'Place', name: 'Javel' },
-    ],
-    serviceType: [
-      'Création de site web',
-      'Site vitrine',
-      'Site e-commerce',
-      'Redesign web',
-      'SEO local',
-    ],
   }
 
   const serviceJsonLd = generateServiceSchema({
@@ -136,7 +101,7 @@ export default function AgenceWebParis15Page() {
     image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
     priceRange: '€€',
     provider: {
-      name: 'SIDIKOFF DIGITAL',
+      name: 'Sidikoff Digital',
       url: DEFAULT_SEO.siteUrl,
     },
   })
@@ -165,9 +130,9 @@ export default function AgenceWebParis15Page() {
   return (
     <>
       <script
-        id='schema-local-business-paris-15'
+        id="schema-webpage"
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
       <script
         id='schema-service-paris-15'

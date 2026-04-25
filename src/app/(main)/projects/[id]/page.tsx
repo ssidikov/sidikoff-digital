@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const baseUrl = DEFAULT_SEO.siteUrl // Always without www
 
   return {
-    title: `${project.title} | SIDIKOFF DIGITAL- Projets`,
+    title: `${project.title} | Sidikoff Digital- Projets`,
     description: project.description,
     robots: {
       index: false,

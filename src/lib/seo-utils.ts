@@ -56,7 +56,7 @@ export function getLocalizedOgImage(locale: Locale, customImage?: string): strin
 
 // Default SEO configuration
 export const DEFAULT_SEO = {
-  siteName: 'SIDIKOFF DIGITAL',
+  siteName: 'Sidikoff Digital',
   siteUrl: 'https://www.sidikoff.com',
   defaultImage: '/images/opengraph-fr.png',
   twitterHandle: '@sidikoffdigital',
@@ -106,7 +106,7 @@ export function generateAlternateUrls(path: string): Record<Locale, string> {
 // ─── Primary canonical business location (Villeurbanne/Lyon) ─────────────────
 // ONE entity on homepage. City-specific schemas live on their own landing pages.
 export const primaryBusiness: LocalBusiness = {
-  name: 'SIDIKOFF DIGITAL',
+  name: 'Sidikoff Digital',
   url: 'https://www.sidikoff.com',
   address: {
     streetAddress: '73 Rue Racine',
@@ -213,7 +213,7 @@ export function generateLocalizedSEOMetadata(locale: Locale): Metadata {
   const titles = {
     fr: isHomePage
       ? 'Agence Web Lyon — Création de Sites Internet Sur Mesure'
-      : 'SIDIKOFF DIGITAL - Agence Web Expert | Développement React',
+      : 'Sidikoff Digital - Agence Web Expert | Développement React',
   }
 
   const descriptions = {
@@ -355,8 +355,8 @@ export const primaryBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
   '@id': 'https://www.sidikoff.com/#professional-service',
-  name: 'SIDIKOFF DIGITAL',
-  legalName: 'SIDIKOFF DIGITAL',
+  name: 'Sidikoff Digital',
+  legalName: 'Sidikoff Digital',
   url: 'https://www.sidikoff.com',
   description:
     'Agence web à Villeurbanne et Lyon spécialisée en création de sites internet sur mesure, refonte et SEO. Développement React et Next.js. Devis gratuit sous 24h.',
@@ -451,7 +451,7 @@ export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   '@id': 'https://www.sidikoff.com/#organization',
-  name: 'SIDIKOFF DIGITAL',
+  name: 'Sidikoff Digital',
   url: 'https://www.sidikoff.com',
   logo: {
     '@type': 'ImageObject',
@@ -544,7 +544,7 @@ export function generateReviewStructuredData(
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': 'https://www.sidikoff.com/#organization',
-    name: 'SIDIKOFF DIGITAL',
+    name: 'Sidikoff Digital',
     url: 'https://www.sidikoff.com',
     description: 'Développeur Web Full Stack - Création de sites web professionnels',
     // NOTE: aggregateRating is included here to prevent the
@@ -631,7 +631,7 @@ export function generateArticleSchema(article: {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'SIDIKOFF DIGITAL',
+      name: 'Sidikoff Digital',
       url: 'https://www.sidikoff.com',
       logo: {
         '@type': 'ImageObject',
@@ -683,6 +683,8 @@ export function generateServiceSchema(service: {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
+    '@id': `${service.url}#service`,
+    mainEntityOfPage: { '@id': `${service.url}#webpage` },
     name: service.name,
     description: service.description,
     url: service.url,
@@ -693,7 +695,7 @@ export function generateServiceSchema(service: {
     })),
     provider: {
       '@type': 'Organization',
-      name: service.provider?.name ?? 'SIDIKOFF DIGITAL',
+      name: service.provider?.name ?? 'Sidikoff Digital',
       url: service.provider?.url ?? DEFAULT_SEO.siteUrl,
       logo: {
         '@type': 'ImageObject',

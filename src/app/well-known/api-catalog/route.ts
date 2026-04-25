@@ -16,7 +16,7 @@ export async function GET(_request: NextRequest) {
           {
             href: `${BASE_URL}/llms.txt`,
             type: 'text/markdown',
-            title: 'SIDIKOFF DIGITAL — Service Documentation (LLM-friendly)',
+            title: 'Sidikoff Digital — Service Documentation (LLM-friendly)',
           },
         ],
         'service-desc': [

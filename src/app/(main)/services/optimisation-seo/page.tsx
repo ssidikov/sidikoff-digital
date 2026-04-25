@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: t.meta_description,
       type: 'website',
       locale: 'fr_FR',
-      siteName: 'SIDIKOFF DIGITAL',
+      siteName: 'Sidikoff Digital',
       images: [
         {
           url: '/images/opengraph-fr.png',
@@ -63,7 +63,7 @@ export default function SeoOptimizationLandingPage() {
     description: common.testimonials.seo_optimization_landing.hero.description,
     provider: {
       '@type': 'Organization',
-      name: 'SIDIKOFF DIGITAL',
+      name: 'Sidikoff Digital',
       url: 'https://www.sidikoff.com',
     },
     serviceType: 'SEO Optimization',
