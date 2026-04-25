@@ -153,7 +153,7 @@ export default function AgenceVilleurbanneClient() {
           transition={{ duration: 0.5 }}>
           AGENCE WEB VILLEURBANNE
           <br />
-          <span className='text-[#3B82F6] block mt-4'>— CRÉATION SITE INTERNET & SEO</span>
+          <span className='text-[#3B82F6] block mt-4'>— CRÉATION SITE INTERNET & SEO VILLEURBANNE</span>
         </motion.h1>
 
         <motion.p
@@ -466,13 +466,13 @@ export default function AgenceVilleurbanneClient() {
           <div className='grid md:grid-cols-2 gap-12'>
             <div className='space-y-6 text-lg text-white/90 font-medium leading-relaxed'>
               <p>
-                Avoir un site esthétique ne suffit plus dans le marché ultra-concurrentiel du Grand Lyon. En tant que <strong>consultant SEO à Villeurbanne</strong>, notre rôle est d'analyser votre visibilité en ligne, de comprendre les intentions de recherche de vos futurs clients et d'optimiser chaque aspect technique de votre domaine.
+                Avoir un site esthétique ne suffit plus dans le marché ultra-concurrentiel du Grand Lyon. En tant que <strong>consultant SEO à Villeurbanne</strong>, notre rôle est d'analyser votre visibilité en ligne, de comprendre les intentions de recherche de vos futurs clients et d'optimiser chaque aspect technique de votre domaine. Le <strong>SEO Villeurbanne</strong> est essentiel pour vous démarquer.
               </p>
               <p>
-                Nous réalisons un <strong>audit SEO complet</strong> pour identifier les freins à votre classement organique. Qu'il s'agisse de corriger des problèmes de performance, d'optimiser vos balises H1, d'améliorer l'expérience utilisateur ou de concevoir une architecture de contenu performante, nous posons les bases d'une croissance durable pour des solutions web performantes.
+                Nous réalisons un <strong>audit SEO complet</strong> pour identifier les freins à votre classement organique. Qu'il s'agisse de corriger des problèmes de performance, d'optimiser vos balises H1, d'améliorer l'expérience utilisateur ou de concevoir une architecture de contenu performante, nous posons les bases d'une croissance durable pour des solutions web performantes. Notre expertise en <strong>SEO Villeurbanne</strong> couvre tous les aspects on-page et off-page.
               </p>
               <p>
-                Chaque mois, nous monitorons vos positions sur des mots-clés stratégiques comme "création site internet villeurbanne", "boutiques en ligne" ou votre propre cœur de métier, en ajustant la stratégie pour vous permettre de devancer vos concurrents locaux à Lyon, Bron et Villeurbanne.
+                Chaque mois, nous monitorons vos positions sur des mots-clés stratégiques comme "création site internet villeurbanne", "boutiques en ligne", "seo villeurbanne", ou votre propre cœur de métier, en ajustant la stratégie pour vous permettre de devancer vos concurrents locaux à Lyon, Bron et Villeurbanne. Devenez leader dans votre secteur d'activité avec notre accompagnement en <strong>SEO Villeurbanne</strong>.
               </p>
             </div>
             <div className='space-y-6'>

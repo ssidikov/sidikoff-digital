@@ -53,11 +53,25 @@ export default function DoctorLandingPage() {
     }))
   )
 
+  const medicalOrganizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalOrganization',
+    name: 'Création Site Internet Médecin - Sidikoff Digital',
+    url: PAGE_URL,
+    description: 'Sites web professionnels et sécurisés (HDS) pour médecins, chirurgiens et professionnels de santé.',
+    medicalSpecialty: 'PublicHealth',
+    telephone: '+33626932734'
+  }
+
   return (
     <>
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalOrganizationSchema) }}
       />
       <script
         type='application/ld+json'

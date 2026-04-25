@@ -8,10 +8,10 @@ import Image from 'next/image'
 import { Portfolio } from '@/sections'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Création Site Internet Café Paris'
+  const title = 'Création Site Internet Café Paris | Votre Web Café Sur Mesure'
 
   const description =
-    'Boostez la visibilité de votre café à Paris avec un site web professionnel : menu en ligne, réservation, multilingue et SEO local optimisé.'
+    'Attirez plus de clients avec un site internet pour café à Paris. Menu en ligne, click & collect, réservation. Devis gratuit pour votre web café !'
 
   return {
     title,
@@ -98,7 +98,7 @@ export default async function CafeParisPage() {
                 </div>
                 <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] leading-tight'>
                   Création de site internet pour{' '}
-                  <span className='text-[#3F72AF]'>cafés à Paris</span>
+                  <span className='text-[#3F72AF]'>cafés à Paris (Web Café)</span>
                 </h1>
                 <p className='text-xl text-gray-600 leading-relaxed'>
                   Vous êtes propriétaire d&apos;un <strong>café ou coffee shop à Paris</strong> et

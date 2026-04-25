@@ -490,7 +490,7 @@ export default function FreelanceLandingContent() {
         </div>
       </section>
 
-      {/* Semantic Expansion Section — Template A */}
+      {/* Semantic Expansion Section */}
       <section className='py-20 bg-blue-50'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
@@ -523,18 +523,62 @@ export default function FreelanceLandingContent() {
                 freelance Lyon &raquo;, &laquo; portfolio développeur React &raquo; ou &laquo;
                 consultant digital indépendant &raquo;.
               </p>
+
+              <h3 className='text-2xl font-bold text-gray-900 mt-10 mb-4'>L'importance d'un site internet freelance pour développer votre activité</h3>
               <p>
-                Vous possédez déjà un site ? Notre service de{' '}
+                Lorsque l'on se lance en tant qu'indépendant, la question de la visibilité se pose rapidement. Opter pour une <strong>freelance création site internet</strong> n'est pas qu'une simple dépense, c'est un investissement stratégique indispensable pour pérenniser votre activité. Un <strong>site internet freelance</strong> bien pensé vous permet de vous affranchir des plateformes de mise en relation (comme Malt, Upwork ou Fiverr) qui prélèvent des commissions importantes sur vos missions. En générant vos propres leads (inbound marketing) via votre site web, vous reprenez le contrôle total sur votre acquisition de clients.
+              </p>
+              <p>
+                La <strong>freelance création site internet</strong> vous offre également un espace de liberté absolu pour structurer votre offre. Contrairement à un profil LinkedIn ou à un CV PDF, votre site web peut intégrer des cas clients interactifs, des témoignages vidéo, une section blog pour partager votre expertise, ou même un système de réservation (via Calendly ou Cal.com) pour vos appels découverte. C'est l'outil par excellence pour démontrer votre valeur perçue et justifier des tarifs (TJM) plus élevés face à des prospects B2B souvent exigeants. En maîtrisant votre discours de vente sur votre propre plateforme, vous augmentez drastiquement votre taux de conversion.
+              </p>
+              
+              <h3 className='text-2xl font-bold text-gray-900 mt-10 mb-4'>Les fonctionnalités incontournables de votre freelance creation site web</h3>
+              <p>
+                Pour qu'une <strong>freelance creation site web</strong> soit véritablement performante, elle doit s'appuyer sur plusieurs piliers fondamentaux. Tout d'abord, un design UX/UI épuré et professionnel qui inspire confiance dès les premières secondes. La première impression est souvent déterminante pour un prospect qui compare plusieurs profils. Un site lent ou mal structuré renverra l'image d'un freelance brouillon, tandis qu'un site rapide, fluide et moderne (comme ceux développés avec Next.js) transmettra instantanément une image de premium et de sérieux.
+              </p>
+              <p>
+                Ensuite, la <strong>freelance creation site internet</strong> doit impérativement inclure une section portfolio ou "Cas clients". C'est ici que vous allez démontrer, chiffres à l'appui, comment vous avez résolu les problèmes de vos précédents clients. Chaque étude de cas doit être une page dédiée, optimisée pour le SEO, détaillant le contexte, les défis, les solutions apportées et les résultats obtenus (ROI). Les études de cas sont le nerf de la guerre pour un freelance qui souhaite prouver son expertise.
+              </p>
+              <p>
+                Enfin, n'oublions pas l'appel à l'action (CTA). Un <strong>site internet freelance</strong> doit guider le visiteur vers la conversion. Que ce soit pour s'inscrire à votre newsletter, télécharger un livre blanc, ou réserver un appel, le parcours utilisateur doit être fluide et sans friction. Chez Sidikoff Digital, chaque projet de <strong>freelance creation site web</strong> intègre ces mécanismes de conversion dès la phase de maquettage (wireframing) pour maximiser vos opportunités commerciales.
+              </p>
+
+              <h3 className='text-2xl font-bold text-gray-900 mt-10 mb-4'>Stratégie SEO : Comment faire ranker votre freelance creation site internet ?</h3>
+              <p>
+                Avoir un beau site ne sert à rien si personne ne le visite. C'est pourquoi la <strong>freelance creation site internet</strong> doit toujours être couplée à une stratégie de référencement naturel (SEO) robuste. Nous optimisons votre vitrine pour cibler les mots-clés exacts recherchés par vos prospects. Par exemple, si vous êtes consultant SEO, nous ciblerons "consultant SEO freelance" couplé à votre ville ou à votre secteur d'activité de prédilection. Le trafic organique est le trafic le plus qualifié que vous puissiez obtenir, car il répond à une intention de recherche active.
+              </p>
+              <p>
+                Nous mettons en place une architecture en silos (cocons sémantiques) pour structurer votre expertise. Chaque pilier de votre offre (par exemple : "Audit technique", "Stratégie de contenu", "Netlinking") disposera de sa propre page (landing page), optimisée autour d'une intention de recherche spécifique. C'est cette rigueur sémantique qui fera de votre <strong>site internet freelance</strong> une véritable machine d'acquisition B2B, générant des leads qualifiés de manière automatique, 24h/24 et 7j/7.
+              </p>
+
+              <h3 className='text-2xl font-bold text-gray-900 mt-10 mb-4'>L'importance du blogging pour votre autorité d'indépendant</h3>
+              <p>
+                Tenir un blog est l'une des stratégies les plus efficaces pour rentabiliser votre <strong>freelance création site internet</strong>. En publiant régulièrement des articles de fond sur votre domaine d'expertise, vous ne vous contentez pas d'améliorer votre référencement naturel grâce à la longue traîne, vous démontrez également votre pensée critique et votre maîtrise technique à vos prospects. Un client potentiel hésitant entre deux freelances choisira systématiquement celui qui partage sa méthode de travail publiquement et qui apporte de la valeur gratuitement.
+              </p>
+              <p>
+                Le blog vous permet également d'alimenter vos réseaux sociaux (LinkedIn, Twitter) avec du contenu propriétaire. Vous ramenez ainsi l'audience des plateformes sociales directement vers votre <strong>site internet freelance</strong>, là où vous maîtrisez l'environnement et où les distractions sont absentes.
+              </p>
+
+              <h3 className='text-2xl font-bold text-gray-900 mt-10 mb-4'>Les erreurs à éviter lors de la création de votre site freelance</h3>
+              <p>
+                La première erreur que nous constatons souvent lors de la <strong>freelance creation site web</strong> est le manque de spécialisation. Un site qui propose "tout pour tout le monde" (ex: "Je fais des sites web, des logos, du SEO et du community management") dilue son message et ne rassure pas les clients B2B prêts à payer le prix fort pour un expert. Votre site doit refléter un positionnement clair (niche) : "Développeur React spécialiste des SaaS Fintech" sera toujours plus vendeur que "Développeur web tout terrain".
+              </p>
+              <p>
+                La deuxième erreur concerne les performances techniques. Utiliser des constructeurs de pages (page builders) trop lourds sur WordPress peut ralentir drastiquement le temps de chargement de votre site, ce qui pénalise fortement votre SEO mobile et votre taux de rebond. C'est pourquoi notre agence privilégie des technologies modernes comme Next.js et Tailwind CSS pour garantir un score Lighthouse optimal.
+              </p>
+
+              <p>
+                Vous possédez déjà un site mais il ne vous apporte pas de clients ? Notre service de{' '}
                 <strong>refonte site web freelance</strong> vous permet d&apos;améliorer votre
                 design, vos performances et votre référencement sans repartir de zéro. Nous
                 migrons vos contenus, optimisons votre structure et modernisons votre stack
                 technologique. Résultat : +150 % de demandes de devis en moyenne dans les 8 premières
                 semaines. Nos <strong>tarifs site web freelance</strong> démarrent à 800 € avec
-                hébergement et formation inclus.
+                hébergement et formation inclus. Ne laissez plus la technique freiner le développement de votre activité d'indépendant.
               </p>
             </div>
 
-            <div className='mt-8 flex flex-wrap gap-3'>
+            <div className='mt-12 flex flex-wrap gap-3'>
               {[
                 'Développeur web freelance Lyon',
                 'Portfolio Next.js',
@@ -544,33 +588,37 @@ export default function FreelanceLandingContent() {
                 'Réservation en ligne',
                 'E-E-A-T signals',
                 'Core Web Vitals',
+                'Freelance création site internet',
+                'Site internet freelance',
+                'Freelance creation site internet',
+                'Freelance creation site web'
               ].map((tag) => (
                 <span
                   key={tag}
-                  className='inline-flex items-center px-3 py-1 rounded-full bg-white text-blue-700 text-sm font-medium border border-blue-200'>
+                  className='inline-flex items-center px-4 py-2 rounded-full bg-white text-blue-700 text-sm font-semibold border border-blue-200 shadow-sm'>
                   {tag}
                 </span>
               ))}
             </div>
 
-            <div className='mt-8 p-6 bg-white rounded-xl border border-blue-100'>
-              <p className='text-sm text-blue-800 font-medium mb-2'>
-                🔗 Nos autres services
+            <div className='mt-12 p-8 bg-white rounded-xl border border-blue-100 shadow-sm'>
+              <p className='text-sm text-blue-800 font-bold mb-4 uppercase tracking-wider'>
+                🔗 Explorer nos autres solutions web
               </p>
-              <div className='flex flex-wrap gap-3 text-sm'>
-                <a href='/services/creation-site-ecommerce' className='text-blue-600 hover:underline'>
+              <div className='flex flex-wrap gap-4 text-sm font-medium'>
+                <a href='/services/creation-site-ecommerce' className='text-blue-600 hover:text-blue-800 transition-colors'>
                   Création e-commerce
                 </a>
-                <span className='text-gray-400'>·</span>
-                <a href='/services/optimisation-seo' className='text-blue-600 hover:underline'>
+                <span className='text-gray-300'>|</span>
+                <a href='/services/optimisation-seo' className='text-blue-600 hover:text-blue-800 transition-colors'>
                   Optimisation SEO
                 </a>
-                <span className='text-gray-400'>·</span>
-                <a href='/services/agence-web-lyon' className='text-blue-600 hover:underline'>
+                <span className='text-gray-300'>|</span>
+                <a href='/services/agence-web-lyon' className='text-blue-600 hover:text-blue-800 transition-colors'>
                   Agence web Lyon
                 </a>
-                <span className='text-gray-400'>·</span>
-                <a href='/services/refonte-sites-web' className='text-blue-600 hover:underline'>
+                <span className='text-gray-300'>|</span>
+                <a href='/services/refonte-sites-web' className='text-blue-600 hover:text-blue-800 transition-colors'>
                   Refonte site web
                 </a>
               </div>

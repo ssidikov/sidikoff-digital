@@ -4,8 +4,8 @@ import AgenceVilleurbanneClient from './AgenceVilleurbanneClient'
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata(
-    'Agence Web Villeurbanne | Création Site Internet & SEO',
-    'Création de site internet à Villeurbanne, SEO local et solutions web sur mesure pour entreprises et indépendants.',
+    'Agence Web Villeurbanne | Création Site Internet & SEO Villeurbanne',
+    'Création de site internet à Villeurbanne, expert en SEO Villeurbanne et solutions web sur mesure pour entreprises et indépendants.',
     '/services/agence-web-villeurbanne',
     'fr',
     {
