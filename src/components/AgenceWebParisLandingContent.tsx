@@ -401,13 +401,13 @@ const AgenceWebParisLandingContent: React.FC = () => {
               </h2>
               <div className='prose prose-lg text-gray-700 space-y-4'>
                 <p>
-                  Le marché parisien est l'un des plus concurrentiels de France. Que vous soyez une startup dans le Marais, un cabinet d'avocats dans le 8ème, une boutique de mode dans le 6ème ou un restaurant dans le 11ème, votre site web est aujourd'hui votre premier commercial. Un internaute parisien prend sa décision en moins de 5 secondes : design, rapidité, clarté et confiance sont non négociables.
+                  Le marché parisien est l'un des plus concurrentiels de France. Que vous soyez une startup sur la Rive Droite, un cabinet d'avocats sur la Rive Gauche, ou un restaurant au cœur de la capitale, votre site web est aujourd'hui votre premier commercial. Un internaute parisien prend sa décision en moins de 5 secondes : design, rapidité, clarté et confiance sont non négociables.
                 </p>
                 <p>
                   Depuis 2024, Google intègre les <strong>Core Web Vitals</strong> comme facteur de classement majeur. Cela signifie que les sites lents ou mal optimisés pour mobile perdent des positions, quelles que soient leurs autres qualités. C'est pourquoi nous construisons tous nos sites avec <strong>Next.js</strong>, un framework qui garantit des scores Lighthouse 95+ et un chargement en moins d'une seconde.
                 </p>
                 <p>
-                  Notre agence web parisienne accompagne aussi bien les <strong>TPE et PME locales</strong> que les startups en phase de croissance. Nous comprenons les spécificités de chaque arrondissement : le tissu commercial du 10ème, les professions libérales du 16ème, les créatifs du 18ème ou les entreprises B2B de La Défense. Cette connaissance locale se traduit par des contenus ciblés et un référencement local précis.
+                  Notre agence web parisienne accompagne aussi bien les <strong>TPE et PME locales</strong> que les startups en phase de croissance. Nous comprenons les spécificités de chaque secteur : le tissu commercial dynamique, les professions libérales, les quartiers créatifs ou les entreprises B2B de La Défense. Cette connaissance locale se traduit par des contenus ciblés et un référencement local précis.
                 </p>
                 <p>
                   Nos projets livrés à Paris incluent des sites pour : restaurants gastronomiques, cabinets médicaux, agences immobilières, artisans, e-commerçants et SaaS. Chaque site est pensé pour convertir — pas seulement pour être beau.
@@ -490,7 +490,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
           </div>
           <div className='mt-12 prose prose-lg text-gray-700 max-w-none'>
             <p>
-              Créer un site internet professionnel à Paris représente un investissement, et notre rôle d'agence est de nous assurer que cet investissement génère un retour (ROI) positif. Contrairement aux plateformes de création de site basiques, nous livrons des outils sur-mesure qui vous appartiennent à 100%. Nos tarifs incluent toujours une phase d'audit de votre marché parisien (concurrents dans le 15ème, 11ème ou 8ème, habitudes de recherche locale), le web design, le développement technique et la mise en ligne.
+              Créer un site internet professionnel à Paris représente un investissement, et notre rôle d'agence est de nous assurer que cet investissement génère un retour (ROI) positif. Contrairement aux plateformes de création de site basiques, nous livrons des outils sur-mesure qui vous appartiennent à 100%. Nos tarifs incluent toujours une phase d'audit de votre marché parisien (concurrents directs, habitudes de recherche locale), le web design, le développement technique et la mise en ligne.
             </p>
           </div>
         </div>
@@ -506,7 +506,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
               </h2>
               <div className='prose prose-lg text-gray-700 space-y-4'>
                 <p>
-                  Avoir un beau site internet ne suffit plus. À Paris, la concurrence digitale est féroce. Si vous tapez "agence immobilière Paris 17" ou "restaurant italien Bastille", vous verrez que seules les premières positions génèrent du trafic qualifié. C'est là qu'intervient notre expertise en <strong>SEO local</strong>.
+                  Avoir un beau site internet ne suffit plus. À Paris, la concurrence digitale est féroce. Si vous tapez "agence immobilière à Paris" ou "restaurant italien près de chez moi", vous verrez que seules les premières positions génèrent du trafic qualifié. C'est là qu'intervient notre expertise en <strong>SEO local</strong>.
                 </p>
                 <p>
                   En tant qu'<strong>agence web à Paris</strong>, nous intégrons la dimension marketing dès la première ligne de code. Nous réalisons une étude sémantique approfondie pour cibler les mots-clés de votre secteur d'activité, nous structurons vos balises Hn (H1, H2, H3), nous optimisons les méta-descriptions et nous nous assurons que le maillage interne est parfait. De plus, la performance technique de nos développements (grâce à des technologies modernes comme Next.js ou TailwindCSS) garantit que Google privilégiera vos pages pour leur vitesse de chargement.
@@ -539,7 +539,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
             Notre expertise web par arrondissement
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto mb-12'>
-            Nous accompagnons les entreprises locales partout dans Paris avec une approche de proximité. Que vous soyez dans le Triangle d'Or du 8ème, les Batignolles du 17ème ou Belleville dans le 20ème, nous connaissons votre marché. Découvrez nos pages dédiées à chaque arrondissement.
+            Nous accompagnons les entreprises locales partout dans Paris avec une approche de proximité. Quel que soit votre quartier dans la capitale, nous connaissons votre marché. Découvrez nos pages dédiées à chaque arrondissement.
           </p>
           <div className='flex flex-wrap justify-center gap-4'>
             <Link href='/services/agence-web-paris-6' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 6ème</Link>
