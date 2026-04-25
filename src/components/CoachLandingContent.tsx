@@ -83,6 +83,90 @@ const processSteps = [
   }
 ]
 
+const coachTypes = [
+  {
+    icon: '💪',
+    type: 'Personal Trainer',
+    keywords: 'coach sportif, personal trainer, musculation',
+    description: 'Séances individuelles, suivi nutritionnel, galerie avant/après et réservation Calendly intégrée.'
+  },
+  {
+    icon: '👪',
+    type: 'Coach Bootcamp & Cours Collectifs',
+    keywords: 'bootcamp, HIIT, cours collectifs outdoor',
+    description: 'Planning de séances hebdomadaires, inscriptions en ligne et gestion des groupes simplifiée.'
+  },
+  {
+    icon: '🧘',
+    type: 'Coach Yoga & Bien-être',
+    keywords: 'professeur yoga, meditation, pilates',
+    description: 'Design apaisant et épuré, tarifs et horaires clairs, module de réservation de cours adapté.'
+  },
+  {
+    icon: '🥊',
+    type: 'Coach Boxe & Arts Martiaux',
+    keywords: 'coach boxe, MMA, krav-maga, self-défense',
+    description: 'Design percutant, galerie d’entraînements vidéo et offres de cours d’essai mises en avant.'
+  },
+  {
+    icon: '🏃',
+    type: 'Coach Running & Triathlon',
+    keywords: 'coach running, marathon, préparation physique',
+    description: 'Plans d’entraînement personnalisés à vendre, suivi des performances et blog course à pied.'
+  },
+  {
+    icon: '🥦',
+    type: 'Coach Nutrition & Diététique',
+    keywords: 'diététicien sportif, nutrition, perte de poids',
+    description: 'Programmes PDF à vendre, consultation en ligne et blog de recettes saines pour générer du trafic SEO.'
+  }
+]
+
+const pricingPlans = [
+  {
+    name: 'Starter Coach',
+    price: '990 €',
+    description: 'Pour le coach qui lance son activité en ligne',
+    features: [
+      '5 pages optimisées SEO',
+      'Intégration Calendly (prise de RDV)',
+      'Galerie avant/après',
+      'Paiement Stripe',
+      'Optimisation Google Maps',
+      'Hébergement 1 an inclus'
+    ],
+    isPrimary: false
+  },
+  {
+    name: 'Pro Fitness',
+    price: '1 990 €',
+    description: 'Pour dominer les recherches et automatiser votre business',
+    features: [
+      '10 pages + blog coaching',
+      'SEO local avancé (3 villes)',
+      'Flux Instagram intégré',
+      'Programme PDF à vendre (e-commerce)',
+      'Avis Google intégrés',
+      'Rapport mensuel de trafic'
+    ],
+    isPrimary: true
+  },
+  {
+    name: 'Digital Coach',
+    price: '2 990 €',
+    description: 'Pour créer une vraie plateforme de coaching hybride',
+    features: [
+      'Espace membre / VOD privé',
+      'Boutique programmes & e-books',
+      'Paiement abonnement mensuel',
+      'Intégration app Mindbody',
+      'SEO national + local',
+      'Maintenance 12 mois incluse'
+    ],
+    isPrimary: false
+  }
+]
+
 const faqItems = [
   {
     id: '1',
@@ -113,6 +197,24 @@ const faqItems = [
     question: 'Gérez-vous la fiche Google My Business de mon activité ?',
     answer: 'Oui, dans notre offre de SEO Local, nous optimisons votre fiche Google pour que vous apparaissiez en tête sur Google Maps lorsque quelqu\'un tape "coach sportif [Votre Ville]".',
     category: 'seo'
+  },
+  {
+    id: '6',
+    question: 'Quel est le budget pour un site de coach sportif professionnel ?',
+    answer: 'Nos offres commencent à 990 € pour un site vitrine avec prise de RDV et paiement en ligne. Un site premium avec SEO local avancé et boutique de programmes est à 1 990 €. Cet investissement est généralement rentabilisé dès les 2 premiers nouveaux clients.',
+    category: 'pricing'
+  },
+  {
+    id: '7',
+    question: 'Comment générer des revenus passifs grâce à mon site ?',
+    answer: 'En ajoutant une boutique en ligne pour vendre vos programmes PDF, vidéos VOD, ou en créant un abonnement mensuel (espace membre privé). Ces revenus ne nécessitent aucun effort supplémentaire une fois en place et permettent de découpler vos revenus de votre temps de coaching.',
+    category: 'business'
+  },
+  {
+    id: '8',
+    question: 'Mon site peut-il m\'aider à coacher des clients à distance ?',
+    answer: 'Absolument. Avec un espace membre sécurisé, vos clients peuvent accéder à leurs programmes personnalisés, videos de correction de posture et suivis nutritionnels depuis n\'importe où. Le coaching à distance multiplie votre zone d\'intervention sans limite géographique.',
+    category: 'remote'
   }
 ]
 
@@ -340,6 +442,89 @@ export default function CoachLandingContent() {
         </div>
       </section>
 
+      {/* Coach Types Section */}
+      <section className='py-24 bg-zinc-900 border-t border-zinc-800'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-16'>
+            <h2 className='text-3xl md:text-5xl font-black text-white mb-6 uppercase'>Toutes les <span className='text-lime-400'>Disciplines</span></h2>
+            <p className='text-xl text-zinc-400 max-w-3xl mx-auto font-medium'>
+              Du personal trainer au coach nutrition, nous créons des sites adaptés à votre discipline.
+            </p>
+          </div>
+          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            {coachTypes.map((type, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                viewport={{ once: true }}
+                className='bg-zinc-950 p-6 border border-zinc-800 hover:border-lime-400 transition-colors'
+              >
+                <div className='text-4xl mb-4'>{type.icon}</div>
+                <h3 className='text-lg font-black text-white mb-1 uppercase'>{type.type}</h3>
+                <p className='text-xs text-lime-400 font-bold mb-3 uppercase tracking-widest'>{type.keywords}</p>
+                <p className='text-zinc-400 text-sm leading-relaxed font-medium'>{type.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className='py-24 bg-zinc-950 border-t border-zinc-800'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-16'>
+            <h2 className='text-3xl md:text-5xl font-black text-white mb-6 uppercase'>Tarifs <span className='text-lime-400'>Transparents</span></h2>
+            <p className='text-xl text-zinc-400 font-medium max-w-3xl mx-auto'>
+              Des offres claires. Rentabilisées dès vos 2 premiers nouveaux clients.
+            </p>
+          </div>
+          <div className='grid md:grid-cols-3 gap-8'>
+            {pricingPlans.map((plan, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`relative p-8 border-2 ${
+                  plan.isPrimary
+                    ? 'bg-lime-400 border-lime-400 text-zinc-950'
+                    : 'bg-zinc-900 border-zinc-700 text-white'
+                }`}
+              >
+                {plan.isPrimary && (
+                  <div className='absolute -top-5 left-1/2 -translate-x-1/2'>
+                    <span className='px-4 py-1 bg-white text-zinc-950 text-sm font-black uppercase tracking-widest shadow-[4px_4px_0px_#000]'>Recommandé</span>
+                  </div>
+                )}
+                <h3 className={`text-xl font-black mb-2 uppercase ${plan.isPrimary ? 'text-zinc-950' : 'text-white'}`}>{plan.name}</h3>
+                <div className={`text-4xl font-black mb-2 ${plan.isPrimary ? 'text-zinc-950' : 'text-lime-400'}`}>{plan.price}</div>
+                <p className={`text-sm mb-6 ${plan.isPrimary ? 'text-zinc-700' : 'text-zinc-400'}`}>{plan.description}</p>
+                <ul className='space-y-3 mb-8'>
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className='flex items-start gap-2'>
+                      <CheckCircle className={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.isPrimary ? 'text-zinc-950' : 'text-lime-400'}`} />
+                      <span className={`text-sm font-medium ${plan.isPrimary ? 'text-zinc-800' : 'text-zinc-300'}`}>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link href='/contact'>
+                  <button className={`w-full py-3 font-black uppercase tracking-widest transition-all ${
+                    plan.isPrimary
+                      ? 'bg-zinc-950 text-white hover:bg-zinc-800 shadow-[4px_4px_0px_#fff] hover:shadow-[2px_2px_0px_#fff] hover:translate-x-[2px] hover:translate-y-[2px]'
+                      : 'bg-lime-400 text-zinc-950 hover:bg-lime-300'
+                  }`}>
+                    Demander un devis
+                  </button>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className='py-24 bg-zinc-950 border-t border-zinc-800'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -352,6 +537,23 @@ export default function CoachLandingContent() {
             <div className='dark-faq-wrapper'>
               <FAQAccordion items={faqItems} />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Internal Links Section */}
+      <section className='py-16 bg-zinc-900 border-t border-zinc-800'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-10'>
+            <h2 className='text-2xl font-black text-white mb-3 uppercase'>Nos services <span className='text-lime-400'>liés</span></h2>
+            <p className='text-zinc-400 font-medium'>Experts du digital sport & santé à Paris, Lyon et partout en France.</p>
+          </div>
+          <div className='flex flex-wrap justify-center gap-4'>
+            <Link href='/services/creation-site-internet-medecin' className='px-5 py-2.5 bg-zinc-950 border border-zinc-700 text-zinc-300 font-bold uppercase text-xs tracking-widest hover:border-lime-400 hover:text-lime-400 transition-colors'>Site Internet Médecin</Link>
+            <Link href='/services/agence-web-paris' className='px-5 py-2.5 bg-zinc-950 border border-zinc-700 text-zinc-300 font-bold uppercase text-xs tracking-widest hover:border-lime-400 hover:text-lime-400 transition-colors'>Agence Web Paris</Link>
+            <Link href='/services/agence-web-lyon' className='px-5 py-2.5 bg-zinc-950 border border-zinc-700 text-zinc-300 font-bold uppercase text-xs tracking-widest hover:border-lime-400 hover:text-lime-400 transition-colors'>Agence Web Lyon</Link>
+            <Link href='/services/creation-site-ecommerce' className='px-5 py-2.5 bg-zinc-950 border border-zinc-700 text-zinc-300 font-bold uppercase text-xs tracking-widest hover:border-lime-400 hover:text-lime-400 transition-colors'>Création Site E-commerce</Link>
+            <Link href='/services/optimisation-seo' className='px-5 py-2.5 bg-zinc-950 border border-zinc-700 text-zinc-300 font-bold uppercase text-xs tracking-widest hover:border-lime-400 hover:text-lime-400 transition-colors'>Optimisation SEO</Link>
           </div>
         </div>
       </section>

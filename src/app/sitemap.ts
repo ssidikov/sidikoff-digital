@@ -10,34 +10,67 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/contact',
     '/projects',
     '/services',
-    '/services/agence-web-paris',
-    '/services/agence-web-lyon',
+    '/tarifs',
+    '/faq',
+    '/mentions-legales',
+    '/politique-de-confidentialite',
+    '/blog',
+
+    // --- Core service pages ---
     '/services/creation-sites-web',
     '/services/refonte-sites-web',
     '/services/optimisation-seo',
     '/services/maintenance-support',
     '/services/creation-site-ecommerce',
+
+    // --- Vertical industry pages ---
     '/services/creation-site-internet-agence-voyage',
+    '/services/creation-site-internet-artisan',
+    '/services/creation-site-internet-avocat',
     '/services/creation-site-internet-barbershop',
     '/services/creation-site-internet-boulangerie',
+    '/services/creation-site-internet-coach-sportif',
+    '/services/creation-site-internet-dentiste',
     '/services/creation-site-internet-freelance',
     '/services/creation-site-internet-medecin',
     '/services/creation-site-internet-photographe',
+    '/services/creation-site-internet-restaurant',
     '/services/restaurant-websites',
+
+    // --- Paris geo pages ---
+    '/services/agence-web-paris',
     '/services/creation-site-internet-paris',
     '/services/creation-site-internet-paris-16',
+    '/services/agence-web-paris-6',
+    '/services/agence-web-paris-7',
+    '/services/agence-web-paris-14',
     '/services/agence-web-paris-15',
+    '/services/agence-web-paris-17',
+    '/services/agence-web-paris-19',
+    '/services/creation-site-internet-cafe-paris',
+    '/services/ecommerce-paris',
+    '/services/react-paris',
+    '/services/wordpress-paris',
+
+    // --- Lyon geo pages ---
+    '/services/agence-web-lyon',
     '/services/creation-site-internet-lyon',
-    '/services/creation-site-internet-toulouse',
-    '/services/creation-site-internet-boulogne-billancourt',
     '/services/agence-web-villeurbanne',
     '/services/creation-site-web-caluire-et-cuire',
-    '/services/creation-site-internet-cafe-paris',
-    '/blog',
-    '/tarifs',
-    '/faq',
-    '/mentions-legales',
-    '/politique-de-confidentialite',
+    '/services/agence-web-caluire-et-cuire',
+    '/services/agence-web-bron',
+    '/services/seo-bron',
+    '/services/seo-caluire',
+    '/services/seo-villeurbanne',
+    '/services/agence-web-vaulx-en-velin',
+    '/services/agence-web-venissieux',
+    '/services/ecommerce-lyon',
+    '/services/react-lyon',
+    '/services/wordpress-lyon',
+
+    // --- Other geo pages ---
+    '/services/creation-site-internet-toulouse',
+    '/services/creation-site-internet-boulogne-billancourt',
   ]
 
   const sitemap: MetadataRoute.Sitemap = []
@@ -58,11 +91,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   routes.forEach((route) => {
     // KEY SEO PAGES near Top 10 in GSC get priority boost
     const highPriorityRoutes = [
-      '/services/agence-web-lyon', // 🔥 NEW — main Lyon city page
-      '/services/agence-web-paris-15', // pos 8.8, 78 impressions
-      '/services/creation-site-internet-paris-16', // pos 7.3, 68 impressions
-      '/services/agence-web-villeurbanne', // NEW target for Villeurbanne
-      '/services/agence-web-paris', // 1035 impressions
+      '/services/agence-web-lyon',
+      '/services/agence-web-paris',
+      '/services/agence-web-paris-15',
+      '/services/creation-site-internet-paris-16',
+      '/services/agence-web-villeurbanne',
+      // Phase 7 verticals — high commercial intent
+      '/services/creation-site-internet-artisan',
+      '/services/creation-site-internet-avocat',
+      '/services/creation-site-internet-dentiste',
+      '/services/creation-site-internet-restaurant',
+      '/services/creation-site-internet-coach-sportif',
+      '/services/creation-site-internet-medecin',
     ]
     const isHighPriority = highPriorityRoutes.includes(route)
 

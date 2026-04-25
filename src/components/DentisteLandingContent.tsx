@@ -84,6 +84,90 @@ const processSteps = [
   }
 ]
 
+const cabinetTypes = [
+  {
+    icon: '🦷',
+    type: 'Cabinet Omnipratique',
+    keywords: 'dentiste généraliste, soins courants, extraction',
+    description: 'Page d\'accueil généraliste rassurante, présentation de l\'ensemble des soins et formulaire de prise de RDV Doctolib.'
+  },
+  {
+    icon: '🦷✨',
+    type: 'Implantologie & Greffe',
+    keywords: 'implant dentaire, chirurgien oral, greffe osseuse',
+    description: 'Landing page dédiée avec explication pédagogique du protocole implantaire, avant/après et offre de consultation.'
+  },
+  {
+    icon: '🥷',
+    type: 'Orthodontie & Aligneurs',
+    keywords: 'orthodontiste, Invisalign, bagues, gouttières',
+    description: 'Simulateur de sourire, galerie de cas traités et pages comparatives Invisalign vs bagues métalliques.'
+  },
+  {
+    icon: '✨',
+    type: 'Esthétique Dentaire',
+    keywords: 'façettes, blanchiment, couronne céramique',
+    description: 'Photos avant/après de qualité, prise de RDV consultation sourire et galerie de façades esthétiques.'
+  },
+  {
+    icon: '👶',
+    type: 'Pédiatrique',
+    keywords: 'dentiste enfant, pédodontiste, soins sous MEOPA',
+    description: 'Design coloré et rassurant, explications simples pour les parents et prise de RDV rapide pour les urgences dentaires enfants.'
+  },
+  {
+    icon: '🏥',
+    type: 'Centre Dentaire',
+    keywords: 'centre de soins dentaires, low cost, mutuelle',
+    description: 'Multi-praticiens, agenda unifié, affichage des tarifs et conventionnement sécurité sociale clairement indiqué.'
+  }
+]
+
+const pricingPlans = [
+  {
+    name: 'Cabinet Essentiel',
+    price: '1 290 €',
+    description: 'Pour un cabinet d\'omnipratique qui lance son site',
+    features: [
+      '6 pages médicales optimisées',
+      'Intégration Doctolib / Maiia',
+      'Page présentation du cabinet',
+      'Conformité Ordre Dentistes',
+      'Hébergement 1 an inclus',
+      'SSL & RGPD inclus'
+    ],
+    isPrimary: false
+  },
+  {
+    name: 'Cabinet Premium',
+    price: '2 290 €',
+    description: 'Pour se démarquer et attirer de nouveaux patients',
+    features: [
+      '12 pages + pages par spécialité',
+      'SEO local avancé (2 villes)',
+      'Galerie avant/après interactive',
+      'Blog conseils dentaires',
+      'Module avis Google intégré',
+      'Rapport mensuel de trafic'
+    ],
+    isPrimary: true
+  },
+  {
+    name: 'Multisite HDS',
+    price: '3 490 €',
+    description: 'Pour les centres dentaires et cliniques multi-praticiens',
+    features: [
+      'Site multi-praticiens & spécialistes',
+      'Hébergement Données de Santé (HDS)',
+      'Agenda unifié multi-praticiens',
+      'SEO local sur tout le secteur',
+      'Espace patient sécurisé',
+      'Maintenance 12 mois incluse'
+    ],
+    isPrimary: false
+  }
+]
+
 const faqItems = [
   {
     id: '1',
@@ -114,6 +198,24 @@ const faqItems = [
     question: 'Gérez-vous la fiche Google My Business de notre cabinet ?',
     answer: 'Oui, dans le cadre de notre accompagnement SEO Local, nous optimisons votre fiche Google Business Profile (horaires, photos, lien vers le site) pour maximiser votre visibilité sur Google Maps.',
     category: 'seo'
+  },
+  {
+    id: '6',
+    question: 'Quel est le budget moyen pour un site de cabinet dentaire ?',
+    answer: 'Nos offres commencent à 1 290 € pour un cabinet omnipratique. Un site premium avec SEO local et galerie avant/après est à 2 290 €. Pour les centres multi-praticiens avec hébergement HDS, comptez 3 490 €. Ces investissements sont récupérés dès les premiers nouveaux patients.',
+    category: 'pricing'
+  },
+  {
+    id: '7',
+    question: 'En quoi mon site sera-t-il différent de celui généré par Doctolib ?',
+    answer: 'La page Doctolib est utile pour la prise de RDV, mais elle ne vous appartient pas, elle n\'est pas référencée sur votre nom et ne reflète pas l\'identité de votre cabinet. Un site web propriétaire vous permet de contrôler votre image, votre SEO local et de créer un lien de confiance unique avec vos patients.',
+    category: 'strategy'
+  },
+  {
+    id: '8',
+    question: 'Comment se passe l\'hébergement des données de santé (HDS) pour un centre dentaire ?',
+    answer: 'Pour les centres dentaires traitant des données médicales sensibles, nous déployons l\'infrastructure sur des serveurs certifiés HDS (Hébergeur de Données de Santé), conformes au RGPD et aux exigences de l\'ANS (Agence du Numérique en Santé).',
+    category: 'technical'
   }
 ]
 
@@ -326,6 +428,89 @@ export default function DentisteLandingContent() {
         </div>
       </section>
 
+      {/* Cabinet Types Section */}
+      <section className='py-20 bg-white'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-16'>
+            <h2 className='text-3xl font-bold text-slate-900 mb-4'>Tous les types de cabinets dentaires</h2>
+            <p className='text-xl text-slate-600 max-w-3xl mx-auto'>
+              Du cabinet omnipratique au centre multi-spécialistes, nous adaptons notre solution à votre structure.
+            </p>
+          </div>
+          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            {cabinetTypes.map((cabinet, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                viewport={{ once: true }}
+                className='bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-teal-400 hover:shadow-md transition-all duration-300'
+              >
+                <div className='text-4xl mb-4'>{cabinet.icon}</div>
+                <h3 className='text-lg font-bold text-slate-900 mb-1'>{cabinet.type}</h3>
+                <p className='text-xs text-teal-600 font-medium mb-3 uppercase tracking-wide'>{cabinet.keywords}</p>
+                <p className='text-slate-600 text-sm leading-relaxed'>{cabinet.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className='py-20 bg-slate-50'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-16'>
+            <h2 className='text-3xl font-bold text-slate-900 mb-4'>Tarifs pour votre site cabinet dentaire</h2>
+            <p className='text-xl text-slate-600 max-w-3xl mx-auto'>
+              Des offres adaptées à chaque taille de cabinet, avec une transparence totale sur les coûts.
+            </p>
+          </div>
+          <div className='grid md:grid-cols-3 gap-8'>
+            {pricingPlans.map((plan, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`relative p-8 rounded-2xl border-2 ${
+                  plan.isPrimary
+                    ? 'bg-teal-700 border-teal-600 text-white'
+                    : 'bg-white border-slate-200 text-slate-900'
+                }`}
+              >
+                {plan.isPrimary && (
+                  <div className='absolute -top-4 left-1/2 -translate-x-1/2'>
+                    <span className='px-4 py-1 bg-teal-500 text-white text-sm font-bold rounded-full'>Recommandé</span>
+                  </div>
+                )}
+                <h3 className='text-xl font-bold mb-2'>{plan.name}</h3>
+                <div className='text-4xl font-black mb-2'>{plan.price}</div>
+                <p className={`text-sm mb-6 ${plan.isPrimary ? 'text-teal-200' : 'text-slate-500'}`}>{plan.description}</p>
+                <ul className='space-y-3 mb-8'>
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className='flex items-start gap-2'>
+                      <CheckCircle className={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.isPrimary ? 'text-teal-300' : 'text-teal-600'}`} />
+                      <span className={`text-sm ${plan.isPrimary ? 'text-teal-100' : 'text-slate-600'}`}>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link href='/contact'>
+                  <button className={`w-full py-3 rounded-xl font-bold transition-all ${
+                    plan.isPrimary
+                      ? 'bg-white text-teal-700 hover:bg-teal-50'
+                      : 'bg-teal-600 text-white hover:bg-teal-700'
+                  }`}>
+                    Demander un devis
+                  </button>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className='py-20 bg-slate-50'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -334,6 +519,23 @@ export default function DentisteLandingContent() {
             <p className='text-xl text-slate-600'>Tout savoir sur la digitalisation de votre structure dentaire.</p>
           </div>
           <FAQAccordion items={faqItems} />
+        </div>
+      </section>
+
+      {/* Internal Links Section */}
+      <section className='py-16 bg-white border-t border-slate-200'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-10'>
+            <h2 className='text-2xl font-bold text-slate-900 mb-3'>Nos services pour les professions de santé</h2>
+            <p className='text-slate-600'>Experts du digital médical à Paris, Lyon et partout en France.</p>
+          </div>
+          <div className='flex flex-wrap justify-center gap-4'>
+            <Link href='/services/creation-site-internet-medecin' className='px-5 py-2.5 bg-white border border-slate-300 text-slate-700 rounded-lg font-medium hover:border-teal-400 hover:text-teal-700 transition-colors text-sm'>Site Internet Médecin</Link>
+            <Link href='/services/creation-site-internet-avocat' className='px-5 py-2.5 bg-white border border-slate-300 text-slate-700 rounded-lg font-medium hover:border-teal-400 hover:text-teal-700 transition-colors text-sm'>Site Internet Avocat</Link>
+            <Link href='/services/agence-web-paris' className='px-5 py-2.5 bg-white border border-slate-300 text-slate-700 rounded-lg font-medium hover:border-teal-400 hover:text-teal-700 transition-colors text-sm'>Agence Web Paris</Link>
+            <Link href='/services/agence-web-lyon' className='px-5 py-2.5 bg-white border border-slate-300 text-slate-700 rounded-lg font-medium hover:border-teal-400 hover:text-teal-700 transition-colors text-sm'>Agence Web Lyon</Link>
+            <Link href='/services/optimisation-seo' className='px-5 py-2.5 bg-white border border-slate-300 text-slate-700 rounded-lg font-medium hover:border-teal-400 hover:text-teal-700 transition-colors text-sm'>Optimisation SEO</Link>
+          </div>
         </div>
       </section>
 

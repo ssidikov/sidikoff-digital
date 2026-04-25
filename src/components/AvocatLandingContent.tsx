@@ -83,6 +83,90 @@ const processSteps = [
   }
 ]
 
+const legalDomains = [
+  {
+    icon: '⚖️',
+    domaine: 'Droit Pénal',
+    keywords: 'avocat pénaliste, défense pénale, garde à vue',
+    description: 'Page de garde à vue, explications de la procédure pénale accessibles, et formulaire de contact urgent sécurisé 24h/24.'
+  },
+  {
+    icon: '👨‍👩‍👧',
+    domaine: 'Droit de la Famille',
+    keywords: 'avocat divorce, garde enfants, succession',
+    description: 'Pages dédiées divorce amiable, divorce contentieux, pension alimentaire et garde d’enfants avec FAQ rassurante.'
+  },
+  {
+    icon: '🏢',
+    domaine: 'Droit des Affaires',
+    keywords: 'avocat droit des affaires, contrat commercial, startup',
+    description: 'Crédibilité B2B avec références client entreprises, sections dédiées M&A, recouvrement et propriété intellectuelle.'
+  },
+  {
+    icon: '🏠',
+    domaine: 'Droit Immobilier',
+    keywords: 'avocat immobilier, achat vente, bail commercial',
+    description: 'Expertise mise en avant sur les transactions immobilières, vices cachés, baux commerciaux et troubles de voisinage.'
+  },
+  {
+    icon: '💼',
+    domaine: 'Droit du Travail',
+    keywords: 'avocat licenciement, harcèlement, prud’hommes',
+    description: 'Simulateur de droits simplifié, guide prud’hommal et page dédiée licenciement / rupture conventionnelle.'
+  },
+  {
+    icon: '🛡️',
+    domaine: 'Droit Administratif',
+    keywords: 'avocat administratif, recours, permis de construire',
+    description: 'Démarches de recours simplifiées, guide du contentieux administratif et formulaire de premier contact dédié.'
+  }
+]
+
+const pricingPlans = [
+  {
+    name: 'Site Vitrine',
+    price: '1 490 €',
+    description: 'Pour un avocat indépendant qui lance son cabinet',
+    features: [
+      '6 pages statutaires optimisées',
+      'Formulaire de contact sécurisé (RGPD)',
+      'Page présentation du cabinet',
+      'Intégration Google My Business',
+      'Hébergement 1 an inclus',
+      'Mentions légales conformes CNB'
+    ],
+    isPrimary: false
+  },
+  {
+    name: 'Cabinet Premium',
+    price: '2 490 €',
+    description: 'Pour un cabinet pluridisciplinaire en croissance',
+    features: [
+      '12 pages + pages par spécialité',
+      'SEO local avancé (2 villes)',
+      'Module prise de RDV (Consulto)',
+      'Blog jurisprudence intégré',
+      'Biographies des associés',
+      'Rapport mensuel de trafic'
+    ],
+    isPrimary: true
+  },
+  {
+    name: 'Prestige & SEO',
+    price: '3 990 €',
+    description: 'Pour les grands cabinets qui veulent dominer leur marché',
+    features: [
+      'Site multilingue (FR/EN)',
+      'SEO sémantique par domaine',
+      'Paiement honoraires en ligne',
+      'Espace client sécurisé',
+      'Optimisation Core Web Vitals',
+      'Suivi SEO trimestriel inclus'
+    ],
+    isPrimary: false
+  }
+]
+
 const faqItems = [
   {
     id: '1',
@@ -113,6 +197,24 @@ const faqItems = [
     question: 'Les formulaires de contact garantissent-ils le secret professionnel ?',
     answer: 'Tous nos sites utilisent le protocole HTTPS avec des certificats SSL/TLS robustes. Les formulaires de contact sont sécurisés pour protéger les données sensibles de vos clients potentiels (RGPD) avant le premier contact.',
     category: 'security'
+  },
+  {
+    id: '6',
+    question: 'Quel est le coût moyen d\'un site web pour un cabinet d\'avocats ?',
+    answer: 'Nos offres commencent à 1 490 € pour un site vitrine d\'un avocat indépendant. Un cabinet pluridisciplinaire avec module de prise de RDV et blog juridique est autour de 2 490 €. Ces investissements sont généralement rentabilisés dès les 2 à 3 premiers nouveaux dossiers.',
+    category: 'pricing'
+  },
+  {
+    id: '7',
+    question: 'Mon site sera-t-il différent des modèles génériques d\'avocats ?',
+    answer: 'Absolument. Nous créons des designs sur mesure reflétant l\'identité unique de chaque cabinet : son histoire, ses valeurs et son positionnement. Nos sites ne ressemblent jamais à des templates génériques.',
+    category: 'design'
+  },
+  {
+    id: '8',
+    question: 'Puis-je avoir un site bilingue français / anglais pour attirer une clientèle internationale ?',
+    answer: 'Oui. Pour les cabinets à clientèle internationale (droit des affaires, immigration, arbitrage), nous développons des sites bilingues FR/EN avec des URLs structurées (ex: /en/attorney-paris) et des métadonnées hreflang pour un référencement bilingue optimal.',
+    category: 'multilingual'
   }
 ]
 
@@ -335,6 +437,89 @@ export default function AvocatLandingContent() {
         </div>
       </section>
 
+      {/* Legal Domains Section */}
+      <section className='py-20 bg-slate-50'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-16'>
+            <h2 className='text-3xl font-bold text-slate-900 mb-4'>Votre spécialité, notre expertise digitale</h2>
+            <p className='text-xl text-slate-600 max-w-3xl mx-auto'>
+              Du pénaliste au spécialiste du droit des affaires, nous créons des sites adaptés à votre domaine.
+            </p>
+          </div>
+          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            {legalDomains.map((domain, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                viewport={{ once: true }}
+                className='bg-white p-6 rounded-xl border border-slate-200 hover:border-amber-400 hover:shadow-md transition-all duration-300'
+              >
+                <div className='text-4xl mb-4'>{domain.icon}</div>
+                <h3 className='text-lg font-bold text-slate-900 mb-1'>{domain.domaine}</h3>
+                <p className='text-xs text-amber-600 font-medium mb-3 uppercase tracking-wide'>{domain.keywords}</p>
+                <p className='text-slate-600 text-sm leading-relaxed'>{domain.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className='py-20 bg-white'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-16'>
+            <h2 className='text-3xl font-bold text-slate-900 mb-4'>Tarifs transparents pour avocats</h2>
+            <p className='text-xl text-slate-600 max-w-3xl mx-auto'>
+              Des offres claires, sans surprise. Un investissement rapidement rentabilisé par les nouveaux dossiers.
+            </p>
+          </div>
+          <div className='grid md:grid-cols-3 gap-8'>
+            {pricingPlans.map((plan, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`relative p-8 rounded-xl border-2 ${
+                  plan.isPrimary
+                    ? 'bg-slate-900 border-slate-700 text-white'
+                    : 'bg-white border-slate-200 text-slate-900'
+                }`}
+              >
+                {plan.isPrimary && (
+                  <div className='absolute -top-4 left-1/2 -translate-x-1/2'>
+                    <span className='px-4 py-1 bg-amber-500 text-slate-900 text-sm font-bold rounded-full'>Recommandé</span>
+                  </div>
+                )}
+                <h3 className='text-xl font-bold mb-2'>{plan.name}</h3>
+                <div className='text-4xl font-black mb-2'>{plan.price}</div>
+                <p className={`text-sm mb-6 ${plan.isPrimary ? 'text-slate-400' : 'text-slate-500'}`}>{plan.description}</p>
+                <ul className='space-y-3 mb-8'>
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className='flex items-start gap-2'>
+                      <CheckCircle className={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.isPrimary ? 'text-amber-500' : 'text-amber-600'}`} />
+                      <span className={`text-sm ${plan.isPrimary ? 'text-slate-300' : 'text-slate-600'}`}>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link href='/contact'>
+                  <button className={`w-full py-3 rounded-lg font-bold transition-all ${
+                    plan.isPrimary
+                      ? 'bg-amber-500 text-slate-900 hover:bg-amber-400'
+                      : 'bg-slate-900 text-white hover:bg-slate-800'
+                  }`}>
+                    Demander un devis
+                  </button>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className='py-20 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -343,6 +528,23 @@ export default function AvocatLandingContent() {
             <p className='text-xl text-slate-600'>Les interrogations courantes de nos confrères avocats.</p>
           </div>
           <FAQAccordion items={faqItems} />
+        </div>
+      </section>
+
+      {/* Internal Links Section */}
+      <section className='py-16 bg-slate-50 border-t border-slate-200'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-10'>
+            <h2 className='text-2xl font-bold text-slate-900 mb-3'>Nos services liés pour les professions libérales</h2>
+            <p className='text-slate-600'>Découvrez nos autres expertises pour les professionnels et le secteur de la santé.</p>
+          </div>
+          <div className='flex flex-wrap justify-center gap-4'>
+            <Link href='/services/creation-site-internet-medecin' className='px-5 py-2.5 bg-white border border-slate-300 text-slate-700 rounded-lg font-medium hover:border-amber-400 hover:text-amber-700 transition-colors text-sm'>Site Internet Médecin</Link>
+            <Link href='/services/creation-site-internet-dentiste' className='px-5 py-2.5 bg-white border border-slate-300 text-slate-700 rounded-lg font-medium hover:border-amber-400 hover:text-amber-700 transition-colors text-sm'>Site Internet Dentiste</Link>
+            <Link href='/services/agence-web-paris' className='px-5 py-2.5 bg-white border border-slate-300 text-slate-700 rounded-lg font-medium hover:border-amber-400 hover:text-amber-700 transition-colors text-sm'>Agence Web Paris</Link>
+            <Link href='/services/agence-web-lyon' className='px-5 py-2.5 bg-white border border-slate-300 text-slate-700 rounded-lg font-medium hover:border-amber-400 hover:text-amber-700 transition-colors text-sm'>Agence Web Lyon</Link>
+            <Link href='/services/optimisation-seo' className='px-5 py-2.5 bg-white border border-slate-300 text-slate-700 rounded-lg font-medium hover:border-amber-400 hover:text-amber-700 transition-colors text-sm'>Optimisation SEO</Link>
+          </div>
         </div>
       </section>
 

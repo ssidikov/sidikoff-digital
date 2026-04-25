@@ -84,6 +84,90 @@ const processSteps = [
   }
 ]
 
+const artisanTypes = [
+  {
+    icon: '🔧',
+    metier: 'Plombier & Chauffagiste',
+    keywords: 'plombier urgence, chauffagiste, débouchage canalisation',
+    description: 'Bouton Click-to-Call géant, disponibilité 24h/24, formulaire de dépannage rapide et zone de chalandise optimisée pour les recherches locales en urgence.'
+  },
+  {
+    icon: '⚡',
+    metier: 'Électricien',
+    keywords: 'électricien certifié, mise aux normes, tableau électrique',
+    description: 'Mise en avant des certifications Qualifelec, galerie de réalisations (tableaux, domotique) et devis automatisé par type de travaux électriques.'
+  },
+  {
+    icon: '🪵',
+    metier: 'Menuisier & Charpentier',
+    keywords: 'menuisier sur mesure, pose fenêtres, escalier bois',
+    description: 'Galeries avant/après de vos créations sur mesure, configurateur de demande de devis et pages dédiées par type de menuiserie (intérieure, extérieure, agencement).'
+  },
+  {
+    icon: '🏠',
+    metier: 'Maçon & Carreleur',
+    keywords: 'rénovation maison, extension, dallage terrasse',
+    description: 'Portfolio de chantiers de rénovation complète, attestation décennale visible et pages optimisées par type de travaux (extension, surélévation, rénovation).'
+  },
+  {
+    icon: '🎨',
+    metier: 'Peintre en Bâtiment',
+    keywords: 'peintre décorateur, enduit, ravalement façade',
+    description: 'Sliders d\'ambiances colorées pour inspirer, témoignages de chantiers récents et formulaire de demande de devis rapide par type de pièce ou façade.'
+  },
+  {
+    icon: '🏗️',
+    metier: 'Couvreur & Zingueur',
+    keywords: 'couvreur urgence, réparation toiture, étanchéité',
+    description: 'Photos de chantiers toiture (tuiles, ardoise, zinc, bac acier), bouton d\'urgence fuite toiture et devis intervention express en 24h.'
+  }
+]
+
+const pricingPlans = [
+  {
+    name: 'Vitrine Essentiel',
+    price: '990 €',
+    description: 'Pour démarrer votre présence en ligne professionnellement',
+    features: [
+      '5 pages optimisées SEO',
+      'Formulaire de devis intégré',
+      'Galerie de 20 photos chantiers',
+      'Fiche Google My Business',
+      'Hébergement 1 an inclus',
+      'Certificat SSL'
+    ],
+    isPrimary: false
+  },
+  {
+    name: 'Premium Local',
+    price: '1 990 €',
+    description: 'Pour dominer les recherches dans votre zone d\'intervention',
+    features: [
+      '10 pages + pages par ville',
+      'SEO local avancé (3 villes)',
+      'Module avis Google intégré',
+      'Bouton urgence Click-to-Call',
+      'Blog conseils & actualités',
+      'Rapport mensuel de trafic'
+    ],
+    isPrimary: true
+  },
+  {
+    name: 'E-Devis Pro',
+    price: '2 990 €',
+    description: 'Pour les entreprises BTP qui veulent automatiser',
+    features: [
+      'Site + configurateur de devis',
+      'SEO département complet',
+      'Espace client sécurisé',
+      'Paiement d\'acompte en ligne',
+      'CRM basique intégré',
+      'Maintenance 12 mois incluse'
+    ],
+    isPrimary: false
+  }
+]
+
 const faqItems = [
   {
     id: '1',
@@ -114,6 +198,24 @@ const faqItems = [
     question: 'Combien de temps faut-il pour avoir mon site en ligne ?',
     answer: 'Nous savons que les artisans n\'ont pas de temps à perdre. La livraison de nos sites vitrines pour le bâtiment se fait généralement en 3 à 4 semaines, clés en main.',
     category: 'timing'
+  },
+  {
+    id: '6',
+    question: 'Quel est le budget moyen pour un site artisan professionnel ?',
+    answer: 'Nos tarifs commencent à 990 € pour un site vitrine de 5 pages avec formulaire de devis intégré. Un site premium avec SEO local avancé sur 3 villes est à 1 990 €. Ces investissements sont généralement rentabilisés dès les 2 premiers chantiers obtenus via le web.',
+    category: 'pricing'
+  },
+  {
+    id: '7',
+    question: 'Un site web est-il vraiment plus efficace que les Pages Jaunes ou Houzz ?',
+    answer: 'Oui. Sur les annuaires, vous êtes affiché à côté de vos concurrents directs et vous payez des abonnements élevés. Sur votre propre site, vous maîtrisez votre image, vous ne payez aucune commission sur les devis, et vous construisez une autorité SEO long terme que personne ne peut vous retirer.',
+    category: 'strategy'
+  },
+  {
+    id: '8',
+    question: 'Pouvez-vous afficher ma garantie décennale et mes certifications RGE sur le site ?',
+    answer: 'Absolument. Nous créons une section "Certifications & Garanties" dédiée mettant en valeur vos labels RGE, Qualibat, Qualifelec, Eco-Artisan et votre attestation de garantie décennale. Ces éléments sont essentiels pour rassurer vos clients et se démarquer de la concurrence non-certifiée.',
+    category: 'trust'
   }
 ]
 
@@ -342,6 +444,91 @@ export default function ArtisanLandingContent() {
         </div>
       </section>
 
+      {/* Artisan Types Section */}
+      <section className='py-20 bg-stone-100'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-16'>
+            <h2 className='text-3xl font-bold text-stone-900 mb-4'>Tous les corps de métier du BTP</h2>
+            <p className='text-xl text-stone-600 max-w-3xl mx-auto'>
+              Que vous soyez plombier, électricien ou maçon, nous avons une solution sur mesure pour votre activité.
+            </p>
+          </div>
+
+          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            {artisanTypes.map((type, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                viewport={{ once: true }}
+                className='bg-white p-6 rounded-2xl border border-stone-200 hover:border-amber-400 hover:shadow-lg transition-all duration-300'
+              >
+                <div className='text-4xl mb-4'>{type.icon}</div>
+                <h3 className='text-lg font-bold text-stone-900 mb-1'>{type.metier}</h3>
+                <p className='text-xs text-amber-600 font-medium mb-3 uppercase tracking-wide'>{type.keywords}</p>
+                <p className='text-stone-600 text-sm leading-relaxed'>{type.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className='py-20 bg-white'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-16'>
+            <h2 className='text-3xl font-bold text-stone-900 mb-4'>Tarifs clairs pour votre site artisan</h2>
+            <p className='text-xl text-stone-600 max-w-3xl mx-auto'>
+              Des offres transparentes, sans surprise. Rentabilisées dès les 2 premiers chantiers obtenus.
+            </p>
+          </div>
+
+          <div className='grid md:grid-cols-3 gap-8'>
+            {pricingPlans.map((plan, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`relative p-8 rounded-2xl border-2 ${
+                  plan.isPrimary
+                    ? 'bg-amber-500 border-amber-500 text-stone-900'
+                    : 'bg-white border-stone-200 text-stone-900'
+                }`}
+              >
+                {plan.isPrimary && (
+                  <div className='absolute -top-4 left-1/2 -translate-x-1/2'>
+                    <span className='px-4 py-1 bg-stone-900 text-amber-500 text-sm font-bold rounded-full'>Recommandé</span>
+                  </div>
+                )}
+                <h3 className='text-xl font-bold mb-2'>{plan.name}</h3>
+                <div className='text-4xl font-black mb-2'>{plan.price}</div>
+                <p className={`text-sm mb-6 ${plan.isPrimary ? 'text-stone-700' : 'text-stone-500'}`}>{plan.description}</p>
+                <ul className='space-y-3 mb-8'>
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className='flex items-start gap-2'>
+                      <CheckCircle className={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.isPrimary ? 'text-stone-900' : 'text-amber-600'}`} />
+                      <span className={`text-sm ${plan.isPrimary ? 'text-stone-800' : 'text-stone-600'}`}>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link href='/contact'>
+                  <button className={`w-full py-3 rounded-xl font-bold transition-all ${
+                    plan.isPrimary
+                      ? 'bg-stone-900 text-white hover:bg-stone-800'
+                      : 'bg-amber-500 text-stone-900 hover:bg-amber-400'
+                  }`}>
+                    Demander un devis
+                  </button>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className='py-20 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -350,6 +537,23 @@ export default function ArtisanLandingContent() {
             <p className='text-xl text-stone-600'>Ce que les artisans nous demandent le plus souvent.</p>
           </div>
           <FAQAccordion items={faqItems} />
+        </div>
+      </section>
+
+      {/* Internal Links Section */}
+      <section className='py-16 bg-stone-50 border-t border-stone-200'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-10'>
+            <h2 className='text-2xl font-bold text-stone-900 mb-3'>Nous intervenons partout en France</h2>
+            <p className='text-stone-600'>Spécialistes des artisans du BTP à Lyon, Paris et dans toute la région.</p>
+          </div>
+          <div className='flex flex-wrap justify-center gap-4'>
+            <Link href='/services/agence-web-lyon' className='px-5 py-2.5 bg-white border border-stone-300 text-stone-700 rounded-lg font-medium hover:border-amber-400 hover:text-amber-700 transition-colors text-sm'>Agence Web Lyon</Link>
+            <Link href='/services/agence-web-paris' className='px-5 py-2.5 bg-white border border-stone-300 text-stone-700 rounded-lg font-medium hover:border-amber-400 hover:text-amber-700 transition-colors text-sm'>Agence Web Paris</Link>
+            <Link href='/services/agence-web-villeurbanne' className='px-5 py-2.5 bg-white border border-stone-300 text-stone-700 rounded-lg font-medium hover:border-amber-400 hover:text-amber-700 transition-colors text-sm'>Agence Web Villeurbanne</Link>
+            <Link href='/services/creation-site-internet-restaurant' className='px-5 py-2.5 bg-white border border-stone-300 text-stone-700 rounded-lg font-medium hover:border-amber-400 hover:text-amber-700 transition-colors text-sm'>Site Internet Restaurant</Link>
+            <Link href='/services/optimisation-seo' className='px-5 py-2.5 bg-white border border-stone-300 text-stone-700 rounded-lg font-medium hover:border-amber-400 hover:text-amber-700 transition-colors text-sm'>Optimisation SEO</Link>
+          </div>
         </div>
       </section>
 

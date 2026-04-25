@@ -83,6 +83,90 @@ const processSteps = [
   }
 ]
 
+const restaurantTypes = [
+  {
+    icon: '🍷',
+    type: 'Restaurant Gastronomique',
+    keywords: 'restaurant étoilé, gastronomie, chef',
+    description: 'Design luxueux, galerie de plats signés, biographie du chef et système de réservation privatisation d\'événements.'
+  },
+  {
+    icon: '🍾',
+    type: 'Bistrot & Brasserie',
+    keywords: 'bistrot, brasserie, plat du jour',
+    description: 'Design chaleureux, menu du jour facilement éditable, avis Google intégrés et module de réservation Zenchef.'
+  },
+  {
+    icon: '💚',
+    type: 'Restaurant Végétarien & Bio',
+    keywords: 'restaurant végétarien, bio, vegan',
+    description: 'Valeurs et engagements au premier plan, labels bio mis en avant et storytelling des producteurs locaux.'
+  },
+  {
+    icon: '🚚',
+    type: 'Food Truck & Street Food',
+    keywords: 'food truck, street food, livraison',
+    description: 'Planning des emplacements semaine par semaine, réseaux sociaux intégrés et commande en ligne via QR Code.'
+  },
+  {
+    icon: '🍰',
+    type: 'Salon de Thé & Pâtisserie',
+    keywords: 'salon de thé, pâtisserie artisanale, brunch',
+    description: 'Design pastel et gourmand, vitrine des créations saisonnières et Click & Collect pour les commandes spéciales.'
+  },
+  {
+    icon: '🍗',
+    type: 'Restauration Rapide & Franchise',
+    keywords: 'fast food, kebab, livraison pizza',
+    description: 'Commande en ligne sans commission (Stripe), menu digital mobile et intégration UberEats / Deliveroo.'
+  }
+]
+
+const pricingPlans = [
+  {
+    name: 'Vitrine Resto',
+    price: '890 €',
+    description: 'Pour un restaurant qui veut exister en ligne',
+    features: [
+      '5 pages optimisées SEO',
+      'Menu digital mis à jour facile',
+      'Bouton réservation Zenchef',
+      'Optimisation Google Maps',
+      'Hébergement 1 an inclus',
+      'Photos libres de droits'
+    ],
+    isPrimary: false
+  },
+  {
+    name: 'Salle Comble',
+    price: '1 790 €',
+    description: 'Pour remplir votre salle tous les soirs',
+    features: [
+      '10 pages + blog recettes',
+      'SEO local avancé (ville + quartier)',
+      'Module avis Google & TripAdvisor',
+      'Galerie culinaire interactive',
+      'Newsletter clients intégrée',
+      'Rapport de trafic mensuel'
+    ],
+    isPrimary: true
+  },
+  {
+    name: 'E-Commerce Food',
+    price: '2 890 €',
+    description: 'Pour diversifier vos revenus avec le digital',
+    features: [
+      'Site + boutique Click & Collect',
+      'Paiement en ligne (Stripe) 0% commission',
+      'Gestion commandes livraison',
+      'Privatisation & événements pro',
+      'Fidélisation par QR Code',
+      'Maintenance 12 mois incluse'
+    ],
+    isPrimary: false
+  }
+]
+
 const faqItems = [
   {
     id: '1',
@@ -113,6 +197,24 @@ const faqItems = [
     question: 'Le site sera-t-il bien visible pour les touristes de passage ?',
     answer: 'C\'est tout l\'enjeu du SEO local. En optimisant techniquement votre site (vitesse, balises, multilinguisme) et en l\'associant à Google Maps, nous vous aidons à capter aussi bien la clientèle de bureau le midi que les touristes qui cherchent "où manger près de [votre quartier]" le soir.',
     category: 'seo'
+  },
+  {
+    id: '6',
+    question: 'Combien coûte un site internet pour un restaurant ?',
+    answer: 'Nos offres commencent à 890 € pour un site vitrine avec menu digital et réservation intégrée. Un site premium avec SEO local avancé et galerie culinaire est à 1 790 €. Ces investissements sont généralement rentabilisés dès le premier mois grâce aux nouvelles réservations générées.',
+    category: 'pricing'
+  },
+  {
+    id: '7',
+    question: 'Pouvez-vous créer un site bilingue pour attirer les touristes étrangers ?',
+    answer: 'Oui. Pour les restaurants situés dans des quartiers touristiques (Marais, Vieux-Lyon, Montmartre), nous créons des sites bilingues français/anglais (voire trilingues) avec des URLs hreflang pour être visible sur Google.fr et Google.com.',
+    category: 'multilingual'
+  },
+  {
+    id: '8',
+    question: 'Proposez-vous des forfaits photo si nous n\'avons pas de photos professionnelles de nos plats ?',
+    answer: 'Oui. La photographie culinaire est cruciale pour un restaurant. Nous pouvons vous recommander des photographes spécialisés en food photography avec qui nous travaillons régulièrement, ou intégrer des images de haute qualité libres de droits en attendant votre propre shooting.',
+    category: 'design'
   }
 ]
 
@@ -345,6 +447,89 @@ export default function RestaurantLandingContent() {
         </div>
       </section>
 
+      {/* Restaurant Types Section */}
+      <section className='py-20 bg-stone-50'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-16'>
+            <h2 className='text-3xl font-bold text-stone-900 mb-4'>Tous les types de restauration</h2>
+            <p className='text-xl text-stone-600 max-w-3xl mx-auto'>
+              Du gastronomique au food truck, nous créons des sites qui reflètent parfaitement votre concept.
+            </p>
+          </div>
+          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            {restaurantTypes.map((type, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                viewport={{ once: true }}
+                className='bg-white p-6 rounded-2xl border border-stone-200 hover:border-orange-400 hover:shadow-lg transition-all duration-300 group'
+              >
+                <div className='text-4xl mb-4'>{type.icon}</div>
+                <h3 className='text-lg font-bold text-stone-900 mb-1'>{type.type}</h3>
+                <p className='text-xs text-orange-600 font-medium mb-3 uppercase tracking-wide'>{type.keywords}</p>
+                <p className='text-stone-600 text-sm leading-relaxed'>{type.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className='py-20 bg-white'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-16'>
+            <h2 className='text-3xl font-bold text-stone-900 mb-4'>Tarifs pour votre site restaurant</h2>
+            <p className='text-xl text-stone-600 max-w-3xl mx-auto'>
+              Des offres claires adaptées à chaque type d\'établissement, sans frais cachés.
+            </p>
+          </div>
+          <div className='grid md:grid-cols-3 gap-8'>
+            {pricingPlans.map((plan, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`relative p-8 rounded-2xl border-2 ${
+                  plan.isPrimary
+                    ? 'bg-stone-900 border-stone-700 text-white'
+                    : 'bg-white border-stone-200 text-stone-900'
+                }`}
+              >
+                {plan.isPrimary && (
+                  <div className='absolute -top-4 left-1/2 -translate-x-1/2'>
+                    <span className='px-4 py-1 bg-orange-500 text-white text-sm font-bold rounded-full'>Recommandé</span>
+                  </div>
+                )}
+                <h3 className='text-xl font-bold mb-2'>{plan.name}</h3>
+                <div className='text-4xl font-black mb-2'>{plan.price}</div>
+                <p className={`text-sm mb-6 ${plan.isPrimary ? 'text-stone-400' : 'text-stone-500'}`}>{plan.description}</p>
+                <ul className='space-y-3 mb-8'>
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className='flex items-start gap-2'>
+                      <CheckCircle className={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.isPrimary ? 'text-orange-400' : 'text-orange-600'}`} />
+                      <span className={`text-sm ${plan.isPrimary ? 'text-stone-300' : 'text-stone-600'}`}>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link href='/contact'>
+                  <button className={`w-full py-3 rounded-xl font-bold uppercase tracking-wide transition-all ${
+                    plan.isPrimary
+                      ? 'bg-orange-500 text-white hover:bg-orange-400'
+                      : 'bg-stone-900 text-white hover:bg-stone-800'
+                  }`}>
+                    Demander un devis
+                  </button>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className='py-20 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -353,6 +538,23 @@ export default function RestaurantLandingContent() {
             <p className='text-xl text-stone-600'>Ce que les restaurateurs nous demandent le plus.</p>
           </div>
           <FAQAccordion items={faqItems} />
+        </div>
+      </section>
+
+      {/* Internal Links Section */}
+      <section className='py-16 bg-stone-50 border-t border-stone-200'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-10'>
+            <h2 className='text-2xl font-bold text-stone-900 mb-3'>Nos services pour la restauration et le commerce local</h2>
+            <p className='text-stone-600'>Experts du digital CHR (Cafés, Hôtels, Restaurants) à Paris, Lyon et partout en France.</p>
+          </div>
+          <div className='flex flex-wrap justify-center gap-4'>
+            <Link href='/services/creation-site-internet-artisan' className='px-5 py-2.5 bg-white border border-stone-300 text-stone-700 rounded-lg font-medium hover:border-orange-400 hover:text-orange-700 transition-colors text-sm'>Site Internet Artisan</Link>
+            <Link href='/services/agence-web-paris' className='px-5 py-2.5 bg-white border border-stone-300 text-stone-700 rounded-lg font-medium hover:border-orange-400 hover:text-orange-700 transition-colors text-sm'>Agence Web Paris</Link>
+            <Link href='/services/agence-web-lyon' className='px-5 py-2.5 bg-white border border-stone-300 text-stone-700 rounded-lg font-medium hover:border-orange-400 hover:text-orange-700 transition-colors text-sm'>Agence Web Lyon</Link>
+            <Link href='/services/creation-site-ecommerce' className='px-5 py-2.5 bg-white border border-stone-300 text-stone-700 rounded-lg font-medium hover:border-orange-400 hover:text-orange-700 transition-colors text-sm'>Création Site E-commerce</Link>
+            <Link href='/services/optimisation-seo' className='px-5 py-2.5 bg-white border border-stone-300 text-stone-700 rounded-lg font-medium hover:border-orange-400 hover:text-orange-700 transition-colors text-sm'>Optimisation SEO</Link>
+          </div>
         </div>
       </section>
 
