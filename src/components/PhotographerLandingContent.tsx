@@ -362,6 +362,54 @@ export default function PhotographerLandingContent() {
         </div>
       </section>
 
+      {/* Interactive Gallery Block */}
+      <section className='py-24 bg-gray-900 text-white'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className='text-center mb-16'>
+            <h2 className='text-3xl lg:text-4xl font-bold mb-4'>
+              Galerie Interactive Haute Résolution
+            </h2>
+            <p className='text-xl text-gray-400 max-w-3xl mx-auto'>
+              Une présentation visuelle exceptionnelle conçue pour sublimer votre art sans compromis sur la vitesse de chargement (Lighthouse 99+).
+            </p>
+          </motion.div>
+
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[250px]'>
+            {[
+              { src: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop', span: 'col-span-1 md:col-span-2 row-span-2' },
+              { src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop', span: 'col-span-1 row-span-1' },
+              { src: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop', span: 'col-span-1 row-span-1' },
+              { src: 'https://images.unsplash.com/photo-1554048612-b6a18cb193dd?q=80&w=800&auto=format&fit=crop', span: 'col-span-1 md:col-span-2 row-span-1' },
+            ].map((img, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className={`relative rounded-xl overflow-hidden group cursor-pointer ${img.span}`}>
+                <Image
+                  src={img.src}
+                  alt={`Portfolio photographe ${i}`}
+                  fill
+                  className='object-cover group-hover:scale-105 transition-transform duration-700'
+                />
+                <div className='absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center'>
+                  <span className='bg-white/20 backdrop-blur-md border border-white/30 text-white px-6 py-2 rounded-full font-medium'>
+                    Voir le projet
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className='py-24 bg-orange-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -468,6 +516,77 @@ export default function PhotographerLandingContent() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Semantic Expansion Section */}
+      <section className='py-20 bg-orange-50'>
+        <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}>
+            <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
+              Pourquoi la création d'un site internet vitrine pour photographe est indispensable ?
+            </h2>
+            <div className='prose prose-lg text-gray-700 space-y-5'>
+              <p>
+                Aujourd'hui, Instagram ne suffit plus pour développer une activité de photographie pérenne et rentable. La <strong>création de site internet vitrine pour photographe</strong> est l'étape essentielle pour asseoir votre crédibilité professionnelle. Un site web dédié vous permet de présenter votre travail dans des <strong>galeries haute résolution</strong>, sans les contraintes de format ou de compression des réseaux sociaux. Vous êtes le seul maître de votre image.
+              </p>
+              <p>
+                Chez <strong>Sidikoff Digital</strong>, nous savons que l'esthétique est au cœur de votre métier. C'est pourquoi nous concevons des portfolios immersifs avec <strong>Next.js</strong> et Tailwind CSS, offrant des performances exceptionnelles. Un site ultra-rapide (score Lighthouse supérieur à 95) garantit que vos images se chargent instantanément, retenant ainsi l'attention des visiteurs. Que vous soyez photographe de mariage à Paris, photographe corporate à Lyon, ou portraitiste en freelance, votre site doit refléter la qualité exceptionnelle de vos clichés.
+              </p>
+              <p>
+                Le <strong>référencement naturel (SEO)</strong> est notre autre grand atout. En optimisant votre site pour les moteurs de recherche, nous ciblons les mots-clés que vos futurs clients utilisent, tels que « photographe mariage Lyon », « shooting photo naissance Paris », ou « création site internet vitrine photographe ». Nous intégrons les balises sémantiques <strong>Schema.org LocalBusiness</strong> et <strong>ProfessionalService</strong>, pour accroître votre visibilité locale. Un bon SEO local vous permet d'obtenir des demandes de devis qualifiées de manière régulière et organique, réduisant ainsi votre dépendance à la publicité payante.
+              </p>
+              <p>
+                Au-delà de la vitrine, votre site devient un véritable outil de gestion. Nos solutions incluent des modules de <strong>réservation de séances en ligne</strong>, la création de galeries privées sécurisées pour vos clients, et des formulaires de devis automatisés. Vous gagnez un temps précieux sur l'administratif pour vous concentrer sur ce que vous faites de mieux : la photographie. La création site web freelance est un investissement stratégique qui propulse vos revenus et votre notoriété.
+              </p>
+            </div>
+
+            <div className='mt-8 flex flex-wrap gap-3'>
+              {[
+                'Création site internet vitrine photographe',
+                'Portfolio photographe',
+                'SEO pour photographes',
+                'Galerie photo en ligne',
+                'Réservation shooting',
+                'Référencement local',
+                'Photographe freelance',
+                'Site web sur mesure',
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className='inline-flex items-center px-3 py-1 rounded-full bg-white text-orange-700 text-sm font-medium border border-orange-200'>
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <div className='mt-8 p-6 bg-white rounded-xl border border-orange-100'>
+              <p className='text-sm text-orange-800 font-medium mb-2'>
+                🔗 Nos autres expertises locales
+              </p>
+              <div className='flex flex-wrap gap-3 text-sm'>
+                <a href='/services/agence-web-paris' className='text-orange-600 hover:underline'>
+                  Agence web Paris
+                </a>
+                <span className='text-gray-400'>·</span>
+                <a href='/services/creation-site-internet-lyon' className='text-orange-600 hover:underline'>
+                  Création site internet Lyon
+                </a>
+                <span className='text-gray-400'>·</span>
+                <a href='/services/agence-web-villeurbanne' className='text-orange-600 hover:underline'>
+                  Agence web Villeurbanne
+                </a>
+                <span className='text-gray-400'>·</span>
+                <a href='/services/creation-site-internet-freelance' className='text-orange-600 hover:underline'>
+                  Site web freelance
+                </a>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
