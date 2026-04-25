@@ -403,6 +403,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
 
       {/* Portfolio Section - Using existing Portfolio component */}
       <Portfolio
+        isHomePage={true}
         className='py-20 bg-linear-to-br from-gray-50 to-blue-50'
       />
 

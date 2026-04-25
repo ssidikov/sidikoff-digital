@@ -651,7 +651,7 @@ export default async function CafeParisPage() {
         </Section>
 
         {/* Portfolio Section */}
-        <Portfolio isHomePage={false} />
+        <Portfolio isHomePage={true} />
 
         {/* FAQ Section */}
         <Section className='py-20 bg-white'>

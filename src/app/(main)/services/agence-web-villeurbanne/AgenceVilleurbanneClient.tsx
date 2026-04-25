@@ -90,7 +90,7 @@ export default function AgenceVilleurbanneClient() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}>
-          <h1 className='sr-only'>Agence Web Villeurbanne</h1>
+          <span className='sr-only'>Agence Web Villeurbanne</span>
           AGENCE WEB.
           <br />
           <span className='text-[#3B82F6] block mt-2'>VILLEURBANNE</span>
