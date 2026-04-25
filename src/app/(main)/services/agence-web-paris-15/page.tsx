@@ -4,6 +4,7 @@ import {
   generateAlternateUrls,
   generateBreadcrumbStructuredData,
   generateServiceSchema,
+  generateFAQStructuredData,
 } from '@/lib/seo-utils'
 import type { Metadata } from 'next'
 import common from '@/locales/fr/common.json'
@@ -146,6 +147,21 @@ export default function AgenceWebParis15Page() {
     { name: 'Agence web Paris 15', url: pageUrl },
   ])
 
+  const faqJsonLd = generateFAQStructuredData([
+    {
+      question: 'Quel est le prix d\'un site internet à Paris 15 ?',
+      answer: 'Nos tarifs démarrent à 690 € pour un site vitrine professionnel clé en main, optimisé pour le référencement local dans le 15ème arrondissement (Vaugirard, Convention, Grenelle).'
+    },
+    {
+      question: 'Quels sont les délais de création ?',
+      answer: 'La création d\'un site internet vitrine prend en moyenne entre 7 et 14 jours. Pour un site e-commerce, comptez plutôt 4 à 8 semaines selon la complexité du projet.'
+    },
+    {
+      question: 'Faites-vous du référencement local (SEO) pour Paris 15 ?',
+      answer: 'Oui, nous optimisons votre site pour qu\'il apparaisse sur les recherches locales liées à votre activité dans le 15ème arrondissement et les quartiers environnants.'
+    }
+  ])
+
   return (
     <>
       <script
@@ -162,6 +178,11 @@ export default function AgenceWebParis15Page() {
         id='schema-breadcrumb-paris-15'
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        id='schema-faq-paris-15'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <AgenceWebParis15LandingContent />
     </>

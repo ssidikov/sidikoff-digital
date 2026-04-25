@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls, generateServiceSchema } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls, generateServiceSchema, generateFAQStructuredData } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import common from '@/locales/fr/common.json'
 import PhotographerLandingContent from '@/components/PhotographerLandingContent'
@@ -46,11 +46,22 @@ const serviceSchema = generateServiceSchema({
 })
 
 export default function PhotographerLandingPage() {
+  const faqSchema = generateFAQStructuredData(
+    t.faq.questions.map((q: any) => ({
+      question: q.question,
+      answer: q.answer
+    }))
+  )
+
   return (
     <>
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <PhotographerLandingContent />
     </>

@@ -18,6 +18,7 @@ import {
   TrendingUp,
 } from 'lucide-react'
 import common from '@/locales/fr/common.json'
+import { FAQAccordion } from '@/components/FAQAccordion'
 
 const iconMap = {
   'âš›ï¸': Code2,
@@ -31,6 +32,27 @@ const iconMap = {
 
 export default function AgenceWebParis15LandingContent() {
   const content = common.agence_web_paris_15_landing
+
+  const faqItems = [
+    {
+      id: '1',
+      question: 'Quel est le prix d\'un site internet à Paris 15 ?',
+      answer: 'Nos tarifs démarrent à 690 € pour un site vitrine professionnel clé en main, optimisé pour le référencement local dans le 15ème arrondissement (Vaugirard, Convention, Grenelle).',
+      category: 'pricing'
+    },
+    {
+      id: '2',
+      question: 'Quels sont les délais de création ?',
+      answer: 'La création d\'un site internet vitrine prend en moyenne entre 7 et 14 jours. Pour un site e-commerce, comptez plutôt 4 à 8 semaines selon la complexité du projet.',
+      category: 'timing'
+    },
+    {
+      id: '3',
+      question: 'Faites-vous du référencement local (SEO) pour Paris 15 ?',
+      answer: 'Oui, nous optimisons votre site pour qu\'il apparaisse sur les recherches locales liées à votre activité dans le 15ème arrondissement et les quartiers environnants.',
+      category: 'seo'
+    }
+  ]
 
   return (
     <main
@@ -453,6 +475,24 @@ export default function AgenceWebParis15LandingContent() {
               <ArrowRight className='w-6 h-6' />
             </Link>
           </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className='py-24 md:py-32 bg-slate-50 relative overflow-hidden'>
+        <div className='w-full max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative z-10'>
+          <div className='text-center mb-16'>
+            <span className='inline-block px-4 py-2 bg-linear-to-r from-pink-100 to-purple-100 text-indigo-700 rounded-full text-sm font-bold mb-6'>
+              FAQ
+            </span>
+            <h2 className='text-3xl md:text-4xl font-bold text-slate-900 mb-6'>
+              Questions Fréquentes
+            </h2>
+            <p className='text-xl text-slate-600 max-w-3xl mx-auto'>
+              Tout ce que vous devez savoir sur la création de votre site web dans le 15ème arrondissement.
+            </p>
+          </div>
+          <FAQAccordion items={faqItems} />
         </div>
       </section>
 

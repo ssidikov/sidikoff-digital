@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 
 import { Section } from '@/components/ui'
@@ -58,8 +58,31 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function CafeParisPage() {
+  const faqSchema = generateFAQStructuredData([
+    {
+      question: "Quel est le prix pour créer un site pour mon café à Paris ?",
+      answer: "Le tarif varie selon le type de site et les fonctionnalités souhaitées. Contactez-nous pour un devis gratuit et personnalisé."
+    },
+    {
+      question: "Combien de temps pour créer un site web pour café ?",
+      answer: "En moyenne 4 à 8 semaines, selon la complexité et le contenu fourni."
+    },
+    {
+      question: "Mon site sera-t-il visible sur Google ?",
+      answer: "Oui. Chaque site est conçu avec une stratégie SEO locale Paris, pour maximiser la visibilité auprès des clients à proximité."
+    },
+    {
+      question: "Puis-je gérer mon site moi-même après sa mise en ligne ?",
+      answer: "Oui. Nous fournissons une formation simple pour mettre à jour vos menus, images et textes."
+    }
+  ])
+
   return (
     <div className='min-h-screen'>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Hero Section */}
       <Section className='pt-32 pb-20 bg-linear-to-br from-[#DBE2EF] via-[#F9F7FF] to-white relative overflow-hidden'>
         <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-top-right opacity-5'></div>

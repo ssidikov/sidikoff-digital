@@ -8,6 +8,7 @@ import {
   generateAlternateUrls,
   generateBreadcrumbStructuredData,
   generateServiceSchema,
+  generateFAQStructuredData,
 } from '@/lib/seo-utils'
 
 const PAGE_SLUG = 'services/creation-site-internet-paris-16'
@@ -156,6 +157,27 @@ export default async function CreationSiteInternetParis16Page() {
     { name: 'Creation site internet Paris 16', url: pageUrl },
   ])
 
+  const faqItems = [
+    {
+      question: 'Quel budget pour un site internet a Paris 16 ?',
+      answer: 'Le budget depend du niveau de personnalisation, du volume de contenu et des integrations. En general, un site vitrine demarre a partir de 690 EUR, et un projet e-commerce demarre autour de 1 290 EUR.',
+    },
+    {
+      question: 'Combien de temps faut-il pour lancer le projet ?',
+      answer: 'Pour une page de service ou un site vitrine cible, la mise en ligne peut se faire entre 7 et 14 jours apres validation des contenus et de la direction visuelle.',
+    },
+    {
+      question: 'Est-ce que vous optimisez aussi le SEO local ?',
+      answer: 'Oui. La structure technique, les titres, les sections de preuve et les donnees structurees sont alignees sur les requetes locales du 16e arrondissement.',
+    },
+    {
+      question: 'Puis-je garder la main sur mon contenu ensuite ?',
+      answer: 'Absolument. Nous livrons un back-office clair et un cadre d edition simple pour mettre a jour textes, visuels et pages sans blocage technique.',
+    },
+  ]
+
+  const faqJsonLd = generateFAQStructuredData(faqItems)
+
   return (
     <>
       <script
@@ -173,6 +195,11 @@ export default async function CreationSiteInternetParis16Page() {
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      <script
+        id='schema-faq-paris-16'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <ParisArrondissementLanding
         arrondissement="16"
         heroTitle={
@@ -185,28 +212,7 @@ export default async function CreationSiteInternetParis16Page() {
         heroDescription="Notre service de creation site web a Paris 16 combine design editorial, structure SEO locale et parcours de conversion. Objectif: transformer la visibilite des entreprises de Passy, Auteuil, La Muette et Trocadero en demandes qualifiees."
         neighborhoods={['Passy', 'Auteuil', 'La Muette', 'Trocadero', 'Porte Dauphine', 'Chaillot']}
         visionLocaleText="Une page orientee conversion pour les entreprises, cabinets et commerces du 16e."
-        faqItems={[
-          {
-            question: 'Quel budget pour un site internet a Paris 16 ?',
-            answer:
-              'Le budget depend du niveau de personnalisation, du volume de contenu et des integrations. En general, un site vitrine demarre a partir de 690 EUR, et un projet e-commerce demarre autour de 1 290 EUR.',
-          },
-          {
-            question: 'Combien de temps faut-il pour lancer le projet ?',
-            answer:
-              'Pour une page de service ou un site vitrine cible, la mise en ligne peut se faire entre 7 et 14 jours apres validation des contenus et de la direction visuelle.',
-          },
-          {
-            question: 'Est-ce que vous optimisez aussi le SEO local ?',
-            answer:
-              'Oui. La structure technique, les titres, les sections de preuve et les donnees structurees sont alignees sur les requetes locales du 16e arrondissement.',
-          },
-          {
-            question: 'Puis-je garder la main sur mon contenu ensuite ?',
-            answer:
-              'Absolument. Nous livrons un back-office clair et un cadre d edition simple pour mettre a jour textes, visuels et pages sans blocage technique.',
-          },
-        ]}
+        faqItems={faqItems}
       />
     </>
   )

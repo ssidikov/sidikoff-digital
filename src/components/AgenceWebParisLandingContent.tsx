@@ -18,6 +18,7 @@ import {
 
 import common from '@/locales/fr/common.json'
 import Portfolio from '@/sections/Portfolio'
+import { FAQAccordion } from '@/components/FAQAccordion'
 
 interface ServiceItem {
   icon: string
@@ -59,6 +60,33 @@ const AgenceWebParisLandingContent: React.FC = () => {
     }
     return iconMap[iconName] || <CheckCircle className='h-8 w-8 text-blue-600' />
   }
+
+  const faqItems = [
+    {
+      id: '1',
+      question: 'Combien coûte un site internet à Paris ?',
+      answer: 'Le tarif dépend de vos besoins. Un site vitrine de base commence généralement à partir de 690€, tandis qu\'un site e-commerce plus complexe ou un site sur mesure peut démarrer autour de 1500€. Nous fournissons un devis détaillé après un premier appel.',
+      category: 'pricing'
+    },
+    {
+      id: '2',
+      question: 'Combien de temps faut-il pour créer un site internet ?',
+      answer: 'En moyenne, la création d\'un site internet professionnel prend entre 7 et 14 jours pour un site vitrine, et de 4 à 8 semaines pour un site e-commerce ou sur mesure.',
+      category: 'timing'
+    },
+    {
+      id: '3',
+      question: 'Votre agence web propose-t-elle l\'optimisation SEO ?',
+      answer: 'Oui, tous nos sites sont optimisés pour le référencement naturel (SEO) dès leur conception (structure technique, balises meta, vitesse de chargement) pour vous aider à être visible sur Google à Paris et ailleurs.',
+      category: 'seo'
+    },
+    {
+      id: '4',
+      question: 'Puis-je gérer mon site moi-même après sa mise en ligne ?',
+      answer: 'Absolument ! Nous utilisons des systèmes de gestion de contenu (CMS) ou des back-offices intuitifs qui vous permettent de modifier vos textes, images et articles de blog facilement et sans compétences techniques.',
+      category: 'maintenance'
+    }
+  ]
 
   return (
     <div className='min-h-screen bg-linear-to-br from-slate-50 to-blue-50'>
@@ -355,6 +383,21 @@ const AgenceWebParisLandingContent: React.FC = () => {
             <Link href='/services/agence-web-paris-19' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 19ème</Link>
             <Link href='/services/agence-web-paris-6' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 6ème</Link>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className='py-20 bg-white relative overflow-hidden'>
+        <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-16'>
+            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>
+              Questions Fréquentes
+            </h2>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+              Tout ce que vous devez savoir sur la création de votre site web avec notre agence.
+            </p>
+          </div>
+          <FAQAccordion items={faqItems} />
         </div>
       </section>
 
