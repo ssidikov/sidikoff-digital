@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 
 import common from '@/locales/fr/common.json'
-import { type BlogPost } from '@/lib/sanity'
+import { type BlogPost } from '@/lib/blog-data'
 import { getLocalizedUrl } from '@/utils/navigation'
 import Section, { SectionHeader } from '@/components/ui/Section'
 import { BlogCard } from '@/components/ui/BlogCard'
@@ -88,7 +88,7 @@ export function Actualite({ posts }: ActualiteProps) {
           viewport={{ once: true }}
           className='grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
           {posts.map((post, index) => (
-            <motion.div key={post._id} variants={ANIMATION_CONFIG.item} className='h-full'>
+            <motion.div key={post.slug} variants={ANIMATION_CONFIG.item} className='h-full'>
               <BlogCard post={post} index={index} featured={false} />
             </motion.div>
           ))}

@@ -1,4 +1,4 @@
-import { notFound } from 'next'
+import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import { allBlogPosts, getPostBySlug } from '@/lib/blog-data'
 import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
@@ -61,7 +61,7 @@ export default function BlogPostPage({ params }: Props) {
   const post = getPostBySlug(params.slug)
 
   if (!post) {
-    notFound()
+    return notFound()
   }
 
   const PAGE_URL = createCanonicalUrl(`blog/${post.slug}`, 'fr')

@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { createCanonicalUrl, generateAlternateUrls, generateServiceSchema } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls, generateServiceSchema , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 import common from '@/locales/fr/common.json'
 import BoulangerieLandingContent from '@/components/BoulangerieLandingContent'
 
@@ -46,8 +46,19 @@ const serviceSchema = generateServiceSchema({
 })
 
 export default function BoulangerieWebsitesPage() {
+  
+  const breadcrumbSchema = generateBreadcrumbStructuredData([
+    { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
+    { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
+    { name: 'Creation Site Internet Boulangerie', url: PAGE_URL },
+  ])
+
   return (
     <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}

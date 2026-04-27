@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { DEFAULT_SEO, createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
+import { DEFAULT_SEO, createCanonicalUrl, generateAlternateUrls , generateBreadcrumbStructuredData } from '@/lib/seo-utils'
 
 import { Section } from '@/components/ui'
 import CTAButton from '@/components/ui/CTAButton'
@@ -57,8 +57,20 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ToulousePage() {
+  
+  const breadcrumbSchema = generateBreadcrumbStructuredData([
+    { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
+    { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
+    { name: 'Creation Site Internet Toulouse', url: `${DEFAULT_SEO.siteUrl}/services/creation-site-internet-toulouse` },
+  ])
+
   return (
-    <div className='min-h-screen'>
+    <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <div className='min-h-screen'>
       {/* Hero Section */}
       <Section className='pt-32 pb-20 bg-linear-to-br from-[#DBE2EF] via-[#F9F7FF] to-white relative overflow-hidden'>
         <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-top-right opacity-5'></div>
@@ -724,5 +736,6 @@ export default async function ToulousePage() {
         </Section>
       </div>
     </div>
+    </>
   )
 }

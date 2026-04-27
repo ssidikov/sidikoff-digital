@@ -14,7 +14,7 @@ const PAGE_SLUG = 'services/agence-web-paris'
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = defaultLocale
-  const pageTitle = 'Agence Web Paris | Création Site Internet'
+  const pageTitle = 'Agence Web Paris | Sidikoff'
   const pageDescription =
     'Agence web à Paris spécialisée en création de sites internet, SEO local et refonte web pour TPE, PME et startups. Devis gratuit sous 24h.'
   const pageUrl = createCanonicalUrl(PAGE_SLUG, locale)

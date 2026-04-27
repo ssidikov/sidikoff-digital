@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls, generateServiceSchema, generateFAQStructuredData } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls, generateServiceSchema, generateFAQStructuredData, generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import common from '@/locales/fr/common.json'
 import DoctorLandingContent from '@/components/DoctorLandingContent'
@@ -53,15 +53,11 @@ export default function DoctorLandingPage() {
     }))
   )
 
-  const medicalOrganizationSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'MedicalOrganization',
-    name: 'Création Site Internet Médecin - Sidikoff Digital',
-    url: PAGE_URL,
-    description: 'Sites web professionnels et sécurisés (HDS) pour médecins, chirurgiens et professionnels de santé.',
-    medicalSpecialty: 'PublicHealth',
-    telephone: '+33626932734'
-  }
+  const breadcrumbSchema = generateBreadcrumbStructuredData([
+    { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
+    { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
+    { name: 'Création Site Internet Médecin', url: PAGE_URL },
+  ])
 
   return (
     <>
@@ -71,11 +67,11 @@ export default function DoctorLandingPage() {
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalOrganizationSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <DoctorLandingContent />
     </>

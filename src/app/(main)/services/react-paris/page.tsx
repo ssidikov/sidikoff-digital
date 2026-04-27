@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import ReactParisLandingContent from '@/components/ReactParisLandingContent'
 
@@ -85,8 +85,19 @@ const reactServiceSchema = {
 export default function ReactParisLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
 
+  
+  const breadcrumbSchema = generateBreadcrumbStructuredData([
+    { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
+    { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
+    { name: 'React Paris', url: PAGE_URL },
+  ])
+
   return (
     <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reactServiceSchema) }}

@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import WebRedesignLandingContent from '@/components/WebRedesignLandingContent'
 
@@ -66,8 +66,19 @@ export default function WebRedesignLandingPage() {
     url: createCanonicalUrl('services/refonte-sites-web', 'fr'),
   }
 
+  
+  const breadcrumbSchema = generateBreadcrumbStructuredData([
+    { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
+    { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
+    { name: 'Refonte Sites Web', url: `${DEFAULT_SEO.siteUrl}/services/refonte-sites-web` },
+  ])
+
   return (
     <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

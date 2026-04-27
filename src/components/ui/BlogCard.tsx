@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 
 import { formatDate } from '@/lib/i18n'
 import { getBlogPostUrl } from '@/utils/navigation'
-import { type BlogPost, urlFor } from '@/lib/sanity'
+import { type BlogPost } from '@/lib/blog-data'
 import { cardStyles } from '@/utils/styles'
 
 interface BlogCardProps {
@@ -49,26 +49,18 @@ const CATEGORY_TRANSLATIONS: Record<string, string> = {
  * Supports featured layout with enhanced styling and animations
  */
 export function BlogCard({ post, featured = false, index }: BlogCardProps) {
-  const formattedDate = formatDate(new Date(post.publishedAt), 'fr')
+  const formattedDate = formatDate(new Date(post.date), 'fr')
 
-  const imageUrl = post.mainImage
-    ? urlFor(post.mainImage)
-        .width(featured ? 1600 : 800)
-        .height(featured ? 1000 : 600)
-        .url()
-    : DEFAULT_IMAGE
-
-  const imageAlt = post.mainImage?.alt || post.title
-  const categoryColor = post.category?.color || DEFAULT_CATEGORY_COLOR
-  const categoryTitle = post.category
-    ? CATEGORY_TRANSLATIONS[post.category.title] || post.category.title
-    : ''
+  const imageUrl = DEFAULT_IMAGE
+  const imageAlt = post.title
+  const categoryColor = DEFAULT_CATEGORY_COLOR
+  const categoryTitle = post.category || 'Article'
 
   // Localized strings
   const localizedStrings = {
     author: 'Auteur',
     readMore: 'Lire la suite',
-    readTime: `${post.estimatedReadingTime} min de lecture`,
+    readTime: `3 min de lecture`,
   }
 
   return (
@@ -81,7 +73,7 @@ export function BlogCard({ post, featured = false, index }: BlogCardProps) {
       className={`group relative overflow-hidden h-full flex flex-col ${cardStyles.card} ${
         featured ? 'lg:col-span-1' : ''
       }`}>
-      <Link href={getBlogPostUrl(post.slug.current)} className='h-full flex flex-col'>
+      <Link href={getBlogPostUrl(post.slug)} className='h-full flex flex-col'>
         {/* Image Container */}
         <div className={`relative overflow-hidden ${featured ? 'h-72 lg:h-80' : 'h-56 lg:h-64'}`}>
           <Image
@@ -106,19 +98,17 @@ export function BlogCard({ post, featured = false, index }: BlogCardProps) {
           )}
 
           {/* Reading Time */}
-          {post.estimatedReadingTime && (
-            <div className='absolute right-4 top-4'>
-              <span className='inline-flex items-center rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-gray-800 backdrop-blur-sm'>
-                {localizedStrings.readTime}
-              </span>
-            </div>
-          )}
+          <div className='absolute right-4 top-4'>
+            <span className='inline-flex items-center rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-gray-800 backdrop-blur-sm'>
+              {localizedStrings.readTime}
+            </span>
+          </div>
         </div>
 
         {/* Content */}
         <div className={`p-6 flex-1 flex flex-col ${featured ? 'lg:p-8' : 'lg:p-6'}`}>
           {/* Date */}
-          <time className='text-sm font-medium text-gray-500' dateTime={post.publishedAt}>
+          <time className='text-sm font-medium text-gray-500' dateTime={post.date}>
             {formattedDate}
           </time>
 
@@ -131,14 +121,12 @@ export function BlogCard({ post, featured = false, index }: BlogCardProps) {
           </h3>
 
           {/* Excerpt */}
-          {post.excerpt && (
-            <p
-              className={`mt-4 line-clamp-3 leading-relaxed text-gray-600 ${
-                featured ? 'text-base lg:text-lg' : 'text-sm lg:text-base'
-              }`}>
-              {post.excerpt}
-            </p>
-          )}
+          <p
+            className={`mt-4 line-clamp-3 leading-relaxed text-gray-600 ${
+              featured ? 'text-base lg:text-lg' : 'text-sm lg:text-base'
+            }`}>
+            {post.description}
+          </p>
 
           {/* Author & Read More */}
           <div className='mt-auto pt-6 flex items-center justify-between'>

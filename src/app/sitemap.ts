@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { getBlogPosts, type BlogPost } from '@/lib/sanity'
+import { allBlogPosts } from '@/lib/blog-data'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.sidikoff.com'
@@ -35,7 +35,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/services/creation-site-internet-medecin',
     '/services/creation-site-internet-photographe',
     '/services/creation-site-internet-restaurant',
-    '/services/restaurant-websites',
 
     // --- Paris geo pages ---
     '/services/agence-web-paris',
@@ -50,7 +49,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/services/creation-site-internet-cafe-paris',
     '/services/ecommerce-paris',
     '/services/react-paris',
+    '/services/nextjs-paris',
     '/services/wordpress-paris',
+    '/services/developpeur-web-paris',
     '/services/seo-paris',
 
     // --- Lyon geo pages ---
@@ -72,7 +73,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/services/agence-web-venissieux',
     '/services/ecommerce-lyon',
     '/services/react-lyon',
+    '/services/nextjs-lyon',
     '/services/wordpress-lyon',
+    '/services/developpeur-web-lyon',
+
+    // --- Tech pages ---
+    '/services/agence-nextjs-react',
 
     // --- Other geo pages ---
     '/services/agence-web-bordeaux',
@@ -82,18 +88,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]
 
   const sitemap: MetadataRoute.Sitemap = []
-
-  // Récupérer les articles de blog depuis Sanity
-  let blogPosts: Array<{ slug: { current: string }; publishedAt: string }> = []
-  try {
-    const posts = await getBlogPosts()
-    blogPosts = posts.map((post: BlogPost) => ({
-      slug: post.slug,
-      publishedAt: post.publishedAt || currentDate.toISOString(),
-    }))
-  } catch (error) {
-    console.warn('Failed to fetch blog posts for sitemap:', error)
-  }
 
   // French pages (only language — default, no prefix)
   routes.forEach((route) => {
@@ -111,6 +105,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       '/services/creation-site-internet-restaurant',
       '/services/creation-site-internet-coach-sportif',
       '/services/creation-site-internet-medecin',
+      // P1 tech money page
+      '/services/agence-nextjs-react',
     ]
     const isHighPriority = highPriorityRoutes.includes(route)
 
@@ -123,14 +119,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   })
 
   // Blog posts — French only (canonical = www.sidikoff.com/blog/slug)
-  blogPosts.forEach((post) => {
+  allBlogPosts.forEach((post) => {
     // Key article about website cost: near position 8, needs high priority
-    const isKeyPost = post.slug.current === 'cout-site-web-professionnel-2025'
+    const isKeyPost = post.slug === 'prix-site-internet-lyon' || post.slug === 'prix-site-internet-paris'
     sitemap.push({
-      url: `${baseUrl}/blog/${post.slug.current}`,
-      lastModified: new Date(post.publishedAt),
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.date),
       changeFrequency: isKeyPost ? 'weekly' : 'monthly',
-      priority: isKeyPost ? 0.9 : 0.6, // 0.9: near top 10, actively maintained
+      priority: isKeyPost ? 0.9 : 0.6, // 0.9: actively maintained SEO targets
     })
   })
 

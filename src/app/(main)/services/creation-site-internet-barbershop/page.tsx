@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 import common from '@/locales/fr/common.json'
 import BarbershopLandingContent from '@/components/BarbershopLandingContent'
 
@@ -34,5 +34,20 @@ export function generateMetadata(): Metadata {
 }
 
 export default function BarbershopWebsitesPage() {
-  return <BarbershopLandingContent />
+  
+  const breadcrumbSchema = generateBreadcrumbStructuredData([
+    { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
+    { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
+    { name: 'Creation Site Internet Barbershop', url: `${DEFAULT_SEO.siteUrl}/services/creation-site-internet-barbershop` },
+  ])
+
+  return (
+    <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <BarbershopLandingContent />
+    </>
+  )
 }

@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 
 import { Section } from '@/components/ui'
@@ -62,8 +62,7 @@ export default async function BoulogneBillancourtPage() {
       h1: 'Création de site internet professionnel à Boulogne-Billancourt (92)',
       intro:
         'Vous êtes une entreprise, un artisan ou une startup à Boulogne-Billancourt et souhaitez développer votre présence en ligne ? Notre agence web spécialisée accompagne les entreprises dans la création de sites internet sur mesure, modernes, performants et optimisés pour le SEO local à Boulogne-Billancourt. Que ce soit pour un site vitrine, un site e-commerce ou un site multilingue, nous avons la solution pour booster votre visibilité et attirer de nouveaux clients.',
-      why_title:
-        'Pourquoi un site internet est essentiel pour votre entreprise à Boulogne-Billancourt',
+      why_title: 'Agence Web Boulogne-Billancourt | Sidikoff',
       why_points: [
         'Présenter vos services, produits ou offres locales',
         'Faciliter la prise de contact, les réservations ou commandes en ligne',
@@ -137,8 +136,20 @@ export default async function BoulogneBillancourtPage() {
 
   const t = content.fr
 
+  
+  const breadcrumbSchema = generateBreadcrumbStructuredData([
+    { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
+    { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
+    { name: 'Pourquoi un site internet est essentiel pour votre entreprise à Boulogne-Billancourt', url: `${DEFAULT_SEO.siteUrl}/services/creation-site-internet-boulogne-billancourt` },
+  ])
+
   return (
-    <div className='min-h-screen bg-background'>
+    <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <div className='min-h-screen bg-background'>
       {/* Hero Section */}
       <Section className='pt-24 pb-12'>
         <div className='container mx-auto px-4'>
@@ -310,5 +321,6 @@ export default async function BoulogneBillancourtPage() {
 
       {/* SEO Links */}
     </div>
+    </>
   )
 }

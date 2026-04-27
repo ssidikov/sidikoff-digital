@@ -672,7 +672,7 @@ export function generateServiceSchema(service: {
   description: string
   url: string
   serviceType: string
-  areaServed?: string[]
+  areaServed?: (string | { '@type': string; name: string })[]
   provider?: {
     name: string
     url: string
@@ -689,10 +689,11 @@ export function generateServiceSchema(service: {
     description: service.description,
     url: service.url,
     serviceType: service.serviceType,
-    areaServed: (service.areaServed ?? ['France']).map((area) => ({
-      '@type': 'Place',
-      name: area,
-    })),
+    areaServed: (service.areaServed ?? ['France']).map((area) => 
+      typeof area === 'string' 
+        ? { '@type': 'Place', name: area }
+        : area
+    ),
     provider: {
       '@type': 'Organization',
       name: service.provider?.name ?? 'Sidikoff Digital',

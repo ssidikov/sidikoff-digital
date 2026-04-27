@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const pageUrl = createCanonicalUrl(PAGE_SLUG, 'fr')
 
   return {
-    title: 'Agence Next.js & React Paris | Développement Web Sur Mesure',
+    title: 'Agence Next.js & React Paris | Sidikoff',
     description: 'Agence web spécialisée Next.js et React. Développement d\'applications web, sites vitrines haute performance et plateformes SaaS sur mesure. Développeurs React experts.',
     keywords: [
       'agence next js',

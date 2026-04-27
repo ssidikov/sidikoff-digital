@@ -15,7 +15,7 @@ const PAGE_SLUG = 'services/agence-web-paris-17'
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = defaultLocale
-  const pageTitle = 'Agence Web Paris 17 | Création Site Internet'
+  const pageTitle = 'Agence Web Paris 17 | Sidikoff'
   const pageDescription =
     'Création de sites internet à Paris 17 : vitrines, e-commerce et SEO. Agence web locale accompagnant les entreprises des Batignolles, Ternes et Monceau.'
 

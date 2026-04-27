@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import SiteVitrineLyonLandingContent from '@/components/SiteVitrineLyonLandingContent'
 
@@ -102,8 +102,19 @@ const serviceSchema = {
 export default function SiteVitrineLyonLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
 
+  
+  const breadcrumbSchema = generateBreadcrumbStructuredData([
+    { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
+    { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
+    { name: 'Site Vitrine Lyon', url: PAGE_URL },
+  ])
+
   return (
     <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}

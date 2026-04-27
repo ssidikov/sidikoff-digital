@@ -36,10 +36,18 @@ Disallow: /private/
 Disallow: /_next/static/media/
 
 User-agent: AhrefsBot
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /studio/
+Disallow: /private/
 
 User-agent: SemrushBot
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /studio/
+Disallow: /private/
 
 User-agent: MJ12bot
 Disallow: /

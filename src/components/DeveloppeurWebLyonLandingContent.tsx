@@ -208,9 +208,9 @@ export default function DeveloppeurWebLyonLandingContent() {
                   <br />
                   <div className='text-emerald-400 font-bold'>[NestFactory] Starting application...</div>
                   <div className='text-blue-400'>[InstanceLoader] AppModule dependencies initialized</div>
-                  <div className='text-blue-400'>[RoutesResolver] AuthController {/api/auth}</div>
-                  <div className='text-blue-400'>[RoutesResolver] UsersController {/api/users}</div>
-                  <div className='text-blue-400'>[RoutesResolver] BillingController {/api/billing}</div>
+                  <div className='text-blue-400'>[RoutesResolver] AuthController {"/api/auth"}</div>
+                  <div className='text-blue-400'>[RoutesResolver] UsersController {"/api/users"}</div>
+                  <div className='text-blue-400'>[RoutesResolver] BillingController {"/api/billing"}</div>
                   <br />
                   <div className='flex'>
                     <span className='text-emerald-500 mr-2'>✓</span>

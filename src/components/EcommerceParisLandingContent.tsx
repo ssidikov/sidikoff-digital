@@ -12,7 +12,8 @@ import {
   TrendingUp,
   Shield,
   Smartphone,
-  Globe
+  Globe,
+  Lock
 } from 'lucide-react'
 
 import { FAQAccordion } from '@/components/FAQAccordion'

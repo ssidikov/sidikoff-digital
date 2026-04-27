@@ -15,7 +15,7 @@ const PAGE_SLUG = 'services/agence-web-paris-7'
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = defaultLocale
-  const pageTitle = 'Agence Web Paris 7 | Création Site Internet Premium'
+  const pageTitle = 'Agence Web Paris 7 | Sidikoff'
   const pageDescription =
     'Agence web Paris 7ème : création de sites internet premium et sur-mesure pour professions libérales, cabinets, et commerces de luxe (Invalides, Tour Eiffel, Gros-Caillou).'
 

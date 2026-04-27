@@ -15,7 +15,7 @@ const PAGE_SLUG = 'services/agence-web-paris-14'
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = defaultLocale
-  const pageTitle = 'Agence Web Paris 14 | Création Site Internet'
+  const pageTitle = 'Agence Web Paris 14 | Sidikoff'
   const pageDescription =
     'Agence web Paris 14ème : création de sites internet professionnels pour commerces, professions libérales et PME de Montparnasse, Alésia et Denfert-Rochereau. Devis gratuit sous 24h.'
 

@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls, generateServiceSchema, generateFAQStructuredData } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls, generateServiceSchema, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import common from '@/locales/fr/common.json'
 import PhotographerLandingContent from '@/components/PhotographerLandingContent'
@@ -53,8 +53,19 @@ export default function PhotographerLandingPage() {
     }))
   )
 
+  
+  const breadcrumbSchema = generateBreadcrumbStructuredData([
+    { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
+    { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
+    { name: 'Creation Site Internet Photographe', url: PAGE_URL },
+  ])
+
   return (
     <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}

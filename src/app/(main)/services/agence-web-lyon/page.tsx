@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -195,8 +195,20 @@ const agenceWebLyonSchemas = [
 ]
 
 export default async function AgenceWebLyonPage() {
+  
+  const breadcrumbSchema = generateBreadcrumbStructuredData([
+    { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
+    { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
+    { name: 'Site Vitrine', url: `${DEFAULT_SEO.siteUrl}/services/agence-web-lyon` },
+  ])
+
   return (
-    <div
+    <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <div
       className={`min-h-screen bg-[#F6F4EE] text-[#121212] overflow-x-hidden ${manrope.className}`}>
       {agenceWebLyonSchemas.map((schema, i) => (
         <script
@@ -335,7 +347,7 @@ export default async function AgenceWebLyonPage() {
             {[
               {
                 num: '01',
-                title: 'Site Vitrine',
+                title: 'Site Vitrine | Sidikoff',
                 desc: "Un design exclusif pour affirmer votre identité. Expérience fluide, optimisation mobile et conversions maximisées. L'outil parfait pour captiver vos futurs clients.",
                 price: 'Dès 690 €',
                 link: '/services/creation-sites-web',
@@ -569,5 +581,6 @@ export default async function AgenceWebLyonPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }

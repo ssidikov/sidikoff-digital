@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const pageUrl = createCanonicalUrl(PAGE_SLUG, 'fr')
 
   return {
-    title: 'Agence Web Paris 15 | Création Site Internet',
+    title: 'Agence Web Paris 15 | Sidikoff',
     description: 'Agence web Paris 15ème : sites vitrines dès 690 €, livrés en 7-14 jours. Référencement SEO local, Next.js/React. Convention, Vaugirard, Grenelle. Devis gratuit sous 24h.',
     keywords: [
       'agence web paris 15ème',

@@ -13,7 +13,8 @@ import {
   MapPin,
   Target,
   Globe,
-  Settings
+  Settings,
+  Star
 } from 'lucide-react'
 
 import { FAQAccordion } from '@/components/FAQAccordion'

@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 
 import { Section } from '@/components/ui'
@@ -77,8 +77,20 @@ export default async function CafeParisPage() {
     }
   ])
 
+  
+  const breadcrumbSchema = generateBreadcrumbStructuredData([
+    { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
+    { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
+    { name: 'Creation Site Internet Cafe Paris', url: `${DEFAULT_SEO.siteUrl}/services/creation-site-internet-cafe-paris` },
+  ])
+
   return (
-    <div className='min-h-screen'>
+    <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <div className='min-h-screen'>
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -747,5 +759,6 @@ export default async function CafeParisPage() {
         </Section>
       </div>
     </div>
+    </>
   )
 }

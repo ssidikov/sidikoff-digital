@@ -5,7 +5,6 @@ import { motion } from 'framer-motion'
 import { ArrowUpRight, Code2, Globe, Sparkles, CheckSquare } from 'lucide-react'
 import Link from 'next/link'
 import { Limelight, JetBrains_Mono } from 'next/font/google'
-import { generateServiceSchema } from '@/lib/seo-utils'
 
 // Font configurations
 const limelight = Limelight({
@@ -36,83 +35,9 @@ const staggerContainer = {
 }
 
 export default function AgenceVilleurbanneClient() {
-  const serviceSchema = generateServiceSchema({
-    name: 'Agence Web Villeurbanne - Sidikoff Digital',
-    description:
-      'Expertise en création de sites internet, référencement SEO et génie logiciel à Villeurbanne. Solutions sur-mesure pour entreprises.',
-    url: 'https://www.sidikoff.com/services/agence-web-villeurbanne',
-    serviceType: 'Agence Web & SEO',
-    areaServed: [
-      'Villeurbanne',
-      'Gratte-Ciel',
-      'Charpennes',
-      'Cusset',
-      'La Doua',
-      'Tonkin',
-      'Lyon',
-      'Métropole de Lyon',
-      'Grand Lyon',
-    ],
-  })
-
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'Quel est le coût d’un site internet à Villeurbanne ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Un site vitrine professionnel à Villeurbanne démarre à 690€ TTC, livré en 5 à 7 jours ouvrés. Un site multi-pages est proposé à partir de 1 290€, idéal pour les PME, commerces et professions libérales de Gratte-Ciel, Charpennes ou Cusset. Un site e-commerce ou une application sur mesure démarre à 1 990€. Tous nos tarifs incluent le SEO de base, le design responsive et la mise en ligne. Devis gratuit et personnalisé sous 24h.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Combien de temps pour livrer un site web à Villeurbanne ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Entre 5 et 7 jours ouvrés pour un site vitrine standard, 10 à 14 jours pour un site multi-pages, et 4 à 8 semaines pour un e-commerce ou une application sur mesure. Nous respectons les délais convenus par contrat et vous informons à chaque étape de la production.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Votre agence web de Villeurbanne fait-elle du SEO local ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Oui, le SEO local est au cœur de notre méthode. Nous optimisons chaque page pour les recherches géolocalisées (Villeurbanne, Gratte-Ciel, Charpennes, Grand Lyon), configurons votre fiche Google Business Profile et créons du contenu ancré localement. Nos sites Next.js obtiennent systématiquement des scores Lighthouse supérieurs à 95, ce qui améliore directement votre positionnement dans la Métropole de Lyon.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Proposez-vous des services de développeur web freelance à Villeurbanne ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Oui. En tant que développeur web freelance basé à Villeurbanne, nous intervenons directement chez vous ou à distance pour tous vos projets web : création de site, refonte, intégration d’API, migration Next.js ou développement de fonctionnalités spécifiques. Nous offrons la flexibilité d’un freelance avec les ressources d’une agence structurée.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Faites-vous de la refonte de site web à Villeurbanne ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Oui, la refonte de site web est l’un de nos services phares à Villeurbanne. Nous migrons vos anciens sites (WordPress, Wix, Squarespace) vers Next.js pour un gain de performance immédiat : chargement plus rapide, meilleur SEO, design modernbisé et code maintenable. Chaque refonte inclut un audit technique préalable et une stratégie SEO de reconversion.',
-        },
-      },
-    ],
-  }
-
   return (
     <div
       className={`relative min-h-screen bg-[#FFFFFF] text-[#111827] selection:bg-[#3B82F6] selection:text-white pt-28 pb-16 font-sans overflow-x-hidden ${jetbrainsMono.variable}`}>
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
       {/* Decorative Grid - replaces blurred orbs */}
       <div
         className='absolute inset-0 pointer-events-none opacity-[0.04]'

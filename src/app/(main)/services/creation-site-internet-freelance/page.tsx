@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { createCanonicalUrl, generateAlternateUrls, generateServiceSchema } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls, generateServiceSchema, generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 import common from '@/locales/fr/common.json'
 import FreelanceLandingContent from '@/components/FreelanceLandingContent'
 
@@ -125,6 +125,12 @@ const faqSchema = {
 }
 
 export default function FreelanceWebsitesPage() {
+  const breadcrumbSchema = generateBreadcrumbStructuredData([
+    { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
+    { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
+    { name: 'Création Site Internet Freelance', url: PAGE_URL },
+  ])
+
   return (
     <>
       <script
@@ -134,6 +140,10 @@ export default function FreelanceWebsitesPage() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <FreelanceLandingContent />
     </>

@@ -1,10 +1,10 @@
 import { Metadata } from 'next'
-import { generatePageMetadata } from '@/lib/seo-utils'
+import { generatePageMetadata , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 import BordeauxLandingClient from './BordeauxLandingClient'
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata(
-    'Agence Web Bordeaux | Création Site Internet & SEO Bordeaux',
+    'Agence Web Bordeaux | Sidikoff',
     'Agence web à Bordeaux spécialisée en création de site internet, SEO local et solutions digitales sur mesure pour entreprises girondines et startups bordelaises.',
     '/services/agence-web-bordeaux',
     'fr',
@@ -28,5 +28,20 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function AgenceWebBordeauxPage() {
-  return <BordeauxLandingClient />
+  
+  const breadcrumbSchema = generateBreadcrumbStructuredData([
+    { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
+    { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
+    { name: 'Agence Web Bordeaux', url: `${DEFAULT_SEO.siteUrl}/services/agence-web-bordeaux` },
+  ])
+
+  return (
+    <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <BordeauxLandingClient />
+    </>
+  )
 }

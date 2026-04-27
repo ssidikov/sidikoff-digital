@@ -65,51 +65,59 @@ const AgenceWebParisLandingContent: React.FC = () => {
     {
       id: '1',
       question: 'Combien coûte un site internet à Paris ?',
-      answer: 'Le tarif dépend de vos besoins. Un site vitrine de base commence généralement à partir de 690€, tandis qu\'un site e-commerce plus complexe ou un site sur mesure peut démarrer autour de 1 500€. Nous fournissons un devis détaillé et gratuit après un premier appel de cadrage, sans engagement de votre part.',
-      category: 'pricing'
+      answer:
+        "Le tarif dépend de vos besoins. Un site vitrine de base commence généralement à partir de 690€, tandis qu'un site e-commerce plus complexe ou un site sur mesure peut démarrer autour de 1 500€. Nous fournissons un devis détaillé et gratuit après un premier appel de cadrage, sans engagement de votre part.",
+      category: 'pricing',
     },
     {
       id: '2',
       question: 'Combien de temps faut-il pour créer un site internet à Paris ?',
-      answer: 'En moyenne, la création d\'un site vitrine professionnel prend entre 7 et 14 jours ouvrés. Un site e-commerce complet ou une application sur mesure nécessite 4 à 8 semaines selon la complexité des fonctionnalités. Nous respectons les délais convenus et vous tenons informé à chaque étape.',
-      category: 'timing'
+      answer:
+        "En moyenne, la création d'un site vitrine professionnel prend entre 7 et 14 jours ouvrés. Un site e-commerce complet ou une application sur mesure nécessite 4 à 8 semaines selon la complexité des fonctionnalités. Nous respectons les délais convenus et vous tenons informé à chaque étape.",
+      category: 'timing',
     },
     {
       id: '3',
-      question: 'Votre agence web parisienne propose-t-elle l\'optimisation SEO ?',
-      answer: 'Oui, le SEO est intégré dès la conception de chaque site. Nous optimisons la structure technique (Core Web Vitals, balisage sémantique, sitemap), les contenus (mots-clés locaux Paris, balises meta) et la performance (score Lighthouse 95+) pour vous positionner durablement sur Google dans votre secteur parisien.',
-      category: 'seo'
+      question: "Votre agence web parisienne propose-t-elle l'optimisation SEO ?",
+      answer:
+        'Oui, le SEO est intégré dès la conception de chaque site. Nous optimisons la structure technique (Core Web Vitals, balisage sémantique, sitemap), les contenus (mots-clés locaux Paris, balises meta) et la performance (score Lighthouse 95+) pour vous positionner durablement sur Google dans votre secteur parisien.',
+      category: 'seo',
     },
     {
       id: '4',
       question: 'Puis-je gérer mon site moi-même après sa mise en ligne ?',
-      answer: 'Absolument. Nous développons sur des CMS intuitifs (Sanity, WordPress headless) ou des back-offices sur mesure. Vous pouvez modifier vos textes, ajouter des articles de blog et mettre à jour vos images sans aucune compétence technique. Une formation complète est incluse dans chaque livraison.',
-      category: 'maintenance'
+      answer:
+        'Absolument. Nous développons sur des CMS intuitifs (Sanity, WordPress headless) ou des back-offices sur mesure. Vous pouvez modifier vos textes, ajouter des articles de blog et mettre à jour vos images sans aucune compétence technique. Une formation complète est incluse dans chaque livraison.',
+      category: 'maintenance',
     },
     {
       id: '5',
       question: 'Quelle est la différence entre un site Next.js et un site WordPress ?',
-      answer: 'Next.js est un framework React qui offre des performances supérieures (score Lighthouse 95-100), un chargement quasi-instantané et une sécurité renforcée. WordPress offre un écosystème de plugins plus large mais peut être plus lourd en performances. Nous recommandons Next.js pour les entreprises qui veulent se démarquer techniquement et en SEO, et WordPress pour les projets nécessitant un CMS classique.',
-      category: 'technical'
+      answer:
+        'Next.js est un framework React qui offre des performances supérieures (score Lighthouse 95-100), un chargement quasi-instantané et une sécurité renforcée. WordPress offre un écosystème de plugins plus large mais peut être plus lourd en performances. Nous recommandons Next.js pour les entreprises qui veulent se démarquer techniquement et en SEO, et WordPress pour les projets nécessitant un CMS classique.',
+      category: 'technical',
     },
     {
       id: '6',
       question: 'Proposez-vous un accompagnement après la livraison du site ?',
-      answer: 'Oui. Nous proposons des contrats de maintenance mensuelle incluant : mises à jour de sécurité, sauvegardes quotidiennes, monitoring des performances, petites évolutions et support technique réactif. Vous n\'êtes jamais seul après le lancement.',
-      category: 'maintenance'
+      answer:
+        "Oui. Nous proposons des contrats de maintenance mensuelle incluant : mises à jour de sécurité, sauvegardes quotidiennes, monitoring des performances, petites évolutions et support technique réactif. Vous n'êtes jamais seul après le lancement.",
+      category: 'maintenance',
     },
     {
       id: '7',
       question: 'Travaillez-vous avec des entreprises de tous les arrondissements parisiens ?',
-      answer: 'Oui, nous accompagnons des entreprises dans tout Paris : du 1er au 20ème arrondissement, ainsi qu\'en petite et grande couronne (92, 93, 94). Nos clients sont des restaurants, cabinets médicaux, agences immobilières, boutiques, freelances et startups. Nous nous déplaçons pour les réunions de lancement sur Paris et Île-de-France.',
-      category: 'local'
+      answer:
+        "Oui, nous accompagnons des entreprises dans tout Paris : du 1er au 20ème arrondissement, ainsi qu'en petite et grande couronne (92, 93, 94). Nos clients sont des restaurants, cabinets médicaux, agences immobilières, boutiques, freelances et startups. Nous nous déplaçons pour les réunions de lancement sur Paris et Île-de-France.",
+      category: 'local',
     },
     {
       id: '8',
       question: 'Mon site sera-t-il visible sur mobile et tablette ?',
-      answer: 'Tous nos sites sont conçus en "mobile-first" : ils s\'adaptent parfaitement à tous les formats d\'écran (smartphone, tablette, desktop). Google privilégie le responsive design pour le référencement, et plus de 60 % du trafic web provient aujourd\'hui des mobiles. Votre site sera testé sur une dizaine d\'appareils différents avant la livraison.',
-      category: 'technical'
-    }
+      answer:
+        "Tous nos sites sont conçus en \"mobile-first\" : ils s'adaptent parfaitement à tous les formats d'écran (smartphone, tablette, desktop). Google privilégie le responsive design pour le référencement, et plus de 60 % du trafic web provient aujourd'hui des mobiles. Votre site sera testé sur une dizaine d'appareils différents avant la livraison.",
+      category: 'technical',
+    },
   ]
 
   return (
@@ -401,30 +409,69 @@ const AgenceWebParisLandingContent: React.FC = () => {
               </h2>
               <div className='prose prose-lg text-gray-700 space-y-4'>
                 <p>
-                  Le marché parisien est l'un des plus concurrentiels de France. Que vous soyez une startup sur la Rive Droite, un cabinet d'avocats sur la Rive Gauche, ou un restaurant au cœur de la capitale, votre site web est aujourd'hui votre premier commercial. Un internaute parisien prend sa décision en moins de 5 secondes : design, rapidité, clarté et confiance sont non négociables.
+                  Le marché parisien est l'un des plus concurrentiels de France. Que vous soyez une
+                  startup sur la Rive Droite, un cabinet d'avocats sur la Rive Gauche, ou un
+                  restaurant au cœur de la capitale, votre site web est aujourd'hui votre premier
+                  commercial. Un internaute parisien prend sa décision en moins de 5 secondes :
+                  design, rapidité, clarté et confiance sont non négociables.
                 </p>
                 <p>
-                  Depuis 2024, Google intègre les <strong>Core Web Vitals</strong> comme facteur de classement majeur. Cela signifie que les sites lents ou mal optimisés pour mobile perdent des positions, quelles que soient leurs autres qualités. C'est pourquoi nous construisons tous nos sites avec <strong>Next.js</strong>, un framework qui garantit des scores Lighthouse 95+ et un chargement en moins d'une seconde.
+                  Depuis 2024, Google intègre les <strong>Core Web Vitals</strong> comme facteur de
+                  classement majeur. Cela signifie que les sites lents ou mal optimisés pour mobile
+                  perdent des positions, quelles que soient leurs autres qualités. C'est pourquoi
+                  nous construisons tous nos sites avec <strong>Next.js</strong>, un framework qui
+                  garantit des scores Lighthouse 95+ et un chargement en moins d'une seconde.
                 </p>
                 <p>
-                  Notre agence web parisienne accompagne aussi bien les <strong>TPE et PME locales</strong> que les startups en phase de croissance. Nous comprenons les spécificités de chaque secteur : le tissu commercial dynamique, les professions libérales, les quartiers créatifs ou les entreprises B2B de La Défense. Cette connaissance locale se traduit par des contenus ciblés et un référencement local précis.
+                  Notre agence web parisienne accompagne aussi bien les{' '}
+                  <strong>TPE et PME locales</strong> que les startups en phase de croissance. Nous
+                  comprenons les spécificités de chaque secteur : le tissu commercial dynamique, les
+                  professions libérales, les quartiers créatifs ou les entreprises B2B de La
+                  Défense. Cette connaissance locale se traduit par des contenus ciblés et un
+                  référencement local précis.
                 </p>
                 <p>
-                  Nos projets livrés à Paris incluent des sites pour : restaurants gastronomiques, cabinets médicaux, agences immobilières, artisans, e-commerçants et SaaS. Chaque site est pensé pour convertir — pas seulement pour être beau.
+                  Nos projets livrés à Paris incluent des sites pour : restaurants gastronomiques,
+                  cabinets médicaux, agences immobilières, artisans, e-commerçants et SaaS. Chaque
+                  site est pensé pour convertir — pas seulement pour être beau.
                 </p>
               </div>
             </div>
             <div className='space-y-6'>
-              <h3 className='text-2xl font-bold text-gray-900'>Pour qui travaillons-nous à Paris ?</h3>
+              <h3 className='text-2xl font-bold text-gray-900'>
+                Pour qui travaillons-nous à Paris ?
+              </h3>
               <div className='space-y-4'>
                 {[
-                  { emoji: '🏪', title: 'Commerces & boutiques', desc: 'Vitrines locales, menus en ligne, systèmes de réservation et e-commerce pour capter la clientèle de quartier et touristique.' },
-                  { emoji: '⚕️', title: 'Professions de santé', desc: 'Sites conformes RGPD pour médecins, dentistes, kinésithérapeutes et psychologues. Prise de rendez-vous en ligne intégrée.' },
-                  { emoji: '🏢', title: 'PME & startups', desc: 'Applications web sur mesure, sites institutionnels, landing pages de conversion et outils SaaS pour entreprises en croissance.' },
-                  { emoji: '🎨', title: 'Freelances & créatifs', desc: 'Portfolios premium, sites vitrine et outils de facturation intégrés pour photographes, designers et consultants indépendants.' },
-                  { emoji: '🍽️', title: 'Restauration & hôtellerie', desc: 'Sites avec menus dynamiques, galeries photos, réservation en ligne (Zenchef, TheFork) et SEO local pour apparaître sur Google Maps.' },
+                  {
+                    emoji: '🏪',
+                    title: 'Commerces & boutiques',
+                    desc: 'Vitrines locales, menus en ligne, systèmes de réservation et e-commerce pour capter la clientèle de quartier et touristique.',
+                  },
+                  {
+                    emoji: '⚕️',
+                    title: 'Professions de santé',
+                    desc: 'Sites conformes RGPD pour médecins, dentistes, kinésithérapeutes et psychologues. Prise de rendez-vous en ligne intégrée.',
+                  },
+                  {
+                    emoji: '🏢',
+                    title: 'PME & startups',
+                    desc: 'Applications web sur mesure, sites institutionnels, landing pages de conversion et outils SaaS pour entreprises en croissance.',
+                  },
+                  {
+                    emoji: '🎨',
+                    title: 'Freelances & créatifs',
+                    desc: 'Portfolios premium, sites vitrine et outils de facturation intégrés pour photographes, designers et consultants indépendants.',
+                  },
+                  {
+                    emoji: '🍽️',
+                    title: 'Restauration & hôtellerie',
+                    desc: 'Sites avec menus dynamiques, galeries photos, réservation en ligne (Zenchef, TheFork) et SEO local pour apparaître sur Google Maps.',
+                  },
                 ].map((item, i) => (
-                  <div key={i} className='flex gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-blue-200 transition-colors'>
+                  <div
+                    key={i}
+                    className='flex gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-blue-200 transition-colors'>
                     <span className='text-2xl shrink-0'>{item.emoji}</span>
                     <div>
                       <h4 className='font-bold text-gray-900 mb-1'>{item.title}</h4>
@@ -442,12 +489,14 @@ const AgenceWebParisLandingContent: React.FC = () => {
       <section className='py-20 bg-gray-50 relative overflow-hidden'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='text-center mb-16'>
-             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>
-               Combien coûte la création d'un site web par notre agence à Paris ?
-             </h2>
-             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-               Chez Sidikoff Digital, nous croyons en la transparence totale. Pas de frais cachés, pas de surprises. Voici un aperçu de nos grilles tarifaires pour nos clients parisiens et d'Île-de-France.
-             </p>
+            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>
+              Combien coûte la création d'un site web par notre agence à Paris ?
+            </h2>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+              Chez Sidikoff Digital, nous croyons en la transparence totale. Pas de frais cachés,
+              pas de surprises. Voici un aperçu de nos grilles tarifaires pour nos clients parisiens
+              et d'Île-de-France.
+            </p>
           </div>
           <div className='grid md:grid-cols-3 gap-8'>
             <div className='bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition'>
@@ -455,24 +504,56 @@ const AgenceWebParisLandingContent: React.FC = () => {
               <p className='text-gray-500 mb-6'>Pour les artisans et TPE</p>
               <div className='text-4xl font-bold text-blue-600 mb-6'>Dès 690 €</div>
               <ul className='space-y-3 text-gray-600 mb-8'>
-                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Design sur-mesure premium</li>
-                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Jusqu'à 5 pages (Accueil, Services, À propos, Contact)</li>
-                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Optimisation mobile (Responsive)</li>
-                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Optimisation SEO locale de base</li>
-                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Livraison sous 7 à 14 jours</li>
+                <li className='flex items-start'>
+                  <CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Design sur-mesure
+                  premium
+                </li>
+                <li className='flex items-start'>
+                  <CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Jusqu'à 5 pages
+                  (Accueil, Services, À propos, Contact)
+                </li>
+                <li className='flex items-start'>
+                  <CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Optimisation
+                  mobile (Responsive)
+                </li>
+                <li className='flex items-start'>
+                  <CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Optimisation SEO
+                  locale de base
+                </li>
+                <li className='flex items-start'>
+                  <CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Livraison sous 7
+                  à 14 jours
+                </li>
               </ul>
             </div>
             <div className='bg-blue-600 text-white p-8 rounded-2xl shadow-xl transform md:-translate-y-4 relative'>
-              <div className='absolute top-0 right-0 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl'>LE PLUS POPULAIRE</div>
+              <div className='absolute top-0 right-0 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl'>
+                LE PLUS POPULAIRE
+              </div>
               <h3 className='text-2xl font-bold mb-2'>Site Vitrine Avancé</h3>
               <p className='text-blue-100 mb-6'>Pour PME & Professions libérales</p>
               <div className='text-4xl font-bold mb-6'>Dès 1 290 €</div>
               <ul className='space-y-3 text-blue-50 mb-8'>
-                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-blue-300 mr-2 shrink-0' /> Design UX/UI haute conversion</li>
-                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-blue-300 mr-2 shrink-0' /> Architecture multi-pages (jusqu'à 15 pages)</li>
-                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-blue-300 mr-2 shrink-0' /> Intégration de blog / actualités</li>
-                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-blue-300 mr-2 shrink-0' /> Stratégie SEO sémantique poussée</li>
-                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-blue-300 mr-2 shrink-0' /> Connexion outils (CRM, Analytics)</li>
+                <li className='flex items-start'>
+                  <CheckCircle className='w-5 h-5 text-blue-300 mr-2 shrink-0' /> Design UX/UI haute
+                  conversion
+                </li>
+                <li className='flex items-start'>
+                  <CheckCircle className='w-5 h-5 text-blue-300 mr-2 shrink-0' /> Architecture
+                  multi-pages (jusqu'à 15 pages)
+                </li>
+                <li className='flex items-start'>
+                  <CheckCircle className='w-5 h-5 text-blue-300 mr-2 shrink-0' /> Intégration de
+                  blog / actualités
+                </li>
+                <li className='flex items-start'>
+                  <CheckCircle className='w-5 h-5 text-blue-300 mr-2 shrink-0' /> Stratégie SEO
+                  sémantique poussée
+                </li>
+                <li className='flex items-start'>
+                  <CheckCircle className='w-5 h-5 text-blue-300 mr-2 shrink-0' /> Connexion outils
+                  (CRM, Analytics)
+                </li>
               </ul>
             </div>
             <div className='bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition'>
@@ -480,17 +561,37 @@ const AgenceWebParisLandingContent: React.FC = () => {
               <p className='text-gray-500 mb-6'>Boutiques en ligne & Apps</p>
               <div className='text-4xl font-bold text-blue-600 mb-6'>Dès 2 490 €</div>
               <ul className='space-y-3 text-gray-600 mb-8'>
-                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Architecture e-commerce (Stripe, panier)</li>
-                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Design de tunnel d'achat optimisé</li>
-                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Fiches produits dynamiques</li>
-                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Développement Next.js / React.js</li>
-                <li className='flex items-start'><CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Hautes performances (Core Web Vitals)</li>
+                <li className='flex items-start'>
+                  <CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Architecture
+                  e-commerce (Stripe, panier)
+                </li>
+                <li className='flex items-start'>
+                  <CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Design de tunnel
+                  d'achat optimisé
+                </li>
+                <li className='flex items-start'>
+                  <CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Fiches produits
+                  dynamiques
+                </li>
+                <li className='flex items-start'>
+                  <CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Développement
+                  Next.js / React.js
+                </li>
+                <li className='flex items-start'>
+                  <CheckCircle className='w-5 h-5 text-green-500 mr-2 shrink-0' /> Hautes
+                  performances (Core Web Vitals)
+                </li>
               </ul>
             </div>
           </div>
           <div className='mt-12 prose prose-lg text-gray-700 max-w-none'>
             <p>
-              Créer un site internet professionnel à Paris représente un investissement, et notre rôle d'agence est de nous assurer que cet investissement génère un retour (ROI) positif. Contrairement aux plateformes de création de site basiques, nous livrons des outils sur-mesure qui vous appartiennent à 100%. Nos tarifs incluent toujours une phase d'audit de votre marché parisien (concurrents directs, habitudes de recherche locale), le web design, le développement technique et la mise en ligne.
+              Créer un site internet professionnel à Paris représente un investissement, et notre
+              rôle d'agence est de nous assurer que cet investissement génère un retour (ROI)
+              positif. Contrairement aux plateformes de création de site basiques, nous livrons des
+              outils sur-mesure qui vous appartiennent à 100%. Nos tarifs incluent toujours une
+              phase d'audit de votre marché parisien (concurrents directs, habitudes de recherche
+              locale), le web design, le développement technique et la mise en ligne.
             </p>
           </div>
         </div>
@@ -506,27 +607,47 @@ const AgenceWebParisLandingContent: React.FC = () => {
               </h2>
               <div className='prose prose-lg text-gray-700 space-y-4'>
                 <p>
-                  Avoir un beau site internet ne suffit plus. À Paris, la concurrence digitale est féroce. Si vous tapez "agence immobilière à Paris" ou "restaurant italien près de chez moi", vous verrez que seules les premières positions génèrent du trafic qualifié. C'est là qu'intervient notre expertise en <strong>SEO local</strong>.
+                  Avoir un beau site internet ne suffit plus. À Paris, la concurrence digitale est
+                  féroce. Si vous tapez "agence immobilière à Paris" ou "restaurant italien près de
+                  chez moi", vous verrez que seules les premières positions génèrent du trafic
+                  qualifié. C'est là qu'intervient notre expertise en <strong>SEO local</strong>.
                 </p>
                 <p>
-                  En tant qu'<strong>agence web à Paris</strong>, nous intégrons la dimension marketing dès la première ligne de code. Nous réalisons une étude sémantique approfondie pour cibler les mots-clés de votre secteur d'activité, nous structurons vos balises Hn (H1, H2, H3), nous optimisons les méta-descriptions et nous nous assurons que le maillage interne est parfait. De plus, la performance technique de nos développements (grâce à des technologies modernes comme Next.js ou TailwindCSS) garantit que Google privilégiera vos pages pour leur vitesse de chargement.
+                  En tant qu'<strong>agence web à Paris</strong>, nous intégrons la dimension
+                  marketing dès la première ligne de code. Nous réalisons une étude sémantique
+                  approfondie pour cibler les mots-clés de votre secteur d'activité, nous
+                  structurons vos balises Hn (H1, H2, H3), nous optimisons les méta-descriptions et
+                  nous nous assurons que le maillage interne est parfait. De plus, la performance
+                  technique de nos développements (grâce à des technologies modernes comme Next.js
+                  ou TailwindCSS) garantit que Google privilégiera vos pages pour leur vitesse de
+                  chargement.
                 </p>
                 <p>
-                  Mais notre accompagnement ne s'arrête pas au lancement. Nous vous formons à l'utilisation de votre nouvel outil, pour que vous soyez autonome sur la publication de vos actualités ou de vos nouveaux produits. Nous proposons également des forfaits de maintenance pour sécuriser votre investissement sur le long terme. Vous bénéficiez ainsi de la proximité d'une équipe dédiée, disponible pour échanger autour d'un café dans vos locaux parisiens ou en visioconférence.
+                  Mais notre accompagnement ne s'arrête pas au lancement. Nous vous formons à
+                  l'utilisation de votre nouvel outil, pour que vous soyez autonome sur la
+                  publication de vos actualités ou de vos nouveaux produits. Nous proposons
+                  également des forfaits de maintenance pour sécuriser votre investissement sur le
+                  long terme. Vous bénéficiez ainsi de la proximité d'une équipe dédiée, disponible
+                  pour échanger autour d'un café dans vos locaux parisiens ou en visioconférence.
                 </p>
               </div>
             </div>
             <div className='relative h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl'>
-               <Image
-                 src='https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=1200&fit=crop'
-                 alt='Réunion stratégique agence web Paris'
-                 fill
-                 className='object-cover'
-               />
-               <div className='absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex flex-col justify-end p-8'>
-                  <div className='text-white font-bold text-2xl mb-2'>Au-delà du code, une stratégie</div>
-                  <p className='text-white/90'>Nous accompagnons les décideurs parisiens de A à Z : de l'audit initial au monitoring des positions SEO.</p>
-               </div>
+              <Image
+                src='https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=1200&fit=crop'
+                alt='Réunion stratégique agence web Paris'
+                fill
+                className='object-cover'
+              />
+              <div className='absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex flex-col justify-end p-8'>
+                <div className='text-white font-bold text-2xl mb-2'>
+                  Au-delà du code, une stratégie
+                </div>
+                <p className='text-white/90'>
+                  Nous accompagnons les décideurs parisiens de A à Z : de l'audit initial au
+                  monitoring des positions SEO.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -539,7 +660,8 @@ const AgenceWebParisLandingContent: React.FC = () => {
             Notre expertise web par arrondissement
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto mb-12'>
-            Cette page reste dédiée aux besoins web globaux des entreprises parisiennes. Pour une approche hyper-locale, consultez nos pages dédiées à chaque arrondissement.
+            Cette page reste dédiée aux besoins web globaux des entreprises parisiennes. Pour une
+            approche hyper-locale, consultez nos pages dédiées à chaque arrondissement.
           </p>
 
           <div className='mb-10 rounded-2xl border border-blue-100 bg-white p-6'>
@@ -566,18 +688,49 @@ const AgenceWebParisLandingContent: React.FC = () => {
           </div>
 
           <div className='flex flex-wrap justify-center gap-4'>
-            <Link href='/services/agence-web-paris-6' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 6ème</Link>
-            <Link href='/services/agence-web-paris-14' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 14ème</Link>
-            <Link href='/services/agence-web-paris-15' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 15ème</Link>
-            <Link href='/services/creation-site-internet-paris-16' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 16ème</Link>
-            <Link href='/services/agence-web-paris-17' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 17ème</Link>
-            <Link href='/services/agence-web-paris-19' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 19ème</Link>
+            <Link
+              href='/services/agence-web-paris-6'
+              className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>
+              Paris 6ème
+            </Link>
+            <Link
+              href='/services/agence-web-paris-14'
+              className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>
+              Paris 14ème
+            </Link>
+            <Link
+              href='/services/agence-web-paris-15'
+              className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>
+              Paris 15ème
+            </Link>
+            <Link
+              href='/services/creation-site-internet-paris-16'
+              className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>
+              Paris 16ème
+            </Link>
+            <Link
+              href='/services/agence-web-paris-17'
+              className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>
+              Paris 17ème
+            </Link>
+            <Link
+              href='/services/agence-web-paris-19'
+              className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>
+              Paris 19ème
+            </Link>
           </div>
           <div className='mt-10 p-6 bg-linear-to-r from-indigo-50 to-purple-50 rounded-2xl border border-indigo-100 text-center'>
             <p className='text-sm font-semibold text-indigo-600 mb-2'>Stack technique</p>
-            <h3 className='text-xl font-bold text-gray-900 mb-3'>Vous cherchez un expert Next.js ou React ?</h3>
-            <p className='text-gray-600 mb-4 max-w-xl mx-auto text-sm'>Nous développons des applications React et des sites Next.js haute performance pour les clients exigeants qui veulent se démarquer techniquement.</p>
-            <Link href='/services/agence-nextjs-react' className='inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition text-sm'>
+            <h3 className='text-xl font-bold text-gray-900 mb-3'>
+              Vous cherchez un expert Next.js ou React ?
+            </h3>
+            <p className='text-gray-600 mb-4 max-w-xl mx-auto text-sm'>
+              Nous développons des applications React et des sites Next.js haute performance pour
+              les clients exigeants qui veulent se démarquer techniquement.
+            </p>
+            <Link
+              href='/services/agence-nextjs-react'
+              className='inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition text-sm'>
               Découvrir notre expertise Next.js →
             </Link>
           </div>
@@ -600,10 +753,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
       </section>
 
       {/* Portfolio Section - Using existing Portfolio component */}
-      <Portfolio
-        isHomePage={true}
-        className='py-20 bg-linear-to-br from-gray-50 to-blue-50'
-      />
+      <Portfolio isHomePage={true} className='py-20 bg-linear-to-br from-gray-50 to-blue-50' />
 
       {/* Final CTA Section */}
       <section className='py-20 bg-linear-to-br from-blue-900 via-blue-800 to-blue-600 text-white relative overflow-hidden'>

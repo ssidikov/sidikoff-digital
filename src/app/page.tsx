@@ -6,7 +6,7 @@ import {
   generateReviewStructuredData,
   generatePersonSchema,
 } from '@/lib/seo-utils'
-import { getBlogPosts } from '@/lib/sanity'
+import { allBlogPosts } from '@/lib/blog-data'
 import { TESTIMONIALS_DATA } from '@/data/testimonials'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
@@ -95,7 +95,7 @@ function generateHomePageSchemas() {
 }
 
 export default async function HomePage() {
-  const posts = await getBlogPosts()
+  const posts = allBlogPosts
   const latestPosts = posts.slice(0, 3)
   const schemas = generateHomePageSchemas()
 

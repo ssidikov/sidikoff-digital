@@ -15,7 +15,7 @@ const PAGE_SLUG = 'services/agence-web-paris-19'
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = defaultLocale
-  const pageTitle = 'Agence Web Paris 19 | Création Site Internet'
+  const pageTitle = 'Agence Web Paris 19 | Sidikoff'
   const pageDescription =
     'Création de site internet à Paris 19 : La Villette, Buttes-Chaumont. Agence web pour artisans, PME et associations. Devis gratuit.'
 

@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 
 import { Section } from '@/components/ui'
@@ -161,8 +161,20 @@ const lyonSchemas = [
 ]
 
 export default async function LyonPage() {
+  
+  const breadcrumbSchema = generateBreadcrumbStructuredData([
+    { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
+    { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
+    { name: 'Restauration & gastronomie', url: `${DEFAULT_SEO.siteUrl}/services/creation-site-internet-lyon` },
+  ])
+
   return (
-    <div className='min-h-screen'>
+    <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <div className='min-h-screen'>
       {lyonSchemas.map((schema, i) => (
         <script
           key={`lyon-schema-${i}`}
@@ -907,7 +919,7 @@ export default async function LyonPage() {
                   {[
                     {
                       icon: '🍽️',
-                      title: 'Restauration & gastronomie',
+                      title: 'Restauration & gastronomie | Sidikoff',
                       desc: 'Bouchons lyonnais, restaurants gastronomiques, bars à vin : menus en ligne, réservation en ligne (TheFork, Zenchef), galeries photos et SEO local pour apparaître en tête sur Google Maps et « restaurant Lyon » + quartier.'
                     },
                     {
@@ -1129,5 +1141,6 @@ export default async function LyonPage() {
         </Section>
       </div>
     </div>
+    </>
   )
 }

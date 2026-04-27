@@ -4,7 +4,7 @@ import { useState, useMemo, useCallback } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
-import { BlogPost, BlogCategory } from '@/lib/sanity'
+import { type BlogPost } from '@/lib/blog-data'
 import { CategoryFilter } from '@/components/ui/CategoryFilter'
 import common from '@/locales/fr/common.json'
 import { getLocalizedUrl } from '@/utils/navigation'
@@ -13,7 +13,7 @@ import Section from '@/components/ui/Section'
 
 interface BlogPageContentProps {
   readonly posts: BlogPost[]
-  readonly categories: BlogCategory[]
+  readonly categories: any[]
 }
 
 // Animation configuration constants
@@ -135,7 +135,7 @@ export function BlogPageContent({ posts, categories }: BlogPageContentProps) {
   // Filter posts based on selected category
   const filteredPosts = useMemo(() => {
     if (!selectedCategory) return posts
-    return posts.filter((post) => post.category?._id === selectedCategory)
+    return posts.filter((post) => post.category === selectedCategory)
   }, [posts, selectedCategory])
 
   // Separate featured and regular posts
@@ -224,7 +224,7 @@ export function BlogPageContent({ posts, categories }: BlogPageContentProps) {
             <div className={STYLES.featuredGrid}>
               {featuredPosts.map((post, index) => (
                 <BlogCard
-                  key={post._id}
+                  key={post.slug}
                   post={post}
                   featured={true}
                   index={index}
@@ -238,7 +238,7 @@ export function BlogPageContent({ posts, categories }: BlogPageContentProps) {
             <div className={STYLES.regularGrid}>
               {regularPosts.map((post, index) => (
                 <BlogCard
-                  key={post._id}
+                  key={post.slug}
                   post={post}
                   featured={false}
                   index={index + featuredPosts.length}

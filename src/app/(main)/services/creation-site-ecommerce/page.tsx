@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import common from '@/locales/fr/common.json'
 import EcommerceLandingContent from '@/components/EcommerceLandingContent'
-import { generatePageMetadata, createCanonicalUrl } from '@/lib/seo-utils'
+import { generatePageMetadata, createCanonicalUrl , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 
 const PAGE_URL = createCanonicalUrl('services/creation-site-ecommerce', 'fr')
 
@@ -122,8 +122,19 @@ const faqSchema = {
 }
 
 export default function EcommerceLandingPage() {
+  
+  const breadcrumbSchema = generateBreadcrumbStructuredData([
+    { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
+    { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
+    { name: 'Creation Site Ecommerce', url: PAGE_URL },
+  ])
+
   return (
     <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}

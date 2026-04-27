@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import travelData from '@/locales/fr/travel_agency_landing.json'
 import TravelAgencyLandingContent from '@/components/TravelAgencyLandingContent'
@@ -34,5 +34,20 @@ export function generateMetadata(): Metadata {
 }
 
 export default function TravelAgencyLandingPage() {
-  return <TravelAgencyLandingContent />
+  
+  const breadcrumbSchema = generateBreadcrumbStructuredData([
+    { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
+    { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
+    { name: 'Creation Site Internet Agence Voyage', url: `${DEFAULT_SEO.siteUrl}/services/creation-site-internet-agence-voyage` },
+  ])
+
+  return (
+    <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <TravelAgencyLandingContent />
+    </>
+  )
 }
