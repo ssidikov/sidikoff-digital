@@ -4,6 +4,8 @@ export interface BlogPost {
   description: string
   date: string
   author: string
+  image: string
+  imageAlt: string
   content: string // HTML string
   keywords: string
   category: string
@@ -17,6 +19,8 @@ export const blogPosts: BlogPost[] = [
     date: '2026-04-27',
     author: 'L\'équipe Sidikoff Digital',
     category: 'Budget & Tarifs',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80',
+    imageAlt: 'Tableau de bord analytics sur ordinateur portable pour estimer le budget d\'un site web',
     keywords: 'prix site internet lyon, tarif creation site web lyon, devis site internet lyon, agence web lyon prix',
     content: `
       <h2>Le marché lyonnais de la création web</h2>
@@ -51,6 +55,8 @@ export const blogPosts: BlogPost[] = [
     date: '2026-04-27',
     author: 'L\'équipe Sidikoff Digital',
     category: 'Budget & Tarifs',
+    image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80',
+    imageAlt: 'Bureau d\'agence moderne representant le marche parisien de la creation web',
     keywords: 'prix site internet paris, tarif agence web paris, devis creation site paris, cout site web ile de france',
     content: `
       <h2>La spécificité du marché parisien</h2>
@@ -87,6 +93,8 @@ export const blogPosts: BlogPost[] = [
     date: '2026-04-27',
     author: 'L\'équipe Sidikoff Digital',
     category: 'Professions Libérales',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=80',
+    imageAlt: 'Professionnel de sante utilisant une tablette dans un cabinet medical',
     keywords: 'prix site web medecin, tarif site internet dentiste, devis site medical, agence communication sante',
     content: `
       <h2>L'importance croissante de la visibilité médicale</h2>
@@ -122,6 +130,8 @@ export const blogPosts: BlogPost[] = [
     date: '2026-04-27',
     author: 'L\'équipe Sidikoff Digital',
     category: 'SEO Local',
+    image: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1600&q=80',
+    imageAlt: 'Architecture urbaine dense evoquant une strategie de SEO local a Villeurbanne',
     keywords: 'seo local villeurbanne, referencement local villeurbanne, google my business villeurbanne, agence seo villeurbanne',
     content: `
       <h2>Pourquoi le SEO local est vital à Villeurbanne ?</h2>
@@ -156,6 +166,8 @@ export const blogPosts: BlogPost[] = [
     date: '2026-04-27',
     author: 'L\'équipe Sidikoff Digital',
     category: 'Technologies',
+    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=80',
+    imageAlt: 'Equipe produit travaillant sur une architecture web moderne avec Next.js et WordPress',
     keywords: 'nextjs vs wordpress, choisir wordpress ou next js, architecture web, headless cms, framework react',
     content: `
       <h2>Le choc des générations technologiques</h2>

@@ -8,6 +8,8 @@ export const blogPostsPart2: BlogPost[] = [
     date: '2026-04-27',
     author: 'L\'équipe Sidikoff Digital',
     category: 'Entrepreneuriat',
+    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80',
+    imageAlt: 'Freelance en rendez-vous client pour structurer son positionnement digital',
     keywords: 'site internet freelance, creer site freelance, portfolio en ligne, independant site web, trouver clients freelance',
     content: `
       <h2>L'illusion des plateformes de freelancing</h2>
@@ -33,6 +35,8 @@ export const blogPostsPart2: BlogPost[] = [
     date: '2026-04-27',
     author: 'L\'équipe Sidikoff Digital',
     category: 'Design & UX',
+    image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80',
+    imageAlt: 'Paysage photographie au lever du jour pour illustrer un portfolio photo performant',
     keywords: 'site web photographe, portfolio en ligne photographe, referencement photographe, creer site photo, agence web portfolio',
     content: `
       <h2>Le paradoxe du site de photographe</h2>
@@ -61,6 +65,8 @@ export const blogPostsPart2: BlogPost[] = [
     date: '2026-04-27',
     author: 'L\'équipe Sidikoff Digital',
     category: 'SEO & Technique',
+    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600&q=80',
+    imageAlt: 'Equipe projet analysant les risques SEO avant une refonte de site web',
     keywords: 'refonte site web seo, migration site internet, redirection 301, chute trafic apres refonte, agence web refonte',
     content: `
       <h2>Le cauchemar de la migration ratée</h2>
@@ -89,6 +95,8 @@ export const blogPostsPart2: BlogPost[] = [
     date: '2026-04-27',
     author: 'L\'équipe Sidikoff Digital',
     category: 'Stratégie',
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80',
+    imageAlt: 'Ordinateur avec travail d\'analyse pour comparer deux strategies SEO locales',
     keywords: 'seo paris, seo lyon, referencement local concurrence, agence seo france, classement google',
     content: `
       <h2>Deux villes, deux niveaux de concurrence</h2>
@@ -118,6 +126,8 @@ export const blogPostsPart2: BlogPost[] = [
     date: '2026-04-27',
     author: 'L\'équipe Sidikoff Digital',
     category: 'Gestion de Projet',
+    image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=80',
+    imageAlt: 'Atelier de lancement avec une equipe qui verifie la checklist d\'un site web',
     keywords: 'checklist lancement site web, creation site pme, audit pre lancement, rgpd site web, seo checklist',
     content: `
       <h2>Avant d'appuyer sur "Mettre en ligne"</h2>

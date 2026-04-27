@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const PAGE_URL = createCanonicalUrl(`blog/${post.slug}`, 'fr')
+  const imageUrl = post.image
 
   return {
     title: post.title,
@@ -41,14 +42,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: PAGE_URL,
       authors: [post.author],
       publishedTime: post.date,
-      images: [{ url: '/images/opengraph-fr.png', width: 1200, height: 630, alt: post.title }],
+      images: [{ url: imageUrl, width: 1600, height: 900, alt: post.imageAlt }],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
       creator: '@sidikoffdigital',
-      images: ['/images/opengraph-fr.png'],
+      images: [imageUrl],
     },
     alternates: {
       canonical: PAGE_URL,
@@ -67,13 +68,14 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   const PAGE_URL = createCanonicalUrl(`blog/${post.slug}`, 'fr')
+  const imageUrl = post.image
 
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": post.title,
     "description": post.description,
-    "image": "https://www.sidikoff.com/images/opengraph-fr.png",
+    "image": imageUrl,
     "author": {
       "@type": "Organization",
       "name": post.author,
