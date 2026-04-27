@@ -34,9 +34,9 @@ export async function generateMetadata(): Promise<Metadata> {
       'seo local paris',
       'refonte site web paris',
     ],
-    authors: [{ name: 'SIDIKOFF DIGITAL' }],
-    creator: 'SIDIKOFF DIGITAL',
-    publisher: 'SIDIKOFF DIGITAL',
+    authors: [{ name: 'Sidikoff Digital' }],
+    creator: 'Sidikoff Digital',
+    publisher: 'Sidikoff Digital',
     alternates: {
       canonical: pageUrl,
       languages: generateAlternateUrls(PAGE_SLUG),
@@ -137,7 +137,7 @@ export default function AgenceWebParisLandingPage() {
     areaServed: ['Paris', 'Île-de-France'],
     image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
     provider: {
-      name: 'SIDIKOFF DIGITAL',
+      name: 'Sidikoff Digital',
       url: DEFAULT_SEO.siteUrl,
     },
   })

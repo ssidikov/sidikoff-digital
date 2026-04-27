@@ -210,7 +210,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
                   className='rounded-2xl shadow-2xl object-cover'
                   priority
                 />
-                <div className='absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-2xl'></div>
+                <div className='absolute inset-0 bg-linear-to-t from-black/30 to-transparent rounded-2xl'></div>
 
                 {/* Floating badges */}
                 <div className='absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2'>
@@ -425,7 +425,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
                   { emoji: '🍽️', title: 'Restauration & hôtellerie', desc: 'Sites avec menus dynamiques, galeries photos, réservation en ligne (Zenchef, TheFork) et SEO local pour apparaître sur Google Maps.' },
                 ].map((item, i) => (
                   <div key={i} className='flex gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-blue-200 transition-colors'>
-                    <span className='text-2xl flex-shrink-0'>{item.emoji}</span>
+                    <span className='text-2xl shrink-0'>{item.emoji}</span>
                     <div>
                       <h4 className='font-bold text-gray-900 mb-1'>{item.title}</h4>
                       <p className='text-gray-600 text-sm leading-relaxed'>{item.desc}</p>
@@ -523,7 +523,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
                  fill
                  className='object-cover'
                />
-               <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8'>
+               <div className='absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex flex-col justify-end p-8'>
                   <div className='text-white font-bold text-2xl mb-2'>Au-delà du code, une stratégie</div>
                   <p className='text-white/90'>Nous accompagnons les décideurs parisiens de A à Z : de l'audit initial au monitoring des positions SEO.</p>
                </div>
@@ -539,8 +539,32 @@ const AgenceWebParisLandingContent: React.FC = () => {
             Notre expertise web par arrondissement
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto mb-12'>
-            Nous accompagnons les entreprises locales partout dans Paris avec une approche de proximité. Quel que soit votre quartier dans la capitale, nous connaissons votre marché. Découvrez nos pages dédiées à chaque arrondissement.
+            Cette page reste dédiée aux besoins web globaux des entreprises parisiennes. Pour une approche hyper-locale, consultez nos pages dédiées à chaque arrondissement.
           </p>
+
+          <div className='mb-10 rounded-2xl border border-blue-100 bg-white p-6'>
+            <p className='text-sm font-semibold uppercase tracking-wide text-blue-700 mb-4'>
+              Services principaux à Paris
+            </p>
+            <div className='flex flex-wrap justify-center gap-3'>
+              <Link
+                href='/services/creation-site-internet-paris'
+                className='px-5 py-2.5 bg-blue-50 text-blue-700 font-semibold rounded-full border border-blue-200 hover:bg-blue-100 transition'>
+                Création de site internet Paris
+              </Link>
+              <Link
+                href='/services/seo-paris'
+                className='px-5 py-2.5 bg-blue-50 text-blue-700 font-semibold rounded-full border border-blue-200 hover:bg-blue-100 transition'>
+                SEO Paris
+              </Link>
+              <Link
+                href='/services/agence-nextjs-react'
+                className='px-5 py-2.5 bg-blue-50 text-blue-700 font-semibold rounded-full border border-blue-200 hover:bg-blue-100 transition'>
+                Agence Next.js et React
+              </Link>
+            </div>
+          </div>
+
           <div className='flex flex-wrap justify-center gap-4'>
             <Link href='/services/agence-web-paris-6' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 6ème</Link>
             <Link href='/services/agence-web-paris-14' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 14ème</Link>
@@ -549,7 +573,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
             <Link href='/services/agence-web-paris-17' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 17ème</Link>
             <Link href='/services/agence-web-paris-19' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 19ème</Link>
           </div>
-          <div className='mt-10 p-6 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl border border-indigo-100 text-center'>
+          <div className='mt-10 p-6 bg-linear-to-r from-indigo-50 to-purple-50 rounded-2xl border border-indigo-100 text-center'>
             <p className='text-sm font-semibold text-indigo-600 mb-2'>Stack technique</p>
             <h3 className='text-xl font-bold text-gray-900 mb-3'>Vous cherchez un expert Next.js ou React ?</h3>
             <p className='text-gray-600 mb-4 max-w-xl mx-auto text-sm'>Nous développons des applications React et des sites Next.js haute performance pour les clients exigeants qui veulent se démarquer techniquement.</p>

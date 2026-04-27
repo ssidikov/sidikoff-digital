@@ -14,14 +14,29 @@ const PAGE_SLUG = 'services/creation-site-internet-paris'
 const PAGE_URL = createCanonicalUrl(PAGE_SLUG, defaultLocale)
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Création Site Internet Paris | Agence Web'
+  const title = 'Création Site Internet Paris | Sites Vitrine et E-Commerce'
 
   const description =
-    'Agence web Paris & développeur web Île-de-France : sites vitrines dès 690 €, livrés en 7–14 jours. React & Next.js, SEO local Paris, Lighthouse 95+. Devis gratuit sous 24h pour votre projet.'
+    'Création de site internet à Paris pour TPE, PME et indépendants : site vitrine ou e-commerce, SEO local et performances Core Web Vitals. Devis gratuit sous 24h.'
 
   return {
     title,
     description,
+    keywords: [
+      'création site internet paris',
+      'création site web paris',
+      'site vitrine paris',
+      'site e-commerce paris',
+      'refonte site internet paris',
+      'création site internet paris 15',
+      'création site internet paris 16',
+      'création site internet paris 17',
+      'création site internet paris 19',
+      'seo local paris',
+    ],
+    authors: [{ name: 'Sidikoff Digital' }],
+    creator: 'Sidikoff Digital',
+    publisher: 'Sidikoff Digital',
     robots: {
       index: true,
       follow: true,
@@ -66,7 +81,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const serviceSchema = generateServiceSchema({
   name: 'Création de Site Internet à Paris',
   description:
-    'Agence web Paris spécialisée en création de sites vitrines et e-commerce. Next.js, React, SEO local optimisé. Livraison en 7–14 jours, devis gratuit sous 24h.',
+    'Création de sites internet vitrines et e-commerce à Paris, avec SEO local et optimisation des performances pour convertir un trafic qualifié.',
   url: PAGE_URL,
   serviceType: 'Création de site internet Paris',
   areaServed: [
@@ -84,7 +99,7 @@ const serviceSchema = generateServiceSchema({
   ],
   image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
   provider: {
-    name: 'SIDIKOFF DIGITAL',
+    name: 'Sidikoff Digital',
     url: DEFAULT_SEO.siteUrl,
   },
 })
@@ -103,10 +118,10 @@ const faqSchema = {
     },
     {
       '@type': 'Question',
-      name: 'Quelle agence web choisir à Paris pour la création de mon site internet ?',
+      name: 'Quel prestataire choisir à Paris pour créer mon site internet ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Pour choisir votre agence web à Paris, privilégiez un prestataire maîtrisant les technologies modernes (React, Next.js), proposant un SEO local Paris intégré dès la création, et livrant dans des délais maîtrisés (7 à 14 jours pour un site vitrine). Sidikoff Digital intervient dans tout Paris et en Île-de-France avec un accompagnement personnalisé, des tarifs transparents et une garantie Lighthouse > 95.',
+        text: 'Pour choisir un bon prestataire à Paris, privilégiez une équipe qui maîtrise les technologies modernes (React, Next.js), intègre le SEO local dès la conception et livre dans des délais clairs (7 à 14 jours pour un site vitrine). Sidikoff Digital intervient dans tout Paris et en Île-de-France avec un accompagnement personnalisé et des tarifs transparents.',
       },
     },
     {

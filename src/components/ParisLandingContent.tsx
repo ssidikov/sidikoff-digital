@@ -32,11 +32,11 @@ function getLocalizedContent() {
   // French only
   return {
     hero: {
-      badge: 'Expert Web Paris & Île-de-France',
+      badge: 'Spécialiste Création de Sites à Paris',
       title: 'Création de site internet professionnel à Paris',
       titleHighlight: 'Paris',
       description:
-        'Vous êtes une entreprise, un artisan, une startup ou un indépendant basé à Paris ou en Île-de-France et vous souhaitez développer votre visibilité en ligne ? Sidikoff Digital, agence web & développeur web Paris, est spécialisé dans la création de sites internet sur mesure, la refonte web et le référencement SEO local Paris.',
+        'Vous êtes une entreprise, un artisan, une startup ou un indépendant basé à Paris ou en Île-de-France et vous souhaitez développer votre visibilité en ligne ? Sidikoff Digital est spécialisé dans la création de sites internet sur mesure, la refonte web et le référencement SEO local Paris.',
       ctaPrimary: 'Demander un devis gratuit',
       ctaSecondary: 'Voir nos réalisations',
       trustIndicators: ['100+ Projets Paris & IDF', 'Site livré en 7 jours', 'SEO local Paris inclus'],
@@ -96,7 +96,7 @@ function getLocalizedContent() {
       ],
     },
     whyChooseUs: {
-      title: 'Pourquoi choisir notre agence web à Paris ?',
+      title: 'Pourquoi nous confier votre création de site à Paris ?',
       subtitle: 'Une expertise locale au service de votre réussite digitale',
       items: [
         {
@@ -450,14 +450,40 @@ export default function ParisLandingContent() {
               Notre expertise web par arrondissement
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto mb-12'>
-              Nous accompagnons les entreprises locales partout dans Paris avec une approche de proximité. Découvrez nos pages dédiées à chaque arrondissement.
+              Cette page cible l'intention globale « création site internet Paris ». Pour une approche plus locale, consultez nos pages dédiées à chaque arrondissement.
             </p>
+
+            <div className='mb-10 rounded-2xl border border-blue-100 bg-white p-6'>
+              <p className='text-sm font-semibold uppercase tracking-wide text-blue-700 mb-4'>
+                Liens utiles du cluster Paris
+              </p>
+              <div className='flex flex-wrap justify-center gap-3'>
+                <Link
+                  href='/services/agence-web-paris'
+                  className='px-5 py-2.5 bg-blue-50 text-blue-700 font-semibold rounded-full border border-blue-200 hover:bg-blue-100 transition'>
+                  Agence Web Paris (hub)
+                </Link>
+                <Link
+                  href='/services/seo-paris'
+                  className='px-5 py-2.5 bg-blue-50 text-blue-700 font-semibold rounded-full border border-blue-200 hover:bg-blue-100 transition'>
+                  SEO Paris
+                </Link>
+                <Link
+                  href='/services/agence-nextjs-react'
+                  className='px-5 py-2.5 bg-blue-50 text-blue-700 font-semibold rounded-full border border-blue-200 hover:bg-blue-100 transition'>
+                  Agence Next.js et React
+                </Link>
+              </div>
+            </div>
+
             <div className='flex flex-wrap justify-center gap-4'>
+              <Link href='/services/agence-web-paris-6' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 6ème</Link>
+              <Link href='/services/agence-web-paris-7' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 7ème</Link>
+              <Link href='/services/agence-web-paris-14' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 14ème</Link>
               <Link href='/services/agence-web-paris-15' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 15ème</Link>
               <Link href='/services/creation-site-internet-paris-16' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 16ème</Link>
               <Link href='/services/agence-web-paris-17' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 17ème</Link>
               <Link href='/services/agence-web-paris-19' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 19ème</Link>
-              <Link href='/services/agence-web-paris-6' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border border-blue-200 hover:bg-blue-50 transition'>Paris 6ème</Link>
             </div>
           </div>
         </Section>
