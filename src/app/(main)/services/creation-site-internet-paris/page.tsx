@@ -98,7 +98,7 @@ const faqSchema = {
       name: "Combien coûte la création d'un site internet à Paris ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Un site vitrine professionnel à Paris démarre à 690€ TTC, livré en 5 jours ouvrés. Un site multi-pages complet est proposé à partir de 1 290€ — idéal pour les PME, restaurants et professions libérales parisiennes souhaitant un bon référencement local. Un site e-commerce ou application sur mesure est disponible à partir de 1 990€. Tous nos tarifs incluent le SEO de base, le design responsive et la mise en ligne. Devis gratuit personnalisé sous 24h.",
+        text: 'Un site vitrine professionnel à Paris démarre à 690€ TTC, livré en 5 jours ouvrés. Un site multi-pages complet est proposé à partir de 1 290€ — idéal pour les PME, restaurants et professions libérales parisiennes souhaitant un bon référencement local. Un site e-commerce ou application sur mesure est disponible à partir de 1 990€. Tous nos tarifs incluent le SEO de base, le design responsive et la mise en ligne. Devis gratuit personnalisé sous 24h.',
       },
     },
     {
@@ -106,7 +106,7 @@ const faqSchema = {
       name: 'Quelle agence web choisir à Paris pour la création de mon site internet ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Pour choisir votre agence web à Paris, privilégiez un prestataire maîtrisant les technologies modernes (React, Next.js), proposant un SEO local Paris intégré dès la création, et livrant dans des délais maîtrisés (7 à 14 jours pour un site vitrine). Sidikoff Digital intervient dans tout Paris et en Île-de-France avec un accompagnement personnalisé, des tarifs transparents et une garantie Lighthouse > 95.",
+        text: 'Pour choisir votre agence web à Paris, privilégiez un prestataire maîtrisant les technologies modernes (React, Next.js), proposant un SEO local Paris intégré dès la création, et livrant dans des délais maîtrisés (7 à 14 jours pour un site vitrine). Sidikoff Digital intervient dans tout Paris et en Île-de-France avec un accompagnement personnalisé, des tarifs transparents et une garantie Lighthouse > 95.',
       },
     },
     {
