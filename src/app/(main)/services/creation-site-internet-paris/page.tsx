@@ -1,12 +1,20 @@
-import { createCanonicalUrl, generateAlternateUrls, generateServiceSchema } from '@/lib/seo-utils'
+import { defaultLocale } from '@/lib/i18n'
+import {
+  createCanonicalUrl,
+  DEFAULT_SEO,
+  generateAlternateUrls,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 
 import ParisLandingContent from '@/components/ParisLandingContent'
 
-const PAGE_URL = createCanonicalUrl('services/creation-site-internet-paris', 'fr')
+const PAGE_SLUG = 'services/creation-site-internet-paris'
+const PAGE_URL = createCanonicalUrl(PAGE_SLUG, defaultLocale)
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Création Site Internet Paris | Agence Web Île-de-France'
+  const title = 'Création Site Internet Paris | Agence Web'
 
   const description =
     'Agence web Paris & développeur web Île-de-France : sites vitrines dès 690 €, livrés en 7–14 jours. React & Next.js, SEO local Paris, Lighthouse 95+. Devis gratuit sous 24h pour votre projet.'
@@ -27,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     alternates: {
       canonical: PAGE_URL,
-      languages: generateAlternateUrls('services/creation-site-internet-paris'),
+      languages: generateAlternateUrls(PAGE_SLUG),
     },
     openGraph: {
       title,
@@ -35,10 +43,10 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       locale: 'fr_FR',
       url: PAGE_URL,
-      siteName: 'Sidikoff Digital',
+      siteName: 'SIDIKOFF DIGITAL',
       images: [
         {
-          url: '/images/og/creation-sites-web-paris.jpg',
+          url: '/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: title,
@@ -50,7 +58,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       creator: '@sidikoffdigital',
-      images: ['/images/og/creation-sites-web-paris.jpg'],
+      images: ['/images/opengraph-fr.png'],
     },
   }
 }
@@ -74,7 +82,11 @@ const serviceSchema = generateServiceSchema({
     'Île-de-France',
     'France',
   ],
-  image: 'https://www.sidikoff.com/images/og/creation-sites-web-paris.jpg',
+  image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
+  provider: {
+    name: 'SIDIKOFF DIGITAL',
+    url: DEFAULT_SEO.siteUrl,
+  },
 })
 
 const faqSchema = {
@@ -108,6 +120,28 @@ const faqSchema = {
   ],
 }
 
+const breadcrumbSchema = generateBreadcrumbStructuredData([
+  { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
+  { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
+  { name: 'Création Site Internet Paris', url: PAGE_URL },
+])
+
+const webPageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'Création Site Internet Paris',
+  description:
+    'Création de sites internet à Paris pour TPE, PME et indépendants avec SEO local et design orienté conversion.',
+  isPartOf: {
+    '@id': `${DEFAULT_SEO.siteUrl}/#website`,
+  },
+  about: {
+    '@id': `${PAGE_URL}#service`,
+  },
+}
+
 export default async function ParisPage() {
   return (
     <div className='min-h-screen'>
@@ -118,6 +152,14 @@ export default async function ParisPage() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
       <ParisLandingContent />
     </div>

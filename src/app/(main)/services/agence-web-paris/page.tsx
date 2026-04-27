@@ -1,16 +1,27 @@
-import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
+import { defaultLocale } from '@/lib/i18n'
+import {
+  createCanonicalUrl,
+  DEFAULT_SEO,
+  generateAlternateUrls,
+  generateBreadcrumbStructuredData,
+  generateFAQStructuredData,
+  generateServiceSchema,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
-import common from '@/locales/fr/common.json'
 import AgenceWebParisLandingContent from '@/components/AgenceWebParisLandingContent'
 
-export async function generateMetadata(): Promise<Metadata> {
-  const content = common.agence_web_paris_landing
+const PAGE_SLUG = 'services/agence-web-paris'
 
-  const url = createCanonicalUrl('services/agence-web-paris', 'fr')
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = defaultLocale
+  const pageTitle = 'Agence Web Paris | Création Site Internet'
+  const pageDescription =
+    'Agence web à Paris spécialisée en création de sites internet, SEO local et refonte web pour TPE, PME et startups. Devis gratuit sous 24h.'
+  const pageUrl = createCanonicalUrl(PAGE_SLUG, locale)
 
   return {
-    title: 'Agence Web Paris | Création Site Internet & SEO Local',
-    description: 'Votre agence web à Paris spécialisée en création de sites internet, vitrine et e-commerce. SEO local, design premium, devis gratuit sous 24h. TPE, PME, startups parisiennes.',
+    title: pageTitle,
+    description: pageDescription,
     keywords: [
       'agence web paris',
       'création site internet paris',
@@ -21,20 +32,20 @@ export async function generateMetadata(): Promise<Metadata> {
       'site vitrine paris',
       'site e-commerce paris',
       'seo local paris',
-      'agence communication paris',
+      'refonte site web paris',
     ],
-    authors: [{ name: 'Sidikoff Digital' }],
-    creator: 'Sidikoff Digital',
-    publisher: 'Sidikoff Digital',
+    authors: [{ name: 'SIDIKOFF DIGITAL' }],
+    creator: 'SIDIKOFF DIGITAL',
+    publisher: 'SIDIKOFF DIGITAL',
     alternates: {
-      canonical: createCanonicalUrl('services/agence-web-paris', 'fr'),
-      languages: generateAlternateUrls('services/agence-web-paris'),
+      canonical: pageUrl,
+      languages: generateAlternateUrls(PAGE_SLUG),
     },
     openGraph: {
-      title: 'Agence Web Paris | Création Site Internet & SEO Local',
-      description: 'Votre agence web à Paris spécialisée en création de sites internet, vitrine et e-commerce. SEO local, design premium, devis gratuit sous 24h. TPE, PME, startups parisiennes.',
-      url: url,
-      siteName: 'Sidikoff Digital',
+      title: pageTitle,
+      description: pageDescription,
+      url: pageUrl,
+      siteName: 'SIDIKOFF DIGITAL',
       locale: 'fr_FR',
       type: 'website',
       images: [
@@ -42,14 +53,14 @@ export async function generateMetadata(): Promise<Metadata> {
           url: '/images/opengraph-fr.png',
           width: 1200,
           height: 630,
-          alt: content.meta_title,
+          alt: pageTitle,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Agence Web Paris | Création Site Internet & SEO Local',
-      description: 'Votre agence web à Paris spécialisée en création de sites internet, vitrine et e-commerce. SEO local, design premium, devis gratuit sous 24h.',
+      title: pageTitle,
+      description: pageDescription,
       images: ['/images/opengraph-fr.png'],
       creator: '@sidikoffdigital',
     },
@@ -68,10 +79,9 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-import { generateFAQStructuredData, generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
-
 export default function AgenceWebParisLandingPage() {
-  const pageUrl = createCanonicalUrl('services/agence-web-paris', 'fr')
+  const locale = defaultLocale
+  const pageUrl = createCanonicalUrl(PAGE_SLUG, locale)
 
   const faqSchema = generateFAQStructuredData([
     {
@@ -101,42 +111,32 @@ export default function AgenceWebParisLandingPage() {
   const webPageJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    '@id': `https://www.sidikoff.com/services/agence-web-paris#webpage`,
-    url: 'https://www.sidikoff.com/services/agence-web-paris',
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
     name: 'Agence Web Paris - Création de site internet',
-    description: 'Agence web à Paris spécialisée dans la création de sites internet sur mesure, SEO local et refonte de site.',
+    description:
+      'Agence web à Paris spécialisée dans la création de sites internet sur mesure, SEO local et refonte de site.',
     isPartOf: {
-      '@id': 'https://www.sidikoff.com/#website',
+      '@id': `${DEFAULT_SEO.siteUrl}/#website`,
     },
     about: {
-      '@id': 'https://www.sidikoff.com/services/agence-web-paris#service',
-    },
-  };
-  
-  const professionalServiceJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    '@id': 'https://www.sidikoff.com/services/agence-web-paris#service',
-    mainEntityOfPage: { '@id': 'https://www.sidikoff.com/services/agence-web-paris#webpage' },
-    name: 'Agence Web Paris - Création de site internet',
-    description: 'Création de sites internet sur-mesure et SEO pour les entreprises de Paris et Île-de-France.',
-    url: 'https://www.sidikoff.com/services/agence-web-paris',
-    areaServed: [{ '@type': 'City', name: 'Paris' }, { '@type': 'AdministrativeArea', name: 'Île-de-France' }],
-    provider: {
-      '@type': 'Organization',
-      name: 'Sidikoff Digital',
-      url: 'https://www.sidikoff.com',
+      '@id': `${pageUrl}#service`,
     },
   }
 
-  const organizationJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    '@id': 'https://www.sidikoff.com/#organization',
-    name: 'Sidikoff Digital',
-    url: 'https://www.sidikoff.com',
-    logo: 'https://www.sidikoff.com/images/logo-sidikoff.svg',
-  }
+  const serviceJsonLd = generateServiceSchema({
+    name: 'Agence Web Paris - Création de site internet',
+    description:
+      'Création de sites internet sur mesure, SEO local et refonte web pour les entreprises de Paris et d\'Île-de-France.',
+    url: pageUrl,
+    serviceType: 'Création de site internet',
+    areaServed: ['Paris', 'Île-de-France'],
+    image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
+    provider: {
+      name: 'SIDIKOFF DIGITAL',
+      url: DEFAULT_SEO.siteUrl,
+    },
+  })
 
   return (
     <>
@@ -154,11 +154,7 @@ export default function AgenceWebParisLandingPage() {
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceJsonLd) }}
-      />
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
       <AgenceWebParisLandingContent />
     </>
