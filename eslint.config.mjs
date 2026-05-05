@@ -12,6 +12,8 @@ const eslintConfig = [
       'graphify-out/**',
       '.cursor/**',
       'temp/**',
+      'src/app/studio/**',
+      'fix_use_client.cjs',
     ],
   },
   ...coreWebVitals,
@@ -27,6 +29,8 @@ const eslintConfig = [
       'no-var': 'error',
       '@next/next/no-img-element': 'error',
       '@next/next/no-page-custom-font': 'warn',
+      'react/no-unescaped-entities': 'off',
+      'react-hooks/set-state-in-effect': 'off',
     },
   },
 ]

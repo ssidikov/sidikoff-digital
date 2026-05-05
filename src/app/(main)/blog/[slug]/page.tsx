@@ -4,6 +4,8 @@ import { allBlogPosts, getPostBySlug } from '@/lib/blog-data'
 import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
 import BlogArticleContent from '@/components/BlogArticleContent'
 
+export const dynamicParams = false
+
 interface Props {
   params: Promise<{
     slug: string

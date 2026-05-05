@@ -85,7 +85,7 @@ const PopupContactForm = ({
       setFormData({ name: '', email: '', message: '' })
       setSubmitStatus('idle')
     }
-  }, [isOpen])
+  }, [isOpen, setFormData, setSubmitStatus])
 
   // Handle ESC key
   useEffect(() => {

@@ -7,7 +7,6 @@ import {
   DEFAULT_SEO,
   generateAlternateUrls,
   generateBreadcrumbStructuredData,
-  generateServiceSchema,
   generateFAQStructuredData,
 } from '@/lib/seo-utils'
 

@@ -3,6 +3,11 @@ import { Metadata } from 'next'
 import common from '@/locales/fr/common.json'
 import DoctorLandingContent from '@/components/DoctorLandingContent'
 
+interface FAQQuestion {
+  question: string
+  answer: string
+}
+
 const t = common.doctor_landing
 const PAGE_URL = createCanonicalUrl('services/creation-site-internet-medecin', 'fr')
 
@@ -47,7 +52,7 @@ const serviceSchema = generateServiceSchema({
 
 export default function DoctorLandingPage() {
   const faqSchema = generateFAQStructuredData(
-    t.faq.questions.map((q: any) => ({
+    t.faq.questions.map((q: FAQQuestion) => ({
       question: q.question,
       answer: q.answer
     }))

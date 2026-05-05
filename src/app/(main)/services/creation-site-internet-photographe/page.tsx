@@ -2,7 +2,10 @@ import { createCanonicalUrl, generateAlternateUrls, generateServiceSchema, gener
 import { Metadata } from 'next'
 import common from '@/locales/fr/common.json'
 import PhotographerLandingContent from '@/components/PhotographerLandingContent'
-
+interface FAQQuestion {
+  question: string
+  answer: string
+}
 const t = common.photographer_landing
 const PAGE_URL = createCanonicalUrl('services/creation-site-internet-photographe', 'fr')
 
@@ -47,7 +50,7 @@ const serviceSchema = generateServiceSchema({
 
 export default function PhotographerLandingPage() {
   const faqSchema = generateFAQStructuredData(
-    t.faq.questions.map((q: any) => ({
+    t.faq.questions.map((q: FAQQuestion) => ({
       question: q.question,
       answer: q.answer
     }))

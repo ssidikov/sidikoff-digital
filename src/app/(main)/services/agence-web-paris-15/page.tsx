@@ -7,13 +7,11 @@ import {
   generateFAQStructuredData,
 } from '@/lib/seo-utils'
 import type { Metadata } from 'next'
-import common from '@/locales/fr/common.json'
 import AgenceWebParis15LandingContent from '@/components/AgenceWebParis15LandingContent'
 
 const PAGE_SLUG = 'services/agence-web-paris-15'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const content = common.agence_web_paris_15_landing
   const pageUrl = createCanonicalUrl(PAGE_SLUG, 'fr')
 
   return {

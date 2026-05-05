@@ -341,14 +341,20 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
-      // ── 11. Blog article slug update: 2025 → 2026 (update slug in Sanity first!)
-      // Uncomment when ready to update the slug in Sanity CMS:
+      // ── 11. Retired blog URL found as GSC referrer
+      {
+        source: '/blog/crer-un-site-web-en-2026',
+        destination: '/blog/checklist-site-web-pme-france',
+        permanent: true,
+      },
+
       // ── 12. Consolidate Villeurbanne pages (Redirect legacy to new target)
       {
         source: '/services/creation-site-web-villeurbanne',
         destination: '/services/agence-web-villeurbanne',
         permanent: true,
       },
+
       // ── 13. Legacy Restaurant Page Redirect
       {
         source: '/services/restaurant-websites',

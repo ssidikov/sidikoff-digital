@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {
   ArrowRight,
@@ -17,7 +16,6 @@ import {
   Sparkles,
   Zap,
 } from 'lucide-react'
-import { FAQAccordion } from '@/components/FAQAccordion'
 
 const techStack = [
   { name: 'Next.js 14+', desc: 'App Router, Server Components, Streaming', color: 'from-gray-900 to-gray-700' },

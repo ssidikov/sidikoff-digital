@@ -11,9 +11,15 @@ import { getLocalizedUrl } from '@/utils/navigation'
 import { BlogCard } from '@/components/ui/BlogCard'
 import Section from '@/components/ui/Section'
 
+interface BlogCategory {
+  name: string
+  slug: string
+  count?: number
+}
+
 interface BlogPageContentProps {
   readonly posts: BlogPost[]
-  readonly categories: any[]
+  readonly categories: BlogCategory[]
 }
 
 // Animation configuration constants

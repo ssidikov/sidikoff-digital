@@ -3,11 +3,9 @@ import {
   DEFAULT_SEO,
   generateAlternateUrls,
   generateBreadcrumbStructuredData,
-  generateServiceSchema,
   generateFAQStructuredData,
 } from '@/lib/seo-utils'
 import { Metadata } from 'next'
-import common from '@/locales/fr/common.json'
 import AgenceNextjsReactContent from '@/components/AgenceNextjsReactContent'
 
 const PAGE_SLUG = 'services/agence-nextjs-react'
