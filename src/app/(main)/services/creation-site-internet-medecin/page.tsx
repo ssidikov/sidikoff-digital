@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateServiceSchema, generateFAQStructuredData, generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateServiceSchema,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import common from '@/locales/fr/common.json'
 import DoctorLandingContent from '@/components/DoctorLandingContent'
@@ -54,8 +61,8 @@ export default function DoctorLandingPage() {
   const faqSchema = generateFAQStructuredData(
     t.faq.questions.map((q: FAQQuestion) => ({
       question: q.question,
-      answer: q.answer
-    }))
+      answer: q.answer,
+    })),
   )
 
   const breadcrumbSchema = generateBreadcrumbStructuredData([

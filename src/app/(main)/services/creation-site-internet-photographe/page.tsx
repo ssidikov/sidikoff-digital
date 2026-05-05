@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateServiceSchema, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateServiceSchema,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import common from '@/locales/fr/common.json'
 import PhotographerLandingContent from '@/components/PhotographerLandingContent'
@@ -52,11 +59,10 @@ export default function PhotographerLandingPage() {
   const faqSchema = generateFAQStructuredData(
     t.faq.questions.map((q: FAQQuestion) => ({
       question: q.question,
-      answer: q.answer
-    }))
+      answer: q.answer,
+    })),
   )
 
-  
   const breadcrumbSchema = generateBreadcrumbStructuredData([
     { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
     { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },

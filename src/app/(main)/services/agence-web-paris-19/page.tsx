@@ -99,7 +99,8 @@ export default async function AgenceWebParis19Page() {
     '@id': `${pageUrl}#service`,
     mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
     name: 'Agence web Paris 19 - Création site internet',
-    description: 'Votre partenaire digital dans le 19ème arrondissement : conception web, e-commerce et SEO.',
+    description:
+      'Votre partenaire digital dans le 19ème arrondissement : conception web, e-commerce et SEO.',
     url: pageUrl,
     areaServed: ['Paris 19ème', 'La Villette', 'Buttes-Chaumont', 'Paris'],
     image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
@@ -154,7 +155,7 @@ export default async function AgenceWebParis19Page() {
   return (
     <>
       <script
-        id="schema-webpage"
+        id='schema-webpage'
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
@@ -179,7 +180,7 @@ export default async function AgenceWebParis19Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <ParisArrondissementLanding
-        arrondissement="19"
+        arrondissement='19'
         heroTitle={
           <>
             Agence web Paris 19
@@ -187,9 +188,16 @@ export default async function AgenceWebParis19Page() {
             pour développer votre activité locale.
           </>
         }
-        heroDescription="Du dynamisme de la Villette au charme des Buttes-Chaumont, nous concevons des sites vitrines et plateformes e-commerce pensés pour la visibilité des entreprises, associations et artisans du 19e arrondissement."
-        neighborhoods={['La Villette', 'Buttes-Chaumont', 'Pont-de-Flandre', 'Amérique', 'Flandre', 'Ourcq']}
-        visionLocaleText="Une approche concrète pour mettre en valeur le savoir-faire des acteurs locaux du 19e."
+        heroDescription='Du dynamisme de la Villette au charme des Buttes-Chaumont, nous concevons des sites vitrines et plateformes e-commerce pensés pour la visibilité des entreprises, associations et artisans du 19e arrondissement.'
+        neighborhoods={[
+          'La Villette',
+          'Buttes-Chaumont',
+          'Pont-de-Flandre',
+          'Amérique',
+          'Flandre',
+          'Ourcq',
+        ]}
+        visionLocaleText='Une approche concrète pour mettre en valeur le savoir-faire des acteurs locaux du 19e.'
         faqItems={faqItems}
       />
     </>

@@ -150,7 +150,7 @@ export function BlogPageContent({ posts, categories }: BlogPageContentProps) {
       featuredPosts: filteredPosts.slice(0, GRID_CONFIG.featuredPostsCount),
       regularPosts: filteredPosts.slice(GRID_CONFIG.regularPostsStartIndex),
     }),
-    [filteredPosts]
+    [filteredPosts],
   )
 
   /**
@@ -229,12 +229,7 @@ export function BlogPageContent({ posts, categories }: BlogPageContentProps) {
           {featuredPosts.length > 0 && (
             <div className={STYLES.featuredGrid}>
               {featuredPosts.map((post, index) => (
-                <BlogCard
-                  key={post.slug}
-                  post={post}
-                  featured={true}
-                  index={index}
-                />
+                <BlogCard key={post.slug} post={post} featured={true} index={index} />
               ))}
             </div>
           )}

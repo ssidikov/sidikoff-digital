@@ -54,11 +54,7 @@ const STATUS_RESET_TIMEOUT = 5000
 /**
  * Popup contact form component with the same functionality as Contact section
  */
-const PopupContactForm = ({
-  isOpen,
-  onClose,
-  dictionary,
-}: PopupContactFormProps) => {
+const PopupContactForm = ({ isOpen, onClose, dictionary }: PopupContactFormProps) => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -170,7 +166,7 @@ const PopupContactForm = ({
         setIsSubmitting(false)
       }
     },
-    [formData, onClose]
+    [formData, onClose],
   )
 
   const handleChange = useCallback(
@@ -178,7 +174,7 @@ const PopupContactForm = ({
       const { name, value } = e.target
       setFormData((prev) => ({ ...prev, [name]: value }))
     },
-    []
+    [],
   )
 
   if (!isOpen) return null

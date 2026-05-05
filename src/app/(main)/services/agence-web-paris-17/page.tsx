@@ -100,7 +100,8 @@ export default async function AgenceWebParis17Page() {
     '@id': `${pageUrl}#service`,
     mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
     name: 'Agence web Paris 17 - Création de site internet',
-    description: 'Conception de sites web sur-mesure et référencement SEO pour les entreprises du 17e arrondissement.',
+    description:
+      'Conception de sites web sur-mesure et référencement SEO pour les entreprises du 17e arrondissement.',
     url: pageUrl,
     areaServed: ['Paris 17ème', 'Batignolles', 'Ternes', 'Monceau', 'Paris'],
     image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
@@ -131,12 +132,12 @@ export default async function AgenceWebParis17Page() {
     {
       question: 'Quel budget prévoir pour un site à Paris 17 ?',
       answer:
-        'Nos forfaits s\'adaptent à vos besoins réels. Un site vitrine professionnel démarre à partir de 690 €, idéal pour les indépendants et TPE. Les projets e-commerce commencent autour de 1 290 €.',
+        "Nos forfaits s'adaptent à vos besoins réels. Un site vitrine professionnel démarre à partir de 690 €, idéal pour les indépendants et TPE. Les projets e-commerce commencent autour de 1 290 €.",
     },
     {
       question: 'Combien de temps faut-il pour créer mon site ?',
       answer:
-        'Grâce à notre approche agile, un site vitrine peut être mis en ligne sous 7 à 14 jours, incluant le design, le développement et l\'optimisation de base.',
+        "Grâce à notre approche agile, un site vitrine peut être mis en ligne sous 7 à 14 jours, incluant le design, le développement et l'optimisation de base.",
     },
     {
       question: 'Faites-vous du référencement local ?',
@@ -155,7 +156,7 @@ export default async function AgenceWebParis17Page() {
   return (
     <>
       <script
-        id="schema-webpage"
+        id='schema-webpage'
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
@@ -180,7 +181,7 @@ export default async function AgenceWebParis17Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <ParisArrondissementLanding
-        arrondissement="17"
+        arrondissement='17'
         heroTitle={
           <>
             Agence web Paris 17
@@ -188,7 +189,7 @@ export default async function AgenceWebParis17Page() {
             pour des sites qui performent.
           </>
         }
-        heroDescription="De Batignolles à Ternes en passant par Monceau, nous accompagnons les professionnels et commerçants du 17e arrondissement avec des sites vitrines et e-commerce taillés pour convertir."
+        heroDescription='De Batignolles à Ternes en passant par Monceau, nous accompagnons les professionnels et commerçants du 17e arrondissement avec des sites vitrines et e-commerce taillés pour convertir.'
         neighborhoods={['Batignolles', 'Ternes', 'Monceau', 'Épinettes', 'Péreire', 'Wagram']}
         visionLocaleText="Des solutions digitales sur-mesure adaptées à l'exigence et au dynamisme des professionnels du 17e."
         faqItems={faqItems}

@@ -16,7 +16,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: 'Agence Web Paris 15 | Sidikoff',
-    description: 'Agence web Paris 15ème : sites vitrines dès 690 €, livrés en 7-14 jours. Référencement SEO local, Next.js/React. Convention, Vaugirard, Grenelle. Devis gratuit sous 24h.',
+    description:
+      'Agence web Paris 15ème : sites vitrines dès 690 €, livrés en 7-14 jours. Référencement SEO local, Next.js/React. Convention, Vaugirard, Grenelle. Devis gratuit sous 24h.',
     keywords: [
       'agence web paris 15ème',
       'agence web paris 15',
@@ -33,7 +34,8 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     openGraph: {
       title: 'Agence Web Paris 15 | Création Site Internet',
-      description: 'Agence web Paris 15ème : sites vitrines dès 690 €, livrés en 7-14 jours. Référencement SEO local, Next.js/React. Convention, Vaugirard, Grenelle. Devis gratuit sous 24h.',
+      description:
+        'Agence web Paris 15ème : sites vitrines dès 690 €, livrés en 7-14 jours. Référencement SEO local, Next.js/React. Convention, Vaugirard, Grenelle. Devis gratuit sous 24h.',
       type: 'website',
       locale: 'fr_FR',
       url: pageUrl,
@@ -50,7 +52,8 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: 'summary_large_image',
       title: 'Agence Web Paris 15 | Création Site Internet',
-      description: 'Agence web Paris 15ème : sites vitrines dès 690 €, livrés en 7-14 jours. Référencement SEO local, Next.js/React. Convention, Vaugirard, Grenelle. Devis gratuit sous 24h.',
+      description:
+        'Agence web Paris 15ème : sites vitrines dès 690 €, livrés en 7-14 jours. Référencement SEO local, Next.js/React. Convention, Vaugirard, Grenelle. Devis gratuit sous 24h.',
       creator: '@sidikoffdigital',
       images: ['/images/opengraph-fr.png'],
     },
@@ -81,7 +84,8 @@ export default function AgenceWebParis15Page() {
     '@id': `${pageUrl}#webpage`,
     url: pageUrl,
     name: 'Agence Web Paris 15 - Création de site internet',
-    description: 'Agence web Paris 15ème : sites vitrines dès 690 €, livrés en 7-14 jours. Référencement SEO local, Next.js/React. Convention, Vaugirard, Grenelle. Devis gratuit sous 24h.',
+    description:
+      'Agence web Paris 15ème : sites vitrines dès 690 €, livrés en 7-14 jours. Référencement SEO local, Next.js/React. Convention, Vaugirard, Grenelle. Devis gratuit sous 24h.',
     isPartOf: {
       '@id': `${DEFAULT_SEO.siteUrl}/#website`,
     },
@@ -92,7 +96,8 @@ export default function AgenceWebParis15Page() {
 
   const serviceJsonLd = generateServiceSchema({
     name: 'Agence web Paris 15 - Création de site web',
-    description: 'Création de sites internet professionnels à Paris 15 avec optimisation SEO locale.',
+    description:
+      'Création de sites internet professionnels à Paris 15 avec optimisation SEO locale.',
     url: pageUrl,
     serviceType: 'Création de site web Paris 15',
     areaServed: ['Paris 15ème', 'Vaugirard', 'Grenelle', 'Convention', 'Javel'],
@@ -112,23 +117,26 @@ export default function AgenceWebParis15Page() {
 
   const faqJsonLd = generateFAQStructuredData([
     {
-      question: 'Quel est le prix d\'un site internet à Paris 15 ?',
-      answer: 'Nos tarifs démarrent à 690 € pour un site vitrine professionnel clé en main, optimisé pour le référencement local dans le 15ème arrondissement (Vaugirard, Convention, Grenelle).'
+      question: "Quel est le prix d'un site internet à Paris 15 ?",
+      answer:
+        'Nos tarifs démarrent à 690 € pour un site vitrine professionnel clé en main, optimisé pour le référencement local dans le 15ème arrondissement (Vaugirard, Convention, Grenelle).',
     },
     {
       question: 'Quels sont les délais de création ?',
-      answer: 'La création d\'un site internet vitrine prend en moyenne entre 7 et 14 jours. Pour un site e-commerce, comptez plutôt 4 à 8 semaines selon la complexité du projet.'
+      answer:
+        "La création d'un site internet vitrine prend en moyenne entre 7 et 14 jours. Pour un site e-commerce, comptez plutôt 4 à 8 semaines selon la complexité du projet.",
     },
     {
       question: 'Faites-vous du référencement local (SEO) pour Paris 15 ?',
-      answer: 'Oui, nous optimisons votre site pour qu\'il apparaisse sur les recherches locales liées à votre activité dans le 15ème arrondissement et les quartiers environnants.'
-    }
+      answer:
+        "Oui, nous optimisons votre site pour qu'il apparaisse sur les recherches locales liées à votre activité dans le 15ème arrondissement et les quartiers environnants.",
+    },
   ])
 
   return (
     <>
       <script
-        id="schema-webpage"
+        id='schema-webpage'
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
