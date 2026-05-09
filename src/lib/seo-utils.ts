@@ -501,33 +501,7 @@ export function generateFAQStructuredData(faqs: Array<{ question: string; answer
 }
 
 // Generate article structured data
-export function generateArticleStructuredData(article: {
-  title: string
-  description: string
-  author: string
-  datePublished: string
-  dateModified: string
-  image: string
-  url: string
-}) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: article.title,
-    description: article.description,
-    author: {
-      '@type': 'Person',
-      name: article.author,
-    },
-    datePublished: article.datePublished,
-    dateModified: article.dateModified,
-    image: {
-      '@type': 'ImageObject',
-      url: article.image,
-    },
-    url: article.url,
-  }
-}
+
 
 /**
  * Generate structured data for customer reviews/testimonials
@@ -609,6 +583,7 @@ export function generateArticleSchema(article: {
   modifiedAt?: string
   authorName: string
   authorUrl?: string
+  authorSameAs?: string[]
 }) {
   return {
     '@context': 'https://schema.org',
@@ -628,6 +603,7 @@ export function generateArticleSchema(article: {
       '@type': 'Person',
       name: article.authorName,
       url: article.authorUrl || 'https://www.sidikoff.com',
+      ...(article.authorSameAs ? { sameAs: article.authorSameAs } : {}),
     },
     publisher: {
       '@type': 'Organization',
@@ -750,27 +726,4 @@ export function generatePersonSchema(person: {
 /**
  * Generate HowTo Schema (good for step-by-step guides)
  */
-export function generateHowToSchema(howto: {
-  name: string
-  description: string
-  steps: Array<{ name: string; text: string; image?: string }>
-}) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    name: howto.name,
-    description: howto.description,
-    step: howto.steps.map((step, index) => ({
-      '@type': 'HowToStep',
-      position: index + 1,
-      name: step.name,
-      itemListElement: [
-        {
-          '@type': 'HowToDirection',
-          text: step.text,
-        },
-      ],
-      ...(step.image ? { image: step.image } : {}),
-    })),
-  }
-}
+

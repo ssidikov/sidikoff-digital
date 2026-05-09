@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import { allBlogPosts, getPostBySlug } from '@/lib/blog-data'
-import { createCanonicalUrl, generateAlternateUrls } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls, generateArticleSchema } from '@/lib/seo-utils'
 import BlogArticleContent from '@/components/BlogArticleContent'
 
 export const dynamicParams = false
@@ -72,32 +72,18 @@ export default async function BlogPostPage({ params }: Props) {
   const PAGE_URL = createCanonicalUrl(`blog/${post.slug}`, 'fr')
   const imageUrl = post.image
 
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": post.title,
-    "description": post.description,
-    "image": imageUrl,
-    "author": {
-      "@type": "Organization",
-      "name": post.author,
-      "url": "https://www.sidikoff.com"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Sidikoff Digital",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.sidikoff.com/images/logo.png"
-      }
-    },
-    "datePublished": post.date,
-    "dateModified": post.date,
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": PAGE_URL
-    }
-  }
+  const articleSchema = generateArticleSchema({
+    title: post.title,
+    description: post.description,
+    url: PAGE_URL,
+    imageUrl: imageUrl,
+    publishedAt: post.date,
+    authorName: 'Sardorbek SIDIKOV', // Explicit authoritative author name for E-E-A-T
+    authorSameAs: [
+      'https://linkedin.com/in/sardorbeksidikov',
+      'https://github.com/ssidikov',
+    ]
+  })
 
   return (
     <>
