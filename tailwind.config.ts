@@ -21,6 +21,9 @@ const config: Config = {
           DEFAULT: 'var(--accent)',
           light: 'var(--accent-light)',
           dark: 'var(--accent-dark)',
+          'alpha-10': 'var(--accent-alpha-10)',
+          'alpha-20': 'var(--accent-alpha-20)',
+          'alpha-50': 'var(--accent-alpha-50)',
         },
       },
       maxWidth: {
