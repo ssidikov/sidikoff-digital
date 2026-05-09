@@ -86,7 +86,7 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
     webVitalsAttribution: ['CLS', 'FCP', 'FID', 'LCP', 'TTFB'],
-    // optimizeCss: true, // Отключено временно из-за проблем с critters
+    optimizeCss: true,
   },
 
   // ИСПРАВЛЕНО: Moved serverComponentsExternalPackages to serverExternalPackages

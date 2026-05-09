@@ -45,16 +45,12 @@ export function Hero() {
             {/* Content Column */}
             <div className='order-1 max-w-[800px] space-y-6 md:space-y-8 lg:pr-8'>
               {/* Main Heading */}
-              <h1
-                className='animate-fadeInUp text-3xl xl:text-5xl font-black text-black leading-[1.1] tracking-tight drop-shadow-xl'
-                style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
+              <h1 className='text-3xl xl:text-5xl font-black text-black leading-[1.1] tracking-tight drop-shadow-xl'>
                 <span>{dict.title}</span>
               </h1>
 
               {/* Subtitle */}
-              <p
-                className='animate-fadeInUp max-w-2xl text-lg xl:text-2xl text-black/85 leading-[1.4] font-light drop-shadow-lg'
-                style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
+              <p className='max-w-2xl text-lg xl:text-2xl text-black/85 leading-[1.4] font-light drop-shadow-lg'>
                 {dict.subtitle}
               </p>
 
@@ -100,9 +96,7 @@ export function Hero() {
 
             {/* Hero Illustration */}
             <div className='relative order-2 lg:pl-8'>
-              <div
-                className='animate-slideIn relative w-full h-[200px] md:h-[250px] xl:h-[700px]'
-                style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
+              <div className='relative w-full h-[200px] md:h-[250px] xl:h-[700px]'>
                 <Image
                   src={HERO_IMAGE.src}
                   alt={HERO_IMAGE.alt}
