@@ -10,17 +10,17 @@ import { allBlogPosts } from '@/lib/blog-data'
 import { TESTIMONIALS_DATA } from '@/data/testimonials'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
-import dynamic from 'next/dynamic'
-import { Hero, About, Services } from '@/sections'
-
-// Асинхронная загрузка секций, находящихся ниже первого экрана (Above The Fold)
-// Это разбивает JS и CSS на более мелкие чанки и снимает блокировку рендеринга
-const Portfolio = dynamic(() => import('@/sections/Portfolio'))
-const Pricing = dynamic(() => import('@/sections/Pricing'))
-const Testimonials = dynamic(() => import('@/sections/Testimonials'))
-const FAQ = dynamic(() => import('@/sections/FAQ').then((mod) => mod.FAQ))
-const Contact = dynamic(() => import('@/sections/Contact'))
-const Actualite = dynamic(() => import('@/sections/Actualite').then((mod) => mod.Actualite))
+import {
+  Hero,
+  About,
+  Services,
+  Pricing,
+  Portfolio,
+  Testimonials,
+  FAQ,
+  Contact,
+  Actualite,
+} from '@/sections'
 
 const SEO_CONFIG = {
   title: 'Agence Web Lyon | Création Site Internet',
