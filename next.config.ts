@@ -77,7 +77,7 @@ const SECURITY_HEADERS = [
   {
     key: 'Link',
     value:
-      '<https://fonts.googleapis.com>; rel=preconnect, <https://fonts.gstatic.com>; rel=preconnect; crossorigin, <https://images.unsplash.com>; rel=preconnect; crossorigin, <https://cdn.sanity.io>; rel=preconnect; crossorigin, </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="service-desc", </llms.txt>; rel="service-doc", </.well-known/mcp/server-card.json>; rel="describedby"',
+      '</.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="service-desc", </llms.txt>; rel="service-doc", </.well-known/mcp/server-card.json>; rel="describedby"',
   },
 ]
 

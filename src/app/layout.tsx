@@ -168,13 +168,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fetchPriority='high'
         />
 
-        {/* Preconnect для Google Fonts (критично для производительности) */}
-        <link rel='preconnect' href='https://fonts.googleapis.com' />
-        <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
-
-        {/* DNS prefetch для внешних ресурсов */}
-        <link rel='dns-prefetch' href='https://images.unsplash.com' />
-        <link rel='dns-prefetch' href='https://cdn.sanity.io' />
+        {/* DNS prefetch для аналитики */}
         <link rel='dns-prefetch' href='https://vitals.vercel-insights.com' />
         {/* <link rel='dns-prefetch' href='https://www.googletagmanager.com' /> */}
 
