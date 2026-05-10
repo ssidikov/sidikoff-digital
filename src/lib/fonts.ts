@@ -32,7 +32,7 @@ export const inter = Inter({
     'sans-serif',
   ],
   adjustFontFallback: true,
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700', '800'],
 })
 
 /**
@@ -44,7 +44,7 @@ export const grotesk = Space_Grotesk({
   variable: '--font-grotesk',
   display: 'swap',
   preload: true,
-  weight: ['400', '500', '700'],
+  weight: ['400', '500', '600', '700'],
   fallback: [
     'ui-sans-serif',
     'system-ui',
