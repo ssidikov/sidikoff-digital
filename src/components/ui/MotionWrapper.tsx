@@ -31,11 +31,11 @@ const createElement = (className: string) => {
  * Each component uses lazy loading to improve initial page performance
  */
 export const Motion = {
-  div: dynamic(() => import('framer-motion').then((mod) => mod.motion.div), createMotionOptions('div')),
-  h1: dynamic(() => import('framer-motion').then((mod) => mod.motion.h1), createMotionOptions('h1')),
-  p: dynamic(() => import('framer-motion').then((mod) => mod.motion.p), createMotionOptions('p')),
-  span: dynamic(() => import('framer-motion').then((mod) => mod.motion.span), createMotionOptions('span')),
-  svg: dynamic(() => import('framer-motion').then((mod) => mod.motion.svg), createMotionOptions('svg')),
+  div: dynamic(() => import('framer-motion').then((mod) => mod.m.div), createMotionOptions('div')),
+  h1: dynamic(() => import('framer-motion').then((mod) => mod.m.h1), createMotionOptions('h1')),
+  p: dynamic(() => import('framer-motion').then((mod) => mod.m.p), createMotionOptions('p')),
+  span: dynamic(() => import('framer-motion').then((mod) => mod.m.span), createMotionOptions('span')),
+  svg: dynamic(() => import('framer-motion').then((mod) => mod.m.svg), createMotionOptions('svg')),
 } as const
 
 /**

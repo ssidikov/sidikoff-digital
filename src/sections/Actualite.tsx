@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 
 import common from '@/locales/fr/common.json'
 import { type BlogPost } from '@/lib/blog-data'
@@ -56,7 +56,7 @@ export function Actualite({ posts }: ActualiteProps) {
             as='h2'
           />
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -78,21 +78,21 @@ export function Actualite({ posts }: ActualiteProps) {
                 />
               </svg>
             </Link>
-          </motion.div>
+          </m.div>
         </div>
 
-        <motion.div
+        <m.div
           variants={ANIMATION_CONFIG.container}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true }}
           className='grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
           {posts.map((post, index) => (
-            <motion.div key={post.slug} variants={ANIMATION_CONFIG.item} className='h-full'>
+            <m.div key={post.slug} variants={ANIMATION_CONFIG.item} className='h-full'>
               <BlogCard post={post} index={index} featured={false} />
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </Section>
   )

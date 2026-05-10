@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { ReactNode } from 'react'
 
 interface PremiumLegalTemplateProps {
@@ -25,7 +25,7 @@ export function PremiumLegalTemplate({
       {/* Header Section */}
       <header className='relative overflow-hidden pt-40 pb-20 md:pt-48 md:pb-32 border-b border-[#112D4E]/10'>
         <div className='mx-auto max-w-4xl px-6 md:px-12'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -45,7 +45,7 @@ export function PremiumLegalTemplate({
                 {subtitle}
               </p>
             )}
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Decorative Watermark */}
@@ -58,7 +58,7 @@ export function PremiumLegalTemplate({
 
       {/* Content Section */}
       <main className='mx-auto max-w-4xl px-6 md:px-12 py-20 md:py-32'>
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
@@ -71,7 +71,7 @@ export function PremiumLegalTemplate({
                      prose-a:text-[#3377FF] prose-a:font-medium prose-a:no-underline hover:prose-a:underline hover:prose-a:opacity-80
                      prose-strong:font-semibold prose-strong:text-[#112D4E]'>
           {children}
-        </motion.div>
+        </m.div>
       </main>
     </div>
   )

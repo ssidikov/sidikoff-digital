@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import {
   Star,
   ArrowRight,
@@ -132,7 +132,7 @@ export default function BarbershopLandingContent() {
         <div className='absolute inset-0 bg-linear-to-br from-slate-100 via-gray-50 to-zinc-50 opacity-60'></div>
         <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -151,7 +151,7 @@ export default function BarbershopLandingContent() {
 
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                   {t.hero.benefits?.map((benefit: string, index: number) => (
-                    <motion.div
+                    <m.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -159,7 +159,7 @@ export default function BarbershopLandingContent() {
                       className='flex items-center space-x-3'>
                       <CheckCircle className='w-5 h-5 text-slate-600 flex-shrink-0' />
                       <span className='text-slate-700'>{benefit}</span>
-                    </motion.div>
+                    </m.div>
                   ))}
                 </div>
               </div>
@@ -177,9 +177,9 @@ export default function BarbershopLandingContent() {
                   {t.hero.cta_secondary}
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -206,7 +206,7 @@ export default function BarbershopLandingContent() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -214,7 +214,7 @@ export default function BarbershopLandingContent() {
       {/* Problems Section */}
       <section className='py-24 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -224,11 +224,11 @@ export default function BarbershopLandingContent() {
               {t.problems.title}
             </h2>
             <p className='text-xl text-slate-600 max-w-3xl mx-auto'>{t.problems.subtitle}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-3 gap-8'>
             {t.problems.pain_points?.map((painPoint: PainPoint, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -240,7 +240,7 @@ export default function BarbershopLandingContent() {
                 </div>
                 <h3 className='text-xl font-semibold text-slate-900 mb-4'>{painPoint.title}</h3>
                 <p className='text-slate-600'>{painPoint.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -249,7 +249,7 @@ export default function BarbershopLandingContent() {
       {/* Solution Section */}
       <section className='py-24 bg-slate-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -259,11 +259,11 @@ export default function BarbershopLandingContent() {
               {t.solution.title}
             </h2>
             <p className='text-xl text-slate-600 max-w-3xl mx-auto'>{t.solution.description}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.solution.features?.map((feature: Feature, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -275,7 +275,7 @@ export default function BarbershopLandingContent() {
                 </div>
                 <h3 className='text-lg font-semibold text-slate-900 mb-3'>{feature.title}</h3>
                 <p className='text-slate-600'>{feature.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -284,7 +284,7 @@ export default function BarbershopLandingContent() {
       {/* Process Section */}
       <section className='py-24 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -294,11 +294,11 @@ export default function BarbershopLandingContent() {
               {t.process.title}
             </h2>
             <p className='text-xl text-slate-600 max-w-3xl mx-auto'>{t.process.description}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {t.process.steps?.map((step: ProcessStep, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -310,7 +310,7 @@ export default function BarbershopLandingContent() {
                 </div>
                 <h3 className='text-lg font-semibold text-slate-900 mb-3'>{step.title}</h3>
                 <p className='text-slate-600'>{step.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -319,7 +319,7 @@ export default function BarbershopLandingContent() {
       {/* Portfolio Section */}
       <section id='portfolio' className='py-24 bg-slate-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -329,11 +329,11 @@ export default function BarbershopLandingContent() {
               {t.portfolio.title}
             </h2>
             <p className='text-xl text-slate-600'>{t.portfolio.subtitle}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.portfolio.projects?.map((project: Barbershop, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -362,7 +362,7 @@ export default function BarbershopLandingContent() {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -371,7 +371,7 @@ export default function BarbershopLandingContent() {
       {/* Testimonials Section */}
       <section className='py-24 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -381,11 +381,11 @@ export default function BarbershopLandingContent() {
               {t.testimonials.title}
             </h2>
             <p className='text-xl text-slate-600'>{t.testimonials.subtitle}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.testimonials.reviews?.map((review: Review, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -410,7 +410,7 @@ export default function BarbershopLandingContent() {
                     <p className='text-sm text-slate-500'>{review.location}</p>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -419,7 +419,7 @@ export default function BarbershopLandingContent() {
       {/* Pricing Section */}
       <section className='py-24 bg-slate-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -429,11 +429,11 @@ export default function BarbershopLandingContent() {
               {t.pricing.title}
             </h2>
             <p className='text-xl text-slate-600 max-w-3xl mx-auto'>{t.pricing.description}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.pricing.packages?.map((pkg: Package, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -479,7 +479,7 @@ export default function BarbershopLandingContent() {
                   }`}>
                   Choisir ce forfait
                 </Link>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -488,7 +488,7 @@ export default function BarbershopLandingContent() {
       {/* FAQ Section */}
       <section className='py-24 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -496,11 +496,11 @@ export default function BarbershopLandingContent() {
             className='text-center mb-16'>
             <h2 className='text-3xl md:text-4xl font-bold text-slate-900 mb-6'>{t.faq.title}</h2>
             <p className='text-xl text-slate-600'>{t.faq.subtitle}</p>
-          </motion.div>
+          </m.div>
 
           <div className='space-y-4'>
             {t.faq.questions?.map((faq: FAQ, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -522,7 +522,7 @@ export default function BarbershopLandingContent() {
                     <p className='text-slate-600 leading-relaxed'>{faq.answer}</p>
                   </div>
                 )}
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -531,7 +531,7 @@ export default function BarbershopLandingContent() {
       {/* CTA Section */}
       <section className='py-24 bg-slate-900 text-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -563,7 +563,7 @@ export default function BarbershopLandingContent() {
                 {t.cta.secondary_button}
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </div>

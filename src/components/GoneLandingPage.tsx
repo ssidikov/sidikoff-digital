@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import Head from 'next/head'
 import Link from 'next/link'
 import {
@@ -148,7 +148,7 @@ export default function GoneLandingPage({ cityName }: GoneLandingPageProps) {
 
       <div className='min-h-screen bg-white'>
         {/* Notice Bar */}
-        <motion.div
+        <m.div
           className='bg-linear-to-r from-amber-50 to-orange-50 border-b border-amber-200'
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -164,29 +164,29 @@ export default function GoneLandingPage({ cityName }: GoneLandingPageProps) {
               </div>
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Hero Section */}
         <section className='relative bg-linear-to-br from-slate-50 via-blue-50 to-indigo-100 py-20 lg:py-32'>
           <div className='container mx-auto px-4'>
             <div className='max-w-4xl mx-auto text-center'>
-              <motion.div variants={staggerContainer} initial='initial' animate='animate'>
-                <motion.h1
+              <m.div variants={staggerContainer} initial='initial' animate='animate'>
+                <m.h1
                   variants={fadeInUp}
                   className='text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight'>
                   {t.mainTitle}{' '}
                   <span className='bg-linear-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent'>
                     {t.titleHighlight}
                   </span>
-                </motion.h1>
+                </m.h1>
 
-                <motion.p
+                <m.p
                   variants={fadeInUp}
                   className='text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto'>
                   {t.subtitle}
-                </motion.p>
+                </m.p>
 
-                <motion.div
+                <m.div
                   variants={fadeInUp}
                   className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
                   <Link
@@ -202,8 +202,8 @@ export default function GoneLandingPage({ cityName }: GoneLandingPageProps) {
                     <span>{t.ctaSecondary}</span>
                     <ArrowRight className='w-5 h-5' />
                   </Link>
-                </motion.div>
-              </motion.div>
+                </m.div>
+              </m.div>
             </div>
           </div>
 
@@ -217,47 +217,47 @@ export default function GoneLandingPage({ cityName }: GoneLandingPageProps) {
         {/* Stats Section */}
         <section className='py-16 bg-white'>
           <div className='container mx-auto px-4'>
-            <motion.div
+            <m.div
               className='grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto'
               variants={staggerContainer}
               initial='initial'
               whileInView='animate'
               viewport={{ once: true }}>
               {stats.map((stat, index) => (
-                <motion.div key={index} variants={fadeInUp} className='text-center'>
+                <m.div key={index} variants={fadeInUp} className='text-center'>
                   <div className='text-4xl md:text-5xl font-bold text-blue-600 mb-2'>
                     {stat.number}
                   </div>
                   <div className='text-gray-600 font-medium'>{stat.label}</div>
-                </motion.div>
+                </m.div>
               ))}
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* Services Section */}
         <section id='services' className='py-20 bg-gray-50'>
           <div className='container mx-auto px-4'>
-            <motion.div
+            <m.div
               variants={staggerContainer}
               initial='initial'
               whileInView='animate'
               viewport={{ once: true }}
               className='max-w-6xl mx-auto'>
               <div className='text-center mb-16'>
-                <motion.h2
+                <m.h2
                   variants={fadeInUp}
                   className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
                   {t.servicesTitle}
-                </motion.h2>
-                <motion.p variants={fadeInUp} className='text-xl text-gray-600 max-w-2xl mx-auto'>
+                </m.h2>
+                <m.p variants={fadeInUp} className='text-xl text-gray-600 max-w-2xl mx-auto'>
                   {t.servicesSubtitle}
-                </motion.p>
+                </m.p>
               </div>
 
               <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
                 {services.map((service, index) => (
-                  <motion.div
+                  <m.div
                     key={index}
                     variants={fadeInUp}
                     className='bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2'>
@@ -266,67 +266,67 @@ export default function GoneLandingPage({ cityName }: GoneLandingPageProps) {
                     </div>
                     <h3 className='text-xl font-bold text-gray-900 mb-4'>{service.title}</h3>
                     <p className='text-gray-600 leading-relaxed'>{service.description}</p>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* Features Section */}
         <section className='py-20 bg-white'>
           <div className='container mx-auto px-4'>
-            <motion.div
+            <m.div
               variants={staggerContainer}
               initial='initial'
               whileInView='animate'
               viewport={{ once: true }}
               className='max-w-6xl mx-auto'>
               <div className='text-center mb-16'>
-                <motion.h2
+                <m.h2
                   variants={fadeInUp}
                   className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
                   {t.whyTitle}
-                </motion.h2>
-                <motion.p variants={fadeInUp} className='text-xl text-gray-600 max-w-2xl mx-auto'>
+                </m.h2>
+                <m.p variants={fadeInUp} className='text-xl text-gray-600 max-w-2xl mx-auto'>
                   {t.whySubtitle}
-                </motion.p>
+                </m.p>
               </div>
 
               <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
                 {features.map((feature, index) => (
-                  <motion.div key={index} variants={fadeInUp} className='text-center p-6'>
+                  <m.div key={index} variants={fadeInUp} className='text-center p-6'>
                     <div className='w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-4 mx-auto'>
                       {feature.icon}
                     </div>
                     <h3 className='text-lg font-semibold text-gray-900 mb-2'>{feature.title}</h3>
                     <p className='text-gray-600'>{feature.description}</p>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* Testimonials Section */}
         <section className='py-20 bg-linear-to-br from-blue-50 to-indigo-100'>
           <div className='container mx-auto px-4'>
-            <motion.div
+            <m.div
               variants={staggerContainer}
               initial='initial'
               whileInView='animate'
               viewport={{ once: true }}
               className='max-w-4xl mx-auto text-center'>
-              <motion.h2
+              <m.h2
                 variants={fadeInUp}
                 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
                 {t.realizationsTitle}
-              </motion.h2>
-              <motion.p variants={fadeInUp} className='text-xl text-gray-600 mb-12'>
+              </m.h2>
+              <m.p variants={fadeInUp} className='text-xl text-gray-600 mb-12'>
                 {t.realizationsSubtitle}
-              </motion.p>
+              </m.p>
 
-              <motion.div
+              <m.div
                 variants={fadeInUp}
                 className='bg-white p-8 md:p-12 rounded-2xl shadow-xl'>
                 <div className='flex justify-center mb-6'>
@@ -346,28 +346,28 @@ export default function GoneLandingPage({ cityName }: GoneLandingPageProps) {
                     <div className='text-gray-600'>{t.testimonialRole}</div>
                   </div>
                 </div>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           </div>
         </section>
 
         {/* Contact Section */}
         <section id='contact' className='py-20 bg-gray-900 text-white'>
           <div className='container mx-auto px-4'>
-            <motion.div
+            <m.div
               variants={staggerContainer}
               initial='initial'
               whileInView='animate'
               viewport={{ once: true }}
               className='max-w-4xl mx-auto text-center'>
-              <motion.h2 variants={fadeInUp} className='text-3xl md:text-4xl font-bold mb-4'>
+              <m.h2 variants={fadeInUp} className='text-3xl md:text-4xl font-bold mb-4'>
                 {t.contactTitle}
-              </motion.h2>
-              <motion.p variants={fadeInUp} className='text-xl text-gray-300 mb-12'>
+              </m.h2>
+              <m.p variants={fadeInUp} className='text-xl text-gray-300 mb-12'>
                 {t.contactSubtitle}
-              </motion.p>
+              </m.p>
 
-              <motion.div
+              <m.div
                 variants={fadeInUp}
                 className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-12'>
                 <div className='flex items-center justify-center space-x-4'>
@@ -378,17 +378,17 @@ export default function GoneLandingPage({ cityName }: GoneLandingPageProps) {
                   <Phone className='w-6 h-6 text-blue-400' />
                   <span className='text-lg'>+33 6 26 93 27 34</span>
                 </div>
-              </motion.div>
+              </m.div>
 
-              <motion.div variants={fadeInUp}>
+              <m.div variants={fadeInUp}>
                 <Link
                   href='/contact'
                   className='inline-flex items-center space-x-2 bg-linear-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl'>
                   <span>{t.contactCta}</span>
                   <ArrowRight className='w-5 h-5' />
                 </Link>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           </div>
         </section>
 

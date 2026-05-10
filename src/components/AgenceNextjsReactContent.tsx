@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import {
   ArrowRight,
   CheckCircle,
@@ -186,18 +186,18 @@ export default function AgenceNextjsReactContent() {
 
         <div className='relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-16 items-center'>
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}>
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className='inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm font-medium text-white/80 mb-8'>
                 <Code2 className='h-4 w-4 text-blue-400' />
                 Agence Next.js & React · Paris
-              </motion.div>
+              </m.div>
 
               <h1 className='text-5xl md:text-6xl lg:text-7xl font-bold leading-[0.9] tracking-tight mb-6'>
                 Agence{' '}
@@ -246,10 +246,10 @@ export default function AgenceNextjsReactContent() {
                   Voir nos projets React
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Code preview card */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -317,7 +317,7 @@ export default function AgenceNextjsReactContent() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -340,7 +340,7 @@ export default function AgenceNextjsReactContent() {
 
           <div className='grid grid-cols-2 md:grid-cols-3 gap-4'>
             {techStack.map((tech, i) => (
-              <motion.div
+              <m.div
                 key={tech.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -353,7 +353,7 @@ export default function AgenceNextjsReactContent() {
                   {tech.name}
                 </div>
                 <p className='text-sm text-white/55 leading-relaxed'>{tech.desc}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -375,7 +375,7 @@ export default function AgenceNextjsReactContent() {
             {advantages.map((item, i) => {
               const Icon = item.icon
               return (
-                <motion.article
+                <m.article
                   key={item.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -387,7 +387,7 @@ export default function AgenceNextjsReactContent() {
                   </div>
                   <h3 className='text-lg font-bold text-white mb-3'>{item.title}</h3>
                   <p className='text-sm text-white/55 leading-relaxed'>{item.description}</p>
-                </motion.article>
+                </m.article>
               )
             })}
           </div>
@@ -420,7 +420,7 @@ export default function AgenceNextjsReactContent() {
 
             <div className='space-y-4'>
               {useCases.map((item, i) => (
-                <motion.div
+                <m.div
                   key={item.title}
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -432,7 +432,7 @@ export default function AgenceNextjsReactContent() {
                     <h3 className='font-bold text-white mb-1'>{item.title}</h3>
                     <p className='text-sm text-white/50 leading-relaxed'>{item.desc}</p>
                   </div>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -505,7 +505,7 @@ export default function AgenceNextjsReactContent() {
           <div className='absolute bottom-0 right-1/3 h-80 w-80 rounded-full bg-violet-600/15 blur-3xl' />
         </div>
         <div className='relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -538,7 +538,7 @@ export default function AgenceNextjsReactContent() {
                 <ArrowRight className='h-5 w-5' />
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </div>

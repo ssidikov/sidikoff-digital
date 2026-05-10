@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import {
   Wrench,
   ArrowRight,
@@ -238,7 +238,7 @@ export default function ArtisanLandingContent() {
 
         <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -260,7 +260,7 @@ export default function ArtisanLandingContent() {
 
               <div className='space-y-4'>
                 {benefits.map((benefit, index) => (
-                  <motion.div
+                  <m.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -269,7 +269,7 @@ export default function ArtisanLandingContent() {
                   >
                     <CheckCircle className='w-5 h-5 text-amber-500 flex-shrink-0' />
                     <span className='text-stone-200 font-medium'>{benefit}</span>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
 
@@ -286,9 +286,9 @@ export default function ArtisanLandingContent() {
                   </button>
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -324,7 +324,7 @@ export default function ArtisanLandingContent() {
                   </button>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -352,7 +352,7 @@ export default function ArtisanLandingContent() {
       {/* Semantic SEO Expansion */}
       <section className='py-20 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -375,7 +375,7 @@ export default function ArtisanLandingContent() {
                 Enfin, l'expérience utilisateur doit être orientée vers l'action immédiate. Pour les métiers du dépannage, nous privilégions le "Mobile-First" avec des boutons "Click-to-Call" omniprésents. Pour les métiers de rénovation, nous mettons en place des <strong>formulaires de demande de devis</strong> simples et clairs, vous permettant de qualifier le prospect (type de travaux, budget, délai) avant même le premier contact téléphonique. Un site internet bien conçu travaille pour vous 24h/24, 7j/7, en vous apportant les chantiers que vous choisissez.
               </p>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -393,7 +393,7 @@ export default function ArtisanLandingContent() {
             {services.map((service, index) => {
               const Icon = service.icon
               return (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -406,7 +406,7 @@ export default function ArtisanLandingContent() {
                   </div>
                   <h3 className='text-xl font-bold text-stone-900 mb-3'>{service.title}</h3>
                   <p className='text-stone-600 leading-relaxed'>{service.description}</p>
-                </motion.div>
+                </m.div>
               )
             })}
           </div>
@@ -425,7 +425,7 @@ export default function ArtisanLandingContent() {
             <div className='hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-stone-800 -z-10 -translate-y-1/2'></div>
             
             {processSteps.map((step, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -438,7 +438,7 @@ export default function ArtisanLandingContent() {
                 </div>
                 <h3 className='text-lg font-bold mb-2'>{step.title}</h3>
                 <p className='text-stone-400 text-sm'>{step.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -456,7 +456,7 @@ export default function ArtisanLandingContent() {
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
             {artisanTypes.map((type, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -468,7 +468,7 @@ export default function ArtisanLandingContent() {
                 <h3 className='text-lg font-bold text-stone-900 mb-1'>{type.metier}</h3>
                 <p className='text-xs text-amber-600 font-medium mb-3 uppercase tracking-wide'>{type.keywords}</p>
                 <p className='text-stone-600 text-sm leading-relaxed'>{type.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -486,7 +486,7 @@ export default function ArtisanLandingContent() {
 
           <div className='grid md:grid-cols-3 gap-8'>
             {pricingPlans.map((plan, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -523,7 +523,7 @@ export default function ArtisanLandingContent() {
                     Demander un devis
                   </button>
                 </Link>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

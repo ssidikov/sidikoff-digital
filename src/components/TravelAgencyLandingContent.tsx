@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import {
   Star,
   ArrowRight,
@@ -210,7 +210,7 @@ const TravelAgencyLandingContent = () => {
         <div className='absolute inset-0 bg-black/20'></div>
         <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32'>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -232,8 +232,8 @@ const TravelAgencyLandingContent = () => {
                   {content.hero.cta_secondary}
                 </Link>
               </div>
-            </motion.div>
-            <motion.div
+            </m.div>
+            <m.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -262,7 +262,7 @@ const TravelAgencyLandingContent = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -270,7 +270,7 @@ const TravelAgencyLandingContent = () => {
       {/* Pain Points Section */}
       <section className='py-20 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -281,13 +281,13 @@ const TravelAgencyLandingContent = () => {
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
               {content.pain_points.subtitle}
             </p>
-          </motion.div>
+          </m.div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {content.pain_points.points.map((point: PainPoint, index: number) => {
               const IconComponent = painIcons[point.icon as keyof typeof painIcons] || Globe
               return (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -298,7 +298,7 @@ const TravelAgencyLandingContent = () => {
                   </div>
                   <h3 className='text-xl font-bold text-gray-900 mb-4'>{point.title}</h3>
                   <p className='text-gray-600'>{point.description}</p>
-                </motion.div>
+                </m.div>
               )
             })}
           </div>
@@ -317,7 +317,7 @@ const TravelAgencyLandingContent = () => {
           />
         </div>
         <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -326,14 +326,14 @@ const TravelAgencyLandingContent = () => {
               {content.solutions.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{content.solutions.subtitle}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {content.solutions.items.map((solution: Solution, index: number) => {
               const IconComponent =
                 solutionIcons[solution.icon as keyof typeof solutionIcons] || Globe
               return (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -344,7 +344,7 @@ const TravelAgencyLandingContent = () => {
                   </div>
                   <h3 className='text-xl font-bold text-gray-900 mb-4'>{solution.title}</h3>
                   <p className='text-gray-600'>{solution.description}</p>
-                </motion.div>
+                </m.div>
               )
             })}
           </div>
@@ -354,7 +354,7 @@ const TravelAgencyLandingContent = () => {
       {/* Features Section */}
       <section className='py-20 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -363,7 +363,7 @@ const TravelAgencyLandingContent = () => {
               {content.features.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{content.features.subtitle}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
             <div className='space-y-6'>
@@ -371,7 +371,7 @@ const TravelAgencyLandingContent = () => {
                 const IconComponent =
                   featureIcons[feature.icon as keyof typeof featureIcons] || Globe
                 return (
-                  <motion.div
+                  <m.div
                     key={index}
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -398,12 +398,12 @@ const TravelAgencyLandingContent = () => {
                         <p className='text-gray-600'>{feature.description}</p>
                       </div>
                     </div>
-                  </motion.div>
+                  </m.div>
                 )
               })}
             </div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -439,7 +439,7 @@ const TravelAgencyLandingContent = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -454,7 +454,7 @@ const TravelAgencyLandingContent = () => {
         />
         <div className='absolute inset-0 bg-linear-to-br from-green-50/90 to-blue-50/90' />
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -463,14 +463,14 @@ const TravelAgencyLandingContent = () => {
               {content.benefits.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{content.benefits.subtitle}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {content.benefits.items.map((benefit: Benefit, index: number) => {
               const IconComponent =
                 benefitIcons[benefit.icon as keyof typeof benefitIcons] || CheckCircle
               return (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -481,7 +481,7 @@ const TravelAgencyLandingContent = () => {
                   </div>
                   <h3 className='text-lg font-bold text-gray-900 mb-2'>{benefit.title}</h3>
                   <p className='text-gray-600 text-sm'>{benefit.description}</p>
-                </motion.div>
+                </m.div>
               )
             })}
           </div>
@@ -500,7 +500,7 @@ const TravelAgencyLandingContent = () => {
           />
         </div>
         <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -509,13 +509,13 @@ const TravelAgencyLandingContent = () => {
               {content.process.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{content.process.subtitle}</p>
-          </motion.div>
+          </m.div>
 
           <div className='relative'>
             <div className='absolute top-1/2 left-0 right-0 h-1 bg-linear-to-r from-blue-200 via-blue-500 to-blue-200 transform -translate-y-1/2 hidden lg:block'></div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
               {content.process.steps.map((step: Step, index: number) => (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -528,7 +528,7 @@ const TravelAgencyLandingContent = () => {
                     <h3 className='text-lg font-bold text-gray-900 mb-2'>{step.title}</h3>
                     <p className='text-gray-600 text-sm'>{step.description}</p>
                   </div>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -547,7 +547,7 @@ const TravelAgencyLandingContent = () => {
           />
         </div>
         <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -558,11 +558,11 @@ const TravelAgencyLandingContent = () => {
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
               {content.testimonials.subtitle}
             </p>
-          </motion.div>
+          </m.div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {content.testimonials.items.map((testimonial: Testimonial, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -587,7 +587,7 @@ const TravelAgencyLandingContent = () => {
                     <div className='text-gray-500 text-sm'>{testimonial.role}</div>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -596,7 +596,7 @@ const TravelAgencyLandingContent = () => {
       {/* FAQ Section */}
       <section className='py-20 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -605,11 +605,11 @@ const TravelAgencyLandingContent = () => {
               {content.faq.title}
             </h2>
             <p className='text-xl text-gray-600'>{content.faq.subtitle}</p>
-          </motion.div>
+          </m.div>
 
           <div className='space-y-4'>
             {content.faq.questions.map((faq: Question, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -630,7 +630,7 @@ const TravelAgencyLandingContent = () => {
                     <p className='text-gray-600'>{faq.answer}</p>
                   </div>
                 )}
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -647,7 +647,7 @@ const TravelAgencyLandingContent = () => {
           </div>
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
             {agencyTypes.map((agency, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -659,7 +659,7 @@ const TravelAgencyLandingContent = () => {
                 <h3 className='text-lg font-bold mb-1'>{agency.type}</h3>
                 <p className='text-xs text-orange-400 font-medium mb-3 uppercase tracking-wide'>{agency.keywords}</p>
                 <p className='text-blue-200 text-sm leading-relaxed'>{agency.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -676,7 +676,7 @@ const TravelAgencyLandingContent = () => {
           </div>
           <div className='grid md:grid-cols-3 gap-8'>
             {pricingPlans.map((plan, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -713,7 +713,7 @@ const TravelAgencyLandingContent = () => {
                     Demander un devis
                   </button>
                 </Link>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -746,7 +746,7 @@ const TravelAgencyLandingContent = () => {
         />
         <div className='absolute inset-0 bg-linear-to-br from-blue-900/85 via-blue-800/85 to-blue-600/85' />
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}>
@@ -765,7 +765,7 @@ const TravelAgencyLandingContent = () => {
                 {content.cta.secondary}
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </div>

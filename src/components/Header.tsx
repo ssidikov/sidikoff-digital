@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 
 import common from '@/locales/fr/common.json'
 import { getLocalizedUrl } from '@/utils/navigation'
@@ -278,14 +278,14 @@ export function Header() {
     <>
       {/* Mobile & Tablet Menu Overlay */}
       {isMenuOpen && (
-        <motion.div
+        <m.div
           {...MENU_OVERLAY_ANIMATION}
           className='fixed inset-0 z-[100] bg-black/20 backdrop-blur-sm lg:hidden'
           onClick={() => setIsMenuOpen(false)}
         />
       )}
 
-      <motion.header
+      <m.header
         {...HEADER_ANIMATION}
         className='fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-[120] w-full max-w-7xl px-3 sm:px-4'>
         <nav className='relative z-[110] px-2 xs:px-3 sm:px-4'>
@@ -353,7 +353,7 @@ export function Header() {
 
           {/* Mobile & Tablet Menu */}
           {isMenuOpen && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
@@ -397,10 +397,10 @@ export function Header() {
                   </button>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           )}
         </nav>
-      </motion.header>
+      </m.header>
 
       {/* Contact Popup */}
       <PopupContactForm

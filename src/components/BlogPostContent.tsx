@@ -6,7 +6,7 @@ import { ReactNode } from 'react'
 
 import common from '@/locales/fr/common.json'
 import { formatDate } from '@/lib/i18n'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { getBlogUrl, getLocalizedUrl } from '@/utils/navigation'
 
 import { BlogPost, urlFor } from '@/lib/sanity'
@@ -320,13 +320,13 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
           </div>
 
           <div className='relative z-10 container mx-auto px-4'>
-            <motion.div
+            <m.div
               variants={headerVariants}
               initial='hidden'
               animate='visible'
               className='max-w-4xl mx-auto text-center text-white'>
               {/* Back to Blog */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -348,11 +348,11 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                   </svg>
                   {dictionary.back_to_blog}
                 </Link>
-              </motion.div>
+              </m.div>
 
               {/* Category Badge */}
               {post.category && (
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
@@ -362,7 +362,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                     style={{ backgroundColor: post.category.color || '#3F72AF' }}>
                     {post.category.title}
                   </span>
-                </motion.div>
+                </m.div>
               )}
 
               {/* Title */}
@@ -411,14 +411,14 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                   </div>
                 )}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* Content Section */}
         <section className='py-16'>
           <div className='container mx-auto px-4'>
-            <motion.div
+            <m.div
               variants={contentVariants}
               initial='hidden'
               whileInView='visible'
@@ -481,7 +481,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
@@ -490,7 +490,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
           <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-[length:20px_20px]' />
 
           <div className='relative z-10 container mx-auto px-4 text-center'>
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -515,7 +515,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                   {dictionary.back_to_blog}
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       </article>

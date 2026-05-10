@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { MotionProvider } from '@/components/MotionProvider'
 import Analytics from '@/components/analytics'
 import WebMCP from '@/components/webmcp'
 import '@/styles/globals.css'
@@ -179,9 +180,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <link rel='apple-touch-icon' href='/favicon.png' />
       </head>
       <body className={`${inter.className} ${grotesk.variable}`} suppressHydrationWarning>
-        {children}
-        <Analytics />
-        <WebMCP />
+        <MotionProvider>
+          {children}
+          <Analytics />
+          <WebMCP />
+        </MotionProvider>
       </body>
     </html>
   )

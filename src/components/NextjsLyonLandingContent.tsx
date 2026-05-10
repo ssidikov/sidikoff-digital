@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import {
   Code,
   ArrowRight,
@@ -142,7 +142,7 @@ export default function NextjsLyonLandingContent() {
 
         <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -168,7 +168,7 @@ export default function NextjsLyonLandingContent() {
 
               <div className='space-y-4'>
                 {benefits.map((benefit, index) => (
-                  <motion.div
+                  <m.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -176,7 +176,7 @@ export default function NextjsLyonLandingContent() {
                     className='flex items-center space-x-3'>
                     <CheckCircle className='w-5 h-5 text-white flex-shrink-0' />
                     <span className='text-slate-300 font-medium'>{benefit}</span>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
 
@@ -193,9 +193,9 @@ export default function NextjsLyonLandingContent() {
                   </button>
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -282,7 +282,7 @@ export default function NextjsLyonLandingContent() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -310,7 +310,7 @@ export default function NextjsLyonLandingContent() {
       {/* Semantic SEO Expansion */}
       <section className='py-20 bg-gray-50'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -360,7 +360,7 @@ export default function NextjsLyonLandingContent() {
                 sécurise votre investissement technologique sur le long terme.
               </p>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -380,7 +380,7 @@ export default function NextjsLyonLandingContent() {
             {services.map((service, index) => {
               const Icon = service.icon
               return (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -394,7 +394,7 @@ export default function NextjsLyonLandingContent() {
                     {service.title}
                   </h3>
                   <p className='text-gray-600 leading-relaxed'>{service.description}</p>
-                </motion.div>
+                </m.div>
               )
             })}
           </div>
@@ -417,7 +417,7 @@ export default function NextjsLyonLandingContent() {
             <div className='hidden md:block absolute top-1/2 left-0 right-0 h-[1px] bg-white/10 -z-10 -translate-y-1/2'></div>
 
             {processSteps.map((step, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -429,7 +429,7 @@ export default function NextjsLyonLandingContent() {
                 </div>
                 <h3 className='text-lg font-bold mb-2 tracking-tight'>{step.title}</h3>
                 <p className='text-gray-400 text-sm'>{step.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { m, useInView } from 'framer-motion'
 import Image from 'next/image'
 
 import common from '@/locales/fr/common.json'
@@ -51,7 +51,7 @@ export default function About() {
       <div className='relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28'>
         <div className='grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20'>
           {/* ── LEFT: Photo ── */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: -32 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, ease: 'easeOut' }}
@@ -72,56 +72,56 @@ export default function About() {
                 />
               </div>
               {/* Expertise badge — left */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.45, duration: 0.4, ease: 'easeOut' }}
                 className='absolute -bottom-3 left-2 z-10 flex items-center gap-2 rounded-full bg-accent px-4 py-2 shadow-[0_4px_16px_rgba(51,119,255,0.4)] sm:left-3 lg:left-4'>
                 <span className='text-sm font-medium text-white'>{dict.expertise_badge}</span>
-              </motion.div>
+              </m.div>
               {/* Disponible badge — right */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.55, duration: 0.4, ease: 'easeOut' }}
                 className='absolute -bottom-3 right-2 z-10 flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 shadow-[0_4px_16px_rgba(16,185,129,0.45)] sm:right-3 lg:right-4'>
                 <span className='h-2 w-2 rounded-full bg-white' />
                 <span className='text-sm font-medium text-white'>{dict.available_label}</span>
-              </motion.div>
+              </m.div>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* ── RIGHT: Content ── */}
-          <motion.div initial='hidden' animate={isInView ? 'visible' : 'hidden'} variants={STAGGER}>
+          <m.div initial='hidden' animate={isInView ? 'visible' : 'hidden'} variants={STAGGER}>
             {/* Eyebrow */}
-            <motion.div variants={FADE_UP}>
+            <m.div variants={FADE_UP}>
               <span className='inline-flex items-center gap-2 rounded-full border border-[rgba(51,119,255,0.3)] bg-[rgba(51,119,255,0.08)] px-4 py-1.5 text-sm font-medium text-accent'>
                 <span className='h-1.5 w-1.5 rounded-full bg-accent' aria-hidden='true' />
                 {dict.eyebrow}
               </span>
-            </motion.div>
+            </m.div>
 
             {/* Headline */}
-            <motion.h2
+            <m.h2
               variants={FADE_UP}
               className='mt-5 text-2xl font-bold leading-snug text-foreground sm:text-3xl lg:text-4xl'>
               {dict.headline}
-            </motion.h2>
+            </m.h2>
 
             {/* Paragraphs */}
-            <motion.p
+            <m.p
               variants={FADE_UP}
               className='mt-5 text-base leading-relaxed text-foreground/75'>
               {dict.p1}
-            </motion.p>
-            <motion.p
+            </m.p>
+            <m.p
               variants={FADE_UP}
               className='mt-3 text-base leading-relaxed text-foreground/60'>
               {dict.p2}
-            </motion.p>
+            </m.p>
 
             {/* Author signature */}
-            <motion.div variants={FADE_UP} className='mt-6 inline-flex items-center gap-3'>
+            <m.div variants={FADE_UP} className='mt-6 inline-flex items-center gap-3'>
               {/* Initials avatar */}
               <div className='flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-accent to-primary shadow-[0_2px_12px_rgba(51,119,255,0.3)]'>
                 <span className='text-sm font-bold tracking-tight'>SS</span>
@@ -135,10 +135,10 @@ export default function About() {
                 </p>
                 <p className='mt-0.5 text-xs text-foreground/50'>{dict.author_role}</p>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Stats */}
-            <motion.div variants={FADE_UP} className='mt-8 grid grid-cols-3 gap-3'>
+            <m.div variants={FADE_UP} className='mt-8 grid grid-cols-3 gap-3'>
               {dict.stats.map((stat) => (
                 <div
                   key={stat.label}
@@ -151,10 +151,10 @@ export default function About() {
                   </div>
                 </div>
               ))}
-            </motion.div>
+            </m.div>
 
             {/* Trust badges */}
-            <motion.ul
+            <m.ul
               variants={FADE_UP}
               className='mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-2'>
               {dict.trust_badges.map((badge) => (
@@ -175,10 +175,10 @@ export default function About() {
                   {badge}
                 </li>
               ))}
-            </motion.ul>
+            </m.ul>
 
             {/* CTA */}
-            <motion.div variants={FADE_UP} className='mt-8'>
+            <m.div variants={FADE_UP} className='mt-8'>
               <CTAButton
                 href='/#contact'
                 variant='primary'
@@ -187,15 +187,15 @@ export default function About() {
                 trackingCategory='About'>
                 {dict.cta}
               </CTAButton>
-            </motion.div>
+            </m.div>
 
             {/* GEO Signal: Freshness/Last Updated */}
-            <motion.div variants={FADE_UP} className='mt-8 flex items-center gap-2 opacity-40'>
+            <m.div variants={FADE_UP} className='mt-8 flex items-center gap-2 opacity-40'>
               <span className='text-[10px] font-medium uppercase tracking-wider text-foreground'>
                 Dernière mise à jour : 12 avril 2026
               </span>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         </div>
       </div>
 

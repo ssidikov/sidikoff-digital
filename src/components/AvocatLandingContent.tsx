@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import {
   Scale,
   ArrowRight,
@@ -237,7 +237,7 @@ export default function AvocatLandingContent() {
 
         <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -259,7 +259,7 @@ export default function AvocatLandingContent() {
 
               <div className='space-y-4'>
                 {benefits.map((benefit, index) => (
-                  <motion.div
+                  <m.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -268,7 +268,7 @@ export default function AvocatLandingContent() {
                   >
                     <CheckCircle className='w-5 h-5 text-amber-500 flex-shrink-0' />
                     <span className='text-slate-200 font-medium'>{benefit}</span>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
 
@@ -285,9 +285,9 @@ export default function AvocatLandingContent() {
                   </button>
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -317,7 +317,7 @@ export default function AvocatLandingContent() {
                   </button>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -345,7 +345,7 @@ export default function AvocatLandingContent() {
       {/* Semantic SEO Expansion */}
       <section className='py-20 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -368,7 +368,7 @@ export default function AvocatLandingContent() {
                 Sur le plan technique, nous déployons des stratégies de <strong>SEO Local Avocats</strong> agressives. En structurant correctement vos pages de compétences (ex: "Avocat droit immobilier Paris 8", "Avocat licenciement Lyon"), nous permettons à votre cabinet de se positionner en tête des résultats Google. Couplé à l'intégration de modules de <strong>prise de rendez-vous en ligne</strong> (Consulto, Meetlaw) et de paiement des consultations, votre site se transforme en un puissant canal d'acquisition. Vous gagnez du temps sur la gestion administrative, réduisez les "lapins", et facilitez l'accès au droit pour vos clients.
               </p>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -386,7 +386,7 @@ export default function AvocatLandingContent() {
             {services.map((service, index) => {
               const Icon = service.icon
               return (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -399,7 +399,7 @@ export default function AvocatLandingContent() {
                   </div>
                   <h3 className='text-xl font-bold text-slate-900 mb-3'>{service.title}</h3>
                   <p className='text-slate-600 leading-relaxed'>{service.description}</p>
-                </motion.div>
+                </m.div>
               )
             })}
           </div>
@@ -418,7 +418,7 @@ export default function AvocatLandingContent() {
             <div className='hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-slate-800 -z-10 -translate-y-1/2'></div>
             
             {processSteps.map((step, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -431,7 +431,7 @@ export default function AvocatLandingContent() {
                 </div>
                 <h3 className='text-lg font-bold mb-2'>{step.title}</h3>
                 <p className='text-slate-400 text-sm'>{step.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -448,7 +448,7 @@ export default function AvocatLandingContent() {
           </div>
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
             {legalDomains.map((domain, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -460,7 +460,7 @@ export default function AvocatLandingContent() {
                 <h3 className='text-lg font-bold text-slate-900 mb-1'>{domain.domaine}</h3>
                 <p className='text-xs text-amber-600 font-medium mb-3 uppercase tracking-wide'>{domain.keywords}</p>
                 <p className='text-slate-600 text-sm leading-relaxed'>{domain.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -477,7 +477,7 @@ export default function AvocatLandingContent() {
           </div>
           <div className='grid md:grid-cols-3 gap-8'>
             {pricingPlans.map((plan, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -514,7 +514,7 @@ export default function AvocatLandingContent() {
                     Demander un devis
                   </button>
                 </Link>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

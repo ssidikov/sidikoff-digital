@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { ArrowUpRight, CalendarDays, Clock } from 'lucide-react'
 
 import { formatDate } from '@/lib/i18n'
@@ -52,7 +52,7 @@ export function BlogCard({ post, featured = false, index }: BlogCardProps) {
   const readTime = estimateReadTime(post.content)
 
   return (
-    <motion.article
+    <m.article
       custom={index}
       variants={CARD_VARIANTS}
       initial='hidden'
@@ -126,6 +126,6 @@ export function BlogCard({ post, featured = false, index }: BlogCardProps) {
           </div>
         </div>
       </Link>
-    </motion.article>
+    </m.article>
   )
 }

@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import {
   Star,
   ArrowRight,
@@ -112,7 +112,7 @@ export default function DoctorLandingContent() {
 
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -130,7 +130,7 @@ export default function DoctorLandingContent() {
 
                 <div className='space-y-4 mb-8'>
                   {t.hero.benefits?.map((benefit: string, index: number) => (
-                    <motion.div
+                    <m.div
                       key={index}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -138,7 +138,7 @@ export default function DoctorLandingContent() {
                       className='flex items-center space-x-3'>
                       <CheckCircle className='w-5 h-5 text-green-600 flex-shrink-0' />
                       <span className='text-gray-700'>{benefit}</span>
-                    </motion.div>
+                    </m.div>
                   ))}
                 </div>
               </div>
@@ -157,9 +157,9 @@ export default function DoctorLandingContent() {
                   {t.hero.cta_secondary}
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -176,7 +176,7 @@ export default function DoctorLandingContent() {
               <div className='absolute -top-4 -right-4 w-20 h-20 bg-green-500 rounded-full flex items-center justify-center shadow-lg'>
                 <Stethoscope className='w-10 h-10 text-white' />
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -184,7 +184,7 @@ export default function DoctorLandingContent() {
       {/* Problems Section */}
       <section className='py-24 bg-gray-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -194,11 +194,11 @@ export default function DoctorLandingContent() {
               {t.problems.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.problems.description}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-3 gap-8'>
             {t.problems.pain_points?.map((point: PainPoint, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -210,7 +210,7 @@ export default function DoctorLandingContent() {
                 </div>
                 <h3 className='text-xl font-semibold text-gray-900 mb-4'>{point.title}</h3>
                 <p className='text-gray-600 leading-relaxed'>{point.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -218,7 +218,7 @@ export default function DoctorLandingContent() {
       {/* Why Medical Section */}
       <section className='py-24 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -228,11 +228,11 @@ export default function DoctorLandingContent() {
               {t.why_medical.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.why_medical.description}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {t.why_medical.reasons?.map((reason: { icon: string; title: string; description: string }, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -244,7 +244,7 @@ export default function DoctorLandingContent() {
                 </div>
                 <h3 className='text-lg font-semibold text-gray-900 mb-3'>{reason.title}</h3>
                 <p className='text-gray-600 leading-relaxed text-sm'>{reason.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -253,7 +253,7 @@ export default function DoctorLandingContent() {
       {/* Professionals Section */}
       <section className='py-24 bg-gray-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -263,11 +263,11 @@ export default function DoctorLandingContent() {
               {t.professionals.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.professionals.description}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
             {t.professionals.specialties?.map((spec: { title: string; description: string }, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -279,7 +279,7 @@ export default function DoctorLandingContent() {
                   {spec.title}
                 </h3>
                 <p className='text-gray-600 leading-relaxed text-sm'>{spec.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -288,7 +288,7 @@ export default function DoctorLandingContent() {
       {/* SEO Content / Expertise Section */}
       <section className='py-24 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -297,10 +297,10 @@ export default function DoctorLandingContent() {
             <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
               {t.seo_content.title}
             </h2>
-          </motion.div>
+          </m.div>
           <div className='prose prose-lg prose-green max-w-none'>
             {t.seo_content.paragraphs?.map((para: string, index: number) => (
-              <motion.p
+              <m.p
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -308,7 +308,7 @@ export default function DoctorLandingContent() {
                 viewport={{ once: true }}
                 className='text-gray-700 leading-relaxed mb-6 text-lg'>
                 {para}
-              </motion.p>
+              </m.p>
             ))}
           </div>
         </div>
@@ -317,7 +317,7 @@ export default function DoctorLandingContent() {
 
       <section className='py-24 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -327,11 +327,11 @@ export default function DoctorLandingContent() {
               {t.solution.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.solution.description}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.solution.features?.map((feature: Feature, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -343,7 +343,7 @@ export default function DoctorLandingContent() {
                 </div>
                 <h3 className='text-xl font-semibold text-gray-900 mb-4'>{feature.title}</h3>
                 <p className='text-gray-600 leading-relaxed'>{feature.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -352,7 +352,7 @@ export default function DoctorLandingContent() {
       {/* Process Section */}
       <section className='py-24 bg-gray-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -360,11 +360,11 @@ export default function DoctorLandingContent() {
             className='text-center mb-16'>
             <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>{t.process.title}</h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.process.description}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {t.process.steps?.map((step: ProcessStep, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -376,7 +376,7 @@ export default function DoctorLandingContent() {
                 </div>
                 <h3 className='text-xl font-semibold text-gray-900 mb-4'>{step.title}</h3>
                 <p className='text-gray-600 leading-relaxed'>{step.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -385,7 +385,7 @@ export default function DoctorLandingContent() {
       {/* Portfolio Section */}
       <section id='portfolio' className='py-24 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -395,11 +395,11 @@ export default function DoctorLandingContent() {
               {t.portfolio.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.portfolio.description}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-3 gap-8'>
             {t.portfolio.projects?.map((project: MedicalProject, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -426,7 +426,7 @@ export default function DoctorLandingContent() {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -435,7 +435,7 @@ export default function DoctorLandingContent() {
       {/* Testimonials Section */}
       <section className='py-24 bg-green-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -445,11 +445,11 @@ export default function DoctorLandingContent() {
               {t.testimonials.title}
             </h2>
             <p className='text-xl text-gray-600'>{t.testimonials.subtitle}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.testimonials.reviews?.map((review: Review, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -474,7 +474,7 @@ export default function DoctorLandingContent() {
                     <div className='text-sm text-gray-500'>{review.location}</div>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -483,7 +483,7 @@ export default function DoctorLandingContent() {
       {/* Pricing Section */}
       <section className='py-24 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -491,11 +491,11 @@ export default function DoctorLandingContent() {
             className='text-center mb-16'>
             <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>{t.pricing.title}</h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.pricing.description}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
             {t.pricing.packages?.map((pkg: Package, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -541,7 +541,7 @@ export default function DoctorLandingContent() {
                   }`}>
                   Choisir ce forfait
                 </Link>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -550,7 +550,7 @@ export default function DoctorLandingContent() {
       {/* Semantic Expansion Section */}
       <section className='py-24 bg-emerald-50'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -645,14 +645,14 @@ export default function DoctorLandingContent() {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* FAQ Section */}
       <section className='py-24 bg-gray-50'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -660,11 +660,11 @@ export default function DoctorLandingContent() {
             className='text-center mb-16'>
             <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>{t.faq.title}</h2>
             <p className='text-xl text-gray-600'>{t.faq.description}</p>
-          </motion.div>
+          </m.div>
 
           <div className='space-y-6'>
             {t.faq.questions?.map((item: FAQ, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -686,7 +686,7 @@ export default function DoctorLandingContent() {
                     <p className='text-gray-600 leading-relaxed'>{item.answer}</p>
                   </div>
                 )}
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -695,7 +695,7 @@ export default function DoctorLandingContent() {
       {/* CTA Section */}
       <section className='py-24 bg-linear-to-r from-green-600 to-emerald-600'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -709,7 +709,7 @@ export default function DoctorLandingContent() {
               {t.cta.button}
               <ArrowRight className='w-5 h-5 ml-2' />
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </div>

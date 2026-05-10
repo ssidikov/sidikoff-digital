@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import common from '@/locales/fr/common.json'
 
 interface BreadcrumbItem {
@@ -36,7 +36,7 @@ export default function SeoOptimizationLandingContent({
 
         <div className='relative w-full max-w-7xl mx-auto'>
           {/* Breadcrumbs */}
-          <motion.nav
+          <m.nav
             className='mb-8'
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -57,50 +57,50 @@ export default function SeoOptimizationLandingContent({
                 </li>
               ))}
             </ol>
-          </motion.nav>
+          </m.nav>
 
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
             {/* Left Column - Content */}
-            <motion.div
+            <m.div
               className='space-y-8'
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}>
               {/* Badge */}
-              <motion.div
+              <m.div
                 className='inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-[var(--accent-alpha-10)] text-[var(--accent)] border border-[var(--accent-alpha-20)]'
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.5 }}>
                 {t.hero.badge}
-              </motion.div>
+              </m.div>
 
               {/* Title */}
-              <motion.h1
+              <m.h1
                 className='text-4xl md:text-5xl font-bold text-[var(--foreground)] leading-tight'
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}>
                 {t.hero.title}
-              </motion.h1>
+              </m.h1>
 
               {/* Description */}
-              <motion.p
+              <m.p
                 className='text-xl text-gray-600 leading-relaxed'
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}>
                 {t.hero.description}
-              </motion.p>
+              </m.p>
 
               {/* Benefits List */}
-              <motion.ul
+              <m.ul
                 className='space-y-3'
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}>
                 {t.hero.benefits.map((benefit: string, index: number) => (
-                  <motion.li
+                  <m.li
                     key={index}
                     className='flex items-start space-x-3'
                     initial={{ opacity: 0, x: -20 }}
@@ -108,12 +108,12 @@ export default function SeoOptimizationLandingContent({
                     transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}>
                     <div className='w-2 h-2 bg-[var(--accent)] rounded-full mt-2 flex-shrink-0'></div>
                     <span className='text-gray-700'>{benefit}</span>
-                  </motion.li>
+                  </m.li>
                 ))}
-              </motion.ul>
+              </m.ul>
 
               {/* CTA Buttons */}
-              <motion.div
+              <m.div
                 className='flex flex-col sm:flex-row gap-4 pt-4'
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -123,11 +123,11 @@ export default function SeoOptimizationLandingContent({
                   className='inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-[var(--accent)] rounded-lg hover:bg-[var(--accent-dark)] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'>
                   {t.hero.cta_primary}
                 </Link>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
 
             {/* Right Column - Visual */}
-            <motion.div
+            <m.div
               className='relative'
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -143,7 +143,7 @@ export default function SeoOptimizationLandingContent({
                   priority
                 />
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -151,14 +151,14 @@ export default function SeoOptimizationLandingContent({
       {/* Stats Section */}
       <section className='py-20 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             className='grid md:grid-cols-3 gap-8'
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}>
             {t.stats.map((stat, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 className='text-center p-6 bg-linear-to-br from-[var(--bg-accent-light)] to-[var(--accent-alpha-10)] rounded-xl border border-[var(--accent-alpha-20)]'
                 initial={{ opacity: 0, y: 30 }}
@@ -170,16 +170,16 @@ export default function SeoOptimizationLandingContent({
                   {stat.title}
                 </div>
                 <div className='text-gray-600'>{stat.description}</div>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Process Section */}
       <section className='py-20 bg-[var(--bg-primary)]'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             className='text-center mb-16'
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -187,11 +187,11 @@ export default function SeoOptimizationLandingContent({
             viewport={{ once: true }}>
             <h2 className='text-4xl font-bold text-[var(--foreground)] mb-4'>{t.process.title}</h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.process.description}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {t.process.steps.map((step, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 className='relative p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300'
                 initial={{ opacity: 0, y: 30 }}
@@ -205,7 +205,7 @@ export default function SeoOptimizationLandingContent({
                   {step.title}
                 </h3>
                 <p className='text-gray-600'>{step.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -214,7 +214,7 @@ export default function SeoOptimizationLandingContent({
       {/* Features Section */}
       <section className='py-20 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             className='text-center mb-16'
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -222,11 +222,11 @@ export default function SeoOptimizationLandingContent({
             viewport={{ once: true }}>
             <h2 className='text-4xl font-bold text-[var(--foreground)] mb-4'>{t.features.title}</h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.features.description}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.features.items.map((feature, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 className='p-6 bg-linear-to-br from-[var(--bg-primary)] to-white rounded-xl border border-gray-100 hover:border-[var(--accent-alpha-20)] hover:shadow-lg transition-all duration-300'
                 initial={{ opacity: 0, y: 30 }}
@@ -249,7 +249,7 @@ export default function SeoOptimizationLandingContent({
                 </div>
                 <h3 className='text-lg font-bold text-[var(--foreground)] mb-3'>{feature.title}</h3>
                 <p className='text-gray-600'>{feature.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -260,15 +260,15 @@ export default function SeoOptimizationLandingContent({
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-16 items-start'>
             <div>
-              <motion.h2
+              <m.h2
                 className='text-4xl font-bold text-[var(--foreground)] mb-8 leading-tight'
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}>
                 Pourquoi le SEO est indispensable en 2026
-              </motion.h2>
-              <motion.div
+              </m.h2>
+              <m.div
                 className='space-y-5 text-lg text-gray-700 leading-relaxed'
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -302,19 +302,19 @@ export default function SeoOptimizationLandingContent({
                   Marseille et leurs agglomérations. Chaque stratégie est construite sur des données réelles :
                   analyse concurrentielle, volume de recherche, intention utilisateur et potentiel de conversion.
                 </p>
-              </motion.div>
+              </m.div>
             </div>
 
             <div>
-              <motion.h3
+              <m.h3
                 className='text-2xl font-bold text-[var(--foreground)] mb-6'
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}>
                 Pour qui nos services SEO sont-ils faits ?
-              </motion.h3>
-              <motion.div
+              </m.h3>
+              <m.div
                 className='space-y-4'
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -355,7 +355,7 @@ export default function SeoOptimizationLandingContent({
                     </div>
                   </div>
                 ))}
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </div>
@@ -364,7 +364,7 @@ export default function SeoOptimizationLandingContent({
       {/* E-E-A-T Section — Sprint 2 Task 3 */}
       <section className='py-20 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             className='text-center mb-16'
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -377,7 +377,7 @@ export default function SeoOptimizationLandingContent({
               Google évalue chaque page selon quatre critères exigeants. Voici comment nous les
               construisons concrètement pour votre site.
             </p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16'>
             {[
@@ -406,7 +406,7 @@ export default function SeoOptimizationLandingContent({
                 desc: "HTTPS, mentions légales, politique de confidentialité RGPD, informations de contact claires, avis clients vérifiés et transparence totale sur l'identité de l'auteur.",
               },
             ].map((item, i) => (
-              <motion.div
+              <m.div
                 key={i}
                 className='p-6 bg-[var(--bg-primary)] rounded-xl border border-gray-100 hover:shadow-lg transition-all duration-300'
                 initial={{ opacity: 0, y: 30 }}
@@ -419,12 +419,12 @@ export default function SeoOptimizationLandingContent({
                 </div>
                 <h3 className='text-lg font-bold text-[var(--foreground)] mb-3'>{item.title}</h3>
                 <p className='text-gray-600 text-sm leading-relaxed'>{item.desc}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
           {/* YMYL note */}
-          <motion.div
+          <m.div
             className='bg-amber-50 border border-amber-200 rounded-2xl p-6 flex gap-4 items-start'
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -445,7 +445,7 @@ export default function SeoOptimizationLandingContent({
                 Google.
               </p>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -453,7 +453,7 @@ export default function SeoOptimizationLandingContent({
       <section className='py-20 bg-[var(--bg-primary)]'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-16 items-start'>
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
@@ -488,9 +488,9 @@ export default function SeoOptimizationLandingContent({
                   données directement corrélées à votre chiffre d&apos;affaires.
                 </p>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
@@ -532,7 +532,7 @@ export default function SeoOptimizationLandingContent({
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -540,7 +540,7 @@ export default function SeoOptimizationLandingContent({
       {/* Extended FAQ Section */}
       <section className='py-20 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             className='text-center mb-16'
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -552,9 +552,9 @@ export default function SeoOptimizationLandingContent({
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
               Toutes vos questions sur le référencement naturel et nos services SEO
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             className='space-y-0 divide-y divide-gray-200 border border-gray-200 rounded-2xl overflow-hidden'
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -595,14 +595,14 @@ export default function SeoOptimizationLandingContent({
                 <p className='text-gray-600 leading-relaxed'>{item.a}</p>
               </div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
 
       <section className='py-20 bg-[var(--accent)]'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-          <motion.div
+          <m.div
             className='space-y-8'
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -615,7 +615,7 @@ export default function SeoOptimizationLandingContent({
               className='inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-[var(--accent)] bg-white rounded-lg hover:bg-gray-50 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'>
               {t.cta.primary_button}
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </div>

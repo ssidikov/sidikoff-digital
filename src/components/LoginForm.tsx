@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 
 interface LoginFormProps {
   onLogin: () => void
@@ -46,7 +46,7 @@ export function LoginForm({ onLogin }: LoginFormProps) {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -99,13 +99,13 @@ export function LoginForm({ onLogin }: LoginFormProps) {
           </div>
 
           {error && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded relative"
             >
               {error}
-            </motion.div>
+            </m.div>
           )}
 
           <div>
@@ -125,7 +125,7 @@ export function LoginForm({ onLogin }: LoginFormProps) {
             </button>
           </div>
         </form>
-      </motion.div>
+      </m.div>
     </div>
   )
 }

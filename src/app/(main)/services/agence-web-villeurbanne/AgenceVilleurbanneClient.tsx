@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { ArrowUpRight, Code2, Globe, Sparkles, CheckSquare } from 'lucide-react'
 import Link from 'next/link'
 import { Limelight, JetBrains_Mono } from 'next/font/google'
@@ -60,7 +60,7 @@ export default function AgenceVilleurbanneClient() {
 
       {/* Hero Section */}
       <section className='relative z-10 px-6 lg:px-12 max-w-7xl mx-auto flex flex-col items-center text-center'>
-        <motion.div
+        <m.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           className={`inline-flex items-center gap-3 px-6 py-2 border-[3px] border-[#111827] shadow-[4px_4px_0px_#3B82F6] bg-white mb-12`}>
@@ -69,9 +69,9 @@ export default function AgenceVilleurbanneClient() {
             className={`${jetbrainsMono.className} text-sm uppercase font-bold tracking-tight text-[#111827]`}>
             Disponible pour projets
           </span>
-        </motion.div>
+        </m.div>
 
-        <motion.h1
+        <m.h1
           className={`${limelight.className} text-5xl md:text-7xl lg:text-8xl tracking-tight mb-8 text-[#111827] max-w-5xl leading-none`}
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -79,17 +79,17 @@ export default function AgenceVilleurbanneClient() {
           AGENCE WEB VILLEURBANNE
           <br />
           <span className='text-[#3B82F6] block mt-4'>— CRÉATION SITE INTERNET & SEO VILLEURBANNE</span>
-        </motion.h1>
+        </m.h1>
 
-        <motion.p
+        <m.p
           className='text-xl md:text-2xl text-[#111827] max-w-3xl mx-auto mb-16 font-medium leading-relaxed border-l-4 border-[#3B82F6] pl-6 text-left'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}>
           Propulsez votre visibilité en ligne avec une esthétique radicale. Nous concevons des plateformes web sur-mesure pour les entreprises locales, des boutiques en ligne performantes et déployons une stratégie SEO Villeurbanne implacable.
-        </motion.p>
+        </m.p>
 
-        <motion.div
+        <m.div
           className='flex flex-col sm:flex-row gap-6 w-full sm:w-auto mt-4'
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -110,10 +110,10 @@ export default function AgenceVilleurbanneClient() {
               Explorer
             </span>
           </Link>
-        </motion.div>
+        </m.div>
 
         {/* Freshness & Author Attribution */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.4 }}
           transition={{ delay: 0.8 }}
@@ -124,7 +124,7 @@ export default function AgenceVilleurbanneClient() {
           <p className={`${jetbrainsMono.className} text-[10px] uppercase`}>
             Mis à jour le 12 Avril 2026
           </p>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* Brutalist Divider */}
@@ -132,7 +132,7 @@ export default function AgenceVilleurbanneClient() {
 
       {/* Expertise Section */}
       <section id='expertise' className='relative z-10 px-6 lg:px-12 max-w-7xl mx-auto'>
-        <motion.div
+        <m.div
           initial='initial'
           whileInView='animate'
           viewport={{ once: true, margin: '-100px' }}
@@ -148,16 +148,16 @@ export default function AgenceVilleurbanneClient() {
               LES COMPÉTENCES DE NOTRE CABINET
             </h2>
           </div>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           variants={staggerContainer}
           initial='initial'
           whileInView='animate'
           viewport={{ once: true }}
           className='grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12'>
           {/* Card 1 */}
-          <motion.div
+          <m.div
             variants={fadeIn}
             className='bg-white border-4 border-[#111827] shadow-[12px_12px_0px_#111827] p-8 flex flex-col relative group transition-transform hover:-translate-y-2'>
             <div className='absolute top-0 right-0 w-24 h-24 bg-[#D97706] border-b-4 border-l-4 border-[#111827] flex items-center justify-center -mt-4 -mr-4'>
@@ -180,10 +180,10 @@ export default function AgenceVilleurbanneClient() {
                 </span>
               ))}
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Card 2 */}
-          <motion.div
+          <m.div
             variants={fadeIn}
             className='bg-[#111827] text-white border-4 border-[#111827] shadow-[12px_12px_0px_#3B82F6] p-8 flex flex-col relative group transition-transform hover:-translate-y-2'>
             <div className='absolute top-0 right-0 w-24 h-24 bg-[#3B82F6] border-b-4 border-l-4 border-[#111827] flex items-center justify-center -mt-4 -mr-4'>
@@ -206,10 +206,10 @@ export default function AgenceVilleurbanneClient() {
                 </span>
               ))}
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Card 3 */}
-          <motion.div
+          <m.div
             variants={fadeIn}
             className='bg-[#8B5CF6] text-white border-4 border-[#111827] shadow-[12px_12px_0px_#111827] p-8 flex flex-col relative group transition-transform hover:-translate-y-2'>
             <div className='absolute top-0 right-0 w-24 h-24 bg-[#FFFFFF] border-b-4 border-l-4 border-[#111827] flex items-center justify-center -mt-4 -mr-4'>
@@ -235,8 +235,8 @@ export default function AgenceVilleurbanneClient() {
                 </span>
               ))}
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
       <div className='w-full border-t-4 border-[#111827] my-32'></div>
@@ -244,7 +244,7 @@ export default function AgenceVilleurbanneClient() {
       {/* Local Process Section */}
       <section className='relative z-10 px-6 lg:px-12 max-w-7xl mx-auto'>
         <div className='flex flex-col lg:flex-row gap-16 items-start'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -273,9 +273,9 @@ export default function AgenceVilleurbanneClient() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -307,13 +307,13 @@ export default function AgenceVilleurbanneClient() {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Local Depth Section */}
       <section className='relative z-10 px-6 lg:px-12 max-w-7xl mx-auto mt-8'>
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -369,14 +369,14 @@ export default function AgenceVilleurbanneClient() {
               ))}
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </section>
 
       <div className='w-full border-t-4 border-[#111827] my-16'></div>
 
       {/* Consultant SEO Section */}
       <section className='relative z-10 px-6 lg:px-12 max-w-7xl mx-auto'>
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -414,14 +414,14 @@ export default function AgenceVilleurbanneClient() {
               ))}
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </section>
 
       <div className='w-full border-t-4 border-[#111827] my-16'></div>
 
       {/* FAQ Section */}
       <section className='relative z-10 px-6 lg:px-12 max-w-7xl mx-auto'>
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -476,7 +476,7 @@ export default function AgenceVilleurbanneClient() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </section>
 
       <div className='w-full border-t-4 border-[#111827] my-16'></div>
@@ -485,7 +485,7 @@ export default function AgenceVilleurbanneClient() {
 
       {/* Lyon Cluster Internal Links */}
       <section className='relative z-10 px-6 lg:px-12 max-w-7xl mx-auto mb-16'>
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -544,7 +544,7 @@ export default function AgenceVilleurbanneClient() {
               </Link>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* Bottom CTA Block */}
@@ -562,7 +562,7 @@ export default function AgenceVilleurbanneClient() {
           }}
         />
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -589,7 +589,7 @@ export default function AgenceVilleurbanneClient() {
               <ArrowUpRight className='w-8 h-8 group-hover:rotate-45 transition-transform duration-300 bg-[#3B82F6] text-white group-hover:bg-[#111827] p-1 border-2 border-transparent group-hover:border-white' />
             </span>
           </Link>
-        </motion.div>
+        </m.div>
       </section>
     </div>
   )

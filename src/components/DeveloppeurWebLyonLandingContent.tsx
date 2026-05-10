@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import {
   Terminal,
   ArrowRight,
@@ -137,7 +137,7 @@ export default function DeveloppeurWebLyonLandingContent() {
 
         <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -159,7 +159,7 @@ export default function DeveloppeurWebLyonLandingContent() {
 
               <div className='space-y-4'>
                 {benefits.map((benefit, index) => (
-                  <motion.div
+                  <m.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -168,7 +168,7 @@ export default function DeveloppeurWebLyonLandingContent() {
                   >
                     <CheckCircle className='w-5 h-5 text-emerald-400 flex-shrink-0' />
                     <span className='text-slate-200 font-medium'>{benefit}</span>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
 
@@ -185,9 +185,9 @@ export default function DeveloppeurWebLyonLandingContent() {
                   </button>
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -229,7 +229,7 @@ export default function DeveloppeurWebLyonLandingContent() {
                   <div className='animate-pulse mt-4'>_</div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -257,7 +257,7 @@ export default function DeveloppeurWebLyonLandingContent() {
       {/* Semantic SEO Expansion */}
       <section className='py-20 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -283,7 +283,7 @@ export default function DeveloppeurWebLyonLandingContent() {
                 Notre offre est flexible pour s'adapter à la réalité de votre entreprise lyonnaise. Vous avez un cahier des charges précis ? Nous réalisons le <strong>développement de votre SaaS au forfait</strong>. Votre équipe tech a besoin de renfort immédiat ? Nos développeurs interviennent en <strong>régie (Freelance)</strong>, directement dans vos locaux (Part-Dieu, Confluence, Gerland) ou en télétravail, pour accélérer vos sprints de développement en méthode Agile.
               </p>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -301,7 +301,7 @@ export default function DeveloppeurWebLyonLandingContent() {
             {services.map((service, index) => {
               const Icon = service.icon
               return (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -314,7 +314,7 @@ export default function DeveloppeurWebLyonLandingContent() {
                   </div>
                   <h3 className='text-xl font-bold text-slate-900 mb-3'>{service.title}</h3>
                   <p className='text-slate-600 leading-relaxed'>{service.description}</p>
-                </motion.div>
+                </m.div>
               )
             })}
           </div>
@@ -333,7 +333,7 @@ export default function DeveloppeurWebLyonLandingContent() {
             <div className='hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-slate-800 -z-10 -translate-y-1/2'></div>
             
             {processSteps.map((step, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -346,7 +346,7 @@ export default function DeveloppeurWebLyonLandingContent() {
                 </div>
                 <h3 className='text-lg font-bold mb-2'>{step.title}</h3>
                 <p className='text-slate-400 text-sm'>{step.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

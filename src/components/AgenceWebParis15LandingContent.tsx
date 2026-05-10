@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import {
@@ -79,11 +79,11 @@ export default function AgenceWebParis15LandingContent() {
         <div className='w-full max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative z-10 py-20'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
             {/* Left Content */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}>
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
@@ -92,26 +92,26 @@ export default function AgenceWebParis15LandingContent() {
                 <span className='bg-linear-to-r from-pink-300 to-purple-300 bg-clip-text text-transparent'>
                   {content.hero.badge}
                 </span>
-              </motion.div>
+              </m.div>
 
-              <motion.h1
+              <m.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
                 className='text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1]'
                 style={{ fontFamily: 'var(--font-grotesk, system-ui)' }}>
                 {content.hero.title}
-              </motion.h1>
+              </m.h1>
 
-              <motion.p
+              <m.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
                 className='text-xl md:text-2xl text-purple-100 mb-10 leading-relaxed font-light'>
                 {content.hero.description}
-              </motion.p>
+              </m.p>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
@@ -127,9 +127,9 @@ export default function AgenceWebParis15LandingContent() {
                   className='inline-flex items-center justify-center gap-3 px-8 py-5 bg-white/10 backdrop-blur-md text-white border-2 border-white/30 rounded-2xl font-bold text-lg hover:bg-white/20 transition-all duration-300'>
                   {content.hero.cta_secondary}
                 </Link>
-              </motion.div>
+              </m.div>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
@@ -142,11 +142,11 @@ export default function AgenceWebParis15LandingContent() {
                     <span className='text-base font-semibold text-white'>{indicator}</span>
                   </div>
                 ))}
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
 
             {/* Right - Stats Cards */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
@@ -157,7 +157,7 @@ export default function AgenceWebParis15LandingContent() {
                 { icon: Zap, label: '7-14j', value: 'Livraison' },
                 { icon: TrendingUp, label: 'SEO', value: 'Optimisé' },
               ].map((stat, idx) => (
-                <motion.div
+                <m.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -166,9 +166,9 @@ export default function AgenceWebParis15LandingContent() {
                   <stat.icon className='w-10 h-10 text-pink-400 mb-4' />
                   <div className='text-3xl font-black text-white mb-1'>{stat.label}</div>
                   <div className='text-sm font-medium text-purple-200'>{stat.value}</div>
-                </motion.div>
+                </m.div>
               ))}
-            </motion.div>
+            </m.div>
           </div>
         </div>
 
@@ -191,7 +191,7 @@ export default function AgenceWebParis15LandingContent() {
         </div>
 
         <div className='w-full max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative z-10'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -207,7 +207,7 @@ export default function AgenceWebParis15LandingContent() {
             <p className='text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto font-light'>
               {content.services.subtitle}
             </p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-3 gap-8'>
             {content.services.items.map(
@@ -221,7 +221,7 @@ export default function AgenceWebParis15LandingContent() {
                 const imageUrl: string = images[index % images.length]!
 
                 return (
-                  <motion.div
+                  <m.div
                     key={index}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -263,7 +263,7 @@ export default function AgenceWebParis15LandingContent() {
 
                     {/* Gradient accent on hover */}
                     <div className='absolute inset-0 border-2 border-transparent group-hover:border-indigo-500/20 rounded-3xl transition-all duration-300 pointer-events-none' />
-                  </motion.div>
+                  </m.div>
                 )
               },
             )}
@@ -285,7 +285,7 @@ export default function AgenceWebParis15LandingContent() {
         <div className='w-full max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative z-10'>
           <div className='grid lg:grid-cols-2 gap-16 items-center'>
             {/* Left - Image */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -302,7 +302,7 @@ export default function AgenceWebParis15LandingContent() {
               </div>
 
               {/* Floating badge */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -317,11 +317,11 @@ export default function AgenceWebParis15LandingContent() {
                     <div className='text-sm text-slate-600 font-medium'>Clients satisfaits</div>
                   </div>
                 </div>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
 
             {/* Right - Content */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}>
@@ -343,7 +343,7 @@ export default function AgenceWebParis15LandingContent() {
                     const IconComponent = iconMap[item.icon as keyof typeof iconMap] || Award
 
                     return (
-                      <motion.div
+                      <m.div
                         key={index}
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -365,12 +365,12 @@ export default function AgenceWebParis15LandingContent() {
                             {item.description}
                           </p>
                         </div>
-                      </motion.div>
+                      </m.div>
                     )
                   },
                 )}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -378,7 +378,7 @@ export default function AgenceWebParis15LandingContent() {
       {/* Process Section - Timeline Style */}
       <section className='py-24 md:py-32 bg-slate-50'>
         <div className='w-full max-w-7xl mx-auto px-6 md:px-8 lg:px-12'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -391,12 +391,12 @@ export default function AgenceWebParis15LandingContent() {
               style={{ fontFamily: 'var(--font-grotesk, system-ui)' }}>
               {content.process.title}
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className='max-w-5xl mx-auto'>
             {content.process.steps.map(
               (step: { number: string; title: string; description: string }, index: number) => (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -435,7 +435,7 @@ export default function AgenceWebParis15LandingContent() {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </m.div>
               ),
             )}
           </div>
@@ -445,7 +445,7 @@ export default function AgenceWebParis15LandingContent() {
       {/* Portfolio Teaser */}
       <section className='py-24 md:py-32 bg-white'>
         <div className='w-full max-w-7xl mx-auto px-6 md:px-8 lg:px-12'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -461,9 +461,9 @@ export default function AgenceWebParis15LandingContent() {
             <p className='text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto font-light mb-12'>
               {content.portfolio_teaser.description}
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -474,7 +474,7 @@ export default function AgenceWebParis15LandingContent() {
               {content.portfolio_teaser.cta}
               <ArrowRight className='w-6 h-6' />
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -512,12 +512,12 @@ export default function AgenceWebParis15LandingContent() {
         </div>
 
         <div className='w-full max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative z-10'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className='max-w-4xl mx-auto text-center'>
-            <motion.div
+            <m.div
               initial={{ scale: 0.9 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
@@ -527,7 +527,7 @@ export default function AgenceWebParis15LandingContent() {
               <span className='text-white font-semibold'>
                 Paris 15ème - Convention, Vaugirard, Grenelle
               </span>
-            </motion.div>
+            </m.div>
 
             <h2
               className='text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8 leading-tight'
@@ -554,7 +554,7 @@ export default function AgenceWebParis15LandingContent() {
             </div>
 
             {/* Trust indicators */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -572,7 +572,7 @@ export default function AgenceWebParis15LandingContent() {
                   <div className='text-sm text-purple-200 font-medium'>{stat.desc}</div>
                 </div>
               ))}
-            </motion.div>
+            </m.div>
 
             <div className='mt-12 text-center'>
               <p className='text-purple-200'>
@@ -582,7 +582,7 @@ export default function AgenceWebParis15LandingContent() {
                 </Link>
               </p>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </main>

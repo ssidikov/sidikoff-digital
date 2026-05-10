@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import {
   TrendingUp,
   ArrowRight,
@@ -135,7 +135,7 @@ export default function SeoLyonLandingContent() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -157,7 +157,7 @@ export default function SeoLyonLandingContent() {
 
               <div className="space-y-4">
                 {benefits.map((benefit, index) => (
-                  <motion.div
+                  <m.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -166,7 +166,7 @@ export default function SeoLyonLandingContent() {
                   >
                     <CheckCircle className="w-5 h-5 text-rose-400 flex-shrink-0" />
                     <span className="text-slate-200 font-medium">{benefit}</span>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
 
@@ -183,9 +183,9 @@ export default function SeoLyonLandingContent() {
                   </button>
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -232,7 +232,7 @@ export default function SeoLyonLandingContent() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -260,7 +260,7 @@ export default function SeoLyonLandingContent() {
       {/* Semantic SEO Expansion */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -286,7 +286,7 @@ export default function SeoLyonLandingContent() {
                 Enfin, le SEO est une discipline de confiance. Google doit avoir confiance en votre site pour le propulser en première position. Nous déployons une stratégie de <strong>Netlinking éthique</strong> (acquisition de liens entrants) depuis des sites d'autorité dans votre secteur d'activité ou votre région. C'est ce signal d'autorité qui fera la différence entre la 5ème et la 1ère place.
               </p>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -304,7 +304,7 @@ export default function SeoLyonLandingContent() {
             {services.map((service, index) => {
               const Icon = service.icon
               return (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -317,7 +317,7 @@ export default function SeoLyonLandingContent() {
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
                   <p className="text-slate-600 leading-relaxed">{service.description}</p>
-                </motion.div>
+                </m.div>
               )
             })}
           </div>
@@ -336,7 +336,7 @@ export default function SeoLyonLandingContent() {
             <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-slate-800 -z-10 -translate-y-1/2"></div>
             
             {processSteps.map((step, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -349,7 +349,7 @@ export default function SeoLyonLandingContent() {
                 </div>
                 <h3 className="text-lg font-bold mb-2">{step.title}</h3>
                 <p className="text-slate-400 text-sm">{step.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

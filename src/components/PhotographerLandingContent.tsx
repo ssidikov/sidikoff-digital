@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import {
   Star,
   ArrowRight,
@@ -115,7 +115,7 @@ export default function PhotographerLandingContent() {
 
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -134,7 +134,7 @@ export default function PhotographerLandingContent() {
 
               <div className='space-y-4'>
                 {t.hero.benefits?.map((benefit: string, index: number) => (
-                  <motion.div
+                  <m.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -144,7 +144,7 @@ export default function PhotographerLandingContent() {
                       <CheckCircle className='w-4 h-4 text-orange-600' />
                     </div>
                     <span className='text-gray-700 font-medium'>{benefit}</span>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
 
@@ -161,9 +161,9 @@ export default function PhotographerLandingContent() {
                   </button>
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -202,7 +202,7 @@ export default function PhotographerLandingContent() {
                 </div>
                 <p className='text-xs text-gray-500 mt-1'>+50 Avis Clients</p>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -210,7 +210,7 @@ export default function PhotographerLandingContent() {
       {/* Problems Section */}
       <section className='py-24 bg-gray-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -220,11 +220,11 @@ export default function PhotographerLandingContent() {
               {t.problems.title}
             </h2>
             <p className='text-xl text-gray-600'>{t.problems.subtitle}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.problems.pain_points?.map((point: PainPoint, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -236,7 +236,7 @@ export default function PhotographerLandingContent() {
                 </div>
                 <h3 className='text-xl font-semibold text-gray-900 mb-4'>{point.title}</h3>
                 <p className='text-gray-600 leading-relaxed'>{point.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -245,7 +245,7 @@ export default function PhotographerLandingContent() {
       {/* Solution Section */}
       <section className='py-24 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -255,11 +255,11 @@ export default function PhotographerLandingContent() {
               {t.solution.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.solution.description}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.solution.features?.map((feature: Feature, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -271,7 +271,7 @@ export default function PhotographerLandingContent() {
                 </div>
                 <h3 className='text-xl font-semibold text-gray-900 mb-4'>{feature.title}</h3>
                 <p className='text-gray-600 leading-relaxed'>{feature.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -280,7 +280,7 @@ export default function PhotographerLandingContent() {
       {/* Process Section */}
       <section className='py-24 bg-orange-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -288,11 +288,11 @@ export default function PhotographerLandingContent() {
             className='text-center mb-16'>
             <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>{t.process.title}</h2>
             <p className='text-xl text-gray-600'>{t.process.description}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {t.process.steps?.map((step: ProcessStep, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -304,7 +304,7 @@ export default function PhotographerLandingContent() {
                 </div>
                 <h3 className='text-lg font-semibold text-gray-900 mb-4'>{step.title}</h3>
                 <p className='text-gray-600'>{step.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -313,7 +313,7 @@ export default function PhotographerLandingContent() {
       {/* Portfolio Section */}
       <section className='py-24 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -323,11 +323,11 @@ export default function PhotographerLandingContent() {
               {t.portfolio.title}
             </h2>
             <p className='text-xl text-gray-600'>{t.portfolio.subtitle}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.portfolio.projects?.map((project: PhotographyProject, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -356,7 +356,7 @@ export default function PhotographerLandingContent() {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -365,7 +365,7 @@ export default function PhotographerLandingContent() {
       {/* Interactive Gallery Block */}
       <section className='py-24 bg-gray-900 text-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -377,7 +377,7 @@ export default function PhotographerLandingContent() {
             <p className='text-xl text-gray-400 max-w-3xl mx-auto'>
               Une présentation visuelle exceptionnelle conçue pour sublimer votre art sans compromis sur la vitesse de chargement (Lighthouse 99+).
             </p>
-          </motion.div>
+          </m.div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[250px]'>
             {[
@@ -386,7 +386,7 @@ export default function PhotographerLandingContent() {
               { src: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop', span: 'col-span-1 row-span-1' },
               { src: 'https://images.unsplash.com/photo-1554048612-b6a18cb193dd?q=80&w=800&auto=format&fit=crop', span: 'col-span-1 md:col-span-2 row-span-1' },
             ].map((img, i) => (
-              <motion.div
+              <m.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -404,7 +404,7 @@ export default function PhotographerLandingContent() {
                     Voir le projet
                   </span>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -413,7 +413,7 @@ export default function PhotographerLandingContent() {
       {/* Testimonials Section */}
       <section className='py-24 bg-orange-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -423,11 +423,11 @@ export default function PhotographerLandingContent() {
               {t.testimonials.title}
             </h2>
             <p className='text-xl text-gray-600'>{t.testimonials.subtitle}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.testimonials.reviews?.map((review: Review, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -447,7 +447,7 @@ export default function PhotographerLandingContent() {
                   </p>
                   <p className='text-sm text-gray-500'>{review.location}</p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -456,7 +456,7 @@ export default function PhotographerLandingContent() {
       {/* Pricing Section */}
       <section className='py-24 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -464,11 +464,11 @@ export default function PhotographerLandingContent() {
             className='text-center mb-16'>
             <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>{t.pricing.title}</h2>
             <p className='text-xl text-gray-600'>{t.pricing.description}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.pricing.packages?.map((pkg: Package, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -513,7 +513,7 @@ export default function PhotographerLandingContent() {
                     Choisir ce forfait
                   </button>
                 </Link>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -522,7 +522,7 @@ export default function PhotographerLandingContent() {
       {/* Semantic Expansion Section */}
       <section className='py-20 bg-orange-50'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -586,14 +586,14 @@ export default function PhotographerLandingContent() {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* FAQ Section */}
       <section className='py-24 bg-gray-50'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -601,11 +601,11 @@ export default function PhotographerLandingContent() {
             className='text-center mb-16'>
             <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>{t.faq.title}</h2>
             <p className='text-xl text-gray-600'>{t.faq.subtitle}</p>
-          </motion.div>
+          </m.div>
 
           <div className='space-y-4'>
             {t.faq.questions?.map((faq: FAQ, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -627,7 +627,7 @@ export default function PhotographerLandingContent() {
                     <p className='text-gray-600 leading-relaxed'>{faq.answer}</p>
                   </div>
                 )}
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -636,7 +636,7 @@ export default function PhotographerLandingContent() {
       {/* CTA Section */}
       <section className='py-24 bg-linear-to-r from-orange-600 to-amber-600'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -667,7 +667,7 @@ export default function PhotographerLandingContent() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </div>

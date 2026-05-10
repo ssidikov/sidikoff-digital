@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import {
   ArrowRight,
   CheckCircle,
@@ -133,41 +133,41 @@ const AgenceWebParisLandingContent: React.FC = () => {
         }}>
         <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10'>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className='text-center lg:text-left'>
               {/* Badge */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className='inline-flex items-center bg-gray-800/10 backdrop-blur-sm text-gray-800 px-4 py-2 rounded-full text-sm font-medium mb-6'>
                 <Star className='w-4 h-4 mr-2' />
                 {content.hero.badge}
-              </motion.div>
+              </m.div>
 
               {/* Title */}
-              <motion.h1
+              <m.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className='text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-900'>
                 {content.hero.title}
-              </motion.h1>
+              </m.h1>
 
               {/* Description */}
-              <motion.p
+              <m.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className='text-xl text-gray-700 mb-8 leading-relaxed'>
                 {content.hero.description}
-              </motion.p>
+              </m.p>
 
               {/* Trust Indicators */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
@@ -180,10 +180,10 @@ const AgenceWebParisLandingContent: React.FC = () => {
                     <span className='text-sm font-medium text-gray-800'>{indicator}</span>
                   </div>
                 ))}
-              </motion.div>
+              </m.div>
 
               {/* CTA Buttons */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
@@ -199,11 +199,11 @@ const AgenceWebParisLandingContent: React.FC = () => {
                   className='inline-flex items-center px-8 py-4 border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white font-semibold rounded-lg transition-all duration-300'>
                   {content.hero.cta_secondary}
                 </Link>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
 
             {/* Hero Image */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -229,7 +229,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -241,7 +241,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
         <div className='absolute bottom-0 left-0 w-48 h-48 bg-purple-50 rounded-full translate-y-24 -translate-x-24'></div>
 
         <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -251,11 +251,11 @@ const AgenceWebParisLandingContent: React.FC = () => {
               {content.services.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{content.services.subtitle}</p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-3 gap-8'>
             {content.services.items.map((service: ServiceItem, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -284,7 +284,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
                   {service.title}
                 </h3>
                 <p className='text-gray-600 leading-relaxed'>{service.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -304,7 +304,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
         </div>
 
         <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -316,11 +316,11 @@ const AgenceWebParisLandingContent: React.FC = () => {
             <p className='text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed'>
               {content.about.subtitle}
             </p>
-          </motion.div>
+          </m.div>
 
           <div className='grid md:grid-cols-3 gap-8'>
             {content.about.items.map((item: AboutItem, index: number) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -330,7 +330,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
                 <div className='flex justify-center mb-6'>{getAboutIcon(item.icon)}</div>
                 <h3 className='text-xl font-bold text-gray-900 mb-4'>{item.title}</h3>
                 <p className='text-gray-600 leading-relaxed'>{item.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -350,7 +350,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
         </div>
 
         <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -359,7 +359,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>
               {content.process.title}
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className='relative'>
             {/* Timeline line */}
@@ -367,7 +367,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
 
             <div className='space-y-12 md:space-y-16'>
               {content.process.steps.map((step: ProcessStep, index: number) => (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -392,7 +392,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
 
                   {/* Spacer */}
                   <div className='hidden md:block md:w-5/12'></div>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -770,7 +770,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
         </div>
 
         <div className='relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -784,7 +784,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
               {content.cta.button}
               <ArrowRight className='ml-3 h-6 w-6' />
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </div>

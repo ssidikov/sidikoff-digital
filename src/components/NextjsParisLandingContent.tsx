@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import {
   Triangle,
   ArrowRight,
@@ -138,7 +138,7 @@ export default function NextjsParisLandingContent() {
 
         <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -160,7 +160,7 @@ export default function NextjsParisLandingContent() {
 
               <div className='space-y-4'>
                 {benefits.map((benefit, index) => (
-                  <motion.div
+                  <m.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -169,7 +169,7 @@ export default function NextjsParisLandingContent() {
                   >
                     <CheckCircle className='w-5 h-5 text-white flex-shrink-0' />
                     <span className='text-zinc-300 font-medium'>{benefit}</span>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
 
@@ -186,9 +186,9 @@ export default function NextjsParisLandingContent() {
                   </button>
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -244,7 +244,7 @@ export default function NextjsParisLandingContent() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -272,7 +272,7 @@ export default function NextjsParisLandingContent() {
       {/* Semantic SEO Expansion */}
       <section className='py-20 bg-zinc-50'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -298,7 +298,7 @@ export default function NextjsParisLandingContent() {
                 Que vous soyez une start-up parisienne visant l'hyper-croissance, une marque e-commerce ayant besoin d'actualiser des milliers de fiches produits sans pénaliser sa vitesse (grâce à l'ISR - Incremental Static Regeneration), ou un média gérant un trafic massif, notre <strong>expertise Next.js</strong> sécurise techniquement vos ambitions. Nous créons des fondations digitales robustes, scalables à l'infini, et intrinsèquement conçues pour dominer les moteurs de recherche.
               </p>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -316,7 +316,7 @@ export default function NextjsParisLandingContent() {
             {services.map((service, index) => {
               const Icon = service.icon
               return (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -329,7 +329,7 @@ export default function NextjsParisLandingContent() {
                   </div>
                   <h3 className='text-xl font-bold text-zinc-900 mb-3'>{service.title}</h3>
                   <p className='text-zinc-600 leading-relaxed'>{service.description}</p>
-                </motion.div>
+                </m.div>
               )
             })}
           </div>
@@ -348,7 +348,7 @@ export default function NextjsParisLandingContent() {
             <div className='hidden md:block absolute top-1/2 left-0 right-0 h-px bg-zinc-800 -z-10 -translate-y-1/2'></div>
             
             {processSteps.map((step, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -361,7 +361,7 @@ export default function NextjsParisLandingContent() {
                 </div>
                 <h3 className='text-lg font-bold mb-2'>{step.title}</h3>
                 <p className='text-zinc-400 text-sm'>{step.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

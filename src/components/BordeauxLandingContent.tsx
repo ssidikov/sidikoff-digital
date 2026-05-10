@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import {
   TrendingUp,
   ArrowRight,
@@ -200,7 +200,7 @@ export default function BordeauxLandingContent() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -222,7 +222,7 @@ export default function BordeauxLandingContent() {
 
               <div className="space-y-4">
                 {benefits.map((benefit, index) => (
-                  <motion.div
+                  <m.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -231,7 +231,7 @@ export default function BordeauxLandingContent() {
                   >
                     <CheckCircle className="w-5 h-5 text-[#E5B558] flex-shrink-0" />
                     <span className="text-slate-200 font-medium">{benefit}</span>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
 
@@ -248,9 +248,9 @@ export default function BordeauxLandingContent() {
                   </button>
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -276,7 +276,7 @@ export default function BordeauxLandingContent() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -304,7 +304,7 @@ export default function BordeauxLandingContent() {
       {/* Semantic SEO Expansion - Bordeaux */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -327,7 +327,7 @@ export default function BordeauxLandingContent() {
                 Avoir un site esthétique est primordial, mais s'il est invisible, il ne génère aucun chiffre d'affaires. C'est pourquoi nous auditons la sémantique de vos concurrents girondins pour élaborer une structure de site capable de capter le trafic de qualité, là où vos prospects vous recherchent.
               </p>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -345,7 +345,7 @@ export default function BordeauxLandingContent() {
             {services.map((service, index) => {
               const Icon = service.icon
               return (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -358,7 +358,7 @@ export default function BordeauxLandingContent() {
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
                   <p className="text-slate-600 leading-relaxed">{service.description}</p>
-                </motion.div>
+                </m.div>
               )
             })}
           </div>
@@ -377,7 +377,7 @@ export default function BordeauxLandingContent() {
             <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-slate-800 -z-10 -translate-y-1/2"></div>
             
             {processSteps.map((step, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -390,7 +390,7 @@ export default function BordeauxLandingContent() {
                 </div>
                 <h3 className="text-lg font-bold mb-2 text-white">{step.title}</h3>
                 <p className="text-slate-400 text-sm">{step.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -408,7 +408,7 @@ export default function BordeauxLandingContent() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {pricingPlans.map((plan, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -447,7 +447,7 @@ export default function BordeauxLandingContent() {
                     </button>
                   </Link>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

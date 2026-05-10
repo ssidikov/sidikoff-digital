@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { ArrowRight, CheckCircle, Star } from 'lucide-react'
 import { Button, Heading, Text } from '@/design-system'
 import { SectionProps } from '../types'
@@ -75,7 +75,7 @@ export function HeroSection({ dictionary, industryConfig, breadcrumbs }: HeroSec
       <div className='relative w-full max-w-7xl mx-auto'>
         {/* Breadcrumbs */}
         {breadcrumbs && (
-          <motion.nav
+          <m.nav
             className='mb-8'
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -99,19 +99,19 @@ export function HeroSection({ dictionary, industryConfig, breadcrumbs }: HeroSec
                 </li>
               ))}
             </ol>
-          </motion.nav>
+          </m.nav>
         )}
 
         <div className='grid lg:grid-cols-2 gap-12 lg:gap-16 items-center'>
           {/* Hero Content */}
-          <motion.div
+          <m.div
             className='text-center lg:text-left'
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}>
             {/* Badge */}
             {isStringProperty(heroData, 'badge') && (
-              <motion.div
+              <m.div
                 className='inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6'
                 style={{
                   backgroundColor: `${industryConfig.colors.primary}15`,
@@ -122,12 +122,12 @@ export function HeroSection({ dictionary, industryConfig, breadcrumbs }: HeroSec
                 transition={{ duration: 0.5, delay: 0.2 }}>
                 {getIcon(industryConfig.icons.badge, 'w-4 h-4')}
                 {heroData.badge}
-              </motion.div>
+              </m.div>
             )}
 
             {/* Title */}
             {isStringProperty(heroData, 'title') && (
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
@@ -135,12 +135,12 @@ export function HeroSection({ dictionary, industryConfig, breadcrumbs }: HeroSec
                 <Heading level='h1' variant='gradient' className='text-4xl md:text-5xl lg:text-6xl'>
                   {heroData.title}
                 </Heading>
-              </motion.div>
+              </m.div>
             )}
 
             {/* Description */}
             {isStringProperty(heroData, 'description') && (
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -148,18 +148,18 @@ export function HeroSection({ dictionary, industryConfig, breadcrumbs }: HeroSec
                 <Text size='lg' variant='muted' className='leading-relaxed'>
                   {heroData.description}
                 </Text>
-              </motion.div>
+              </m.div>
             )}
 
             {/* Benefits List */}
             {isArrayProperty(heroData, 'benefits') && heroData.benefits && (
-              <motion.ul
+              <m.ul
                 className='space-y-3 mb-8'
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}>
                 {heroData.benefits.map((benefit: unknown, index: number) => (
-                  <motion.li
+                  <m.li
                     key={index}
                     className='flex items-center space-x-3'
                     initial={{ opacity: 0, x: -20 }}
@@ -170,13 +170,13 @@ export function HeroSection({ dictionary, industryConfig, breadcrumbs }: HeroSec
                       style={{ color: industryConfig.colors.accent }}
                     />
                     <Text>{typeof benefit === 'string' ? benefit : String(benefit)}</Text>
-                  </motion.li>
+                  </m.li>
                 ))}
-              </motion.ul>
+              </m.ul>
             )}
 
             {/* CTA Buttons */}
-            <motion.div
+            <m.div
               className='flex flex-col sm:flex-row gap-4'
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -195,11 +195,11 @@ export function HeroSection({ dictionary, industryConfig, breadcrumbs }: HeroSec
                     : 'View Portfolio'}
                 </Button>
               </Link>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
 
           {/* Hero Image */}
-          <motion.div
+          <m.div
             className='relative'
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -215,7 +215,7 @@ export function HeroSection({ dictionary, industryConfig, breadcrumbs }: HeroSec
                 quality={95}
               />
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

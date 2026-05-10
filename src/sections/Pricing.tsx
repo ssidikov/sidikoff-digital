@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import CTAButton from '@/components/ui/CTAButton'
 import PricingCard from '@/components/ui/PricingCard'
 import Section, { SectionHeader } from '@/components/ui/Section'
@@ -107,7 +107,7 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
       <div className='relative z-10'>
         {/* H1 Title for /tarifs page SEO */}
         {showGuide && (
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -115,7 +115,7 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
             className='text-4xl text-left md:text-5xl font-bold text-primary text-center mb-4'>
             {dict?.pricing?.title || 'Nos Offres'} -{' '}
             {dict?.pricing?.subtitle || 'Transparentes & Adaptées'}
-          </motion.h1>
+          </m.h1>
         )}
 
         <SectionHeader
@@ -130,7 +130,7 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
         />
 
         {/* Badges de confiance */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -142,11 +142,11 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
               {dict?.pricing?.guarantee_badge || 'Résultats garantis • Livraison garantie'}
             </span>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Titre pour les tarifs de création de sites web */}
         {dict?.pricing?.website_creation_title && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -155,7 +155,7 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
             <h3 className='text-2xl md:text-3xl font-bold text-primary mb-4'>
               {dict.pricing.website_creation_title}
             </h3>
-          </motion.div>
+          </m.div>
         )}
 
         {/* Grille des cartes de tarification */}
@@ -180,7 +180,7 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
 
         {/* Comprehensive Pricing Guide Section */}
         {showGuide && dict?.pricing?.guide_section && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -198,7 +198,7 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
 
             {/* Introduction */}
             {dict.pricing.guide_section.intro && (
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -210,12 +210,12 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                 <p className='text-lg text-gray-700 leading-relaxed'>
                   {dict.pricing.guide_section.intro.content}
                 </p>
-              </motion.div>
+              </m.div>
             )}
 
             {/* Website Types */}
             {dict.pricing.guide_section.website_types && (
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
@@ -226,7 +226,7 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                 </h3>
                 <div className='grid md:grid-cols-1 gap-8'>
                   {dict.pricing.guide_section.website_types.types?.map((type, index) => (
-                    <motion.div
+                    <m.div
                       key={index}
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -271,15 +271,15 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                           <p className='text-gray-700 text-sm'>{type.why_important}</p>
                         </div>
                       </div>
-                    </motion.div>
+                    </m.div>
                   ))}
                 </div>
-              </motion.div>
+              </m.div>
             )}
 
             {/* Support Importance */}
             {dict.pricing.guide_section.support_importance && (
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -295,7 +295,7 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                 </div>
                 <div className='grid md:grid-cols-2 gap-6'>
                   {dict.pricing.guide_section.support_importance.benefits?.map((benefit, index) => (
-                    <motion.div
+                    <m.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -305,17 +305,17 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                       <div className='text-4xl mb-4'>{benefit.icon}</div>
                       <h4 className='text-xl font-bold text-primary mb-3'>{benefit.title}</h4>
                       <p className='text-gray-600 leading-relaxed'>{benefit.content}</p>
-                    </motion.div>
+                    </m.div>
                   ))}
                 </div>
-              </motion.div>
+              </m.div>
             )}
 
             {/* Single Payment vs Maintenance */}
             <div className='grid md:grid-cols-2 gap-8 mb-16'>
               {/* Single Payment Option */}
               {dict.pricing.guide_section.single_payment_option && (
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
@@ -343,12 +343,12 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                       )}
                     </ul>
                   </div>
-                </motion.div>
+                </m.div>
               )}
 
               {/* Business Focus */}
               {dict.pricing.guide_section.business_focus && (
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
@@ -376,13 +376,13 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                       )}
                     </ul>
                   </div>
-                </motion.div>
+                </m.div>
               )}
             </div>
 
             {/* SEO Benefits */}
             {dict.pricing.guide_section.seo_benefits && (
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
@@ -398,7 +398,7 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                 </div>
                 <div className='grid md:grid-cols-2 gap-6'>
                   {dict.pricing.guide_section.seo_benefits.benefits?.map((benefit, index) => (
-                    <motion.div
+                    <m.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -407,15 +407,15 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                       className={`${cardStyles.card} p-6 border-l-4 border-blue-500`}>
                       <h4 className='text-lg font-bold text-primary mb-3'>{benefit.title}</h4>
                       <p className='text-gray-600 leading-relaxed'>{benefit.content}</p>
-                    </motion.div>
+                    </m.div>
                   ))}
                 </div>
-              </motion.div>
+              </m.div>
             )}
 
             {/* Future Services */}
             {dict.pricing.guide_section.future_services && (
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -429,7 +429,7 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                 </p>
                 <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
                   {dict.pricing.guide_section.future_services.services?.map((service, index) => (
-                    <motion.div
+                    <m.div
                       key={index}
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
@@ -440,15 +440,15 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                         <span className='text-blue-500 mt-1'>🚀</span>
                         <span className='text-gray-700 font-medium'>{service}</span>
                       </div>
-                    </motion.div>
+                    </m.div>
                   ))}
                 </div>
-              </motion.div>
+              </m.div>
             )}
 
             {/* Call to Action */}
             {dict.pricing.guide_section.call_to_action && (
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
@@ -473,13 +473,13 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                   {dict?.pricing?.guide_section?.call_to_action?.button ||
                     'Contactez-moi maintenant'}
                 </CTAButton>
-              </motion.div>
+              </m.div>
             )}
-          </motion.div>
+          </m.div>
         )}
 
         {/* Section des plans de maintenance */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -498,7 +498,7 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
           <div className='grid md:grid-cols-3 gap-6 max-w-6xl mx-auto'>
             {/* Plan Essentiel */}
             <div className='relative'>
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
@@ -545,12 +545,12 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                     {dict?.pricing?.maintenance?.plans?.essentiel?.cta || 'Choisir Essentiel'}
                   </CTAButton>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
 
             {/* Plan Croissance */}
             <div className='relative'>
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -602,12 +602,12 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                     {dict?.pricing?.maintenance?.plans?.croissance?.cta || 'Choisir Croissance'}
                   </CTAButton>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
 
             {/* Plan Performance */}
             <div className='relative'>
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
@@ -656,10 +656,10 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                     {dict?.pricing?.maintenance?.plans?.performance?.cta || 'Choisir Performance'}
                   </CTAButton>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </Section>
   )
