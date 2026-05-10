@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useCallback, useMemo } from 'react'
-import { m, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 import common from '@/locales/fr/common.json'
 import CTAButton from '@/components/ui/CTAButton'
@@ -211,7 +211,7 @@ interface FAQCardProps {
 }
 
 const FAQCard = ({ item, isOpen, onToggle }: FAQCardProps) => (
-  <m.div
+  <motion.div
     {...ANIMATION_CONFIG.item}
     className='relative overflow-hidden rounded-md border border-white/50 bg-white pb-5 shadow-2xl transition-all duration-500 before:pointer-events-none before:absolute before:inset-0 before:rounded-3xl before:bg-linear-to-br before:from-white/30 before:to-transparent before:opacity-60'>
     <button
@@ -225,7 +225,7 @@ const FAQCard = ({ item, isOpen, onToggle }: FAQCardProps) => (
         </h3>
       </div>
       <span className='flex size-8 shrink-0 items-center justify-center rounded-full bg-white opacity-50 transition-opacity duration-300 hover:opacity-100 3xl:size-11'>
-        <m.svg
+        <motion.svg
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={ANIMATION_CONFIG.icon.transition}
           className='h-5 w-5 transition-transform duration-300 3xl:h-7 3xl:w-7'
@@ -234,18 +234,18 @@ const FAQCard = ({ item, isOpen, onToggle }: FAQCardProps) => (
           viewBox='0 0 24 24'
           xmlns='http://www.w3.org/2000/svg'>
           <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M19 9l-7 7-7-7' />
-        </m.svg>
+        </motion.svg>
       </span>
     </button>
-    <m.div
+    <motion.div
       id={`faq-content-${item.id}`}
       initial={{ maxHeight: 0 }}
       animate={{ maxHeight: isOpen ? 400 : 0 }}
       transition={ANIMATION_CONFIG.content.transition}
       style={{ overflow: 'hidden' }}>
       <p className='mt-4 px-5 pb-2 text-lg sm:px-6 3xl:px-8 3xl:pb-4'>{item.answer}</p>
-    </m.div>
-  </m.div>
+    </motion.div>
+  </motion.div>
 )
 
 export default FAQ

@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ArrowRight, Phone } from 'lucide-react'
 import { Button, Heading, Text } from '@/design-system'
 import { SectionProps } from '../types'
@@ -32,7 +32,7 @@ export function CTASection({ dictionary, industryConfig }: SectionProps) {
 
       <div className='relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white'>
         {/* CTA Content */}
-        <m.div
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -75,16 +75,16 @@ export function CTASection({ dictionary, industryConfig }: SectionProps) {
 
           {/* Additional Info */}
           {typeof ctaData.note === 'string' && ctaData.note && (
-            <m.div
+            <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
               className='pt-8 border-t border-white/20'>
               <Text className='text-white/80 text-sm'>{ctaData.note}</Text>
-            </m.div>
+            </motion.div>
           )}
-        </m.div>
+        </motion.div>
       </div>
     </section>
   )

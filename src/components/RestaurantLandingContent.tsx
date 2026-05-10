@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
   UtensilsCrossed,
   ArrowRight,
@@ -237,7 +237,7 @@ export default function RestaurantLandingContent() {
 
         <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -260,7 +260,7 @@ export default function RestaurantLandingContent() {
 
               <div className='space-y-4'>
                 {benefits.map((benefit, index) => (
-                  <m.div
+                  <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -269,7 +269,7 @@ export default function RestaurantLandingContent() {
                   >
                     <CheckCircle className='w-5 h-5 text-orange-500 flex-shrink-0' />
                     <span className='text-stone-200 font-medium'>{benefit}</span>
-                  </m.div>
+                  </motion.div>
                 ))}
               </div>
 
@@ -286,9 +286,9 @@ export default function RestaurantLandingContent() {
                   </button>
                 </Link>
               </div>
-            </m.div>
+            </motion.div>
 
-            <m.div
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -327,7 +327,7 @@ export default function RestaurantLandingContent() {
                   </button>
                 </div>
               </div>
-            </m.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -355,7 +355,7 @@ export default function RestaurantLandingContent() {
       {/* Semantic SEO Expansion */}
       <section className='py-20 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -378,7 +378,7 @@ export default function RestaurantLandingContent() {
                 Enfin, notre expertise en <strong>SEO local pour restaurant</strong> vous garantit une visibilité maximale sur Google Maps. Que vous proposiez de la vente à emporter (Click & Collect), de la livraison (UberEats, Deliveroo) ou de la privatisation pour des événements d'entreprise, nous structurons vos contenus pour que vous soyez le premier choix dans votre quartier. La mise à jour de vos menus devient un jeu d'enfant grâce à notre interface d'administration ultra-simplifiée.
               </p>
             </div>
-          </m.div>
+          </motion.div>
         </div>
       </section>
 
@@ -396,7 +396,7 @@ export default function RestaurantLandingContent() {
             {services.map((service, index) => {
               const Icon = service.icon
               return (
-                <m.div
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -409,7 +409,7 @@ export default function RestaurantLandingContent() {
                   </div>
                   <h3 className='text-xl font-bold text-stone-900 mb-3'>{service.title}</h3>
                   <p className='text-stone-600 leading-relaxed'>{service.description}</p>
-                </m.div>
+                </motion.div>
               )
             })}
           </div>
@@ -428,7 +428,7 @@ export default function RestaurantLandingContent() {
             <div className='hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-stone-800 -z-10 -translate-y-1/2'></div>
             
             {processSteps.map((step, index) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -441,7 +441,7 @@ export default function RestaurantLandingContent() {
                 </div>
                 <h3 className='text-lg font-bold mb-2'>{step.title}</h3>
                 <p className='text-stone-400 text-sm'>{step.description}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -458,7 +458,7 @@ export default function RestaurantLandingContent() {
           </div>
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
             {restaurantTypes.map((type, index) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -470,7 +470,7 @@ export default function RestaurantLandingContent() {
                 <h3 className='text-lg font-bold text-stone-900 mb-1'>{type.type}</h3>
                 <p className='text-xs text-orange-600 font-medium mb-3 uppercase tracking-wide'>{type.keywords}</p>
                 <p className='text-stone-600 text-sm leading-relaxed'>{type.description}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -487,7 +487,7 @@ export default function RestaurantLandingContent() {
           </div>
           <div className='grid md:grid-cols-3 gap-8'>
             {pricingPlans.map((plan, index) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -524,7 +524,7 @@ export default function RestaurantLandingContent() {
                     Demander un devis
                   </button>
                 </Link>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>

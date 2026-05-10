@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
   Code,
   ArrowRight,
@@ -140,7 +140,7 @@ export default function AgenceWebBronLandingContent() {
 
         <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -162,7 +162,7 @@ export default function AgenceWebBronLandingContent() {
 
               <div className='space-y-4'>
                 {benefits.map((benefit, index) => (
-                  <m.div
+                  <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -171,7 +171,7 @@ export default function AgenceWebBronLandingContent() {
                   >
                     <CheckCircle className='w-5 h-5 text-blue-400 flex-shrink-0' />
                     <span className='text-slate-200 font-medium'>{benefit}</span>
-                  </m.div>
+                  </motion.div>
                 ))}
               </div>
 
@@ -188,9 +188,9 @@ export default function AgenceWebBronLandingContent() {
                   </button>
                 </Link>
               </div>
-            </m.div>
+            </motion.div>
 
-            <m.div
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -215,7 +215,7 @@ export default function AgenceWebBronLandingContent() {
                   </div>
                 </div>
               </div>
-            </m.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -243,7 +243,7 @@ export default function AgenceWebBronLandingContent() {
       {/* Semantic SEO Expansion */}
       <section className='py-20 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -269,7 +269,7 @@ export default function AgenceWebBronLandingContent() {
                 En choisissant notre équipe d'experts, vous profitez d'un accompagnement "clé en main". Nous gérons l'intégralité des aspects techniques : de l'achat de votre nom de domaine à la mise en production sur un serveur sécurisé, jusqu'à la formation de vos équipes pour la gestion courante du contenu. Confiez votre transformation digitale à des professionnels passionnés par le retour sur investissement.
               </p>
             </div>
-          </m.div>
+          </motion.div>
         </div>
       </section>
 
@@ -287,7 +287,7 @@ export default function AgenceWebBronLandingContent() {
             {services.map((service, index) => {
               const Icon = service.icon
               return (
-                <m.div
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -300,7 +300,7 @@ export default function AgenceWebBronLandingContent() {
                   </div>
                   <h3 className='text-xl font-bold text-slate-900 mb-3'>{service.title}</h3>
                   <p className='text-slate-600 leading-relaxed'>{service.description}</p>
-                </m.div>
+                </motion.div>
               )
             })}
           </div>
@@ -319,7 +319,7 @@ export default function AgenceWebBronLandingContent() {
             <div className='hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-slate-800 -z-10 -translate-y-1/2'></div>
             
             {processSteps.map((step, index) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -332,7 +332,7 @@ export default function AgenceWebBronLandingContent() {
                 </div>
                 <h3 className='text-lg font-bold mb-2'>{step.title}</h3>
                 <p className='text-slate-400 text-sm'>{step.description}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>

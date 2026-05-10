@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import common from '@/locales/fr/common.json'
 
 interface BreadcrumbItem {
@@ -34,7 +34,7 @@ export default function WebRedesignLandingContent({ breadcrumbs }: WebRedesignLa
 
         <div className='relative w-full max-w-7xl mx-auto'>
           {/* Breadcrumbs */}
-          <m.nav
+          <motion.nav
             className='mb-8'
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -55,50 +55,50 @@ export default function WebRedesignLandingContent({ breadcrumbs }: WebRedesignLa
                 </li>
               ))}
             </ol>
-          </m.nav>
+          </motion.nav>
 
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
             {/* Left Column - Content */}
-            <m.div
+            <motion.div
               className='space-y-8'
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}>
               {/* Badge */}
-              <m.div
+              <motion.div
                 className='inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-[var(--accent-alpha-10)] text-[var(--accent)] border border-[var(--accent-alpha-20)]'
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.5 }}>
                 {t.hero.badge}
-              </m.div>
+              </motion.div>
 
               {/* Title */}
-              <m.h1
+              <motion.h1
                 className='text-4xl md:text-5xl font-bold text-[var(--foreground)] leading-tight'
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}>
                 {t.hero.title}
-              </m.h1>
+              </motion.h1>
 
               {/* Description */}
-              <m.p
+              <motion.p
                 className='text-xl text-gray-600 leading-relaxed'
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}>
                 {t.hero.description}
-              </m.p>
+              </motion.p>
 
               {/* Benefits List */}
-              <m.ul
+              <motion.ul
                 className='space-y-3'
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}>
                 {t.hero.benefits.map((benefit: string, index: number) => (
-                  <m.li
+                  <motion.li
                     key={index}
                     className='flex items-start space-x-3'
                     initial={{ opacity: 0, x: -20 }}
@@ -106,12 +106,12 @@ export default function WebRedesignLandingContent({ breadcrumbs }: WebRedesignLa
                     transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}>
                     <div className='w-2 h-2 bg-[var(--accent)] rounded-full mt-2 flex-shrink-0'></div>
                     <span className='text-gray-700'>{benefit}</span>
-                  </m.li>
+                  </motion.li>
                 ))}
-              </m.ul>
+              </motion.ul>
 
               {/* CTA Buttons */}
-              <m.div
+              <motion.div
                 className='flex flex-col sm:flex-row gap-4 pt-4'
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -121,11 +121,11 @@ export default function WebRedesignLandingContent({ breadcrumbs }: WebRedesignLa
                   className='inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-[var(--accent)] rounded-lg hover:bg-[var(--accent-dark)] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'>
                   {t.hero.cta_primary}
                 </Link>
-              </m.div>
-            </m.div>
+              </motion.div>
+            </motion.div>
 
             {/* Right Column - Visual */}
-            <m.div
+            <motion.div
               className='relative'
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -141,7 +141,7 @@ export default function WebRedesignLandingContent({ breadcrumbs }: WebRedesignLa
                   priority
                 />
               </div>
-            </m.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -149,14 +149,14 @@ export default function WebRedesignLandingContent({ breadcrumbs }: WebRedesignLa
       {/* Stats Section */}
       <section className='py-20 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             className='grid md:grid-cols-3 gap-8'
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}>
             {t.stats.map((stat, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 className='text-center p-6 bg-linear-to-br from-[var(--bg-accent-light)] to-[var(--accent-alpha-10)] rounded-xl border border-[var(--accent-alpha-20)]'
                 initial={{ opacity: 0, y: 30 }}
@@ -168,16 +168,16 @@ export default function WebRedesignLandingContent({ breadcrumbs }: WebRedesignLa
                   {stat.title}
                 </div>
                 <div className='text-gray-600'>{stat.description}</div>
-              </m.div>
+              </motion.div>
             ))}
-          </m.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Process Section */}
       <section className='py-20 bg-[var(--bg-primary)]'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             className='text-center mb-16'
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -185,11 +185,11 @@ export default function WebRedesignLandingContent({ breadcrumbs }: WebRedesignLa
             viewport={{ once: true }}>
             <h2 className='text-4xl font-bold text-[var(--foreground)] mb-4'>{t.process.title}</h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.process.description}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {t.process.steps.map((step, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 className='relative p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300'
                 initial={{ opacity: 0, y: 30 }}
@@ -203,7 +203,7 @@ export default function WebRedesignLandingContent({ breadcrumbs }: WebRedesignLa
                   {step.title}
                 </h3>
                 <p className='text-gray-600'>{step.description}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -212,7 +212,7 @@ export default function WebRedesignLandingContent({ breadcrumbs }: WebRedesignLa
       {/* Features Section */}
       <section className='py-20 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             className='text-center mb-16'
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -220,11 +220,11 @@ export default function WebRedesignLandingContent({ breadcrumbs }: WebRedesignLa
             viewport={{ once: true }}>
             <h2 className='text-4xl font-bold text-[var(--foreground)] mb-4'>{t.features.title}</h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.features.description}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.features.items.map((feature, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 className='p-6 bg-linear-to-br from-[var(--bg-primary)] to-white rounded-xl border border-gray-100 hover:border-[var(--accent-alpha-20)] hover:shadow-lg transition-all duration-300'
                 initial={{ opacity: 0, y: 30 }}
@@ -247,7 +247,7 @@ export default function WebRedesignLandingContent({ breadcrumbs }: WebRedesignLa
                 </div>
                 <h3 className='text-lg font-bold text-[var(--foreground)] mb-3'>{feature.title}</h3>
                 <p className='text-gray-600'>{feature.description}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -256,7 +256,7 @@ export default function WebRedesignLandingContent({ breadcrumbs }: WebRedesignLa
       {/* Final CTA Section */}
       <section className='py-20 bg-[var(--accent)]'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-          <m.div
+          <motion.div
             className='space-y-8'
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -269,7 +269,7 @@ export default function WebRedesignLandingContent({ breadcrumbs }: WebRedesignLa
               className='inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-[var(--accent)] bg-white rounded-lg hover:bg-gray-50 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'>
               {t.cta.primary_button}
             </Link>
-          </m.div>
+          </motion.div>
         </div>
       </section>
     </div>

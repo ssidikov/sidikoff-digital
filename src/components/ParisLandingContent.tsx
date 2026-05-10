@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { m, useInView } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -210,7 +210,7 @@ export default function ParisLandingContent() {
               {/* Content Column */}
               <div className='order-1 max-w-[800px] space-y-6 md:space-y-8 lg:pr-8'>
                 {/* Badge */}
-                <m.div
+                <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={isHeroInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.5, delay: 0.1 }}
@@ -223,10 +223,10 @@ export default function ParisLandingContent() {
                     />
                   </svg>
                   {content.hero.badge}
-                </m.div>
+                </motion.div>
 
                 {/* Main Heading */}
-                <m.h1
+                <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
                   transition={ANIMATION_CONFIG.title}
@@ -241,19 +241,19 @@ export default function ParisLandingContent() {
                       )}
                     </span>
                   ))}
-                </m.h1>
+                </motion.h1>
 
                 {/* Subtitle */}
-                <m.p
+                <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
                   transition={ANIMATION_CONFIG.subtitle}
                   className='max-w-2xl text-lg xl:text-2xl text-black/85 leading-[1.4] font-light drop-shadow-lg'>
                   {content.hero.description}
-                </m.p>
+                </motion.p>
 
                 {/* Trust indicators */}
-                <m.div
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ ...ANIMATION_CONFIG.subtitle, delay: 0.2 }}
@@ -264,10 +264,10 @@ export default function ParisLandingContent() {
                       {indicator}
                     </span>
                   ))}
-                </m.div>
+                </motion.div>
 
                 {/* CTA Buttons */}
-                <m.div
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
                   transition={ANIMATION_CONFIG.buttons}
@@ -289,12 +289,12 @@ export default function ParisLandingContent() {
                     <PlayIcon />
                     <span className='ml-2 truncate'>{content.hero.ctaSecondary}</span>
                   </CTAButton>
-                </m.div>
+                </motion.div>
               </div>
 
               {/* Hero Illustration */}
               <div className='relative order-2 lg:pl-8'>
-                <m.div
+                <motion.div
                   initial={{ opacity: 0, x: 50 }}
                   animate={isHeroInView ? { opacity: 1, x: 0 } : {}}
                   transition={ANIMATION_CONFIG.image}
@@ -311,7 +311,7 @@ export default function ParisLandingContent() {
                     quality={95}
                   />
                   <div className='absolute inset-0 bg-linear-to-tr from-black/20 to-transparent rounded-2xl'></div>
-                </m.div>
+                </motion.div>
 
                 {/* Floating Elements */}
                 <div className='absolute -top-4 -left-4 bg-white/90 backdrop-blur-sm rounded-xl p-3 shadow-lg z-20'>
@@ -349,7 +349,7 @@ export default function ParisLandingContent() {
 
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
               {content.services.items.map((service, index) => (
-                <m.div
+                <motion.div
                   key={index}
                   initial={CARD_ANIMATION.initial}
                   animate={isServicesInView ? CARD_ANIMATION.animate : CARD_ANIMATION.initial}
@@ -377,7 +377,7 @@ export default function ParisLandingContent() {
                       />
                     </svg>
                   </Link>
-                </m.div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -400,7 +400,7 @@ export default function ParisLandingContent() {
 
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
               {content.whyChooseUs.items.map((item, index) => (
-                <m.div
+                <motion.div
                   key={index}
                   initial={CARD_ANIMATION.initial}
                   animate={isServicesInView ? CARD_ANIMATION.animate : CARD_ANIMATION.initial}
@@ -409,7 +409,7 @@ export default function ParisLandingContent() {
                   <div className='text-4xl mb-4'>{item.icon}</div>
                   <h3 className='text-xl font-bold text-black mb-3'>{item.title}</h3>
                   <p className='text-gray-600'>{item.description}</p>
-                </m.div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -430,7 +430,7 @@ export default function ParisLandingContent() {
 
             <div className='space-y-8'>
               {content.faq.items.map((item, index) => (
-                <m.div
+                <motion.div
                   key={index}
                   initial={CARD_ANIMATION.initial}
                   animate={isServicesInView ? CARD_ANIMATION.animate : CARD_ANIMATION.initial}
@@ -438,7 +438,7 @@ export default function ParisLandingContent() {
                   className={`${cardStyles.card} p-8`}>
                   <h3 className='text-xl font-bold text-black mb-4'>{item.question}</h3>
                   <p className='text-gray-600'>{item.answer}</p>
-                </m.div>
+                </motion.div>
               ))}
             </div>
           </div>

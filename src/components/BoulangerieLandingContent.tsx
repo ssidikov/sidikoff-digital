@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
   Star,
   ArrowRight,
@@ -128,7 +128,7 @@ export default function BoulangerieLandingContent() {
         <div className='absolute inset-0 bg-linear-to-br from-amber-100 via-orange-50 to-red-50 opacity-60'></div>
         <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
-            <m.div
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -166,9 +166,9 @@ export default function BoulangerieLandingContent() {
                   {t.hero.cta_secondary}
                 </Link>
               </div>
-            </m.div>
+            </motion.div>
 
-            <m.div
+            <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -182,7 +182,7 @@ export default function BoulangerieLandingContent() {
                   priority
                 />
               </div>
-            </m.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -190,7 +190,7 @@ export default function BoulangerieLandingContent() {
       {/* Problems Section */}
       <section className='py-16 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -200,11 +200,11 @@ export default function BoulangerieLandingContent() {
               {t.problems.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.problems.subtitle}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.problems.pain_points?.map((point: PainPoint, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -216,7 +216,7 @@ export default function BoulangerieLandingContent() {
                 </div>
                 <h3 className='text-lg font-semibold text-gray-900 mb-2'>{point.title}</h3>
                 <p className='text-gray-600'>{point.description}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -225,7 +225,7 @@ export default function BoulangerieLandingContent() {
       {/* Solution Section */}
       <section className='py-16 bg-linear-to-br from-amber-50 to-orange-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -235,11 +235,11 @@ export default function BoulangerieLandingContent() {
               {t.solution.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.solution.description}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.solution.features?.map((feature: Feature, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -251,7 +251,7 @@ export default function BoulangerieLandingContent() {
                 </div>
                 <h3 className='text-lg font-semibold text-gray-900 mb-2'>{feature.title}</h3>
                 <p className='text-gray-600'>{feature.description}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -260,7 +260,7 @@ export default function BoulangerieLandingContent() {
       {/* Process Section */}
       <section className='py-16 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -268,11 +268,11 @@ export default function BoulangerieLandingContent() {
             className='text-center mb-16'>
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>{t.process.title}</h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.process.description}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {t.process.steps?.map((step: ProcessStep, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -289,7 +289,7 @@ export default function BoulangerieLandingContent() {
                 {index < 3 && (
                   <div className='hidden lg:block absolute top-8 left-full w-full h-0.5 bg-amber-200 transform -translate-y-1/2'></div>
                 )}
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -298,7 +298,7 @@ export default function BoulangerieLandingContent() {
       {/* Portfolio Section */}
       <section className='py-16 bg-gray-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -308,11 +308,11 @@ export default function BoulangerieLandingContent() {
               {t.portfolio.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.portfolio.subtitle}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.portfolio.projects?.map((project: Boulangerie, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -341,7 +341,7 @@ export default function BoulangerieLandingContent() {
                     ))}
                   </div>
                 </div>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -350,7 +350,7 @@ export default function BoulangerieLandingContent() {
       {/* Testimonials Section */}
       <section className='py-16 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -360,11 +360,11 @@ export default function BoulangerieLandingContent() {
               {t.testimonials.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.testimonials.subtitle}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.testimonials.reviews?.map((testimonial: Testimonial, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -387,7 +387,7 @@ export default function BoulangerieLandingContent() {
                   ))}
                 </div>
                 <p className='text-gray-700 italic'>{testimonial.content}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -396,7 +396,7 @@ export default function BoulangerieLandingContent() {
       {/* Pricing Section */}
       <section className='py-16 bg-linear-to-br from-amber-50 to-orange-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -404,11 +404,11 @@ export default function BoulangerieLandingContent() {
             className='text-center mb-16'>
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>{t.pricing.title}</h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.pricing.description}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.pricing.packages?.map((pkg: Package, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -439,7 +439,7 @@ export default function BoulangerieLandingContent() {
                   className='block w-full bg-amber-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors'>
                   Choisir ce forfait
                 </Link>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -448,7 +448,7 @@ export default function BoulangerieLandingContent() {
       {/* FAQ Section */}
       <section className='py-16 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -456,11 +456,11 @@ export default function BoulangerieLandingContent() {
             className='text-center mb-16'>
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>{t.faq.title}</h2>
             <p className='text-xl text-gray-600'>{t.faq.subtitle}</p>
-          </m.div>
+          </motion.div>
 
           <div className='space-y-4'>
             {t.faq.questions?.map((faq: FAQ, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -482,7 +482,7 @@ export default function BoulangerieLandingContent() {
                     <p className='text-gray-700'>{faq.answer}</p>
                   </div>
                 )}
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -491,7 +491,7 @@ export default function BoulangerieLandingContent() {
       {/* CTA Section */}
       <section className='py-16 bg-linear-to-r from-amber-600 to-orange-600'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -512,7 +512,7 @@ export default function BoulangerieLandingContent() {
                 {t.cta.secondary_button}
               </Link>
             </div>
-          </m.div>
+          </motion.div>
         </div>
       </section>
     </div>

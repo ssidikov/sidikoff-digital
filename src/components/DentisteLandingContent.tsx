@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
   ArrowRight,
   CheckCircle,
@@ -250,7 +250,7 @@ export default function DentisteLandingContent() {
 
         <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
-            <m.div
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -274,7 +274,7 @@ export default function DentisteLandingContent() {
 
               <div className='space-y-4'>
                 {benefits.map((benefit, index) => (
-                  <m.div
+                  <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -282,7 +282,7 @@ export default function DentisteLandingContent() {
                     className='flex items-center space-x-3'>
                     <CheckCircle className='w-5 h-5 text-teal-500 flex-shrink-0' />
                     <span className='text-slate-700 font-medium'>{benefit}</span>
-                  </m.div>
+                  </motion.div>
                 ))}
               </div>
 
@@ -294,9 +294,9 @@ export default function DentisteLandingContent() {
                   </button>
                 </Link>
               </div>
-            </m.div>
+            </motion.div>
 
-            <m.div
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -328,7 +328,7 @@ export default function DentisteLandingContent() {
                   </div>
                 </div>
               </div>
-            </m.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -356,7 +356,7 @@ export default function DentisteLandingContent() {
       {/* Semantic SEO Expansion */}
       <section className='py-20 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -406,7 +406,7 @@ export default function DentisteLandingContent() {
                 garde", assurant ainsi la croissance et le renouvellement de votre patientèle.
               </p>
             </div>
-          </m.div>
+          </motion.div>
         </div>
       </section>
 
@@ -427,7 +427,7 @@ export default function DentisteLandingContent() {
             {services.map((service, index) => {
               const Icon = service.icon
               return (
-                <m.div
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -439,7 +439,7 @@ export default function DentisteLandingContent() {
                   </div>
                   <h3 className='text-xl font-bold text-slate-900 mb-3'>{service.title}</h3>
                   <p className='text-slate-600 leading-relaxed'>{service.description}</p>
-                </m.div>
+                </motion.div>
               )
             })}
           </div>
@@ -461,7 +461,7 @@ export default function DentisteLandingContent() {
               <div className='hidden md:block absolute top-6 left-0 right-0 h-0.5 bg-slate-700 -z-10'></div>
 
               {processSteps.map((step, index) => (
-                <m.div
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -473,7 +473,7 @@ export default function DentisteLandingContent() {
                   </div>
                   <h3 className='text-lg font-bold text-white mb-2'>{step.title}</h3>
                   <p className='text-slate-400 text-sm'>{step.description}</p>
-                </m.div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -494,7 +494,7 @@ export default function DentisteLandingContent() {
           </div>
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
             {cabinetTypes.map((cabinet, index) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -507,7 +507,7 @@ export default function DentisteLandingContent() {
                   {cabinet.keywords}
                 </p>
                 <p className='text-slate-600 text-sm leading-relaxed'>{cabinet.description}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -527,7 +527,7 @@ export default function DentisteLandingContent() {
           </div>
           <div className='grid md:grid-cols-3 gap-8'>
             {pricingPlans.map((plan, index) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -574,7 +574,7 @@ export default function DentisteLandingContent() {
                     Demander un devis
                   </button>
                 </Link>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>

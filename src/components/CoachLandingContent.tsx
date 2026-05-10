@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
   Activity,
   ArrowRight,
@@ -237,7 +237,7 @@ export default function CoachLandingContent() {
 
         <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -261,7 +261,7 @@ export default function CoachLandingContent() {
 
               <div className='space-y-4'>
                 {benefits.map((benefit, index) => (
-                  <m.div
+                  <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -270,7 +270,7 @@ export default function CoachLandingContent() {
                   >
                     <CheckCircle className='w-6 h-6 text-lime-400 flex-shrink-0' />
                     <span className='text-zinc-100 font-bold'>{benefit}</span>
-                  </m.div>
+                  </motion.div>
                 ))}
               </div>
 
@@ -287,9 +287,9 @@ export default function CoachLandingContent() {
                   </button>
                 </Link>
               </div>
-            </m.div>
+            </motion.div>
 
-            <m.div
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -319,7 +319,7 @@ export default function CoachLandingContent() {
                   </button>
                 </div>
               </div>
-            </m.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -347,7 +347,7 @@ export default function CoachLandingContent() {
       {/* Semantic SEO Expansion */}
       <section className='py-24 bg-zinc-900'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -370,7 +370,7 @@ export default function CoachLandingContent() {
                 Enfin, un site internet vous permet de diversifier vos revenus. Un coach dont l'agenda est plein est limité par son temps. Avec un site performant (développé sous Next.js par Sidikoff Digital), vous pouvez facilement ajouter une boutique en ligne pour vendre des <strong>programmes PDF de musculation</strong>, des plans de nutrition, ou créer un espace membre (VOD) pour un accompagnement à distance. Votre site devient une véritable plateforme de coaching hybride.
               </p>
             </div>
-          </m.div>
+          </motion.div>
         </div>
       </section>
 
@@ -388,7 +388,7 @@ export default function CoachLandingContent() {
             {services.map((service, index) => {
               const Icon = service.icon
               return (
-                <m.div
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -404,7 +404,7 @@ export default function CoachLandingContent() {
                   </div>
                   <h3 className='text-xl font-black text-white mb-3 uppercase relative z-10'>{service.title}</h3>
                   <p className='text-zinc-400 leading-relaxed font-medium relative z-10'>{service.description}</p>
-                </m.div>
+                </motion.div>
               )
             })}
           </div>
@@ -423,7 +423,7 @@ export default function CoachLandingContent() {
             <div className='hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-zinc-800 -z-10 -translate-y-1/2'></div>
             
             {processSteps.map((step, index) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -436,7 +436,7 @@ export default function CoachLandingContent() {
                 </div>
                 <h3 className='text-lg font-black text-white mb-2 uppercase'>{step.title}</h3>
                 <p className='text-zinc-400 text-sm font-medium'>{step.description}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -453,7 +453,7 @@ export default function CoachLandingContent() {
           </div>
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
             {coachTypes.map((type, index) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -465,7 +465,7 @@ export default function CoachLandingContent() {
                 <h3 className='text-lg font-black text-white mb-1 uppercase'>{type.type}</h3>
                 <p className='text-xs text-lime-400 font-bold mb-3 uppercase tracking-widest'>{type.keywords}</p>
                 <p className='text-zinc-400 text-sm leading-relaxed font-medium'>{type.description}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -482,7 +482,7 @@ export default function CoachLandingContent() {
           </div>
           <div className='grid md:grid-cols-3 gap-8'>
             {pricingPlans.map((plan, index) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -519,7 +519,7 @@ export default function CoachLandingContent() {
                     Demander un devis
                   </button>
                 </Link>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>

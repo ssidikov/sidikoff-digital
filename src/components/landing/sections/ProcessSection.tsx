@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
   MessageCircle,
   FileText,
@@ -48,7 +48,7 @@ export function ProcessSection({ dictionary, industryConfig }: Omit<SectionProps
     <section className='py-20 bg-white'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         {/* Section Header */}
-        <m.div
+        <motion.div
           className='text-center mb-16'
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +62,7 @@ export function ProcessSection({ dictionary, industryConfig }: Omit<SectionProps
               {processData.description}
             </Text>
           )}
-        </m.div>
+        </motion.div>
 
         {/* Process Steps */}
         {Array.isArray(processData.steps) && (
@@ -76,7 +76,7 @@ export function ProcessSection({ dictionary, industryConfig }: Omit<SectionProps
             )
               .slice(0, industryConfig.sections.processSteps)
               .map((step, index) => (
-                <m.div
+                <motion.div
                   key={index}
                   className='text-center relative'
                   initial={{ opacity: 0, y: 30 }}
@@ -130,14 +130,14 @@ export function ProcessSection({ dictionary, industryConfig }: Omit<SectionProps
                       {step.description}
                     </Text>
                   </div>
-                </m.div>
+                </motion.div>
               ))}
           </div>
         )}
 
         {/* Call to Action */}
         {typeof processData.cta === 'string' && processData.cta && (
-          <m.div
+          <motion.div
             className='text-center mt-16'
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -149,7 +149,7 @@ export function ProcessSection({ dictionary, industryConfig }: Omit<SectionProps
               style={{ color: industryConfig.colors.primary }}>
               {processData.cta}
             </Text>
-          </m.div>
+          </motion.div>
         )}
       </div>
     </section>

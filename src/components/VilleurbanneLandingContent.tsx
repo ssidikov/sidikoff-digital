@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { m, useInView } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 import CTAButton from '@/components/ui/CTAButton'
 
@@ -135,7 +135,7 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
         <div className='relative mx-auto max-w-6xl px-6 md:px-8 w-full'>
           {/* ── Text Content ── */}
           <div className='mx-auto max-w-3xl text-center'>
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, ease: 'easeOut' }}
@@ -145,9 +145,9 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
                 <span className='relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-600'></span>
               </span>
               {c.badge}
-            </m.div>
+            </motion.div>
 
-            <m.h1
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.65, delay: 0.1, ease: 'easeOut' }}
@@ -162,17 +162,17 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
                   {c.h1Suffix}
                 </span>
               )}
-            </m.h1>
+            </motion.h1>
 
-            <m.p
+            <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
               className='mb-10 text-base leading-relaxed text-slate-600 md:text-lg lg:text-xl'>
               {c.subtitle}
-            </m.p>
+            </motion.p>
 
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
@@ -190,12 +190,12 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
                 className='border-slate-200 bg-white/60 font-semibold text-slate-700 backdrop-blur-sm transition-all duration-200 hover:border-slate-300 hover:bg-white/90'>
                 {c.cta2}
               </CTAButton>
-            </m.div>
+            </motion.div>
           </div>
         </div>
 
         {/* ── Marquee Stats Ticker — full viewport width ── */}
-        <m.div
+        <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={heroInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.45, ease: 'easeOut' }}
@@ -358,7 +358,7 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
               100% { transform: translateX(-33.3334%); }
             }
           `}</style>
-        </m.div>
+        </motion.div>
       </section>
 
       {/* ═══ VALUE PROPOSITION — Varied Density ═══ */}
@@ -386,7 +386,7 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
 
           <div className='grid grid-cols-12 gap-8'>
             {/* Large Feature — 8 cols */}
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
@@ -419,10 +419,10 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
                   cœur de chaque livraison.
                 </p>
               </div>
-            </m.div>
+            </motion.div>
 
             {/* Smaller Feature — 4 cols */}
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
@@ -435,10 +435,10 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
                   Réponse rapide, proximité géographique et disponibilité pour vos projets urgents.
                 </p>
               </div>
-            </m.div>
+            </motion.div>
 
             {/* Medium Feature — 4 cols */}
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
@@ -461,10 +461,10 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
                   Lyon.
                 </p>
               </div>
-            </m.div>
+            </motion.div>
 
             {/* Medium Feature — 4 cols */}
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
@@ -486,10 +486,10 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
                   Temps de chargement ultra-rapides et expérience utilisateur fluide garantie.
                 </p>
               </div>
-            </m.div>
+            </motion.div>
 
             {/* Medium Feature — 4 cols */}
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
@@ -511,7 +511,7 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
                   Solutions scalables et documentation claire pour faciliter les évolutions futures.
                 </p>
               </div>
-            </m.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -529,7 +529,7 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
 
           <div className='grid grid-cols-12 gap-6 md:gap-8 lg:gap-12'>
             {c.services.slice(0, 4).map((svc, i) => (
-              <m.div
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -555,7 +555,7 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
                     </svg>
                   </Link>
                 </div>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -577,7 +577,7 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
 
             <div className='space-y-12'>
               {c.processSteps.map((step, i) => (
-                <m.div
+                <motion.div
                   key={i}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -594,7 +594,7 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
                     <h3 className='mb-3 text-2xl font-semibold text-slate-900'>{step.title}</h3>
                     <p className='max-w-2xl leading-relaxed text-slate-600'>{step.desc}</p>
                   </div>
-                </m.div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -682,7 +682,7 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
 
           <div className='grid grid-cols-12 gap-8'>
             {c.pricingTiers.map((tier, i) => (
-              <m.div
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -748,7 +748,7 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
                     {c.pricingCta}
                   </CTAButton>
                 </div>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>

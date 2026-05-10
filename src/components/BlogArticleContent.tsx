@@ -3,7 +3,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight, CalendarDays, Clock, Sparkles, UserRound } from 'lucide-react'
 import { BlogPost } from '@/lib/blog-data'
 
@@ -31,7 +31,7 @@ export default function BlogArticleContent({ post }: { post: BlogPost }) {
               Retour aux articles
             </Link>
 
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
@@ -85,7 +85,7 @@ export default function BlogArticleContent({ post }: { post: BlogPost }) {
                   </span>
                 </div>
               </div>
-            </m.div>
+            </motion.div>
           </div>
         </section>
 
@@ -109,7 +109,7 @@ export default function BlogArticleContent({ post }: { post: BlogPost }) {
               </div>
             </aside>
 
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
@@ -146,7 +146,7 @@ export default function BlogArticleContent({ post }: { post: BlogPost }) {
                   </Link>
                 </div>
               </div>
-            </m.div>
+            </motion.div>
           </div>
         </section>
       </article>

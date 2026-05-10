@@ -1,12 +1,12 @@
 'use client'
 
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 
-export const MotionDiv = m.div
-export const MotionSpan = m.span
-export const MotionH1 = m.h1
-export const MotionH2 = m.h2
-export const MotionP = m.p
+export const MotionDiv = motion.div
+export const MotionSpan = motion.span
+export const MotionH1 = motion.h1
+export const MotionH2 = motion.h2
+export const MotionP = motion.p
 
 // Standard Animation Configurations
 export const ANIMATIONS = {

@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { CheckCircle, ArrowRight, MapPin, Globe, Zap, Users, Code, LineChart, ShieldCheck } from 'lucide-react'
 import { FAQAccordion } from '@/components/FAQAccordion'
 
@@ -212,7 +212,7 @@ export default function NantesLandingClient() {
         
         <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='text-center max-w-4xl mx-auto'>
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -240,7 +240,7 @@ export default function NantesLandingClient() {
                   </button>
                 </Link>
               </div>
-            </m.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -260,7 +260,7 @@ export default function NantesLandingClient() {
       {/* Semantic SEO Text Block */}
       <section className='py-24 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -277,7 +277,7 @@ export default function NantesLandingClient() {
             <p>
               Le <strong>SEO (Référencement Naturel) local</strong> est essentiel pour vous démarquer. Pour ranker sur des expressions clés comme "création site web nantes" ou "développeur web loire atlantique", nous mettons en place une stratégie de contenu sémantique rigoureuse, couplée à une architecture technique sans faille. Notre objectif : capter le trafic qualifié de votre région et maximiser vos conversions.
             </p>
-          </m.div>
+          </motion.div>
         </div>
       </section>
 
@@ -291,7 +291,7 @@ export default function NantesLandingClient() {
           
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {services.map((service, index) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -304,7 +304,7 @@ export default function NantesLandingClient() {
                 </div>
                 <h3 className='text-xl font-bold text-zinc-900 mb-3'>{service.title}</h3>
                 <p className='text-zinc-600 leading-relaxed'>{service.description}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -321,7 +321,7 @@ export default function NantesLandingClient() {
           <div className='grid md:grid-cols-4 gap-8 relative'>
             <div className='hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-slate-700 -translate-y-1/2 z-0'></div>
             {processSteps.map((step, index) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -334,7 +334,7 @@ export default function NantesLandingClient() {
                 </div>
                 <h3 className='text-lg font-bold mb-2'>{step.title}</h3>
                 <p className='text-slate-400 text-sm'>{step.description}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -350,7 +350,7 @@ export default function NantesLandingClient() {
 
           <div className='grid md:grid-cols-3 gap-8'>
             {pricingPlans.map((plan, index) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -389,7 +389,7 @@ export default function NantesLandingClient() {
                     Demander un devis
                   </button>
                 </Link>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>

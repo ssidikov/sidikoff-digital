@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
   Star,
   ArrowRight,
@@ -146,7 +146,7 @@ export default function FreelanceLandingContent() {
         <div className='absolute inset-0 bg-linear-to-br from-blue-100 via-indigo-50 to-purple-50 opacity-60'></div>
         <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
-            <m.div
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -165,7 +165,7 @@ export default function FreelanceLandingContent() {
 
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                   {t.hero.benefits?.map((benefit: string, index: number) => (
-                    <m.div
+                    <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -173,7 +173,7 @@ export default function FreelanceLandingContent() {
                       className='flex items-center space-x-3'>
                       <CheckCircle className='w-5 h-5 text-blue-600 flex-shrink-0' />
                       <span className='text-gray-700'>{benefit}</span>
-                    </m.div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
@@ -191,9 +191,9 @@ export default function FreelanceLandingContent() {
                   {t.hero.cta_secondary}
                 </Link>
               </div>
-            </m.div>
+            </motion.div>
 
-            <m.div
+            <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -220,7 +220,7 @@ export default function FreelanceLandingContent() {
                   </div>
                 </div>
               </div>
-            </m.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -228,7 +228,7 @@ export default function FreelanceLandingContent() {
       {/* Problems Section */}
       <section className='py-24 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -238,11 +238,11 @@ export default function FreelanceLandingContent() {
               {t.problems.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.problems.subtitle}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-3 gap-8'>
             {t.problems.pain_points?.map((painPoint: PainPoint, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -254,7 +254,7 @@ export default function FreelanceLandingContent() {
                 </div>
                 <h3 className='text-xl font-semibold text-gray-900 mb-4'>{painPoint.title}</h3>
                 <p className='text-gray-600'>{painPoint.description}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -263,7 +263,7 @@ export default function FreelanceLandingContent() {
       {/* Solution Section */}
       <section className='py-24 bg-blue-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -273,11 +273,11 @@ export default function FreelanceLandingContent() {
               {t.solution.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.solution.description}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.solution.features?.map((feature: Feature, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -289,7 +289,7 @@ export default function FreelanceLandingContent() {
                 </div>
                 <h3 className='text-lg font-semibold text-gray-900 mb-3'>{feature.title}</h3>
                 <p className='text-gray-600'>{feature.description}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -298,7 +298,7 @@ export default function FreelanceLandingContent() {
       {/* Process Section */}
       <section className='py-24 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -306,11 +306,11 @@ export default function FreelanceLandingContent() {
             className='text-center mb-16'>
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>{t.process.title}</h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.process.description}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {t.process.steps?.map((step: ProcessStep, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -322,7 +322,7 @@ export default function FreelanceLandingContent() {
                 </div>
                 <h3 className='text-lg font-semibold text-gray-900 mb-3'>{step.title}</h3>
                 <p className='text-gray-600'>{step.description}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -331,7 +331,7 @@ export default function FreelanceLandingContent() {
       {/* Portfolio Section */}
       <section id='portfolio' className='py-24 bg-blue-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -341,11 +341,11 @@ export default function FreelanceLandingContent() {
               {t.portfolio.title}
             </h2>
             <p className='text-xl text-gray-600'>{t.portfolio.subtitle}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.portfolio.projects?.map((project: FreelanceProject, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -374,7 +374,7 @@ export default function FreelanceLandingContent() {
                     ))}
                   </div>
                 </div>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -383,7 +383,7 @@ export default function FreelanceLandingContent() {
       {/* Testimonials Section */}
       <section className='py-24 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -393,11 +393,11 @@ export default function FreelanceLandingContent() {
               {t.testimonials.title}
             </h2>
             <p className='text-xl text-gray-600'>{t.testimonials.subtitle}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.testimonials.reviews?.map((review: Review, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -417,7 +417,7 @@ export default function FreelanceLandingContent() {
                   </p>
                   <p className='text-sm text-gray-500'>{review.location}</p>
                 </div>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -426,7 +426,7 @@ export default function FreelanceLandingContent() {
       {/* Pricing Section */}
       <section className='py-24 bg-blue-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -434,11 +434,11 @@ export default function FreelanceLandingContent() {
             className='text-center mb-16'>
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>{t.pricing.title}</h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.pricing.description}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.pricing.packages?.map((pkg: Package, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -484,7 +484,7 @@ export default function FreelanceLandingContent() {
                   }`}>
                   Choisir ce forfait
                 </Link>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -493,7 +493,7 @@ export default function FreelanceLandingContent() {
       {/* Semantic Expansion Section */}
       <section className='py-20 bg-blue-50'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -647,7 +647,7 @@ export default function FreelanceLandingContent() {
                 </a>
               </div>
             </div>
-          </m.div>
+          </motion.div>
         </div>
       </section>
 
@@ -655,7 +655,7 @@ export default function FreelanceLandingContent() {
 
       <section className='py-24 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -663,11 +663,11 @@ export default function FreelanceLandingContent() {
             className='text-center mb-16'>
             <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>{t.faq.title}</h2>
             <p className='text-xl text-gray-600'>{t.faq.subtitle}</p>
-          </m.div>
+          </motion.div>
 
           <div className='space-y-4'>
             {t.faq.questions?.map((faq: FAQ, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -689,7 +689,7 @@ export default function FreelanceLandingContent() {
                     <p className='text-gray-600 leading-relaxed'>{faq.answer}</p>
                   </div>
                 )}
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -698,7 +698,7 @@ export default function FreelanceLandingContent() {
       {/* CTA Section */}
       <section className='py-24 bg-blue-600 text-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -730,7 +730,7 @@ export default function FreelanceLandingContent() {
                 {t.cta.secondary_button}
               </Link>
             </div>
-          </m.div>
+          </motion.div>
         </div>
       </section>
     </div>

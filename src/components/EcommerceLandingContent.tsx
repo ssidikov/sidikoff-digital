@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
   Star,
   ArrowRight,
@@ -114,7 +114,7 @@ export default function EcommerceLandingContent() {
 
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
-            <m.div
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -132,7 +132,7 @@ export default function EcommerceLandingContent() {
 
                 <div className='space-y-4 mb-8'>
                   {t.hero.benefits?.map((benefit: string, index: number) => (
-                    <m.div
+                    <motion.div
                       key={index}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -140,7 +140,7 @@ export default function EcommerceLandingContent() {
                       className='flex items-center space-x-3'>
                       <CheckCircle className='w-5 h-5 text-blue-600 flex-shrink-0' />
                       <span className='text-gray-700'>{benefit}</span>
-                    </m.div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
@@ -159,9 +159,9 @@ export default function EcommerceLandingContent() {
                   {t.hero.cta_secondary}
                 </Link>
               </div>
-            </m.div>
+            </motion.div>
 
-            <m.div
+            <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -178,7 +178,7 @@ export default function EcommerceLandingContent() {
               <div className='absolute -top-4 -right-4 w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center shadow-lg'>
                 <ShoppingCart className='w-10 h-10 text-white' />
               </div>
-            </m.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -186,7 +186,7 @@ export default function EcommerceLandingContent() {
       {/* Problems Section */}
       <section className='py-24 bg-gray-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -196,11 +196,11 @@ export default function EcommerceLandingContent() {
               {t.problems.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.problems.description}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-3 gap-8'>
             {t.problems.pain_points?.map((point: PainPoint, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -212,7 +212,7 @@ export default function EcommerceLandingContent() {
                 </div>
                 <h3 className='text-xl font-semibold text-gray-900 mb-4'>{point.title}</h3>
                 <p className='text-gray-600 leading-relaxed'>{point.description}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -221,7 +221,7 @@ export default function EcommerceLandingContent() {
       {/* Solution Section */}
       <section className='py-24 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -231,11 +231,11 @@ export default function EcommerceLandingContent() {
               {t.solution.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.solution.description}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.solution.features?.map((feature: Feature, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -247,7 +247,7 @@ export default function EcommerceLandingContent() {
                 </div>
                 <h3 className='text-xl font-semibold text-gray-900 mb-4'>{feature.title}</h3>
                 <p className='text-gray-600 leading-relaxed'>{feature.description}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -256,7 +256,7 @@ export default function EcommerceLandingContent() {
       {/* Process Section */}
       <section className='py-24 bg-gray-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -264,11 +264,11 @@ export default function EcommerceLandingContent() {
             className='text-center mb-16'>
             <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>{t.process.title}</h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.process.description}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {t.process.steps?.map((step: ProcessStep, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -280,7 +280,7 @@ export default function EcommerceLandingContent() {
                 </div>
                 <h3 className='text-xl font-semibold text-gray-900 mb-4'>{step.title}</h3>
                 <p className='text-gray-600 leading-relaxed'>{step.description}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -289,7 +289,7 @@ export default function EcommerceLandingContent() {
       {/* Portfolio Section */}
       <section id='portfolio' className='py-24 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -299,11 +299,11 @@ export default function EcommerceLandingContent() {
               {t.portfolio.title}
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.portfolio.description}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-3 gap-8'>
             {t.portfolio.projects?.map((project: EcommerceProject, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -330,7 +330,7 @@ export default function EcommerceLandingContent() {
                     ))}
                   </div>
                 </div>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -339,7 +339,7 @@ export default function EcommerceLandingContent() {
       {/* Testimonials Section */}
       <section className='py-24 bg-blue-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -349,11 +349,11 @@ export default function EcommerceLandingContent() {
               {t.testimonials.title}
             </h2>
             <p className='text-xl text-gray-600'>{t.testimonials.subtitle}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.testimonials.reviews?.map((review: Review, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -373,7 +373,7 @@ export default function EcommerceLandingContent() {
                   </div>
                   <div className='text-sm text-gray-500'>{review.location}</div>
                 </div>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -382,7 +382,7 @@ export default function EcommerceLandingContent() {
       {/* Pricing Section */}
       <section className='py-24 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -390,11 +390,11 @@ export default function EcommerceLandingContent() {
             className='text-center mb-16'>
             <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>{t.pricing.title}</h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{t.pricing.description}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
             {t.pricing.packages?.map((pkg: Package, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -440,7 +440,7 @@ export default function EcommerceLandingContent() {
                   }`}>
                   Choisir ce forfait
                 </Link>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -449,7 +449,7 @@ export default function EcommerceLandingContent() {
       {/* Semantic Expansion Section — Template A */}
       <section className='py-20 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -528,7 +528,7 @@ export default function EcommerceLandingContent() {
                 </a>
               </div>
             </div>
-          </m.div>
+          </motion.div>
         </div>
       </section>
 
@@ -536,7 +536,7 @@ export default function EcommerceLandingContent() {
 
       <section className='py-24 bg-gray-50'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -544,11 +544,11 @@ export default function EcommerceLandingContent() {
             className='text-center mb-16'>
             <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>{t.faq.title}</h2>
             <p className='text-xl text-gray-600'>{t.faq.description}</p>
-          </m.div>
+          </motion.div>
 
           <div className='space-y-6'>
             {t.faq.questions?.map((item: FAQ, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -570,7 +570,7 @@ export default function EcommerceLandingContent() {
                     <p className='text-gray-600 leading-relaxed'>{item.answer}</p>
                   </div>
                 )}
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -579,7 +579,7 @@ export default function EcommerceLandingContent() {
       {/* CTA Section */}
       <section className='py-24 bg-linear-to-r from-blue-600 to-indigo-600'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -593,7 +593,7 @@ export default function EcommerceLandingContent() {
               {t.cta.button}
               <ArrowRight className='w-5 h-5 ml-2' />
             </Link>
-          </m.div>
+          </motion.div>
         </div>
       </section>
     </div>

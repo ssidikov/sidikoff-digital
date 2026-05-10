@@ -1,6 +1,6 @@
 'use client'
 
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { cardStyles } from '@/utils/styles'
 import CTAButton from './CTAButton'
 
@@ -48,7 +48,7 @@ export default function PricingCard({
   index,
 }: PricingCardProps) {
   return (
-    <m.div
+    <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -113,7 +113,7 @@ export default function PricingCard({
                     feature.text.includes('🎯'))
               )
               .map((feature, featureIndex) => (
-                <m.div
+                <motion.div
                   key={featureIndex}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -121,7 +121,7 @@ export default function PricingCard({
                   viewport={{ once: true }}
                   className='text-center p-4 bg-linear-to-r from-white/50 to-white/40 rounded-xl border border-accent-alpha-10'>
                   <span className='text-base font-medium italic text-gray-700'>{feature.text}</span>
-                </m.div>
+                </motion.div>
               ))}
           </div>
         )}
@@ -138,7 +138,7 @@ export default function PricingCard({
                   !feature.text.includes('🎯')
               ) // Exclure les textes avec émojis spéciaux
               .map((feature, featureIndex) => (
-                <m.li
+                <motion.li
                   key={featureIndex}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -149,7 +149,7 @@ export default function PricingCard({
                     <CheckIcon className='w-3 h-3' />
                   </div>
                   <span className='text-base text-gray-700'>{feature.text}</span>
-                </m.li>
+                </motion.li>
               ))}
           </ul>
         </div>
@@ -166,6 +166,6 @@ export default function PricingCard({
           </CTAButton>
         </div>
       </div>
-    </m.div>
+    </motion.div>
   )
 }

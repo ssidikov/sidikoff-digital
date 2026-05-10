@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
   Code2,
   ArrowRight,
@@ -137,7 +137,7 @@ export default function ReactLyonLandingContent() {
 
         <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -159,7 +159,7 @@ export default function ReactLyonLandingContent() {
 
               <div className='space-y-4'>
                 {benefits.map((benefit, index) => (
-                  <m.div
+                  <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -168,7 +168,7 @@ export default function ReactLyonLandingContent() {
                   >
                     <CheckCircle className='w-5 h-5 text-cyan-400 flex-shrink-0' />
                     <span className='text-slate-200 font-medium'>{benefit}</span>
-                  </m.div>
+                  </motion.div>
                 ))}
               </div>
 
@@ -185,9 +185,9 @@ export default function ReactLyonLandingContent() {
                   </button>
                 </Link>
               </div>
-            </m.div>
+            </motion.div>
 
-            <m.div
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -225,7 +225,7 @@ export default function ReactLyonLandingContent() {
                   <div className='text-blue-400'>&#125;</div>
                 </div>
               </div>
-            </m.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -253,7 +253,7 @@ export default function ReactLyonLandingContent() {
       {/* Semantic SEO Expansion */}
       <section className='py-20 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -279,7 +279,7 @@ export default function ReactLyonLandingContent() {
                 Faire appel à notre <strong>agence React.js intervenant à Lyon</strong>, c'est s'assurer d'une ingénierie de pointe. Nous imposons le typage strict via TypeScript pour éviter les erreurs en production, et mettons en place des pipelines de tests automatisés. Que vous souhaitiez nous confier le développement complet de votre projet au forfait, ou que vous recherchiez l'intégration d'un développeur freelance (régie) dans votre équipe technique locale, nous avons la solution.
               </p>
             </div>
-          </m.div>
+          </motion.div>
         </div>
       </section>
 
@@ -297,7 +297,7 @@ export default function ReactLyonLandingContent() {
             {services.map((service, index) => {
               const Icon = service.icon
               return (
-                <m.div
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -310,7 +310,7 @@ export default function ReactLyonLandingContent() {
                   </div>
                   <h3 className='text-xl font-bold text-slate-900 mb-3'>{service.title}</h3>
                   <p className='text-slate-600 leading-relaxed'>{service.description}</p>
-                </m.div>
+                </motion.div>
               )
             })}
           </div>
@@ -329,7 +329,7 @@ export default function ReactLyonLandingContent() {
             <div className='hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-slate-800 -z-10 -translate-y-1/2'></div>
             
             {processSteps.map((step, index) => (
-              <m.div
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -342,7 +342,7 @@ export default function ReactLyonLandingContent() {
                 </div>
                 <h3 className='text-lg font-bold mb-2'>{step.title}</h3>
                 <p className='text-slate-400 text-sm'>{step.description}</p>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>

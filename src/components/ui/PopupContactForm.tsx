@@ -2,7 +2,7 @@
 
 import React, { useState, useCallback, useEffect } from 'react'
 import { X, Mail, CheckCircle, AlertCircle } from 'lucide-react'
-import { m, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 import { cardStyles } from '@/utils/styles'
 
@@ -182,7 +182,7 @@ const PopupContactForm = ({ isOpen, onClose, dictionary }: PopupContactFormProps
   return (
     <AnimatePresence>
       {isOpen && (
-        <m.div
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -192,7 +192,7 @@ const PopupContactForm = ({ isOpen, onClose, dictionary }: PopupContactFormProps
           <div className='absolute inset-0 bg-black/50 backdrop-blur-sm' onClick={onClose} />
 
           {/* Popup Container */}
-          <m.div
+          <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -299,7 +299,7 @@ const PopupContactForm = ({ isOpen, onClose, dictionary }: PopupContactFormProps
 
               {/* Status Messages */}
               {submitStatus === 'success' && (
-                <m.div
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className='flex items-center space-x-3 p-4 bg-green-50 border border-green-200 rounded-xl'>
@@ -313,11 +313,11 @@ const PopupContactForm = ({ isOpen, onClose, dictionary }: PopupContactFormProps
                         'Nous vous recontacterons rapidement.'}
                     </p>
                   </div>
-                </m.div>
+                </motion.div>
               )}
 
               {submitStatus === 'error' && (
-                <m.div
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className='flex items-center space-x-3 p-4 bg-red-50 border border-red-200 rounded-xl'>
@@ -331,11 +331,11 @@ const PopupContactForm = ({ isOpen, onClose, dictionary }: PopupContactFormProps
                         'Veuillez réessayer ou nous contacter directement.'}
                     </p>
                   </div>
-                </m.div>
+                </motion.div>
               )}
             </form>
-          </m.div>
-        </m.div>
+          </motion.div>
+        </motion.div>
       )}
     </AnimatePresence>
   )

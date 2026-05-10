@@ -1,6 +1,6 @@
 'use client'
 
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import clsx from 'clsx'
 
 import { sectionStyles } from '@/utils/styles'
@@ -193,7 +193,7 @@ export function SectionHeader({
   as: Tag = 'h2', // Default to h2, but allow h1
 }: SectionHeaderProps) {
   return (
-    <m.div
+    <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -204,6 +204,6 @@ export function SectionHeader({
       </Tag>
       {subtitle && <p className={clsx('mt-2', sectionStyles.subtitle)}>{subtitle}</p>}
       {description && <p className={clsx('max-w-4xl', sectionStyles.description)}>{description}</p>}
-    </m.div>
+    </motion.div>
   )
 }

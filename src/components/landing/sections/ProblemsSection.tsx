@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
   AlertTriangle,
   TrendingDown,
@@ -54,7 +54,7 @@ export function ProblemsSection({ dictionary, industryConfig }: Omit<SectionProp
     <section className='py-16 bg-gray-50'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         {/* Section Header */}
-        <m.div
+        <motion.div
           className='text-center mb-16'
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -68,12 +68,12 @@ export function ProblemsSection({ dictionary, industryConfig }: Omit<SectionProp
               {problemsData.description}
             </Text>
           )}
-        </m.div>
+        </motion.div>
 
         {/* Problems Grid */}
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
           {problemsList.map((problem, index) => (
-            <m.div
+            <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -103,7 +103,7 @@ export function ProblemsSection({ dictionary, industryConfig }: Omit<SectionProp
                   </Text>
                 </CardContent>
               </Card>
-            </m.div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { CheckCircle, Star, Globe, Users, Zap, TrendingUp, ArrowRight, Shield } from 'lucide-react'
 import common from '@/locales/fr/common.json'
 
@@ -52,7 +52,7 @@ export default function WebCreationLandingContent({ breadcrumbs }: WebCreationLa
 
         <div className='relative w-full max-w-7xl mx-auto'>
           {/* Breadcrumbs */}
-          <m.nav
+          <motion.nav
             className='mb-8'
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -71,48 +71,48 @@ export default function WebCreationLandingContent({ breadcrumbs }: WebCreationLa
                 </li>
               ))}
             </ol>
-          </m.nav>
+          </motion.nav>
 
           <div className='grid lg:grid-cols-2 gap-12 lg:gap-16 items-center'>
             {/* Hero Content */}
-            <m.div
+            <motion.div
               className='text-center lg:text-left'
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}>
-              <m.div
+              <motion.div
                 className='inline-flex items-center gap-2 bg-[var(--accent-alpha-10)] text-[var(--accent)] px-4 py-2 rounded-full text-sm font-medium mb-6'
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}>
                 <Star className='w-4 h-4' />
                 {t.hero.badge}
-              </m.div>
+              </motion.div>
 
-              <m.h1
+              <motion.h1
                 className='text-4xl md:text-5xl font-bold mb-6 bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent'
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}>
                 {t.hero.title}
-              </m.h1>
+              </motion.h1>
 
-              <m.p
+              <motion.p
                 className='text-lg md:text-xl text-gray-600 mb-8 leading-relaxed'
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}>
                 {t.hero.description}
-              </m.p>
+              </motion.p>
 
               {/* Benefits List */}
-              <m.ul
+              <motion.ul
                 className='space-y-3 mb-8'
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}>
                 {t.hero.benefits.map((benefit: string, index: number) => (
-                  <m.li
+                  <motion.li
                     key={index}
                     className='flex items-center space-x-3'
                     initial={{ opacity: 0, x: -20 }}
@@ -120,12 +120,12 @@ export default function WebCreationLandingContent({ breadcrumbs }: WebCreationLa
                     transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}>
                     <CheckCircle className='w-5 h-5 text-green-500 flex-shrink-0' />
                     <span className='text-gray-700'>{benefit}</span>
-                  </m.li>
+                  </motion.li>
                 ))}
-              </m.ul>
+              </motion.ul>
 
               {/* CTA Buttons */}
-              <m.div
+              <motion.div
                 className='flex flex-col sm:flex-row gap-4 pt-4'
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -136,11 +136,11 @@ export default function WebCreationLandingContent({ breadcrumbs }: WebCreationLa
                   {t.hero.cta_primary}
                   <ArrowRight className='w-5 h-5 ml-2' />
                 </Link>
-              </m.div>
-            </m.div>
+              </motion.div>
+            </motion.div>
 
             {/* Hero Image */}
-            <m.div
+            <motion.div
               className='relative'
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -156,7 +156,7 @@ export default function WebCreationLandingContent({ breadcrumbs }: WebCreationLa
                 />
               </div>
               <div className='absolute -inset-4 bg-linear-to-r from-[var(--accent-alpha-20)] to-[var(--accent-alpha-10)] rounded-2xl blur-3xl opacity-70'></div>
-            </m.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -164,14 +164,14 @@ export default function WebCreationLandingContent({ breadcrumbs }: WebCreationLa
       {/* Stats Section */}
       <section className='py-16 md:py-24 bg-linear-to-r from-[var(--accent)] to-[var(--accent-dark)] text-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             className='grid grid-cols-1 md:grid-cols-3 gap-8'
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}>
             {t.stats.map((stat: StatItem, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 className='text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300'
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -181,16 +181,16 @@ export default function WebCreationLandingContent({ breadcrumbs }: WebCreationLa
                 <div className='text-4xl md:text-5xl font-bold text-white mb-3'>{stat.number}</div>
                 <h3 className='text-xl font-semibold text-white mb-2'>{stat.title}</h3>
                 <p className='text-white/80 text-sm leading-relaxed'>{stat.description}</p>
-              </m.div>
+              </motion.div>
             ))}
-          </m.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Process Section */}
       <section className='py-16 md:py-24 bg-gray-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             className='text-center mb-16'
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -198,11 +198,11 @@ export default function WebCreationLandingContent({ breadcrumbs }: WebCreationLa
             viewport={{ once: true }}>
             <h2 className='text-3xl md:text-4xl font-bold mb-4 text-gray-900'>{t.process.title}</h2>
             <p className='text-lg text-gray-600 max-w-3xl mx-auto'>{t.process.description}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {t.process.steps.map((step: ProcessStep, index: number) => (
-              <m.div
+              <motion.div
                 key={index}
                 className='relative bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300'
                 initial={{ opacity: 0, y: 50 }}
@@ -218,7 +218,7 @@ export default function WebCreationLandingContent({ breadcrumbs }: WebCreationLa
                   <h3 className='text-xl font-semibold mb-3 text-gray-900'>{step.title}</h3>
                   <p className='text-gray-600 leading-relaxed'>{step.description}</p>
                 </div>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -227,7 +227,7 @@ export default function WebCreationLandingContent({ breadcrumbs }: WebCreationLa
       {/* Features Section */}
       <section className='py-16 md:py-24 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <m.div
+          <motion.div
             className='text-center mb-16'
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -237,7 +237,7 @@ export default function WebCreationLandingContent({ breadcrumbs }: WebCreationLa
               {t.features.title}
             </h2>
             <p className='text-lg text-gray-600 max-w-3xl mx-auto'>{t.features.description}</p>
-          </m.div>
+          </motion.div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {t.features.items.map((feature: FeatureItem, index: number) => {
@@ -255,7 +255,7 @@ export default function WebCreationLandingContent({ breadcrumbs }: WebCreationLa
                           : Star
 
               return (
-                <m.div
+                <motion.div
                   key={index}
                   className='bg-gray-50 rounded-xl p-8 hover:bg-white hover:shadow-lg transition-all duration-300'
                   initial={{ opacity: 0, y: 50 }}
@@ -267,7 +267,7 @@ export default function WebCreationLandingContent({ breadcrumbs }: WebCreationLa
                   </div>
                   <h3 className='text-xl font-semibold mb-3 text-gray-900'>{feature.title}</h3>
                   <p className='text-gray-600 leading-relaxed'>{feature.description}</p>
-                </m.div>
+                </motion.div>
               )
             })}
           </div>
@@ -277,7 +277,7 @@ export default function WebCreationLandingContent({ breadcrumbs }: WebCreationLa
       {/* CTA Section */}
       <section className='py-16 md:py-24 bg-linear-to-r from-[var(--accent)] to-[var(--accent-dark)] text-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -292,7 +292,7 @@ export default function WebCreationLandingContent({ breadcrumbs }: WebCreationLa
                 <ArrowRight className='w-5 h-5' />
               </Link>
             </div>
-          </m.div>
+          </motion.div>
         </div>
       </section>
     </div>

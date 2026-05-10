@@ -1,6 +1,6 @@
 'use client'
 
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { BlogCategory } from '@/lib/sanity'
 
 interface CategoryFilterProps {
@@ -16,7 +16,7 @@ export const CategoryFilter = ({
 }: CategoryFilterProps) => {
   return (
     <div className='flex flex-wrap gap-3 mb-8'>
-      <m.button
+      <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => onCategoryChange(null)}
@@ -26,10 +26,10 @@ export const CategoryFilter = ({
             : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
         }`}>
         Tous
-      </m.button>
+      </motion.button>
 
       {categories.map((category) => (
-        <m.button
+        <motion.button
           key={category._id}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -40,7 +40,7 @@ export const CategoryFilter = ({
               : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
           }`}>
           {category.title}
-        </m.button>
+        </motion.button>
       ))}
     </div>
   )

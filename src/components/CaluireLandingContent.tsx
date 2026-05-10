@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { m, useInView } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 import CTAButton from '@/components/ui/CTAButton'
 
@@ -102,7 +102,7 @@ export default function CaluireLandingContent({ content: c, faqs, structuredData
         className='relative z-10 flex min-h-screen flex-col justify-center px-6 py-24 md:px-12 lg:px-24'>
         <div className='mx-auto max-w-[1400px] w-full'>
           {/* Badge */}
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -114,11 +114,11 @@ export default function CaluireLandingContent({ content: c, faqs, structuredData
             {c.badge}
             <span className='h-3 w-px bg-blue-200' />
             <span className='text-slate-400'>2026</span>
-          </m.div>
+          </motion.div>
 
           {/* Headline */}
           <div className='relative mb-12 max-w-5xl'>
-            <m.h1
+            <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
@@ -128,12 +128,12 @@ export default function CaluireLandingContent({ content: c, faqs, structuredData
               <span className='bg-linear-to-r from-blue-600 via-indigo-600 to-slate-700 bg-clip-text text-transparent'>
                 {c.h1City}.
               </span>
-            </m.h1>
+            </motion.h1>
           </div>
 
           <div className='grid gap-12 lg:grid-cols-12 lg:gap-24'>
             {/* Subtext & CTA */}
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
@@ -159,10 +159,10 @@ export default function CaluireLandingContent({ content: c, faqs, structuredData
                   {c.cta2}
                 </CTAButton>
               </div>
-            </m.div>
+            </motion.div>
 
             {/* Stat Cards */}
-            <m.div
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={heroInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
@@ -182,7 +182,7 @@ export default function CaluireLandingContent({ content: c, faqs, structuredData
                   </div>
                 </div>
               ))}
-            </m.div>
+            </motion.div>
           </div>
         </div>
       </section>
