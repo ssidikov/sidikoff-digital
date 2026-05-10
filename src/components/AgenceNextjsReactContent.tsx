@@ -309,10 +309,10 @@ export default function AgenceNextjsReactContent() {
                     { label: 'Perf', value: '99', color: 'text-green-400' },
                     { label: 'SEO', value: '100', color: 'text-green-400' },
                     { label: 'A11y', value: '98', color: 'text-green-400' },
-                  ].map((m) => (
-                    <div key={motion.label} className='text-center'>
-                      <p className={`text-lg font-bold ${motion.color}`}>{motion.value}</p>
-                      <p className='text-xs text-white/40'>{motion.label}</p>
+                  ].map((metric) => (
+                    <div key={metric.label} className='text-center'>
+                      <p className={`text-lg font-bold ${metric.color}`}>{metric.value}</p>
+                      <p className='text-xs text-white/40'>{metric.label}</p>
                     </div>
                   ))}
                 </div>
