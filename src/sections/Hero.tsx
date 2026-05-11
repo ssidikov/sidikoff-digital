@@ -11,8 +11,6 @@ import { ViewportHeightProvider } from '@/components/ViewportHeightProvider'
 
 const dict = common.hero
 
-
-
 const HERO_IMAGE = {
   src: '/images/hero-illustration.svg',
   alt: 'Hero Illustration',
@@ -41,39 +39,27 @@ export function Hero() {
     <ViewportHeightProvider>
       <Section id='hero' variant='hero' background='transparent' padding='none' contentWidth='wide'>
         <div ref={ref} className='relative z-10 hero-height flex items-center'>
-          <div className='w-full grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center px-4 sm:px-6 lg:px-8'>
+          <div className='w-full flex flex-col gap-6 md:gap-8 lg:grid lg:grid-cols-2 lg:gap-16 items-stretch lg:items-center px-4 sm:px-6 lg:px-8'>
             {/* Content Column */}
-            <div className='order-1 max-w-[800px] space-y-6 md:space-y-8 lg:pr-8'>
+            <div className='contents lg:block lg:order-1 lg:max-w-[800px] lg:space-y-8 lg:pr-8'>
               {/* Main Heading */}
               <h1
-                className='animate-fadeInUp text-3xl xl:text-5xl font-black text-black leading-[1.1] tracking-tight drop-shadow-xl'
+                className='animate-fadeInUp text-3xl xl:text-5xl font-black text-black leading-[1.1] tracking-tight drop-shadow-xl order-1'
                 style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
                 <span>{dict.title}</span>
               </h1>
 
               {/* Subtitle */}
               <p
-                className='animate-fadeInUp max-w-2xl text-lg xl:text-2xl text-black/85 leading-[1.4] font-light drop-shadow-lg'
+                className='animate-fadeInUp max-w-2xl text-lg xl:text-2xl text-black/85 leading-[1.4] font-light drop-shadow-lg order-3'
                 style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
                 {dict.subtitle}
               </p>
 
-              {/* Trust indicators */}
-              <div
-                className='animate-fadeInUp flex flex-wrap items-center gap-4 text-sm font-medium text-black/70'
-                style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>
-                {dict.trust_indicators?.map((indicator: string, index: number) => (
-                  <span key={index} className='flex items-center'>
-                    <span className='w-2 h-2 bg-green-500 rounded-full mr-2'></span>
-                    {indicator}
-                  </span>
-                ))}
-              </div>
-
               {/* CTA Buttons */}
               <div
-                className='animate-fadeInUp flex flex-col xl:flex-row gap-3 sm:gap-4 lg:gap-6 pt-2'
-                style={{ animationDelay: '0.8s', animationFillMode: 'both' }}>
+                className='animate-fadeInUp flex flex-col xl:flex-row gap-3 sm:gap-4 lg:gap-6 pt-2 order-4'
+                style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>
                 <CTAButton
                   variant='primary'
                   size='md'
@@ -96,10 +82,22 @@ export function Hero() {
                   <span className='ml-2 truncate'>{dict.cta_secondary}</span>
                 </CTAButton>
               </div>
+
+              {/* Trust indicators */}
+              <div
+                className='animate-fadeInUp flex flex-wrap items-center gap-4 text-sm font-medium text-black/70 order-5'
+                style={{ animationDelay: '0.8s', animationFillMode: 'both' }}>
+                {dict.trust_indicators?.map((indicator: string, index: number) => (
+                  <span key={index} className='flex items-center'>
+                    <span className='w-2 h-2 bg-green-500 rounded-full mr-2'></span>
+                    {indicator}
+                  </span>
+                ))}
+              </div>
             </div>
 
             {/* Hero Illustration */}
-            <div className='relative order-2 lg:pl-8'>
+            <div className='relative w-full order-2 lg:order-2 lg:pl-8'>
               <div
                 className='animate-slideIn relative w-full h-[200px] md:h-[250px] xl:h-[700px]'
                 style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>

@@ -422,6 +422,18 @@ h6 {
   }
 }
 
+/* Disable load animations on mobile for fast charge / performance */
+@media (max-width: 768px) {
+  .animate-fadeInUp,
+  .animate-slideIn,
+  .mobile-no-animate {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+}
+
 
 /* Custom component styles using CSS variables */
 .btn-primary {
