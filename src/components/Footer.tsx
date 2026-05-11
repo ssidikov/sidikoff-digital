@@ -251,12 +251,14 @@ export function Footer({ isDark = false }: { isDark?: boolean }) {
       <div className={`border-t pt-8 ${isDark ? 'border-white/10' : 'border-[#112D4E]/10'}`}>
         <div className='flex flex-col items-center justify-between space-y-6 lg:flex-row lg:space-y-0'>
           <div
-            className={`hidden text-sm uppercase tracking-wider lg:block ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
+            className={`hidden text-sm uppercase tracking-wider lg:block ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}
+            suppressHydrationWarning>
             {COMPANY_INFO.copyright}
           </div>
 
           <div
-            className={`text-center text-sm uppercase tracking-wider lg:hidden ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
+            className={`text-center text-sm uppercase tracking-wider lg:hidden ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}
+            suppressHydrationWarning>
             {COMPANY_INFO.copyright}
           </div>
 

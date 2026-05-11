@@ -56,7 +56,7 @@ export default function BlogArticleContent({ post }: { post: BlogPost }) {
                 </p>
 
                 <div className='mt-8 flex flex-wrap items-center gap-5 text-sm font-bold text-slate-600'>
-                  <span className='inline-flex items-center gap-2'>
+                  <span className='inline-flex items-center gap-2' suppressHydrationWarning>
                     <CalendarDays className='h-4 w-4 text-[#b45309]' />
                     {formattedDate}
                   </span>

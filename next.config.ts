@@ -52,11 +52,11 @@ const SECURITY_HEADERS = [
     key: 'Content-Security-Policy',
     value: `
       default-src 'self';
-      script-src 'self' 'unsafe-eval' 'unsafe-inline' *.vercel-insights.com *.googletagmanager.com;
+      script-src 'self' 'unsafe-eval' 'unsafe-inline' *.vercel-insights.com *.googletagmanager.com https://static.cloudflareinsights.com https://*.clarity.ms https://va.vercel-scripts.com;
       style-src 'self' 'unsafe-inline' fonts.googleapis.com;
       img-src 'self' data: blob: https://images.unsplash.com https://cdn.sanity.io;
       font-src 'self' fonts.gstatic.com;
-      connect-src 'self' *.vercel-insights.com *.sanity.io *.googletagmanager.com;
+      connect-src 'self' *.vercel-insights.com *.sanity.io *.googletagmanager.com https://cloudflareinsights.com https://*.clarity.ms;
       frame-src 'none';
       object-src 'none';
       base-uri 'self';
@@ -86,7 +86,7 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
     webVitalsAttribution: ['CLS', 'FCP', 'FID', 'LCP', 'TTFB'],
-    // optimizeCss: true, // Отключено временно из-за проблем с critters
+    optimizeCss: true, // Включено для предотвращения render-blocking CSS
   },
 
   // ИСПРАВЛЕНО: Moved serverComponentsExternalPackages to serverExternalPackages
@@ -419,7 +419,7 @@ const nextConfig: NextConfig = {
             : [
                 {
                   key: 'Cache-Control',
-                  value: 'public, max-age=86400',
+                  value: 'public, max-age=31536000, immutable',
                 },
               ],
       },
