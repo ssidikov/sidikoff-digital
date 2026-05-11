@@ -362,11 +362,11 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                   </p>
                   <div className='bg-green-50 p-4 rounded-lg'>
                     <h5 className='font-semibold text-green-800 mb-2'>
-                      {dict?.pricing?.guide_section?.labels?.what_i_handle ||
-                        "Ce dont je m'occupe:"}
+                      {dict?.pricing?.guide_section?.labels?.what_we_handle ||
+                        "Ce dont nous nous occupons:"}
                     </h5>
                     <ul className='space-y-1'>
-                      {dict.pricing.guide_section.business_focus.what_i_handle?.map(
+                      {dict.pricing.guide_section.business_focus.what_we_handle?.map(
                         (item, index) => (
                           <li key={index} className='text-green-700 text-sm flex items-start gap-2'>
                             <span className='text-green-500 mt-1'>✓</span>
@@ -471,7 +471,7 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                     window.location.href = '/contact'
                   }}>
                   {dict?.pricing?.guide_section?.call_to_action?.button ||
-                    'Contactez-moi maintenant'}
+                    'Contactez-nous maintenant'}
                 </CTAButton>
               </motion.div>
             )}

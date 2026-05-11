@@ -19,15 +19,15 @@
     "cta": "Devis gratuit"
   },
   "hero": {
-    "badge": "Agence Web à Lyon",
-    "title": "Création de Sites Web Professionnels pour Votre Entreprise",
-    "subtitle": "Développeur web & agence digitale à Lyon — je crée des sites internet modernes, rapides et optimisés SEO pour les PME et entrepreneurs. Livrés en 7 à 14 jours, avec accompagnement inclus. Devis gratuit sous 24h.",
-    "cta_primary": "Discuter de votre projet",
-    "cta_secondary": "Voir mes réalisations",
+    "badge": "Studio Web à Lyon",
+    "title": "Votre Site Web Pro, Livré en 7 Jours",
+    "subtitle": "Studio web à Lyon — nous créons des sites modernes et optimisés SEO qui convertissent vos visiteurs en clients. Devis gratuit sous 24h.",
+    "cta_primary": "Obtenir un Devis Gratuit",
+    "cta_secondary": "Voir nos réalisations",
     "trust_indicators": [
-      "20+ projets livrés à Lyon & Paris",
-      "Développeur web Next.js certifié",
-      "Devis gratuit sous 24h"
+      "20+ sites livrés à Lyon & Paris",
+      "Experts Next.js & React",
+      "Réponse garantie sous 24h"
     ],
     "features": [
       {
@@ -45,8 +45,8 @@
     ]
   },
   "services": {
-    "title": "Nos Services Web",
-    "subtitle": "Création de site internet, refonte, SEO et maintenance — des solutions sur mesure pour votre croissance",
+    "title": "Des Solutions Web Qui Génèrent des Résultats",
+    "subtitle": "Chaque projet est conçu pour attirer plus de clients et booster votre chiffre d'affaires",
     "web_creation": {
       "title": "Création de sites web sur mesure",
       "subtitle": "Création de Sites Web – De A à Z",
@@ -89,9 +89,9 @@
       "description": "Transformez votre restaurant avec un site web qui génère des réservations 24h/7j. Menu digital attractif, système de réservation en ligne, commandes à emporter, intégration Google Maps - tout ce dont votre restaurant a besoin pour attirer plus de clients et augmenter le chiffre d'affaires. Solution complète avec formation incluse."
     },
     "cta_banner": {
-      "background": "Transformons ensemble vos idées en réalité numérique",
-      "description": "Nous accompagnons votre croissance digitale avec des solutions innovantes et sur mesure. Contactez-nous pour une consultation gratuite et découvrez comment nous pouvons booster votre présence en ligne.",
-      "cta": "Démarrer votre projet"
+      "background": "Votre prochain client vous cherche en ligne. Il vous trouve ?",
+      "description": "Chaque jour sans site performant, ce sont des prospects qui choisissent un concurrent. Parlons de votre projet — premier échange gratuit et sans engagement.",
+      "cta": "Réserver un appel gratuit"
     },
     "web_creation_landing": {
       "meta_title": "Création Site Web Sur Mesure",
@@ -446,7 +446,7 @@
     }
   },
   "footer": {
-    "description": "SIDIKOFF DIGITAL – Agence web à Lyon spécialisée dans la création de sites vitrine, landing pages et applications web modernes. Développeur expert React et Next.js, nous accompagnons les entreprises dans leur transformation digitale avec des solutions rapides, performantes et optimisées SEO.",
+    "description": "SIDIKOFF DIGITAL — Studio web à Lyon spécialisé en création de sites internet sur mesure. Nous accompagnons les PME, artisans et entrepreneurs dans leur croissance digitale avec des sites rapides, performants et optimisés pour Google.",
     "quick_links": "Liens Rapides",
     "services_links": "Services",
     "contact_info": "Infos Contact",
@@ -677,7 +677,7 @@
           {
             "icon": "🎯",
             "title": "Support Expert",
-            "content": "Je m'occupe de la technique, vous vous concentrez sur votre business. Conseils personnalisés pour améliorer vos résultats."
+            "content": "Nous nous occupons de la technique, vous vous concentrez sur votre business. Conseils personnalisés pour améliorer vos résultats."
           }
         ]
       },
@@ -693,8 +693,8 @@
       },
       "business_focus": {
         "title": "🎯 Concentrez-vous sur votre Business",
-        "content": "Pendant que je m'occupe de votre site web (technique, sécurité, optimisations), vous pouvez vous concentrer sur ce que vous faites de mieux : développer votre activité et servir vos clients.",
-        "what_i_handle": [
+        "content": "Pendant que nous nous occupons de votre site web (technique, sécurité, optimisations), vous pouvez vous concentrer sur ce que vous faites de mieux : développer votre activité et servir vos clients.",
+        "what_we_handle": [
           "Mises à jour techniques et de sécurité",
           "Optimisation SEO continue",
           "Ajout de nouveaux contenus",
@@ -741,7 +741,7 @@
         "title": "🎯 Prêt à Lancer Votre Projet ?",
         "content": "Chaque jour sans site web professionnel, c'est des clients potentiels qui passent chez la concurrence. Investissez dans votre présence digitale dès maintenant.",
         "contact_text": "Discutons de votre projet et trouvons la solution parfaite pour votre business.",
-        "button": "Contactez-moi maintenant"
+        "button": "Contactez-nous maintenant"
       },
       "labels": {
         "ideal_for": "Idéal pour:",
@@ -749,7 +749,7 @@
         "maintenance": "Maintenance:",
         "why_important": "Pourquoi c'est important:",
         "risks_without_maintenance": "Risques sans maintenance:",
-        "what_i_handle": "Ce dont je m'occupe:"
+        "what_we_handle": "Ce dont nous nous occupons:"
       }
     }
   },
@@ -842,8 +842,8 @@
     "github": "Code Source"
   },
   "testimonials": {
-    "title": "Témoignages clients",
-    "subtitle": "Ce que nos clients disent de nous",
+    "title": "Ils nous ont fait confiance",
+    "subtitle": "Découvrez les résultats obtenus par nos clients",
     "cta": {
       "title": "Prêt à rejoindre nos clients satisfaits ?",
       "description": "Contactez-nous dès aujourd'hui et découvrez comment nous pouvons aider votre entreprise à croître.",
@@ -1067,7 +1067,7 @@
   "seo_local": {
     "hero": {
       "title": "Création de site web à {city}",
-      "description": "Développeur web expert à {city}. Je crée des sites internet professionnels, modernes et performants pour faire grandir votre entreprise.",
+      "description": "Studio web expert à {city}. Nous créons des sites internet professionnels, modernes et performants pour faire grandir votre entreprise.",
       "cta_primary": "Obtenir un devis gratuit",
       "cta_secondary": "Appelez maintenant"
     },
@@ -1078,8 +1078,8 @@
       "support_included": "Support inclus"
     },
     "services": {
-      "title": "Mes services de création de sites web",
-      "description": "Développeur web professionnel à {city}, je vous accompagne dans la création de votre site internet. Des sites vitrines aux boutiques e-commerce, chaque projet est unique et adapté à vos besoins.",
+      "title": "Nos services de création de sites web",
+      "description": "Studio web professionnel à {city}, nous vous accompagnons dans la création de votre site internet. Des sites vitrines aux boutiques e-commerce, chaque projet est unique et adapté à vos besoins.",
       "showcase": {
         "title": "Site vitrine",
         "description": "Site web professionnel pour présenter votre entreprise, vos services et vos valeurs. Design moderne et responsive.",
@@ -1112,8 +1112,8 @@
       }
     },
     "advantages": {
-      "title": "Pourquoi me choisir pour votre site web ?",
-      "description": "Développeur web freelance expérimenté, je vous garantis un service personnalisé et des résultats concrets.",
+      "title": "Pourquoi nous choisir pour votre site web ?",
+      "description": "Studio web expérimenté, nous vous garantissons un service personnalisé et des résultats concrets.",
       "fast_delivery": {
         "title": "Livraison rapide",
         "description": "Votre site web livré en 2-3 semaines maximum. Suivi personnalisé et communication transparente tout au long du projet."
@@ -1128,14 +1128,14 @@
       }
     },
     "portfolio": {
-      "title": "Mes dernières créations de sites web",
-      "description": "Découvrez une sélection de sites web que j'ai créés. Chaque projet est unique et adapté aux besoins spécifiques de mes clients."
+      "title": "Nos dernières créations de sites web",
+      "description": "Découvrez une sélection de sites web que nous avons créés. Chaque projet est unique et adapté aux besoins spécifiques de nos clients."
     },
     "cta": {
       "title": "Transformons votre idée en succès digital",
-      "description": "Prêt à créer le site web qui fera grandir votre entreprise ? Contactez-moi pour un devis personnalisé et gratuit.",
+      "description": "Prêt à créer le site web qui fera grandir votre entreprise ? Contactez-nous pour un devis personnalisé et gratuit.",
       "primary_button": "Obtenir un devis gratuit",
-      "secondary_button": "Voir mes réalisations",
+      "secondary_button": "Voir nos réalisations",
       "consultation_free": "Consultation gratuite 30min",
       "quote_24h": "Devis détaillé sous 24h",
       "no_commitment": "Aucun engagement"
@@ -3459,9 +3459,9 @@
   },
   "about": {
     "eyebrow": "À propos",
-    "headline": "Je conçois des sites qui travaillent pour vous — pas juste pour faire joli.",
-    "p1": "Je m'appelle Sardor. Développeur web indépendant basé à Lyon, je crée des sites sur-mesure pour les entrepreneurs, artisans et PME qui veulent une vraie présence en ligne — pas un template vu et revu.",
-    "p2": "Je suis spécialisé dans les technologies modernes comme Next.js et React, utilisées par des géants comme Netflix, Uber et Airbnb pour leurs sites ultra-rapides et performants.",
+    "headline": "Un studio web fondé par un expert, pensé pour vos résultats.",
+    "p1": "Je suis Sardor, développeur web spécialisé Next.js et fondateur de Sidikoff Digital. Chaque site que nous livrons est conçu pour atteindre un objectif précis : générer des clients, renforcer votre crédibilité ou automatiser votre prise de rendez-vous.",
+    "p2": "Nous utilisons les mêmes technologies que Netflix, Uber et Airbnb — mais au service de votre PME. Résultat : des sites ultra-rapides qui se positionnent en première page Google.",
     "stats": [
       {
         "value": "20+",

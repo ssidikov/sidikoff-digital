@@ -41,7 +41,7 @@ export async function generateMetadata() {
   return generateSEOMetadata({
     title: SEO_CONFIG.title,
     description:
-      'Agence web Lyon spécialisée en création de sites internet sur mesure, SEO et refonte. Sites modernes, rapides, livrés en 7–14 jours. Devis gratuit sous 24h.',
+      'Studio web à Lyon : création de sites internet sur mesure pour PME et entrepreneurs. Sites livrés en 7 jours, optimisés SEO. Devis gratuit sous 24h.',
     locale: 'fr',
     canonicalUrl: createCanonicalUrl('', 'fr'),
     alternateLanguages: generateLanguageAlternates('', ['fr']),
@@ -71,7 +71,7 @@ function generateHomePageSchemas() {
       alternateName: 'Agence Web Lyon',
       url: 'https://www.sidikoff.com',
       description:
-        'Agence web à Villeurbanne et Lyon spécialisée en création de sites internet sur mesure, refonte et SEO.',
+        'Studio web à Lyon spécialisé en création de sites internet sur mesure, refonte et SEO pour PME et entrepreneurs.',
       inLanguage: 'fr-FR',
       publisher: {
         '@type': 'Organization',
