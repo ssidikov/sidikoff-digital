@@ -99,7 +99,7 @@ export function Hero() {
                   alt={HERO_IMAGE.alt}
                   className='w-full h-full object-contain drop-shadow-2xl bg-transparent'
                   loading='eager'
-                  fetchpriority='high'
+                  fetchPriority='high'
                 />
               </div>
             </div>

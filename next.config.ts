@@ -54,9 +54,9 @@ const SECURITY_HEADERS = [
       default-src 'self';
       script-src 'self' 'unsafe-eval' 'unsafe-inline' *.vercel-insights.com *.googletagmanager.com https://static.cloudflareinsights.com https://*.clarity.ms https://va.vercel-scripts.com;
       style-src 'self' 'unsafe-inline' fonts.googleapis.com;
-      img-src 'self' data: blob: https://images.unsplash.com https://cdn.sanity.io;
+      img-src 'self' data: blob: https://images.unsplash.com;
       font-src 'self' fonts.gstatic.com;
-      connect-src 'self' *.vercel-insights.com *.sanity.io *.googletagmanager.com https://cloudflareinsights.com https://*.clarity.ms;
+      connect-src 'self' *.vercel-insights.com *.googletagmanager.com https://cloudflareinsights.com https://*.clarity.ms;
       frame-src 'none';
       object-src 'none';
       base-uri 'self';
@@ -88,9 +88,6 @@ const nextConfig: NextConfig = {
     webVitalsAttribution: ['CLS', 'FCP', 'FID', 'LCP', 'TTFB'],
     optimizeCss: true, // Включено для предотвращения render-blocking CSS
   },
-
-  // ИСПРАВЛЕНО: Moved serverComponentsExternalPackages to serverExternalPackages
-  serverExternalPackages: ['@sanity/client'],
 
   // Development server settings
   ...(process.env.NODE_ENV === 'development' && {
@@ -138,12 +135,6 @@ const nextConfig: NextConfig = {
 
     // ИСПРАВЛЕНО: Убран deprecated параметр domains
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'cdn.sanity.io',
-        port: '',
-        pathname: '/images/**',
-      },
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',

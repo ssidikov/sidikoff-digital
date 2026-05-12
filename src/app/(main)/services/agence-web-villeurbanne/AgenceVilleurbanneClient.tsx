@@ -78,7 +78,9 @@ export default function AgenceVilleurbanneClient() {
           transition={{ duration: 0.5 }}>
           AGENCE WEB VILLEURBANNE
           <br />
-          <span className='text-[#3B82F6] block mt-4'>— CRÉATION SITE INTERNET & SEO VILLEURBANNE</span>
+          <span className='text-[#3B82F6] block mt-4'>
+            — CRÉATION SITE INTERNET & SEO VILLEURBANNE
+          </span>
         </motion.h1>
 
         <motion.p
@@ -86,7 +88,9 @@ export default function AgenceVilleurbanneClient() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}>
-          Propulsez votre visibilité en ligne avec une esthétique radicale. Nous concevons des plateformes web sur-mesure pour les entreprises locales, des boutiques en ligne performantes et déployons une stratégie SEO Villeurbanne implacable.
+          Propulsez votre visibilité en ligne avec une esthétique radicale. Nous concevons des
+          plateformes web sur-mesure pour les entreprises locales, des boutiques en ligne
+          performantes et déployons une stratégie SEO Villeurbanne implacable.
         </motion.p>
 
         <motion.div
@@ -122,7 +126,7 @@ export default function AgenceVilleurbanneClient() {
             Par <span rel='author'>Sardorbek Sidikov</span> — Sidikoff Digital
           </p>
           <p className={`${jetbrainsMono.className} text-[10px] uppercase`}>
-            Mis à jour le 12 Avril 2026
+            Mis à jour le 12 May 2026
           </p>
         </motion.div>
       </section>
@@ -319,50 +323,88 @@ export default function AgenceVilleurbanneClient() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className='mb-16'>
-          <span className={`${jetbrainsMono.className} text-[#3B82F6] font-bold text-xl uppercase mb-4 block`}>
+          <span
+            className={`${jetbrainsMono.className} text-[#3B82F6] font-bold text-xl uppercase mb-4 block`}>
             [03] Contexte local
           </span>
-          <h2 className={`${limelight.className} text-5xl md:text-6xl text-[#111827] mb-12 uppercase`}>
+          <h2
+            className={`${limelight.className} text-5xl md:text-6xl text-[#111827] mb-12 uppercase`}>
             Pourquoi Villeurbanne ?
           </h2>
           <div className='grid lg:grid-cols-2 gap-12 items-start'>
             <div className='space-y-5 text-lg text-[#111827] font-medium leading-relaxed'>
               <p>
-                Villeurbanne est la <strong>deuxième ville la plus peuplée de la région Auvergne-Rhône-Alpes</strong>,
-                avec plus de 150 000 habitants et un tissu économique dense. Gratte-Ciel, Charpennes, Cusset, La Doua :
-                chaque quartier a ses propres dynamiques commerciales et ses propres opportunités digitales.
+                Villeurbanne est la{' '}
+                <strong>deuxième ville la plus peuplée de la région Auvergne-Rhône-Alpes</strong>,
+                avec plus de 150 000 habitants et un tissu économique dense. Gratte-Ciel,
+                Charpennes, Cusset, La Doua : chaque quartier a ses propres dynamiques commerciales
+                et ses propres opportunités digitales.
               </p>
               <p>
-                Contrairement à Lyon intramuros où la concurrence digitale est saturée, <strong>Villeurbanne offre
-                des fenêtres de positionnement SEO local encore accessibles</strong> pour les PME, artisans et
-                professions libérales. Une stratégie bien menée permet d'apparaître en première position sur des
-                requêtes comme « plombier Villeurbanne », « coiffeur Charpennes » ou « agence immobilière Gratte-Ciel ».
+                Contrairement à Lyon intramuros où la concurrence digitale est saturée,{' '}
+                <strong>
+                  Villeurbanne offre des fenêtres de positionnement SEO local encore accessibles
+                </strong>{' '}
+                pour les PME, artisans et professions libérales. Une stratégie bien menée permet
+                d'apparaître en première position sur des requêtes comme « plombier Villeurbanne »,
+                « coiffeur Charpennes » ou « agence immobilière Gratte-Ciel ».
               </p>
               <p>
-                Notre agence, basée à Villeurbanne et Lyon, connaît parfaitement ce marché. Nous avons accompagné des
-                commerces du Cours Émile Zola, des cabinets médicaux près de l'Hôpital Desgenettes, des restaurants
-                autour du Parc de la Feyssine et des entreprises tech du quartier de La Doua. Cette expertise locale
-                se traduit concrètement dans nos maquettes, nos contenus et notre stratégie SEO.
+                Notre agence, basée à Villeurbanne et Lyon, connaît parfaitement ce marché. Nous
+                avons accompagné des commerces du Cours Émile Zola, des cabinets médicaux près de
+                l'Hôpital Desgenettes, des restaurants autour du Parc de la Feyssine et des
+                entreprises tech du quartier de La Doua. Cette expertise locale se traduit
+                concrètement dans nos maquettes, nos contenus et notre stratégie SEO.
               </p>
               <p>
-                En 2026, un site web professionnel à Villeurbanne est un <strong>investissement rentable</strong> :
-                nos clients constatent en moyenne une augmentation de 3 à 5× de leurs leads en ligne dans les
-                6 premiers mois suivant la mise en ligne d'un site optimisé SEO.
+                En 2026, un site web professionnel à Villeurbanne est un{' '}
+                <strong>investissement rentable</strong> : nos clients constatent en moyenne une
+                augmentation de 3 à 5× de leurs leads en ligne dans les 6 premiers mois suivant la
+                mise en ligne d'un site optimisé SEO.
               </p>
             </div>
             <div className='space-y-4'>
-              <h3 className={`${jetbrainsMono.className} text-xl font-bold uppercase mb-6`}>Pour qui travaillons-nous ?</h3>
+              <h3 className={`${jetbrainsMono.className} text-xl font-bold uppercase mb-6`}>
+                Pour qui travaillons-nous ?
+              </h3>
               {[
-                { n: '→', t: 'Commerces & artisans', d: 'Boulangers, coiffeurs, plombiers, électriciens : vitrine locale, SEO de proximité, Google Business Profile optimisé.' },
-                { n: '→', t: 'Professions de santé', d: 'Médecins, dentistes, kinés, ostéopathes : sites RGPD-conformes avec prise de RDV en ligne intégrée (Doctolib, Calendly).' },
-                { n: '→', t: 'PME & industries', d: 'Entreprises du Grand Lyon : catalogues produits, sites institutionnels, outils de gestion interne sur mesure.' },
-                { n: '→', t: 'Startups tech & SaaS', d: 'Portails, applications web, landing pages de conversion et MVP pour les entreprises innovantes du pôle technologique de La Doua.' },
-                { n: '→', t: 'Restauration & événementiel', d: 'Sites avec menus, galeries, réservation en ligne et SEO local pour capter la clientèle du secteur Tonkin / Gratte-Ciel.' },
+                {
+                  n: '→',
+                  t: 'Commerces & artisans',
+                  d: 'Boulangers, coiffeurs, plombiers, électriciens : vitrine locale, SEO de proximité, Google Business Profile optimisé.',
+                },
+                {
+                  n: '→',
+                  t: 'Professions de santé',
+                  d: 'Médecins, dentistes, kinés, ostéopathes : sites RGPD-conformes avec prise de RDV en ligne intégrée (Doctolib, Calendly).',
+                },
+                {
+                  n: '→',
+                  t: 'PME & industries',
+                  d: 'Entreprises du Grand Lyon : catalogues produits, sites institutionnels, outils de gestion interne sur mesure.',
+                },
+                {
+                  n: '→',
+                  t: 'Startups tech & SaaS',
+                  d: 'Portails, applications web, landing pages de conversion et MVP pour les entreprises innovantes du pôle technologique de La Doua.',
+                },
+                {
+                  n: '→',
+                  t: 'Restauration & événementiel',
+                  d: 'Sites avec menus, galeries, réservation en ligne et SEO local pour capter la clientèle du secteur Tonkin / Gratte-Ciel.',
+                },
               ].map((item, i) => (
-                <div key={i} className='flex gap-4 p-4 border-2 border-[#111827] bg-white shadow-[4px_4px_0px_#3B82F6]'>
-                  <span className={`${jetbrainsMono.className} text-[#3B82F6] font-bold text-xl flex-shrink-0`}>{item.n}</span>
+                <div
+                  key={i}
+                  className='flex gap-4 p-4 border-2 border-[#111827] bg-white shadow-[4px_4px_0px_#3B82F6]'>
+                  <span
+                    className={`${jetbrainsMono.className} text-[#3B82F6] font-bold text-xl flex-shrink-0`}>
+                    {item.n}
+                  </span>
                   <div>
-                    <p className={`${jetbrainsMono.className} font-bold text-sm uppercase mb-1`}>{item.t}</p>
+                    <p className={`${jetbrainsMono.className} font-bold text-sm uppercase mb-1`}>
+                      {item.t}
+                    </p>
                     <p className='text-[#111827] text-sm leading-relaxed'>{item.d}</p>
                   </div>
                 </div>
@@ -382,7 +424,8 @@ export default function AgenceVilleurbanneClient() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className='bg-[#111827] text-white border-4 border-[#111827] shadow-[16px_16px_0px_#3B82F6] p-8 md:p-16'>
-          <span className={`${jetbrainsMono.className} text-[#3B82F6] font-bold text-xl uppercase mb-4 block`}>
+          <span
+            className={`${jetbrainsMono.className} text-[#3B82F6] font-bold text-xl uppercase mb-4 block`}>
             [04] Audit & Accompagnement
           </span>
           <h2 className={`${limelight.className} text-4xl md:text-5xl lg:text-6xl mb-8 uppercase`}>
@@ -391,24 +434,52 @@ export default function AgenceVilleurbanneClient() {
           <div className='grid md:grid-cols-2 gap-12'>
             <div className='space-y-6 text-lg text-white/90 font-medium leading-relaxed'>
               <p>
-                Avoir un site esthétique ne suffit plus dans le marché ultra-concurrentiel du Grand Lyon. En tant que <strong>consultant SEO à Villeurbanne</strong>, notre rôle est d'analyser votre visibilité en ligne, de comprendre les intentions de recherche de vos futurs clients et d'optimiser chaque aspect technique de votre domaine. Le <strong>SEO Villeurbanne</strong> est essentiel pour vous démarquer.
+                Avoir un site esthétique ne suffit plus dans le marché ultra-concurrentiel du Grand
+                Lyon. En tant que <strong>consultant SEO à Villeurbanne</strong>, notre rôle est
+                d'analyser votre visibilité en ligne, de comprendre les intentions de recherche de
+                vos futurs clients et d'optimiser chaque aspect technique de votre domaine. Le{' '}
+                <strong>SEO Villeurbanne</strong> est essentiel pour vous démarquer.
               </p>
               <p>
-                Nous réalisons un <strong>audit SEO complet</strong> pour identifier les freins à votre classement organique. Qu'il s'agisse de corriger des problèmes de performance, d'optimiser vos balises H1, d'améliorer l'expérience utilisateur ou de concevoir une architecture de contenu performante, nous posons les bases d'une croissance durable pour des solutions web performantes. Notre expertise en <strong>SEO Villeurbanne</strong> couvre tous les aspects on-page et off-page.
+                Nous réalisons un <strong>audit SEO complet</strong> pour identifier les freins à
+                votre classement organique. Qu'il s'agisse de corriger des problèmes de performance,
+                d'optimiser vos balises H1, d'améliorer l'expérience utilisateur ou de concevoir une
+                architecture de contenu performante, nous posons les bases d'une croissance durable
+                pour des solutions web performantes. Notre expertise en{' '}
+                <strong>SEO Villeurbanne</strong> couvre tous les aspects on-page et off-page.
               </p>
               <p>
-                Chaque mois, nous monitorons vos positions sur des mots-clés stratégiques comme "création site internet villeurbanne", "boutiques en ligne", "seo villeurbanne", ou votre propre cœur de métier, en ajustant la stratégie pour vous permettre de devancer vos concurrents locaux à Lyon, Bron et Villeurbanne. Devenez leader dans votre secteur d'activité avec notre accompagnement en <strong>SEO Villeurbanne</strong>.
+                Chaque mois, nous monitorons vos positions sur des mots-clés stratégiques comme
+                "création site internet villeurbanne", "boutiques en ligne", "seo villeurbanne", ou
+                votre propre cœur de métier, en ajustant la stratégie pour vous permettre de
+                devancer vos concurrents locaux à Lyon, Bron et Villeurbanne. Devenez leader dans
+                votre secteur d'activité avec notre accompagnement en{' '}
+                <strong>SEO Villeurbanne</strong>.
               </p>
             </div>
             <div className='space-y-6'>
               {[
-                { title: "Audit Technique SEO", desc: "Analyse approfondie de la vitesse (Core Web Vitals), indexabilité, et structure sémantique." },
-                { title: "Optimisation de Contenu", desc: "Recherche de mots-clés (SEO local villeurbanne), rédaction sémantique et enrichissement." },
-                { title: "Netlinking & Autorité", desc: "Acquisition de liens de qualité depuis des médias et annuaires locaux en région lyonnaise." },
-                { title: "Google Business Profile", desc: "Optimisation maximale pour dominer le référencement local sur Google Maps à Villeurbanne." }
+                {
+                  title: 'Audit Technique SEO',
+                  desc: 'Analyse approfondie de la vitesse (Core Web Vitals), indexabilité, et structure sémantique.',
+                },
+                {
+                  title: 'Optimisation de Contenu',
+                  desc: 'Recherche de mots-clés (SEO local villeurbanne), rédaction sémantique et enrichissement.',
+                },
+                {
+                  title: 'Netlinking & Autorité',
+                  desc: 'Acquisition de liens de qualité depuis des médias et annuaires locaux en région lyonnaise.',
+                },
+                {
+                  title: 'Google Business Profile',
+                  desc: 'Optimisation maximale pour dominer le référencement local sur Google Maps à Villeurbanne.',
+                },
               ].map((item, idx) => (
                 <div key={idx} className='bg-white text-[#111827] border-2 border-[#111827] p-5'>
-                  <h4 className={`${jetbrainsMono.className} font-bold uppercase text-lg mb-2`}>{item.title}</h4>
+                  <h4 className={`${jetbrainsMono.className} font-bold uppercase text-lg mb-2`}>
+                    {item.title}
+                  </h4>
                   <p className='text-sm font-medium leading-relaxed'>{item.desc}</p>
                 </div>
               ))}
@@ -427,49 +498,52 @@ export default function AgenceVilleurbanneClient() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className='mb-12'>
-          <span className={`${jetbrainsMono.className} text-[#3B82F6] font-bold text-xl uppercase mb-4 block`}>
+          <span
+            className={`${jetbrainsMono.className} text-[#3B82F6] font-bold text-xl uppercase mb-4 block`}>
             [05] Questions fréquentes
           </span>
-          <h2 className={`${limelight.className} text-5xl md:text-6xl text-[#111827] mb-12 uppercase`}>
+          <h2
+            className={`${limelight.className} text-5xl md:text-6xl text-[#111827] mb-12 uppercase`}>
             FAQ — Agence Web Villeurbanne
           </h2>
           <div className='space-y-0'>
             {[
               {
-                q: "Quel est le coût d’un site internet à Villeurbanne ?",
-                a: 'Un site vitrine professionnel à Villeurbanne démarre à 690€ TTC, livré en 5 à 7 jours ouvrés. Un site multi-pages (3 à 5 pages) est proposé à 1 290€, idéal pour les commerces de Gratte-Ciel, Charpennes et Cusset. Un e-commerce complet démarre à 1 990€ avec gestion des stocks et paiement sécurisé. Devis gratuit sous 24h, sans frais cachés.'
+                q: 'Quel est le coût d’un site internet à Villeurbanne ?',
+                a: 'Un site vitrine professionnel à Villeurbanne démarre à 690€ TTC, livré en 5 à 7 jours ouvrés. Un site multi-pages (3 à 5 pages) est proposé à 1 290€, idéal pour les commerces de Gratte-Ciel, Charpennes et Cusset. Un e-commerce complet démarre à 1 990€ avec gestion des stocks et paiement sécurisé. Devis gratuit sous 24h, sans frais cachés.',
               },
               {
                 q: 'Combien de temps pour livrer un site web à Villeurbanne ?',
-                a: 'Entre 5 et 7 jours ouvrés pour un site vitrine standard, 10 à 14 jours pour un site multi-pages. Les e-commerces et applications sur mesure prennent 4 à 8 semaines selon la complexité. Nous proposons aussi un service express. Les délais sont garantis par contrat et un planning détaillé est remis dès la validation du devis.'
+                a: 'Entre 5 et 7 jours ouvrés pour un site vitrine standard, 10 à 14 jours pour un site multi-pages. Les e-commerces et applications sur mesure prennent 4 à 8 semaines selon la complexité. Nous proposons aussi un service express. Les délais sont garantis par contrat et un planning détaillé est remis dès la validation du devis.',
               },
               {
                 q: 'Votre agence web de Villeurbanne fait-elle du SEO local ?',
-                a: 'Oui, le SEO local est au cœur de notre méthode. Nous optimisons chaque page pour les recherches géolocalisées (Villeurbanne, Gratte-Ciel, Charpennes, Grand Lyon), configurons votre fiche Google Business Profile et créons du contenu ancré localement pour un positionnement durable. Nos sites Next.js obtiennent systématiquement des scores Lighthouse > 95 — un avantage SEO direct face aux concurrents.'
+                a: 'Oui, le SEO local est au cœur de notre méthode. Nous optimisons chaque page pour les recherches géolocalisées (Villeurbanne, Gratte-Ciel, Charpennes, Grand Lyon), configurons votre fiche Google Business Profile et créons du contenu ancré localement pour un positionnement durable. Nos sites Next.js obtiennent systématiquement des scores Lighthouse > 95 — un avantage SEO direct face aux concurrents.',
               },
               {
                 q: 'Utilisez-vous des technologies modernes comme Next.js ?',
-                a: 'Oui, Next.js est notre framework principal pour tous les projets professionnels. Il garantit des scores Lighthouse 95+, un chargement en moins d’une seconde (LCP < 2,5s), une sécurité renforcée et un excellent SEO natif. Nous utilisons aussi React, TypeScript, Tailwind CSS et des CMS headless (Sanity, Strapi) pour vous rendre autonome dans la gestion du contenu.'
+                a: 'Oui, Next.js est notre framework principal pour tous les projets professionnels. Il garantit des scores Lighthouse 95+, un chargement en moins d’une seconde (LCP < 2,5s), une sécurité renforcée et un excellent SEO natif. Nous utilisons aussi React, TypeScript, Tailwind CSS et des CMS headless (Sanity, Strapi) pour vous rendre autonome dans la gestion du contenu.',
               },
               {
                 q: 'Puis-je mettre à jour mon site sans compétences techniques ?',
-                a: 'Oui, tous nos sites sont livrés avec un back-office intuitif ou un CMS (Sanity, WordPress headless). Vous gérez textes, images et articles de blog en totale autonomie. Une formation complète de 1 à 2h est incluse dans chaque livraison. Si vous préférez déléguer, nos forfaits maintenance (dès 49€/mois) prennent en charge toutes les mises à jour.'
+                a: 'Oui, tous nos sites sont livrés avec un back-office intuitif ou un CMS (Sanity, WordPress headless). Vous gérez textes, images et articles de blog en totale autonomie. Une formation complète de 1 à 2h est incluse dans chaque livraison. Si vous préférez déléguer, nos forfaits maintenance (dès 49€/mois) prennent en charge toutes les mises à jour.',
               },
               {
                 q: 'Proposez-vous un suivi après la mise en ligne ?',
-                a: 'Absolument. Nous proposons des contrats de maintenance mensuelle : mises à jour de sécurité, sauvegardes quotidiennes, monitoring 24/7, support réactif et petites évolutions incluses. Vous avez un interlocuteur unique basé à Villeurbanne, disponible rapidement pour toute intervention.'
+                a: 'Absolument. Nous proposons des contrats de maintenance mensuelle : mises à jour de sécurité, sauvegardes quotidiennes, monitoring 24/7, support réactif et petites évolutions incluses. Vous avez un interlocuteur unique basé à Villeurbanne, disponible rapidement pour toute intervention.',
               },
               {
                 q: 'Proposez-vous des services de développeur web freelance à Villeurbanne ?',
-                a: 'Oui. En tant que développeur web freelance basé à Villeurbanne, nous intervenons directement chez vous ou à distance : création de site, refonte, intégration d’API, migration Next.js ou développement de fonctionnalités spécifiques. Nous offrons la flexibilité d’un freelance avec les ressources d’une agence structurée.'
+                a: 'Oui. En tant que développeur web freelance basé à Villeurbanne, nous intervenons directement chez vous ou à distance : création de site, refonte, intégration d’API, migration Next.js ou développement de fonctionnalités spécifiques. Nous offrons la flexibilité d’un freelance avec les ressources d’une agence structurée.',
               },
               {
                 q: 'Faites-vous de la refonte de site web à Villeurbanne ?',
-                a: 'Oui, la refonte de site web est l’un de nos services phares à Villeurbanne. Nous migrons vos anciens sites (WordPress, Wix, Squarespace) vers Next.js pour un gain de performance immédiat : chargement plus rapide, meilleur SEO, design modernisé et code maintenable. Chaque refonte inclut un audit technique préalable et une stratégie SEO de reconversion.'
+                a: 'Oui, la refonte de site web est l’un de nos services phares à Villeurbanne. Nous migrons vos anciens sites (WordPress, Wix, Squarespace) vers Next.js pour un gain de performance immédiat : chargement plus rapide, meilleur SEO, design modernisé et code maintenable. Chaque refonte inclut un audit technique préalable et une stratégie SEO de reconversion.',
               },
             ].map((item, i) => (
               <div key={i} className='border-b-4 border-[#111827] py-6 last:border-b-0'>
-                <h3 className={`${jetbrainsMono.className} font-bold text-lg mb-3 text-[#111827] uppercase`}>
+                <h3
+                  className={`${jetbrainsMono.className} font-bold text-lg mb-3 text-[#111827] uppercase`}>
                   {item.q}
                 </h3>
                 <p className='text-[#111827] font-medium leading-relaxed text-base'>{item.a}</p>
@@ -494,7 +568,8 @@ export default function AgenceVilleurbanneClient() {
             className={`${jetbrainsMono.className} text-[#3B82F6] font-bold text-xl uppercase mb-4 block`}>
             [06] Interventions Grand Lyon
           </span>
-          <h2 className={`${limelight.className} text-4xl md:text-5xl text-[#111827] mb-8 uppercase`}>
+          <h2
+            className={`${limelight.className} text-4xl md:text-5xl text-[#111827] mb-8 uppercase`}>
             Nos pages dans la Métropole de Lyon
           </h2>
           <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
@@ -534,11 +609,15 @@ export default function AgenceVilleurbanneClient() {
                 key={i}
                 href={item.link}
                 className='block border-4 border-[#111827] bg-white shadow-[8px_8px_0px_#3B82F6] p-6 hover:shadow-[4px_4px_0px_#3B82F6] hover:translate-x-1 hover:translate-y-1 transition-all duration-200'>
-                <p className={`${jetbrainsMono.className} text-[#3B82F6] text-xs font-bold uppercase mb-2`}>
+                <p
+                  className={`${jetbrainsMono.className} text-[#3B82F6] text-xs font-bold uppercase mb-2`}>
                   {item.city}
                 </p>
-                <p className='text-[#111827] font-medium text-sm leading-relaxed mb-4'>{item.desc}</p>
-                <span className={`${jetbrainsMono.className} text-xs font-bold uppercase text-[#111827] border-b-2 border-[#111827]`}>
+                <p className='text-[#111827] font-medium text-sm leading-relaxed mb-4'>
+                  {item.desc}
+                </p>
+                <span
+                  className={`${jetbrainsMono.className} text-xs font-bold uppercase text-[#111827] border-b-2 border-[#111827]`}>
                   {item.label} →
                 </span>
               </Link>

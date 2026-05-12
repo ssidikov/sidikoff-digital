@@ -188,13 +188,6 @@ export default function About() {
                 {dict.cta}
               </CTAButton>
             </motion.div>
-
-            {/* GEO Signal: Freshness/Last Updated */}
-            <motion.div variants={FADE_UP} className='mt-8 flex items-center gap-2 opacity-40'>
-              <span className='text-[10px] font-medium uppercase tracking-wider text-foreground'>
-                Dernière mise à jour : 12 avril 2026
-              </span>
-            </motion.div>
           </motion.div>
         </div>
       </div>

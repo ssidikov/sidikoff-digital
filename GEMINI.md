@@ -7,7 +7,7 @@ Sidikoff Digital is a professional digital agency website and portfolio for a Fr
 - **Framework:** Next.js 16 (App Router)
 - **Library:** React 19
 - **Styling:** Tailwind CSS 4, Framer Motion (animations)
-- **CMS:** Sanity (Blog and content management)
+- **Blog Content:** Static TypeScript data files (`src/lib/blog-data*.ts`)
 - **Icons:** Lucide React
 - **Form Handling:** Nodemailer
 - **Package Manager:** pnpm
@@ -16,7 +16,7 @@ Sidikoff Digital is a professional digital agency website and portfolio for a Fr
 - `src/app`: Next.js App Router pages and layouts.
 - `src/components`: Reusable UI components (buttons, forms, cards).
 - `src/sections`: Main sections used to compose pages (Hero, About, Services, etc.).
-- `src/lib`: Core logic, including SEO utilities, Sanity client, and i18n helpers.
+- `src/lib`: Core logic, including SEO utilities, blog data, and i18n helpers.
 - `src/styles`: Global CSS, Tailwind configurations, and critical rendering styles.
 - `src/types`: TypeScript definitions.
 - `locales/`: JSON translation files (primary focus is French).
@@ -41,10 +41,11 @@ Sidikoff Digital is a professional digital agency website and portfolio for a Fr
 - **Performance:** Utilize `next/image` with `avif` and `webp` formats. Favor server components where possible.
 - **Clean Code:** Adhere to the existing pattern of separating logical components (`src/components`) from layout sections (`src/sections`).
 
-### 4. Sanity CMS
-- **Content:** Blog posts, categories, and authors are managed in Sanity.
-- **Studio:** Accessible via `/studio` or by running `pnpm sanity`.
-- **Schemas:** Defined in `sanity/schemas`.
+### 4. Blog Content
+- **Content Source:** Static TypeScript files in `src/lib/blog-data-part1.ts` and `src/lib/blog-data-part2.ts`.
+- **Types:** Defined in `src/lib/blog-data-part1.ts` (`BlogPost` interface).
+- **Access:** Import `allBlogPosts` or `getPostBySlug` from `@/lib/blog-data`.
+- **Adding Posts:** Add to `blog-data-part1.ts` or `blog-data-part2.ts`, then redeploy.
 
 ### 5. Architectural Mapping (Graphify)
 The project supports codebase visualization via Graphify.
@@ -62,17 +63,14 @@ The project supports codebase visualization via Graphify.
 | `pnpm lint` | Runs ESLint for code quality |
 | `pnpm type-check` | Performs TypeScript type checking |
 | `pnpm build:check` | Runs type-check, lint, and build in sequence |
-| `pnpm sanity` | Starts Sanity Studio locally |
 | `pnpm clean` | Cleans build artifacts (`.next`, `out`, `dist`) |
 | `node fix_use_client.cjs` | Fixes missing `'use client'` in motion components |
 
 ## Environment Variables
 Ensure the following variables are configured in your `.env.local`:
-- `NEXT_PUBLIC_SANITY_PROJECT_ID`: Your Sanity project ID.
-- `NEXT_PUBLIC_SANITY_DATASET`: Usually `production`.
 - `NEXT_PUBLIC_GOOGLE_VERIFICATION`: Google Search Console verification token.
 - `NEXT_PUBLIC_YANDEX_VERIFICATION`: Yandex Webmaster verification token.
-- `EMAIL_USER` & `EMAIL_PASS`: For Nodemailer contact form functionality.
+- `GMAIL_USER` & `GMAIL_PASS`: For Nodemailer contact form functionality.
 
 ## Deployment
 - **Platform:** Vercel.
