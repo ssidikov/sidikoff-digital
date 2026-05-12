@@ -4,7 +4,6 @@ import { useState, useEffect, useCallback, useMemo } from 'react'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 
 import common from '@/locales/fr/common.json'
 import { getLocalizedUrl } from '@/utils/navigation'
@@ -30,19 +29,7 @@ const SCROLL_CONFIG = {
 
 const SECTIONS = ['services', 'portfolio', 'actualite', 'faq', 'pricing', 'contact'] as const
 
-// Animation configurations
-const HEADER_ANIMATION = {
-  initial: { y: -100, opacity: 0 },
-  animate: { y: 0, opacity: 1 },
-  transition: { duration: 0.6, ease: 'easeOut' },
-} as const
-
-const MENU_OVERLAY_ANIMATION = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
-  transition: { duration: 0.2 },
-} as const
+// CSS classes will be used for entry animations instead if needed
 
 // Icon components
 const MenuIcon = () => (
@@ -280,16 +267,14 @@ export function Header() {
     <>
       {/* Mobile & Tablet Menu Overlay */}
       {isMenuOpen && (
-        <motion.div
-          {...MENU_OVERLAY_ANIMATION}
-          className='fixed inset-0 z-[100] bg-black/20 backdrop-blur-sm lg:hidden'
+        <div
+          className='fixed inset-0 z-[100] bg-black/20 backdrop-blur-sm lg:hidden animate-[fadeIn_0.2s_ease-out]'
           onClick={() => setIsMenuOpen(false)}
         />
       )}
 
-      <motion.header
-        {...HEADER_ANIMATION}
-        className='fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-[120] w-full max-w-7xl px-3 sm:px-4 mobile-no-animate'>
+      <header
+        className='fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-[120] w-full max-w-7xl px-3 sm:px-4 mobile-no-animate animate-[fadeInDown_0.6s_ease-out]'>
         <nav className='relative z-[110] px-2 xs:px-3 sm:px-4'>
           <div
             className={`flex items-center justify-between px-3 sm:px-4 py-3 sm:py-4 lg:px-4 3xl:p-4 transition-all duration-500 rounded-2xl sm:rounded-3xl backdrop-blur-xl border-2 border-white/30 shadow-xl ${
@@ -355,12 +340,8 @@ export function Header() {
 
           {/* Mobile & Tablet Menu */}
           {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className='absolute top-24 left-3.5 xs:left-4 right-3.5 xs:right-4 lg:hidden z-[110] rounded-3xl'
+            <div
+              className='absolute top-24 left-3.5 xs:left-4 right-3.5 xs:right-4 lg:hidden z-[110] rounded-3xl animate-[fadeInDown_0.2s_ease-out]'
               style={{
                 background: 'rgba(249, 247, 247, 0.5)',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
@@ -399,10 +380,10 @@ export function Header() {
                   </button>
                 </div>
               </div>
-            </motion.div>
+            </div>
           )}
         </nav>
-      </motion.header>
+      </header>
 
       {/* Contact Popup */}
       <PopupContactForm
