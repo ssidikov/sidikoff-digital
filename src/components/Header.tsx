@@ -9,7 +9,9 @@ import { motion } from 'framer-motion'
 import common from '@/locales/fr/common.json'
 import { getLocalizedUrl } from '@/utils/navigation'
 import { scrollToElementWithRetry } from '@/utils/scroll'
-import PopupContactForm from './ui/PopupContactForm'
+import dynamic from 'next/dynamic'
+
+const PopupContactForm = dynamic(() => import('./ui/PopupContactForm'))
 
 interface NavigationItem {
   label: string

@@ -10,17 +10,17 @@ import { allBlogPosts } from '@/lib/blog-data'
 import { TESTIMONIALS_DATA } from '@/data/testimonials'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
-import {
-  Hero,
-  About,
-  Services,
-  Pricing,
-  Portfolio,
-  Testimonials,
-  FAQ,
-  Contact,
-  Actualite,
-} from '@/sections'
+import dynamic from 'next/dynamic'
+import { Hero } from '@/sections'
+
+const About = dynamic(() => import('@/sections/About'))
+const Services = dynamic(() => import('@/sections/Services').then((mod) => mod.Services))
+const Pricing = dynamic(() => import('@/sections/Pricing'))
+const Portfolio = dynamic(() => import('@/sections/Portfolio'))
+const Testimonials = dynamic(() => import('@/sections/Testimonials'))
+const FAQ = dynamic(() => import('@/sections/FAQ').then((mod) => mod.FAQ))
+const Contact = dynamic(() => import('@/sections/Contact'))
+const Actualite = dynamic(() => import('@/sections/Actualite').then((mod) => mod.Actualite))
 
 const SEO_CONFIG = {
   title: 'Agence Web Lyon | Création Site Internet',
