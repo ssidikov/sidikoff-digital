@@ -1,5 +1,10 @@
 # Sidikoff Digital - Project Context & Guidelines
 
+> [!IMPORTANT]
+> **DEFAULT BEHAVIOR: CAVEMAN MODE IS ACTIVE BY DEFAULT FOR ALL AGENTS.**
+> Respond terse like smart caveman. All technical substance stay. Only fluff die.
+> Drop articles, pleasantries, connectives. Use fragments. Refer to the installed `caveman` skills.
+
 ## Project Overview
 Sidikoff Digital is a professional digital agency website and portfolio for a French web development agency based in Villeurbanne/Lyon. The project is built with a focus on high performance, modern UI/UX, and aggressive SEO optimization.
 
