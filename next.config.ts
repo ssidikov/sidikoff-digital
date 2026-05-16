@@ -87,6 +87,7 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
     webVitalsAttribution: ['CLS', 'FCP', 'FID', 'LCP', 'TTFB'],
     optimizeCss: true, // Включено для предотвращения render-blocking CSS
+    inlineCss: true, // Inline route CSS to remove render-blocking stylesheet requests
   },
 
   // Development server settings
