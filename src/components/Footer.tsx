@@ -253,13 +253,26 @@ export function Footer({ isDark = false }: { isDark?: boolean }) {
           <div
             className={`hidden text-sm uppercase tracking-wider lg:block ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}
             suppressHydrationWarning>
-            {COMPANY_INFO.copyright}
+            {COMPANY_INFO.copyright} • Site développé par{' '}
+            <a
+              href='https://www.sidikoff.com'
+              className={`hover:underline font-semibold ${isDark ? 'text-slate-300' : 'text-[#112D4E]'}`}>
+              SIDIKOFF DIGITAL
+            </a>
           </div>
 
           <div
             className={`text-center text-sm uppercase tracking-wider lg:hidden ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}
             suppressHydrationWarning>
             {COMPANY_INFO.copyright}
+            <div className='mt-2'>
+              Site développé par{' '}
+              <a
+                href='https://www.sidikoff.com'
+                className={`hover:underline font-semibold ${isDark ? 'text-slate-300' : 'text-[#112D4E]'}`}>
+                SIDIKOFF DIGITAL
+              </a>
+            </div>
           </div>
 
           <div className='flex flex-col items-center space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0'>

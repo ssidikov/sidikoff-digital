@@ -86,8 +86,8 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
     webVitalsAttribution: ['CLS', 'FCP', 'FID', 'LCP', 'TTFB'],
-    optimizeCss: true, // Включено для предотвращения render-blocking CSS
-    inlineCss: true, // Inline route CSS to remove render-blocking stylesheet requests
+    optimizeCss: process.env.NODE_ENV === 'production', // Включено для предотвращения render-blocking CSS в prod
+    inlineCss: process.env.NODE_ENV === 'production', // Inline route CSS to remove render-blocking stylesheet requests в prod
   },
 
   // Development server settings

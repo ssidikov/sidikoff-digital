@@ -466,7 +466,12 @@ export default function GoneLandingPage({ cityName }: GoneLandingPageProps) {
 
               <div className='border-t border-gray-700 mt-8 pt-8 text-center text-gray-400'>
                 <p>
-                  &copy; {new Date().getFullYear()} Sidikoff Digital. {t.footerRights}
+                  &copy; {new Date().getFullYear()} Sidikoff Digital. {t.footerRights} • Site développé par{' '}
+                  <a
+                    href='https://www.sidikoff.com'
+                    className='text-white hover:underline font-semibold'>
+                    SIDIKOFF DIGITAL
+                  </a>
                 </p>
               </div>
             </div>
