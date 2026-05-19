@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls, generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import RestaurantLandingContent from '@/components/RestaurantLandingContent'
 
@@ -61,7 +61,7 @@ export function generateMetadata(): Metadata {
 
 const restaurantSchema = {
   "@context": "https://schema.org",
-  "@type": "FoodEstablishment",
+  "@type": "Service",
   "name": "Création de Site Internet pour Restaurants - Sidikoff Digital",
   "description": "Création de sites internet sur mesure pour les professionnels de la restauration. Intégration de réservation, click & collect, menus digitaux.",
   "provider": {
@@ -69,15 +69,18 @@ const restaurantSchema = {
     "name": "Sidikoff Digital",
     "url": "https://www.sidikoff.com"
   },
-  "areaServed": ["France", "Paris", "Lyon"],
-  "serviceType": ["Web Design Restaurant", "SEO pour Restaurant", "Marketing Gastronomie"],
+  "areaServed": [
+    { "@type": "Country", "name": "France" },
+    { "@type": "City", "name": "Paris" },
+    { "@type": "City", "name": "Lyon" }
+  ],
+  "serviceType": "Création de site internet pour restaurants",
   "image": "https://www.sidikoff.com/images/opengraph-fr.png"
 }
 
 export default function RestaurantLandingPage() {
-  const faqSchema = generateFAQStructuredData(faqItems)
 
-  
+
   const breadcrumbSchema = generateBreadcrumbStructuredData([
     { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
     { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
@@ -93,10 +96,6 @@ export default function RestaurantLandingPage() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantSchema) }}
-      />
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <RestaurantLandingContent />
     </>

@@ -40,11 +40,11 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     title: `${project.title} | Sidikoff Digital- Projets`,
     description: project.description,
     robots: {
-      index: false,
-      follow: false,
+      index: true,
+      follow: true,
       googleBot: {
-        index: false,
-        follow: false,
+        index: true,
+        follow: true,
         'max-video-preview': -1,
         'max-image-preview': 'large',
         'max-snippet': -1,

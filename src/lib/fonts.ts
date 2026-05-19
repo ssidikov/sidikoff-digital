@@ -15,7 +15,7 @@ import { Inter, Space_Grotesk } from 'next/font/google'
 export const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
-  display: 'optional', // ИЗМЕНЕНО: optional вместо swap для мобильных (лучшая производительность)
+  display: 'swap', // ИСПРАВЛЕНО: swap предотвращает FOIT (невидимый текст) на мобильных
   preload: true,
   fallback: [
     'system-ui',

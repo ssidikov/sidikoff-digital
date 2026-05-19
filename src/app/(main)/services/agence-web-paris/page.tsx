@@ -4,7 +4,6 @@ import {
   DEFAULT_SEO,
   generateAlternateUrls,
   generateBreadcrumbStructuredData,
-  generateFAQStructuredData,
   generateServiceSchema,
 } from '@/lib/seo-utils'
 import { Metadata } from 'next'
@@ -83,29 +82,6 @@ export default function AgenceWebParisLandingPage() {
   const locale = defaultLocale
   const pageUrl = createCanonicalUrl(PAGE_SLUG, locale)
 
-  const faqSchema = generateFAQStructuredData([
-    {
-      question: 'Combien coûte un site internet à Paris ?',
-      answer:
-        "Le tarif dépend de vos besoins. Un site vitrine de base commence généralement à partir de 690€, tandis qu'un site e-commerce plus complexe ou un site sur mesure peut démarrer autour de 1500€. Nous fournissons un devis détaillé après un premier appel.",
-    },
-    {
-      question: 'Combien de temps faut-il pour créer un site internet ?',
-      answer:
-        "En moyenne, la création d'un site internet professionnel prend entre 7 et 14 jours pour un site vitrine, et de 4 à 8 semaines pour un site e-commerce ou sur mesure.",
-    },
-    {
-      question: "Votre agence web propose-t-elle l'optimisation SEO ?",
-      answer:
-        'Oui, tous nos sites sont optimisés pour le référencement naturel (SEO) dès leur conception (structure technique, balises meta, vitesse de chargement) pour vous aider à être visible sur Google à Paris et ailleurs.',
-    },
-    {
-      question: 'Puis-je gérer mon site moi-même après sa mise en ligne ?',
-      answer:
-        'Absolument ! Nous utilisons des systèmes de gestion de contenu (CMS) ou des back-offices intuitifs qui vous permettent de modifier vos textes, images et articles de blog facilement et sans compétences techniques.',
-    },
-  ])
-
   const breadcrumbSchema = generateBreadcrumbStructuredData([
     { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
     { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
@@ -144,10 +120,6 @@ export default function AgenceWebParisLandingPage() {
 
   return (
     <>
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}

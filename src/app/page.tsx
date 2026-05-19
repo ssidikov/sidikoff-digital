@@ -13,12 +13,15 @@ import { Header } from '@/components/Header'
 import dynamic from 'next/dynamic'
 import { Hero } from '@/sections'
 
-const About = dynamic(() => import('@/sections/About'))
-const Services = dynamic(() => import('@/sections/Services').then((mod) => mod.Services))
+// SSR-critical sections — static imports so content is visible to crawlers
+import About from '@/sections/About'
+import { Services } from '@/sections/Services'
+import { FAQ } from '@/sections/FAQ'
+
+// Non-critical sections — lazy loaded
 const Pricing = dynamic(() => import('@/sections/Pricing'))
 const Portfolio = dynamic(() => import('@/sections/Portfolio'))
 const Testimonials = dynamic(() => import('@/sections/Testimonials'))
-const FAQ = dynamic(() => import('@/sections/FAQ').then((mod) => mod.FAQ))
 const Contact = dynamic(() => import('@/sections/Contact'))
 const Actualite = dynamic(() => import('@/sections/Actualite').then((mod) => mod.Actualite))
 

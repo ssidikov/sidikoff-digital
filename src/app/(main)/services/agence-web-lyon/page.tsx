@@ -103,95 +103,6 @@ const agenceWebLyonSchemas = [
       url: 'https://www.sidikoff.com',
     },
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.sidikoff.com/' },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Services',
-        item: 'https://www.sidikoff.com/services',
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: 'Agence Web Lyon',
-        item: 'https://www.sidikoff.com/services/agence-web-lyon',
-      },
-    ],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'Quelle est la meilleure agence web à Lyon ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Sidikoff Digital est une agence web à Lyon spécialisée en création de sites internet sur mesure avec React et Next.js. Nous livrons des sites modernes, rapides et optimisés SEO en 7 à 14 jours.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: "Combien coûte la création d'un site web à Lyon ?",
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: "La création d'un site web à Lyon démarre à 690 € pour un site vitrine, 1 290 € pour un site multi-pages Pro et à partir de 1 990 € pour un site e-commerce ou sur mesure. Devis gratuit sous 24h.",
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Quel est le délai pour créer un site internet à Lyon ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'En moyenne 7 à 14 jours pour un site vitrine, 4 à 8 semaines pour un site e-commerce ou sur mesure. Nous proposons aussi un service express pour les projets urgents.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: "L'agence web Sidikoff Digital intervient-elle dans toute la région lyonnaise ?",
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Oui. Nous intervenons à Lyon (tous arrondissements), Villeurbanne, Caluire-et-Cuire, Bron, Vénissieux et dans toute la région Auvergne-Rhône-Alpes. Nous travaillons aussi à distance pour toute la France.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Proposez-vous des services de développeur web freelance à Lyon ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Oui. Sidikoff Digital intervient comme développeur web freelance à Lyon et dans la Métropole de Lyon. Vous bénéficiez de la flexibilité d’un interlocuteur unique, de tarifs transparents et d’une réactivité accrue, avec la profondeur d’expertise d’une agence digitale spécialisée Next.js. Interventions sur site ou à distance selon vos préférences.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Faites-vous de la refonte de site web à Lyon ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Oui, la refonte de site web est l’un de nos services phares à Lyon. Nous migrons vos anciens sites (WordPress lent, Wix, Squarespace ou site vieillissant) vers Next.js pour un gain de performance immédiat : chargement en moins d’1s, scores Lighthouse > 95, design modernisé et SEO reconstructed. Devis gratuit sous 24h.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Quel est le tarif pour le SEO local à Lyon ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Nos prestations de SEO local à Lyon démarrent à 149 €/mois. Chaque forfait inclut un audit technique complet, l’optimisation des Core Web Vitals (LCP, CLS, INP), la configuration Google Business Profile, la création de contenu géolocalisé (Lyon, Villeurbanne, Métropole de Lyon) et un reporting mensuel. Résultats visibles sous 4 à 8 semaines. Devis gratuit sous 24h.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Créez-vous des sites internet pour les PME lyonnaises ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Oui, nous accompagnons de nombreuses PME lyonnaises. Que vous soyez dans la restauration, les services, l’immobilier, la santé ou l’industrie à Lyon, Villeurbanne ou Caluire, nous créons des sites internet sur mesure adaptés à vos objectifs. Notre stack Next.js garantit des sites rapides, SEO-friendly et évolutifs. Tarifs à partir de 690 € TTC, devis gratuit sous 24h.',
-        },
-      },
-    ],
-  },
 ]
 
 export default async function AgenceWebLyonPage() {
@@ -282,10 +193,9 @@ export default async function AgenceWebLyonPage() {
               <div className='absolute inset-0 border-[3px] border-[#121212] translate-x-4 translate-y-4 z-0 bg-transparent group-hover:translate-x-6 group-hover:translate-y-6 transition-transform duration-500' />
               <Image
                 src='https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1769&auto=format&fit=crop'
-                layout='fill'
-                objectFit='cover'
+                fill
                 alt='Bureau Agence Web Lyon'
-                className='z-10 border-[3px] border-[#121212]'
+                className='z-10 border-[3px] border-[#121212] object-cover'
                 priority
               />
               <div className='absolute -bottom-6 -left-6 lg:-left-12 bg-[#FF3E1A] text-[#121212] px-6 py-4 border-[3px] border-[#121212] font-black uppercase tracking-widest text-sm z-20 shadow-[8px_8px_0px_#121212]'>

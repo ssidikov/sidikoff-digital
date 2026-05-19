@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
     default: SITE_CONFIG.title,
-    template: '%s',
+    template: '%s | Sidikoff Digital',
   },
   description: SITE_CONFIG.description,
   keywords: [...SITE_CONFIG.keywords],
@@ -113,9 +113,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_CONFIG.url,
     languages: {
-      'fr-FR': `${SITE_CONFIG.url}/`,
-      fr: `${SITE_CONFIG.url}/`,
-      'x-default': `${SITE_CONFIG.url}/`,
+      'fr-FR': SITE_CONFIG.url,
+      fr: SITE_CONFIG.url,
+      'x-default': SITE_CONFIG.url,
     },
   },
 }
