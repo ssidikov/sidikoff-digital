@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { generatePageMetadata , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import { generatePageMetadata, generateBreadcrumbStructuredData, generateServiceSchema, DEFAULT_SEO } from '@/lib/seo-utils'
 import BordeauxLandingClient from './BordeauxLandingClient'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -35,11 +35,27 @@ export default function AgenceWebBordeauxPage() {
     { name: 'Agence Web Bordeaux', url: `${DEFAULT_SEO.siteUrl}/services/agence-web-bordeaux` },
   ])
 
+  const serviceSchema = generateServiceSchema({
+    name: 'Agence Web Bordeaux — Création de Sites Internet',
+    description: 'Agence web à Bordeaux spécialisée en création de site internet, SEO local et solutions digitales sur mesure pour entreprises girondines et startups bordelaises.',
+    url: `${DEFAULT_SEO.siteUrl}/services/agence-web-bordeaux`,
+    serviceType: 'Création de site internet',
+    areaServed: [
+      { '@type': 'City', name: 'Bordeaux' },
+      { '@type': 'AdministrativeArea', name: 'Gironde' },
+      { '@type': 'AdministrativeArea', name: 'Nouvelle-Aquitaine' },
+    ],
+  })
+
   return (
     <>
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <BordeauxLandingClient />
     </>

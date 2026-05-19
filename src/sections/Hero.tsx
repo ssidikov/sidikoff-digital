@@ -89,11 +89,9 @@ export function Hero() {
               </div>
             </div>
 
-            {/* Hero Illustration */}
             <div className='relative w-full order-2 lg:order-2 lg:pl-8'>
               <div
-                className='animate-slideIn relative w-full h-[200px] md:h-[250px] xl:h-[700px]'
-                style={{ animationDelay: '0.4s' }}>
+                className='animate-slideIn relative w-full h-[200px] md:h-[250px] xl:h-[700px]'>
                 <img
                   src={HERO_IMAGE.src}
                   alt={HERO_IMAGE.alt}

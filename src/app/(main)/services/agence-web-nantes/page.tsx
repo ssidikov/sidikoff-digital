@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { generatePageMetadata , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import { generatePageMetadata, generateBreadcrumbStructuredData, generateServiceSchema, DEFAULT_SEO } from '@/lib/seo-utils'
 import NantesLandingClient from './NantesLandingClient'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -35,11 +35,27 @@ export default function AgenceWebNantesPage() {
     { name: 'Agence Web Nantes', url: `${DEFAULT_SEO.siteUrl}/services/agence-web-nantes` },
   ])
 
+  const serviceSchema = generateServiceSchema({
+    name: 'Agence Web Nantes — Création de Sites Internet',
+    description: 'Agence web à Nantes spécialisée en création de site internet, SEO local et solutions digitales sur mesure pour entreprises de Loire-Atlantique et startups.',
+    url: `${DEFAULT_SEO.siteUrl}/services/agence-web-nantes`,
+    serviceType: 'Création de site internet',
+    areaServed: [
+      { '@type': 'City', name: 'Nantes' },
+      { '@type': 'AdministrativeArea', name: 'Loire-Atlantique' },
+      { '@type': 'AdministrativeArea', name: 'Pays de la Loire' },
+    ],
+  })
+
   return (
     <>
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <NantesLandingClient />
     </>
