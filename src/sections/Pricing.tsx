@@ -26,19 +26,19 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
   const pricingPlans = [
     {
       name: dict?.pricing?.plans?.vitrine?.name || 'Vitrine',
-      price: dict?.pricing?.plans?.vitrine?.price || '690€ TTC',
+      price: dict?.pricing?.plans?.vitrine?.price || '890€ TTC',
       period: '',
       description:
         dict?.pricing?.plans?.vitrine?.description ||
-        'Une page professionnelle pour lancer votre activité rapidement',
+        'Pour les indépendants et créatifs qui veulent une présence en ligne professionnelle, rapide à lancer.',
       features: (
         dict?.pricing?.plans?.vitrine?.features || [
-          'Site 1 page Next.js — rapide & moderne',
-          'Design responsive (mobile, tablette, desktop)',
+          'Site 1 page moderne & responsive (mobile, tablette, desktop)',
           'Formulaire de contact intégré',
-          'SEO de base + RGPD inclus',
-          'Certificat SSL + mise en ligne',
-          'Livraison en 5 jours ouvrés',
+          'SEO technique de base (balises, sitemap, schema.org)',
+          'Conformité RGPD incluse (mentions légales, politique de confidentialité)',
+          'Mise en ligne + configuration du nom de domaine',
+          'Livraison en 7 jours ouvrés',
         ]
       ).map((text: string) => ({ text, included: true })),
       ctaText: dict?.pricing?.plans?.vitrine?.cta || 'Commencer',
@@ -47,18 +47,18 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
     },
     {
       name: dict?.pricing?.plans?.pro?.name || 'Pro',
-      price: dict?.pricing?.plans?.pro?.price || '1 290€ TTC',
+      price: dict?.pricing?.plans?.pro?.price || '1 690€ TTC',
       period: '',
       description:
         dict?.pricing?.plans?.pro?.description ||
-        'Le site complet pour attirer des clients et asseoir votre crédibilité',
+        'Pour asseoir votre crédibilité et commencer à être trouvé sur Google.',
       features: (
         dict?.pricing?.plans?.pro?.features || [
-          'Site 3 à 5 pages (Accueil, Services, À propos, Contact, Blog)',
-          'Rédaction des contenus sur-mesure',
-          'SEO avancé + Google Business Profile',
-          'Google Search Console',
-          'RGPD complet (mentions légales, cookies)',
+          'Site 3 à 5 pages (Accueil, Services, Portfolio, À propos, Contact)',
+          'Contenus optimisés SEO (rédigés par le client, structurés et optimisés par mes soins)',
+          'SEO avancé : mots-clés ciblés, maillage interne, schema.org, Lighthouse 90+',
+          'Google Search Console + Google Business Profile configurés',
+          'Conformité RGPD complète (mentions légales, cookies, politique de confidentialité)',
           'Livraison en 10 jours ouvrés',
         ]
       ).map((text: string) => ({ text, included: true })),
@@ -68,19 +68,19 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
     },
     {
       name: dict?.pricing?.plans?.business?.name || 'Business',
-      price: dict?.pricing?.plans?.business?.price || 'à partir de 1 990€ TTC',
+      price: dict?.pricing?.plans?.business?.price || 'à partir de 2 990€ TTC',
       period: '',
       description:
         dict?.pricing?.plans?.business?.description ||
-        'Un projet sur-mesure : site étendu, e-commerce ou fonctionnalités avancées',
+        'Un projet sur-mesure : site étendu, réservation en ligne, paiement, espace client.',
       features: (
         dict?.pricing?.plans?.business?.features || [
-          'Site 6+ pages, blog ou boutique en ligne',
-          'Développement sur-mesure (réservation, paiement, espace client…)',
-          'Stratégie SEO complète + Google Search Console',
-          'RGPD complet (CGV, politique de confidentialité)',
-          'Formation 1h + 1 mois de support inclus',
-          'Délai et prix définis ensemble selon le projet',
+          'Site 6+ pages avec fonctionnalités avancées (réservation, paiement Stripe, espace client)',
+          'Développement Next.js sur-mesure — rapide, scalable, pensé pour durer',
+          'Stratégie SEO complète + GSC + schema.org avancé',
+          'Conformité RGPD complète (CGV, politique de confidentialité, cookies)',
+          'Formation 1h à la prise en main + 1 mois de support inclus',
+          'Devis personnalisé après un appel de découverte (30 min)',
         ]
       ).map((text: string) => ({ text, included: true })),
       ctaText: dict?.pricing?.plans?.business?.cta || 'Nous contacter',
@@ -363,7 +363,7 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                   <div className='bg-green-50 p-4 rounded-lg'>
                     <h5 className='font-semibold text-green-800 mb-2'>
                       {dict?.pricing?.guide_section?.labels?.what_we_handle ||
-                        "Ce dont nous nous occupons:"}
+                        'Ce dont nous nous occupons:'}
                     </h5>
                     <ul className='space-y-1'>
                       {dict.pricing.guide_section.business_focus.what_we_handle?.map(
@@ -510,20 +510,20 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                       {dict?.pricing?.maintenance?.plans?.essentiel?.name || 'Essentiel'}
                     </h4>
                     <div className='text-3xl font-bold mb-2'>
-                      {dict?.pricing?.maintenance?.plans?.essentiel?.price || '49 €/mois'}
+                      {dict?.pricing?.maintenance?.plans?.essentiel?.price || '69 €/mois'}
                     </div>
                     <p className='mb-6'>
                       {dict?.pricing?.maintenance?.plans?.essentiel?.description ||
-                        "L'essentiel pour rester en ligne, sécurisé et à jour"}
+                        "L'essentiel pour rester en ligne, sécurisé et à jour."}
                     </p>
                     <ul className='space-y-3 text-left'>
                       {(
                         dict?.pricing?.maintenance?.plans?.essentiel?.features || [
-                          'Hébergement sécurisé',
+                          'Hébergement sécurisé sur Vercel',
                           'Certificat SSL actif',
                           'Surveillance de disponibilité 24/7',
                           '2 modifications de contenu par mois',
-                          'Support par email (réponse sous 48h)',
+                          'Support par email (réponse sous 72h)',
                         ]
                       ).map((feature: string, index: number) => (
                         <li key={index} className='flex items-start gap-3'>
@@ -567,20 +567,21 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                       {dict?.pricing?.maintenance?.plans?.croissance?.name || 'Croissance'}
                     </h4>
                     <div className='text-3xl font-bold mb-2'>
-                      {dict?.pricing?.maintenance?.plans?.croissance?.price || '149 €/mois'}
+                      {dict?.pricing?.maintenance?.plans?.croissance?.price || '179 €/mois'}
                     </div>
                     <p className='mb-6'>
                       {dict?.pricing?.maintenance?.plans?.croissance?.description ||
-                        'Pour les entreprises qui veulent progresser sur Google'}
+                        'Pour les professionnels qui veulent progresser sur Google chaque mois.'}
                     </p>
                     <ul className='space-y-3 text-left'>
                       {(
                         dict?.pricing?.maintenance?.plans?.croissance?.features || [
                           'Tout ce qui est inclus dans Essentiel',
                           '5 modifications de contenu par mois',
-                          'Optimisation SEO mensuelle (1 page/mois)',
-                          'Rapport de trafic mensuel (Google Analytics)',
-                          'Support par email prioritaire (réponse sous 24h)',
+                          '1 article blog optimisé SEO par mois (contenu fourni par le client, structuré et optimisé par mes soins)',
+                          'Rapport de trafic mensuel',
+                          'Google Business Profile — mise à jour mensuelle',
+                          'Support prioritaire par email (réponse sous 24h)',
                         ]
                       ).map((feature: string, index: number) => (
                         <li key={index} className='flex items-start gap-3'>
@@ -619,11 +620,11 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                       {dict?.pricing?.maintenance?.plans?.performance?.name || 'Performance'}
                     </h4>
                     <div className='text-3xl font-bold mb-2'>
-                      {dict?.pricing?.maintenance?.plans?.performance?.price || '299 €/mois'}
+                      {dict?.pricing?.maintenance?.plans?.performance?.price || '349 €/mois'}
                     </div>
                     <p className='mb-6'>
                       {dict?.pricing?.maintenance?.plans?.performance?.description ||
-                        'Solution complète pour entreprises ambitieuses'}
+                        'Pour les entreprises ambitieuses qui veulent des résultats mesurables.'}
                     </p>
                     <ul className='space-y-3 text-left'>
                       {(
@@ -631,10 +632,10 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                           'Tout ce qui est inclus dans Croissance',
                           'Modifications de contenu illimitées à la demande',
                           'Audit SEO trimestriel complet',
-                          'Rapport mensuel complet (trafic, conversions, Google Ads)',
-                          'Intégration paiement en ligne (si besoin)',
+                          'Rapport mensuel approfondi (trafic, conversions, GSC)',
+                          'Intégration paiement en ligne si besoin (Stripe)',
                           'Support WhatsApp prioritaire — réponse sous 4h',
-                          'Consultation stratégie digitale mensuelle (30 min)',
+                          'Consultation stratégie digitale 30 min/mois',
                         ]
                       ).map((feature: string, index: number) => (
                         <li key={index} className='flex items-start gap-3'>

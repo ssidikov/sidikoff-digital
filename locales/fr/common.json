@@ -491,28 +491,28 @@
     "plans": {
       "vitrine": {
         "name": "Vitrine",
-        "price": "690€ TTC",
-        "description": "Une page professionnelle pour lancer votre activité rapidement",
+        "price": "890€ TTC",
+        "description": "Pour les indépendants et créatifs qui veulent une présence en ligne professionnelle, rapide à lancer.",
         "features": [
-          "Site Vitrine — rapide & moderne",
-          "Design responsive (mobile, tablette, desktop)",
+          "Site 1 page moderne & responsive (mobile, tablette, desktop)",
           "Formulaire de contact intégré",
-          "SEO de base + RGPD inclus",
-          "Mise en ligne",
-          "Livraison en 5 jours ouvrés"
+          "SEO technique de base (balises, sitemap, schema.org)",
+          "Conformité RGPD incluse (mentions légales, politique de confidentialité)",
+          "Mise en ligne + configuration du nom de domaine",
+          "Livraison en 7 jours ouvrés"
         ],
         "cta": "Commencer"
       },
       "pro": {
         "name": "Pro",
-        "price": "1 290€ TTC",
-        "description": "Le site complet pour attirer des clients et asseoir votre crédibilité",
+        "price": "1 690€ TTC",
+        "description": "Pour asseoir votre crédibilité et commencer à être trouvé sur Google.",
         "features": [
-          "Site 3 à 5 pages (Accueil, Services, À propos, Contact, Blog)",
-          "Rédaction des contenus sur-mesure",
-          "SEO avancé + Google Business Profile",
-          "Google Search Console",
-          "RGPD complet (mentions légales, cookies)",
+          "Site 3 à 5 pages (Accueil, Services, Portfolio, À propos, Contact)",
+          "Contenus optimisés SEO (rédigés par le client, structurés et optimisés par mes soins)",
+          "SEO avancé : mots-clés ciblés, maillage interne, schema.org, Lighthouse 90+",
+          "Google Search Console + Google Business Profile configurés",
+          "Conformité RGPD complète (mentions légales, cookies, politique de confidentialité)",
           "Livraison en 10 jours ouvrés"
         ],
         "cta": "Choisir Pro",
@@ -520,15 +520,15 @@
       },
       "business": {
         "name": "Business",
-        "price": "à partir de 1 990€ TTC",
-        "description": "Un projet sur-mesure : site étendu, e-commerce ou fonctionnalités avancées",
+        "price": "à partir de 2 990€ TTC",
+        "description": "Un projet sur-mesure : site étendu, réservation en ligne, paiement, espace client.",
         "features": [
-          "Site 6+ pages, blog ou boutique en ligne",
-          "Développement sur-mesure (réservation, paiement, espace client…)",
-          "Stratégie SEO complète + Google Search Console",
-          "RGPD complet (CGV, politique de confidentialité)",
-          "Formation 1h + 1 mois de support inclus",
-          "Délai et prix définis ensemble selon le projet"
+          "Site 6+ pages avec fonctionnalités avancées (réservation, paiement Stripe, espace client)",
+          "Développement Next.js sur-mesure — rapide, scalable, pensé pour durer",
+          "Stratégie SEO complète + GSC + schema.org avancé",
+          "Conformité RGPD complète (CGV, politique de confidentialité, cookies)",
+          "Formation 1h à la prise en main + 1 mois de support inclus",
+          "Devis personnalisé après un appel de découverte (30 min)"
         ],
         "cta": "Nous contacter"
       }
@@ -539,43 +539,43 @@
       "plans": {
         "essentiel": {
           "name": "Essentiel",
-          "price": "49 €/mois",
-          "description": "L'essentiel pour rester en ligne, sécurisé et à jour",
+          "price": "69 €/mois",
+          "description": "L'essentiel pour rester en ligne, sécurisé et à jour.",
           "features": [
-            "Hébergement sécurisé",
+            "Hébergement sécurisé sur Vercel",
             "Certificat SSL actif",
             "Surveillance de disponibilité 24/7",
             "2 modifications de contenu par mois",
-            "Support par email (réponse sous 48h)"
+            "Support par email (réponse sous 72h)"
           ],
           "cta": "Choisir Essentiel"
         },
         "croissance": {
           "name": "Croissance",
-          "price": "149 €/mois",
-          "description": "Pour les entreprises qui veulent progresser sur Google et fidéliser leurs clients",
+          "price": "179 €/mois",
+          "description": "Pour les professionnels qui veulent progresser sur Google chaque mois.",
           "features": [
             "Tout ce qui est inclus dans Essentiel",
             "5 modifications de contenu par mois",
-            "Optimisation SEO mensuelle (1 page/mois)",
-            "Rapport de trafic mensuel (Google Analytics)",
+            "1 article blog optimisé SEO par mois (contenu fourni par le client, structuré et optimisé par mes soins)",
+            "Rapport de trafic mensuel",
             "Google Business Profile — mise à jour mensuelle",
-            "Support par email prioritaire (réponse sous 24h)"
+            "Support prioritaire par email (réponse sous 24h)"
           ],
           "cta": "Choisir Croissance"
         },
         "performance": {
           "name": "Performance",
-          "price": "299 €/mois",
-          "description": "Solution complète pour les entreprises ambitieuses qui veulent des résultats mesurables",
+          "price": "349 €/mois",
+          "description": "Pour les entreprises ambitieuses qui veulent des résultats mesurables.",
           "features": [
             "Tout ce qui est inclus dans Croissance",
             "Modifications de contenu illimitées à la demande",
             "Audit SEO trimestriel complet",
-            "Rapport mensuel complet (trafic, conversions, Google Ads)",
-            "Intégration paiement en ligne (si besoin)",
+            "Rapport mensuel approfondi (trafic, conversions, GSC)",
+            "Intégration paiement en ligne si besoin (Stripe)",
             "Support WhatsApp prioritaire — réponse sous 4h",
-            "Consultation stratégie digitale mensuelle (30 min)"
+            "Consultation stratégie digitale 30 min/mois"
           ],
           "cta": "Choisir Performance"
         }
