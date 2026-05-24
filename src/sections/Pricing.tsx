@@ -519,7 +519,7 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                     <ul className='space-y-3 text-left'>
                       {(
                         dict?.pricing?.maintenance?.plans?.essentiel?.features || [
-                          'Hébergement sécurisé sur Vercel',
+                          'Hébergement sécurisé',
                           'Certificat SSL actif',
                           'Surveillance de disponibilité 24/7',
                           '2 modifications de contenu par mois',

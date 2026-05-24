@@ -542,7 +542,7 @@
           "price": "69 €/mois",
           "description": "L'essentiel pour rester en ligne, sécurisé et à jour.",
           "features": [
-            "Hébergement sécurisé sur Vercel",
+            "Hébergement sécurisé",
             "Certificat SSL actif",
             "Surveillance de disponibilité 24/7",
             "2 modifications de contenu par mois",
