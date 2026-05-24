@@ -47,7 +47,7 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
     },
     {
       name: dict?.pricing?.plans?.pro?.name || 'Pro',
-      price: dict?.pricing?.plans?.pro?.price || '1 690€ TTC',
+      price: dict?.pricing?.plans?.pro?.price || '1 890€ TTC',
       period: '',
       description:
         dict?.pricing?.plans?.pro?.description ||

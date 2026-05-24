@@ -510,7 +510,7 @@ export default function AgenceVilleurbanneClient() {
             {[
               {
                 q: 'Quel est le coût d’un site internet à Villeurbanne ?',
-                a: 'Un site vitrine professionnel à Villeurbanne démarre à 690€ TTC, livré en 5 à 7 jours ouvrés. Un site multi-pages (3 à 5 pages) est proposé à 1 290€, idéal pour les commerces de Gratte-Ciel, Charpennes et Cusset. Un e-commerce complet démarre à 1 990€ avec gestion des stocks et paiement sécurisé. Devis gratuit sous 24h, sans frais cachés.',
+                a: 'Un site vitrine professionnel à Villeurbanne démarre à 890€ TTC, livré en 5 à 7 jours ouvrés. Un site multi-pages (3 à 5 pages) est proposé à 1 290€, idéal pour les commerces de Gratte-Ciel, Charpennes et Cusset. Un e-commerce complet démarre à 1 990€ avec gestion des stocks et paiement sécurisé. Devis gratuit sous 24h, sans frais cachés.',
               },
               {
                 q: 'Combien de temps pour livrer un site web à Villeurbanne ?',

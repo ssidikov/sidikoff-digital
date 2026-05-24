@@ -66,7 +66,7 @@ const AgenceWebParisLandingContent: React.FC = () => {
       id: '1',
       question: 'Combien coûte un site internet à Paris ?',
       answer:
-        "Le tarif dépend de vos besoins. Un site vitrine de base commence généralement à partir de 690€, tandis qu'un site e-commerce plus complexe ou un site sur mesure peut démarrer autour de 1 500€. Nous fournissons un devis détaillé et gratuit après un premier appel de cadrage, sans engagement de votre part.",
+        "Le tarif dépend de vos besoins. Un site vitrine de base commence généralement à partir de 890€, tandis qu'un site e-commerce plus complexe ou un site sur mesure peut démarrer autour de 1 500€. Nous fournissons un devis détaillé et gratuit après un premier appel de cadrage, sans engagement de votre part.",
       category: 'pricing',
     },
     {
