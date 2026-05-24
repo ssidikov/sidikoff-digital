@@ -351,7 +351,7 @@
     "questions": {
       "prix_site_web": {
         "question": "Combien coûte la création d'un site internet professionnel ?",
-        "answer": "Le coût dépend des objectifs du projet, du nombre de pages et des fonctionnalités.\nEn moyenne, le prix de création d'un site web professionnel varie de 890€ TTC à 1690€ TTC.\nCela inclut le design responsive, l'optimisation SEO, la configuration des analytics et le support technique de base après le lancement.\n\nAudit gratuit et devis détaillé fournis après discussion de votre projet.",
+        "answer": "Le coût dépend des objectifs du projet, du nombre de pages et des fonctionnalités.\nEn moyenne, le prix de création d'un site web professionnel varie de 890€ TTC à 1890€ TTC.\nCela inclut le design responsive, l'optimisation SEO, la configuration des analytics et le support technique de base après le lancement.\n\nAudit gratuit et devis détaillé fournis après discussion de votre projet.",
         "category": "pricing"
       },
       "delai_creation": {
@@ -633,7 +633,7 @@
             "name": "Site Vitrine (1 Page)",
             "description": "Idéal pour les artisans, consultants, professions libérales qui souhaitent une présence en ligne rapidement",
             "best_for": "Coiffeurs, plombiers, avocats, coaches, thérapeutes",
-            "plan_recommendation": "Plan Vitrine (690€ TTC)",
+            "plan_recommendation": "Plan Vitrine (890€ TTC)",
             "maintenance": "Maintenance Essentiel (49€/mois) recommandée pour garder le site à jour et sécurisé",
             "why_important": "Même un site simple nécessite des mises à jour de sécurité et sauvegarde régulières"
           },
@@ -641,7 +641,7 @@
             "name": "Site Multi-pages (3-5 pages)",
             "description": "Pour les entreprises qui veulent présenter leurs services détaillés, équipe, témoignages",
             "best_for": "Restaurants, agences, boutiques, services B2B, consultants",
-            "plan_recommendation": "Plan Pro (1 290€ TTC)",
+            "plan_recommendation": "Plan Pro (1 890€ TTC)",
             "maintenance": "Maintenance Croissance (149€/mois) pour optimiser le référencement et analyser les performances",
             "why_important": "Les rapports mensuels vous aident à comprendre vos visiteurs et améliorer vos conversions"
           },
@@ -649,7 +649,7 @@
             "name": "Site E-commerce / Sur mesure",
             "description": "Pour vendre en ligne, gérer les réservations, espaces clients ou fonctionnalités spécifiques",
             "best_for": "Boutiques en ligne, restaurants avec réservation, centres de formation, services SaaS",
-            "plan_recommendation": "Plan Business (à partir de 1 990€ TTC)",
+            "plan_recommendation": "Plan Business (à partir de 2 990€ TTC)",
             "maintenance": "Maintenance Performance (299€/mois) indispensable pour la sécurité des paiements et optimisations continues",
             "why_important": "Les sites e-commerce nécessitent une surveillance constante, mises à jour sécurité et optimisations conversion"
           }
@@ -1732,7 +1732,7 @@
       "packages": [
         {
           "name": "Site Vitrine",
-          "price": "690€ TTC",
+          "price": "890€ TTC",
           "period": "projet",
           "description": "Parfait pour présenter votre boulangerie",
           "delivery_time": "3-4 semaines",

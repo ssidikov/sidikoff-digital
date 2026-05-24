@@ -1,32 +1,9 @@
 import type { NextConfig } from 'next'
+import { SECURITY_HEADERS_ARRAY } from './src/lib/security-headers'
 
-// ИСПРАВЛЕНО: Улучшенные security headers с строгим anti-cache для development
 const SECURITY_HEADERS = [
-  {
-    key: 'X-DNS-Prefetch-Control',
-    value: 'on',
-  },
-  {
-    key: 'Strict-Transport-Security',
-    value: 'max-age=63072000; includeSubDomains; preload',
-  },
-  {
-    key: 'X-XSS-Protection',
-    value: '1; mode=block',
-  },
-  {
-    key: 'X-Frame-Options',
-    value: 'SAMEORIGIN',
-  },
-  {
-    key: 'X-Content-Type-Options',
-    value: 'nosniff',
-  },
-  {
-    key: 'Referrer-Policy',
-    value: 'strict-origin-when-cross-origin',
-  },
-  // Строгие anti-cache настройки для development
+  ...SECURITY_HEADERS_ARRAY,
+  // Dev: disable caching to prevent stale asset issues
   ...(process.env.NODE_ENV === 'development'
     ? [
         {
@@ -90,19 +67,6 @@ const nextConfig: NextConfig = {
     inlineCss: process.env.NODE_ENV === 'production', // Inline route CSS to remove render-blocking stylesheet requests в prod
   },
 
-  // Development server settings
-  ...(process.env.NODE_ENV === 'development' && {
-    webpack: (config, { dev, isServer }) => {
-      if (dev && !isServer) {
-        config.watchOptions = {
-          poll: 1000,
-          aggregateTimeout: 300,
-        }
-      }
-      return config
-    },
-  }),
-
   // Turbopack configuration (stable in Next.js 15)
   turbopack: {
     rules: {
@@ -116,7 +80,23 @@ const nextConfig: NextConfig = {
   // Compiler optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
-    styledComponents: true,
+  },
+
+  // Webpack: watch options in dev + bundle-analyzer support
+  webpack: (config, { dev, isServer }) => {
+    if (dev && !isServer) {
+      config.watchOptions = {
+        poll: 1000,
+        aggregateTimeout: 300,
+      }
+    }
+    if (process.env.ANALYZE === 'true' && !isServer) {
+      config.resolve.fallback = {
+        fs: false,
+        module: false,
+      }
+    }
+    return config
   },
 
   // Modern JavaScript transpilation
@@ -150,19 +130,6 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: true, // Включаем ETags для правильного кэширования
-
-  // Bundle analyzer (only in development)
-  ...(process.env.ANALYZE === 'true' && {
-    webpack: (config, { isServer }) => {
-      if (!isServer) {
-        config.resolve.fallback = {
-          fs: false,
-          module: false,
-        }
-      }
-      return config
-    },
-  }),
 
   // Rewrites: map /.well-known/* → /well-known/* (App Router can't use dot-prefixed folders)
   async rewrites() {

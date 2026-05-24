@@ -3,6 +3,39 @@ import nodemailer from 'nodemailer'
 
 import { userConfirmationFR, adminNotificationFR } from './mailTemplates'
 
+// ── Rate limiter: max 5 requests per IP per 60 seconds ────────────────────────
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>()
+const RATE_LIMIT_MAX = 5
+const RATE_LIMIT_WINDOW_MS = 60_000
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now()
+  const entry = rateLimitMap.get(ip)
+
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS })
+    return false
+  }
+
+  if (entry.count >= RATE_LIMIT_MAX) return true
+
+  entry.count++
+  return false
+}
+
+// ── Nodemailer transporter (module-level singleton) ───────────────────────────
+function createTransporter() {
+  return nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
+    auth: {
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASS,
+    },
+  })
+}
+
 interface ContactFormData {
   name: string
   email: string
@@ -10,25 +43,26 @@ interface ContactFormData {
   locale?: 'fr'
 }
 
-// Function to get the appropriate template based on locale
-const getUserTemplate = () => {
-  return userConfirmationFR
-}
-
-const getAdminTemplate = () => {
-  return adminNotificationFR
-}
-
-// Function to get subject based on locale
-const getEmailSubjects = () => {
-  return {
-    user: 'Confirmation de votre demande - Sidikoff Digital',
-    admin: 'Nouvelle demande reçue - Sidikoff Digital',
-  }
+const EMAIL_SUBJECTS = {
+  user: 'Confirmation de votre demande - Sidikoff Digital',
+  admin: 'Nouvelle demande reçue - Sidikoff Digital',
 }
 
 export async function POST(request: Request) {
   try {
+    // Rate limiting
+    const ip =
+      request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ??
+      request.headers.get('x-real-ip') ??
+      'unknown'
+
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { success: false, error: 'Too many requests. Please try again later.' },
+        { status: 429 },
+      )
+    }
+
     const data: ContactFormData = await request.json()
     const { name, email, message } = data
 
@@ -64,53 +98,25 @@ export async function POST(request: Request) {
       )
     }
 
-    // Create transporter with better error handling
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      host: 'smtp.gmail.com',
-      port: 587,
-      secure: true,
-      auth: {
-        user: process.env.SMTP_USER || process.env.GMAIL_USER,
-        pass: process.env.SMTP_PASS || process.env.GMAIL_PASS,
-      },
-      tls: {
-        rejectUnauthorized: false,
-      },
-    })
-
-    // Verify transporter configuration
-    try {
-      await transporter.verify()
-    } catch (verifyError) {
-      console.error('SMTP configuration error:', verifyError)
-      return NextResponse.json(
-        { success: false, error: 'Email service configuration error' },
-        { status: 500 },
-      )
-    }
-
-    // Get templates and subjects
-    const userTemplate = getUserTemplate()
-    const adminTemplate = getAdminTemplate()
-    const subjects = getEmailSubjects()
+    const transporter = createTransporter()
+    const subjects = EMAIL_SUBJECTS
 
     // User confirmation email
     const userMail = {
       from: `"Sidikoff Digital" <${process.env.GMAIL_USER}>`,
       to: email,
       subject: subjects.user,
-      html: userTemplate({ name }),
+      html: userConfirmationFR({ name }),
       replyTo: process.env.ADMIN_EMAIL,
     }
 
     // Admin notification email
     const adminMail = {
-      from: `"Contact Form - Sidikoff DigitalDigital" <${process.env.EMAIL_FROM || process.env.SMTP_USER || process.env.GMAIL_USER}>`,
-      to: process.env.EMAIL_TO || process.env.ADMIN_EMAIL || 's.sidikoff@gmail.com',
+      from: `"Contact Form - Sidikoff Digital" <${process.env.GMAIL_USER}>`,
+      to: process.env.ADMIN_EMAIL,
       subject: subjects.admin,
-      html: adminTemplate({ name, email, message }),
-      replyTo: email, // Admin can reply directly to the user
+      html: adminNotificationFR({ name, email, message }),
+      replyTo: email,
     }
 
     // Send emails

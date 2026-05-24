@@ -93,7 +93,7 @@
       "packages": [
         {
           "name": "Starter Restaurant",
-          "price": "690€ TTC",
+          "price": "890€ TTC",
           "period": "Une fois",
           "description": "Site vitrine professionnel pour démarrer",
           "features": [
@@ -108,7 +108,7 @@
         },
         {
           "name": "Restaurant Pro",
-          "price": "1 290€ TTC",
+          "price": "1 890€ TTC",
           "period": "Une fois",
           "description": "Solution complète avec réservations",
           "features": [
@@ -124,7 +124,7 @@
         },
         {
           "name": "Restaurant Premium",
-          "price": "1 990€ TTC",
+          "price": "2 990€ TTC",
           "period": "Une fois",
           "description": "Solution haut de gamme personnalisée",
           "features": [

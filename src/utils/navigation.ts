@@ -86,16 +86,11 @@ export const footerNavigation = {
     { label: 'Maintenance', href: '/#services' },
   ],
   company: [
-    { label: 'À propos', href: '/about' },
     { label: 'Nos projets', href: '/projects' },
     { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: '/contact' },
   ],
-  legal: [
-    { label: 'Mentions légales', href: '/mentions-legales' },
-    { label: 'Politique de confidentialité', href: '/privacy' },
-    { label: 'CGV', href: '/terms' },
-  ],
+  legal: [{ label: 'Mentions légales', href: '/mentions-legales' }],
 } as const
 
 /**
@@ -125,12 +120,11 @@ export function breadcrumbGenerator(pathname: string) {
  * Get localized path by removing locale if present
  */
 export function getLocalizedPath(path: string, locale: string, currentLocale?: string): string {
-  // Remove current locale from path if present
-  if (currentLocale && path.startsWith(`/${currentLocale}`)) {
-    path = path.replace(`/${currentLocale}`, '')
+  let result = path
+  if (currentLocale && result.startsWith(`/${currentLocale}`)) {
+    result = result.replace(`/${currentLocale}`, '')
   }
-
-  return path || '/'
+  return result || '/'
 }
 
 /**

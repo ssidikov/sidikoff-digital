@@ -1,3 +1,12 @@
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
+
 // Types for template parameters
 interface UserConfirmationParams {
   name: string
@@ -263,6 +272,7 @@ const baseStyles = `
 
 export const userConfirmationFR = ({ name }: UserConfirmationParams) => {
   const t = translations.fr
+  const safeName = escapeHtml(name)
 
   return `
     <!DOCTYPE html>
@@ -285,7 +295,7 @@ export const userConfirmationFR = ({ name }: UserConfirmationParams) => {
 
         <!-- Content -->
         <div class="email-content">
-          <h2 class="content-title">${t.greeting} ${name}!</h2>
+          <h2 class="content-title">${t.greeting} ${safeName}!</h2>
           
           <div class="success-box">
             <p style="margin: 0; color: #166534; font-weight: 500;">
@@ -326,6 +336,9 @@ export const userConfirmationFR = ({ name }: UserConfirmationParams) => {
 
 export const adminNotificationFR = ({ name, email, message }: AdminNotificationParams) => {
   const t = translations.fr
+  const safeName = escapeHtml(name)
+  const safeEmail = escapeHtml(email)
+  const safeMessage = escapeHtml(message)
 
   return `
     <!DOCTYPE html>
@@ -352,23 +365,23 @@ export const adminNotificationFR = ({ name, email, message }: AdminNotificationP
           
           <div class="contact-item">
             <p class="contact-label">${t.nameLabel}</p>
-            <p class="contact-value">${name}</p>
+            <p class="contact-value">${safeName}</p>
           </div>
 
           <div class="contact-item">
             <p class="contact-label">${t.emailLabel}</p>
             <p class="contact-value">
-              <a href="mailto:${email}" style="color: #3b82f6; text-decoration: none;">${email}</a>
+              <a href="mailto:${safeEmail}" style="color: #3b82f6; text-decoration: none;">${safeEmail}</a>
             </p>
           </div>
 
           <div class="contact-item">
             <p class="contact-label">${t.messageLabel}</p>
-            <p class="contact-value" style="white-space: pre-wrap; line-height: 1.6;">${message}</p>
+            <p class="contact-value" style="white-space: pre-wrap; line-height: 1.6;">${safeMessage}</p>
           </div>
 
           <div style="margin-top: 32px; text-align: center;">
-            <a href="mailto:${email}" class="btn-primary">
+            <a href="mailto:${safeEmail}" class="btn-primary">
               Répondre par email
             </a>
           </div>

@@ -18,8 +18,15 @@ export function smoothScrollToElement(elementId: string, offset: number = 100): 
       behavior: 'smooth',
     })
 
-    // Wait for scroll to complete
-    setTimeout(() => resolve(true), 1000)
+    const onScrollEnd = () => {
+      clearTimeout(fallback)
+      resolve(true)
+    }
+    const fallback = setTimeout(() => {
+      window.removeEventListener('scrollend', onScrollEnd)
+      resolve(true)
+    }, 500)
+    window.addEventListener('scrollend', onScrollEnd, { once: true })
   })
 }
 

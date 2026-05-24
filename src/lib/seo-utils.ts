@@ -49,8 +49,8 @@ function normalizeSeoTitle(title: string): string {
   return normalized
 }
 
-// Helper function to get locale-specific OG image
-export function getLocalizedOgImage(locale: Locale, customImage?: string): string {
+// Helper function to get OG image (custom or site default)
+export function getLocalizedOgImage(_locale: Locale, customImage?: string): string {
   return customImage ?? '/images/opengraph-fr.png'
 }
 
@@ -207,13 +207,8 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
 
 // Generate localized SEO metadata for all languages
 export function generateLocalizedSEOMetadata(locale: Locale): Metadata {
-  const isHomePage = true
-
-  // Enhanced SEO-optimized titles with primary keywords and call-to-action
   const titles = {
-    fr: isHomePage
-      ? 'Agence Web Lyon — Création de Sites Internet Sur Mesure'
-      : 'Sidikoff Digital - Agence Web Expert | Développement React',
+    fr: 'Agence Web Lyon — Création de Sites Internet Sur Mesure',
   }
 
   const descriptions = {
@@ -311,7 +306,6 @@ export function generateLocalBusinessSchema(
       'Next.js Development',
       'TypeScript Programming',
       'Full Stack Development',
-      'Frontend Development',
       'Backend Development',
       'SEO Optimization',
       'Web Performance',
@@ -468,21 +462,8 @@ export const organizationSchema = {
 
 // Structured data generators for better SEO
 
-// Generate breadcrumb structured data
-export function generateBreadcrumbStructuredData(
-  breadcrumbs: Array<{ name: string; url: string }>,
-) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: breadcrumbs.map((crumb, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: crumb.name,
-      item: crumb.url,
-    })),
-  }
-}
+/** @deprecated Use generateBreadcrumbSchema instead */
+export const generateBreadcrumbStructuredData = generateBreadcrumbSchema
 
 // Generate FAQ structured data
 export function generateFAQStructuredData(faqs: Array<{ question: string; answer: string }>) {
@@ -499,9 +480,6 @@ export function generateFAQStructuredData(faqs: Array<{ question: string; answer
     })),
   }
 }
-
-// Generate article structured data
-
 
 /**
  * Generate structured data for customer reviews/testimonials
@@ -665,10 +643,8 @@ export function generateServiceSchema(service: {
     description: service.description,
     url: service.url,
     serviceType: service.serviceType,
-    areaServed: (service.areaServed ?? ['France']).map((area) => 
-      typeof area === 'string' 
-        ? { '@type': 'Place', name: area }
-        : area
+    areaServed: (service.areaServed ?? ['France']).map((area) =>
+      typeof area === 'string' ? { '@type': 'Place', name: area } : area,
     ),
     provider: {
       '@type': 'Organization',
@@ -722,8 +698,3 @@ export function generatePersonSchema(person: {
     ...(person.image ? { image: person.image } : {}),
   }
 }
-
-/**
- * Generate HowTo Schema (good for step-by-step guides)
- */
-

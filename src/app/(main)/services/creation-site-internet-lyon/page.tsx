@@ -130,7 +130,7 @@ const lyonSchemas = [
         name: 'Quel est le prix pour créer un site internet à Lyon ?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Les tarifs varient selon le type de projet. Un site vitrine professionnel à Lyon démarre à 890€ TTC pour une livraison en 5 jours ouvrés. Un site multi-pages (3 à 5 pages) est proposé à partir de 1 290€, idéal pour les PME lyonnaises souhaitant présenter leurs services et obtenir un bon référencement local. Un site e-commerce ou sur mesure est disponible à partir de 1 990€, avec des fonctionnalités avancées (paiement en ligne, réservation, espace client). Tous nos tarifs incluent le SEO de base, le design responsive et la mise en ligne. Contactez-nous pour un devis gratuit et personnalisé sous 24h.',
+          text: 'Les tarifs varient selon le type de projet. Un site vitrine professionnel à Lyon démarre à 890€ TTC pour une livraison en 5 jours ouvrés. Un site multi-pages (3 à 5 pages) est proposé à partir de 1 890€, idéal pour les PME lyonnaises souhaitant présenter leurs services et obtenir un bon référencement local. Un site e-commerce ou sur mesure est disponible à partir de 2 990€, avec des fonctionnalités avancées (paiement en ligne, réservation, espace client). Tous nos tarifs incluent le SEO de base, le design responsive et la mise en ligne. Contactez-nous pour un devis gratuit et personnalisé sous 24h.',
         },
       },
       {
@@ -797,11 +797,11 @@ export default async function LyonPage() {
                   <p className='text-gray-600'>
                     Les tarifs varient selon le type de projet : un{' '}
                     <strong>site vitrine professionnel à Lyon</strong> démarre à{' '}
-                    <strong>690€ TTC</strong>, livré en 5 jours ouvrés. Un site multi-pages (3–5
-                    pages) est proposé à <strong>1 290€</strong>, idéal pour les PME qui souhaitent
+                    <strong>890€ TTC</strong>, livré en 5 jours ouvrés. Un site multi-pages (3–5
+                    pages) est proposé à <strong>1 890€</strong>, idéal pour les PME qui souhaitent
                     présenter leurs services et améliorer leur référencement local. Un{' '}
                     <strong>site e-commerce ou sur mesure</strong> est disponible à partir de{' '}
-                    <strong>1 990€</strong> avec des fonctionnalités avancées. Tous nos tarifs
+                    <strong>2 990€</strong> avec des fonctionnalités avancées. Tous nos tarifs
                     incluent le SEO de base et le design responsive.{' '}
                     <strong>Devis gratuit et personnalisé sous 24h.</strong>
                   </p>

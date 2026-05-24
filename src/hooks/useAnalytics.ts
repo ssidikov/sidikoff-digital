@@ -54,7 +54,7 @@ export const useAnalytics = () => {
         label: method,
       })
     },
-    [trackEvent]
+    [trackEvent],
   )
 
   const trackProjectView = useCallback(
@@ -65,7 +65,7 @@ export const useAnalytics = () => {
         label: projectName,
       })
     },
-    [trackEvent]
+    [trackEvent],
   )
 
   const trackServiceInterest = useCallback(
@@ -76,7 +76,7 @@ export const useAnalytics = () => {
         label: serviceName,
       })
     },
-    [trackEvent]
+    [trackEvent],
   )
 
   const trackPricingView = useCallback(
@@ -87,7 +87,7 @@ export const useAnalytics = () => {
         label: planName,
       })
     },
-    [trackEvent]
+    [trackEvent],
   )
 
   const trackFAQInteraction = useCallback(
@@ -98,18 +98,7 @@ export const useAnalytics = () => {
         label: question.substring(0, 50), // Limit length for privacy
       })
     },
-    [trackEvent]
-  )
-
-  const trackLanguageChange = useCallback(
-    (fromLang: string, toLang: string) => {
-      trackEvent({
-        action: 'language_change',
-        category: 'user_preference',
-        label: `${fromLang}_to_${toLang}`,
-      })
-    },
-    [trackEvent]
+    [trackEvent],
   )
 
   return {
@@ -120,6 +109,5 @@ export const useAnalytics = () => {
     trackServiceInterest,
     trackPricingView,
     trackFAQInteraction,
-    trackLanguageChange,
   }
 }

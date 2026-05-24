@@ -441,7 +441,7 @@ export default async function AgenceWebLyonPage() {
                   },
                   {
                     q: "Le vrai prix d'un site à Lyon ?",
-                    a: "Dès 690 € pour un vitrine percutant. 1 290€ pour un site multi-pages Pro. 1 990 € minimum pour un e-commerce. On ne fait pas dans l'usurpation, chaque euro investi a un impact. Devis précis gratuit sous 24h.",
+                    a: "Dès 690 € pour un vitrine percutant. 1 890€ pour un site multi-pages Pro. 1 990 € minimum pour un e-commerce. On ne fait pas dans l'usurpation, chaque euro investi a un impact. Devis précis gratuit sous 24h.",
                   },
                   {
                     q: 'Délai de création réel ?',

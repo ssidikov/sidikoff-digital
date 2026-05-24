@@ -153,7 +153,8 @@ function getStructuredData() {
     '@id': `${canonical}#webpage`,
     url: canonical,
     name: 'Création site web Caluire-et-Cuire | Développeur freelance premium',
-    description: 'Développeur web freelance à Caluire-et-Cuire (69300). Création de sites vitrines, e-commerce, refonte et SEO technique. Devis gratuit sous 24h.',
+    description:
+      'Développeur web freelance à Caluire-et-Cuire (69300). Création de sites vitrines, e-commerce, refonte et SEO technique. Devis gratuit sous 24h.',
     isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
     about: { '@id': `${canonical}#service` },
   }
@@ -164,7 +165,8 @@ function getStructuredData() {
     '@id': `${canonical}#service`,
     mainEntityOfPage: { '@id': `${canonical}#webpage` },
     name: 'Création de site internet à Caluire-et-Cuire',
-    description: 'Développeur web freelance spécialisé en création de sites internet à Caluire-et-Cuire et Lyon métropole. Sites vitrines, e-commerce, SEO technique.',
+    description:
+      'Développeur web freelance spécialisé en création de sites internet à Caluire-et-Cuire et Lyon métropole. Sites vitrines, e-commerce, SEO technique.',
     url: canonical,
     serviceType: 'Création de site web',
     areaServed: [
@@ -238,17 +240,17 @@ export default async function CaluirePage() {
               <strong>développeur web freelance à Caluire-et-Cuire</strong> (69300) pour les
               entreprises, artisans, professions libérales et commerces des quartiers du{' '}
               <strong>Bourg, Cuire le Bas, Montessuy, Saint-Clair et Vassieux</strong>. Nous
-              concevons des <strong>sites internet professionnels sur mesure</strong> avec Next.js et
-              React, optimisés SEO local pour apparaître sur les recherches ciblant Caluire, Lyon et
-              le Grand Lyon (69).
+              concevons des <strong>sites internet professionnels sur mesure</strong> avec Next.js
+              et React, optimisés SEO local pour apparaître sur les recherches ciblant Caluire, Lyon
+              et le Grand Lyon (69).
             </p>
             <p>
-              Que vous ayez besoin d&apos;un <strong>site vitrine</strong> pour votre cabinet médical
-              ou votre commerce de proximité, d&apos;une <strong>boutique en ligne</strong> sécurisée
-              ou d&apos;une <strong>refonte de site web</strong> pour moderniser votre présence
-              digitale, nous livrons en <strong>3 à 5 semaines</strong> avec hébergement, formation
-              et 3 mois de support inclus. Nos tarifs démarrent à <strong>690 € TTC</strong> pour un
-              site vitrine clé en main.
+              Que vous ayez besoin d&apos;un <strong>site vitrine</strong> pour votre cabinet
+              médical ou votre commerce de proximité, d&apos;une <strong>boutique en ligne</strong>{' '}
+              sécurisée ou d&apos;une <strong>refonte de site web</strong> pour moderniser votre
+              présence digitale, nous livrons en <strong>3 à 5 semaines</strong> avec hébergement,
+              formation et 3 mois de support inclus. Nos tarifs démarrent à{' '}
+              <strong>690 € TTC</strong> pour un site vitrine clé en main.
             </p>
             <p>
               Notre expertise en <strong>SEO local Caluire</strong> vous positionne sur des requêtes
@@ -319,7 +321,6 @@ export default async function CaluirePage() {
     </>
   )
 }
-
 
 // ─── Content per locale ─────────────────────────────────────────────────────────
 
@@ -418,7 +419,7 @@ function getPageContent(): VilleurbannContent {
     pricingTiers: [
       {
         name: 'Vitrine',
-        price: '690€ TTC',
+        price: '890€ TTC',
         timeline: '5 jours ouvrés',
         features: [
           'Site 1 page Next.js — rapide & moderne',
@@ -431,7 +432,7 @@ function getPageContent(): VilleurbannContent {
       },
       {
         name: 'Pro',
-        price: '1 290€ TTC',
+        price: '1 890€ TTC',
         timeline: '10 jours ouvrés',
         features: [
           'Site 3 à 5 pages (Accueil, Services, À propos, Contact, Blog)',
@@ -445,7 +446,7 @@ function getPageContent(): VilleurbannContent {
       },
       {
         name: 'Business',
-        price: 'à partir de 1 990€ TTC',
+        price: 'à partir de 2 990€ TTC',
         timeline: 'Sur devis',
         features: [
           'Site 6+ pages, blog ou boutique en ligne',

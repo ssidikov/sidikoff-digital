@@ -58,21 +58,14 @@ export function ContactForm() {
           throw new Error('Adresse email invalide')
         }
 
-        // Create form data for submission
-        const submitData = {
-          name: formData.name.trim(),
-          email: formData.email.trim(),
-          message: formData.message.trim(),
-          timestamp: new Date().toISOString(),
-          userAgent: navigator.userAgent,
-        }
-
         // Submit to backend API
         const response = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            ...submitData,
+            name: formData.name.trim(),
+            email: formData.email.trim(),
+            message: formData.message.trim(),
             locale: 'fr',
           }),
         })
@@ -93,7 +86,7 @@ export function ContactForm() {
         setIsSubmitting(false)
       }
     },
-    [formData]
+    [formData],
   )
 
   const handleChange = useCallback(
@@ -101,7 +94,7 @@ export function ContactForm() {
       const { name, value } = e.target
       setFormData((prev) => ({ ...prev, [name]: value }))
     },
-    []
+    [],
   )
 
   return (
@@ -112,7 +105,7 @@ export function ContactForm() {
           name='name'
           type='text'
           required
-          value={formData.name || ''}
+          value={formData.name}
           onChange={handleChange}
           className='w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-gray-400 focus:bg-white focus:outline-none transition-all duration-200 text-gray-900 placeholder-gray-500'
           placeholder={dictionary?.form?.name?.placeholder || 'Entrez votre nom complet'}
@@ -141,9 +134,7 @@ export function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           className='w-full px-4 py-3 resize-none bg-gray-50 border border-gray-200 rounded-lg focus:border-gray-400 focus:bg-white focus:outline-none transition-all duration-200 text-gray-900 placeholder-gray-500'
-          placeholder={
-            dictionary?.form?.message?.placeholder || 'Parlez-nous de votre projet...'
-          }
+          placeholder={dictionary?.form?.message?.placeholder || 'Parlez-nous de votre projet...'}
         />
       </div>
       <button

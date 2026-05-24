@@ -1,28 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { SECURITY_HEADERS_MAP } from '@/lib/security-headers'
 
 // Domain configuration
 const PREFERRED_DOMAIN = 'www.sidikoff.com'
 const CANONICAL_PROTOCOL = 'https'
 
 // Constants for better maintainability
-const STATIC_PATHS = [
-  '/_next',
-  '/api',
-  '/favicon',
-  '/robots',
-  '/sitemap',
-  '/studio',
-  '/fonts',
-] as const
+const STATIC_PATHS = ['/_next', '/api', '/favicon', '/robots', '/sitemap', '/fonts'] as const
 
 const SECURITY_HEADERS = {
-  'X-DNS-Prefetch-Control': 'on',
-  'X-XSS-Protection': '1; mode=block',
-  'X-Frame-Options': 'SAMEORIGIN',
-  'X-Content-Type-Options': 'nosniff',
-  'Referrer-Policy': 'strict-origin-when-cross-origin',
-  'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
-  // Строгие anti-cache настройки для development
+  ...SECURITY_HEADERS_MAP,
   ...(process.env.NODE_ENV === 'development'
     ? {
         'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0',
@@ -41,11 +28,11 @@ const SECURITY_HEADERS = {
  */
 const STATIC_PATHS_SET = new Set(STATIC_PATHS)
 
-function shouldSkipMiddleware(pathname: string): boolean {
-  // Быстрая проверка на точку (файлы)
-  if (pathname.includes('.')) return true
+const FILE_EXTENSION_RE = /\.\w{1,6}$/
 
-  // Оптимизированная проверка через Set
+function shouldSkipMiddleware(pathname: string): boolean {
+  if (FILE_EXTENSION_RE.test(pathname)) return true
+
   for (const path of STATIC_PATHS_SET) {
     if (pathname.startsWith(path)) return true
   }
@@ -79,25 +66,14 @@ function hasDoubleLocalePrefix(pathname: string): boolean {
 }
 
 /**
- * Fixes double locale prefixes by removing the first occurrence
+ * Fixes double locale prefixes by stripping both locale segments → clean path
  */
 function fixDoubleLocalePrefix(pathname: string): string {
-  const match = pathname.match(/^\/([a-z]{2})\/([a-z]{2})\/(.*)$/)
+  const match = pathname.match(/^\/[a-z]{2}\/[a-z]{2}\/(.*)$/)
   if (match) {
-    const [, , secondLocale, rest] = match
-    // Keep the second locale and remove the first
-    return `/${secondLocale}/${rest}`
+    return `/${match[1]}`
   }
   return pathname
-}
-
-/**
- * Validates studio authentication
- */
-function validateStudioAuth(request: NextRequest): boolean {
-  const token = request.cookies.get('studio-auth')?.value
-  const validToken = process.env.STUDIO_AUTH_TOKEN
-  return Boolean(token && validToken && token === validToken)
 }
 
 export function proxy(request: NextRequest) {
@@ -106,7 +82,7 @@ export function proxy(request: NextRequest) {
   // ОПТИМИЗАЦИЯ: Ранний выход для статических файлов (самая частая проверка)
   // Экономит ~50-100ms на каждый запрос статики
   if (shouldSkipMiddleware(pathname)) {
-    return enhanceResponse(NextResponse.next(), pathname)
+    return enhanceResponse(NextResponse.next())
   }
 
   // ── Markdown Content Negotiation (RFC: text/markdown for AI agents) ──────
@@ -115,7 +91,6 @@ export function proxy(request: NextRequest) {
   const isContentPage =
     !pathname.startsWith('/api/') &&
     !pathname.startsWith('/well-known/') &&
-    !pathname.startsWith('/studio') &&
     !pathname.match(/\.well-known/) &&
     !pathname.match(/\.(ico|png|svg|jpg|jpeg|webp|avif|xml|json|txt|js|css|woff2?)$/)
 
@@ -178,13 +153,6 @@ export function proxy(request: NextRequest) {
     })
   }
 
-  // Studio authentication check
-  if (pathname.startsWith('/studio') && pathname !== '/studio') {
-    if (!validateStudioAuth(request)) {
-      return NextResponse.redirect(new URL('/studio', request.url))
-    }
-  }
-
   // Domain canonicalization: non-www → www
   // vercel.json handles this at CDN level — this is a belt-and-suspenders fallback
   const host = request.headers.get('host')
@@ -240,26 +208,21 @@ export function proxy(request: NextRequest) {
 
   // French is the only locale and served at clean URLs (no prefix needed).
   // All (main) routes live at their clean paths directly — no rewrite required.
-  return enhanceResponse(NextResponse.next(), pathname)
+  return enhanceResponse(NextResponse.next())
 }
 
 /**
  * Enhances response with security headers and CSP
  */
-function enhanceResponse(response: NextResponse, pathname?: string) {
-  // Apply security headers
+function enhanceResponse(response: NextResponse) {
   Object.entries(SECURITY_HEADERS).forEach(([key, value]) => {
     response.headers.set(key, value)
   })
 
-  // CSP Header for security
-  const isStudio = pathname?.startsWith('/studio') ?? false
   const isDevelopment = process.env.NODE_ENV === 'development'
 
-  // Only set CSP in production to avoid development issues
   if (!isDevelopment) {
-    const cspHeader = generateCSPHeader(isStudio)
-    response.headers.set('Content-Security-Policy', cspHeader)
+    response.headers.set('Content-Security-Policy', generateCSPHeader())
   }
 
   return response
@@ -268,25 +231,8 @@ function enhanceResponse(response: NextResponse, pathname?: string) {
 /**
  * Generates Content Security Policy header based on context
  */
-function generateCSPHeader(isStudio: boolean): string {
+function generateCSPHeader(): string {
   const baseCSP = "default-src 'self';"
-
-  if (isStudio) {
-    return `
-      ${baseCSP}
-      script-src 'self' 'unsafe-eval' 'unsafe-inline';
-      style-src 'self' 'unsafe-inline';
-      img-src 'self' blob: data: https://cdn.sanity.io;
-      font-src 'self' data:;
-      connect-src 'self' https://71pz7dxk.api.sanity.io;
-      object-src 'none';
-      base-uri 'self';
-      form-action 'self';
-      frame-ancestors 'none';
-    `
-      .replace(/\s{2,}/g, ' ')
-      .trim()
-  }
 
   return `
     ${baseCSP}
@@ -307,9 +253,5 @@ function generateCSPHeader(isStudio: boolean): string {
 }
 
 export const config = {
-  matcher: [
-    // Skip all internal paths (_next, api, etc) and static files, but include studio
-    '/((?!_next|api|favicon|robots.txt|sitemap.xml|manifest.json|.*\\..*).*)',
-    '/studio/:path*',
-  ],
+  matcher: ['/((?!_next|api|favicon|robots.txt|sitemap.xml|manifest.json|.*\\..*).*)'],
 }

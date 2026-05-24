@@ -142,7 +142,7 @@ function getLocalizedContent() {
         {
           question: "Combien coûte la création d'un site internet professionnel à Paris ?",
           answer:
-            'Les tarifs pour créer un site internet à Paris varient de 890€ TTC à 15 000€ selon le type de projet : site vitrine (690€ TTC-4 000€), site e-commerce (3 000€-8 000€), ou développement sur-mesure (5 000€-15 000€). Nous proposons des devis gratuits personnalisés avec un audit de vos besoins spécifiques et de votre concurrence parisienne. Contactez notre agence web pour obtenir votre estimation détaillée sous 24h.',
+            'Les tarifs pour créer un site internet à Paris varient de 890€ TTC à 15 000€ selon le type de projet : site vitrine (890€ TTC-4 000€), site e-commerce (3 000€-8 000€), ou développement sur-mesure (5 000€-15 000€). Nous proposons des devis gratuits personnalisés avec un audit de vos besoins spécifiques et de votre concurrence parisienne. Contactez notre agence web pour obtenir votre estimation détaillée sous 24h.',
         },
         {
           question: 'Quel délai pour créer mon site web avec une agence parisienne ?',
