@@ -106,7 +106,7 @@ const PADDING_STYLES = {
   md: 'px-4 py-24 sm:px-4 lg:py-24 xl:px-8', // 96px
   lg: 'px-4 py-32 sm:px-4 lg:py-32 xl:px-24', // 128px
   xl: 'px-4 py-40 sm:px-4 lg:py-40 xl:px-16', // 160px
-  hero: 'pt-32 lg:pt-0 lg:px-8 xl:pt-0', // Increased top padding for hero mobile
+  hero: 'pt-32 pb-4 lg:pt-0 lg:px-8 xl:pt-0', // Increased top padding for hero mobile
 } as const
 
 const CONTENT_STYLES = {
@@ -136,14 +136,14 @@ export default function Section({
     VARIANT_STYLES[variant],
     BACKGROUND_STYLES[background],
     'relative overflow-hidden',
-    className
+    className,
   )
 
   const containerClasses = clsx(
     CONTENT_STYLES[contentWidth],
     variant === 'hero' ? PADDING_STYLES.hero : PADDING_STYLES[padding],
     'relative z-10',
-    containerClassName
+    containerClassName,
   )
 
   const hasGradient = !backgroundImage && variant && variant in GRADIENT_STYLES
