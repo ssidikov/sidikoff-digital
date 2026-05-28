@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
         'E-commerce Nantes',
         'Freelance web Nantes',
       ],
-      ogImage: '/images/opengraph-fr.png',
+      ogImage: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
       ogType: 'website',
     }
   )

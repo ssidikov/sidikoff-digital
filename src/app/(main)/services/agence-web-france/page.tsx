@@ -30,14 +30,14 @@ export async function generateMetadata(): Promise<Metadata> {
       locale: 'fr_FR',
       siteName: 'SIDIKOFF DIGITAL',
       url: createCanonicalUrl(PAGE_SLUG, locale),
-      images: [{ url: '/images/opengraph-fr.png', width: 1200, height: 630, alt: pageTitle }],
+      images: [{ url: 'https://cdn.sidikoff.com/images/opengraph-fr.png', width: 1200, height: 630, alt: pageTitle }],
     },
     twitter: {
       card: 'summary_large_image',
       title: pageTitle,
       description: pageDescription,
       creator: '@sidikoffdigital',
-      images: ['/images/opengraph-fr.png'],
+      images: ['https://cdn.sidikoff.com/images/opengraph-fr.png'],
     },
     alternates: {
       canonical: createCanonicalUrl(PAGE_SLUG, locale),

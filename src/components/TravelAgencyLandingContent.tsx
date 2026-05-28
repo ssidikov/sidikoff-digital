@@ -240,7 +240,7 @@ const TravelAgencyLandingContent = () => {
               className='relative'>
               <div className='relative'>
                 <Image
-                  src='/images/services/travel/travel-agency-hero.jpg'
+                  src='https://cdn.sidikoff.com/images/services/travel/travel-agency-hero.jpg'
                   alt='Création site web agence de voyage'
                   width={600}
                   height={400}
@@ -309,7 +309,7 @@ const TravelAgencyLandingContent = () => {
       <section className='py-20 bg-linear-to-br from-blue-50 to-indigo-50 relative overflow-hidden'>
         <div className='absolute inset-0 opacity-5'>
           <Image
-            src='/images/services/travel/travel-destinations.jpg'
+            src='https://cdn.sidikoff.com/images/services/travel/travel-destinations.jpg'
             alt='Background'
             fill
             quality={95}
@@ -410,7 +410,7 @@ const TravelAgencyLandingContent = () => {
               className='relative'>
               <div className='relative'>
                 <Image
-                  src='/images/services/travel/booking-system.jpg'
+                  src='https://cdn.sidikoff.com/images/services/travel/booking-system.jpg'
                   alt='Système de réservation en ligne'
                   width={500}
                   height={400}
@@ -449,7 +449,7 @@ const TravelAgencyLandingContent = () => {
         <div
           className='absolute inset-0 bg-cover bg-center'
           style={{
-            backgroundImage: 'url("/images/services/travel/travel-destinations.jpg")',
+            backgroundImage: 'url("https://cdn.sidikoff.com/images/services/travel/travel-destinations.jpg")',
           }}
         />
         <div className='absolute inset-0 bg-linear-to-br from-green-50/90 to-blue-50/90' />
@@ -492,7 +492,7 @@ const TravelAgencyLandingContent = () => {
       <section className='py-20 bg-white relative overflow-hidden'>
         <div className='absolute inset-0 opacity-3'>
           <Image
-            src='/images/services/travel/travel-planning.jpg'
+            src='https://cdn.sidikoff.com/images/services/travel/travel-planning.jpg'
             alt='Background'
             fill
             quality={95}
@@ -539,7 +539,7 @@ const TravelAgencyLandingContent = () => {
       <section className='py-20 bg-linear-to-br from-gray-50 to-blue-50 relative overflow-hidden'>
         <div className='absolute inset-0 opacity-3'>
           <Image
-            src='/images/services/travel/travel-team.jpg'
+            src='https://cdn.sidikoff.com/images/services/travel/travel-team.jpg'
             alt='Background'
             fill
             quality={95}
@@ -741,7 +741,7 @@ const TravelAgencyLandingContent = () => {
         <div
           className='absolute inset-0 bg-cover bg-center'
           style={{
-            backgroundImage: 'url("/images/services/travel/business-growth.jpg")',
+            backgroundImage: 'url("https://cdn.sidikoff.com/images/services/travel/business-growth.jpg")',
           }}
         />
         <div className='absolute inset-0 bg-linear-to-br from-blue-900/85 via-blue-800/85 to-blue-600/85' />

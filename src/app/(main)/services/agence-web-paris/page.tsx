@@ -49,7 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       images: [
         {
-          url: '/images/opengraph-fr.png',
+          url: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: pageTitle,
@@ -60,7 +60,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: pageTitle,
       description: pageDescription,
-      images: ['/images/opengraph-fr.png'],
+      images: ['https://cdn.sidikoff.com/images/opengraph-fr.png'],
       creator: '@sidikoffdigital',
     },
     robots: {

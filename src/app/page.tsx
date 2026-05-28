@@ -37,7 +37,7 @@ const SEO_CONFIG = {
     'agence web France',
     'site web PME',
   ],
-  ogImage: '/images/opengraph-fr.png',
+  ogImage: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
 } as const
 
 export async function generateMetadata() {
@@ -91,7 +91,7 @@ function generateHomePageSchemas() {
       name: 'Sardorbek SIDIKOV',
       jobTitle: 'Développeur Web Full Stack',
       url: 'https://www.sidikoff.com',
-      image: 'https://www.sidikoff.com/images/sidikov-web.png',
+      image: 'https://cdn.sidikoff.com/images/sidikov-web.png',
       sameAs: ['https://github.com/ssidikov', 'https://linkedin.com/in/sardorbeksidikov'],
     }),
   ]

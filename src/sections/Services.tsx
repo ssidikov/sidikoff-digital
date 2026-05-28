@@ -68,7 +68,7 @@ export function Services({ className, isHomePage = false }: ServicesProps) {
       title: dict.web_creation.title,
       subtitle: dict.web_creation.subtitle,
       description: dict.web_creation.description,
-      image: '/images/services/web-development.webp',
+      image: 'https://cdn.sidikoff.com/images/services/web-development.webp',
       alt: dict.web_creation.title,
       badges: dict.web_creation.features,
       isWebCreation: true, // Add flag to identify web creation service
@@ -80,7 +80,7 @@ export function Services({ className, isHomePage = false }: ServicesProps) {
     {
       title: dict.web_redesign.title,
       description: dict.web_redesign.description,
-      image: '/images/services/website-redesign.webp',
+      image: 'https://cdn.sidikoff.com/images/services/website-redesign.webp',
       alt: dict.web_redesign.title,
       badges: dict.web_redesign.features,
       isWebCreation: false,
@@ -92,7 +92,7 @@ export function Services({ className, isHomePage = false }: ServicesProps) {
     {
       title: dict.seo_optimization.title,
       description: dict.seo_optimization.description,
-      image: '/images/services/seo.webp',
+      image: 'https://cdn.sidikoff.com/images/services/seo.webp',
       alt: dict.seo_optimization.title,
       badges: dict.seo_optimization.features,
       isWebCreation: false,
@@ -103,7 +103,7 @@ export function Services({ className, isHomePage = false }: ServicesProps) {
     {
       title: dict.maintenance.title,
       description: dict.maintenance.description,
-      image: '/images/services/maintenance-support.webp',
+      image: 'https://cdn.sidikoff.com/images/services/maintenance-support.webp',
       alt: dict.maintenance.title,
       badges: dict.maintenance.features,
       isWebCreation: false,

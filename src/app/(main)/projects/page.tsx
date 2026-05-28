@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
     '/projects',
     'fr',
     {
-      ogImage: '/images/projects-bg.webp',
+      ogImage: 'https://cdn.sidikoff.com/images/projects-bg.webp',
       ogType: 'website',
     },
   )

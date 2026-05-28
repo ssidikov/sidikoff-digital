@@ -166,7 +166,7 @@ export default function DoctorLandingContent() {
               className='relative'>
               <div className='relative w-full h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl'>
                 <Image
-                  src='/images/projects/doctor-hero.webp'
+                  src='https://cdn.sidikoff.com/images/projects/doctor-hero.webp'
                   alt={t.hero.image_alt}
                   fill
                   className='object-cover'
@@ -408,7 +408,7 @@ export default function DoctorLandingContent() {
                 className='bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow'>
                 <div className='relative h-64'>
                   <Image
-                    src={`/images/projects/${project.image}`}
+                    src={`https://cdn.sidikoff.com/images/projects/${project.image}`}
                     alt={project.name}
                     fill
                     className='object-cover'

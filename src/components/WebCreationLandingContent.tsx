@@ -147,7 +147,7 @@ export default function WebCreationLandingContent({ breadcrumbs }: WebCreationLa
               transition={{ duration: 0.8, delay: 0.4 }}>
               <div className='relative z-10'>
                 <Image
-                  src='/images/services/website.png'
+                  src='https://cdn.sidikoff.com/images/services/website.png'
                   alt={t.hero.title}
                   width={800}
                   height={600}

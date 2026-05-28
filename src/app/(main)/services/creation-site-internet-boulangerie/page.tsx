@@ -18,14 +18,14 @@ export function generateMetadata(): Metadata {
       locale: 'fr_FR',
       siteName: 'Sidikoff Digital',
       url: PAGE_URL,
-      images: [{ url: '/images/og/creation-site-boulangerie.jpg', width: 1200, height: 630, alt: t.meta_title }],
+      images: [{ url: 'https://cdn.sidikoff.com/images/og/creation-site-boulangerie.jpg', width: 1200, height: 630, alt: t.meta_title }],
     },
     twitter: {
       card: 'summary_large_image',
       title: t.meta_title,
       description: t.meta_description,
       creator: '@sidikoffdigital',
-      images: ['/images/og/creation-site-boulangerie.jpg'],
+      images: ['https://cdn.sidikoff.com/images/og/creation-site-boulangerie.jpg'],
     },
     alternates: {
       canonical: PAGE_URL,
@@ -42,7 +42,7 @@ const serviceSchema = generateServiceSchema({
   url: PAGE_URL,
   serviceType: 'Création de site internet boulangerie',
   areaServed: ['France', 'Lyon', 'Paris', 'Villeurbanne'],
-  image: 'https://www.sidikoff.com/images/og/creation-site-boulangerie.jpg',
+  image: 'https://cdn.sidikoff.com/images/og/creation-site-boulangerie.jpg',
 })
 
 export default function BoulangerieWebsitesPage() {

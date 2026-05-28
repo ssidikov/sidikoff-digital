@@ -168,7 +168,7 @@ export default function EcommerceLandingContent() {
               className='relative'>
               <div className='relative w-full h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl'>
                 <Image
-                  src='/images/services/ecommerce/ecommerce-hero.webp'
+                  src='https://cdn.sidikoff.com/images/services/ecommerce/ecommerce-hero.webp'
                   alt={t.hero.image_alt}
                   fill
                   className='object-cover'
@@ -312,7 +312,7 @@ export default function EcommerceLandingContent() {
                 className='bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow'>
                 <div className='relative h-64'>
                   <Image
-                    src={`/images/services/ecommerce/${project.image}`}
+                    src={`https://cdn.sidikoff.com/images/services/ecommerce/${project.image}`}
                     alt={project.name}
                     fill
                     className='object-cover'

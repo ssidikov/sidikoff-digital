@@ -17,14 +17,14 @@ export function generateMetadata(): Metadata {
       locale: 'fr_FR',
       url: 'https://www.sidikoff.com/services/creation-site-internet-agence-voyage',
       siteName: 'Sidikoff Digital',
-      images: [{ url: '/images/opengraph-fr.png', width: 1200, height: 630, alt: t.meta_title }],
+      images: [{ url: 'https://cdn.sidikoff.com/images/opengraph-fr.png', width: 1200, height: 630, alt: t.meta_title }],
     },
     twitter: {
       card: 'summary_large_image',
       title: t.meta_title,
       description: t.meta_description,
       creator: '@sidikoffdigital',
-      images: ['/images/opengraph-fr.png'],
+      images: ['https://cdn.sidikoff.com/images/opengraph-fr.png'],
     },
     alternates: {
       canonical: createCanonicalUrl('services/creation-site-internet-agence-voyage', 'fr'),

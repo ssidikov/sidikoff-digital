@@ -51,14 +51,14 @@ function normalizeSeoTitle(title: string): string {
 
 // Helper function to get OG image (custom or site default)
 export function getLocalizedOgImage(_locale: Locale, customImage?: string): string {
-  return customImage ?? '/images/opengraph-fr.png'
+  return customImage ?? 'https://cdn.sidikoff.com/images/opengraph-fr.png'
 }
 
 // Default SEO configuration
 export const DEFAULT_SEO = {
   siteName: 'Sidikoff Digital',
   siteUrl: 'https://www.sidikoff.com',
-  defaultImage: '/images/opengraph-fr.png',
+  defaultImage: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
   twitterHandle: '@sidikoffdigital',
   locale: 'fr' as Locale,
   keywords: [
@@ -356,13 +356,13 @@ export const primaryBusinessSchema = {
     'Agence web à Villeurbanne et Lyon spécialisée en création de sites internet sur mesure, refonte et SEO. Développement React et Next.js. Devis gratuit sous 24h.',
   image: {
     '@type': 'ImageObject',
-    url: 'https://www.sidikoff.com/images/sidikov-web.png',
+    url: 'https://cdn.sidikoff.com/images/sidikov-web.png',
     width: 800,
     height: 800,
   },
   logo: {
     '@type': 'ImageObject',
-    url: 'https://www.sidikoff.com/images/logo-sidikoff.svg',
+    url: 'https://cdn.sidikoff.com/images/logo-sidikoff.svg',
     width: 300,
     height: 100,
   },
@@ -409,7 +409,7 @@ export const primaryBusinessSchema = {
     name: 'Sardorbek SIDIKOV',
     jobTitle: 'Développeur Web Full Stack & Fondateur',
     url: 'https://www.sidikoff.com',
-    image: 'https://www.sidikoff.com/images/sidikov-web.png',
+    image: 'https://cdn.sidikoff.com/images/sidikov-web.png',
     sameAs: ['https://github.com/ssidikov', 'https://linkedin.com/in/sardorbeksidikov'],
   },
   contactPoint: {
@@ -449,7 +449,7 @@ export const organizationSchema = {
   url: 'https://www.sidikoff.com',
   logo: {
     '@type': 'ImageObject',
-    url: 'https://www.sidikoff.com/images/logo-sidikoff.svg',
+    url: 'https://cdn.sidikoff.com/images/logo-sidikoff.svg',
     width: 300,
     height: 100,
   },

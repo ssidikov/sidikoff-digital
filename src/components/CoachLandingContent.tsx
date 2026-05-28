@@ -560,7 +560,7 @@ export default function CoachLandingContent() {
 
       {/* Final CTA */}
       <section className='py-32 bg-lime-400 text-zinc-950 relative overflow-hidden'>
-        <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-center opacity-10'></div>
+        <div className='absolute inset-0 bg-[url("https://cdn.sidikoff.com/images/hero-illustration.svg")] bg-no-repeat bg-center opacity-10'></div>
         <div className='relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
           <h2 className='text-5xl md:text-7xl font-black mb-8 uppercase leading-none tracking-tight'>
             Dépassez Vos <br /> Concurrents.

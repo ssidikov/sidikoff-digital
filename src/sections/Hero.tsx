@@ -7,7 +7,7 @@ import { ViewportHeightProvider } from '@/components/ViewportHeightProvider'
 const dict = common.hero
 
 const HERO_IMAGE = {
-  src: '/images/hero-illustration.svg',
+  src: 'https://cdn.sidikoff.com/images/hero-illustration.svg',
   alt: 'Hero Illustration',
 } as const
 

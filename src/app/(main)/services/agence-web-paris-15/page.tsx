@@ -42,7 +42,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: 'Sidikoff Digital',
       images: [
         {
-          url: '/images/opengraph-fr.png',
+          url: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: 'Agence Web Paris 15ème - Création Site Internet',
@@ -55,7 +55,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description:
         'Agence web Paris 15ème : sites vitrines dès 690 €, livrés en 7-14 jours. Référencement SEO local, Next.js/React. Convention, Vaugirard, Grenelle. Devis gratuit sous 24h.',
       creator: '@sidikoffdigital',
-      images: ['/images/opengraph-fr.png'],
+      images: ['https://cdn.sidikoff.com/images/opengraph-fr.png'],
     },
     alternates: {
       canonical: pageUrl,

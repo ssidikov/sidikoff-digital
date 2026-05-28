@@ -137,7 +137,7 @@ export default function SeoVilleurbanneLandingContent() {
       <section className='relative pt-32 pb-20 overflow-hidden bg-indigo-950'>
         {/* Background Overlay */}
         <div className='absolute inset-0 z-0'>
-          <div className='absolute inset-0 bg-[url("/images/grid.svg")] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-20'></div>
+          <div className='absolute inset-0 bg-[url("https://cdn.sidikoff.com/images/grid.svg")] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-20'></div>
           <div className='absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-indigo-600/20 to-transparent blur-3xl'></div>
         </div>
 

@@ -13,7 +13,7 @@ interface OptimizedImageProps extends Omit<ImageProps, 'onLoad' | 'onError'> {
   quality?: number
 }
 
-const DEFAULT_FALLBACK = '/images/projects-bg.webp'
+const DEFAULT_FALLBACK = 'https://cdn.sidikoff.com/images/projects-bg.webp'
 
 /**
  * OptimizedImage component with error handling, loading states, and fallback support

@@ -32,7 +32,7 @@ const SITE_CONFIG = {
     'création site web paris',
     'développeur freelance france',
   ],
-  image: '/images/opengraph-fr.png', // French default OG image
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png', // French default OG image
   twitter: '@sidikoffdigital',
 } as const
 
@@ -162,7 +162,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         {/* ИСПРАВЛЕНО: Только критические preload */}
         <link
           rel='preload'
-          href='/images/hero-illustration.svg'
+          href='https://cdn.sidikoff.com/images/hero-illustration.svg'
           as='image'
           type='image/svg+xml'
           fetchPriority='high'

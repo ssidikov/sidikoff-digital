@@ -42,14 +42,14 @@ export function generateMetadata(): Metadata {
       locale: 'fr_FR',
       siteName: 'Sidikoff Digital',
       url: PAGE_URL,
-      images: [{ url: '/images/opengraph-fr.png', width: 1200, height: 630, alt: title }],
+      images: [{ url: 'https://cdn.sidikoff.com/images/opengraph-fr.png', width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
       creator: '@sidikoffdigital',
-      images: ['/images/opengraph-fr.png'],
+      images: ['https://cdn.sidikoff.com/images/opengraph-fr.png'],
     },
     alternates: {
       canonical: PAGE_URL,
@@ -65,7 +65,7 @@ const localBusinessSchema = {
   "name": "Sidikoff Digital - Agence Web Lyon",
   "description": "Création de site vitrine sur-mesure, design premium et référencement naturel à Lyon.",
   "url": "https://www.sidikoff.com/services/site-vitrine-lyon",
-  "image": "https://www.sidikoff.com/images/opengraph-fr.png",
+  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Lyon",

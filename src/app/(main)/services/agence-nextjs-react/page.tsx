@@ -48,7 +48,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       images: [
         {
-          url: '/images/opengraph-fr.png',
+          url: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: "Agence Next.js & React - Développement d'applications web",
@@ -60,7 +60,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: 'Agence Next.js & React Paris | Développement Web Sur Mesure',
       description:
         "Agence web spécialisée Next.js et React. Développement d'applications web, sites vitrines haute performance et plateformes SaaS sur mesure. Développeurs React experts.",
-      images: ['/images/opengraph-fr.png'],
+      images: ['https://cdn.sidikoff.com/images/opengraph-fr.png'],
       creator: '@sidikoffdigital',
     },
     robots: {

@@ -31,7 +31,7 @@ const SECURITY_HEADERS = [
       default-src 'self';
       script-src 'self' 'unsafe-eval' 'unsafe-inline' *.vercel-insights.com *.googletagmanager.com https://static.cloudflareinsights.com https://*.clarity.ms https://va.vercel-scripts.com;
       style-src 'self' 'unsafe-inline' fonts.googleapis.com;
-      img-src 'self' data: blob: https://images.unsplash.com;
+      img-src 'self' data: blob: https://images.unsplash.com https://cdn.sidikoff.com;
       font-src 'self' fonts.gstatic.com;
       connect-src 'self' *.vercel-insights.com *.googletagmanager.com https://cloudflareinsights.com https://*.clarity.ms;
       frame-src 'none';
@@ -119,6 +119,12 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sidikoff.com',
         port: '',
         pathname: '/**',
       },
@@ -236,12 +242,12 @@ const nextConfig: NextConfig = {
       // ── 6. OpenGraph (static files — no rewrite needed)
       {
         source: '/opengraph-image',
-        destination: '/images/opengraph-fr.png',
+        destination: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
         permanent: true,
       },
       {
         source: '/twitter-image',
-        destination: '/images/opengraph-fr.png',
+        destination: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
         permanent: true,
       },
 

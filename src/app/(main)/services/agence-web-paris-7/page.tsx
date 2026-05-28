@@ -56,7 +56,7 @@ export async function generateMetadata(): Promise<Metadata> {
       url: createCanonicalUrl(PAGE_SLUG, locale),
       images: [
         {
-          url: '/images/opengraph-fr.png',
+          url: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: 'Agence web Paris 7ème - Création site internet Premium',
@@ -68,7 +68,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: pageTitle,
       description: pageDescription,
       creator: '@sidikoffdigital',
-      images: ['/images/opengraph-fr.png'],
+      images: ['https://cdn.sidikoff.com/images/opengraph-fr.png'],
     },
     alternates: {
       canonical: createCanonicalUrl(PAGE_SLUG, locale),

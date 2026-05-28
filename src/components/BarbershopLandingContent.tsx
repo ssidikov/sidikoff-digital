@@ -186,7 +186,7 @@ export default function BarbershopLandingContent() {
               className='relative'>
               <div className='aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl'>
                 <Image
-                  src='/images/barbershop-hero.webp'
+                  src='https://cdn.sidikoff.com/images/barbershop-hero.webp'
                   alt={t.hero.image_alt}
                   fill
                   className='object-cover'
@@ -342,7 +342,7 @@ export default function BarbershopLandingContent() {
                 className='bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow'>
                 <div className='aspect-[4/3] relative'>
                   <Image
-                    src={`/images/portfolio/barbershops/${project.image}`}
+                    src={`https://cdn.sidikoff.com/images/portfolio/barbershops/${project.image}`}
                     alt={project.name}
                     fill
                     className='object-cover'

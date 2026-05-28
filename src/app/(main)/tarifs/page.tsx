@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
       'développement web prix',
       'création site vitrine prix',
     ],
-    ogImage: '/images/prices-bg.webp',
+    ogImage: 'https://cdn.sidikoff.com/images/prices-bg.webp',
     ogType: 'website',
   })
 }

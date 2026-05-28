@@ -246,7 +246,7 @@ export default function DentisteLandingContent() {
     <div className='min-h-screen bg-white'>
       {/* Hero Section */}
       <section className='relative pt-32 pb-20 overflow-hidden bg-sky-50'>
-        <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-top-right opacity-5'></div>
+        <div className='absolute inset-0 bg-[url("https://cdn.sidikoff.com/images/hero-illustration.svg")] bg-no-repeat bg-top-right opacity-5'></div>
 
         <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
@@ -636,7 +636,7 @@ export default function DentisteLandingContent() {
 
       {/* Final CTA */}
       <section className='py-24 bg-teal-900 text-white relative overflow-hidden'>
-        <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-bottom opacity-10'></div>
+        <div className='absolute inset-0 bg-[url("https://cdn.sidikoff.com/images/hero-illustration.svg")] bg-no-repeat bg-bottom opacity-10'></div>
         <div className='relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
           <h2 className='text-4xl font-bold mb-6'>Modernisez l'image de votre cabinet dentaire</h2>
           <p className='text-xl mb-10 opacity-90 max-w-2xl mx-auto font-medium'>

@@ -125,7 +125,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: 'Sidikoff Digital',
       images: [
         {
-          url: '/images/opengraph-fr.png',
+          url: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: content.title,
@@ -136,7 +136,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: content.title,
       description: content.description,
-      images: ['/images/opengraph-fr.png'],
+      images: ['https://cdn.sidikoff.com/images/opengraph-fr.png'],
       creator: '@sidikoffdigital',
     },
   }
@@ -180,7 +180,7 @@ function getStructuredData() {
       name: 'Sidikoff Digital',
       url: DEFAULT_SEO.siteUrl,
     },
-    image: '/images/opengraph-fr.png',
+    image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
   }
 
   const person = {

@@ -134,7 +134,7 @@ export default function SeoOptimizationLandingContent({
               transition={{ delay: 0.4, duration: 0.8 }}>
               <div className='relative w-full md:h-[500px] flex items-center justify-center'>
                 <Image
-                  src='/images/services/seo.png'
+                  src='https://cdn.sidikoff.com/images/services/seo.png'
                   alt={t.hero.image_alt}
                   width={800}
                   height={600}

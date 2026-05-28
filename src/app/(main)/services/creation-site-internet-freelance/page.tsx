@@ -21,7 +21,7 @@ export function generateMetadata(): Metadata {
       url: PAGE_URL,
       images: [
         {
-          url: '/images/og/creation-sites-web-paris.jpg',
+          url: 'https://cdn.sidikoff.com/images/og/creation-sites-web-paris.jpg',
           width: 1200,
           height: 630,
           alt: t.meta_title,
@@ -33,7 +33,7 @@ export function generateMetadata(): Metadata {
       title: t.meta_title,
       description: t.meta_description,
       creator: '@sidikoffdigital',
-      images: ['/images/og/creation-sites-web-paris.jpg'],
+      images: ['https://cdn.sidikoff.com/images/og/creation-sites-web-paris.jpg'],
     },
     alternates: {
       canonical: PAGE_URL,
@@ -50,7 +50,7 @@ const serviceSchema = generateServiceSchema({
   url: PAGE_URL,
   serviceType: 'Création de site internet freelance',
   areaServed: ['France', 'Lyon', 'Paris', 'Villeurbanne', 'Bordeaux', 'Métropole de Lyon'],
-  image: 'https://www.sidikoff.com/images/og/creation-sites-web-paris.jpg',
+  image: 'https://cdn.sidikoff.com/images/og/creation-sites-web-paris.jpg',
 })
 
 const faqSchema = {

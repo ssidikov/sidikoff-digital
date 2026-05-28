@@ -63,7 +63,7 @@ export default function AgenceWebParis15LandingContent() {
         {/* Background Image with Gradient Overlay */}
         <div className='absolute inset-0 z-0'>
           <Image
-            src='/images/paris-15/hero-paris.jpg'
+            src='https://cdn.sidikoff.com/images/paris-15/hero-paris.jpg'
             alt='Paris 15ème - Tour Eiffel'
             fill
             className='object-cover'
@@ -214,9 +214,9 @@ export default function AgenceWebParis15LandingContent() {
               (service: { icon: string; title: string; description: string }, index: number) => {
                 const IconComponent = iconMap[service.icon as keyof typeof iconMap] || Code2
                 const images: string[] = [
-                  '/images/paris-15/web-development.jpg',
-                  '/images/paris-15/office-workspace.jpg',
-                  '/images/paris-15/coding-laptop.jpg',
+                  'https://cdn.sidikoff.com/images/paris-15/web-development.jpg',
+                  'https://cdn.sidikoff.com/images/paris-15/office-workspace.jpg',
+                  'https://cdn.sidikoff.com/images/paris-15/coding-laptop.jpg',
                 ]
                 const imageUrl: string = images[index % images.length]!
 
@@ -292,7 +292,7 @@ export default function AgenceWebParis15LandingContent() {
               className='relative'>
               <div className='relative h-[600px] rounded-3xl overflow-hidden shadow-2xl'>
                 <Image
-                  src='/images/paris-15/team-collaboration.jpg'
+                  src='https://cdn.sidikoff.com/images/paris-15/team-collaboration.jpg'
                   alt='Notre Ã©quipe'
                   fill
                   className='object-cover'
@@ -500,7 +500,7 @@ export default function AgenceWebParis15LandingContent() {
       <section className='relative py-32 md:py-40 overflow-hidden'>
         <div className='absolute inset-0 z-0'>
           <Image
-            src='/images/paris-15/team-meeting.jpg'
+            src='https://cdn.sidikoff.com/images/paris-15/team-meeting.jpg'
             alt='Contactez-nous'
             fill
             className='object-cover'

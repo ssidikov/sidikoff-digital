@@ -15,7 +15,7 @@ interface BlogCardProps {
   index: number
 }
 
-const DEFAULT_IMAGE = '/images/opengraph-fr.png'
+const DEFAULT_IMAGE = 'https://cdn.sidikoff.com/images/opengraph-fr.png'
 
 const CARD_VARIANTS = {
   hidden: { opacity: 0, y: 30 },

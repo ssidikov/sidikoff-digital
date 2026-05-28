@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
     'Contactez Sidikoff Digital pour discuter de votre projet web. Développement sur mesure, site vitrine, e-commerce. Devis gratuit, réponse sous 24h.'
 
   return generatePageMetadata(`${common.contact.title}`, description, '/contact', 'fr', {
-    ogImage: '/images/opengraph-fr.png',
+    ogImage: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
     ogType: 'website',
   })
 }

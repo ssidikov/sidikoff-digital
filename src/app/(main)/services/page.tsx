@@ -11,7 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
     '/services',
     'fr',
     {
-      ogImage: '/images/opengraph-fr.png',
+      ogImage: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
       ogType: 'website',
     },
   )

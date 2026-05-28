@@ -177,7 +177,7 @@ export default function ParisArrondissementLanding({
           <div className='relative'>
             <div className='relative aspect-4/5 overflow-hidden rounded-4xl border border-[#14110f]/15 bg-[#ddd3c1]'>
               <Image
-                src='/images/paris-15/hero-paris.jpg'
+                src='https://cdn.sidikoff.com/images/paris-15/hero-paris.jpg'
                 alt={`Agence web Paris ${arrondissement} - creation site web professionnel`}
                 fill
                 priority

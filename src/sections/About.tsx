@@ -34,7 +34,7 @@ export default function About() {
     jobTitle: dict.author_role,
     url: 'https://www.sidikoff.com',
     sameAs: ['https://github.com/ssidikov', 'https://linkedin.com/in/sardorbeksidikov'],
-    image: 'https://www.sidikoff.com/images/sidikov-web.png',
+    image: 'https://cdn.sidikoff.com/images/sidikov-web.png',
   })
 
   return (
@@ -64,7 +64,7 @@ export default function About() {
               {/* Photo */}
               <div className='relative h-[460px] w-[340px] overflow-hidden rounded-2xl sm:h-[540px] sm:w-[390px] lg:h-[600px] lg:w-[440px]'>
                 <Image
-                  src='/images/sidikov-web.png'
+                  src='https://cdn.sidikoff.com/images/sidikov-web.png'
                   alt={dict.image_alt}
                   fill
                   className='object-cover object-top'

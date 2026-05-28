@@ -57,7 +57,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: 'Sidikoff Digital',
       images: [
         {
-          url: '/images/og/creation-sites-web-lyon.jpg',
+          url: 'https://cdn.sidikoff.com/images/og/creation-sites-web-lyon.jpg',
           width: 1200,
           height: 630,
           alt: 'Agence Web Lyon - Création site internet professionnel',
@@ -69,7 +69,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       creator: '@sidikoffdigital',
-      images: ['/images/og/creation-sites-web-lyon.jpg'],
+      images: ['https://cdn.sidikoff.com/images/og/creation-sites-web-lyon.jpg'],
     },
   }
 }

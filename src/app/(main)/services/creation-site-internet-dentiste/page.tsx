@@ -42,14 +42,14 @@ export function generateMetadata(): Metadata {
       locale: 'fr_FR',
       siteName: 'Sidikoff Digital',
       url: PAGE_URL,
-      images: [{ url: '/images/opengraph-fr.png', width: 1200, height: 630, alt: title }],
+      images: [{ url: 'https://cdn.sidikoff.com/images/opengraph-fr.png', width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
       creator: '@sidikoffdigital',
-      images: ['/images/opengraph-fr.png'],
+      images: ['https://cdn.sidikoff.com/images/opengraph-fr.png'],
     },
     alternates: {
       canonical: PAGE_URL,
@@ -71,7 +71,7 @@ const dentistSchema = {
   },
   "areaServed": ["France", "Paris", "Lyon"],
   "serviceType": ["Web Design Dentaire", "SEO pour Cabinet Dentaire", "Marketing Santé"],
-  "image": "https://www.sidikoff.com/images/opengraph-fr.png"
+  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png"
 }
 
 export default function DentisteLandingPage() {

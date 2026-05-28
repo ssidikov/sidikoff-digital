@@ -26,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: 'Sidikoff Digital',
       images: [
         {
-          url: '/images/opengraph-fr.png',
+          url: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: title,
@@ -38,7 +38,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: title,
       description: description,
       creator: '@sidikoffdigital',
-      images: ['/images/opengraph-fr.png'],
+      images: ['https://cdn.sidikoff.com/images/opengraph-fr.png'],
     },
     alternates: {
       canonical: createCanonicalUrl('services/creation-sites-web', 'fr'),

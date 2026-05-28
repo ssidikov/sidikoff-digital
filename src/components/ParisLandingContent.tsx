@@ -203,7 +203,7 @@ export default function ParisLandingContent() {
           contentWidth='wide'
           className='relative overflow-hidden bg-linear-to-br from-[#DBE2EF] via-[#F9F7FF] to-white'>
           {/* Background Pattern */}
-          <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-top-right opacity-5'></div>
+          <div className='absolute inset-0 bg-[url("https://cdn.sidikoff.com/images/hero-illustration.svg")] bg-no-repeat bg-top-right opacity-5'></div>
 
           <div ref={heroRef} className='relative z-10 hero-height flex items-center'>
             <div className='w-full grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center px-4 sm:px-6 lg:px-8'>

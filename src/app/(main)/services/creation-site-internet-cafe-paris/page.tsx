@@ -40,7 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: 'Sidikoff Digital',
       images: [
         {
-          url: '/images/opengraph-fr.png',
+          url: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
           width: 1200,
           height: 630,
           alt: title,
@@ -52,7 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       creator: '@sidikoffdigital',
-      images: ['/images/opengraph-fr.png'],
+      images: ['https://cdn.sidikoff.com/images/opengraph-fr.png'],
     },
   }
 }
@@ -97,7 +97,7 @@ export default async function CafeParisPage() {
       />
       {/* Hero Section */}
       <Section className='pt-32 pb-20 bg-linear-to-br from-[#DBE2EF] via-[#F9F7FF] to-white relative overflow-hidden'>
-        <div className='absolute inset-0 bg-[url("/images/hero-illustration.svg")] bg-no-repeat bg-top-right opacity-5'></div>
+        <div className='absolute inset-0 bg-[url("https://cdn.sidikoff.com/images/hero-illustration.svg")] bg-no-repeat bg-top-right opacity-5'></div>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
             <div className='space-y-8'>

@@ -7,7 +7,7 @@ import { generatePageMetadata } from '@/lib/seo-utils'
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata(`${common.faq.title}`, common.faq.subtitle, '/faq', 'fr', {
-    ogImage: '/images/opengraph-fr.png',
+    ogImage: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
     ogType: 'website',
   })
 }

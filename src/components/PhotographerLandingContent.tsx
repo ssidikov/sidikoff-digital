@@ -170,7 +170,7 @@ export default function PhotographerLandingContent() {
               className='relative'>
               <div className='aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl'>
                 <Image
-                  src='/images/projects/photographer-hero.webp'
+                  src='https://cdn.sidikoff.com/images/projects/photographer-hero.webp'
                   alt={t.hero.image_alt}
                   fill
                   className='object-cover'
@@ -336,7 +336,7 @@ export default function PhotographerLandingContent() {
                 className='bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow'>
                 <div className='aspect-[4/3] relative'>
                   <Image
-                    src={`/images/projects/${project.image}`}
+                    src={`https://cdn.sidikoff.com/images/projects/${project.image}`}
                     alt={project.name}
                     fill
                     className='object-cover'

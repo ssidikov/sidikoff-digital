@@ -175,7 +175,7 @@ export default function BoulangerieLandingContent() {
               className='relative'>
               <div className='relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl'>
                 <Image
-                  src='/images/services/boulangerie-hero.webp'
+                  src='https://cdn.sidikoff.com/images/services/boulangerie-hero.webp'
                   alt={t.hero.image_alt}
                   fill
                   className='object-cover'
@@ -321,7 +321,7 @@ export default function BoulangerieLandingContent() {
                 className='bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow'>
                 <div className='aspect-[4/3] relative'>
                   <Image
-                    src={`/images/portfolio/boulangeries/${project.image}`}
+                    src={`https://cdn.sidikoff.com/images/portfolio/boulangeries/${project.image}`}
                     alt={project.name}
                     fill
                     className='object-cover'
