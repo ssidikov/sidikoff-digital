@@ -300,10 +300,20 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
-      // ── 11. Retired blog URL found as GSC referrer
+      // ── 11. Redirect 2025 blog article variations and 2026 typo to new 2026 slug
+      {
+        source: '/blog/crer-un-site-web-en-2025',
+        destination: '/blog/creer-un-site-web-en-2026',
+        permanent: true,
+      },
+      {
+        source: '/blog/creer-un-site-web-en-2025',
+        destination: '/blog/creer-un-site-web-en-2026',
+        permanent: true,
+      },
       {
         source: '/blog/crer-un-site-web-en-2026',
-        destination: '/blog/checklist-site-web-pme-france',
+        destination: '/blog/creer-un-site-web-en-2026',
         permanent: true,
       },
 
