@@ -238,7 +238,7 @@ function generateCSPHeader(): string {
     ${baseCSP}
     script-src 'self' 'unsafe-eval' 'unsafe-inline' https://va.vercel-scripts.com;
     style-src 'self' 'unsafe-inline' fonts.googleapis.com;
-    img-src 'self' blob: data:;
+    img-src 'self' blob: data: https://cdn.bahorvoyage.com;
     font-src 'self' fonts.gstatic.com;
     connect-src 'self' https://vitals.vercel-insights.com;
     frame-src 'none';
