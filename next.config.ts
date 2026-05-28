@@ -64,7 +64,6 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
     webVitalsAttribution: ['CLS', 'FCP', 'FID', 'LCP', 'TTFB'],
     optimizeCss: process.env.NODE_ENV === 'production', // Включено для предотвращения render-blocking CSS в prod
-    inlineCss: process.env.NODE_ENV === 'production', // Inline route CSS to remove render-blocking stylesheet requests в prod
   },
 
   // Turbopack configuration (stable in Next.js 15)
@@ -107,6 +106,8 @@ const nextConfig: NextConfig = {
 
   // ИСПРАВЛЕНО: Рациональные настройки изображений
   images: {
+    loader: 'custom',
+    loaderFile: './src/lib/image-loader.ts',
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: process.env.NODE_ENV === 'development' ? 0 : 31536000, // Без кеша в dev, 1 год в prod
     dangerouslyAllowSVG: false, // ИСПРАВЛЕНО: убрана уязвимость
