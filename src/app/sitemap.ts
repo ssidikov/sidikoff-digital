@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { allBlogPosts } from '@/lib/blog-data'
+import { getProjects } from '@/data/projects'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.sidikoff.com'
@@ -127,6 +128,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(post.date),
       changeFrequency: isKeyPost ? 'weekly' : 'monthly',
       priority: isKeyPost ? 0.9 : 0.6, // 0.9: actively maintained SEO targets
+    })
+  })
+
+  // Project pages (canonical = www.sidikoff.com/projects/id)
+  const projects = getProjects()
+  projects.forEach((project) => {
+    sitemap.push({
+      url: `${baseUrl}/projects/${project.id}`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
     })
   })
 

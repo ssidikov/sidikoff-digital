@@ -156,18 +156,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
-      // ── 2. Old /seo/* deleted pages → SEO services page
-      {
-        source: '/seo/:city',
-        destination: '/services/optimisation-seo',
-        permanent: true,
-      },
-      // Keep this explicit to avoid extra redirect hop via middleware
-      {
-        source: '/fr/seo/:city',
-        destination: '/services/optimisation-seo',
-        permanent: true,
-      },
 
       // ── 3. Old project slugs → numeric IDs
       {
@@ -312,8 +300,23 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/blog/creer-un-site-web-2025',
+        destination: '/blog/creer-un-site-web-en-2026',
+        permanent: true,
+      },
+      {
         source: '/blog/crer-un-site-web-en-2026',
         destination: '/blog/creer-un-site-web-en-2026',
+        permanent: true,
+      },
+      {
+        source: '/blog/cout-site-web-professionnel-2025',
+        destination: '/blog/prix-site-internet-lyon',
+        permanent: true,
+      },
+      {
+        source: '/blog/10-ides-reues-sur-la-cration-de-sites-web-et-pourquoi-elles-sont-fausses',
+        destination: '/blog',
         permanent: true,
       },
 

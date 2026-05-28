@@ -4,7 +4,7 @@ import RestaurantLandingContent from '@/components/RestaurantLandingContent'
 
 const PAGE_URL = createCanonicalUrl('services/creation-site-internet-restaurant', 'fr')
 
-const faqItems = [
+const _faqItems = [
   {
     question: 'Pourquoi payer pour un site alors que j\'ai Google My Business et TripAdvisor ?',
     answer: 'Google et TripAdvisor sont des annuaires où vous êtes en concurrence directe avec vos voisins. Un site web vous appartient. C\'est votre vitrine. Il permet de ne pas payer de commissions sur les réservations (si vous utilisez un outil propre), de fidéliser via une newsletter, et surtout d\'offrir une expérience de marque forte qui donne envie de venir chez vous plutôt qu\'ailleurs.'

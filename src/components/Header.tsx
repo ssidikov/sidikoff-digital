@@ -83,7 +83,7 @@ function createNavigationItems(): NavigationItem[] {
 /**
  * Determines active section based on current pathname
  */
-function getActiveSectionFromPath(pathname: string): string {
+function _getActiveSectionFromPath(pathname: string): string {
   if (pathname.includes('/services')) return 'services'
   if (pathname.includes('/contact')) return 'contact'
   if (pathname.includes('/faq')) return 'faq'
