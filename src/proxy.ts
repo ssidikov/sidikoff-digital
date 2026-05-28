@@ -236,11 +236,11 @@ function generateCSPHeader(): string {
 
   return `
     ${baseCSP}
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://va.vercel-scripts.com;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' *.vercel-insights.com *.googletagmanager.com https://static.cloudflareinsights.com https://*.clarity.ms https://va.vercel-scripts.com;
     style-src 'self' 'unsafe-inline' fonts.googleapis.com;
-    img-src 'self' blob: data:;
+    img-src 'self' data: blob: https://images.unsplash.com https://cdn.sidikoff.com;
     font-src 'self' fonts.gstatic.com;
-    connect-src 'self' https://vitals.vercel-insights.com;
+    connect-src 'self' *.vercel-insights.com *.googletagmanager.com https://cloudflareinsights.com https://*.clarity.ms;
     frame-src 'none';
     object-src 'none';
     base-uri 'self';
