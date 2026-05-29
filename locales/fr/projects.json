@@ -296,5 +296,41 @@
     ],
     "link": "https://degaus.vercel.app/",
     "category": "Web"
+  },
+  {
+    "id": "20",
+    "title": "L'Instant Barbier",
+    "description": "Site Next.js et Optimisation SEO (+428% de trafic) pour un salon de coiffure et barbier parisien.",
+    "image": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "longDescription": "Réalisation d’un site web moderne et performant pour L’Instant Barbier, un salon de coiffure et barbier homme situé à Paris 3 – Le Marais. L’objectif du projet était de créer un site rapide, élégant et optimisé pour la visibilité sur Google afin d’augmenter les réservations en ligne. Le site a été développé avec React et Next.js, en mettant l’accent sur la performance, le SEO et l’expérience utilisateur sur mobile.\n\nTravail réalisé :\n- Développement du site avec React et Next.js\n- Design moderne et premium adapté à l’image du salon\n- Optimisation SEO pour améliorer la visibilité locale sur Google\n- Optimisation des performances et du temps de chargement\n- Intégration des photos et vidéos du salon\n- Mise en place de la réservation en ligne\n- Configuration de l’email professionnel et du domaine\n\nRésultat : durant la première semaine après la mise en ligne, le trafic SEO du site a augmenté d’environ 428 %, grâce à l’optimisation technique et au référencement local.",
+    "technologies": [
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "SEO",
+      "Responsive Design"
+    ],
+    "link": "https://www.linstantbarbier.fr/",
+    "category": "Web",
+    "featured": true
+  },
+  {
+    "id": "21",
+    "title": "Bahor Voyage",
+    "description": "Plateforme multilingue de réservation de circuits touristiques en Ouzbékistan.",
+    "image": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "longDescription": "Conception et développement complet d'un site web de réservation de circuits touristiques pour l'agence Bahor Voyage, spécialisée dans les voyages solidaires en Ouzbékistan et sur la Route de la Soie. Le site propose un tunnel de réservation complet (sélection de circuits, dates, voyageurs, paiement), une interface d'administration sécurisée via NextAuth, des notifications e-mail et un design moderne responsive avec accessibilité WCAG.",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Prisma ORM",
+      "NextAuth",
+      "Framer Motion"
+    ],
+    "link": "https://bahorvoyage.com",
+    "category": "Travel"
   }
 ]
