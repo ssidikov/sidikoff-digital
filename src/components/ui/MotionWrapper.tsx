@@ -1,41 +1,23 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, ReactElement } from 'react'
 
-type MotionComponentOptions = {
-  ssr: false
-  loading: () => React.ReactElement
-}
-
-// Create reusable component options for consistency
-const createMotionOptions = (className: string): MotionComponentOptions => ({
+const motionOptions = {
   ssr: false,
-  loading: () => createElement(className),
-})
-
-// Helper to create invisible placeholders during load
-const createElement = (className: string) => {
-  const baseClass = 'opacity-0'
-  
-  if (className.includes('h1')) return <h1 className={baseClass} />
-  if (className.includes('p')) return <p className={baseClass} />
-  if (className.includes('span')) return <span className={baseClass} />
-  if (className.includes('svg')) return <svg className={baseClass} />
-  
-  return <div className={baseClass} />
-}
+  loading: () => <div className="opacity-0" />,
+} as const
 
 /**
  * Dynamic Motion components with reduced bundle size and SSR compatibility
  * Each component uses lazy loading to improve initial page performance
  */
 export const Motion = {
-  div: dynamic(() => import('framer-motion').then((mod) => mod.motion.div), createMotionOptions('div')),
-  h1: dynamic(() => import('framer-motion').then((mod) => mod.motion.h1), createMotionOptions('h1')),
-  p: dynamic(() => import('framer-motion').then((mod) => mod.motion.p), createMotionOptions('p')),
-  span: dynamic(() => import('framer-motion').then((mod) => mod.motion.span), createMotionOptions('span')),
-  svg: dynamic(() => import('framer-motion').then((mod) => mod.motion.svg), createMotionOptions('svg')),
+  div: dynamic(() => import('framer-motion').then((mod) => mod.motion.div), { ssr: false, loading: () => <div className="opacity-0" /> }),
+  h1: dynamic(() => import('framer-motion').then((mod) => mod.motion.h1), { ssr: false, loading: () => <h1 className="opacity-0" /> }),
+  p: dynamic(() => import('framer-motion').then((mod) => mod.motion.p), { ssr: false, loading: () => <p className="opacity-0" /> }),
+  span: dynamic(() => import('framer-motion').then((mod) => mod.motion.span), { ssr: false, loading: () => <span className="opacity-0" /> }),
+  svg: dynamic(() => import('framer-motion').then((mod) => mod.motion.svg), { ssr: false, loading: () => <svg className="opacity-0" /> }),
 } as const
 
 /**
