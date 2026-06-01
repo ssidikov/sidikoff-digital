@@ -25,6 +25,7 @@ import Image from 'next/image'
 import { useState, useRef, useEffect } from 'react'
 import { getProjectUrl } from '@/utils/navigation'
 import Section, { SectionHeader } from '@/components/ui/Section'
+import { useInView } from '@/components/ui/MotionWrapper'
 import '@/styles/portfolio-carousel.css'
 
 interface PortfolioItem {
@@ -81,6 +82,7 @@ export default function PortfolioCarousel({
   const [isPaused, setIsPaused] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
+  const isCarouselInView = useInView(containerRef)
   const [touchStart, setTouchStart] = useState<number | null>(null)
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
   const [touchStartTime, setTouchStartTime] = useState<number | null>(null)
@@ -128,7 +130,7 @@ export default function PortfolioCarousel({
   }, [])
 
   useEffect(() => {
-    if (isPaused) return
+    if (isPaused || !isCarouselInView) return
 
     const interval = setInterval(() => {
       try {
@@ -158,7 +160,7 @@ export default function PortfolioCarousel({
     }, 5000)
 
     return () => clearInterval(interval)
-  }, [isPaused, items.length, deviceType])
+  }, [isPaused, isCarouselInView, items.length, deviceType])
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null)
