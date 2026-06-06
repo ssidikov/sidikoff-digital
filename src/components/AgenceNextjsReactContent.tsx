@@ -171,7 +171,7 @@ export default function AgenceNextjsReactContent() {
   return (
     <div className='min-h-screen bg-[#09090b] text-white'>
       {/* Hero Section */}
-      <section className='relative overflow-hidden pt-20 pb-24'>
+      <section className='relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-48 lg:pb-32'>
         {/* Background grid */}
         <div
           className='absolute inset-0 opacity-20'
@@ -185,7 +185,7 @@ export default function AgenceNextjsReactContent() {
         <div className='absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-violet-600/20 blur-3xl' />
 
         <div className='relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-          <div className='grid lg:grid-cols-2 gap-16 items-center'>
+          <div className='grid lg:grid-cols-2 gap-12 lg:gap-16 items-center'>
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -194,12 +194,12 @@ export default function AgenceNextjsReactContent() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className='inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm font-medium text-white/80 mb-8'>
+                className='inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm font-medium text-white/80 mb-6 sm:mb-8'>
                 <Code2 className='h-4 w-4 text-blue-400' />
                 Agence Next.js & React · Paris
               </motion.div>
 
-              <h1 className='text-5xl md:text-6xl lg:text-7xl font-bold leading-[0.9] tracking-tight mb-6'>
+              <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-6'>
                 Agence{' '}
                 <span className='bg-gradient-to-r from-blue-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent'>
                   Next.js
@@ -210,13 +210,13 @@ export default function AgenceNextjsReactContent() {
                 </span>
               </h1>
 
-              <p className='text-xl text-white/65 leading-relaxed mb-8 max-w-xl'>
+              <p className='text-lg sm:text-xl text-white/65 leading-relaxed mb-6 sm:mb-8 max-w-xl'>
                 Nous développons des applications React et des sites Next.js haute performance pour
                 les startups, PME et scale-ups qui veulent se démarquer techniquement. Framework
                 moderne, composants réutilisables, front end sur mesure.
               </p>
 
-              <div className='flex flex-wrap gap-3 mb-10'>
+              <div className='flex flex-wrap gap-2 sm:gap-3 mb-8 sm:mb-10'>
                 {[
                   'Next.js App Router',
                   'React 18+',
@@ -226,7 +226,7 @@ export default function AgenceNextjsReactContent() {
                 ].map((tag) => (
                   <span
                     key={tag}
-                    className='inline-flex items-center rounded-full border border-white/15 bg-white/8 px-3 py-1.5 text-sm font-medium text-white/70'>
+                    className='inline-flex items-center rounded-full border border-white/15 bg-white/8 px-2.5 py-1 sm:px-3 sm:py-1.5 text-xs sm:text-sm font-medium text-white/70'>
                     <CheckCircle className='h-3.5 w-3.5 mr-1.5 text-green-400' />
                     {tag}
                   </span>
@@ -262,7 +262,7 @@ export default function AgenceNextjsReactContent() {
                   <span className='h-3 w-3 rounded-full bg-green-500/80' />
                   <span className='ml-3 text-xs text-white/40'>page.tsx · Next.js App Router</span>
                 </div>
-                <pre className='p-6 text-sm leading-relaxed overflow-x-auto'>
+                <pre className='p-6 text-xs sm:text-sm leading-relaxed overflow-x-auto'>
                   <code>
                     <span className='text-violet-400'>{'// '}</span>
                     <span className='text-white/40'>Server Component — zéro JS côté client</span>
@@ -302,7 +302,7 @@ export default function AgenceNextjsReactContent() {
               </div>
 
               {/* Floating metrics */}
-              <div className='absolute -bottom-4 -left-4 rounded-xl border border-white/10 bg-[#0d0d10] p-4 shadow-xl'>
+              <div className='absolute -bottom-4 left-4 sm:-left-4 rounded-xl border border-white/10 bg-[#0d0d10] p-4 shadow-xl'>
                 <p className='text-xs text-white/40 mb-1'>Lighthouse Score</p>
                 <div className='flex gap-3'>
                   {[

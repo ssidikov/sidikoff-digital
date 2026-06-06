@@ -102,6 +102,15 @@ export default async function AgenceWebParis19Page() {
     description:
       'Votre partenaire digital dans le 19ème arrondissement : conception web, e-commerce et SEO.',
     url: pageUrl,
+    telephone: '+33626932734',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '73 Rue Racine',
+      postalCode: '69100',
+      addressLocality: 'Villeurbanne',
+      addressRegion: 'Auvergne-Rhône-Alpes',
+      addressCountry: 'FR',
+    },
     areaServed: ['Paris 19ème', 'La Villette', 'Buttes-Chaumont', 'Paris'],
     image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
     priceRange: '€€',

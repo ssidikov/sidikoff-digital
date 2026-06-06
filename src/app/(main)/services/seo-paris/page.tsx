@@ -64,6 +64,9 @@ const seoServiceSchema = {
   "@type": "ProfessionalService",
   "name": "Agence SEO Paris - Sidikoff Digital",
   "description": "Services de référencement naturel (SEO) à Paris : Audit technique, netlinking, optimisation de contenu et SEO local pour les entreprises d'Île-de-France.",
+  "url": PAGE_URL,
+  "telephone": "+33626932734",
+  "priceRange": "€€",
   "provider": {
     "@type": "Organization",
     "name": "Sidikoff Digital",
@@ -77,7 +80,10 @@ const seoServiceSchema = {
   "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Paris",
+    "streetAddress": "73 Rue Racine",
+    "postalCode": "69100",
+    "addressLocality": "Villeurbanne",
+    "addressRegion": "Auvergne-Rhône-Alpes",
     "addressCountry": "FR"
   }
 }

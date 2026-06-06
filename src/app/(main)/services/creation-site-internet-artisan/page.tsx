@@ -64,6 +64,17 @@ const artisanSchema = {
   "@type": "HomeAndConstructionBusiness",
   "name": "Création de Site Internet pour Artisans du Bâtiment - Sidikoff Digital",
   "description": "Solutions digitales et création de sites web pour les professionnels du BTP. Génération de devis et visibilité locale.",
+  "url": PAGE_URL,
+  "telephone": "+33626932734",
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "73 Rue Racine",
+    "postalCode": "69100",
+    "addressLocality": "Villeurbanne",
+    "addressRegion": "Auvergne-Rhône-Alpes",
+    "addressCountry": "FR"
+  },
   "provider": {
     "@type": "Organization",
     "name": "Sidikoff Digital",

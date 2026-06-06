@@ -103,6 +103,15 @@ export default async function AgenceWebParis17Page() {
     description:
       'Conception de sites web sur-mesure et référencement SEO pour les entreprises du 17e arrondissement.',
     url: pageUrl,
+    telephone: '+33626932734',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '73 Rue Racine',
+      postalCode: '69100',
+      addressLocality: 'Villeurbanne',
+      addressRegion: 'Auvergne-Rhône-Alpes',
+      addressCountry: 'FR',
+    },
     areaServed: ['Paris 17ème', 'Batignolles', 'Ternes', 'Monceau', 'Paris'],
     image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
     priceRange: '€€',
