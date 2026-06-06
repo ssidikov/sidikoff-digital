@@ -47,6 +47,7 @@ const Contact = ({ className, isHomePage = false }: ContactProps) => {
     email: '',
     message: '',
   })
+  const [errors, setErrors] = useState<Partial<FormData>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle')
 
@@ -67,16 +68,31 @@ const Contact = ({ className, isHomePage = false }: ContactProps) => {
       e.preventDefault()
       setIsSubmitting(true)
       setSubmitStatus('idle')
+      setErrors({})
 
       try {
-        // Validate form data
-        if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-          throw new Error('Tous les champs sont requis')
+        const newErrors: Partial<FormData> = {}
+        
+        // Validate name
+        if (!formData.name.trim()) {
+          newErrors.name = 'Veuillez saisir votre nom complet.'
         }
 
-        // Email validation
-        if (!EMAIL_REGEX.test(formData.email)) {
-          throw new Error('Adresse email invalide')
+        // Validate email
+        if (!formData.email.trim()) {
+          newErrors.email = 'Veuillez saisir votre adresse email.'
+        } else if (!EMAIL_REGEX.test(formData.email)) {
+          newErrors.email = 'Adresse email invalide.'
+        }
+
+        // Validate message
+        if (!formData.message.trim()) {
+          newErrors.message = 'Veuillez saisir un message décrivant votre projet.'
+        }
+
+        if (Object.keys(newErrors).length > 0) {
+          setErrors(newErrors)
+          throw new Error('Formulaire invalide')
         }
 
         // Create form data for submission
@@ -121,6 +137,7 @@ const Contact = ({ className, isHomePage = false }: ContactProps) => {
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       const { name, value } = e.target
       setFormData((prev) => ({ ...prev, [name]: value }))
+      setErrors((prev) => ({ ...prev, [name]: undefined }))
     },
     [],
   )
@@ -247,7 +264,10 @@ const Contact = ({ className, isHomePage = false }: ContactProps) => {
               </p>
             </div>
             <form onSubmit={handleSubmit} className='space-y-6'>
-              <div>
+              <div className='flex flex-col gap-2'>
+                <label htmlFor='name' className='text-sm font-semibold text-[#112D4E]'>
+                  {dictionary?.form?.name?.label || 'Nom complet'}
+                </label>
                 <input
                   id='name'
                   name='name'
@@ -255,12 +275,23 @@ const Contact = ({ className, isHomePage = false }: ContactProps) => {
                   required
                   value={formData.name || ''}
                   onChange={handleChange}
-                  className='w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-gray-400 focus:bg-white focus:outline-none transition-all duration-200 text-gray-900 placeholder-gray-500'
+                  className={`w-full px-4 py-3 bg-gray-50 border rounded-lg focus:bg-white focus:outline-none transition-all duration-200 text-gray-900 placeholder-gray-400 ${
+                    errors.name ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-gray-400'
+                  }`}
                   placeholder={dictionary?.form?.name?.placeholder || 'Entrez votre nom complet'}
                 />
+                {errors.name && (
+                  <p className='mt-1 text-sm text-red-600 flex items-center gap-1.5' id='name-error'>
+                    <AlertCircle className='w-4 h-4 shrink-0' />
+                    {errors.name}
+                  </p>
+                )}
               </div>
 
-              <div>
+              <div className='flex flex-col gap-2'>
+                <label htmlFor='email' className='text-sm font-semibold text-[#112D4E]'>
+                  {dictionary?.form?.email?.label || 'Adresse email'}
+                </label>
                 <input
                   id='email'
                   name='email'
@@ -268,12 +299,23 @@ const Contact = ({ className, isHomePage = false }: ContactProps) => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className='w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:border-gray-400 focus:bg-white focus:outline-none transition-all duration-200 text-gray-900 placeholder-gray-500'
+                  className={`w-full px-4 py-3 bg-gray-50 border rounded-lg focus:bg-white focus:outline-none transition-all duration-200 text-gray-900 placeholder-gray-400 ${
+                    errors.email ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-gray-400'
+                  }`}
                   placeholder={dictionary?.form?.email?.placeholder || 'votre@email.com'}
                 />
+                {errors.email && (
+                  <p className='mt-1 text-sm text-red-600 flex items-center gap-1.5' id='email-error'>
+                    <AlertCircle className='w-4 h-4 shrink-0' />
+                    {errors.email}
+                  </p>
+                )}
               </div>
 
-              <div>
+              <div className='flex flex-col gap-2'>
+                <label htmlFor='message' className='text-sm font-semibold text-[#112D4E]'>
+                  {dictionary?.form?.message?.label || 'Message'}
+                </label>
                 <textarea
                   id='message'
                   name='message'
@@ -281,11 +323,19 @@ const Contact = ({ className, isHomePage = false }: ContactProps) => {
                   rows={6}
                   value={formData.message}
                   onChange={handleChange}
-                  className='w-full px-4 py-3 resize-none bg-gray-50 border border-gray-200 rounded-lg focus:border-gray-400 focus:bg-white focus:outline-none transition-all duration-200 text-gray-900 placeholder-gray-500'
+                  className={`w-full px-4 py-3 resize-none bg-gray-50 border rounded-lg focus:bg-white focus:outline-none transition-all duration-200 text-gray-900 placeholder-gray-400 ${
+                    errors.message ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-gray-400'
+                  }`}
                   placeholder={
                     dictionary?.form?.message?.placeholder || 'Parlez-nous de votre projet...'
                   }
                 />
+                {errors.message && (
+                  <p className='mt-1 text-sm text-red-600 flex items-center gap-1.5' id='message-error'>
+                    <AlertCircle className='w-4 h-4 shrink-0' />
+                    {errors.message}
+                  </p>
+                )}
               </div>
               <button
                 type='submit'

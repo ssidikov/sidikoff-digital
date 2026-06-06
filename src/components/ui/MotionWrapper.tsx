@@ -1,12 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { useState, useEffect, useRef, ReactElement } from 'react'
-
-const motionOptions = {
-  ssr: false,
-  loading: () => <div className="opacity-0" />,
-} as const
+import { useState, useEffect, useRef } from 'react'
 
 /**
  * Dynamic Motion components with reduced bundle size and SSR compatibility

@@ -232,12 +232,12 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      className={`${cardStyles.card} p-6 border-l-4 ${
+                      className={`${cardStyles.card} p-6 border ${
                         index === 0
-                          ? 'border-green-500'
+                          ? 'border-green-200 bg-green-50/5'
                           : index === 1
-                            ? 'border-blue-500'
-                            : 'border-purple-500'
+                            ? 'border-blue-200 bg-blue-50/5'
+                            : 'border-purple-200 bg-purple-50/5'
                       }`}>
                       <h4 className='text-xl font-bold text-primary mb-3'>{type.name}</h4>
                       <p className='text-gray-600 mb-4'>{type.description}</p>
@@ -404,7 +404,7 @@ export default function Pricing({ className, showGuide = false }: PricingProps) 
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      className={`${cardStyles.card} p-6 border-l-4 border-blue-500`}>
+                      className={`${cardStyles.card} p-6 border border-blue-200 bg-blue-50/5`}>
                       <h4 className='text-lg font-bold text-primary mb-3'>{benefit.title}</h4>
                       <p className='text-gray-600 leading-relaxed'>{benefit.content}</p>
                     </motion.div>
