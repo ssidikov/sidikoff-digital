@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
     'Création de site internet à Paris pour TPE, PME et indépendants : site vitrine ou e-commerce, SEO local et performances Core Web Vitals. Devis gratuit sous 24h.'
 
   return {
-    title,
+    title: { absolute: title },
     description,
     keywords: [
       'création site internet paris',

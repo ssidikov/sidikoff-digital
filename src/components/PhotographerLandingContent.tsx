@@ -384,7 +384,7 @@ export default function PhotographerLandingContent() {
               { src: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop', span: 'col-span-1 md:col-span-2 row-span-2' },
               { src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop', span: 'col-span-1 row-span-1' },
               { src: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop', span: 'col-span-1 row-span-1' },
-              { src: 'https://images.unsplash.com/photo-1554048612-b6a18cb193dd?q=80&w=800&auto=format&fit=crop', span: 'col-span-1 md:col-span-2 row-span-1' },
+              { src: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=800&auto=format&fit=crop', span: 'col-span-1 md:col-span-2 row-span-1' },
             ].map((img, i) => (
               <motion.div
                 key={i}

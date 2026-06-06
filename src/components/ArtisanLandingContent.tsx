@@ -227,7 +227,7 @@ export default function ArtisanLandingContent() {
         {/* Background Overlay */}
         <div className='absolute inset-0 z-0 opacity-25'>
           <Image
-            src='https://images.unsplash.com/photo-1504307651254-35680f35aa9e?q=80&w=2000&auto=format&fit=crop'
+            src='https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2000&auto=format&fit=crop'
             alt='Artisan au travail sur un chantier'
             fill
             className='object-cover'

@@ -7,7 +7,7 @@ const t = travelData.travel_agency_landing
 
 export function generateMetadata(): Metadata {
   return {
-    title: t.meta_title,
+    title: { absolute: t.meta_title },
     description: t.meta_description,
     keywords: t.keywords,
     openGraph: {

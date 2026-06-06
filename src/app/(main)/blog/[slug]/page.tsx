@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const imageUrl = post.image
 
   return {
-    title: post.title,
+    title: { absolute: post.title },
     description: post.description,
     keywords: post.keywords,
     openGraph: {

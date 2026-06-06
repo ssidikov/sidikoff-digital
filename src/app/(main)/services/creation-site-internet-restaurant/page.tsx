@@ -32,7 +32,7 @@ export function generateMetadata(): Metadata {
   const description = 'Développez le chiffre d\'affaires de votre restaurant avec un site web appétissant. Réservation Zenchef, TheFork, Click & Collect et SEO Local inclus.'
   
   return {
-    title,
+    title: { absolute: title },
     description,
     keywords: 'création site internet restaurant, site web bistrot, agence web restauration, seo local restaurant, réservation en ligne restaurant, site click and collect',
     openGraph: {

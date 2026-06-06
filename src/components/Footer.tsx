@@ -289,6 +289,11 @@ export function Footer({ isDark = false }: { isDark?: boolean }) {
               className={`text-sm uppercase tracking-wider transition-colors ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-[#112D4E]/60 hover:text-[#3377FF]'}`}>
               Politique de Confidentialité
             </Link>
+            <Link
+              href='/plan-du-site'
+              className={`text-sm uppercase tracking-wider transition-colors ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-[#112D4E]/60 hover:text-[#3377FF]'}`}>
+              Plan du site
+            </Link>
           </div>
         </div>
       </div>

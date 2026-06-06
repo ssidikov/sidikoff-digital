@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
     'Agence web & développeur web à Lyon (69 / 69100) — sites vitrines, e-commerce et applications sur mesure, livrés en 7–14 jours. SEO local, React & Next.js. Devis gratuit sous 24h ✓'
 
   return {
-    title,
+    title: { absolute: title },
     description,
     robots: {
       index: true,

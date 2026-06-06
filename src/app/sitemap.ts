@@ -16,6 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/mentions-legales',
     '/politique-de-confidentialite',
     '/blog',
+    '/plan-du-site',
 
     // --- Core service pages ---
     '/services/creation-sites-web',

@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
     'Attirez plus de clients avec un site internet pour café à Paris. Menu en ligne, click & collect, réservation. Devis gratuit pour votre web café !'
 
   return {
-    title,
+    title: { absolute: title },
     description,
     robots: {
       index: true,
