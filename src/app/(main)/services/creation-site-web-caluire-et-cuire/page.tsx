@@ -1,98 +1,103 @@
-import { Metadata } from 'next'
+import { Metadata } from "next";
 import {
   createCanonicalUrl,
   generateAlternateUrls,
   generateFAQStructuredData,
   generateBreadcrumbStructuredData,
   DEFAULT_SEO,
-} from '@/lib/seo-utils'
+} from "@/lib/seo-utils";
 
-import CaluireLandingContent, { VilleurbannContent } from '@/components/CaluireLandingContent'
+import CaluireLandingContent, {
+  VilleurbannContent,
+} from "@/components/CaluireLandingContent";
 
 // ─── Types ──────────────────────────────────────────────────────────────────────
 
 // ─── SEO Slug (same across locales, route is locale-prefixed) ────────────────
 
-const PAGE_PATH = 'services/creation-site-web-caluire-et-cuire'
+const PAGE_PATH = "services/creation-site-web-caluire-et-cuire";
 
 // ─── Content Data ───────────────────────────────────────────────────────────────
 
 const seoContent = {
   fr: {
-    title: 'Création Site Web Caluire-et-Cuire | Sidikoff',
+    title: "Création Site Web Caluire-et-Cuire | Sidikoff",
     description:
-      'Développeur web freelance à Caluire-et-Cuire (69300). Création de sites vitrines, e-commerce, refonte et SEO technique. Devis gratuit sous 24h.',
+      "Développeur web freelance à Caluire-et-Cuire (69300). Création de sites vitrines, e-commerce, refonte et SEO technique. Devis gratuit sous 24h.",
     keywords: [
-      'création site web caluire',
-      'développeur web caluire-et-cuire',
-      'site internet caluire',
-      'freelance web caluire',
-      'agence web caluire',
-      'création site vitrine caluire',
-      'site e-commerce caluire',
-      'refonte site web caluire',
-      'seo caluire-et-cuire',
-      'développeur freelance lyon',
-      'création site internet lyon métropole',
-      'webmaster caluire',
-      'développeur react caluire',
-      'site web professionnel caluire 69300',
+      "création site web caluire",
+      "développeur web caluire-et-cuire",
+      "site internet caluire",
+      "freelance web caluire",
+      "agence web caluire",
+      "création site vitrine caluire",
+      "site e-commerce caluire",
+      "refonte site web caluire",
+      "seo caluire-et-cuire",
+      "développeur freelance lyon",
+      "création site internet lyon métropole",
+      "webmaster caluire",
+      "développeur react caluire",
+      "site web professionnel caluire 69300",
     ],
   },
-}
+};
 
 const faqData = {
   fr: [
     {
-      question: 'Combien coûte la création d\u2019un site web à Caluire-et-Cuire ?',
+      question:
+        "Combien coûte la création d\u2019un site web à Caluire-et-Cuire ?",
       answer:
-        'Le tarif dépend du type de projet. Un site vitrine démarre à partir de 690 €, un site e-commerce à partir de 3 000 €. Je vous envoie un devis détaillé et gratuit sous 24 h après notre premier échange.',
-    },
-    {
-      question: 'Quel est le délai de livraison d\u2019un site internet à Caluire ?',
-      answer:
-        'Un site vitrine est livré en 3 à 5 semaines. Un projet e-commerce ou sur mesure peut nécessiter 6 à 10 semaines. Chaque planning est défini ensemble en amont.',
+        "Le tarif dépend du type de projet. Un site vitrine démarre à partir de 690 €, un site e-commerce à partir de 3 000 €. Je vous envoie un devis détaillé et gratuit sous 24 h après notre premier échange.",
     },
     {
       question:
-        'Pourquoi choisir un développeur freelance à Caluire-et-Cuire plutôt qu\u2019une agence ?',
+        "Quel est le délai de livraison d\u2019un site internet à Caluire ?",
       answer:
-        'Un freelance vous offre un interlocuteur unique, des tarifs compétitifs et une grande réactivité. Basé dans la métropole de Lyon, je me déplace pour nos rendez-vous à Caluire et ses environs.',
+        "Un site vitrine est livré en 3 à 5 semaines. Un projet e-commerce ou sur mesure peut nécessiter 6 à 10 semaines. Chaque planning est défini ensemble en amont.",
     },
     {
-      question: 'Mon site sera-t-il bien référencé sur Google à Caluire ?',
+      question:
+        "Pourquoi choisir un développeur freelance à Caluire-et-Cuire plutôt qu\u2019une agence ?",
       answer:
-        'Oui, chaque site est conçu avec le SEO technique intégré : balises sémantiques, vitesse de chargement optimisée, données structurées et mots-clés géolocalisés pour Caluire, Lyon et la métropole.',
+        "Un freelance vous offre un interlocuteur unique, des tarifs compétitifs et une grande réactivité. Basé dans la métropole de Lyon, je me déplace pour nos rendez-vous à Caluire et ses environs.",
     },
     {
-      question: 'Proposez-vous la maintenance après la mise en ligne ?',
+      question: "Mon site sera-t-il bien référencé sur Google à Caluire ?",
       answer:
-        'Absolument. Je propose des forfaits de maintenance incluant mises à jour de sécurité, sauvegardes, monitoring de performance et support technique réactif.',
+        "Oui, chaque site est conçu avec le SEO technique intégré : balises sémantiques, vitesse de chargement optimisée, données structurées et mots-clés géolocalisés pour Caluire, Lyon et la métropole.",
     },
     {
-      question: 'Quelles technologies utilisez-vous pour créer des sites web ?',
+      question: "Proposez-vous la maintenance après la mise en ligne ?",
       answer:
-        'J\u2019utilise des technologies modernes et performantes : React, Next.js, TypeScript et Tailwind CSS. Cela garantit des sites rapides, sécurisés et facilement évolutifs.',
+        "Absolument. Je propose des forfaits de maintenance incluant mises à jour de sécurité, sauvegardes, monitoring de performance et support technique réactif.",
     },
     {
-      question: 'Créez-vous des sites web pour tous les quartiers de Caluire ?',
+      question: "Quelles technologies utilisez-vous pour créer des sites web ?",
       answer:
-        'Oui, j\u2019interviens dans toute la commune de Caluire-et-Cuire : Le Bourg, Cuire le Bas, Cuire le Haut, Montessuy, Saint-Clair, Vassieux et les communes limitrophes.',
+        "J\u2019utilise des technologies modernes et performantes : React, Next.js, TypeScript et Tailwind CSS. Cela garantit des sites rapides, sécurisés et facilement évolutifs.",
     },
     {
-      question: 'Quelle est la différence entre un freelance et une agence web à Caluire ?',
+      question: "Créez-vous des sites web pour tous les quartiers de Caluire ?",
       answer:
-        'Un freelance offre un interlocuteur unique, des tarifs compétitifs (pas de frais de structure), une réactivité sous 24h et des technologies modernes (React, Next.js). Une agence implique souvent plusieurs intermédiaires, des délais plus longs et un coût 50 à 100% supérieur.',
+        "Oui, j\u2019interviens dans toute la commune de Caluire-et-Cuire : Le Bourg, Cuire le Bas, Cuire le Haut, Montessuy, Saint-Clair, Vassieux et les communes limitrophes.",
+    },
+    {
+      question:
+        "Quelle est la différence entre un freelance et une agence web à Caluire ?",
+      answer:
+        "Un freelance offre un interlocuteur unique, des tarifs compétitifs (pas de frais de structure), une réactivité sous 24h et des technologies modernes (React, Next.js). Une agence implique souvent plusieurs intermédiaires, des délais plus longs et un coût 50 à 100% supérieur.",
     },
   ],
-}
+};
 
 // ─── generateMetadata ───────────────────────────────────────────────────────────
 
 export async function generateMetadata(): Promise<Metadata> {
-  const content = seoContent.fr
-  const alternates = generateAlternateUrls(PAGE_PATH)
-  const canonical = createCanonicalUrl(PAGE_PATH, 'fr')
+  const content = seoContent.fr;
+  const alternates = generateAlternateUrls(PAGE_PATH);
+  const canonical = createCanonicalUrl(PAGE_PATH, "fr");
 
   return {
     title: content.title,
@@ -104,28 +109,28 @@ export async function generateMetadata(): Promise<Metadata> {
       googleBot: {
         index: true,
         follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large' as const,
-        'max-snippet': -1,
+        "max-video-preview": -1,
+        "max-image-preview": "large" as const,
+        "max-snippet": -1,
       },
     },
     alternates: {
       canonical,
       languages: {
-        'fr-FR': alternates.fr,
-        'x-default': alternates.fr,
+        "fr-FR": alternates.fr,
+        "x-default": alternates.fr,
       },
     },
     openGraph: {
       title: content.title,
       description: content.description,
-      type: 'website',
-      locale: 'fr_FR',
+      type: "website",
+      locale: "fr_FR",
       url: canonical,
-      siteName: 'Sidikoff Digital',
+      siteName: "Sidikoff Digital",
       images: [
         {
-          url: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+          url: "https://cdn.sidikoff.com/images/opengraph-fr.png",
           width: 1200,
           height: 630,
           alt: content.title,
@@ -133,149 +138,167 @@ export async function generateMetadata(): Promise<Metadata> {
       ],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: content.title,
       description: content.description,
-      images: ['https://cdn.sidikoff.com/images/opengraph-fr.png'],
-      creator: '@sidikoffdigital',
+      images: ["https://cdn.sidikoff.com/images/opengraph-fr.png"],
+      creator: "@sidikoffdigital",
     },
-  }
+  };
 }
 
 // ─── JSON-LD Schemas ────────────────────────────────────────────────────────────
 
 function getStructuredData() {
-  const canonical = createCanonicalUrl(PAGE_PATH, 'fr')
+  const canonical = createCanonicalUrl(PAGE_PATH, "fr");
 
   const webPageJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    '@id': `${canonical}#webpage`,
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${canonical}#webpage`,
     url: canonical,
-    name: 'Création site web Caluire-et-Cuire | Développeur freelance premium',
+    name: "Création site web Caluire-et-Cuire | Développeur freelance premium",
     description:
-      'Développeur web freelance à Caluire-et-Cuire (69300). Création de sites vitrines, e-commerce, refonte et SEO technique. Devis gratuit sous 24h.',
-    isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
-    about: { '@id': `${canonical}#service` },
-  }
+      "Développeur web freelance à Caluire-et-Cuire (69300). Création de sites vitrines, e-commerce, refonte et SEO technique. Devis gratuit sous 24h.",
+    isPartOf: { "@id": `${DEFAULT_SEO.siteUrl}/#website` },
+    about: { "@id": `${canonical}#service` },
+  };
 
   const serviceJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    '@id': `${canonical}#service`,
-    mainEntityOfPage: { '@id': `${canonical}#webpage` },
-    name: 'Création de site internet à Caluire-et-Cuire',
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${canonical}#service`,
+    mainEntityOfPage: { "@id": `${canonical}#webpage` },
+    name: "Création de site internet à Caluire-et-Cuire",
     description:
-      'Développeur web freelance spécialisé en création de sites internet à Caluire-et-Cuire et Lyon métropole. Sites vitrines, e-commerce, SEO technique.',
+      "Développeur web freelance spécialisé en création de sites internet à Caluire-et-Cuire et Lyon métropole. Sites vitrines, e-commerce, SEO technique.",
     url: canonical,
-    serviceType: 'Création de site web',
+    serviceType: "Création de site web",
     areaServed: [
-      { '@type': 'City', name: 'Caluire-et-Cuire' },
-      { '@type': 'City', name: 'Lyon' },
-      { '@type': 'AdministrativeArea', name: 'Lyon métropole' },
-      { '@type': 'AdministrativeArea', name: 'Rhône' },
+      { "@type": "City", name: "Caluire-et-Cuire" },
+      { "@type": "City", name: "Lyon" },
+      { "@type": "AdministrativeArea", name: "Lyon métropole" },
+      { "@type": "AdministrativeArea", name: "Rhône" },
     ],
     provider: {
-      '@type': 'Organization',
-      name: 'Sidikoff Digital',
+      "@type": "Organization",
+      name: "Sidikoff Digital",
       url: DEFAULT_SEO.siteUrl,
     },
-    image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
-  }
+    image: "https://cdn.sidikoff.com/images/opengraph-fr.png",
+  };
 
   const person = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Sardorbek SIDIKOV',
-    jobTitle: 'Développeur Web Freelance',
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Sardorbek SIDIKOV",
+    jobTitle: "Développeur Web Freelance",
     url: DEFAULT_SEO.siteUrl,
     worksFor: {
-      '@type': 'Organization',
-      name: 'Sidikoff Digital',
+      "@type": "Organization",
+      name: "Sidikoff Digital",
     },
-    sameAs: ['https://github.com/ssidikov', 'https://linkedin.com/in/sardorbeksidikov'],
-    knowsAbout: ['React', 'Next.js', 'TypeScript', 'Node.js', 'SEO'],
-  }
+    sameAs: [
+      "https://github.com/ssidikov",
+      "https://linkedin.com/in/sardorbeksidikov",
+    ],
+    knowsAbout: ["React", "Next.js", "TypeScript", "Node.js", "SEO"],
+  };
 
-  const faqSchema = generateFAQStructuredData(faqData.fr)
+  const faqSchema = generateFAQStructuredData(faqData.fr);
 
   const breadcrumb = generateBreadcrumbStructuredData([
     {
-      name: 'Accueil',
-      url: createCanonicalUrl('', 'fr'),
+      name: "Accueil",
+      url: createCanonicalUrl("", "fr"),
     },
     {
-      name: 'Services',
-      url: createCanonicalUrl('services', 'fr'),
+      name: "Services",
+      url: createCanonicalUrl("services", "fr"),
     },
     {
-      name: 'Création site web Caluire-et-Cuire',
+      name: "Création site web Caluire-et-Cuire",
       url: canonical,
     },
-  ])
+  ]);
 
-  return [webPageJsonLd, serviceJsonLd, person, faqSchema, breadcrumb]
+  return [webPageJsonLd, serviceJsonLd, person, faqSchema, breadcrumb];
 }
 
 // ─── Page Component ─────────────────────────────────────────────────────────────
 
 export default async function CaluirePage() {
-  const faqs = faqData.fr
-  const structuredData = getStructuredData()
-  const t = getPageContent()
+  const faqs = faqData.fr;
+  const structuredData = getStructuredData();
+  const t = getPageContent();
 
   return (
     <>
-      <CaluireLandingContent content={t} faqs={faqs} structuredData={structuredData} />
+      <CaluireLandingContent
+        content={t}
+        faqs={faqs}
+        structuredData={structuredData}
+      />
 
       {/* Template A — Semantic Expansion */}
-      <section className='py-16 bg-white'>
-        <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
-            Développeur web freelance à Caluire-et-Cuire : créer ou refondre votre site
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+            Développeur web freelance à Caluire-et-Cuire : créer ou refondre
+            votre site
           </h2>
-          <div className='space-y-5 text-gray-700 text-lg leading-relaxed'>
+          <div className="space-y-5 text-gray-700 text-lg leading-relaxed">
             <p>
-              Basé dans la <strong>Métropole de Lyon</strong>, Sidikoff Digital intervient comme{' '}
-              <strong>développeur web freelance à Caluire-et-Cuire</strong> (69300) pour les
-              entreprises, artisans, professions libérales et commerces des quartiers du{' '}
-              <strong>Bourg, Cuire le Bas, Montessuy, Saint-Clair et Vassieux</strong>. Nous
-              concevons des <strong>sites internet professionnels sur mesure</strong> avec Next.js
-              et React, optimisés SEO local pour apparaître sur les recherches ciblant Caluire, Lyon
-              et le Grand Lyon (69).
+              Basé dans la <strong>Métropole de Lyon</strong>, Sidikoff Digital
+              intervient comme{" "}
+              <strong>développeur web freelance à Caluire-et-Cuire</strong>{" "}
+              (69300) pour les entreprises, artisans, professions libérales et
+              commerces des quartiers du{" "}
+              <strong>
+                Bourg, Cuire le Bas, Montessuy, Saint-Clair et Vassieux
+              </strong>
+              . Nous concevons des{" "}
+              <strong>sites internet professionnels sur mesure</strong> avec
+              Next.js et React, optimisés SEO local pour apparaître sur les
+              recherches ciblant Caluire, Lyon et le Grand Lyon (69).
             </p>
             <p>
-              Que vous ayez besoin d&apos;un <strong>site vitrine</strong> pour votre cabinet
-              médical ou votre commerce de proximité, d&apos;une <strong>boutique en ligne</strong>{' '}
-              sécurisée ou d&apos;une <strong>refonte de site web</strong> pour moderniser votre
-              présence digitale, nous livrons en <strong>3 à 5 semaines</strong> avec hébergement,
-              formation et 3 mois de support inclus. Nos tarifs démarrent à{' '}
-              <strong>690 € TTC</strong> pour un site vitrine clé en main.
+              Que vous ayez besoin d&apos;un <strong>site vitrine</strong> pour
+              votre cabinet médical ou votre commerce de proximité, d&apos;une{" "}
+              <strong>boutique en ligne</strong> sécurisée ou d&apos;une{" "}
+              <strong>refonte de site web</strong> pour moderniser votre
+              présence digitale, nous livrons en <strong>3 à 5 semaines</strong>{" "}
+              avec hébergement, formation et 3 mois de support inclus. Nos
+              tarifs démarrent à <strong>690 € TTC</strong> pour un site vitrine
+              clé en main.
             </p>
             <p>
-              Notre expertise en <strong>SEO local Caluire</strong> vous positionne sur des requêtes
-              clés comme « développeur web Caluire-et-Cuire », « site internet 69300 » ou « agence
-              web Grand Lyon ». Chaque site est développé avec des{' '}
-              <strong>données structurées Schema.org</strong>, des Core Web Vitals optimisés
-              (Lighthouse 95+) et une intégration <strong>Google Business Profile</strong> pour
-              dominer le pack local de Google Maps.
+              Notre expertise en <strong>SEO local Caluire</strong> vous
+              positionne sur des requêtes clés comme « développeur web
+              Caluire-et-Cuire », « site internet 69300 » ou « agence web Grand
+              Lyon ». Chaque site est développé avec des{" "}
+              <strong>données structurées Schema.org</strong>, des Core Web
+              Vitals optimisés (Lighthouse 95+) et une intégration{" "}
+              <strong>Google Business Profile</strong> pour dominer le pack
+              local de Google Maps.
             </p>
           </div>
 
-          <div className='mt-8 flex flex-wrap gap-3'>
+          <div className="mt-8 flex flex-wrap gap-3">
             {[
-              'Développeur web Caluire',
-              'SEO local 69300',
-              'Site vitrine sur mesure',
-              'Refonte site web',
-              'Next.js React',
-              'Google Business Profile',
-              'Core Web Vitals',
-              'Métropole de Lyon',
+              "Développeur web Caluire",
+              "SEO local 69300",
+              "Site vitrine sur mesure",
+              "Refonte site web",
+              "Next.js React",
+              "Google Business Profile",
+              "Core Web Vitals",
+              "Métropole de Lyon",
             ].map((tag) => (
               <span
                 key={tag}
-                className='inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-medium border border-blue-100'>
+                className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-medium border border-blue-100"
+              >
                 {tag}
               </span>
             ))}
@@ -284,42 +307,45 @@ export default async function CaluirePage() {
       </section>
 
       {/* Lyon Cluster Cross-Links */}
-      <section className='py-12 bg-gray-50 border-t border-gray-200'>
-        <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <h2 className='text-xl font-bold text-gray-900 mb-6'>
+      <section className="py-12 bg-gray-50 border-t border-gray-200">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-xl font-bold text-gray-900 mb-6">
             Nos autres pages dans la Métropole de Lyon
           </h2>
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               {
-                title: 'Création site internet Lyon',
-                desc: 'Hub SEO pour Lyon (69) — sites vitrines, e-commerce et refonte web.',
-                href: '/services/creation-site-internet-lyon',
+                title: "Création site internet Lyon",
+                desc: "Hub SEO pour Lyon (69) — sites vitrines, e-commerce et refonte web.",
+                href: "/services/creation-site-internet-lyon",
               },
               {
-                title: 'Agence web Lyon',
-                desc: 'Notre page flagship — design premium, SEO dominant, livraison 7–14 jours.',
-                href: '/services/agence-web-lyon',
+                title: "Agence web Lyon",
+                desc: "Notre page flagship — design premium, SEO dominant, livraison 7–14 jours.",
+                href: "/services/agence-web-lyon",
               },
               {
-                title: 'Agence web Villeurbanne',
-                desc: 'Développement web et SEO local pour les entreprises de Villeurbanne.',
-                href: '/services/agence-web-villeurbanne',
+                title: "Agence web Villeurbanne",
+                desc: "Développement web et SEO local pour les entreprises de Villeurbanne.",
+                href: "/services/agence-web-villeurbanne",
               },
             ].map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className='block bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md hover:border-blue-300 transition-all'>
-                <p className='font-semibold text-gray-900 mb-1 text-sm'>{link.title}</p>
-                <p className='text-gray-500 text-sm'>{link.desc}</p>
+                className="block bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md hover:border-blue-300 transition-all"
+              >
+                <p className="font-semibold text-gray-900 mb-1 text-sm">
+                  {link.title}
+                </p>
+                <p className="text-gray-500 text-sm">{link.desc}</p>
               </a>
             ))}
           </div>
         </div>
       </section>
     </>
-  )
+  );
 }
 
 // ─── Content per locale ─────────────────────────────────────────────────────────
@@ -327,136 +353,137 @@ export default async function CaluirePage() {
 function getPageContent(): VilleurbannContent {
   // Fallback to FR
   return {
-    badge: 'Expert Web Caluire',
-    h1Start: 'Création de sites internet à ',
-    h1City: 'Caluire-et-Cuire',
+    badge: "Expert Web Caluire",
+    h1Start: "Création de sites internet à ",
+    h1City: "Caluire-et-Cuire",
     subtitle:
-      'Développeur web freelance basé dans la métropole de Lyon. Je conçois des sites vitrines et e-commerce modernes, performants et optimisés pour le SEO local à Caluire-et-Cuire.',
-    cta1: 'Devis Gratuit',
-    cta2: 'Voir les projets',
-    stat1: '20+',
-    stat1Label: 'Projets livrés',
-    stat2: '2-4  sem',
-    stat2Label: 'Délai moyen',
-    stat3: '7j/7',
-    stat3Label: 'Support',
-    servicesTitle: 'Services de création web à Caluire',
+      "Développeur web freelance basé dans la métropole de Lyon. Je conçois des sites vitrines et e-commerce modernes, performants et optimisés pour le SEO local à Caluire-et-Cuire.",
+    cta1: "Devis Gratuit",
+    cta2: "Voir les projets",
+    stat1: "20+",
+    stat1Label: "Projets livrés",
+    stat2: "2-4  sem",
+    stat2Label: "Délai moyen",
+    stat3: "7j/7",
+    stat3Label: "Support",
+    servicesTitle: "Services de création web à Caluire",
     servicesSubtitle:
-      'Des solutions digitales sur mesure pour les entreprises, artisans et indépendants de Caluire et du Grand Lyon.',
+      "Des solutions digitales sur mesure pour les entreprises, artisans et indépendants de Caluire et du Grand Lyon.",
     services: [
       {
-        icon: 'showcase',
-        title: 'Site Vitrine Caluire',
-        desc: 'Un site internet professionnel pour valoriser votre activité auprès de vos clients à Caluire et Lyon métropole.',
-        link: '/services/creation-sites-web',
+        icon: "showcase",
+        title: "Site Vitrine Caluire",
+        desc: "Un site internet professionnel pour valoriser votre activité auprès de vos clients à Caluire et Lyon métropole.",
+        link: "/services/creation-sites-web",
       },
       {
-        icon: 'ecommerce',
-        title: 'E-commerce Performant',
-        desc: 'Boutique en ligne sécurisée, gestion de produits, paiements intégrés et design vendeur pour vendre depuis Caluire.',
-        link: '/services/creation-site-ecommerce',
+        icon: "ecommerce",
+        title: "E-commerce Performant",
+        desc: "Boutique en ligne sécurisée, gestion de produits, paiements intégrés et design vendeur pour vendre depuis Caluire.",
+        link: "/services/creation-site-ecommerce",
       },
       {
-        icon: 'custom',
-        title: 'Développement Sur Mesure',
-        desc: 'Applications web, intégrations API, CMS personnalisé et fonctionnalités spécifiques à votre métier.',
-        link: '/services/creation-sites-web',
+        icon: "custom",
+        title: "Développement Sur Mesure",
+        desc: "Applications web, intégrations API, CMS personnalisé et fonctionnalités spécifiques à votre métier.",
+        link: "/services/creation-sites-web",
       },
       {
-        icon: 'seo',
-        title: 'SEO Technique Caluire',
-        desc: 'Référencement local optimisé pour positionner votre site sur les requêtes ciblant Caluire et la région.',
-        link: '/services/optimisation-seo',
+        icon: "seo",
+        title: "SEO Technique Caluire",
+        desc: "Référencement local optimisé pour positionner votre site sur les requêtes ciblant Caluire et la région.",
+        link: "/services/optimisation-seo",
       },
       {
-        icon: 'redesign',
-        title: 'Refonte de Site Web',
-        desc: 'Modernisez votre site actuel : nouveau design, meilleures performances, migration sécurisée et gain de positions.',
-        link: '/services/refonte-sites-web',
+        icon: "redesign",
+        title: "Refonte de Site Web",
+        desc: "Modernisez votre site actuel : nouveau design, meilleures performances, migration sécurisée et gain de positions.",
+        link: "/services/refonte-sites-web",
       },
       {
-        icon: 'maintenance',
-        title: 'Maintenance & Support',
-        desc: 'Suivi régulier, mises à jour de sécurité, sauvegardes automatiques et assistance technique réactive.',
-        link: '/services/maintenance-support',
+        icon: "maintenance",
+        title: "Maintenance & Support",
+        desc: "Suivi régulier, mises à jour de sécurité, sauvegardes automatiques et assistance technique réactive.",
+        link: "/services/maintenance-support",
       },
     ],
-    processTitle: 'Notre process de collaboration',
+    processTitle: "Notre process de collaboration",
     processSubtitle:
-      'Une méthodologie éprouvée pour livrer votre projet dans les meilleures conditions.',
+      "Une méthodologie éprouvée pour livrer votre projet dans les meilleures conditions.",
     processSteps: [
       {
-        step: '01',
-        title: 'Audit & Découverte',
-        desc: 'Analyse de vos besoins, de votre marché et de la concurrence à Caluire.',
+        step: "01",
+        title: "Audit & Découverte",
+        desc: "Analyse de vos besoins, de votre marché et de la concurrence à Caluire.",
       },
       {
-        step: '02',
-        title: 'Développement',
-        desc: 'Codage propre et performant respectant les standards (React, Next.js).',
+        step: "02",
+        title: "Développement",
+        desc: "Codage propre et performant respectant les standards (React, Next.js).",
       },
       {
-        step: '03',
-        title: 'Recette & Optimisation',
-        desc: 'Tests complets, vérification SEO, performance et compatibilité mobile.',
+        step: "03",
+        title: "Recette & Optimisation",
+        desc: "Tests complets, vérification SEO, performance et compatibilité mobile.",
       },
       {
-        step: '04',
-        title: 'Mise en ligne',
-        desc: 'Déploiement sécurisé, formation à l’administration et suivi.',
+        step: "04",
+        title: "Mise en ligne",
+        desc: "Déploiement sécurisé, formation à l’administration et suivi.",
       },
     ],
-    ctaTitle: 'Prêt à lancer votre projet web à Caluire ?',
+    ctaTitle: "Prêt à lancer votre projet web à Caluire ?",
     ctaSubtitle:
-      'Obtenez un devis détaillé gratuitement sous 24h et démarrez votre transformation digitale.',
-    ctaBtn1: 'Devis Gratuit',
-    ctaBtn2: 'Me contacter',
-    learnMore: 'En savoir plus',
-    pricingTitle: 'Tarification Transparente',
-    pricingSubtitle: 'Des offres claires adaptées à chaque type de projet à Caluire.',
-    pricingCta: 'Demander un devis',
-    pricingPopular: 'Populaire',
+      "Obtenez un devis détaillé gratuitement sous 24h et démarrez votre transformation digitale.",
+    ctaBtn1: "Devis Gratuit",
+    ctaBtn2: "Me contacter",
+    learnMore: "En savoir plus",
+    pricingTitle: "Tarification Transparente",
+    pricingSubtitle:
+      "Des offres claires adaptées à chaque type de projet à Caluire.",
+    pricingCta: "Demander un devis",
+    pricingPopular: "Populaire",
     pricingTiers: [
       {
-        name: 'Vitrine',
-        price: '890€ TTC',
-        timeline: '5 jours ouvrés',
+        name: "Vitrine",
+        price: "890€ TTC",
+        timeline: "5 jours ouvrés",
         features: [
-          'Site 1 page Next.js — rapide & moderne',
-          'Design responsive (mobile, tablette, desktop)',
-          'Formulaire de contact intégré',
-          'SEO de base + RGPD inclus',
-          'Certificat SSL + mise en ligne',
-          'Livraison en 5 jours ouvrés',
+          "Site 1 page Next.js — rapide & moderne",
+          "Design responsive (mobile, tablette, desktop)",
+          "Formulaire de contact intégré",
+          "SEO de base + RGPD inclus",
+          "Certificat SSL + mise en ligne",
+          "Livraison en 5 jours ouvrés",
         ],
       },
       {
-        name: 'Pro',
-        price: '1 890€ TTC',
-        timeline: '10 jours ouvrés',
+        name: "Pro",
+        price: "1 890€ TTC",
+        timeline: "10 jours ouvrés",
         features: [
-          'Site 3 à 5 pages (Accueil, Services, À propos, Contact, Blog)',
-          'Rédaction des contenus sur-mesure',
-          'SEO avancé + Google Business Profile',
-          'Google Search Console',
-          'RGPD complet (mentions légales, cookies)',
-          'Livraison en 10 jours ouvrés',
+          "Site 3 à 5 pages (Accueil, Services, À propos, Contact, Blog)",
+          "Rédaction des contenus sur-mesure",
+          "SEO avancé + Google Business Profile",
+          "Google Search Console",
+          "RGPD complet (mentions légales, cookies)",
+          "Livraison en 10 jours ouvrés",
         ],
         featured: true,
       },
       {
-        name: 'Business',
-        price: 'à partir de 2 990€ TTC',
-        timeline: 'Sur devis',
+        name: "Business",
+        price: "Sur devis",
+        timeline: "Sur devis",
         features: [
-          'Site 6+ pages, blog ou boutique en ligne',
-          'Développement sur-mesure (réservation, paiement, espace client…)',
-          'Stratégie SEO complète + Google Search Console',
-          'RGPD complet (CGV, politique de confidentialité)',
-          'Formation 1h + 1 mois de support inclus',
-          'Délai et prix définis ensemble selon le projet',
+          "Site 6+ pages, blog ou boutique en ligne",
+          "Développement sur-mesure (réservation, paiement, espace client…)",
+          "Stratégie SEO complète + Google Search Console",
+          "RGPD complet (CGV, politique de confidentialité)",
+          "Formation 1h + 1 mois de support inclus",
+          "Délai et prix définis ensemble selon le projet",
         ],
       },
     ],
-  }
+  };
 }

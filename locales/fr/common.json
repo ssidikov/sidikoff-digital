@@ -50,42 +50,27 @@
     "web_creation": {
       "title": "Création de sites web sur mesure",
       "subtitle": "Création de Sites Web – De A à Z",
-      "features": [
-        "Sur mesure",
-        "Responsive"
-      ],
+      "features": ["Sur mesure", "Responsive"],
       "description": "Transformez votre vision en réalité digitale avec notre expertise complète en développement web. Nous créons des sites web modernes, rapides et optimisés pour le référencement Google. De la conception UX/UI à la mise en ligne, chaque projet est développé sur mesure avec les dernières technologies (React, Next.js, Tailwind CSS). Obtenez un site professionnel qui convertit vos visiteurs en clients et booste votre chiffre d'affaires dès le premier mois."
     },
     "web_redesign": {
       "title": "Refonte et redesign de sites web",
-      "features": [
-        "Modernisation",
-        "UX/UI"
-      ],
+      "features": ["Modernisation", "UX/UI"],
       "description": "Votre site web actuel ne génère pas assez de ventes ? Notre service de refonte transforme votre présence en ligne en machine à convertir. Nous analysons votre taux de conversion, optimisons l'expérience utilisateur et modernisons le design pour doubler vos résultats. Interface mobile-first, vitesse de chargement optimisée, parcours utilisateur fluide - tout est pensé pour maximiser vos revenus et réduire le taux de rebond de 40%."
     },
     "seo_optimization": {
       "title": "Optimisation SEO et référencement",
-      "features": [
-        "Google Ready",
-        "Analytics"
-      ],
+      "features": ["Google Ready", "Analytics"],
       "description": "Dominez la première page Google et multipliez votre trafic organique par 5 en 6 mois. Notre stratégie SEO complète inclut : audit technique approfondi, optimisation on-page, création de contenu optimisé, netlinking de qualité et suivi des performances. Nous ciblons les mots-clés rentables de votre secteur pour attirer des prospects qualifiés."
     },
     "maintenance": {
       "title": "Maintenance et Support",
-      "features": [
-        "Support",
-        "Mises à jour"
-      ],
+      "features": ["Support", "Mises à jour"],
       "description": "Protégez votre investissement digital avec notre service de maintenance premium. Sécurité renforcée, sauvegardes automatiques, mises à jour régulières, monitoring 24/7 et support prioritaire. Nous garantissons 99.9% de disponibilité et un temps de réponse inférieur à 2h. Évitez les pannes coûteuses et concentrez-vous sur votre business pendant que nous maintenons votre site en parfait état de fonctionnement."
     },
     "restaurant": {
       "title": "Sites Web pour Restaurants",
-      "features": [
-        "Réservations",
-        "Menu Digital"
-      ],
+      "features": ["Réservations", "Menu Digital"],
       "description": "Transformez votre restaurant avec un site web qui génère des réservations 24h/7j. Menu digital attractif, système de réservation en ligne, commandes à emporter, intégration Google Maps - tout ce dont votre restaurant a besoin pour attirer plus de clients et augmenter le chiffre d'affaires. Solution complète avec formation incluse."
     },
     "cta_banner": {
@@ -520,7 +505,7 @@
       },
       "business": {
         "name": "Business",
-        "price": "à partir de 2 990€ TTC",
+        "price": "Sur devis",
         "description": "Un projet sur-mesure : site étendu, réservation en ligne, paiement, espace client.",
         "features": [
           "Site 6+ pages avec fonctionnalités avancées (réservation, paiement Stripe, espace client)",
@@ -649,7 +634,7 @@
             "name": "Site E-commerce / Sur mesure",
             "description": "Pour vendre en ligne, gérer les réservations, espaces clients ou fonctionnalités spécifiques",
             "best_for": "Boutiques en ligne, restaurants avec réservation, centres de formation, services SaaS",
-            "plan_recommendation": "Plan Business (à partir de 2 990€ TTC)",
+            "plan_recommendation": "Plan Business (Sur devis)",
             "maintenance": "Maintenance Performance (299€/mois) indispensable pour la sécurité des paiements et optimisations continues",
             "why_important": "Les sites e-commerce nécessitent une surveillance constante, mises à jour sécurité et optimisations conversion"
           }
@@ -1680,19 +1665,13 @@
           "name": "Pâtisserie Gourmande",
           "type": "Site E-commerce",
           "image": "patisserie-gourmande.webp",
-          "results": [
-            "+80% commandes en ligne",
-            "+25% chiffre d'affaires"
-          ]
+          "results": ["+80% commandes en ligne", "+25% chiffre d'affaires"]
         },
         {
           "name": "Au Pain Doré",
           "type": "Site Multilingue",
           "image": "pain-dore.webp",
-          "results": [
-            "Clientèle internationale",
-            "+50% réservations"
-          ]
+          "results": ["Clientèle internationale", "+50% réservations"]
         }
       ]
     },
@@ -1935,28 +1914,19 @@
           "name": "Barbershop Vintage",
           "type": "Site Vitrine",
           "image": "barbershop-vintage.webp",
-          "results": [
-            "+70% réservations en ligne",
-            "+45% nouveaux clients"
-          ]
+          "results": ["+70% réservations en ligne", "+45% nouveaux clients"]
         },
         {
           "name": "Urban Cuts",
           "type": "Site avec E-booking",
           "image": "urban-cuts.webp",
-          "results": [
-            "+85% taux de réservation",
-            "+30% chiffre d'affaires"
-          ]
+          "results": ["+85% taux de réservation", "+30% chiffre d'affaires"]
         },
         {
           "name": "Classic Barber",
           "type": "Site Multilingue",
           "image": "classic-barber.webp",
-          "results": [
-            "Clientèle internationale",
-            "+60% visibilité Google"
-          ]
+          "results": ["Clientèle internationale", "+60% visibilité Google"]
         }
       ]
     },
@@ -2206,28 +2176,19 @@
           "name": "Sarah Développeuse",
           "type": "Portfolio + Blog",
           "image": "developer-freelance.webp",
-          "results": [
-            "+150% demandes de projets",
-            "+80% taux de conversion"
-          ]
+          "results": ["+150% demandes de projets", "+80% taux de conversion"]
         },
         {
           "name": "Marc Consultant",
           "type": "Site Vitrine + Booking",
           "image": "consultant-freelance.webp",
-          "results": [
-            "+200% consultations",
-            "+60% tarifs pratiqués"
-          ]
+          "results": ["+200% consultations", "+60% tarifs pratiqués"]
         },
         {
           "name": "Julie Photographe",
           "type": "Portfolio Créatif",
           "image": "photographer-freelance.webp",
-          "results": [
-            "+300% visibilité Instagram",
-            "+45% réservations shoots"
-          ]
+          "results": ["+300% visibilité Instagram", "+45% réservations shoots"]
         }
       ]
     },
@@ -2476,28 +2437,19 @@
           "name": "Studio Marie Photographe",
           "type": "Portfolio Mariage + Blog",
           "image": "photographer-wedding.webp",
-          "results": [
-            "+200% demandes de devis",
-            "+85% taux de conversion"
-          ]
+          "results": ["+200% demandes de devis", "+85% taux de conversion"]
         },
         {
           "name": "David Photos Corporate",
           "type": "Site Vitrine + Galerie",
           "image": "photographer-wedding-portfolio.webp",
-          "results": [
-            "+150% clients entreprises",
-            "+70% tarifs pratiqués"
-          ]
+          "results": ["+150% clients entreprises", "+70% tarifs pratiqués"]
         },
         {
           "name": "Clara Art Photography",
           "type": "Portfolio Artistique",
           "image": "photographer-artistic.webp",
-          "results": [
-            "+300% ventes tirages",
-            "+120% abonnés Instagram"
-          ]
+          "results": ["+300% ventes tirages", "+120% abonnés Instagram"]
         }
       ]
     },
@@ -2820,10 +2772,7 @@
           "name": "Dr. Martin Généraliste",
           "type": "Cabinet Médecine Générale",
           "image": "doctor-general-practice.webp",
-          "results": [
-            "+200% rendez-vous en ligne",
-            "+85% nouveaux patients"
-          ]
+          "results": ["+200% rendez-vous en ligne", "+85% nouveaux patients"]
         },
         {
           "name": "Cabinet Dentaire Sourire",
@@ -3098,28 +3047,19 @@
           "name": "Boutique Mode Parisienne",
           "type": "Fashion E-commerce",
           "image": "ecommerce-fashion-boutique.webp",
-          "results": [
-            "+300% ventes en ligne",
-            "+180% taux de conversion"
-          ]
+          "results": ["+300% ventes en ligne", "+180% taux de conversion"]
         },
         {
           "name": "Marketplace Artisans Local",
           "type": "Multi-vendeurs Marketplace",
           "image": "ecommerce-marketplace-artisans.webp",
-          "results": [
-            "20+ vendeurs actifs",
-            "+250% GMV mensuel"
-          ]
+          "results": ["20+ vendeurs actifs", "+250% GMV mensuel"]
         },
         {
           "name": "Magasin Bio & Naturel",
           "type": "E-commerce Alimentaire",
           "image": "ecommerce-organic-store.webp",
-          "results": [
-            "+200% commandes en ligne",
-            "+150% panier moyen"
-          ]
+          "results": ["+200% commandes en ligne", "+150% panier moyen"]
         }
       ]
     },
