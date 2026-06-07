@@ -13,8 +13,15 @@ export default function BlogIndexContent() {
   return (
     <main className='min-h-screen overflow-hidden bg-[#F9F7F7] text-[#112D4E]'>
       <section className='relative pt-32 pb-16 lg:pt-36 lg:pb-24'>
-        <div className='absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(51,119,255,0.08),transparent_28%),radial-gradient(circle_at_82%_10%,rgba(17,45,78,0.05),transparent_26%)]' />
-        <div className='absolute inset-0 opacity-[0.04] [background-image:linear-gradient(#0f172a_1px,transparent_1px),linear-gradient(90deg,#0f172a_1px,transparent_1px)] [background-size:56px_56px]' />
+        <div
+          className='absolute inset-0'
+          style={{
+            backgroundImage: 'linear-gradient(165deg, #F8FAFC 18%, #EBF2FF 50%, #FFFAE6 82%)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
 
         <div className='relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
           <div className='mb-10 grid gap-8 lg:mb-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-end'>

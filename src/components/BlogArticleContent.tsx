@@ -20,8 +20,15 @@ export default function BlogArticleContent({ post }: { post: BlogPost }) {
     <main className='min-h-screen overflow-hidden bg-[#F9F7F7] text-[#112D4E]'>
       <article>
         <section className='relative pt-28 pb-12 lg:pt-36 lg:pb-20'>
-          <div className='absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(51,119,255,0.08),transparent_28%),radial-gradient(circle_at_82%_6%,rgba(17,45,78,0.05),transparent_24%)]' />
-          <div className='absolute inset-0 opacity-[0.04] [background-image:linear-gradient(#0f172a_1px,transparent_1px),linear-gradient(90deg,#0f172a_1px,transparent_1px)] [background-size:54px_54px]' />
+          <div
+            className='absolute inset-0'
+            style={{
+              backgroundImage: 'linear-gradient(165deg, #F8FAFC 18%, #EBF2FF 50%, #FFFAE6 82%)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+            }}
+          />
 
           <div className='relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
             <Link
