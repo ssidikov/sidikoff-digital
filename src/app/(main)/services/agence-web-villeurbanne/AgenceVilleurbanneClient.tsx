@@ -4,21 +4,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowUpRight, Code2, Globe, Sparkles, CheckSquare } from 'lucide-react'
 import Link from 'next/link'
-import { Limelight, JetBrains_Mono } from 'next/font/google'
-
-// Font configurations
-const limelight = Limelight({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-})
-
-const jetbrainsMono = JetBrains_Mono({
-  weight: ['400', '700', '800'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-jetbrains-mono',
-})
+import { FAQAccordion } from '@/components/FAQAccordion'
+import CTAButton from '@/components/ui/CTAButton'
 
 const fadeIn = {
   initial: { opacity: 0, y: 24 },
@@ -35,151 +22,228 @@ const staggerContainer = {
 }
 
 export default function AgenceVilleurbanneClient() {
+  const faqItems = [
+    {
+      id: '1',
+      question: 'Quel est le coût d’un site internet à Villeurbanne ?',
+      answer:
+        'Un site vitrine professionnel à Villeurbanne démarre à 890€ TTC, livré en 5 à 7 jours ouvrés. Un site multi-pages (3 à 5 pages) est proposé à 1 290€, idéal pour les commerces de Gratte-Ciel, Charpennes et Cusset. Un e-commerce complet démarre à 1 990€ avec gestion des stocks et paiement sécurisé. Devis gratuit sous 24h, sans frais cachés.',
+      category: 'pricing',
+    },
+    {
+      id: '2',
+      question: 'Combien de temps pour livrer un site web à Villeurbanne ?',
+      answer:
+        'Entre 5 et 7 jours ouvrés for un site vitrine standard, 10 à 14 jours pour un site multi-pages. Les e-commerces et applications sur mesure prennent 4 à 8 semaines selon la complexité. Nous proposons aussi un service express. Les délais sont garantis par contrat et un planning détaillé est remis dès la validation du devis.',
+      category: 'timing',
+    },
+    {
+      id: '3',
+      question: 'Votre agence web de Villeurbanne fait-elle du SEO local ?',
+      answer:
+        'Oui, le SEO local est au cœur de notre méthode. Nous optimisons chaque page pour les recherches géolocalisées (Villeurbanne, Gratte-Ciel, Charpennes, Grand Lyon), configurons votre fiche Google Business Profile et créons du contenu ancré localement pour un positionnement durable. Nos sites Next.js obtiennent systématiquement des scores Lighthouse > 95 — un avantage SEO direct face aux concurrents.',
+      category: 'seo',
+    },
+    {
+      id: '4',
+      question: 'Utilisez-vous des technologies modernes comme Next.js ?',
+      answer:
+        'Oui, Next.js est notre framework principal pour tous les projets professionnels. Il garantit des scores Lighthouse 95+, un chargement en moins d’une seconde (LCP < 2,5s), une sécurité renforcée et un excellent SEO natif. Nous utilisons aussi React, TypeScript, Tailwind CSS et des CMS headless (Sanity, Strapi) pour vous rendre autonome dans la gestion du contenu.',
+      category: 'tech',
+    },
+    {
+      id: '5',
+      question: 'Puis-je mettre à jour mon site sans compétences techniques ?',
+      answer:
+        'Oui, tous nos sites sont livrés avec un back-office intuitif ou un CMS (Sanity, WordPress headless). Vous gérez textes, images et articles de blog en totale autonomie. Une formation complète de 1 à 2h est incluse dans chaque livraison. Si vous préférez déléguer, nos forfaits maintenance (dès 49€/mois) prennent en charge toutes les mises à jour.',
+      category: 'tech',
+    },
+    {
+      id: '6',
+      question: 'Proposez-vous un suivi après la mise en ligne ?',
+      answer:
+        'Absolument. Nous proposons des contrats de maintenance mensuelle : mises à jour de sécurité, sauvegardes quotidiennes, monitoring 24/7, support réactif et petites évolutions incluses. Vous avez un interlocuteur unique basé à Villeurbanne, disponible rapidement pour toute intervention.',
+      category: 'maintenance',
+    },
+    {
+      id: '7',
+      question: 'Proposez-vous des services de développeur web freelance à Villeurbanne ?',
+      answer:
+        'Oui. En tant que développeur web freelance basé à Villeurbanne, nous intervenons directement chez vous ou à distance : création de site, refonte, intégration d’API, migration Next.js ou développement de fonctionnalités spécifiques. Nous offrons la flexibilité d’un freelance avec les ressources d’une agence structurée.',
+      category: 'freelance',
+    },
+    {
+      id: '8',
+      question: 'Faites-vous de la refonte de site web à Villeurbanne ?',
+      answer:
+        'Oui, la refonte de site web est l’un de nos services phares à Villeurbanne. Nous migrons vos anciens sites (WordPress, Wix, Squarespace) vers Next.js pour un gain de performance immédiat : chargement plus rapide, meilleur SEO, design modernisé et code maintenable. Chaque refonte inclut un audit technique préalable et une stratégie SEO de reconversion.',
+      category: 'redesign',
+    },
+  ]
+
   return (
     <div
-      className={`relative min-h-screen bg-[#FFFFFF] text-[#111827] selection:bg-[#3B82F6] selection:text-white pt-28 pb-16 font-sans overflow-x-hidden ${jetbrainsMono.variable}`}>
-      {/* Decorative Grid - replaces blurred orbs */}
+      className="relative min-h-screen bg-[#F9F7F7] text-[#112D4E] selection:bg-[#3377FF] selection:text-white pt-32 pb-20 font-sans overflow-x-hidden"
+      style={{
+        backgroundImage: 'linear-gradient(225deg, #FDF2F8 5%, #EBF2FF 30%, #F9F7F7 70%, #F0F9FF 95%)',
+        backgroundSize: 'cover',
+      }}
+    >
+      {/* Subtle Background Pattern */}
       <div
-        className='absolute inset-0 pointer-events-none opacity-[0.04]'
+        className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{
           backgroundImage:
-            'linear-gradient(#111827 1px, transparent 1px), linear-gradient(90deg, #111827 1px, transparent 1px)',
+            'linear-gradient(#112D4E 1px, transparent 1px), linear-gradient(90deg, #112D4E 1px, transparent 1px)',
           backgroundSize: '32px 32px',
         }}
       />
 
-      {/* Top Banner (Marquee style representation) */}
-      <div className='w-full border-y-4 border-[#111827] bg-[#8B5CF6] text-white py-3 overflow-hidden mb-8 md:mb-16'>
-        <div className='flex w-full whitespace-nowrap overflow-hidden items-center justify-center'>
-          <p className={`${jetbrainsMono.className} text-sm font-bold uppercase tracking-widest`}>
-            — Agence web Villeurbanne — Gratte-ciel, Charpennes, Cusset, La Doua, Création de site
-            internet & SEO —
+      {/* Top Banner Ticker */}
+      <div className="w-full border-y border-[#3377FF]/20 bg-[#3377FF]/5 text-[#3377FF] py-3.5 overflow-hidden mb-12 md:mb-20">
+        <div className="flex w-full whitespace-nowrap overflow-hidden items-center justify-center">
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest">
+            — Agence web Villeurbanne — Gratte-ciel, Charpennes, Cusset, La Doua, Création de site internet & SEO —
           </p>
         </div>
       </div>
 
       {/* Hero Section */}
-      <section className='relative z-10 px-6 lg:px-12 max-w-7xl mx-auto flex flex-col items-center text-center'>
+      <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className={`inline-flex items-center gap-3 px-6 py-2 border-[3px] border-[#111827] shadow-[4px_4px_0px_#3B82F6] bg-white mb-12`}>
-          <div className='w-3 h-3 bg-[#16A34A] border-2 border-[#111827]' />
-          <span
-            className={`${jetbrainsMono.className} text-sm uppercase font-bold tracking-tight text-[#111827]`}>
+          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#3377FF]/35 bg-[#3377FF]/8 shadow-sm mb-10"
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span className="text-xs uppercase font-semibold tracking-wider text-[#3377FF]">
             Disponible pour projets
           </span>
         </motion.div>
 
         <motion.h1
-          className={`${limelight.className} text-5xl md:text-7xl lg:text-8xl tracking-tight mb-8 text-[#111827] max-w-5xl leading-none`}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}>
+          className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 text-[#112D4E] max-w-5xl leading-[1.1] uppercase"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           AGENCE WEB VILLEURBANNE
           <br />
-          <span className='text-[#3B82F6] block mt-4'>
-            — CRÉATION SITE INTERNET & SEO VILLEURBANNE
+          <span className="text-[#3377FF] block mt-3 text-3xl md:text-5xl lg:text-6xl italic font-semibold tracking-normal lowercase">
+            — création site internet & seo villeurbanne
           </span>
         </motion.h1>
 
         <motion.p
-          className='text-xl md:text-2xl text-[#111827] max-w-3xl mx-auto mb-16 font-medium leading-relaxed border-l-4 border-[#3B82F6] pl-6 text-left'
+          className="text-lg md:text-xl text-[#112D4E]/85 max-w-3xl mx-auto mb-12 leading-relaxed border-l-2 border-[#3377FF] pl-6 text-left font-light"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}>
-          Propulsez votre visibilité en ligne avec une esthétique radicale. Nous concevons des
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          Propulsez votre visibilité en ligne avec une esthétique moderne. Nous concevons des
           plateformes web sur-mesure pour les entreprises locales, des boutiques en ligne
           performantes et déployons une stratégie SEO Villeurbanne implacable.
         </motion.p>
 
         <motion.div
-          className='flex flex-col sm:flex-row gap-6 w-full sm:w-auto mt-4'
+          className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto items-center justify-center mt-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}>
-          <Link
-            href='/contact'
-            className={`group relative px-10 py-5 bg-[#3B82F6] text-white border-4 border-[#111827] shadow-[8px_8px_0px_#111827] hover:shadow-[2px_2px_0px_#111827] hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-200 active:shadow-none active:translate-x-[8px] active:translate-y-[8px]`}>
-            <span
-              className={`${jetbrainsMono.className} font-bold uppercase text-lg flex items-center gap-3`}>
-              Démarrer le projet
-              <ArrowUpRight className='w-6 h-6 border-2 border-white rounded-full p-1' />
-            </span>
-          </Link>
-          <Link
-            href='#expertise'
-            className={`group px-10 py-5 bg-white text-[#111827] border-4 border-[#111827] shadow-[8px_8px_0px_transparent] hover:shadow-[8px_8px_0px_#8B5CF6] hover:-translate-x-1 hover:-translate-y-1 transition-all duration-200`}>
-            <span className={`${jetbrainsMono.className} font-bold uppercase text-lg`}>
-              Explorer
-            </span>
-          </Link>
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <CTAButton
+            href="/contact"
+            variant="primary"
+            size="md"
+            className="w-full sm:w-auto"
+            trackingAction="click_primary_cta"
+            trackingCategory="villeurbanne_hero"
+          >
+            Démarrer le projet
+            <ArrowUpRight className="w-5 h-5 ml-2 shrink-0" />
+          </CTAButton>
+          <CTAButton
+            href="#expertise"
+            variant="secondary"
+            size="md"
+            className="w-full sm:w-auto"
+            trackingAction="click_secondary_cta"
+            trackingCategory="villeurbanne_hero"
+          >
+            Explorer notre expertise
+          </CTAButton>
         </motion.div>
 
         {/* Freshness & Author Attribution */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.4 }}
-          transition={{ delay: 0.8 }}
-          className='mt-12 flex flex-col items-center gap-2'>
-          <p className={`${jetbrainsMono.className} text-[10px] uppercase font-bold`}>
-            Par <span rel='author'>Sardorbek Sidikov</span> — Sidikoff Digital
+          animate={{ opacity: 0.5 }}
+          transition={{ delay: 0.6 }}
+          className="mt-12 flex flex-col items-center gap-1.5 text-[11px] uppercase tracking-wider font-medium text-[#112D4E]/70"
+        >
+          <p>
+            Par <span rel="author" className="font-semibold">Sardorbek Sidikov</span> — Sidikoff Digital
           </p>
-          <p className={`${jetbrainsMono.className} text-[10px] uppercase`}>
+          <p>
             Mis à jour le 12 May 2026
           </p>
         </motion.div>
       </section>
 
-      {/* Brutalist Divider */}
-      <div className='w-full border-t-4 border-[#111827] my-32'></div>
+      {/* Subtle Divider */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-20 md:my-28">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#112D4E]/10 to-transparent w-full" />
+      </div>
 
       {/* Expertise Section */}
-      <section id='expertise' className='relative z-10 px-6 lg:px-12 max-w-7xl mx-auto'>
+      <section id="expertise" className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-28">
         <motion.div
-          initial='initial'
-          whileInView='animate'
+          initial="initial"
+          whileInView="animate"
           viewport={{ once: true, margin: '-100px' }}
           variants={fadeIn}
-          className='mb-16 flex flex-col md:flex-row justify-between items-end gap-6'>
-          <div>
-            <span
-              className={`${jetbrainsMono.className} text-[#3B82F6] font-bold text-xl uppercase mb-4 block`}>
-              [01] Notre Expertise
-            </span>
-            <h2
-              className={`${limelight.className} text-5xl md:text-7xl mb-4 text-[#111827] !leading-[1.1]`}>
-              LES COMPÉTENCES DE NOTRE CABINET
-            </h2>
-          </div>
+          className="mb-14"
+        >
+          <span className="text-[#3377FF] font-semibold text-sm tracking-wider uppercase mb-3 block">
+            [01] Notre Expertise
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold text-[#112D4E] uppercase tracking-tight">
+            LES COMPÉTENCES DE NOTRE CABINET
+          </h2>
         </motion.div>
 
         <motion.div
           variants={staggerContainer}
-          initial='initial'
-          whileInView='animate'
+          initial="initial"
+          whileInView="animate"
           viewport={{ once: true }}
-          className='grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12'>
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+        >
           {/* Card 1 */}
           <motion.div
             variants={fadeIn}
-            className='bg-white border-4 border-[#111827] shadow-[12px_12px_0px_#111827] p-8 flex flex-col relative group transition-transform hover:-translate-y-2'>
-            <div className='absolute top-0 right-0 w-24 h-24 bg-[#D97706] border-b-4 border-l-4 border-[#111827] flex items-center justify-center -mt-4 -mr-4'>
-              <Globe className='text-[#111827] w-10 h-10' />
+            className="bg-white border border-slate-200/80 rounded-2xl shadow-xl shadow-slate-100/50 p-8 flex flex-col relative group transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-bl-full flex items-start justify-end p-6">
+              <Globe className="text-amber-600 w-7 h-7" />
             </div>
-            <span className={`${jetbrainsMono.className} text-4xl font-bold opacity-20 block mb-8`}>
+            <span className="text-4xl font-extrabold text-slate-200 block mb-6">
               01
             </span>
-            <h3 className={`${limelight.className} text-3xl mb-6 tracking-wide`}>CRÉATION WEB</h3>
-            <p className='text-[#111827] font-medium leading-relaxed mb-8 flex-grow'>
-              Plateformes vitrines radicales, e-commerce immersifs. Coder avec intégrité pour une
+            <h3 className="text-2xl font-bold mb-4 text-[#112D4E] uppercase tracking-wide">CRÉATION WEB</h3>
+            <p className="text-[#112D4E]/80 font-normal leading-relaxed mb-8 flex-grow">
+              Plateformes vitrines modernes, e-commerce immersifs. Coder avec intégrité pour une
               conversion maximale.
             </p>
-            <div className='flex gap-2 flex-wrap'>
+            <div className="flex gap-2 flex-wrap">
               {['NEXT.JS', 'TAILWIND', 'SHOPIFY'].map((tag) => (
                 <span
                   key={tag}
-                  className={`${jetbrainsMono.className} px-3 py-1 bg-[#111827] text-white text-xs font-bold uppercase`}>
+                  className="px-2.5 py-1 bg-slate-100 text-slate-700 text-[10px] font-bold uppercase rounded-md tracking-wider"
+                >
                   {tag}
                 </span>
               ))}
@@ -189,23 +253,25 @@ export default function AgenceVilleurbanneClient() {
           {/* Card 2 */}
           <motion.div
             variants={fadeIn}
-            className='bg-[#111827] text-white border-4 border-[#111827] shadow-[12px_12px_0px_#3B82F6] p-8 flex flex-col relative group transition-transform hover:-translate-y-2'>
-            <div className='absolute top-0 right-0 w-24 h-24 bg-[#3B82F6] border-b-4 border-l-4 border-[#111827] flex items-center justify-center -mt-4 -mr-4'>
-              <Code2 className='text-[#111827] w-10 h-10' />
+            className="bg-gradient-to-br from-[#112D4E] to-[#1e3e6b] text-white rounded-2xl shadow-2xl p-8 flex flex-col relative group transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#3377FF]/25 to-transparent rounded-bl-full flex items-start justify-end p-6">
+              <Code2 className="text-[#3377FF] w-7 h-7" />
             </div>
-            <span className={`${jetbrainsMono.className} text-4xl font-bold opacity-20 block mb-8`}>
+            <span className="text-4xl font-extrabold text-white/10 block mb-6">
               02
             </span>
-            <h3 className={`${limelight.className} text-3xl mb-6 tracking-wide`}>GÉNIE LOGICIEL</h3>
-            <p className='text-white/80 font-medium leading-relaxed mb-8 flex-grow'>
+            <h3 className="text-2xl font-bold mb-4 text-white uppercase tracking-wide">GÉNIE LOGICIEL</h3>
+            <p className="text-white/80 font-normal leading-relaxed mb-8 flex-grow">
               Automatisation et conception d&apos;ERP/CRM sur-mesure. Intégration IA pour optimiser
               la logistique interne.
             </p>
-            <div className='flex gap-2 flex-wrap'>
+            <div className="flex gap-2 flex-wrap">
               {['REACT', 'NODE', 'PYTHON'].map((tag) => (
                 <span
                   key={tag}
-                  className={`${jetbrainsMono.className} px-3 py-1 bg-white text-[#111827] text-xs font-bold uppercase border-2 border-[#111827]`}>
+                  className="px-2.5 py-1 bg-white/10 text-white/90 border border-white/10 text-[10px] font-bold uppercase rounded-md tracking-wider"
+                >
                   {tag}
                 </span>
               ))}
@@ -215,26 +281,25 @@ export default function AgenceVilleurbanneClient() {
           {/* Card 3 */}
           <motion.div
             variants={fadeIn}
-            className='bg-[#8B5CF6] text-white border-4 border-[#111827] shadow-[12px_12px_0px_#111827] p-8 flex flex-col relative group transition-transform hover:-translate-y-2'>
-            <div className='absolute top-0 right-0 w-24 h-24 bg-[#FFFFFF] border-b-4 border-l-4 border-[#111827] flex items-center justify-center -mt-4 -mr-4'>
-              <Sparkles className='text-[#111827] w-10 h-10' />
+            className="bg-white border border-slate-200/80 rounded-2xl shadow-xl shadow-slate-100/50 p-8 flex flex-col relative group transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-bl-full flex items-start justify-end p-6">
+              <Sparkles className="text-purple-600 w-7 h-7" />
             </div>
-            <span
-              className={`${jetbrainsMono.className} text-4xl font-bold opacity-30 block mb-8 text-[#111827]`}>
+            <span className="text-4xl font-extrabold text-slate-200 block mb-6">
               03
             </span>
-            <h3 className={`${limelight.className} text-3xl mb-6 text-[#111827] tracking-wide`}>
-              STRATÉGIE SEO
-            </h3>
-            <p className='text-[#111827] font-bold leading-relaxed mb-8 flex-grow'>
+            <h3 className="text-2xl font-bold mb-4 text-[#112D4E] uppercase tracking-wide">STRATÉGIE SEO</h3>
+            <p className="text-[#112D4E]/80 font-normal leading-relaxed mb-8 flex-grow">
               Classement organique de haut vol. Visibilité pérenne sur Google pour capter la
               clientèle du Grand Lyon.
             </p>
-            <div className='flex gap-2 flex-wrap'>
+            <div className="flex gap-2 flex-wrap">
               {['AUDIT', 'CONTENT', 'LOCAL'].map((tag) => (
                 <span
                   key={tag}
-                  className={`${jetbrainsMono.className} px-3 py-1 bg-[#111827] text-white text-xs font-bold uppercase`}>
+                  className="px-2.5 py-1 bg-slate-100 text-slate-700 text-[10px] font-bold uppercase rounded-md tracking-wider"
+                >
                   {tag}
                 </span>
               ))}
@@ -243,26 +308,28 @@ export default function AgenceVilleurbanneClient() {
         </motion.div>
       </section>
 
-      <div className='w-full border-t-4 border-[#111827] my-32'></div>
+      {/* Subtle Divider */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-20 md:my-28">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#112D4E]/10 to-transparent w-full" />
+      </div>
 
       {/* Local Process Section */}
-      <section className='relative z-10 px-6 lg:px-12 max-w-7xl mx-auto'>
-        <div className='flex flex-col lg:flex-row gap-16 items-start'>
+      <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className='flex-[1.5]'>
-            <span
-              className={`${jetbrainsMono.className} text-[#3B82F6] font-bold text-xl uppercase mb-4 block`}>
+            className="lg:col-span-7"
+          >
+            <span className="text-[#3377FF] font-semibold text-sm tracking-wider uppercase mb-3 block">
               [02] Pourquoi le local ?
             </span>
-            <h2
-              className={`${limelight.className} text-5xl md:text-6xl text-[#111827] mb-8 uppercase`}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#112D4E] mb-8 uppercase tracking-tight">
               L&apos;excellence à l&apos;échelle de votre territoire
             </h2>
-            <div className='space-y-4 font-medium text-lg text-[#111827]'>
+            <div className="space-y-4 font-normal text-base text-[#112D4E]/90">
               {[
                 'Consultation rapide sur Villeurbanne, Lyon et alentours.',
                 'Saisie optimale des enjeux de la concurrence régionale.',
@@ -271,9 +338,12 @@ export default function AgenceVilleurbanneClient() {
               ].map((text, i) => (
                 <div
                   key={i}
-                  className='flex gap-4 p-4 border-2 border-[#111827] bg-white shadow-[4px_4px_0px_#111827] items-center'>
-                  <CheckSquare className='w-6 h-6 text-[#16A34A] shrink-0' />
-                  <p>{text}</p>
+                  className="flex gap-4 p-4 border border-slate-200/80 bg-white/70 rounded-2xl shadow-sm hover:shadow-md transition-shadow items-center"
+                >
+                  <div className="h-7 w-7 rounded-full bg-emerald-50 flex items-center justify-center shrink-0">
+                    <CheckSquare className="w-4 h-4 text-emerald-600" />
+                  </div>
+                  <p className="font-medium text-foreground">{text}</p>
                 </div>
               ))}
             </div>
@@ -284,13 +354,13 @@ export default function AgenceVilleurbanneClient() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className='flex-1 w-full'>
-            <div className='border-4 border-[#111827] bg-[#DC2626] text-white shadow-[16px_16px_0px_#111827] p-10 flex flex-col'>
-              <h3
-                className={`${jetbrainsMono.className} text-2xl font-bold uppercase mb-8 border-b-2 border-white/30 pb-4`}>
+            className="lg:col-span-5 w-full"
+          >
+            <div className="bg-gradient-to-br from-[#112D4E] to-[#1d3d67] text-white rounded-2xl shadow-2xl p-8 lg:p-10 border border-white/10 flex flex-col">
+              <h3 className="text-xl font-bold uppercase mb-6 border-b border-white/15 pb-4 tracking-wider text-[#3377FF]">
                 PROTOCOLE DE PRODUCTION
               </h3>
-              <div className='space-y-0'>
+              <div className="space-y-0">
                 {[
                   { n: '01', t: 'Audit & Direction' },
                   { n: '02', t: 'Design UI/UX & Architecture' },
@@ -299,12 +369,12 @@ export default function AgenceVilleurbanneClient() {
                 ].map((step, i) => (
                   <div
                     key={i}
-                    className='flex border-b-2 border-[#111827]/10 py-6 last:border-0 group cursor-default'>
-                    <span
-                      className={`${jetbrainsMono.className} text-4xl font-bold text-[#111827] opacity-60 mr-6 group-hover:opacity-100 transition-opacity`}>
+                    className="flex border-b border-white/10 py-5 last:border-0 group cursor-default"
+                  >
+                    <span className="text-2xl font-bold text-[#3377FF]/80 mr-6 shrink-0">
                       {step.n}
                     </span>
-                    <p className={`${limelight.className} text-2xl tracking-wide self-center`}>
+                    <p className="text-lg font-medium text-white/95 self-center">
                       {step.t}
                     </p>
                   </div>
@@ -315,56 +385,60 @@ export default function AgenceVilleurbanneClient() {
         </div>
       </section>
 
+      {/* Subtle Divider */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-20 md:my-28">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#112D4E]/10 to-transparent w-full" />
+      </div>
+
       {/* Local Depth Section */}
-      <section className='relative z-10 px-6 lg:px-12 max-w-7xl mx-auto mt-8'>
+      <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-28">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className='mb-16'>
-          <span
-            className={`${jetbrainsMono.className} text-[#3B82F6] font-bold text-xl uppercase mb-4 block`}>
+          className="mb-14"
+        >
+          <span className="text-[#3377FF] font-semibold text-sm tracking-wider uppercase mb-3 block">
             [03] Contexte local
           </span>
-          <h2
-            className={`${limelight.className} text-5xl md:text-6xl text-[#111827] mb-12 uppercase`}>
+          <h2 className="text-3xl md:text-5xl font-bold text-[#112D4E] mb-10 uppercase tracking-tight">
             Pourquoi Villeurbanne ?
           </h2>
-          <div className='grid lg:grid-cols-2 gap-12 items-start'>
-            <div className='space-y-5 text-lg text-[#111827] font-medium leading-relaxed'>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            <div className="space-y-6 text-base md:text-lg text-[#112D4E]/85 font-light leading-relaxed">
               <p>
                 Villeurbanne est la{' '}
-                <strong>deuxième ville la plus peuplée de la région Auvergne-Rhône-Alpes</strong>,
+                <strong className="font-semibold text-foreground">deuxième ville la plus peuplée de la région Auvergne-Rhône-Alpes</strong>,
                 avec plus de 150 000 habitants et un tissu économique dense. Gratte-Ciel,
                 Charpennes, Cusset, La Doua : chaque quartier a ses propres dynamiques commerciales
                 et ses propres opportunités digitales.
               </p>
               <p>
                 Contrairement à Lyon intramuros où la concurrence digitale est saturée,{' '}
-                <strong>
+                <strong className="font-semibold text-foreground">
                   Villeurbanne offre des fenêtres de positionnement SEO local encore accessibles
                 </strong>{' '}
                 pour les PME, artisans et professions libérales. Une stratégie bien menée permet
-                d'apparaître en première position sur des requêtes comme « plombier Villeurbanne »,
+                d&apos;apparaître en première position sur des requêtes comme « plombier Villeurbanne »,
                 « coiffeur Charpennes » ou « agence immobilière Gratte-Ciel ».
               </p>
               <p>
                 Notre agence, basée à Villeurbanne et Lyon, connaît parfaitement ce marché. Nous
                 avons accompagné des commerces du Cours Émile Zola, des cabinets médicaux près de
-                l'Hôpital Desgenettes, des restaurants autour du Parc de la Feyssine et des
+                l&apos;Hôpital Desgenettes, des restaurants autour du Parc de la Feyssine et des
                 entreprises tech du quartier de La Doua. Cette expertise locale se traduit
                 concrètement dans nos maquettes, nos contenus et notre stratégie SEO.
               </p>
               <p>
                 En 2026, un site web professionnel à Villeurbanne est un{' '}
-                <strong>investissement rentable</strong> : nos clients constatent en moyenne une
+                <strong className="font-semibold text-foreground">investissement rentable</strong> : nos clients constatent en moyenne une
                 augmentation de 3 à 5× de leurs leads en ligne dans les 6 premiers mois suivant la
-                mise en ligne d'un site optimisé SEO.
+                mise en ligne d&apos;un site optimisé SEO.
               </p>
             </div>
-            <div className='space-y-4'>
-              <h3 className={`${jetbrainsMono.className} text-xl font-bold uppercase mb-6`}>
+            <div className="space-y-4">
+              <h3 className="text-base font-bold uppercase mb-6 tracking-widest text-[#3377FF]">
                 Pour qui travaillons-nous ?
               </h3>
               {[
@@ -396,16 +470,16 @@ export default function AgenceVilleurbanneClient() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className='flex gap-4 p-4 border-2 border-[#111827] bg-white shadow-[4px_4px_0px_#3B82F6]'>
-                  <span
-                    className={`${jetbrainsMono.className} text-[#3B82F6] font-bold text-xl flex-shrink-0`}>
+                  className="flex gap-4 p-5 border border-slate-200/80 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <span className="text-[#3377FF] font-bold text-lg flex-shrink-0">
                     {item.n}
                   </span>
                   <div>
-                    <p className={`${jetbrainsMono.className} font-bold text-sm uppercase mb-1`}>
+                    <p className="font-bold text-sm uppercase mb-1.5 text-foreground tracking-wide">
                       {item.t}
                     </p>
-                    <p className='text-[#111827] text-sm leading-relaxed'>{item.d}</p>
+                    <p className="text-[#112D4E]/80 text-sm leading-relaxed font-light">{item.d}</p>
                   </div>
                 </div>
               ))}
@@ -414,50 +488,56 @@ export default function AgenceVilleurbanneClient() {
         </motion.div>
       </section>
 
-      <div className='w-full border-t-4 border-[#111827] my-16'></div>
+      {/* Subtle Divider */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-20 md:my-28">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#112D4E]/10 to-transparent w-full" />
+      </div>
 
       {/* Consultant SEO Section */}
-      <section className='relative z-10 px-6 lg:px-12 max-w-7xl mx-auto'>
+      <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className='bg-[#111827] text-white border-4 border-[#111827] shadow-[16px_16px_0px_#3B82F6] p-8 md:p-16'>
-          <span
-            className={`${jetbrainsMono.className} text-[#3B82F6] font-bold text-xl uppercase mb-4 block`}>
+          className="bg-gradient-to-br from-[#112D4E] to-[#1c375b] text-white rounded-3xl shadow-2xl p-8 md:p-16 border border-white/10 relative overflow-hidden"
+        >
+          {/* Decorative design orbs in dark box */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#3377FF]/10 rounded-full blur-[100px] pointer-events-none" />
+
+          <span className="text-[#3377FF] font-semibold text-sm tracking-wider uppercase mb-3 block">
             [04] Audit & Accompagnement
           </span>
-          <h2 className={`${limelight.className} text-4xl md:text-5xl lg:text-6xl mb-8 uppercase`}>
+          <h2 className="text-3xl md:text-5xl font-bold mb-10 uppercase tracking-tight">
             Besoin d’un consultant SEO à Villeurbanne ?
           </h2>
-          <div className='grid md:grid-cols-2 gap-12'>
-            <div className='space-y-6 text-lg text-white/90 font-medium leading-relaxed'>
+          <div className="grid lg:grid-cols-2 gap-12 items-start relative z-10">
+            <div className="space-y-6 text-base md:text-lg text-white/80 font-light leading-relaxed">
               <p>
                 Avoir un site esthétique ne suffit plus dans le marché ultra-concurrentiel du Grand
-                Lyon. En tant que <strong>consultant SEO à Villeurbanne</strong>, notre rôle est
-                d'analyser votre visibilité en ligne, de comprendre les intentions de recherche de
-                vos futurs clients et d'optimiser chaque aspect technique de votre domaine. Le{' '}
-                <strong>SEO Villeurbanne</strong> est essentiel pour vous démarquer.
+                Lyon. En tant que <strong className="font-semibold text-white">consultant SEO à Villeurbanne</strong>, notre rôle est
+                d&apos;analyser votre visibilité en ligne, de comprendre les intentions de recherche de
+                vos futurs clients et d&apos;optimiser chaque aspect technique de votre domaine. Le{' '}
+                <strong className="font-semibold text-white">SEO Villeurbanne</strong> est essentiel pour vous démarquer.
               </p>
               <p>
-                Nous réalisons un <strong>audit SEO complet</strong> pour identifier les freins à
-                votre classement organique. Qu'il s'agisse de corriger des problèmes de performance,
-                d'optimiser vos balises H1, d'améliorer l'expérience utilisateur ou de concevoir une
-                architecture de contenu performante, nous posons les bases d'une croissance durable
+                Nous réalisons un <strong className="font-semibold text-white">audit SEO complet</strong> pour identifier les freins à
+                votre classement organique. Qu&apos;il s&apos;agisse de corriger des problèmes de performance,
+                d&apos;optimiser vos balises H1, d&apos;améliorer l&apos;expérience utilisateur ou de concevoir une
+                architecture de contenu performante, nous posons les bases d&apos;une croissance durable
                 pour des solutions web performantes. Notre expertise en{' '}
-                <strong>SEO Villeurbanne</strong> couvre tous les aspects on-page et off-page.
+                <strong className="font-semibold text-white">SEO Villeurbanne</strong> couvre tous les aspects on-page et off-page.
               </p>
               <p>
                 Chaque mois, nous monitorons vos positions sur des mots-clés stratégiques comme
-                "création site internet villeurbanne", "boutiques en ligne", "seo villeurbanne", ou
+                &quot;création site internet villeurbanne&quot;, &quot;boutiques en ligne&quot;, &quot;seo villeurbanne&quot;, ou
                 votre propre cœur de métier, en ajustant la stratégie pour vous permettre de
                 devancer vos concurrents locaux à Lyon, Bron et Villeurbanne. Devenez leader dans
-                votre secteur d'activité avec notre accompagnement en{' '}
-                <strong>SEO Villeurbanne</strong>.
+                votre secteur d&apos;activité avec notre accompagnement en{' '}
+                <strong className="font-semibold text-white">SEO Villeurbanne</strong>.
               </p>
             </div>
-            <div className='space-y-6'>
+            <div className="space-y-4 w-full">
               {[
                 {
                   title: 'Audit Technique SEO',
@@ -465,7 +545,7 @@ export default function AgenceVilleurbanneClient() {
                 },
                 {
                   title: 'Optimisation de Contenu',
-                  desc: 'Recherche de mots-clés (SEO local villeurbanne), rédaction sémantique et enrichissement.',
+                  desc: 'Recherche de mots-clés (SEO local villeurbanne), rédaction sémantique et référencement naturel.',
                 },
                 {
                   title: 'Netlinking & Autorité',
@@ -476,11 +556,11 @@ export default function AgenceVilleurbanneClient() {
                   desc: 'Optimisation maximale pour dominer le référencement local sur Google Maps à Villeurbanne.',
                 },
               ].map((item, idx) => (
-                <div key={idx} className='bg-white text-[#111827] border-2 border-[#111827] p-5'>
-                  <h4 className={`${jetbrainsMono.className} font-bold uppercase text-lg mb-2`}>
+                <div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm hover:bg-white/10 transition-colors">
+                  <h4 className="font-semibold text-[#3377FF] text-base uppercase mb-2 tracking-wide">
                     {item.title}
                   </h4>
-                  <p className='text-sm font-medium leading-relaxed'>{item.desc}</p>
+                  <p className="text-sm font-light text-white/80 leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -488,91 +568,55 @@ export default function AgenceVilleurbanneClient() {
         </motion.div>
       </section>
 
-      <div className='w-full border-t-4 border-[#111827] my-16'></div>
+      {/* Subtle Divider */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-20 md:my-28">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#112D4E]/10 to-transparent w-full" />
+      </div>
 
       {/* FAQ Section */}
-      <section className='relative z-10 px-6 lg:px-12 max-w-7xl mx-auto'>
+      <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-28">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className='mb-12'>
-          <span
-            className={`${jetbrainsMono.className} text-[#3B82F6] font-bold text-xl uppercase mb-4 block`}>
+          className="mb-14"
+        >
+          <span className="text-[#3377FF] font-semibold text-sm tracking-wider uppercase mb-3 block">
             [05] Questions fréquentes
           </span>
-          <h2
-            className={`${limelight.className} text-5xl md:text-6xl text-[#111827] mb-12 uppercase`}>
+          <h2 className="text-3xl md:text-5xl font-bold text-[#112D4E] uppercase tracking-tight mb-4">
             FAQ — Agence Web Villeurbanne
           </h2>
-          <div className='space-y-0'>
-            {[
-              {
-                q: 'Quel est le coût d’un site internet à Villeurbanne ?',
-                a: 'Un site vitrine professionnel à Villeurbanne démarre à 890€ TTC, livré en 5 à 7 jours ouvrés. Un site multi-pages (3 à 5 pages) est proposé à 1 290€, idéal pour les commerces de Gratte-Ciel, Charpennes et Cusset. Un e-commerce complet démarre à 1 990€ avec gestion des stocks et paiement sécurisé. Devis gratuit sous 24h, sans frais cachés.',
-              },
-              {
-                q: 'Combien de temps pour livrer un site web à Villeurbanne ?',
-                a: 'Entre 5 et 7 jours ouvrés pour un site vitrine standard, 10 à 14 jours pour un site multi-pages. Les e-commerces et applications sur mesure prennent 4 à 8 semaines selon la complexité. Nous proposons aussi un service express. Les délais sont garantis par contrat et un planning détaillé est remis dès la validation du devis.',
-              },
-              {
-                q: 'Votre agence web de Villeurbanne fait-elle du SEO local ?',
-                a: 'Oui, le SEO local est au cœur de notre méthode. Nous optimisons chaque page pour les recherches géolocalisées (Villeurbanne, Gratte-Ciel, Charpennes, Grand Lyon), configurons votre fiche Google Business Profile et créons du contenu ancré localement pour un positionnement durable. Nos sites Next.js obtiennent systématiquement des scores Lighthouse > 95 — un avantage SEO direct face aux concurrents.',
-              },
-              {
-                q: 'Utilisez-vous des technologies modernes comme Next.js ?',
-                a: 'Oui, Next.js est notre framework principal pour tous les projets professionnels. Il garantit des scores Lighthouse 95+, un chargement en moins d’une seconde (LCP < 2,5s), une sécurité renforcée et un excellent SEO natif. Nous utilisons aussi React, TypeScript, Tailwind CSS et des CMS headless (Sanity, Strapi) pour vous rendre autonome dans la gestion du contenu.',
-              },
-              {
-                q: 'Puis-je mettre à jour mon site sans compétences techniques ?',
-                a: 'Oui, tous nos sites sont livrés avec un back-office intuitif ou un CMS (Sanity, WordPress headless). Vous gérez textes, images et articles de blog en totale autonomie. Une formation complète de 1 à 2h est incluse dans chaque livraison. Si vous préférez déléguer, nos forfaits maintenance (dès 49€/mois) prennent en charge toutes les mises à jour.',
-              },
-              {
-                q: 'Proposez-vous un suivi après la mise en ligne ?',
-                a: 'Absolument. Nous proposons des contrats de maintenance mensuelle : mises à jour de sécurité, sauvegardes quotidiennes, monitoring 24/7, support réactif et petites évolutions incluses. Vous avez un interlocuteur unique basé à Villeurbanne, disponible rapidement pour toute intervention.',
-              },
-              {
-                q: 'Proposez-vous des services de développeur web freelance à Villeurbanne ?',
-                a: 'Oui. En tant que développeur web freelance basé à Villeurbanne, nous intervenons directement chez vous ou à distance : création de site, refonte, intégration d’API, migration Next.js ou développement de fonctionnalités spécifiques. Nous offrons la flexibilité d’un freelance avec les ressources d’une agence structurée.',
-              },
-              {
-                q: 'Faites-vous de la refonte de site web à Villeurbanne ?',
-                a: 'Oui, la refonte de site web est l’un de nos services phares à Villeurbanne. Nous migrons vos anciens sites (WordPress, Wix, Squarespace) vers Next.js pour un gain de performance immédiat : chargement plus rapide, meilleur SEO, design modernisé et code maintenable. Chaque refonte inclut un audit technique préalable et une stratégie SEO de reconversion.',
-              },
-            ].map((item, i) => (
-              <div key={i} className='border-b-4 border-[#111827] py-6 last:border-b-0'>
-                <h3
-                  className={`${jetbrainsMono.className} font-bold text-lg mb-3 text-[#111827] uppercase`}>
-                  {item.q}
-                </h3>
-                <p className='text-[#111827] font-medium leading-relaxed text-base'>{item.a}</p>
-              </div>
-            ))}
+          <p className="text-lg text-[#112D4E]/70 max-w-2xl font-light mb-12">
+            Retrouvez les réponses aux questions les plus fréquentes concernant nos solutions de création de site web et de référencement local.
+          </p>
+          <div className="mt-8 text-left">
+            <FAQAccordion items={faqItems} />
           </div>
         </motion.div>
       </section>
 
-      <div className='w-full border-t-4 border-[#111827] my-16'></div>
-
-      <div className='w-full border-t-4 border-[#111827] my-16'></div>
+      {/* Subtle Divider */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-20 md:my-28">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#112D4E]/10 to-transparent w-full" />
+      </div>
 
       {/* Lyon Cluster Internal Links */}
-      <section className='relative z-10 px-6 lg:px-12 max-w-7xl mx-auto mb-16'>
+      <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}>
-          <span
-            className={`${jetbrainsMono.className} text-[#3B82F6] font-bold text-xl uppercase mb-4 block`}>
+          transition={{ duration: 0.5 }}
+        >
+          <span className="text-[#3377FF] font-semibold text-sm tracking-wider uppercase mb-3 block">
             [06] Interventions Grand Lyon
           </span>
-          <h2
-            className={`${limelight.className} text-4xl md:text-5xl text-[#111827] mb-8 uppercase`}>
+          <h2 className="text-3xl md:text-5xl font-bold text-[#112D4E] mb-12 uppercase tracking-tight">
             Nos pages dans la Métropole de Lyon
           </h2>
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
                 city: 'Villeurbanne & Bron',
@@ -608,16 +652,15 @@ export default function AgenceVilleurbanneClient() {
               <Link
                 key={i}
                 href={item.link}
-                className='block border-4 border-[#111827] bg-white shadow-[8px_8px_0px_#3B82F6] p-6 hover:shadow-[4px_4px_0px_#3B82F6] hover:translate-x-1 hover:translate-y-1 transition-all duration-200'>
-                <p
-                  className={`${jetbrainsMono.className} text-[#3B82F6] text-xs font-bold uppercase mb-2`}>
+                className="block border border-[#3377FF]/10 bg-white/75 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm"
+              >
+                <p className="text-[#3377FF] text-xs font-bold uppercase mb-2.5 tracking-wider">
                   {item.city}
                 </p>
-                <p className='text-[#111827] font-medium text-sm leading-relaxed mb-4'>
+                <p className="text-[#112D4E]/80 text-sm leading-relaxed mb-6 font-light">
                   {item.desc}
                 </p>
-                <span
-                  className={`${jetbrainsMono.className} text-xs font-bold uppercase text-[#111827] border-b-2 border-[#111827]`}>
+                <span className="text-xs font-semibold uppercase text-[#112D4E] border-b border-[#112D4E]/30 pb-0.5 group-hover:border-[#112D4E]">
                   {item.label} →
                 </span>
               </Link>
@@ -627,47 +670,37 @@ export default function AgenceVilleurbanneClient() {
       </section>
 
       {/* Bottom CTA Block */}
-
-      <section className='relative z-10 py-32 px-6 lg:px-12 mt-20'>
-        <div className='absolute inset-0 bg-[#3B82F6] border-y-4 border-[#111827]' />
-
-        {/* Animated striped background */}
-        <div
-          className='absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none'
-          style={{
-            backgroundImage:
-              'repeating-linear-gradient(45deg, #111827 25%, transparent 25%, transparent 75%, #111827 75%, #111827)',
-            backgroundSize: '40px 40px',
-          }}
-        />
-
+      <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto mt-28 md:mt-36">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className='max-w-4xl mx-auto text-center relative z-10 bg-white border-4 border-[#111827] shadow-[24px_24px_0px_#111827] p-12 md:p-20'>
-          <span
-            className={`${jetbrainsMono.className} bg-[#DC2626] text-white px-4 py-2 font-bold uppercase tracking-widest text-sm inline-block mb-10 border-2 border-[#111827] outline outline-2 outline-offset-2 outline-[#111827]`}>
-            CRITICAL SYSTEM INITIATION
+          className="relative overflow-hidden py-16 px-8 md:p-20 rounded-3xl bg-gradient-to-br from-[#112D4E] to-[#1c3657] text-white shadow-2xl border border-white/10 text-center"
+        >
+          <div className="absolute top-0 left-0 -translate-x-12 -translate-y-12 w-64 h-64 bg-[#3377FF]/10 rounded-full blur-[80px] pointer-events-none" />
+          <div className="absolute bottom-0 right-0 translate-x-12 translate-y-12 w-64 h-64 bg-emerald-500/5 rounded-full blur-[80px] pointer-events-none" />
+
+          <span className="bg-[#3377FF] text-white px-4 py-1.5 rounded-full font-bold uppercase tracking-widest text-[10px] inline-block mb-8 border border-white/10">
+            SYSTEM INITIATION
           </span>
-          <h2
-            className={`${limelight.className} text-5xl md:text-7xl mb-8 text-[#111827] leading-[1.1]`}>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-tight leading-tight">
             PRÊT À REDÉFINIR LES STANDARDS ?
           </h2>
-          <p className='text-xl text-[#111827] font-medium mb-12 max-w-2xl mx-auto'>
+          <p className="text-base md:text-lg text-white/80 font-light mb-10 max-w-2xl mx-auto leading-relaxed">
             Contactez notre centre d&apos;ingénierie situé dans l&apos;environnement stratégique de
             Villeurbanne. Actionnez immédiatement la conception.
           </p>
-          <Link
-            href='/contact'
-            className={`group relative inline-flex px-12 py-6 bg-[#111827] text-white border-4 border-transparent hover:bg-white hover:text-[#111827] hover:border-[#111827] hover:shadow-[12px_12px_0px_#8B5CF6] transition-all duration-300`}>
-            <span
-              className={`${jetbrainsMono.className} font-bold uppercase text-2xl flex items-center gap-4`}>
-              OBTENIR UNE PROPOSITION
-              <ArrowUpRight className='w-8 h-8 group-hover:rotate-45 transition-transform duration-300 bg-[#3B82F6] text-white group-hover:bg-[#111827] p-1 border-2 border-transparent group-hover:border-white' />
-            </span>
-          </Link>
+          <CTAButton
+            href="/contact"
+            variant="outline"
+            className="bg-white text-[#112D4E] border-white hover:bg-slate-100 hover:text-[#112D4E] shadow-xl text-base px-10 py-4.5 rounded-full"
+            trackingAction=" villeurbanne_bottom_cta"
+            trackingCategory="villeurbanne_footer"
+          >
+            Obtenir une proposition
+            <ArrowUpRight className="w-5 h-5 ml-2.5 shrink-0" />
+          </CTAButton>
         </motion.div>
       </section>
     </div>
