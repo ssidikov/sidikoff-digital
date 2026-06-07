@@ -61,7 +61,7 @@ export function BlogCard({ post, featured = false, index }: BlogCardProps) {
       className='group h-full'>
       <Link
         href={getBlogPostUrl(post.slug)}
-        className={`relative flex h-full w-full max-w-full overflow-hidden rounded-[2rem] border border-slate-200/80 bg-[#fffdf8] shadow-[0_22px_70px_rgba(15,23,42,0.08)] ring-1 ring-white/70 transition-all duration-500 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_34px_90px_rgba(15,23,42,0.15)] focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-4 ${
+        className={`relative flex h-full w-full max-w-full overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-[0_22px_70px_rgba(15,23,42,0.08)] ring-1 ring-white/70 transition-all duration-500 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_34px_90px_rgba(15,23,42,0.15)] focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-4 ${
           featured ? 'min-h-[520px] flex-col lg:min-h-[580px]' : 'min-h-[460px] flex-col'
         }`}>
         <div className={`relative overflow-hidden ${featured ? 'h-80 lg:h-[22rem]' : 'h-64'}`}>
@@ -89,14 +89,14 @@ export function BlogCard({ post, featured = false, index }: BlogCardProps) {
         <div className={`flex min-w-0 flex-1 flex-col ${featured ? 'p-7 lg:p-9' : 'p-6'}`}>
           <div className='mb-5 flex items-center justify-between gap-4 text-sm font-semibold text-slate-500'>
             <time className='inline-flex items-center gap-2' dateTime={post.date}>
-              <CalendarDays className='h-4 w-4 text-[#b45309]' />
+              <CalendarDays className='h-4 w-4 text-accent' />
               {formattedDate}
             </time>
             <span className='h-px flex-1 bg-slate-200' />
           </div>
 
           <h3
-            className={`line-clamp-3 text-wrap font-serif font-semibold leading-[1.05] text-slate-950 transition-colors duration-300 group-hover:text-[#8a3b12] ${
+            className={`line-clamp-3 text-wrap font-grotesk font-semibold leading-[1.05] text-slate-950 transition-colors duration-300 group-hover:text-accent ${
               featured ? 'text-3xl lg:text-4xl' : 'text-2xl'
             }`}>
             {post.title}
@@ -120,7 +120,7 @@ export function BlogCard({ post, featured = false, index }: BlogCardProps) {
               </div>
             </div>
 
-            <span className='grid h-11 w-11 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-slate-950 transition-all duration-300 group-hover:rotate-12 group-hover:border-[#b45309] group-hover:bg-[#b45309] group-hover:text-white'>
+            <span className='grid h-11 w-11 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-slate-950 transition-all duration-300 group-hover:rotate-12 group-hover:border-accent group-hover:bg-accent group-hover:text-white'>
               <ArrowUpRight className='h-5 w-5' />
             </span>
           </div>

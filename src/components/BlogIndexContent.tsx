@@ -11,19 +11,19 @@ export default function BlogIndexContent() {
   const [featuredPost, ...regularPosts] = allBlogPosts
 
   return (
-    <main className='min-h-screen overflow-hidden bg-[#f6f2ea] text-slate-950 selection:bg-[#b45309] selection:text-white'>
+    <main className='min-h-screen overflow-hidden bg-[#F9F7F7] text-[#112D4E]'>
       <section className='relative pt-32 pb-16 lg:pt-36 lg:pb-24'>
-        <div className='absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(180,83,9,0.14),transparent_28%),radial-gradient(circle_at_82%_10%,rgba(15,23,42,0.10),transparent_26%)]' />
-        <div className='absolute inset-0 opacity-[0.08] [background-image:linear-gradient(#0f172a_1px,transparent_1px),linear-gradient(90deg,#0f172a_1px,transparent_1px)] [background-size:56px_56px]' />
+        <div className='absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(51,119,255,0.08),transparent_28%),radial-gradient(circle_at_82%_10%,rgba(17,45,78,0.05),transparent_26%)]' />
+        <div className='absolute inset-0 opacity-[0.04] [background-image:linear-gradient(#0f172a_1px,transparent_1px),linear-gradient(90deg,#0f172a_1px,transparent_1px)] [background-size:56px_56px]' />
 
         <div className='relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
           <div className='mb-10 grid gap-8 lg:mb-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-end'>
             <div>
-              <span className='mb-6 inline-flex items-center gap-2 rounded-full border border-slate-950/10 bg-white/70 px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-[#8a3b12] shadow-sm backdrop-blur'>
-                <Sparkles className='h-4 w-4' />
+              <span className='mb-6 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-accent shadow-sm backdrop-blur'>
+                <Sparkles className='h-4 w-4 text-accent' />
                 Le journal digital
               </span>
-              <h1 className='max-w-full text-wrap font-serif text-4xl font-semibold leading-[1.02] text-slate-950 sm:text-5xl md:text-7xl lg:text-8xl lg:leading-[0.95]'>
+              <h1 className='max-w-full text-wrap font-grotesk text-4xl font-extrabold leading-[1.02] text-[#112D4E] sm:text-5xl md:text-7xl lg:text-8xl lg:leading-[0.95]'>
                 Articles web, SEO et croissance.
               </h1>
             </div>
@@ -35,13 +35,13 @@ export default function BlogIndexContent() {
           </div>
 
           {featuredPost && (
-            <div className='group relative overflow-hidden rounded-[2rem] bg-slate-950 text-white shadow-[0_40px_120px_rgba(15,23,42,0.22)] lg:rounded-[2.5rem]'>
+            <div className='group relative overflow-hidden rounded-3xl bg-slate-950 text-white shadow-[0_40px_120px_rgba(15,23,42,0.22)]'>
               <Link
                 href={`/blog/${featuredPost.slug}`}
                 className='grid min-h-[620px] w-full max-w-full overflow-hidden lg:grid-cols-[0.88fr_1.12fr]'>
                 <div className='relative z-10 flex min-w-0 flex-col justify-between p-7 sm:p-10 lg:p-12'>
                   <div className='flex flex-wrap items-center gap-3'>
-                    <span className='rounded-full bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-slate-950'>
+                    <span className='rounded-full bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-950'>
                       {featuredPost.category}
                     </span>
                     <time className='inline-flex items-center gap-2 text-sm font-semibold text-white/70' dateTime={featuredPost.date}>
@@ -55,13 +55,13 @@ export default function BlogIndexContent() {
                   </div>
 
                   <div className='pt-20'>
-                    <h2 className='max-w-3xl text-wrap font-serif text-4xl font-semibold leading-[1.02] sm:text-5xl lg:text-6xl'>
+                    <h2 className='max-w-3xl text-wrap font-grotesk text-4xl font-bold leading-[1.02] sm:text-5xl lg:text-6xl'>
                       {featuredPost.title}
                     </h2>
                     <p className='mt-6 max-w-xl text-wrap text-lg leading-8 text-white/75'>
                       {featuredPost.description}
                     </p>
-                    <span className='mt-8 inline-flex items-center gap-3 rounded-full bg-[#d97706] px-5 py-3 text-sm font-black text-white transition-transform duration-300 group-hover:translate-x-1'>
+                    <span className='mt-8 inline-flex items-center gap-3 rounded-full bg-accent hover:bg-accent-dark px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 group-hover:translate-x-1 shadow-lg hover:shadow-xl'>
                       Lire l&apos;article
                       <ArrowRight className='h-4 w-4' />
                     </span>
@@ -88,12 +88,12 @@ export default function BlogIndexContent() {
 
       <section className='relative pb-24'>
         <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-          <div className='mb-10 flex flex-col gap-4 border-t border-slate-950/10 pt-10 sm:flex-row sm:items-end sm:justify-between'>
+          <div className='mb-10 flex flex-col gap-4 border-t border-slate-200 pt-10 sm:flex-row sm:items-end sm:justify-between'>
             <div>
-              <span className='text-xs font-black uppercase tracking-[0.22em] text-[#8a3b12]'>
+              <span className='text-xs font-bold uppercase tracking-[0.22em] text-accent'>
                 Tous les guides
               </span>
-              <h2 className='mt-2 font-serif text-4xl font-semibold text-slate-950 md:text-5xl'>
+              <h2 className='mt-2 font-grotesk text-4xl font-bold text-[#112D4E] md:text-5xl'>
                 Explorer les articles
               </h2>
             </div>
