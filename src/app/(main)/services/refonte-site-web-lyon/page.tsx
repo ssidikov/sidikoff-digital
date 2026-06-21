@@ -1,5 +1,6 @@
 import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 import { Metadata } from 'next'
+import { LyonVilleurbanneSeoHub } from '@/components/seo/LyonVilleurbanneSeoHub'
 import RefonteSiteWebLyonLandingContent from '@/components/RefonteSiteWebLyonLandingContent'
 
 const PAGE_URL = createCanonicalUrl('services/refonte-site-web-lyon', 'fr')
@@ -128,6 +129,7 @@ export default function RefonteSiteWebLyonLandingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <RefonteSiteWebLyonLandingContent />
+      <LyonVilleurbanneSeoHub currentPath='/services/refonte-site-web-lyon' />
     </>
   )
 }

@@ -55,8 +55,7 @@ const serviceSchema = generateServiceSchema({
 
 const faqSchema = {
   '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
+  '@graph': [
     {
       '@type': 'Question',
       name: 'Combien coûte un site web pour freelance ?',
@@ -149,5 +148,4 @@ export default function FreelanceWebsitesPage() {
     </>
   )
 }
-
 

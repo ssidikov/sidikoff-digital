@@ -465,12 +465,11 @@ export const organizationSchema = {
 /** @deprecated Use generateBreadcrumbSchema instead */
 export const generateBreadcrumbStructuredData = generateBreadcrumbSchema
 
-// Generate FAQ structured data
+// Backward-compatible Q/A structured data without commercial FAQ rich-result markup.
 export function generateFAQStructuredData(faqs: Array<{ question: string; answer: string }>) {
   return {
     '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map((faq) => ({
+    '@graph': faqs.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
       acceptedAnswer: {

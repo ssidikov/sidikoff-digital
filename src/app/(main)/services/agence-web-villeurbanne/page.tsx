@@ -6,6 +6,7 @@ import {
   DEFAULT_SEO,
   createCanonicalUrl,
 } from '@/lib/seo-utils'
+import { LyonVilleurbanneSeoHub } from '@/components/seo/LyonVilleurbanneSeoHub'
 import AgenceVilleurbanneClient from './AgenceVilleurbanneClient'
 
 const PAGE_SLUG = 'services/agence-web-villeurbanne'
@@ -76,6 +77,7 @@ export default function AgenceWebVilleurbannePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <AgenceVilleurbanneClient />
+      <LyonVilleurbanneSeoHub currentPath='/services/agence-web-villeurbanne' />
     </>
   )
 }

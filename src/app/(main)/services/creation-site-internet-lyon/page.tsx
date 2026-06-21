@@ -8,6 +8,7 @@ import { Metadata } from 'next'
 
 import { Section } from '@/components/ui'
 import CTAButton from '@/components/ui/CTAButton'
+import { LyonVilleurbanneSeoHub } from '@/components/seo/LyonVilleurbanneSeoHub'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -123,8 +124,7 @@ const lyonSchemas = [
   },
   {
     '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
+    '@graph': [
       {
         '@type': 'Question',
         name: 'Quel est le prix pour créer un site internet à Lyon ?',
@@ -778,6 +778,8 @@ export default async function LyonPage() {
               </div>
             </div>
           </Section>
+
+          <LyonVilleurbanneSeoHub currentPath='/services/creation-site-internet-lyon' />
 
           {/* FAQ Section */}
           <Section className='py-20 bg-linear-to-b from-[#F8F9FA] to-white'>

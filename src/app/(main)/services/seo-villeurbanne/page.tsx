@@ -1,5 +1,6 @@
 import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 import { Metadata } from 'next'
+import { LyonVilleurbanneSeoHub } from '@/components/seo/LyonVilleurbanneSeoHub'
 import SeoVilleurbanneLandingContent from '@/components/SeoVilleurbanneLandingContent'
 
 const PAGE_URL = createCanonicalUrl('services/seo-villeurbanne', 'fr')
@@ -99,6 +100,7 @@ export default function SeoVilleurbannePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <SeoVilleurbanneLandingContent />
+      <LyonVilleurbanneSeoHub currentPath='/services/seo-villeurbanne' />
     </>
   )
 }

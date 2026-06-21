@@ -106,8 +106,7 @@ const serviceSchema = generateServiceSchema({
 
 const faqSchema = {
   '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
+  '@graph': [
     {
       '@type': 'Question',
       name: "Combien coûte la création d'un site internet à Paris ?",

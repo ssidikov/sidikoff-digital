@@ -76,6 +76,7 @@
     ".next",
     "out",
     "dist",
+    "temp",
     "sanity",
     "sanity.config.ts",
     "src/app/studio"

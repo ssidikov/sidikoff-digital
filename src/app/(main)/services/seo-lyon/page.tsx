@@ -1,5 +1,6 @@
 import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 import { Metadata } from 'next'
+import { LyonVilleurbanneSeoHub } from '@/components/seo/LyonVilleurbanneSeoHub'
 import SeoLyonLandingContent from '@/components/SeoLyonLandingContent'
 
 const PAGE_URL = createCanonicalUrl('services/seo-lyon', 'fr')
@@ -107,6 +108,7 @@ export default function SeoLyonLandingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <SeoLyonLandingContent />
+      <LyonVilleurbanneSeoHub currentPath='/services/seo-lyon' />
     </>
   )
 }

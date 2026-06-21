@@ -478,7 +478,7 @@ export default function SeoOptimizationLandingContent({
                   contenus structurés, clairs, sourcés et{' '}
                   <strong>répondant précisément aux questions de votre audience</strong>. Notre
                   approche intègre la GEO systématiquement : blocs FAQ, données structurées
-                  HowTo/FAQPage/Article, schémas Author et citations vérifiables.
+                  Article, Person, LocalBusiness, BreadcrumbList, schémas Author et citations vérifiables.
                 </p>
                 <p>
                   Nous mesurons les performances avec <strong>Google Search Console</strong>,{' '}
@@ -503,7 +503,7 @@ export default function SeoOptimizationLandingContent({
                   {
                     icon: '🏗️',
                     title: 'Données structurées Schema.org',
-                    desc: 'FAQ, BreadcrumbList, Article, Person, LocalBusiness — chaque page reçoit le balisage JSON-LD approprié pour être correctement interprétée par les LLMs et moteurs de recherche.',
+                    desc: 'BreadcrumbList, Article, Person, LocalBusiness — chaque page reçoit le balisage JSON-LD approprié pour être correctement interprétée par les LLMs et moteurs de recherche.',
                   },
                   {
                     icon: '❓',

@@ -17,6 +17,7 @@
     "clean": "rimraf .next out dist",
     "clear-cache": "pnpm run clean",
     "analyze": "ANALYZE=true pnpm build",
+    "seo:gsc": "node scripts/gsc-opportunities.mjs",
     "test": "echo \"No tests specified\" && exit 0"
   },
   "dependencies": {

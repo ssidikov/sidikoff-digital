@@ -8,6 +8,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Cormorant_Garamond, Manrope } from 'next/font/google'
+import { LyonVilleurbanneSeoHub } from '@/components/seo/LyonVilleurbanneSeoHub'
 
 const cormorant = Cormorant_Garamond({ subsets: ['latin'], weight: ['400', '600', '700'] })
 const manrope = Manrope({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'] })
@@ -424,6 +425,8 @@ export default async function AgenceWebLyonPage() {
             </div>
           </div>
         </section>
+
+        <LyonVilleurbanneSeoHub currentPath='/services/agence-web-lyon' />
 
         {/* FAQ & Final CTA Section */}
         <section className='bg-[#F6F4EE] border-b-[3px] border-[#121212]'>

@@ -7,6 +7,95 @@ import { motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight, CalendarDays, Clock, Sparkles, UserRound } from 'lucide-react'
 import { BlogPost } from '@/lib/blog-data'
 
+const DEFAULT_RELATED_SERVICES = [
+  {
+    href: '/services/agence-web-lyon',
+    label: 'Agence web Lyon',
+    text: 'Creation de site, refonte et SEO local pour PME lyonnaises.',
+  },
+  {
+    href: '/services/agence-web-villeurbanne',
+    label: 'Agence web Villeurbanne',
+    text: 'Accompagnement local depuis Villeurbanne et la metropole de Lyon.',
+  },
+  {
+    href: '/services/seo-lyon',
+    label: 'SEO Lyon',
+    text: 'Audit, contenu et suivi Search Console pour gagner en trafic qualifie.',
+  },
+]
+
+const RELATED_SERVICES_BY_SLUG: Record<string, typeof DEFAULT_RELATED_SERVICES> = {
+  'prix-site-internet-lyon': [
+    {
+      href: '/services/creation-site-internet-lyon',
+      label: 'Creation site internet Lyon',
+      text: 'Tarifs, delais et cadrage pour lancer un site professionnel a Lyon.',
+    },
+    {
+      href: '/services/site-vitrine-lyon',
+      label: 'Site vitrine Lyon',
+      text: 'Offre dediee aux PME, artisans et professions liberales locales.',
+    },
+    {
+      href: '/services/agence-web-lyon',
+      label: 'Agence web Lyon',
+      text: 'Design, developpement Next.js et SEO local dans une meme prestation.',
+    },
+  ],
+  'seo-local-villeurbanne-guide': [
+    {
+      href: '/services/agence-web-villeurbanne',
+      label: 'Agence web Villeurbanne',
+      text: 'Site et SEO local pour Gratte-Ciel, Charpennes, Cusset et La Doua.',
+    },
+    {
+      href: '/services/seo-villeurbanne',
+      label: 'SEO Villeurbanne',
+      text: 'Priorisation par requetes locales, GBP et donnees Search Console.',
+    },
+    {
+      href: '/services/site-vitrine-villeurbanne',
+      label: 'Site vitrine Villeurbanne',
+      text: 'Une base rapide et claire pour convertir les recherches locales.',
+    },
+  ],
+  'refonte-site-web-erreurs': [
+    {
+      href: '/services/refonte-site-web-lyon',
+      label: 'Refonte site web Lyon',
+      text: 'Migration, redirections 301 et preservation du trafic organique.',
+    },
+    {
+      href: '/services/refonte-site-villeurbanne',
+      label: 'Refonte site Villeurbanne',
+      text: 'Refonte locale avec audit technique et suivi apres mise en ligne.',
+    },
+    {
+      href: '/services/seo-lyon',
+      label: 'SEO Lyon',
+      text: 'Controle indexation, positions et CTR apres refonte.',
+    },
+  ],
+  'nextjs-vs-wordpress-agence': [
+    {
+      href: '/services/nextjs-lyon',
+      label: 'Next.js Lyon',
+      text: 'Architecture rapide, SSR et pages indexables pour projets modernes.',
+    },
+    {
+      href: '/services/wordpress-lyon',
+      label: 'WordPress Lyon',
+      text: 'Option CMS quand edition simple et autonomie priment.',
+    },
+    {
+      href: '/services/agence-nextjs-react',
+      label: 'Agence Next.js React',
+      text: 'Choix technique pour applications et sites a forte exigence SEO.',
+    },
+  ],
+}
+
 export default function BlogArticleContent({ post }: { post: BlogPost }) {
   const formattedDate = new Date(post.date).toLocaleDateString('fr-FR', {
     year: 'numeric',
@@ -15,6 +104,7 @@ export default function BlogArticleContent({ post }: { post: BlogPost }) {
   })
   const plainText = post.content.replace(/<[^>]*>/g, ' ')
   const readTime = `${Math.max(3, Math.ceil(plainText.trim().split(/\s+/).filter(Boolean).length / 220))} min`
+  const relatedServices = RELATED_SERVICES_BY_SLUG[post.slug] ?? DEFAULT_RELATED_SERVICES
 
   return (
     <main className='min-h-screen overflow-hidden bg-[#F9F7F7] text-[#112D4E]'>
@@ -136,6 +226,33 @@ export default function BlogArticleContent({ post }: { post: BlogPost }) {
                   [&_em]:italic [&_em]:text-slate-600'
                 dangerouslySetInnerHTML={{ __html: post.content }}
               />
+
+              <div className='mt-14 rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:p-8'>
+                <div className='mb-6'>
+                  <p className='text-xs font-bold uppercase tracking-[0.2em] text-accent'>
+                    Pages liees
+                  </p>
+                  <h3 className='mt-2 font-grotesk text-3xl font-bold text-[#112D4E]'>
+                    Continuer sur une page service
+                  </h3>
+                </div>
+                <div className='grid gap-3 md:grid-cols-3'>
+                  {relatedServices.map((service) => (
+                    <Link
+                      key={service.href}
+                      href={service.href}
+                      className='group rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-slate-950 hover:bg-slate-950'>
+                      <span className='flex items-center justify-between gap-3 text-sm font-bold text-slate-950 group-hover:text-white'>
+                        {service.label}
+                        <ArrowRight className='h-4 w-4 shrink-0' aria-hidden='true' />
+                      </span>
+                      <span className='mt-2 block text-sm leading-6 text-slate-600 group-hover:text-slate-300'>
+                        {service.text}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
 
               <div className='mt-16 overflow-hidden rounded-3xl bg-slate-950 p-7 text-white sm:p-9'>
                 <div className='grid gap-7 md:grid-cols-[1fr_auto] md:items-center'>

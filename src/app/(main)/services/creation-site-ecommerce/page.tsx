@@ -52,8 +52,7 @@ const serviceSchema = {
 
 const faqSchema = {
   '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
+  '@graph': [
     {
       '@type': 'Question',
       name: 'Quel est le tarif pour créer un site e-commerce ?',
@@ -147,4 +146,3 @@ export default function EcommerceLandingPage() {
     </>
   )
 }
-
