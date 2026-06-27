@@ -68,3 +68,6 @@ temp/
 
 # graphify
 graphify-out/
+
+# MCP configuration containing API keys
+.mcp.json
