@@ -78,6 +78,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/services/nextjs-lyon',
     '/services/wordpress-lyon',
     '/services/developpeur-web-lyon',
+    '/services/creation-site-internet-barbershop-lyon',
 
     // --- Tech pages ---
     '/services/agence-nextjs-react',
@@ -107,6 +108,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       '/services/creation-site-internet-restaurant',
       '/services/creation-site-internet-coach-sportif',
       '/services/creation-site-internet-medecin',
+      '/services/creation-site-internet-barbershop-lyon',
       // P1 tech money page
       '/services/agence-nextjs-react',
     ]

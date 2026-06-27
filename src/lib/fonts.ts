@@ -1,4 +1,4 @@
-import { Inter, Space_Grotesk } from 'next/font/google'
+import { Inter, Space_Grotesk, Bebas_Neue } from 'next/font/google'
 
 /**
  * Configuration optimisée de la font Inter pour le multilingue
@@ -70,6 +70,19 @@ export const grotesk = Space_Grotesk({
  *   },
  * }
  */
+/**
+ * Bebas Neue — condensed display font for barbershop/impact headlines
+ * Only loaded on pages that use the `--font-barber` CSS variable
+ */
+export const bebasNeue = Bebas_Neue({
+  subsets: ['latin'],
+  variable: '--font-barber',
+  display: 'swap',
+  weight: ['400'],
+  preload: false, // loaded on-demand, not critical path
+  adjustFontFallback: false,
+})
+
 export const fontConfig = {
   variable: inter.variable,
   className: inter.className,

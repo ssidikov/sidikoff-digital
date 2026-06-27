@@ -23,6 +23,11 @@ const SCROLL_CONFIG = {
   headerOffset: 100,
 } as const
 
+// Pages with dark (stone-950) backgrounds — header adapts to stay readable
+const DARK_PAGE_PATHS = [
+  '/services/creation-site-internet-barbershop-lyon',
+]
+
 // CSS classes will be used for entry animations instead if needed
 
 // Icon components
@@ -102,6 +107,10 @@ export function Header() {
 
   // Memoized computed values
   const isBlogPage = useMemo(() => pathname.includes('/blog'), [pathname])
+  const isDarkPage = useMemo(
+    () => DARK_PAGE_PATHS.some((p) => pathname.includes(p)),
+    [pathname],
+  )
   const navigation = createNavigationItems()
 
   /**
@@ -199,8 +208,12 @@ export function Header() {
       <header className='fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-[120] w-full max-w-7xl px-3 sm:px-4 mobile-no-animate animate-[fadeInDown_0.6s_ease-out]'>
         <nav className='relative z-[110] px-2 xs:px-3 sm:px-4'>
           <div
-            className={`flex items-center justify-between px-3 sm:px-4 py-3 sm:py-4 lg:px-4 3xl:p-4 transition-all duration-500 rounded-2xl sm:rounded-3xl backdrop-blur-xl border-2 border-white/30 shadow-xl ${
-              isBlogPage ? 'bg-white/90' : 'bg-white/20'
+            className={`flex items-center justify-between px-3 sm:px-4 py-3 sm:py-4 lg:px-4 3xl:p-4 transition-all duration-500 rounded-2xl sm:rounded-3xl backdrop-blur-xl shadow-xl ${
+              isDarkPage
+                ? 'bg-stone-950/70 border-2 border-stone-700/50'
+                : isBlogPage
+                  ? 'bg-white/90 border-2 border-white/30'
+                  : 'bg-white/20 border-2 border-white/30'
             }`}>
             {/* Logo */}
             <div className='flex-shrink-0'>
@@ -215,7 +228,7 @@ export function Header() {
                   quality={95}
                   sizes='(max-width: 640px) 120px, (max-width: 768px) 130px, (max-width: 1024px) 130px, 145px'
                   priority
-                  className='h-8 w-auto xl:h-10 '
+                  className={`h-8 w-auto xl:h-10 transition-[filter] duration-300 ${isDarkPage ? 'brightness-0 invert' : ''}`}
                 />
               </Link>
             </div>
@@ -227,10 +240,14 @@ export function Header() {
                   <Link
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item)}
-                    className={`text-sm md:text-sm xl:text-base font-medium transition-all duration-300 px-2.5 xl:px-3 py-2 rounded-lg text-[#112D4E] focus-visible:ring-2 focus-visible:ring-accent cursor-pointer ${
+                    className={`text-sm md:text-sm xl:text-base font-medium transition-all duration-300 px-2.5 xl:px-3 py-2 rounded-lg focus-visible:ring-2 focus-visible:ring-accent cursor-pointer ${
+                      isDarkPage ? 'text-stone-200' : 'text-[#112D4E]'
+                    } ${
                       isActive(item)
                         ? 'bg-[var(--accent)] text-white'
-                        : 'hover:text-white hover:bg-[var(--accent)]'
+                        : isDarkPage
+                          ? 'hover:text-white hover:bg-amber-500'
+                          : 'hover:text-white hover:bg-[var(--accent)]'
                     }`}>
                     {item.label}
                   </Link>
@@ -250,7 +267,11 @@ export function Header() {
               {/* Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className='flex items-center gap-2 p-2 text-sm font-medium rounded-lg transition-all duration-300 bg-[#DBE2EF]/30 border border-white/30 text-[#112D4E] hover:bg-[var(--accent)] hover:text-white hover:border-[var(--accent)] cursor-pointer'
+                className={`flex items-center gap-2 p-2 text-sm font-medium rounded-lg transition-all duration-300 border cursor-pointer ${
+                  isDarkPage
+                    ? 'bg-stone-800/60 border-stone-600/40 text-stone-200 hover:bg-amber-500 hover:text-white hover:border-amber-500'
+                    : 'bg-[#DBE2EF]/30 border-white/30 text-[#112D4E] hover:bg-(--accent) hover:text-white hover:border-(--accent)'
+                }`}
                 aria-label='Toggle menu'>
                 {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
               </button>
@@ -262,11 +283,17 @@ export function Header() {
             <div
               className='absolute top-24 left-3.5 xs:left-4 right-3.5 xs:right-4 lg:hidden z-[110] rounded-3xl animate-[fadeInDown_0.2s_ease-out]'
               style={{
-                background: 'rgba(249, 247, 247, 0.5)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
+                background: isDarkPage
+                  ? 'rgba(12, 10, 9, 0.92)'
+                  : 'rgba(249, 247, 247, 0.5)',
+                border: isDarkPage
+                  ? '1px solid rgba(120, 113, 108, 0.3)'
+                  : '1px solid rgba(255, 255, 255, 0.2)',
                 backdropFilter: 'blur(20px) saturate(180%)',
                 WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+                boxShadow: isDarkPage
+                  ? '0 8px 32px rgba(0, 0, 0, 0.5)'
+                  : '0 8px 32px rgba(0, 0, 0, 0.1)',
               }}>
               <div className='py-3 sm:py-4 space-y-1 sm:space-y-2 px-3 sm:px-4'>
                 {navigation.map((item) => (
@@ -277,10 +304,14 @@ export function Header() {
                         handleNavClick(e, item)
                         setIsMenuOpen(false)
                       }}
-                      className={`block py-3 px-4 rounded-lg transition-all duration-300 text-[#112D4E] focus-visible:ring-2 focus-visible:ring-accent cursor-pointer ${
+                      className={`block py-3 px-4 rounded-lg transition-all duration-300 focus-visible:ring-2 focus-visible:ring-accent cursor-pointer ${
+                        isDarkPage ? 'text-stone-200' : 'text-[#112D4E]'
+                      } ${
                         isActive(item)
-                          ? 'bg-[var(--accent)] text-white'
-                          : 'hover:bg-[var(--accent)]/10 hover:text-[var(--accent)]'
+                          ? 'bg-(--accent) text-white'
+                          : isDarkPage
+                            ? 'hover:bg-amber-500/20 hover:text-amber-300'
+                            : 'hover:bg-(--accent)/10 hover:text-(--accent)'
                       }`}>
                       {item.label}
                     </Link>
@@ -288,13 +319,17 @@ export function Header() {
                 ))}
 
                 {/* Mobile CTA Button */}
-                <div className='pt-2 border-t border-white/20 mt-4'>
+                <div className={`pt-2 mt-4 border-t ${isDarkPage ? 'border-stone-700/40' : 'border-white/20'}`}>
                   <button
                     onClick={() => {
                       setIsContactPopupOpen(true)
                       setIsMenuOpen(false)
                     }}
-                    className='w-full py-3 px-4 rounded-lg font-semibold transition-all duration-300 bg-[var(--accent)] text-white hover:bg-[var(--accent-dark)] cursor-pointer'>
+                    className={`w-full py-3 px-4 rounded-lg font-semibold transition-all duration-300 cursor-pointer ${
+                      isDarkPage
+                        ? 'bg-amber-500 text-stone-950 hover:bg-amber-400'
+                        : 'bg-(--accent) text-white hover:bg-(--accent-dark)'
+                    }`}>
                     Devis gratuit
                   </button>
                 </div>

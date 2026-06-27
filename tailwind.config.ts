@@ -47,6 +47,7 @@ const config: Config = {
           'sans-serif',
         ],
         inter: ['var(--font-inter)', 'Inter', 'sans-serif'],
+        barber: ['var(--font-barber)', 'Impact', 'Haettenschweiler', 'Arial Narrow', 'sans-serif'],
       },
       // Добавляем дополнительные spacing без переопределения стандартных
       spacing: {
@@ -65,6 +66,11 @@ const config: Config = {
         'gradient-x': 'gradient-x 3s ease infinite',
         'gradient-rotate': 'gradient-rotate 3s linear infinite',
         marquee: 'marquee 22s linear infinite',
+        shimmer: 'shimmer 3s ease-in-out infinite',
+        'gold-pulse': 'gold-pulse 2.5s ease-in-out infinite',
+        'float-slow': 'float-slow 5s ease-in-out infinite',
+        'shine-x': 'shine-x 1.8s ease-in-out',
+        'spin-slow': 'spin 8s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -86,6 +92,22 @@ const config: Config = {
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },
+        },
+        shimmer: {
+          '0%': { 'background-position': '-200% 0' },
+          '100%': { 'background-position': '200% 0' },
+        },
+        'gold-pulse': {
+          '0%, 100%': { 'box-shadow': '0 0 0 0 rgba(245, 158, 11, 0)' },
+          '50%': { 'box-shadow': '0 0 30px 10px rgba(245, 158, 11, 0.25)' },
+        },
+        'float-slow': {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-14px)' },
+        },
+        'shine-x': {
+          '0%': { transform: 'translateX(-100%) skewX(-12deg)' },
+          '100%': { transform: 'translateX(300%) skewX(-12deg)' },
         },
       },
     },

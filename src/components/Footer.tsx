@@ -1,7 +1,14 @@
+'use client'
+
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 import common from '@/locales/fr/common.json'
 import { getLocalizedUrl } from '@/utils/navigation'
+
+const DARK_PAGE_PATHS = [
+  '/services/creation-site-internet-barbershop-lyon',
+]
 
 interface FooterLink {
   name: string
@@ -135,7 +142,10 @@ const createLegalLinks = (): FooterLink[] => [
  * Footer component with navigation, contact info, and company branding
  * Features responsive design and accessible links
  */
-export function Footer({ isDark = false }: { isDark?: boolean }) {
+export function Footer({ isDark: isDarkProp }: { isDark?: boolean }) {
+  const pathname = usePathname()
+  const isDark = isDarkProp ?? DARK_PAGE_PATHS.some((p) => pathname.includes(p))
+
   const coreLinks = createCoreLinks()
   const secteurLinks = createSecteurLinks()
   const villeLinks = createVilleLinks()
@@ -149,7 +159,7 @@ export function Footer({ isDark = false }: { isDark?: boolean }) {
     <footer
       className={
         isDark
-          ? 'bg-slate-950 px-6 py-20 text-slate-200 lg:px-16'
+          ? 'bg-stone-950 border-t border-stone-800/60 px-6 py-20 text-stone-200 lg:px-16'
           : 'bg-[#FCFBFE] px-6 py-20 text-black lg:px-16'
       }>
       {/* Main Content Grid */}
@@ -163,17 +173,17 @@ export function Footer({ isDark = false }: { isDark?: boolean }) {
             </h2>
           </div>
 
-          <div className={`space-y-3 ${isDark ? 'text-slate-300' : 'text-[#112D4E]/80'}`}>
+          <div className={`space-y-3 ${isDark ? 'text-stone-300' : 'text-[#112D4E]/80'}`}>
             <a
               href={`mailto:${CONTACT_INFO.email}`}
-              className={`block text-lg transition-colors ${isDark ? 'hover:text-blue-400' : 'hover:text-[#3377FF]'}`}
+              className={`block text-lg transition-colors ${isDark ? 'hover:text-amber-400' : 'hover:text-[#3377FF]'}`}
               aria-label={`Envoyer un email à ${CONTACT_INFO.emailLabel}`}>
               {CONTACT_INFO.emailLabel}
             </a>
             <div className='block text-lg'>{CONTACT_INFO.address}</div>
             <a
               href={`tel:${CONTACT_INFO.phone}`}
-              className={`block text-lg transition-colors ${isDark ? 'hover:text-blue-400' : 'hover:text-[#3377FF]'}`}
+              className={`block text-lg transition-colors ${isDark ? 'hover:text-amber-400' : 'hover:text-[#3377FF]'}`}
               aria-label={`Appeler ${CONTACT_INFO.phoneLabel}`}>
               {CONTACT_INFO.phoneLabel}
             </a>
@@ -183,7 +193,7 @@ export function Footer({ isDark = false }: { isDark?: boolean }) {
         {/* Column 2: Core Navigation */}
         <div className='lg:pl-8'>
           <h3
-            className={`mb-8 text-xs font-semibold uppercase tracking-[0.2em] ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
+            className={`mb-8 text-xs font-semibold uppercase tracking-[0.2em] ${isDark ? 'text-stone-500' : 'text-[#112D4E]/40'}`}>
             Menu
           </h3>
           <nav className='space-y-4' aria-label='Navigation principale'>
@@ -191,7 +201,7 @@ export function Footer({ isDark = false }: { isDark?: boolean }) {
               <div key={`nav-${link.href}`}>
                 <Link
                   href={link.href}
-                  className={`block text-lg font-medium transition-all hover:-translate-y-0.5 ${isDark ? 'text-slate-200 hover:text-blue-400' : 'text-[#112D4E] hover:text-[#3377FF]'}`}>
+                  className={`block text-lg font-medium transition-all hover:-translate-y-0.5 ${isDark ? 'text-stone-200 hover:text-amber-400' : 'text-[#112D4E] hover:text-[#3377FF]'}`}>
                   {link.name}
                 </Link>
               </div>
@@ -202,7 +212,7 @@ export function Footer({ isDark = false }: { isDark?: boolean }) {
         {/* Column 3: Secteurs / Expertises (SEO) */}
         <div>
           <h3
-            className={`mb-8 text-xs font-semibold uppercase tracking-[0.2em] ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
+            className={`mb-8 text-xs font-semibold uppercase tracking-[0.2em] ${isDark ? 'text-stone-500' : 'text-[#112D4E]/40'}`}>
             Expertises
           </h3>
           <nav className='space-y-4' aria-label='Nos secteurs d expertise'>
@@ -210,7 +220,7 @@ export function Footer({ isDark = false }: { isDark?: boolean }) {
               <div key={`nav-${link.href}`}>
                 <Link
                   href={link.href}
-                  className={`block text-[15px] font-medium transition-all hover:-translate-y-0.5 ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-[#112D4E]/60 hover:text-[#3377FF]'}`}>
+                  className={`block text-[15px] font-medium transition-all hover:-translate-y-0.5 ${isDark ? 'text-stone-400 hover:text-amber-400' : 'text-[#112D4E]/60 hover:text-[#3377FF]'}`}>
                   {link.name}
                 </Link>
               </div>
@@ -221,7 +231,7 @@ export function Footer({ isDark = false }: { isDark?: boolean }) {
         {/* Column 4: Villes (SEO) */}
         <div>
           <h3
-            className={`mb-8 text-xs font-semibold uppercase tracking-[0.2em] ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}>
+            className={`mb-8 text-xs font-semibold uppercase tracking-[0.2em] ${isDark ? 'text-stone-500' : 'text-[#112D4E]/40'}`}>
             Villes
           </h3>
           <nav className='space-y-4' aria-label='Nos agences locales'>
@@ -229,7 +239,7 @@ export function Footer({ isDark = false }: { isDark?: boolean }) {
               <div key={`nav-${link.href}`}>
                 <Link
                   href={link.href}
-                  className={`block text-[15px] font-medium transition-all hover:-translate-y-0.5 ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-[#112D4E]/60 hover:text-[#3377FF]'}`}>
+                  className={`block text-[15px] font-medium transition-all hover:-translate-y-0.5 ${isDark ? 'text-stone-400 hover:text-amber-400' : 'text-[#112D4E]/60 hover:text-[#3377FF]'}`}>
                   {link.name}
                 </Link>
               </div>
@@ -251,25 +261,25 @@ export function Footer({ isDark = false }: { isDark?: boolean }) {
       <div className={`border-t pt-8 ${isDark ? 'border-white/10' : 'border-[#112D4E]/10'}`}>
         <div className='flex flex-col items-center justify-between space-y-6 lg:flex-row lg:space-y-0'>
           <div
-            className={`hidden text-sm uppercase tracking-wider lg:block ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}
+            className={`hidden text-sm uppercase tracking-wider lg:block ${isDark ? 'text-stone-500' : 'text-[#112D4E]/40'}`}
             suppressHydrationWarning>
             {COMPANY_INFO.copyright} • Site développé par{' '}
             <a
               href='https://www.sidikoff.com'
-              className={`hover:underline font-semibold ${isDark ? 'text-slate-300' : 'text-[#112D4E]'}`}>
+              className={`hover:underline font-semibold ${isDark ? 'text-stone-300' : 'text-[#112D4E]'}`}>
               SIDIKOFF DIGITAL
             </a>
           </div>
 
           <div
-            className={`text-center text-sm uppercase tracking-wider lg:hidden ${isDark ? 'text-slate-500' : 'text-[#112D4E]/40'}`}
+            className={`text-center text-sm uppercase tracking-wider lg:hidden ${isDark ? 'text-stone-500' : 'text-[#112D4E]/40'}`}
             suppressHydrationWarning>
             {COMPANY_INFO.copyright}
             <div className='mt-2'>
               Site développé par{' '}
               <a
                 href='https://www.sidikoff.com'
-                className={`hover:underline font-semibold ${isDark ? 'text-slate-300' : 'text-[#112D4E]'}`}>
+                className={`hover:underline font-semibold ${isDark ? 'text-stone-300' : 'text-[#112D4E]'}`}>
                 SIDIKOFF DIGITAL
               </a>
             </div>
@@ -280,18 +290,18 @@ export function Footer({ isDark = false }: { isDark?: boolean }) {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm uppercase tracking-wider transition-colors ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-[#112D4E]/60 hover:text-[#3377FF]'}`}>
+                className={`text-sm uppercase tracking-wider transition-colors ${isDark ? 'text-stone-400 hover:text-amber-400' : 'text-[#112D4E]/60 hover:text-[#3377FF]'}`}>
                 {link.name}
               </Link>
             ))}
             <Link
               href='/politique-de-confidentialite'
-              className={`text-sm uppercase tracking-wider transition-colors ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-[#112D4E]/60 hover:text-[#3377FF]'}`}>
+              className={`text-sm uppercase tracking-wider transition-colors ${isDark ? 'text-stone-400 hover:text-amber-400' : 'text-[#112D4E]/60 hover:text-[#3377FF]'}`}>
               Politique de Confidentialité
             </Link>
             <Link
               href='/plan-du-site'
-              className={`text-sm uppercase tracking-wider transition-colors ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-[#112D4E]/60 hover:text-[#3377FF]'}`}>
+              className={`text-sm uppercase tracking-wider transition-colors ${isDark ? 'text-stone-400 hover:text-amber-400' : 'text-[#112D4E]/60 hover:text-[#3377FF]'}`}>
               Plan du site
             </Link>
           </div>
