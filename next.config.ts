@@ -34,7 +34,7 @@ const SECURITY_HEADERS = [
       img-src 'self' data: blob: https://images.unsplash.com https://cdn.sidikoff.com;
       font-src 'self' fonts.gstatic.com;
       connect-src 'self' *.vercel-insights.com *.googletagmanager.com https://cloudflareinsights.com https://*.clarity.ms;
-      frame-src 'none';
+      frame-src 'self' https://www.google.com https://*.google.com;
       object-src 'none';
       base-uri 'self';
       form-action 'self';

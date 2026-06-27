@@ -2,35 +2,44 @@
 
 import React from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowUpRight, Layers, Search } from 'lucide-react'
+import { ArrowUpRight, Layers, Search, Zap, Code2, MapPin, Headphones } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { FAQAccordion } from '@/components/FAQAccordion'
 import CTAButton from '@/components/ui/CTAButton'
+import PortfolioCarousel, {
+  convertProjectsToPortfolioItems,
+} from '@/components/ui/PortfolioCarousel'
+import { getProjects } from '@/data/projects'
+import { TESTIMONIALS_DATA } from '@/data/testimonials'
+import StarRating from '@/components/ui/StarRating'
 
 export default function AgenceVilleurbanneClient() {
   const shouldReduceMotion = useReducedMotion()
 
+  const projects = getProjects()
+  const carouselItems = convertProjectsToPortfolioItems(projects)
+
   const faqItems = [
     {
       id: '1',
-      question: 'Quel est le budget pour la création d’un site web à Villeurbanne ?',
+      question: 'Quel est le budget pour la création d\u2019un site web à Villeurbanne ?',
       answer:
-        'Un site vitrine professionnel sur mesure démarre à 890€ TTC. Une plateforme multi-pages est proposée à partir de 1 290€, et un site e-commerce performant commence à 1 990€. Nous fournissons un devis clair sous 24 heures, sans aucun frais caché ni abonnement obligatoire.',
+        'Un site vitrine professionnel sur mesure démarre à 890€ TTC. Une plateforme multi-pages est proposée à partir de 1 290€, et un site e-commerce performant commence à 1 990€. Nous fournissons un devis clair sous 24 heures, sans aucun frais caché ni abonnement obligatoire.',
       category: 'pricing',
     },
     {
       id: '2',
       question: 'Quel est le délai de livraison pour un projet web ?',
       answer:
-        'Pour un site vitrine standard, comptez 5 à 7 jours ouvrés après réception de vos contenus. Les projets plus complexes (boutiques e-commerce ou applications spécifiques) s’étendent de 3 à 6 semaines. Nous validons ensemble un calendrier précis dès le lancement.',
+        'Pour un site vitrine standard, comptez 5 à 7 jours ouvrés après réception de vos contenus. Les projets plus complexes (boutiques e-commerce ou applications spécifiques) s\u2019étendent de 3 à 6 semaines. Nous validons ensemble un calendrier précis dès le lancement.',
       category: 'timing',
     },
     {
       id: '3',
       question: 'Proposez-vous des prestations de développeur freelance à Villeurbanne ?',
       answer:
-        'Oui, nous intervenons également sous format freelance pour renforcer vos équipes ou piloter un projet spécifique : développement Next.js/React, intégration d’API, refonte technique ou audit de performance. Nous vous offrons la flexibilité d’un freelance avec la structure d’une agence.',
+        'Oui, nous intervenons également sous format freelance pour renforcer vos équipes ou piloter un projet spécifique : développement Next.js/React, intégration d\u2019API, refonte technique ou audit de performance. Nous vous offrons la flexibilité d\u2019un freelance avec la structure d\u2019une agence.',
       category: 'freelance',
     },
     {
@@ -44,14 +53,14 @@ export default function AgenceVilleurbanneClient() {
       id: '5',
       question: 'Serai-je autonome pour modifier les textes ou les images ?',
       answer:
-        'Absolument. Nous connectons votre site à un outil de gestion simplifié (comme Sanity ou un WordPress headless). Vous pourrez mettre à jour vos articles, textes et images en quelques clics sans toucher au code. Une formation personnalisée d’une heure est incluse à la livraison.',
+        'Absolument. Nous connectons votre site à un outil de gestion simplifié (comme Sanity ou un WordPress headless). Vous pourrez mettre à jour vos articles, textes et images en quelques clics sans toucher au code. Une formation personnalisée d\u2019une heure est incluse à la livraison.',
       category: 'tech',
     },
     {
       id: '6',
-      question: 'Proposez-vous un accompagnement pour la refonte d’un vieux site ?',
+      question: 'Proposez-vous un accompagnement pour la refonte d\u2019un vieux site ?',
       answer:
-        'Oui, c’est l’une de nos spécialités. Nous analysons l’existant pour conserver votre historique SEO, puis nous migrons votre contenu vers une architecture Next.js moderne. Vous gagnez immédiatement en vitesse, en sécurité et en taux de conversion.',
+        'Oui, c\u2019est l\u2019une de nos spécialités. Nous analysons l\u2019existant pour conserver votre historique SEO, puis nous migrons votre contenu vers une architecture Next.js moderne. Vous gagnez immédiatement en vitesse, en sécurité et en taux de conversion.',
       category: 'redesign',
     },
   ]
@@ -69,6 +78,8 @@ export default function AgenceVilleurbanneClient() {
     initial: shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 },
     animate: { opacity: 1, y: 0 },
   }
+
+  const testimonials = TESTIMONIALS_DATA.slice(0, 3)
 
   return (
     <div className="relative min-h-screen bg-[#F9F7F7] text-[#112D4E] pt-32 pb-20 font-sans overflow-x-hidden">
@@ -105,7 +116,7 @@ export default function AgenceVilleurbanneClient() {
             </h1>
 
             <p className="text-[#3377FF] text-xl md:text-2xl font-medium tracking-tight mb-8">
-              — création de site internet & seo local
+              — création de site internet &amp; seo local
             </p>
 
             <p className="text-base md:text-lg text-[#112D4E]/85 max-w-xl mb-10 leading-relaxed font-light">
@@ -177,7 +188,7 @@ export default function AgenceVilleurbanneClient() {
         </div>
       </section>
 
-      {/* Section Expertise (Bento Grid) */}
+      {/* [01] Section Expertise (Bento Grid) */}
       <section id="expertise" className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-24 scroll-mt-28">
         <div className="mb-12">
           <span className="text-[#3377FF] font-semibold text-xs tracking-wider uppercase mb-2 block">
@@ -208,7 +219,7 @@ export default function AgenceVilleurbanneClient() {
                 Création Web sur mesure
               </h3>
               <p className="text-sm text-[#112D4E]/80 leading-relaxed font-light mb-6">
-                Développement de sites vitrines et plateformes e-commerce à fort taux de conversion. Conception Next.js / React optimisée pour une vitesse d&apos;affichage instantanée.
+                Développement de <Link href="/services/site-vitrine-villeurbanne" className="text-[#3377FF] underline underline-offset-2 hover:text-[#112D4E] transition-colors">sites vitrines</Link> et plateformes <Link href="/services/creation-site-ecommerce" className="text-[#3377FF] underline underline-offset-2 hover:text-[#112D4E] transition-colors">e-commerce</Link> à fort taux de conversion. Conception Next.js / React optimisée pour une vitesse d&apos;affichage instantanée.
               </p>
               <div className="mt-auto flex flex-wrap gap-2">
                 {['Next.js', 'React', 'TypeScript'].map((t) => (
@@ -234,7 +245,7 @@ export default function AgenceVilleurbanneClient() {
                 Référencement SEO Local
               </h3>
               <p className="text-sm text-white/80 leading-relaxed font-light mb-6">
-                Positionnement ciblé sur Villeurbanne, Lyon et Gratte-Ciel. Nous optimisons l&apos;aspect technique de votre site et vos contenus pour capter les requêtes clés de vos futurs clients.
+                Positionnement ciblé sur Villeurbanne, Lyon et Gratte-Ciel. Nous optimisons l&apos;aspect technique de votre site et vos contenus pour capter les requêtes clés de vos futurs clients. Découvrez notre <Link href="/services/seo-villeurbanne" className="text-[#3377FF] underline underline-offset-2 hover:text-white transition-colors">expertise SEO à Villeurbanne</Link>.
               </p>
               <div className="mt-auto flex flex-wrap gap-2">
                 {['SEO Local', 'JSON-LD', 'Audit'].map((t) => (
@@ -262,7 +273,7 @@ export default function AgenceVilleurbanneClient() {
                 />
               </div>
               <h3 className="text-lg font-bold uppercase tracking-tight text-[#112D4E] mb-2 font-[family:var(--font-grotesk)]">
-                Logiciel Métier & SaaS
+                Logiciel Métier &amp; SaaS
               </h3>
               <p className="text-xs text-[#112D4E]/80 leading-relaxed font-light">
                 Automatisation de vos processus internes, création d&apos;outils CRM/ERP simplifiés et intégration d&apos;APIs pour une efficacité opérationnelle maximale.
@@ -272,13 +283,28 @@ export default function AgenceVilleurbanneClient() {
         </motion.div>
       </section>
 
-      {/* Section Local Context (Asymmetric Split) */}
+      {/* [02] Section Projets (Portfolio Carousel) */}
+      <section className="relative z-10 mb-24">
+        <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-4">
+          <span className="text-[#3377FF] font-semibold text-xs tracking-wider uppercase mb-2 block">
+            [02] Nos Réalisations
+          </span>
+        </div>
+        <PortfolioCarousel
+          items={carouselItems}
+          title="Des projets livrés à Villeurbanne et au-delà"
+          subtitle="Sites vitrines, e-commerce et applications web conçus sur mesure"
+          isHomePage={false}
+        />
+      </section>
+
+      {/* [03] Section Local Context (Asymmetric Split) */}
       <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Content Left */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             <span className="text-[#3377FF] font-semibold text-xs tracking-wider uppercase mb-2 block">
-              [02] Ancrage local
+              [03] Ancrage local
             </span>
             <h2 className="text-3xl md:text-4xl font-black text-[#112D4E] uppercase tracking-tight font-[family:var(--font-grotesk)] mb-6">
               Pourquoi choisir notre agence à Villeurbanne ?
@@ -289,7 +315,7 @@ export default function AgenceVilleurbanneClient() {
                 Deuxième commune de la métropole avec plus de 150 000 habitants, <strong className="font-semibold text-[#112D4E]">Villeurbanne</strong> possède une vitalité économique unique. Des boutiques animées du Cours Émile Zola aux restaurants branchés des Gratte-Ciel, en passant par les start-ups technologiques de La Doua et le secteur résidentiel de Cusset, chaque quartier a ses codes.
               </p>
               <p>
-                Contrairement aux marchés saturés de Lyon intramuros, Villeurbanne offre d&apos;immenses opportunités de positionnement local sur Google. Notre agence maîtrise parfaitement le marché local pour concevoir un site internet qui répond directement aux attentes des professionnels du Grand Lyon.
+                Contrairement aux marchés saturés de Lyon intramuros, Villeurbanne offre d&apos;immenses opportunités de positionnement local sur Google. Notre <Link href="/services/agence-web-lyon" className="text-[#3377FF] underline underline-offset-2 hover:text-[#112D4E] transition-colors">agence web</Link> maîtrise parfaitement le marché local pour concevoir un <Link href="/services/creation-site-internet-lyon" className="text-[#3377FF] underline underline-offset-2 hover:text-[#112D4E] transition-colors">site internet</Link> qui répond directement aux attentes des professionnels du Grand Lyon.
               </p>
             </div>
 
@@ -328,12 +354,127 @@ export default function AgenceVilleurbanneClient() {
         </div>
       </section>
 
-      {/* Production Protocol */}
+      {/* [04] Pourquoi SIDIKOFF DIGITAL */}
+      <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-24">
+        <div className="mb-12">
+          <span className="text-[#3377FF] font-semibold text-xs tracking-wider uppercase mb-2 block">
+            [04] Nos Engagements
+          </span>
+          <h2 className="text-3xl md:text-4xl font-black text-[#112D4E] uppercase tracking-tight font-[family:var(--font-grotesk)]">
+            Pourquoi SIDIKOFF DIGITAL ?
+          </h2>
+        </div>
+
+        <motion.div
+          variants={staggerVariants}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: '-80px' }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
+          {[
+            {
+              icon: <Zap className="w-5 h-5" />,
+              title: 'Performance extrême',
+              desc: 'Scores Lighthouse supérieurs à 95. Temps de chargement sous la seconde. Votre site se charge plus vite que ceux de vos concurrents à Villeurbanne.',
+            },
+            {
+              icon: <Code2 className="w-5 h-5" />,
+              title: 'Code sur mesure, zéro template',
+              desc: 'Nous développons en Next.js et React — pas de WordPress, pas de page builder. Chaque ligne de code est écrite pour votre projet, garantissant flexibilité et pérennité.',
+            },
+            {
+              icon: <MapPin className="w-5 h-5" />,
+              title: 'Proximité locale',
+              desc: 'Basés à Villeurbanne, quartier Gratte-Ciel. Réunions en présentiel possibles. Nous connaissons le tissu économique local et les habitudes de recherche de vos clients.',
+            },
+            {
+              icon: <Headphones className="w-5 h-5" />,
+              title: 'Réactivité & suivi',
+              desc: 'Un interlocuteur unique, des réponses sous 2 heures en semaine. Pas de ticket support anonyme — une vraie relation de confiance avec votre développeur.',
+            },
+          ].map((item, idx) => (
+            <motion.div
+              key={idx}
+              variants={itemVariants}
+              className="bg-[#DBE2EF]/30 p-2.5 rounded-[2rem] border border-[#DBE2EF]/60 hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="bg-white p-8 rounded-[calc(2rem-0.625rem)] flex flex-col h-full">
+                <div className="h-10 w-10 rounded-xl bg-[#3377FF]/10 flex items-center justify-center text-[#3377FF] mb-5">
+                  {item.icon}
+                </div>
+                <h3 className="text-lg font-bold uppercase tracking-tight text-[#112D4E] mb-3 font-[family:var(--font-grotesk)]">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-[#112D4E]/80 leading-relaxed font-light">
+                  {item.desc}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* [05] Témoignages clients */}
+      <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-24">
+        <div className="mb-12">
+          <span className="text-[#3377FF] font-semibold text-xs tracking-wider uppercase mb-2 block">
+            [05] Avis Clients
+          </span>
+          <h2 className="text-3xl md:text-4xl font-black text-[#112D4E] uppercase tracking-tight font-[family:var(--font-grotesk)]">
+            Ce que disent nos clients
+          </h2>
+          <p className="mt-4 text-base text-[#112D4E]/70 font-light max-w-2xl">
+            Chaque projet est une collaboration. Voici les retours de nos clients à Lyon et Villeurbanne.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={testimonial.id}
+              initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-[#DBE2EF]/30 p-2.5 rounded-[2rem] border border-[#DBE2EF]/60 hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="bg-white p-6 rounded-[calc(2rem-0.625rem)] flex flex-col h-full relative">
+                <span className="pointer-events-none absolute -right-1 top-2 text-[4rem] leading-none text-[#3377FF]/10">
+                  &rdquo;
+                </span>
+                <StarRating rating={testimonial.rating} size="sm" animated={false} className="mb-4" />
+                <blockquote className="text-sm text-[#112D4E]/85 leading-relaxed font-light mb-6 line-clamp-5">
+                  &ldquo;{testimonial.text}&rdquo;
+                </blockquote>
+                <div className="mt-auto pt-4 border-t border-[#DBE2EF]/60">
+                  <p className="text-sm font-semibold text-[#112D4E]">{testimonial.author}</p>
+                  <p className="text-xs text-[#112D4E]/60 mt-1">{testimonial.project}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-8 text-center">
+          <a
+            href="https://maps.app.goo.gl/1aArF53esMA5vco28"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#3377FF] hover:text-[#112D4E] transition-colors underline underline-offset-4"
+          >
+            Lire tous nos avis sur Google
+            <ArrowUpRight className="w-4 h-4" />
+          </a>
+        </div>
+      </section>
+
+      {/* [06] Production Protocol */}
       <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-5">
             <span className="text-[#3377FF] font-semibold text-xs tracking-wider uppercase mb-2 block">
-              [03] Notre Méthode
+              [06] Notre Méthode
             </span>
             <h2 className="text-3xl md:text-4xl font-black text-[#112D4E] uppercase tracking-tight font-[family:var(--font-grotesk)] mb-6">
               notre protocole de création
@@ -385,11 +526,11 @@ export default function AgenceVilleurbanneClient() {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* [07] FAQ Section */}
       <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto mb-24 scroll-mt-28">
         <div className="text-center mb-12">
           <span className="text-[#3377FF] font-semibold text-xs tracking-wider uppercase mb-2 block">
-            [04] Foire aux questions
+            [07] Foire aux questions
           </span>
           <h2 className="text-3xl md:text-4xl font-black text-[#112D4E] uppercase tracking-tight font-[family:var(--font-grotesk)]">
             des réponses claires à vos questions
@@ -401,11 +542,65 @@ export default function AgenceVilleurbanneClient() {
         </div>
       </section>
 
-      {/* Internal Links Cluster */}
+      {/* [08] Carte — Gratte-Ciel, Villeurbanne */}
+      <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-5 flex flex-col items-start text-left">
+            <span className="text-[#3377FF] font-semibold text-xs tracking-wider uppercase mb-2 block">
+              [08] Nous trouver
+            </span>
+            <h2 className="text-3xl md:text-4xl font-black text-[#112D4E] uppercase tracking-tight font-[family:var(--font-grotesk)] mb-6">
+              Au cœur de Villeurbanne
+            </h2>
+            <div className="space-y-4 text-base text-[#112D4E]/80 font-light leading-relaxed">
+              <p>
+                Notre agence est située dans le quartier <strong className="font-semibold text-[#112D4E]">Gratte-Ciel</strong>, au centre de Villeurbanne — à quelques minutes du métro.
+              </p>
+              <p className="text-sm font-medium text-[#112D4E]">
+                📍 73 Rue Racine, 69100 Villeurbanne
+              </p>
+            </div>
+            <a
+              href="https://maps.google.com/?q=73+Rue+Racine+69100+Villeurbanne"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#3377FF] hover:text-[#112D4E] transition-colors underline underline-offset-4"
+            >
+              Ouvrir dans Google Maps
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
+
+          <div className="lg:col-span-7 w-full">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-[#DBE2EF]/40 p-2 rounded-[2rem] border border-[#DBE2EF]/80 shadow-soft"
+            >
+              <div className="relative aspect-[16/10] rounded-[calc(2rem-0.5rem)] overflow-hidden bg-white shadow-soft">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.508!2d4.8788!3d45.7676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4ea9d3e0b4b1f%3A0x0!2s73+Rue+Racine%2C+69100+Villeurbanne!5e0!3m2!1sfr!2sfr!4v1"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, position: 'absolute', inset: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Carte Sidikoff Digital — 73 Rue Racine, Villeurbanne"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* [09] Internal Links Cluster (expanded) */}
       <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-24">
         <div className="text-center mb-10">
           <span className="text-[#3377FF] font-semibold text-xs tracking-wider uppercase mb-2 block">
-            [05] Proximité
+            [09] Proximité
           </span>
           <h2 className="text-xl md:text-2xl font-bold uppercase text-[#112D4E] font-[family:var(--font-grotesk)]">
             Création de sites internet dans la Métropole de Lyon
@@ -433,6 +628,26 @@ export default function AgenceVilleurbanneClient() {
               city: 'Site Vitrine Villeurbanne',
               desc: 'Création de sites de présentation sur mesure pour artisans et professions libérales.',
               link: '/services/site-vitrine-villeurbanne',
+            },
+            {
+              city: 'SEO Villeurbanne',
+              desc: 'Audit et optimisation du référencement naturel pour gagner en visibilité locale.',
+              link: '/services/seo-villeurbanne',
+            },
+            {
+              city: 'Agence Web France',
+              desc: 'Nous accompagnons des clients dans toute la France avec la même exigence qualité.',
+              link: '/services/agence-web-france',
+            },
+            {
+              city: 'SEO Lyon',
+              desc: 'Stratégie SEO complète pour dominer les résultats de recherche à Lyon.',
+              link: '/services/seo-lyon',
+            },
+            {
+              city: 'Création Site Lyon',
+              desc: 'Sites internet professionnels livrés en 7 jours pour PME et indépendants lyonnais.',
+              link: '/services/creation-site-internet-lyon',
             },
           ].map((item, i) => (
             <Link
