@@ -7,6 +7,8 @@ import {
   createCanonicalUrl,
 } from '@/lib/seo-utils'
 import { LyonVilleurbanneSeoHub } from '@/components/seo/LyonVilleurbanneSeoHub'
+import { FounderEEATBlock } from '@/components/seo/FounderEEATBlock'
+import { ZonesInterventionBlock } from '@/components/seo/ZonesInterventionBlock'
 import AgenceVilleurbanneClient from './AgenceVilleurbanneClient'
 
 const PAGE_SLUG = 'services/agence-web-villeurbanne'
@@ -136,7 +138,9 @@ export default function AgenceWebVilleurbannePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <AgenceVilleurbanneClient />
+      <FounderEEATBlock />
       <LyonVilleurbanneSeoHub currentPath='/services/agence-web-villeurbanne' />
+      <ZonesInterventionBlock currentPath='/services/agence-web-villeurbanne' />
     </>
   )
 }

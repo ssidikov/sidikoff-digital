@@ -30,7 +30,7 @@ const faqItems = [
 
 export function generateMetadata(): Metadata {
   const title = 'Agence SEO Lyon | Consultant Référencement Naturel'
-  const description = 'Agence SEO à Lyon. Augmentez votre visibilité sur Google, attirez des clients qualifiés et dominez votre secteur grâce au référencement naturel.'
+  const description = 'Agence SEO à Lyon. Boostez votre visibilité locale sur Google, obtenez un trafic qualifié et augmentez vos conversions. Devis & audit sous 24h.'
   
   return {
     title,

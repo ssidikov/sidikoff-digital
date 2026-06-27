@@ -1,6 +1,8 @@
 import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import ReactLyonLandingContent from '@/components/ReactLyonLandingContent'
+import { FounderEEATBlock } from '@/components/seo/FounderEEATBlock'
+import { ZonesInterventionBlock } from '@/components/seo/ZonesInterventionBlock'
 
 const PAGE_URL = createCanonicalUrl('services/react-lyon', 'fr')
 
@@ -29,7 +31,7 @@ const faqItems = [
 
 export function generateMetadata(): Metadata {
   const title = 'Agence React.js Lyon | Développement Web & Applications'
-  const description = 'Développement d\'applications web et Dashboards sur mesure avec React.js à Lyon. Intégration API, architecture de composants et Single Page Applications (SPA).'
+  const description = 'Agence React.js à Lyon. Développement d\'applications web, SaaS et dashboards sur-mesure. Intégration API rapide & code propre. Devis sous 24h.'
   
   return {
     title,
@@ -108,6 +110,8 @@ export default function ReactLyonLandingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <ReactLyonLandingContent />
+      <FounderEEATBlock />
+      <ZonesInterventionBlock currentPath="/services/react-lyon" />
     </>
   )
 }

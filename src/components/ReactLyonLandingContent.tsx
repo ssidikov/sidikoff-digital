@@ -317,6 +317,83 @@ export default function ReactLyonLandingContent() {
         </div>
       </section>
 
+      {/* Tech Stack & Projects Section */}
+      <section className="py-20 bg-slate-950 text-white border-t border-slate-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            
+            {/* Tech Stack Card */}
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold">Notre Stack Technique de Prédilection</h2>
+              <p className="text-slate-300 leading-relaxed">
+                Nous ne faisons aucun compromis sur la qualité et la modernité des outils utilisés pour bâtir vos interfaces utilisateur.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-4 bg-slate-900 rounded-xl border border-slate-800">
+                  <h4 className="font-bold text-cyan-400 mb-1">React 19</h4>
+                  <p className="text-xs text-slate-400">Hooks avancés, Server Components et optimisation du DOM virtuel.</p>
+                </div>
+                <div className="p-4 bg-slate-900 rounded-xl border border-slate-800">
+                  <h4 className="font-bold text-cyan-400 mb-1">Next.js 16</h4>
+                  <p className="text-xs text-slate-400">Rendu hybride SSR/SSG, routage par dossier (App Router) et vitesse de chargement.</p>
+                </div>
+                <div className="p-4 bg-slate-900 rounded-xl border border-slate-800">
+                  <h4 className="font-bold text-cyan-400 mb-1">TypeScript</h4>
+                  <p className="text-xs text-slate-400">Typage statique strict pour éliminer 99% des bugs d\'exécution en production.</p>
+                </div>
+                <div className="p-4 bg-slate-900 rounded-xl border border-slate-800">
+                  <h4 className="font-bold text-cyan-400 mb-1">Tailwind CSS v4</h4>
+                  <p className="text-xs text-slate-400">Styling utilitaire ultra-léger et design systems fluides.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Selected Projects */}
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold">Projets Récents Associés</h2>
+              <p className="text-slate-300 leading-relaxed">
+                Découvrez des exemples concrets d\'applications web et de plateformes sur mesure développées par notre équipe.
+              </p>
+              <div className="space-y-4">
+                {/* Project 1 */}
+                <div className="p-5 bg-slate-900 rounded-xl border border-slate-800 flex gap-4 items-center">
+                  <div className="relative w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-slate-700">
+                    <Image 
+                      src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80" 
+                      alt="SaaS Dashboard" 
+                      fill 
+                      className="object-cover"
+                      unoptimized
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white">Plateforme SaaS B2B</h4>
+                    <p className="text-xs text-slate-400 mt-1">Dashboard analytique avec gestion d\'état complexe sous React & Tailwind.</p>
+                  </div>
+                </div>
+                {/* Project 2 */}
+                <div className="p-5 bg-slate-900 rounded-xl border border-slate-800 flex gap-4 items-center">
+                  <div className="relative w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-slate-700">
+                    <Image 
+                      src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=120&q=80" 
+                      alt="Fintech Interface" 
+                      fill 
+                      className="object-cover"
+                      unoptimized
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white">Application Web E-commerce Headless</h4>
+                    <p className="text-xs text-slate-400 mt-1">Boutique en ligne ultra-rapide connectée à un CMS headless via GraphQL.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Process Section */}
       <section className='py-20 bg-slate-900 text-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>

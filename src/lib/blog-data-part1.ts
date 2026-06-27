@@ -14,8 +14,8 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     slug: 'prix-site-internet-lyon',
-    title: 'Quel est le vrai prix d\'un site internet à Lyon en 2026 ?',
-    description: 'Découvrez les tarifs réels pour la création d\'un site web à Lyon. De la vitrine artisanale à la plateforme e-commerce complexe, on vous dit tout sur les prix.',
+    title: 'Prix d\'un Site Internet en 2026 : Tarifs, Exemples et Devis',
+    description: 'Quel budget pour la création de votre site internet en 2026 ? Découvrez le comparatif complet des tarifs (freelance vs agence) et obtenez un devis gratuit sous 24h.',
     date: '2026-04-27',
     author: 'L\'équipe Sidikoff Digital',
     category: 'Budget & Tarifs',
@@ -34,6 +34,46 @@ export const blogPosts: BlogPost[] = [
       
       <h2>3. La boutique E-commerce</h2>
       <p>La création d'un site de vente en ligne (Shopify, WooCommerce) demande une expertise technique pointue : configuration des paiements, calcul des frais de port, synchronisation des stocks, et optimisation de la conversion. Pour une boutique standard, les tarifs démarrent à <strong>5 000 €</strong>. S'il s'agit d'une plateforme complexe avec intégration ERP ou développement Headless, le budget peut facilement dépasser les <strong>15 000 € à 30 000 €</strong>.</p>
+
+      <h2>Tableau comparatif des tarifs de création de site web en 2026</h2>
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse border border-zinc-200 dark:border-zinc-800 text-sm">
+          <thead>
+            <tr class="bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800">
+              <th class="p-3 font-semibold text-zinc-900 dark:text-zinc-100">Type de site</th>
+              <th class="p-3 font-semibold text-zinc-900 dark:text-zinc-100">Prestataire Freelance</th>
+              <th class="p-3 font-semibold text-zinc-900 dark:text-zinc-100">Agence Web (Lyon)</th>
+              <th class="p-3 font-semibold text-zinc-900 dark:text-zinc-100">Délai estimé</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-zinc-100 dark:border-zinc-800/50">
+              <td class="p-3 font-medium">Site Vitrine (Template)</td>
+              <td class="p-3">890 € - 1 500 €</td>
+              <td class="p-3">1 500 € - 3 500 €</td>
+              <td class="p-3">5 - 10 jours</td>
+            </tr>
+            <tr class="border-b border-zinc-100 dark:border-zinc-800/50 bg-zinc-50/50 dark:bg-zinc-900/20">
+              <td class="p-3 font-medium">Site Vitrine Sur Mesure</td>
+              <td class="p-3">1 500 € - 3 500 €</td>
+              <td class="p-3">3 500 € - 8 000 €</td>
+              <td class="p-3">2 - 4 semaines</td>
+            </tr>
+            <tr class="border-b border-zinc-100 dark:border-zinc-800/50">
+              <td class="p-3 font-medium">Boutique E-commerce Standard</td>
+              <td class="p-3">3 000 € - 6 000 €</td>
+              <td class="p-3">6 000 € - 15 000 €</td>
+              <td class="p-3">4 - 8 semaines</td>
+            </tr>
+            <tr class="bg-zinc-50/50 dark:bg-zinc-900/20">
+              <td class="p-3 font-medium">Application Web / Headless</td>
+              <td class="p-3">Sur devis (5k€+)</td>
+              <td class="p-3">15 000 € - 50 000 €+</td>
+              <td class="p-3">2 - 4 mois</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       
       <h2>Pourquoi de tels écarts de prix ?</h2>
       <p>Le prix d'un site internet ne reflète pas seulement le temps passé à taper du code. Il englobe :</p>
@@ -46,6 +86,22 @@ export const blogPosts: BlogPost[] = [
       <h2>Comment bien choisir son agence à Lyon ?</h2>
       <p>Méfiez-vous des offres trop alléchantes du type "Votre site internet pour 49€/mois". Ce sont souvent des contrats de location déguisés (leasing) où vous ne serez jamais propriétaire de votre site. Préférez un paiement au forfait (avec un acompte au démarrage et le solde à la livraison) et exigez la propriété totale du code source et du nom de domaine.</p>
       <p>Chez <strong>Sidikoff Digital</strong>, nous prônons la transparence. Nous auditons vos besoins réels avant d'établir un cahier des charges chiffré, sans mauvaises surprises.</p>
+
+      <h2>FAQ : Vos questions sur le budget d\'un site web</h2>
+      <div class="space-y-4 my-6">
+        <div>
+          <h4 class="font-semibold text-zinc-900 dark:text-zinc-100">Pourquoi faire appel à une agence plutôt qu\'un freelance ?</h4>
+          <p class="mt-1 text-zinc-600 dark:text-zinc-400">Une agence offre une équipe pluridisciplinaire (designer, développeur, expert SEO, chef de projet). C\'est la garantie d\'une conception globale sans angle mort technique ou marketing, et d\'un suivi garanti dans le temps.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-zinc-900 dark:text-zinc-100">Y a-t-il des coûts récurrents obligatoires ?</h4>
+          <p class="mt-1 text-zinc-600 dark:text-zinc-400">Oui. Pour faire fonctionner votre site, vous devez payer chaque année l\'hébergement web et le nom de domaine (comptez entre 50 € et 200 € par an). En dehors de cela, aucun abonnement n\'est requis chez Sidikoff Digital pour rester propriétaire.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-zinc-900 dark:text-zinc-100">Comment obtenir un devis précis sous 24h ?</h4>
+          <p class="mt-1 text-zinc-600 dark:text-zinc-400">Contactez-nous directement via notre formulaire en décrivant brièvement vos objectifs, le nombre de pages souhaité et vos inspirations. Notre équipe vous recontactera rapidement avec une estimation chiffrée.</p>
+        </div>
+      </div>
     `
   },
   {

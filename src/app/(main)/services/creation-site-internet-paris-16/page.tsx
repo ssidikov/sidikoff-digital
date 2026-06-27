@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
 import ParisArrondissementLanding from '@/components/ParisArrondissementLanding'
+import { FounderEEATBlock } from '@/components/seo/FounderEEATBlock'
+import { ZonesInterventionBlock } from '@/components/seo/ZonesInterventionBlock'
 import { defaultLocale } from '@/lib/i18n'
 import {
   createCanonicalUrl,
@@ -19,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = defaultLocale
   const pageTitle = 'Création Site Internet Paris 16 | Agence Web Sidikoff'
   const pageDescription =
-    'Creation de site web a Paris 16: site vitrine, e-commerce, redesign et SEO local. Agence web orientee conversion pour Passy, Auteuil et Trocadero.'
+    'Création de site internet professionnel à Paris 16. Site vitrine, e-commerce & SEO local. Devis gratuit sous 24h & accompagnement sur-mesure.'
 
   return {
     title: pageTitle,
@@ -239,6 +241,8 @@ export default async function CreationSiteInternetParis16Page() {
             </div>
           </div>
         </section>
+        <FounderEEATBlock />
+        <ZonesInterventionBlock currentPath="/services/creation-site-internet-paris-16" />
       </ParisArrondissementLanding>
     </>
   )
