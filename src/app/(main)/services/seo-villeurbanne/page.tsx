@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import { LyonVilleurbanneSeoHub } from '@/components/seo/LyonVilleurbanneSeoHub'
 import SeoVilleurbanneLandingContent from '@/components/SeoVilleurbanneLandingContent'
@@ -29,7 +36,7 @@ const faqItems = [
 ]
 
 export function generateMetadata(): Metadata {
-  const title = 'Consultant SEO Villeurbanne | Agence de Référencement Naturel'
+  const title = 'SEO Villeurbanne | Référencement Naturel'
   const description = 'Agence SEO à Villeurbanne (69100). Optimisez votre visibilité locale sur Google, attirez plus de clients et devancez vos concurrents. Audit SEO gratuit.'
   
   return {
@@ -60,20 +67,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const seoSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Prestation SEO à Villeurbanne - Sidikoff Digital",
-  "description": "Services de référencement naturel (SEO) ciblés pour les entreprises de Villeurbanne (69100). Audit technique, optimisation on-page, SEO local et netlinking.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": ["Villeurbanne", "Métropole de Lyon"],
-  "serviceType": ["Optimisation SEO", "Référencement Naturel", "SEO Local"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png"
+const seoWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'SEO Villeurbanne | Référencement Naturel',
+  description:
+    'Audit technique, optimisation on-page, SEO local et netlinking pour les entreprises de Villeurbanne.',
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
+
+const seoSchema = generateServiceSchema({
+  name: 'SEO Villeurbanne | Référencement Naturel',
+  description:
+    'Audit technique, optimisation on-page, SEO local et netlinking pour les entreprises de Villeurbanne.',
+  url: PAGE_URL,
+  serviceType: 'Référencement naturel',
+  areaServed: ['Villeurbanne', 'Lyon', 'Métropole de Lyon'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function SeoVilleurbannePage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -90,6 +104,10 @@ export default function SeoVilleurbannePage() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(seoWebPageSchema) }}
       />
       <script
         type='application/ld+json'

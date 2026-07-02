@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import DeveloppeurWebParisLandingContent from '@/components/DeveloppeurWebParisLandingContent'
 
@@ -59,28 +66,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const developerServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Agence de Développement Web Paris",
-  "description": "Développement web sur mesure, création de SaaS et renfort d'équipe en régie à Paris. Spécialistes React, Next.js, Node.js et TypeScript.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Paris"
-  },
-  "serviceType": ["Développement Logiciel Sur Mesure", "Ingénierie Web", "Délégation de Développeurs", "Développement SaaS"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Paris",
-    "addressCountry": "FR"
-  }
+const developerWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'Développeur Web Paris | Ingénierie Logicielle',
+  description:
+    "Développement web sur mesure, création de SaaS et renfort d'équipe en régie à Paris. Spécialistes React, Next.js, Node.js et TypeScript.",
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
+
+const developerServiceSchema = generateServiceSchema({
+  name: 'Développeur Web Paris | Ingénierie Logicielle',
+  description:
+    "Développement web sur mesure, création de SaaS et renfort d'équipe en régie à Paris. Spécialistes React, Next.js, Node.js et TypeScript.",
+  url: PAGE_URL,
+  serviceType: 'Développement logiciel',
+  areaServed: ['Paris', 'Île-de-France'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function DeveloppeurWebParisLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -97,6 +103,10 @@ export default function DeveloppeurWebParisLandingPage() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(developerWebPageSchema) }}
       />
       <script
         type='application/ld+json'

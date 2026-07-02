@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import { LyonVilleurbanneSeoHub } from '@/components/seo/LyonVilleurbanneSeoHub'
 import SeoLyonLandingContent from '@/components/SeoLyonLandingContent'
@@ -29,7 +36,7 @@ const faqItems = [
 ]
 
 export function generateMetadata(): Metadata {
-  const title = 'Agence SEO Lyon | Consultant Référencement Naturel'
+  const title = 'SEO Lyon | Référencement Naturel'
   const description = 'Agence SEO à Lyon. Boostez votre visibilité locale sur Google, obtenez un trafic qualifié et augmentez vos conversions. Devis & audit sous 24h.'
   
   return {
@@ -60,28 +67,31 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const seoServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Agence SEO Lyon - Sidikoff Digital",
-  "description": "Services de référencement naturel (SEO) à Lyon : Audit technique, netlinking, optimisation de contenu et SEO local pour les entreprises lyonnaises.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
+const seoWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'SEO Lyon | Référencement Naturel',
+  description:
+    'Agence SEO à Lyon. Boostez votre visibilité locale sur Google, obtenez un trafic qualifié et augmentez vos conversions.',
+  isPartOf: {
+    '@id': `${DEFAULT_SEO.siteUrl}/#website`,
   },
-  "areaServed": {
-    "@type": "City",
-    "name": "Lyon"
+  about: {
+    '@id': `${PAGE_URL}#service`,
   },
-  "serviceType": ["Référencement SEO", "SEO Local", "Audit Technique Web", "Netlinking"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Lyon",
-    "addressCountry": "FR"
-  }
 }
+
+const seoServiceSchema = generateServiceSchema({
+  name: 'SEO Lyon | Référencement Naturel',
+  description:
+    'Services de référencement naturel à Lyon : audit technique, SEO local, optimisation de contenu et stratégie de netlinking pour entreprises lyonnaises.',
+  url: PAGE_URL,
+  serviceType: 'Référencement naturel',
+  areaServed: ['Lyon', 'Villeurbanne', 'Métropole de Lyon'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function SeoLyonLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -98,6 +108,10 @@ export default function SeoLyonLandingPage() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(seoWebPageSchema) }}
       />
       <script
         type='application/ld+json'

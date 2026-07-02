@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import { LyonVilleurbanneSeoHub } from '@/components/seo/LyonVilleurbanneSeoHub'
 import SiteVitrineLyonLandingContent from '@/components/SiteVitrineLyonLandingContent'
@@ -60,45 +67,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Sidikoff Digital - Agence Web Lyon",
-  "description": "Création de site vitrine sur-mesure, design premium et référencement naturel à Lyon.",
-  "url": "https://www.sidikoff.com/services/site-vitrine-lyon",
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Lyon",
-    "addressCountry": "FR"
-  },
-  "areaServed": "Lyon",
-  "priceRange": "€€",
-  "serviceArea": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": 45.75,
-      "longitude": 4.85
-    },
-    "geoRadius": "50000"
-  }
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'Site Vitrine Lyon | Agence Web',
+  description:
+    'Développement de site vitrine sur-mesure avec design premium, optimisation SEO et formation CMS.',
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
 
-const serviceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Création de Site Vitrine Lyon",
-  "description": "Développement de site vitrine sur-mesure avec design premium, optimisation SEO et formation CMS.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Lyon"
-  }
-}
+const serviceSchema = generateServiceSchema({
+  name: 'Site Vitrine Lyon | Agence Web',
+  description:
+    'Développement de site vitrine sur-mesure avec design premium, optimisation SEO et formation CMS.',
+  url: PAGE_URL,
+  serviceType: 'Création de site vitrine',
+  areaServed: ['Lyon', 'Villeurbanne', 'Métropole de Lyon'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function SiteVitrineLyonLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -118,7 +107,7 @@ export default function SiteVitrineLyonLandingPage() {
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
       />
       <script
         type='application/ld+json'

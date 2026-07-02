@@ -44,6 +44,7 @@ interface PortfolioCarouselProps {
   subtitle?: string
   className?: string
   isHomePage?: boolean // Add prop to determine if on homepage
+  headingLevel?: 'h1' | 'h2'
 }
 
 // Helper function to convert projects to portfolio items
@@ -78,6 +79,7 @@ export default function PortfolioCarousel({
   subtitle,
   className,
   isHomePage = false,
+  headingLevel,
 }: PortfolioCarouselProps) {
   const [isPaused, setIsPaused] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -487,7 +489,7 @@ export default function PortfolioCarousel({
             title={title || 'Portfolio'}
             subtitle={subtitle || 'Découvrez nos réalisations web'}
             titleId='portfolio-title'
-            as={isHomePage ? 'h2' : 'h1'}
+            as={headingLevel ?? (isHomePage ? 'h2' : 'h1')}
             className='text-left mb-16 px-4'
           />
         </div>

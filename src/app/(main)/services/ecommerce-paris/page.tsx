@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import EcommerceParisLandingContent from '@/components/EcommerceParisLandingContent'
 
@@ -59,28 +66,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const ecommerceServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Agence E-Commerce Paris",
-  "description": "Création de boutiques en ligne performantes (Shopify, WooCommerce, Headless). Optimisation du taux de conversion (CRO) et SEO e-commerce.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Paris"
-  },
-  "serviceType": ["Création Site E-Commerce", "Développement Shopify", "Développement WooCommerce", "Headless Commerce"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Paris",
-    "addressCountry": "FR"
-  }
+const ecommerceWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'E-commerce Paris | Boutique en Ligne',
+  description:
+    'Création de boutiques en ligne performantes, design CRO et SEO e-commerce pour les entreprises parisiennes.',
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
+
+const ecommerceServiceSchema = generateServiceSchema({
+  name: 'E-commerce Paris | Boutique en Ligne',
+  description:
+    'Création de boutiques en ligne performantes, design CRO et SEO e-commerce pour les entreprises parisiennes.',
+  url: PAGE_URL,
+  serviceType: 'Création de boutique en ligne',
+  areaServed: ['Paris', 'Île-de-France'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function EcommerceParisLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -97,6 +103,10 @@ export default function EcommerceParisLandingPage() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(ecommerceWebPageSchema) }}
       />
       <script
         type='application/ld+json'

@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import AgenceWebBronLandingContent from '@/components/AgenceWebBronLandingContent'
 
@@ -59,30 +66,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Agence Web Bron - Sidikoff Digital",
-  "description": "Création de sites internet performants, boutiques e-commerce et stratégie SEO pour les PME et artisans de Bron (69500).",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Bron"
-  },
-  "serviceType": ["Création de Site Internet", "Design UI/UX", "Agence SEO Bron"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Bron",
-    "addressRegion": "Auvergne-Rhône-Alpes",
-    "addressCountry": "FR",
-    "postalCode": "69500"
-  }
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'Agence Web Bron | Création Site Internet',
+  description:
+    'Création de sites internet performants, boutiques e-commerce et stratégie SEO pour les PME et artisans de Bron.',
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
+
+const serviceSchema = generateServiceSchema({
+  name: 'Agence Web Bron | Création Site Internet',
+  description:
+    'Création de sites internet performants, boutiques e-commerce et stratégie SEO pour les PME et artisans de Bron.',
+  url: PAGE_URL,
+  serviceType: 'Création de site internet',
+  areaServed: ['Bron', 'Lyon', 'Métropole de Lyon'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function AgenceWebBronLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -102,7 +106,11 @@ export default function AgenceWebBronLandingPage() {
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <script
         type='application/ld+json'

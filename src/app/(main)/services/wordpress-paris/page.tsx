@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import WordpressParisLandingContent from '@/components/WordpressParisLandingContent'
 
@@ -28,7 +35,7 @@ const faqItems = [
 ]
 
 export function generateMetadata(): Metadata {
-  const title = 'Agence WordPress Paris | Création de Site Internet Sur Mesure'
+  const title = 'Agence WordPress Paris | Site Internet Sur Mesure'
   const description = 'Développement de sites WordPress performants, sécurisés et optimisés SEO. Agence experte à Paris : thèmes sur mesure (sans Elementor), maintenance et hébergement.'
   
   return {
@@ -59,28 +66,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const wordpressServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Agence WordPress Paris",
-  "description": "Création de sites internet WordPress sur mesure. Thèmes ultra-rapides, sécurité renforcée, blocs Gutenberg et optimisation SEO avancée.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Paris"
-  },
-  "serviceType": ["Création de site WordPress", "Développement de Thème", "Maintenance WordPress", "Refonte de site internet"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Paris",
-    "addressCountry": "FR"
-  }
+const wordpressWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'WordPress Paris | Site Sur Mesure',
+  description:
+    'Création de sites WordPress rapides, sécurisés et optimisés SEO avec thèmes sur mesure.',
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
+
+const wordpressServiceSchema = generateServiceSchema({
+  name: 'WordPress Paris | Site Sur Mesure',
+  description:
+    'Création de sites WordPress rapides, sécurisés et optimisés SEO avec thèmes sur mesure.',
+  url: PAGE_URL,
+  serviceType: 'Développement WordPress',
+  areaServed: ['Paris', 'Île-de-France'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function WordpressParisLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -97,6 +103,10 @@ export default function WordpressParisLandingPage() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(wordpressWebPageSchema) }}
       />
       <script
         type='application/ld+json'

@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Github, Linkedin, Globe, ShieldCheck } from 'lucide-react'
 
 export function FounderEEATBlock() {
@@ -74,14 +75,12 @@ export function FounderEEATBlock() {
                 <Github className='h-3.5 w-3.5 text-[#112D4E]' />
                 GitHub
               </a>
-              <a
-                href='https://www.malt.fr/profile/sardorbeksidikov'
-                target='_blank'
-                rel='noopener noreferrer'
+              <Link
+                href='/projects'
                 className='inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#112D4E]/70 hover:text-[#3377FF] hover:border-[#3377FF]/40 transition duration-200 px-4 py-2 rounded-full border border-[#DBE2EF]/80 bg-[#F9F7F7] shadow-soft'>
                 <Globe className='h-3.5 w-3.5 text-[#3377FF]' />
-                Profil Malt
-              </a>
+                Portfolio
+              </Link>
             </div>
           </div>
         </div>

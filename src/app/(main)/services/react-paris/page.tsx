@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import ReactParisLandingContent from '@/components/ReactParisLandingContent'
 
@@ -59,28 +66,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const reactServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Agence de Développement React.js Paris",
-  "description": "Développement d'applications web ultra-rapides en React.js. Expertise en SPA, composants réutilisables et interfaces performantes.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Paris"
-  },
-  "serviceType": ["Développement Front-End", "Développement Web", "Création Application Web"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Paris",
-    "addressCountry": "FR"
-  }
+const reactWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'Agence React Paris | Développement Front-End',
+  description:
+    "Développement d'applications web ultra-rapides en React.js. Expertise en SPA, composants réutilisables et interfaces performantes.",
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
+
+const reactServiceSchema = generateServiceSchema({
+  name: 'Agence React Paris | Développement Front-End',
+  description:
+    "Développement d'applications web ultra-rapides en React.js. Expertise en SPA, composants réutilisables et interfaces performantes.",
+  url: PAGE_URL,
+  serviceType: 'Développement React',
+  areaServed: ['Paris', 'Île-de-France'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function ReactParisLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -97,6 +103,10 @@ export default function ReactParisLandingPage() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reactWebPageSchema) }}
       />
       <script
         type='application/ld+json'

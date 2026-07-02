@@ -4,6 +4,7 @@ import {
   generateAlternateUrls,
   generateBreadcrumbStructuredData,
   generateFAQStructuredData,
+  generateServiceSchema,
 } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import AgenceNextjsReactContent from '@/components/AgenceNextjsReactContent'
@@ -136,33 +137,16 @@ export default function AgenceNextjsReactPage() {
     },
   }
 
-  const professionalServiceJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    '@id': `${pageUrl}#service`,
-    mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
+  const serviceJsonLd = generateServiceSchema({
     name: 'Agence Next.js & React - Développement Web Sur Mesure',
     description:
       "Développement sur mesure d'applications web React et sites Next.js haute performance, avec architecture de pointe et SEO natif.",
     url: pageUrl,
-    telephone: '+33626932734',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '73 Rue Racine',
-      postalCode: '69100',
-      addressLocality: 'Villeurbanne',
-      addressRegion: 'Auvergne-Rhône-Alpes',
-      addressCountry: 'FR',
-    },
+    serviceType: 'Développement Next.js et React',
     areaServed: ['France', 'Paris', 'International'],
     image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
     priceRange: '€€€',
-    provider: {
-      '@type': 'Organization',
-      name: 'Sidikoff Digital',
-      url: DEFAULT_SEO.siteUrl,
-    },
-  }
+  })
 
   const organizationJsonLd = {
     '@context': 'https://schema.org',
@@ -183,7 +167,7 @@ export default function AgenceNextjsReactPage() {
       <script
         id='schema-service-nextjs-react'
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
       <script
         id='schema-organization'

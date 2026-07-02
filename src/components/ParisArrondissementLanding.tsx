@@ -37,6 +37,13 @@ export interface ParisArrondissementLandingProps {
   children?: React.ReactNode
 }
 
+const relatedParisLinks = [
+  { href: '/services/agence-web-paris', label: 'Agence Web Paris' },
+  { href: '/services/creation-site-internet-paris', label: 'Création Site Internet Paris' },
+  { href: '/services/seo-paris', label: 'SEO Paris' },
+  { href: '/services/agence-nextjs-react', label: 'Agence Next.js & React' },
+]
+
 const defaultStoryBlocks = [
   {
     chapter: 'Chapitre 01',
@@ -369,6 +376,22 @@ export default function ParisArrondissementLanding({
                 Découvrez notre page principale Agence Web Paris
               </Link>
             </p>
+          </div>
+
+          <div className='mt-10 rounded-3xl border border-[#14110f]/10 bg-white/80 p-6'>
+            <p className='text-sm font-semibold uppercase tracking-[0.18em] text-[#6f3b18]'>
+              Liens utiles
+            </p>
+            <div className='mt-4 flex flex-wrap gap-3'>
+              {relatedParisLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className='inline-flex min-h-11 items-center rounded-full border border-[#1f3a5f]/15 bg-[#edf2f8] px-5 py-2 text-sm font-semibold text-[#1f3a5f] transition hover:border-[#1f3a5f]/40 hover:bg-white'>
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>

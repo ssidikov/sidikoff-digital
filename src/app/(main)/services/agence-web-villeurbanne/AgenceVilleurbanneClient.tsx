@@ -331,6 +331,7 @@ export default function AgenceVilleurbanneClient() {
           title='Des projets livrés à Villeurbanne et au-delà'
           subtitle='Sites vitrines, e-commerce et applications web conçus sur mesure'
           isHomePage={false}
+          headingLevel='h2'
         />
       </section>
 

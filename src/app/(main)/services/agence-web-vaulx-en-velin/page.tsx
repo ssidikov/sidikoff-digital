@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import AgenceWebVaulxLandingContent from '@/components/AgenceWebVaulxLandingContent'
 
@@ -59,30 +66,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Agence Web Vaulx-en-Velin - Sidikoff Digital",
-  "description": "Création de sites internet performants, e-commerce et stratégie de référencement (SEO) pour les entreprises de Vaulx-en-Velin.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Vaulx-en-Velin"
-  },
-  "serviceType": ["Création Site Internet", "Agence SEO", "Développement Web"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Vaulx-en-Velin",
-    "addressRegion": "Auvergne-Rhône-Alpes",
-    "addressCountry": "FR",
-    "postalCode": "69120"
-  }
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'Agence Web Vaulx-en-Velin | Création Site Internet',
+  description:
+    'Création de sites internet performants, e-commerce et stratégie de référencement pour les entreprises de Vaulx-en-Velin.',
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
+
+const serviceSchema = generateServiceSchema({
+  name: 'Agence Web Vaulx-en-Velin | Création Site Internet',
+  description:
+    'Création de sites internet performants, e-commerce et stratégie de référencement pour les entreprises de Vaulx-en-Velin.',
+  url: PAGE_URL,
+  serviceType: 'Création de site internet',
+  areaServed: ['Vaulx-en-Velin', 'Lyon', 'Métropole de Lyon'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function AgenceWebVaulxLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -102,7 +106,11 @@ export default function AgenceWebVaulxLandingPage() {
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <script
         type='application/ld+json'

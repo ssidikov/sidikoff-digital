@@ -155,54 +155,8 @@ const faqItems = [
 ]
 
 export default function BordeauxLandingClient() {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'Sidikoff Digital - Agence Web Bordeaux',
-    description: 'Agence web spécialisée dans la création de sites internet, le SEO et le développement sur mesure pour les entreprises de Bordeaux et de la Gironde.',
-    url: 'https://www.sidikoff.com/services/agence-web-bordeaux',
-    telephone: '+33626932734',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Bordeaux',
-      addressRegion: 'Nouvelle-Aquitaine',
-      addressCountry: 'FR'
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 44.837789,
-      longitude: -0.57918
-    },
-    areaServed: {
-      '@type': 'City',
-      name: 'Bordeaux'
-    },
-    priceRange: '€€',
-    makesOffer: [
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Création de site internet'
-        }
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Optimisation SEO'
-        }
-      }
-    ]
-  }
-
   return (
     <div className='min-h-screen bg-zinc-50'>
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
       {/* Hero Section */}
       <section className='relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-zinc-950'>
         <div className='absolute inset-0 z-0 opacity-40'>

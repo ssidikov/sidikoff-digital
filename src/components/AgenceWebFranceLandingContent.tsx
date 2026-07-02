@@ -222,6 +222,27 @@ export default function AgenceWebFranceLandingContent() {
 
         {/* CTA BANNER */}
         <section className="py-24">
+          <div className="mb-12 text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-purple-300">
+              Liens utiles
+            </p>
+            <div className="mt-4 flex flex-wrap justify-center gap-3">
+              {[
+                { href: '/services/agence-web-lyon', label: 'Agence Web Lyon' },
+                { href: '/services/agence-web-paris', label: 'Agence Web Paris' },
+                { href: '/services/creation-sites-web', label: 'Création Site Web' },
+                { href: '/services/optimisation-seo', label: 'Optimisation SEO' },
+              ].map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="inline-flex min-h-11 items-center rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm font-semibold text-white transition hover:border-purple-400/40 hover:bg-white/10"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
           <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 bg-white/[0.02]">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-transparent to-blue-600/20" />
             <div className="relative p-12 md:p-20 text-center">

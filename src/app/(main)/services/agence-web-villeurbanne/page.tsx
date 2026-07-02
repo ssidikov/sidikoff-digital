@@ -15,7 +15,7 @@ const PAGE_SLUG = 'services/agence-web-villeurbanne'
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata(
-    'Agence Web Villeurbanne | Sidikoff',
+    'Agence Web Villeurbanne | Création Site Internet',
     'Création de site internet à Villeurbanne, expert en SEO Villeurbanne et solutions web sur mesure pour entreprises et indépendants.',
     `/services/agence-web-villeurbanne`,
     'fr',

@@ -4,6 +4,8 @@ import {
   createCanonicalUrl,
   generateAlternateUrls,
   DEFAULT_SEO,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
 } from '@/lib/seo-utils'
 import AgenceWebFranceLandingContent from '@/components/AgenceWebFranceLandingContent'
 
@@ -47,32 +49,51 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function AgenceWebFrancePage() {
-  const jsonLd = {
+  const pageUrl = createCanonicalUrl(PAGE_SLUG, defaultLocale)
+  const webPageSchema = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': `${DEFAULT_SEO.siteUrl}/${PAGE_SLUG}#LocalBusiness`,
-    name: 'SIDIKOFF DIGITAL',
-    description: 'Agence web experte en France. Nous concevons des sites internet ultra-performants, vitrines digitales et applications web sur-mesure pour propulser votre entreprise.',
-    url: `${DEFAULT_SEO.siteUrl}/${PAGE_SLUG}`,
-    telephone: '+33626932734',
-    email: 's.sidikoff@gmail.com',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '69100 Villeurbanne',
-      addressLocality: 'Villeurbanne',
-      addressRegion: 'Auvergne-Rhône-Alpes',
-      postalCode: '69100',
-      addressCountry: 'FR',
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: 'Agence Web France : Création de Site Internet Sur Mesure',
+    description:
+      'Agence web experte en France. Nous concevons des sites internet ultra-performants, vitrines digitales et applications web sur-mesure pour propulser votre entreprise.',
+    isPartOf: {
+      '@id': `${DEFAULT_SEO.siteUrl}/#website`,
     },
-    areaServed: { '@type': 'Country', name: 'France' },
-    inLanguage: 'fr-FR',
+    about: {
+      '@id': `${pageUrl}#service`,
+    },
   }
+  const breadcrumbSchema = generateBreadcrumbStructuredData([
+    { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
+    { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
+    { name: 'Agence Web France', url: pageUrl },
+  ])
+  const serviceSchema = generateServiceSchema({
+    name: 'Agence Web France : Création de Site Internet Sur Mesure',
+    description:
+      'Agence web experte en France. Nous concevons des sites internet ultra-performants, vitrines digitales et applications web sur-mesure pour propulser votre entreprise.',
+    url: pageUrl,
+    serviceType: 'Création de site internet',
+    areaServed: [{ '@type': 'Country', name: 'France' }],
+    image: DEFAULT_SEO.defaultImage,
+    priceRange: '€€',
+  })
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <AgenceWebFranceLandingContent />
     </>

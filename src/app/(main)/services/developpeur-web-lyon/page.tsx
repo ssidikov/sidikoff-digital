@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import { LyonVilleurbanneSeoHub } from '@/components/seo/LyonVilleurbanneSeoHub'
 import DeveloppeurWebLyonLandingContent from '@/components/DeveloppeurWebLyonLandingContent'
@@ -60,29 +67,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const developerServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Agence de Développement Web Lyon - Sidikoff Digital",
-  "description": "Développement logiciel sur mesure, création d'applications SaaS et délégation de développeurs en régie à Lyon. Experts React et Node.js.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Lyon"
-  },
-  "serviceType": ["Développement Logiciel", "Délégation en Régie", "Développement SaaS B2B", "Refonte Technique"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Lyon",
-    "addressRegion": "Auvergne-Rhône-Alpes",
-    "addressCountry": "FR"
-  }
+const developerWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'Développeur Web Lyon | Ingénierie Logicielle',
+  description:
+    "Développement logiciel sur mesure, création d'applications SaaS et délégation de développeurs en régie à Lyon.",
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
+
+const developerServiceSchema = generateServiceSchema({
+  name: 'Développeur Web Lyon | Ingénierie Logicielle',
+  description:
+    "Développement logiciel sur mesure, création d'applications SaaS et délégation de développeurs en régie à Lyon.",
+  url: PAGE_URL,
+  serviceType: 'Développement logiciel',
+  areaServed: ['Lyon', 'Villeurbanne', 'Métropole de Lyon'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function DeveloppeurWebLyonLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -99,6 +104,10 @@ export default function DeveloppeurWebLyonLandingPage() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(developerWebPageSchema) }}
       />
       <script
         type='application/ld+json'

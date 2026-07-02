@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import WordpressLyonLandingContent from '@/components/WordpressLyonLandingContent'
 
@@ -59,29 +66,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const wordpressServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Agence WordPress Lyon - Sidikoff Digital",
-  "description": "Création de sites internet WordPress sur mesure. Thèmes ultra-rapides, sécurité renforcée, blocs Gutenberg ACF et optimisation SEO avancée.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Lyon"
-  },
-  "serviceType": ["Création de site WordPress", "Développement de Thème", "Maintenance WordPress", "Refonte de site internet"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Lyon",
-    "addressRegion": "Auvergne-Rhône-Alpes",
-    "addressCountry": "FR"
-  }
+const wordpressWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'WordPress Lyon | Site Sur Mesure',
+  description:
+    'Création de sites WordPress rapides, sécurisés et optimisés SEO avec thèmes sur mesure.',
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
+
+const wordpressServiceSchema = generateServiceSchema({
+  name: 'WordPress Lyon | Site Sur Mesure',
+  description:
+    'Création de sites WordPress rapides, sécurisés et optimisés SEO avec thèmes sur mesure.',
+  url: PAGE_URL,
+  serviceType: 'Développement WordPress',
+  areaServed: ['Lyon', 'Villeurbanne', 'Métropole de Lyon'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function WordpressLyonLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -98,6 +103,10 @@ export default function WordpressLyonLandingPage() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(wordpressWebPageSchema) }}
       />
       <script
         type='application/ld+json'

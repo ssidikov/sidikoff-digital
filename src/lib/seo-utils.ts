@@ -469,7 +469,8 @@ export const generateBreadcrumbStructuredData = generateBreadcrumbSchema
 export function generateFAQStructuredData(faqs: Array<{ question: string; answer: string }>) {
   return {
     '@context': 'https://schema.org',
-    '@graph': faqs.map((faq) => ({
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
       acceptedAnswer: {

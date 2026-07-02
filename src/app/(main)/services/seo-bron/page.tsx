@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import SeoBronLandingContent from '@/components/SeoBronLandingContent'
 
@@ -59,29 +66,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const seoServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Agence SEO Bron - Sidikoff Digital",
-  "description": "Expert en référencement naturel pour les entreprises de Bron. Augmentez votre visibilité sur Google grâce à nos stratégies SEO sur mesure.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Bron"
-  },
-  "serviceType": ["Référencement Local", "Audit SEO", "Stratégie de Contenu SEO", "Consulting SEO"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Bron",
-    "addressRegion": "Auvergne-Rhône-Alpes",
-    "addressCountry": "FR"
-  }
+const seoWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'SEO Bron | Référencement Local',
+  description:
+    'Expert en référencement naturel pour les entreprises de Bron. Augmentez votre visibilité sur Google grâce à des stratégies SEO sur mesure.',
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
+
+const seoServiceSchema = generateServiceSchema({
+  name: 'SEO Bron | Référencement Local',
+  description:
+    'Expert en référencement naturel pour les entreprises de Bron. Augmentez votre visibilité sur Google grâce à des stratégies SEO sur mesure.',
+  url: PAGE_URL,
+  serviceType: 'Référencement naturel',
+  areaServed: ['Bron', 'Lyon', 'Métropole de Lyon'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function SeoBronLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -98,6 +103,10 @@ export default function SeoBronLandingPage() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(seoWebPageSchema) }}
       />
       <script
         type='application/ld+json'

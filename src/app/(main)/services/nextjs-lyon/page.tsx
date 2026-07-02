@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import NextjsLyonLandingContent from '@/components/NextjsLyonLandingContent'
 
@@ -59,29 +66,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const nextjsServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Agence Next.js Lyon - Sidikoff Digital",
-  "description": "Développement d'applications et de sites web ultra-performants sous Next.js. Expertise en SSR, SSG et intégration de CMS Headless à Lyon.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Lyon"
-  },
-  "serviceType": ["Développement Next.js", "Création de Site SSR", "Architecture Headless", "Optimisation Core Web Vitals"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Lyon",
-    "addressRegion": "Auvergne-Rhône-Alpes",
-    "addressCountry": "FR"
-  }
+const nextjsWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'Next.js Lyon | Développement Web',
+  description:
+    "Développement d'applications et de sites web ultra-performants sous Next.js, avec SSR, SSG et architecture headless.",
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
+
+const nextjsServiceSchema = generateServiceSchema({
+  name: 'Next.js Lyon | Développement Web',
+  description:
+    "Développement d'applications et de sites web ultra-performants sous Next.js, avec SSR, SSG et architecture headless.",
+  url: PAGE_URL,
+  serviceType: 'Développement Next.js',
+  areaServed: ['Lyon', 'Villeurbanne', 'Métropole de Lyon'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function NextjsLyonLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -98,6 +103,10 @@ export default function NextjsLyonLandingPage() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(nextjsWebPageSchema) }}
       />
       <script
         type='application/ld+json'

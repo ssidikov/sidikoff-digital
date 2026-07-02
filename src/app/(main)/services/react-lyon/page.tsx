@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import ReactLyonLandingContent from '@/components/ReactLyonLandingContent'
 import { FounderEEATBlock } from '@/components/seo/FounderEEATBlock'
@@ -61,29 +68,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const reactServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Agence React.js Lyon - Sidikoff Digital",
-  "description": "Développement d'interfaces utilisateur modernes (UI) et de Single Page Applications (SPA) avec la bibliothèque React.js pour les entreprises de Lyon.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Lyon"
-  },
-  "serviceType": ["Développement React", "Développement Web", "Création Dashboard B2B", "Refonte Front-End"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Lyon",
-    "addressRegion": "Auvergne-Rhône-Alpes",
-    "addressCountry": "FR"
-  }
+const reactWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'React Lyon | Développement Front-End',
+  description:
+    "Développement d'interfaces utilisateur modernes et d'applications React rapides pour les entreprises de Lyon.",
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
+
+const reactServiceSchema = generateServiceSchema({
+  name: 'React Lyon | Développement Front-End',
+  description:
+    "Développement d'interfaces utilisateur modernes et d'applications React rapides pour les entreprises de Lyon.",
+  url: PAGE_URL,
+  serviceType: 'Développement React',
+  areaServed: ['Lyon', 'Villeurbanne', 'Métropole de Lyon'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function ReactLyonLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -100,6 +105,10 @@ export default function ReactLyonLandingPage() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reactWebPageSchema) }}
       />
       <script
         type='application/ld+json'

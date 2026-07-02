@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import AgenceWebVenissieuxLandingContent from '@/components/AgenceWebVenissieuxLandingContent'
 
@@ -59,30 +66,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Agence Web Vénissieux - Sidikoff Digital",
-  "description": "Création de sites internet performants, boutiques en ligne et optimisation SEO pour les entreprises de Vénissieux (69200).",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Vénissieux"
-  },
-  "serviceType": ["Création Site Web Vénissieux", "Développement E-commerce", "Agence SEO Vénissieux"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Vénissieux",
-    "addressRegion": "Auvergne-Rhône-Alpes",
-    "addressCountry": "FR",
-    "postalCode": "69200"
-  }
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'Agence Web Vénissieux | Création Site Internet',
+  description:
+    'Création de sites internet performants, boutiques en ligne et optimisation SEO pour les entreprises de Vénissieux.',
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
+
+const serviceSchema = generateServiceSchema({
+  name: 'Agence Web Vénissieux | Création Site Internet',
+  description:
+    'Création de sites internet performants, boutiques en ligne et optimisation SEO pour les entreprises de Vénissieux.',
+  url: PAGE_URL,
+  serviceType: 'Création de site internet',
+  areaServed: ['Vénissieux', 'Lyon', 'Métropole de Lyon'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function AgenceWebVenissieuxLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -102,7 +106,11 @@ export default function AgenceWebVenissieuxLandingPage() {
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <script
         type='application/ld+json'

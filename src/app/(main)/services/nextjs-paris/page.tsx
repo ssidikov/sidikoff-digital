@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import NextjsParisLandingContent from '@/components/NextjsParisLandingContent'
 
@@ -59,28 +66,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const nextjsServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Agence de Développement Next.js Paris",
-  "description": "Création d'applications web Next.js ultra-rapides. Expertise en SSR, SSG, et React Server Components pour un SEO parfait.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Paris"
-  },
-  "serviceType": ["Développement Next.js", "Optimisation SEO Technique", "Développement Full-Stack"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Paris",
-    "addressCountry": "FR"
-  }
+const nextjsWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'Agence Next.js Paris | Développement Web',
+  description:
+    "Création d'applications web Next.js ultra-rapides. Expertise en SSR, SSG et React Server Components pour un SEO parfait.",
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
+
+const nextjsServiceSchema = generateServiceSchema({
+  name: 'Agence Next.js Paris | Développement Web',
+  description:
+    "Création d'applications web Next.js ultra-rapides. Expertise en SSR, SSG et React Server Components pour un SEO parfait.",
+  url: PAGE_URL,
+  serviceType: 'Développement Next.js',
+  areaServed: ['Paris', 'Île-de-France'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function NextjsParisLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -97,6 +103,10 @@ export default function NextjsParisLandingPage() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(nextjsWebPageSchema) }}
       />
       <script
         type='application/ld+json'

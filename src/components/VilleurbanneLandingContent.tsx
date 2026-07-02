@@ -789,6 +789,31 @@ export default function VilleurbanneLandingContent({ content: c, faqs, structure
         </div>
       </section>
 
+      <section className='relative z-10 pb-8 md:pb-12'>
+        <div className='mx-auto max-w-6xl px-6 md:px-8'>
+          <div className='rounded-2xl border border-slate-200 bg-white/85 p-6 md:p-8 shadow-soft-md'>
+            <p className='text-sm font-semibold uppercase tracking-[0.18em] text-blue-600'>
+              Liens utiles
+            </p>
+            <div className='mt-4 flex flex-wrap gap-3'>
+              {[
+                { href: '/services/seo-villeurbanne', label: 'SEO Villeurbanne' },
+                { href: '/services/agence-web-lyon', label: 'Agence Web Lyon' },
+                { href: '/services/creation-site-internet-lyon', label: 'Création Site Internet Lyon' },
+                { href: '/services/refonte-site-villeurbanne', label: 'Refonte Site Villeurbanne' },
+              ].map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className='inline-flex min-h-11 items-center rounded-full border border-blue-100 bg-blue-50 px-5 py-2 text-sm font-semibold text-blue-700 transition hover:border-blue-300 hover:bg-white'>
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ═══ FINAL CTA — Calm & Clean ═══ */}
       <section className='relative z-10 py-20 md:py-32'>
         <div className='mx-auto max-w-6xl px-6 md:px-8'>

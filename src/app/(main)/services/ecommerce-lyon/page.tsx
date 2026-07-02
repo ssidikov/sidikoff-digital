@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import { LyonVilleurbanneSeoHub } from '@/components/seo/LyonVilleurbanneSeoHub'
 import EcommerceLyonLandingContent from '@/components/EcommerceLyonLandingContent'
@@ -60,29 +67,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const ecommerceServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Agence E-Commerce Lyon - Sidikoff Digital",
-  "description": "Création de plateformes e-commerce B2B et B2C à Lyon. Expertise Shopify, WooCommerce, Headless Commerce et stratégie CRO.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Lyon"
-  },
-  "serviceType": ["Création Site E-Commerce", "Développement Shopify Lyon", "Développement WooCommerce Lyon", "Headless Commerce"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Lyon",
-    "addressRegion": "Auvergne-Rhône-Alpes",
-    "addressCountry": "FR"
-  }
+const ecommerceWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'Agence E-commerce Lyon | Création Boutique en Ligne',
+  description:
+    'Création de plateformes e-commerce B2B et B2C à Lyon. Expertise Shopify, WooCommerce, Headless Commerce et stratégie CRO.',
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
+
+const ecommerceServiceSchema = generateServiceSchema({
+  name: 'Agence E-commerce Lyon | Création Boutique en Ligne',
+  description:
+    'Création de plateformes e-commerce B2B et B2C à Lyon. Expertise Shopify, WooCommerce, Headless Commerce et stratégie CRO.',
+  url: PAGE_URL,
+  serviceType: 'Création de boutique en ligne',
+  areaServed: ['Lyon', 'Villeurbanne', 'Métropole de Lyon'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function EcommerceLyonLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -99,6 +104,10 @@ export default function EcommerceLyonLandingPage() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(ecommerceWebPageSchema) }}
       />
       <script
         type='application/ld+json'

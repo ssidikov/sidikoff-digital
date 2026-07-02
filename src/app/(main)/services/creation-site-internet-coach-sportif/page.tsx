@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData, generateBreadcrumbStructuredData, generateServiceSchema, DEFAULT_SEO } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import CoachLandingContent from '@/components/CoachLandingContent'
 
@@ -59,25 +59,33 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const coachSchema = {
-  "@context": "https://schema.org",
-  "@type": "HealthAndBeautyBusiness",
-  "name": "Création de Site Internet pour Coach Sportif - Sidikoff Digital",
-  "description": "Agence web spécialisée dans la création de sites internet pour coachs sportifs, personal trainers et salles de sport. Intégration de réservation et vente de programmes.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": ["France", "Paris", "Lyon"],
-  "serviceType": ["Web Design Fitness", "SEO pour Coach Sportif", "Plateforme de Réservation"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png"
-}
-
 export default function CoachLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
-
-  
+  const webPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${PAGE_URL}#webpage`,
+    url: PAGE_URL,
+    name: 'Création Site Internet Coach Sportif',
+    description:
+      'Développez votre activité de coaching avec un site web performant, prise de RDV en ligne et SEO local.',
+    isPartOf: {
+      '@id': `${DEFAULT_SEO.siteUrl}/#website`,
+    },
+    about: {
+      '@id': `${PAGE_URL}#service`,
+    },
+  }
+  const serviceSchema = generateServiceSchema({
+    name: 'Création de Site Internet pour Coach Sportif - Sidikoff Digital',
+    description:
+      'Agence web spécialisée dans la création de sites internet pour coachs sportifs, personal trainers et salles de sport. Intégration de réservation et vente de programmes.',
+    url: PAGE_URL,
+    serviceType: 'Création de site internet pour coach sportif',
+    areaServed: ['France', 'Paris', 'Lyon'],
+    image: DEFAULT_SEO.defaultImage,
+    priceRange: '€€',
+  })
   const breadcrumbSchema = generateBreadcrumbStructuredData([
     { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
     { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
@@ -88,11 +96,15 @@ export default function CoachLandingPage() {
     <>
       <script
         type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
+      <script
+        type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(coachSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <script
         type='application/ld+json'

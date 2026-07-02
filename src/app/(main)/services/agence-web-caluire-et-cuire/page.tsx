@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import AgenceWebCaluireLandingContent from '@/components/AgenceWebCaluireLandingContent'
 
@@ -28,7 +35,7 @@ const faqItems = [
 ]
 
 export function generateMetadata(): Metadata {
-  const title = 'Agence Web Caluire-et-Cuire | Création de Site Internet & SEO'
+  const title = 'Agence Web Caluire-et-Cuire | Site Internet & SEO'
   const description = 'Développez votre entreprise avec notre agence web intervenant à Caluire-et-Cuire. Création de site vitrine, e-commerce sur mesure et référencement SEO.'
   
   return {
@@ -59,29 +66,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Agence Web Caluire-et-Cuire - Sidikoff Digital",
-  "description": "Création de sites internet professionnels, solutions e-commerce et référencement SEO pour les entreprises de Caluire-et-Cuire.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Caluire-et-Cuire"
-  },
-  "serviceType": ["Création Site Web", "Agence SEO", "Développement E-commerce"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Caluire-et-Cuire",
-    "addressRegion": "Auvergne-Rhône-Alpes",
-    "addressCountry": "FR"
-  }
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'Agence Web Caluire-et-Cuire | Création Site Internet',
+  description:
+    'Création de sites internet professionnels, solutions e-commerce et référencement SEO pour les entreprises de Caluire-et-Cuire.',
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
+
+const serviceSchema = generateServiceSchema({
+  name: 'Agence Web Caluire-et-Cuire | Création Site Internet',
+  description:
+    'Création de sites internet professionnels, solutions e-commerce et référencement SEO pour les entreprises de Caluire-et-Cuire.',
+  url: PAGE_URL,
+  serviceType: 'Création de site internet',
+  areaServed: ['Caluire-et-Cuire', 'Lyon', 'Métropole de Lyon'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function AgenceWebCaluireLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -101,7 +106,11 @@ export default function AgenceWebCaluireLandingPage() {
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <script
         type='application/ld+json'

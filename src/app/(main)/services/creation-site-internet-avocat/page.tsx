@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData, generateBreadcrumbStructuredData, generateServiceSchema, DEFAULT_SEO } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import AvocatLandingContent from '@/components/AvocatLandingContent'
 
@@ -28,7 +28,7 @@ const faqItems = [
 ]
 
 export function generateMetadata(): Metadata {
-  const title = 'Création Site Internet Avocat & Cabinet | Web Design Conforme CNB'
+  const title = 'Site Internet Avocat | Web Design Conforme CNB'
   const description = 'Développez votre cabinet d\'avocats avec un site web statutaire et performant. Conception respectueuse de la déontologie (CNB), prise de RDV intégrée, SEO local et RGPD.'
   
   return {
@@ -59,25 +59,33 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const legalServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "LegalService",
-  "name": "Création de Site Internet pour Avocats - Sidikoff Digital",
-  "description": "Création de sites internet statutaires et sécurisés pour les avocats et cabinets d'avocats. Respect de la déontologie du CNB, RGPD, et intégration de la prise de rendez-vous.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": ["France", "Paris", "Lyon"],
-  "serviceType": ["Web Design Avocat", "SEO pour Cabinet d'Avocat", "Digitalisation Juridique"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png"
-}
-
 export default function AvocatLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
-
-  
+  const webPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${PAGE_URL}#webpage`,
+    url: PAGE_URL,
+    name: 'Création Site Internet Avocat & Cabinet',
+    description:
+      "Création de sites internet statutaires et sécurisés pour les avocats et cabinets d'avocats.",
+    isPartOf: {
+      '@id': `${DEFAULT_SEO.siteUrl}/#website`,
+    },
+    about: {
+      '@id': `${PAGE_URL}#service`,
+    },
+  }
+  const serviceSchema = generateServiceSchema({
+    name: 'Création de Site Internet pour Avocats - Sidikoff Digital',
+    description:
+      "Création de sites internet statutaires et sécurisés pour les avocats et cabinets d'avocats. Respect de la déontologie du CNB, RGPD, et intégration de la prise de rendez-vous.",
+    url: PAGE_URL,
+    serviceType: 'Création de site internet pour avocats',
+    areaServed: ['France', 'Paris', 'Lyon'],
+    image: DEFAULT_SEO.defaultImage,
+    priceRange: '€€',
+  })
   const breadcrumbSchema = generateBreadcrumbStructuredData([
     { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
     { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
@@ -88,11 +96,15 @@ export default function AvocatLandingPage() {
     <>
       <script
         type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
+      <script
+        type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(legalServiceSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <script
         type='application/ld+json'

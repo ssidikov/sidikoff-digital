@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { Portfolio } from '@/sections'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Création Site Internet Café Paris | Votre Web Café Sur Mesure'
+  const title = 'Site Internet Café Paris | Web Sur Mesure'
 
   const description =
     'Attirez plus de clients avec un site internet pour café à Paris. Menu en ligne, click & collect, réservation. Devis gratuit pour votre web café !'

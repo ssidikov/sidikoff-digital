@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import SeoCaluireLandingContent from '@/components/SeoCaluireLandingContent'
 
@@ -59,28 +66,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const seoServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Consultant SEO Caluire-et-Cuire - Sidikoff Digital",
-  "description": "Services de référencement naturel (SEO) : Audit technique, netlinking, optimisation de contenu et SEO local pour les PME à Caluire.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Caluire-et-Cuire"
-  },
-  "serviceType": ["Référencement SEO", "SEO Local", "Audit Technique Web", "Netlinking"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Caluire-et-Cuire",
-    "addressCountry": "FR"
-  }
+const seoWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'SEO Caluire-et-Cuire | Référencement Naturel',
+  description:
+    'Audit technique, netlinking, optimisation de contenu et SEO local pour les entreprises de Caluire-et-Cuire.',
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
+
+const seoServiceSchema = generateServiceSchema({
+  name: 'SEO Caluire-et-Cuire | Référencement Naturel',
+  description:
+    'Audit technique, netlinking, optimisation de contenu et SEO local pour les entreprises de Caluire-et-Cuire.',
+  url: PAGE_URL,
+  serviceType: 'Référencement naturel',
+  areaServed: ['Caluire-et-Cuire', 'Lyon', 'Métropole de Lyon'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function SeoCaluireLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -97,6 +103,10 @@ export default function SeoCaluireLandingPage() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(seoWebPageSchema) }}
       />
       <script
         type='application/ld+json'

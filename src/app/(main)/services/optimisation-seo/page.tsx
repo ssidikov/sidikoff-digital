@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls, generateBreadcrumbStructuredData, generateServiceSchema, DEFAULT_SEO } from '@/lib/seo-utils'
 import { type Metadata } from 'next'
 import common from '@/locales/fr/common.json'
 import SeoOptimizationLandingContent from '@/components/SeoOptimizationLandingContent'
@@ -40,6 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function SeoOptimizationLandingPage() {
+  const pageUrl = createCanonicalUrl('services/optimisation-seo', 'fr')
   const breadcrumbs = {
     items: [
       {
@@ -56,23 +57,29 @@ export default function SeoOptimizationLandingPage() {
     ],
   }
 
-  const jsonLd = {
+  const webPageSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: common.testimonials.seo_optimization_landing.hero.title,
-    description: common.testimonials.seo_optimization_landing.hero.description,
-    provider: {
-      '@type': 'Organization',
-      name: 'Sidikoff Digital',
-      url: 'https://www.sidikoff.com',
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: common.testimonials.seo_optimization_landing.meta_title,
+    description: common.testimonials.seo_optimization_landing.meta_description,
+    isPartOf: {
+      '@id': `${DEFAULT_SEO.siteUrl}/#website`,
     },
-    serviceType: 'SEO Optimization',
-    areaServed: 'Global',
-    offers: {
-      '@type': 'Offer',
-      description: common.testimonials.seo_optimization_landing.hero.description,
+    about: {
+      '@id': `${pageUrl}#service`,
     },
   }
+  const serviceSchema = generateServiceSchema({
+    name: common.testimonials.seo_optimization_landing.hero.title,
+    description: common.testimonials.seo_optimization_landing.hero.description,
+    url: pageUrl,
+    serviceType: 'Optimisation SEO',
+    areaServed: ['France', 'Lyon', 'Paris', 'Villeurbanne'],
+    image: DEFAULT_SEO.defaultImage,
+    priceRange: '€€',
+  })
 
   
   const breadcrumbSchema = generateBreadcrumbStructuredData([
@@ -89,9 +96,29 @@ export default function SeoOptimizationLandingPage() {
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <SeoOptimizationLandingContent breadcrumbs={breadcrumbs} />
+      <section className='bg-white py-16'>
+        <div className='mx-auto max-w-4xl px-4 sm:px-6 lg:px-8'>
+          <h2 className='text-3xl font-bold text-slate-900'>Optimisation SEO technique et editoriale</h2>
+          <div className='mt-6 space-y-4 text-lg leading-relaxed text-slate-600'>
+            <p>
+              L optimisation SEO ne se limite pas aux balises title. Nous travaillons la structure HTML, le maillage interne, les contenus, les donnees structurees, la vitesse et les signaux locaux pour aider vos pages a mieux se positionner sur Google.
+            </p>
+            <p>
+              Notre approche combine audit SEO, corrections on-page et priorisation business. Nous traitons d abord les blocages qui freinent indexation, comprehension semantique et conversion, puis nous consolidons les pages a fort potentiel commercial.
+            </p>
+            <p>
+              Cette page s adresse aux entreprises qui veulent plus de trafic qualifie, de meilleures positions et une base saine pour grandir sans empiler des correctifs disperses.
+            </p>
+          </div>
+        </div>
+      </section>
     </>
   )
 }

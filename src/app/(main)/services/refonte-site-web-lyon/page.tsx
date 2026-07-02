@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import { LyonVilleurbanneSeoHub } from '@/components/seo/LyonVilleurbanneSeoHub'
 import RefonteSiteWebLyonLandingContent from '@/components/RefonteSiteWebLyonLandingContent'
@@ -60,45 +67,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Sidikoff Digital - Agence Web Lyon",
-  "description": "Experts en refonte de site internet à Lyon, spécialisés dans la migration de données et la préservation du référencement naturel.",
-  "url": "https://www.sidikoff.com/services/refonte-site-web-lyon",
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Lyon",
-    "addressCountry": "FR"
-  },
-  "areaServed": "Lyon",
-  "priceRange": "€€",
-  "serviceArea": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": 45.75,
-      "longitude": 4.85
-    },
-    "geoRadius": "50000"
-  }
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'Refonte Site Web Lyon | Migration SEO',
+  description:
+    'Service complet de refonte de site web incluant modernisation du design, audit technique et plan de redirections SEO 301.',
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
 
-const serviceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Refonte de Site Web Lyon",
-  "description": "Service complet de refonte de site web incluant modernisation du design, audit technique et plan de redirections SEO 301.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Lyon"
-  }
-}
+const serviceSchema = generateServiceSchema({
+  name: 'Refonte Site Web Lyon | Migration SEO',
+  description:
+    'Service complet de refonte de site web incluant modernisation du design, audit technique et plan de redirections SEO 301.',
+  url: PAGE_URL,
+  serviceType: 'Refonte de site web',
+  areaServed: ['Lyon', 'Villeurbanne', 'Métropole de Lyon'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function RefonteSiteWebLyonLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -118,7 +107,7 @@ export default function RefonteSiteWebLyonLandingPage() {
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
       />
       <script
         type='application/ld+json'

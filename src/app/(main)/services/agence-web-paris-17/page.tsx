@@ -8,6 +8,7 @@ import {
   generateAlternateUrls,
   generateBreadcrumbStructuredData,
   generateFAQStructuredData,
+  generateServiceSchema,
 } from '@/lib/seo-utils'
 
 const PAGE_SLUG = 'services/agence-web-paris-17'
@@ -94,33 +95,16 @@ export default async function AgenceWebParis17Page() {
     },
   }
 
-  const professionalServiceJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    '@id': `${pageUrl}#service`,
-    mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
+  const serviceJsonLd = generateServiceSchema({
     name: 'Agence web Paris 17 - Création de site internet',
     description:
       'Conception de sites web sur-mesure et référencement SEO pour les entreprises du 17e arrondissement.',
     url: pageUrl,
-    telephone: '+33626932734',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '73 Rue Racine',
-      postalCode: '69100',
-      addressLocality: 'Villeurbanne',
-      addressRegion: 'Auvergne-Rhône-Alpes',
-      addressCountry: 'FR',
-    },
+    serviceType: 'Création de site internet',
     areaServed: ['Paris 17ème', 'Batignolles', 'Ternes', 'Monceau', 'Paris'],
     image: `${DEFAULT_SEO.siteUrl}/images/opengraph-fr.png`,
     priceRange: '€€',
-    provider: {
-      '@type': 'Organization',
-      name: 'Sidikoff Digital',
-      url: DEFAULT_SEO.siteUrl,
-    },
-  }
+  })
 
   const organizationJsonLd = {
     '@context': 'https://schema.org',
@@ -172,7 +156,7 @@ export default async function AgenceWebParis17Page() {
       <script
         id='schema-service-paris-17'
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
       <script
         id='schema-organization'

@@ -155,54 +155,8 @@ const faqItems = [
 ]
 
 export default function NantesLandingClient() {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'Sidikoff Digital - Agence Web Nantes',
-    description: 'Agence web spécialisée dans la création de sites internet, le SEO et le développement sur mesure pour les entreprises de Nantes et de la Loire-Atlantique.',
-    url: 'https://www.sidikoff.com/services/agence-web-nantes',
-    telephone: '+33626932734',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Nantes',
-      addressRegion: 'Pays de la Loire',
-      addressCountry: 'FR'
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 47.218371,
-      longitude: -1.553621
-    },
-    areaServed: {
-      '@type': 'City',
-      name: 'Nantes'
-    },
-    priceRange: '€€',
-    makesOffer: [
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Création de site internet'
-        }
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Optimisation SEO'
-        }
-      }
-    ]
-  }
-
   return (
     <div className='min-h-screen bg-zinc-50'>
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
       {/* Hero Section */}
       <section className='relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-zinc-950'>
         <div className='absolute inset-0 z-0 opacity-40'>

@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls, generateBreadcrumbStructuredData, generateServiceSchema, DEFAULT_SEO } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import WebRedesignLandingContent from '@/components/WebRedesignLandingContent'
 
@@ -45,26 +45,33 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function WebRedesignLandingPage() {
+  const pageUrl = createCanonicalUrl('services/refonte-sites-web', 'fr')
+  const title = 'Refonte Site Web Professionnel'
+  const description = 'Modernisez votre site existant avec notre service de redesign professionnel'
   // JSON-LD Schema
-  const jsonLd = {
+  const webPageSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: 'Website Redesign',
-    description: 'Professional website redesign service',
-    provider: {
-      '@type': 'Organization',
-      name: 'Sidikoff Digital',
-      url: createCanonicalUrl('', 'fr'),
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: title,
+    description,
+    isPartOf: {
+      '@id': `${DEFAULT_SEO.siteUrl}/#website`,
     },
-    areaServed: {
-      '@type': 'Country',
-      name: 'France',
+    about: {
+      '@id': `${pageUrl}#service`,
     },
-    availableLanguage: ['fr'],
-    serviceType: 'Website Redesign',
-    category: 'Web Development',
-    url: createCanonicalUrl('services/refonte-sites-web', 'fr'),
   }
+  const serviceSchema = generateServiceSchema({
+    name: title,
+    description,
+    url: pageUrl,
+    serviceType: 'Refonte de site web',
+    areaServed: [{ '@type': 'Country', name: 'France' }],
+    image: DEFAULT_SEO.defaultImage,
+    priceRange: '€€',
+  })
 
   
   const breadcrumbSchema = generateBreadcrumbStructuredData([
@@ -81,7 +88,11 @@ export default function WebRedesignLandingPage() {
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <WebRedesignLandingContent
         breadcrumbs={{
@@ -92,6 +103,22 @@ export default function WebRedesignLandingPage() {
           ],
         }}
       />
+      <section className='bg-white py-16'>
+        <div className='mx-auto max-w-4xl px-4 sm:px-6 lg:px-8'>
+          <h2 className='text-3xl font-bold text-slate-900'>Refonte site web: performance, UX, SEO</h2>
+          <div className='mt-6 space-y-4 text-lg leading-relaxed text-slate-600'>
+            <p>
+              Une refonte de site web devient necessaire quand design, contenu ou technique freinent vos conversions. Nous reprenons structure, messages, parcours et performance pour transformer un ancien site en actif commercial plus credible et plus rapide.
+            </p>
+            <p>
+              La refonte inclut aussi la conservation du capital SEO existant: redirections, preservation des pages utiles, reecriture des balises et meilleure hierarchie de contenu. Objectif: moderniser sans perdre trafic ni lisibilite.
+            </p>
+            <p>
+              Cette approche convient aux entreprises dont le site actuel est lent, difficile a mettre a jour, peu mobile-friendly ou simplement plus aligne avec leur niveau de gamme.
+            </p>
+          </div>
+        </div>
+      </section>
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { createCanonicalUrl, generateAlternateUrls , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import { createCanonicalUrl, generateAlternateUrls, generateBreadcrumbStructuredData, generateServiceSchema, DEFAULT_SEO } from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import common from '@/locales/fr/common.json'
 import WebCreationLandingContent from '@/components/WebCreationLandingContent'
@@ -48,6 +48,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function WebCreationPage() {
+  const pageUrl = createCanonicalUrl('services/creation-sites-web', 'fr')
   // Generate breadcrumbs
   const breadcrumbs = {
     items: [
@@ -65,6 +66,29 @@ export default function WebCreationPage() {
 
   // Generate JSON-LD schema
   const schema = generateWebCreationSchema()
+  const webPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: common.services.web_creation_landing.hero.title,
+    description: common.services.web_creation_landing.hero.description,
+    isPartOf: {
+      '@id': `${DEFAULT_SEO.siteUrl}/#website`,
+    },
+    about: {
+      '@id': `${pageUrl}#service`,
+    },
+  }
+  const serviceSchema = generateServiceSchema({
+    name: common.services.web_creation_landing.hero.title,
+    description: common.services.web_creation_landing.hero.description,
+    url: pageUrl,
+    serviceType: 'Création de sites web',
+    areaServed: ['France', 'Lyon', 'Paris', 'Villeurbanne'],
+    image: DEFAULT_SEO.defaultImage,
+    priceRange: '€€',
+  })
 
   
   const breadcrumbSchema = generateBreadcrumbStructuredData([
@@ -81,9 +105,33 @@ export default function WebCreationPage() {
       />
       <script
         type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <WebCreationLandingContent breadcrumbs={breadcrumbs} />
+      <section className='bg-white py-16'>
+        <div className='mx-auto max-w-4xl px-4 sm:px-6 lg:px-8'>
+          <h2 className='text-3xl font-bold text-slate-900'>Création de site web sur mesure</h2>
+          <div className='mt-6 space-y-4 text-lg leading-relaxed text-slate-600'>
+            <p>
+              Nous concevons des sites internet pensés pour acquisition, credibilite et conversion. Selon votre besoin, cela peut prendre la forme d un site vitrine, d un site e-commerce ou d une application web plus avancee.
+            </p>
+            <p>
+              Chaque projet commence par cadrage clair: objectifs business, arborescence, positionnement SEO, contenus et performance attendue. Ensuite, nous produisons un site rapide, maintenable et optimise pour mobile comme pour recherche organique.
+            </p>
+            <p>
+              Cette offre s adresse aux independants, PME et marques qui veulent un site utile commercialement, pas juste une presence visuelle supplementaire.
+            </p>
+          </div>
+        </div>
+      </section>
     </>
   )
 }

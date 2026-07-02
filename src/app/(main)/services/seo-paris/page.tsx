@@ -1,4 +1,11 @@
-import { createCanonicalUrl, generateAlternateUrls, generateFAQStructuredData , generateBreadcrumbStructuredData, DEFAULT_SEO } from '@/lib/seo-utils'
+import {
+  createCanonicalUrl,
+  generateAlternateUrls,
+  generateFAQStructuredData,
+  generateBreadcrumbStructuredData,
+  generateServiceSchema,
+  DEFAULT_SEO,
+} from '@/lib/seo-utils'
 import { Metadata } from 'next'
 import SeoParisLandingContent from '@/components/SeoParisLandingContent'
 
@@ -59,34 +66,27 @@ export function generateMetadata(): Metadata {
   }
 }
 
-const seoServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Agence SEO Paris - Sidikoff Digital",
-  "description": "Services de référencement naturel (SEO) à Paris : Audit technique, netlinking, optimisation de contenu et SEO local pour les entreprises d'Île-de-France.",
-  "url": PAGE_URL,
-  "telephone": "+33626932734",
-  "priceRange": "€€",
-  "provider": {
-    "@type": "Organization",
-    "name": "Sidikoff Digital",
-    "url": "https://www.sidikoff.com"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Paris"
-  },
-  "serviceType": ["Référencement SEO", "SEO Local", "Audit Technique Web", "Netlinking"],
-  "image": "https://cdn.sidikoff.com/images/opengraph-fr.png",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "73 Rue Racine",
-    "postalCode": "69100",
-    "addressLocality": "Villeurbanne",
-    "addressRegion": "Auvergne-Rhône-Alpes",
-    "addressCountry": "FR"
-  }
+const seoWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${PAGE_URL}#webpage`,
+  url: PAGE_URL,
+  name: 'SEO Paris | Référencement Naturel',
+  description:
+    "Audit technique, netlinking, optimisation de contenu et SEO local pour les entreprises de Paris et d'Île-de-France.",
+  isPartOf: { '@id': `${DEFAULT_SEO.siteUrl}/#website` },
+  about: { '@id': `${PAGE_URL}#service` },
 }
+
+const seoServiceSchema = generateServiceSchema({
+  name: 'SEO Paris | Référencement Naturel',
+  description:
+    "Audit technique, netlinking, optimisation de contenu et SEO local pour les entreprises de Paris et d'Île-de-France.",
+  url: PAGE_URL,
+  serviceType: 'Référencement naturel',
+  areaServed: ['Paris', 'Île-de-France'],
+  image: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
+})
 
 export default function SeoParisLandingPage() {
   const faqSchema = generateFAQStructuredData(faqItems)
@@ -103,6 +103,10 @@ export default function SeoParisLandingPage() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(seoWebPageSchema) }}
       />
       <script
         type='application/ld+json'

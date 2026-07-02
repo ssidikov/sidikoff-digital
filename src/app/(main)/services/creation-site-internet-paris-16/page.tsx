@@ -19,7 +19,7 @@ const PAGE_SLUG = 'services/creation-site-internet-paris-16'
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = defaultLocale
-  const pageTitle = 'Création Site Internet Paris 16 | Agence Web Sidikoff'
+  const pageTitle = 'Création Site Internet Paris 16 | Agence Web'
   const pageDescription =
     'Création de site internet professionnel à Paris 16. Site vitrine, e-commerce & SEO local. Devis gratuit sous 24h & accompagnement sur-mesure.'
 
