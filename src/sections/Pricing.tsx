@@ -641,7 +641,7 @@ export default function Pricing({
                   <div className="p-6">
                     <h4 className="text-xl font-bold text-primary mb-2">
                       {dict?.pricing?.maintenance?.plans?.croissance?.name ||
-                        "Croissance"}
+                        "Croissance + SEO"}
                     </h4>
                     <div className="text-3xl font-bold mb-2">
                       {dict?.pricing?.maintenance?.plans?.croissance?.price ||
@@ -701,7 +701,7 @@ export default function Pricing({
                   <div className="p-6">
                     <h4 className="text-xl font-bold text-primary mb-2">
                       {dict?.pricing?.maintenance?.plans?.performance?.name ||
-                        "Performance"}
+                        "Performance + SEO"}
                     </h4>
                     <div className="text-3xl font-bold mb-2">
                       {dict?.pricing?.maintenance?.plans?.performance?.price ||

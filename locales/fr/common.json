@@ -551,7 +551,7 @@
           "cta": "Choisir Essentiel"
         },
         "croissance": {
-          "name": "Croissance",
+          "name": "Croissance + SEO",
           "price": "179 €/mois",
           "description": "Pour les professionnels qui veulent progresser sur Google chaque mois.",
           "features": [
@@ -565,7 +565,7 @@
           "cta": "Choisir Croissance"
         },
         "performance": {
-          "name": "Performance",
+          "name": "Performance + SEO",
           "price": "349 €/mois",
           "description": "Pour les entreprises ambitieuses qui veulent des résultats mesurables.",
           "features": [
