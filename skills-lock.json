@@ -73,6 +73,12 @@
       "skillPath": "skills/brutalist-skill/SKILL.md",
       "computedHash": "8fc355c4aadb7d29c53ca28bc41be3cd6eea765d121e3737c4dc2d0f90a8effa"
     },
+    "liquid-glass-design": {
+      "source": "affaan-m/everything-claude-code",
+      "sourceType": "github",
+      "skillPath": "skills/liquid-glass-design/SKILL.md",
+      "computedHash": "cdd47ce273b84d1e630aa6ea8086baa9b4affd9f881b3f95a7b25334b67a1dc5"
+    },
     "minimalist-ui": {
       "source": "leonxlnx/taste-skill",
       "sourceType": "github",

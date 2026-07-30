@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Analytics from '@/components/analytics'
 import WebMCP from '@/components/webmcp'
+import { ChatWidget } from '@/components/ChatWidget'
 import '@/styles/globals.css'
 import { inter, grotesk, bebasNeue } from '@/lib/fonts'
 
@@ -182,6 +183,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         {children}
         <Analytics />
         <WebMCP />
+        <ChatWidget />
       </body>
     </html>
   )

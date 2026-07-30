@@ -24,18 +24,21 @@ const Portfolio = dynamic(() => import('@/sections/Portfolio'))
 const Testimonials = dynamic(() => import('@/sections/Testimonials'))
 const Contact = dynamic(() => import('@/sections/Contact'))
 const Actualite = dynamic(() => import('@/sections/Actualite').then((mod) => mod.Actualite))
+const SeoAuditTool = dynamic(() => import('@/sections/SeoAuditTool').then((mod) => mod.SeoAuditTool))
 
 const SEO_CONFIG = {
-  title: 'Agence Web Lyon | Création Site Internet',
+  title: 'Agence Web Lyon | Création Site Internet Sur Mesure & SEO',
   keywords: [
     'agence web Lyon',
     'création site internet Lyon',
-    'site web professionnel',
-    'création site vitrine',
-    'création site e-commerce',
-    'refonte site web',
-    'agence web France',
-    'site web PME',
+    'développeur web Lyon',
+    'agence web Villeurbanne',
+    'création site web professionnel Lyon',
+    'refonte site internet Lyon',
+    'référencement SEO Lyon',
+    'création site vitrine Lyon',
+    'création site e-commerce Lyon',
+    'studio web Lyon',
   ],
   ogImage: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
 } as const
@@ -44,7 +47,7 @@ export async function generateMetadata() {
   return generateSEOMetadata({
     title: SEO_CONFIG.title,
     description:
-      'Studio web à Lyon : création de sites internet sur mesure pour PME et entrepreneurs. Sites livrés en 7 jours, optimisés SEO. Devis gratuit sous 24h.',
+      'Agence web à Lyon & Villeurbanne : création de sites internet sur mesure, refonte & SEO pour PME. Site professionnel livré en 7 jours. Devis gratuit sous 24h.',
     locale: 'fr',
     canonicalUrl: createCanonicalUrl('', 'fr'),
     alternateLanguages: generateLanguageAlternates('', ['fr']),
@@ -117,6 +120,7 @@ export default async function HomePage() {
       <main className='m-0 p-0'>
         <Hero />
         <Services isHomePage={true} />
+        <SeoAuditTool />
         <About />
         <Portfolio isHomePage={true} />
         <Pricing />

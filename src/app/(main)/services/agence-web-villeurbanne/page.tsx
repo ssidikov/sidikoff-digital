@@ -6,17 +6,36 @@ import {
   DEFAULT_SEO,
   createCanonicalUrl,
 } from '@/lib/seo-utils'
+import dynamic from 'next/dynamic'
+
+// Yandex 360 Ecosystem Components & Sections
+import { EcosystemCanvas } from '@/components/Yandex360/EcosystemCanvas'
+import { Yandex360Hero } from '@/sections/Yandex360Hero'
+import { Yandex360Ecosystem } from '@/sections/Yandex360Ecosystem'
+import { Yandex360Bento } from '@/sections/Yandex360Bento'
+import { Yandex360Calculator } from '@/sections/Yandex360Calculator'
 import { LyonVilleurbanneSeoHub } from '@/components/seo/LyonVilleurbanneSeoHub'
-import { FounderEEATBlock } from '@/components/seo/FounderEEATBlock'
-import { ZonesInterventionBlock } from '@/components/seo/ZonesInterventionBlock'
-import AgenceVilleurbanneClient from './AgenceVilleurbanneClient'
+
+// Non-critical sections — lazy loaded
+const Yandex360Portfolio = dynamic(() =>
+  import('@/sections/Yandex360Portfolio').then((mod) => mod.Yandex360Portfolio)
+)
+const Yandex360Testimonials = dynamic(() =>
+  import('@/sections/Yandex360Testimonials').then((mod) => mod.Yandex360Testimonials)
+)
+const Yandex360FAQ = dynamic(() =>
+  import('@/sections/Yandex360FAQ').then((mod) => mod.Yandex360FAQ)
+)
+const Yandex360Contact = dynamic(() =>
+  import('@/sections/Yandex360Contact').then((mod) => mod.Yandex360Contact)
+)
 
 const PAGE_SLUG = 'services/agence-web-villeurbanne'
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata(
-    'Agence Web Villeurbanne | Création Site Internet',
-    'Création de site internet à Villeurbanne, expert en SEO Villeurbanne et solutions web sur mesure pour entreprises et indépendants.',
+    'Agence Web Villeurbanne 360° | Création Site Internet & SEO Local',
+    'Création de site internet sur-mesure à Villeurbanne (69100). Expert Next.js 16, SEO local et solutions web d\'élite pour PME et indépendants.',
     `/services/agence-web-villeurbanne`,
     'fr',
     {
@@ -26,13 +45,9 @@ export async function generateMetadata(): Promise<Metadata> {
         'Agence marketing digital Villeurbanne',
         'Développement web sur mesure Villeurbanne',
         'Refonte de site web Villeurbanne',
-        'refonte site internet Villeurbanne',
         'Agence SEO Villeurbanne',
         'développeur web Villeurbanne',
         'développeur web freelance Villeurbanne',
-        'Création logiciel métier',
-        'Sites vitrines',
-        'E-commerce',
       ],
       ogImage: 'https://cdn.sidikoff.com/images/opengraph-fr.png',
       ogType: 'website',
@@ -68,63 +83,9 @@ export default function AgenceWebVilleurbannePage() {
     { name: 'Agence Web Villeurbanne', url: pageUrl },
   ])
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'Quel est le budget pour la création d\u2019un site web à Villeurbanne ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Un site vitrine professionnel sur mesure démarre à 890€ TTC. Une plateforme multi-pages est proposée à partir de 1 290€, et un site e-commerce performant commence à 1 990€. Nous fournissons un devis clair sous 24 heures, sans aucun frais caché ni abonnement obligatoire.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Quel est le délai de livraison pour un projet web ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Pour un site vitrine standard, comptez 5 à 7 jours ouvrés après réception de vos contenus. Les projets plus complexes (boutiques e-commerce ou applications spécifiques) s\u2019étendent de 3 à 6 semaines.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Proposez-vous des prestations de développeur freelance à Villeurbanne ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Oui, nous intervenons également sous format freelance pour renforcer vos équipes ou piloter un projet spécifique : développement Next.js/React, intégration d\u2019API, refonte technique ou audit de performance.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Comment garantissez-vous le bon référencement (SEO) de mon site ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Chaque site est conçu selon les standards les plus stricts de Google : scores Lighthouse proches de 100, temps de chargement sous la seconde, structure sémantique claire et balisage JSON-LD optimisé.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Serai-je autonome pour modifier les textes ou les images ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Absolument. Nous connectons votre site à un outil de gestion simplifié (comme Sanity ou un WordPress headless). Vous pourrez mettre à jour vos articles, textes et images en quelques clics sans toucher au code.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Proposez-vous un accompagnement pour la refonte d\u2019un vieux site ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Oui, c\u2019est l\u2019une de nos spécialités. Nous analysons l\u2019existant pour conserver votre historique SEO, puis nous migrons votre contenu vers une architecture Next.js moderne.',
-        },
-      },
-    ],
-  }
-
   return (
-    <>
+    <div className='relative min-h-screen bg-[#060812] selection:bg-cyan-500 selection:text-black font-sans antialiased text-slate-100'>
+      <EcosystemCanvas />
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
@@ -133,14 +94,18 @@ export default function AgenceWebVilleurbannePage() {
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <AgenceVilleurbanneClient />
-      <FounderEEATBlock />
-      <LyonVilleurbanneSeoHub currentPath='/services/agence-web-villeurbanne' />
-      <ZonesInterventionBlock currentPath='/services/agence-web-villeurbanne' />
-    </>
+
+      <main className='relative z-10 m-0 p-0 overflow-x-hidden'>
+        <Yandex360Hero />
+        <Yandex360Ecosystem />
+        <Yandex360Bento />
+        <Yandex360Calculator />
+        <Yandex360Portfolio />
+        <Yandex360Testimonials />
+        <Yandex360FAQ />
+        <LyonVilleurbanneSeoHub currentPath='/services/agence-web-villeurbanne' />
+        <Yandex360Contact />
+      </main>
+    </div>
   )
 }

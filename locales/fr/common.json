@@ -19,14 +19,14 @@
     "cta": "Devis gratuit"
   },
   "hero": {
-    "badge": "Studio Web à Lyon",
-    "title": "Votre Site Web Pro, Livré en 7 Jours",
-    "subtitle": "Studio web à Lyon — nous créons des sites modernes et optimisés SEO qui convertissent vos visiteurs en clients. Devis gratuit sous 24h.",
+    "badge": "Agence Web & SEO à Lyon & Villeurbanne",
+    "title": "Agence Web à Lyon : Votre Site Internet Sur Mesure Livré en 7 Jours",
+    "subtitle": "Agence web spécialisée à Lyon et Métropole. Nous créons des sites internet modernes, ultra-rapides et optimisés Google pour convertir vos prospects lyonnais en clients.",
     "cta_primary": "Obtenir un Devis Gratuit",
     "cta_secondary": "Voir nos réalisations",
     "trust_indicators": [
-      "20+ sites livrés à Lyon & Paris",
-      "Experts Next.js & React",
+      "20+ sites livrés à Lyon & Métropole",
+      "Basé à Villeurbanne / Lyon",
       "Réponse garantie sous 24h"
     ],
     "features": [
@@ -45,10 +45,10 @@
     ]
   },
   "services": {
-    "title": "Des Solutions Web Qui Génèrent des Résultats",
-    "subtitle": "Chaque projet est conçu pour attirer plus de clients et booster votre chiffre d'affaires",
+    "title": "Services d'Agence Web à Lyon : Création, Refonte & Référencement SEO",
+    "subtitle": "Solutions digitales sur mesure pour PME, artisans et indépendants dans la Métropole de Lyon",
     "web_creation": {
-      "title": "Création de sites web sur mesure",
+      "title": "Création de sites internet sur mesure à Lyon",
       "subtitle": "Création de Sites Web – De A à Z",
       "features": [
         "Sur mesure",
@@ -57,7 +57,7 @@
       "description": "Transformez votre vision en réalité digitale avec notre expertise complète en développement web. Nous créons des sites web modernes, rapides et optimisés pour le référencement Google. De la conception UX/UI à la mise en ligne, chaque projet est développé sur mesure avec les dernières technologies (React, Next.js, Tailwind CSS). Obtenez un site professionnel qui convertit vos visiteurs en clients et booste votre chiffre d'affaires dès le premier mois."
     },
     "web_redesign": {
-      "title": "Refonte et redesign de sites web",
+      "title": "Refonte & modernisation de sites web à Lyon",
       "features": [
         "Modernisation",
         "UX/UI"
@@ -65,7 +65,7 @@
       "description": "Votre site web actuel ne génère pas assez de ventes ? Notre service de refonte transforme votre présence en ligne en machine à convertir. Nous analysons votre taux de conversion, optimisons l'expérience utilisateur et modernisons le design pour doubler vos résultats. Interface mobile-first, vitesse de chargement optimisée, parcours utilisateur fluide - tout est pensé pour maximiser vos revenus et réduire le taux de rebond de 40%."
     },
     "seo_optimization": {
-      "title": "Optimisation SEO et référencement",
+      "title": "Référencement SEO local & visibilité Google Lyon",
       "features": [
         "Google Ready",
         "Analytics"
@@ -483,8 +483,8 @@
     "filter_featured": "En vedette"
   },
   "pricing": {
-    "title": "Nos Offres",
-    "subtitle": "Transparentes & Adaptées",
+    "title": "Tarifs Création de Site Internet à Lyon",
+    "subtitle": "Offres sur-mesure pour PME et indépendants lyonnais",
     "description": "Choisissez la solution qui correspond parfaitement à vos besoins et à votre budget. Tous nos projets incluent un design moderne, un développement professionnel et un support complet.",
     "guarantee_badge": "Résultats garantis • Livraison garantie",
     "website_creation_title": "Tarifs Création de Sites Web",
@@ -3458,14 +3458,14 @@
     }
   },
   "about": {
-    "eyebrow": "À propos",
-    "headline": "Un studio web fondé par un expert, pensé pour vos résultats.",
-    "p1": "Je suis Sardor, développeur web spécialisé Next.js et fondateur de Sidikoff Digital. Chaque site que nous livrons est conçu pour atteindre un objectif précis : générer des clients, renforcer votre crédibilité ou automatiser votre prise de rendez-vous.",
-    "p2": "Nous utilisons les mêmes technologies que Netflix, Uber et Airbnb — mais au service de votre PME. Résultat : des sites ultra-rapides qui se positionnent en première page Google.",
+    "eyebrow": "Votre Agence Web à Lyon",
+    "headline": "Agence web & développeur sur-mesure basé à Lyon et Villeurbanne",
+    "p1": "Je suis Sardor, développeur web Next.js et fondateur de Sidikoff Digital à Villeurbanne (Lyon). Nous accompagnons les entreprises lyonnaises dans la création et la refonte de leur site internet sur mesure.",
+    "p2": "Nous utilisons les mêmes technologies que Netflix, Uber et Airbnb — mais au service des PME et indépendants de la région lyonnaise. Résultat : des sites ultra-rapides qui se positionnent en première page Google.",
     "stats": [
       {
         "value": "20+",
-        "label": "projets livrés"
+        "label": "projets livrés à Lyon & région"
       },
       {
         "value": "7 jours",
@@ -3477,9 +3477,9 @@
       }
     ],
     "trust_badges": [
-      "Expért en développement web & seo",
+      "Expert en développement web & SEO Lyon",
       "Disponible pour nouveaux projets",
-      "Basé à Lyon — France entière"
+      "Basé à Villeurbanne & Lyon"
     ],
     "cta": "Discutons de votre projet →",
     "available_label": "Disponible",

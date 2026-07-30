@@ -30,73 +30,75 @@ const Yandex360Contact = dynamic(() =>
 )
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Agence Web Lyon 360° | Création Site Internet Sur-Mesure & SEO'
+  const title = 'Agence Web Lyon & Villeurbanne 360° | Création Site Internet & SEO'
   const description =
-    'Agence web à Lyon & Villeurbanne — création de sites internet sur mesure Next.js 16, SEO local et refonte web. Livrés en 7–14 jours, dès 690 €. Devis gratuit sous 24h ✓'
+    'Agence web et studio informatique à Lyon & Villeurbanne (69). Création de sites Next.js 16 sur-mesure, webapps SaaS, intégration IA et SEO local. Dès 690 €, livré en 7–14 jours. Devis gratuit sous 24h ✓'
 
   return {
     title,
     description,
     keywords: [
       'agence web Lyon',
-      'agence web Lyon 69',
-      'création site internet Lyon',
-      'développeur web Lyon',
-      'agence digitale Lyon',
-      'site web professionnel Lyon',
-      'SEO Lyon',
-      'Next.js Lyon',
       'agence web Villeurbanne',
+      'agence web Lyon Villeurbanne',
+      'création site internet Lyon',
+      'création site internet Villeurbanne',
+      'développeur web Lyon',
+      'développeur web Villeurbanne',
+      'SEO Lyon Villeurbanne',
+      'Next.js Lyon',
+      'agence digitale 69',
     ],
     robots: {
       index: true,
       follow: true,
     },
     alternates: {
-      canonical: createCanonicalUrl('services/agence-web-lyon', 'fr'),
-      languages: generateAlternateUrls('services/agence-web-lyon'),
+      canonical: createCanonicalUrl('services/agence-web-lyon-villeurbanne', 'fr'),
+      languages: generateAlternateUrls('services/agence-web-lyon-villeurbanne'),
     },
     openGraph: {
       title,
       description,
       type: 'website',
       locale: 'fr_FR',
-      url: 'https://www.sidikoff.com/services/agence-web-lyon',
+      url: 'https://www.sidikoff.com/services/agence-web-lyon-villeurbanne',
       siteName: 'Sidikoff Digital',
       images: [
         {
           url: 'https://cdn.sidikoff.com/images/og/creation-sites-web-lyon.jpg',
           width: 1200,
           height: 630,
-          alt: 'Agence Web Lyon - Création site internet sur-mesure',
+          alt: 'Agence Web Lyon Villeurbanne 360°',
         },
       ],
     },
   }
 }
 
-const agenceWebLyonSchemas = [
+const agenceLyonVilleurbanneSchemas = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    '@id': 'https://www.sidikoff.com/services/agence-web-lyon#webpage',
-    url: 'https://www.sidikoff.com/services/agence-web-lyon',
-    name: 'Agence Web Lyon | Création de Sites Internet Sur-Mesure',
+    '@id': 'https://www.sidikoff.com/services/agence-web-lyon-villeurbanne#webpage',
+    url: 'https://www.sidikoff.com/services/agence-web-lyon-villeurbanne',
+    name: 'Agence Web Lyon & Villeurbanne 360°',
     description:
-      'Agence web à Lyon spécialisée en création de sites internet sur mesure, SEO local et refonte web.',
+      'Agence web à Lyon & Villeurbanne spécialisée en création de sites internet sur mesure, webapps et SEO local.',
     isPartOf: { '@id': 'https://www.sidikoff.com/#website' },
   },
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    '@id': 'https://www.sidikoff.com/services/agence-web-lyon#service',
-    name: 'Agence Web Lyon | Création de Sites Internet',
-    serviceType: 'Création de site internet & SEO',
+    '@id': 'https://www.sidikoff.com/services/agence-web-lyon-villeurbanne#service',
+    name: 'Création de Sites Internet & Écosystème Web Lyon Villeurbanne',
+    serviceType: 'Agence Web & Développement Sur-Mesure',
     areaServed: [
       { '@type': 'City', name: 'Lyon' },
       { '@type': 'City', name: 'Villeurbanne' },
       { '@type': 'City', name: 'Caluire-et-Cuire' },
       { '@type': 'City', name: 'Bron' },
+      { '@type': 'Place', name: 'Rhône (69)' },
     ],
     provider: {
       '@type': 'Organization',
@@ -106,28 +108,32 @@ const agenceWebLyonSchemas = [
   },
 ]
 
-export default async function AgenceWebLyonPage() {
+export default async function AgenceWebLyonVilleurbannePage() {
   const breadcrumbSchema = generateBreadcrumbStructuredData([
     { name: 'Accueil', url: DEFAULT_SEO.siteUrl },
     { name: 'Services', url: `${DEFAULT_SEO.siteUrl}/services` },
-    { name: 'Agence Web Lyon', url: `${DEFAULT_SEO.siteUrl}/services/agence-web-lyon` },
+    { name: 'Agence Web Lyon & Villeurbanne', url: `${DEFAULT_SEO.siteUrl}/services/agence-web-lyon-villeurbanne` },
   ])
 
   return (
     <div className='relative min-h-screen bg-[#060812] selection:bg-cyan-500 selection:text-black font-sans antialiased text-slate-100'>
+      {/* Background Interactive Canvas */}
       <EcosystemCanvas />
+
+      {/* JSON-LD Schemas */}
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      {agenceWebLyonSchemas.map((schema, i) => (
+      {agenceLyonVilleurbanneSchemas.map((schema, index) => (
         <script
-          key={`agence-web-lyon-schema-${i}`}
+          key={index}
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       ))}
 
+      {/* Landing Page Content */}
       <main className='relative z-10 m-0 p-0 overflow-x-hidden'>
         <Yandex360Hero />
         <Yandex360Ecosystem />
@@ -136,7 +142,7 @@ export default async function AgenceWebLyonPage() {
         <Yandex360Portfolio />
         <Yandex360Testimonials />
         <Yandex360FAQ />
-        <LyonVilleurbanneSeoHub currentPath='/services/agence-web-lyon' />
+        <LyonVilleurbanneSeoHub currentPath='/services/agence-web-lyon-villeurbanne' />
         <Yandex360Contact />
       </main>
     </div>

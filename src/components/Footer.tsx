@@ -120,7 +120,7 @@ const createVilleLinks = (): FooterLink[] => [
   },
   {
     name: 'Site Web Villeurbanne',
-    href: getLocalizedUrl('/services/agence-web-villeurbanne'),
+    href: getLocalizedUrl('/services/site-vitrine-villeurbanne'),
   },
   {
     name: 'Site Web Caluire',
