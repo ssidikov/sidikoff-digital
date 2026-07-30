@@ -84,9 +84,9 @@ export default function About() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.55, duration: 0.4, ease: 'easeOut' }}
-                className='absolute -bottom-3 right-2 z-10 flex items-center gap-1 rounded-full bg-emerald-500 px-2.5 py-1.5 shadow-[0_4px_16px_rgba(16,185,129,0.45)] sm:right-3 sm:gap-2 sm:px-4 sm:py-2 lg:right-4'>
-                <span className='h-1.5 w-1.5 rounded-full bg-white sm:h-2 sm:w-2' />
-                <span className='text-xs font-medium text-white sm:text-sm'>{dict.available_label}</span>
+                className='absolute -bottom-3 right-2 z-10 hidden items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 shadow-[0_4px_16px_rgba(16,185,129,0.45)] sm:right-3 sm:flex lg:right-4'>
+                <span className='h-2 w-2 rounded-full bg-white' />
+                <span className='text-sm font-medium text-white'>{dict.available_label}</span>
               </motion.div>
             </div>
           </motion.div>
