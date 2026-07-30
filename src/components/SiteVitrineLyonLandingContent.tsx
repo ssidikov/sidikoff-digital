@@ -207,7 +207,11 @@ export default function SiteVitrineLyonLandingContent() {
                         </div>
                         <h3 className="text-2xl font-bold text-slate-800 mb-4">Le partenaire de votre croissance</h3>
                         <p className="text-slate-500 mb-8 max-w-sm">Découvrez nos services d'accompagnement sur-mesure pour les entreprises lyonnaises.</p>
-                        <div className="px-6 py-2 bg-emerald-600 text-white rounded-full text-sm font-bold">Contactez-nous</div>
+                        <Link href="/contact">
+                          <button className="px-6 py-2 bg-emerald-600 hover:bg-emerald-500 transition-colors text-white rounded-full text-sm font-bold cursor-pointer">
+                            Contactez-nous
+                          </button>
+                        </Link>
                      </div>
                   </div>
                 </div>

@@ -26,6 +26,19 @@ const SCROLL_CONFIG = {
 // Pages with dark (stone-950) backgrounds — header adapts to stay readable
 const DARK_PAGE_PATHS = [
   '/services/creation-site-internet-barbershop-lyon',
+  '/services/site-vitrine-villeurbanne',
+  '/services/agence-web-villeurbanne',
+  '/services/agence-web-lyon',
+  '/services/agence-web-lyon-villeurbanne',
+  '/services/refonte-site-villeurbanne',
+  '/services/refonte-site-web-lyon',
+  '/services/seo-paris',
+  '/services/react-paris',
+  '/services/react-lyon',
+  '/services/developpeur-web-paris',
+  '/services/agence-web-venissieux',
+  '/services/agence-web-caluire',
+  '/services/wordpress-lyon',
 ]
 
 // CSS classes will be used for entry animations instead if needed

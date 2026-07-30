@@ -2,15 +2,7 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import {
-  Send,
-  Sparkles,
-  CheckCircle2,
-  Phone,
-  Mail,
-  MapPin,
-  ArrowRight,
-} from 'lucide-react'
+import { Send, Sparkles, CheckCircle2, Phone, Mail, MapPin, ArrowRight } from 'lucide-react'
 
 export function Yandex360Contact() {
   const [step, setStep] = useState<number>(1)
@@ -102,8 +94,8 @@ Demande de Projet 360° :
                 </div>
                 <div>
                   <div className='text-gray-400 text-[11px]'>Téléphone & WhatsApp</div>
-                  <a href='tel:+33600000000' className='font-bold hover:text-purple-400'>
-                    +33 (0)6 00 00 00 00
+                  <a href='tel:+33626932734' className='font-bold hover:text-purple-400'>
+                    +33 6 26 93 27 34
                   </a>
                 </div>
               </div>
@@ -132,14 +124,14 @@ Demande de Projet 360° :
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className='text-center py-12 space-y-4'
-              >
+                className='text-center py-12 space-y-4'>
                 <div className='mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/20 border border-emerald-400 text-emerald-400'>
                   <CheckCircle2 className='h-8 w-8' />
                 </div>
                 <h3 className='text-2xl font-bold text-white'>Message Reçu avec Succès !</h3>
                 <p className='text-xs text-gray-300 max-w-md mx-auto'>
-                  Merci {formData.name}. Sardor étudie votre demande et vous recontacte d'ici moins de 24h avec un devis détaillé.
+                  Merci {formData.name}. Sardor étudie votre demande et vous recontacte d'ici moins
+                  de 24h avec un devis détaillé.
                 </p>
               </motion.div>
             ) : (
@@ -148,8 +140,12 @@ Demande de Projet 360° :
                 <div className='flex items-center justify-between border-b border-white/10 pb-4 text-xs text-gray-400'>
                   <span>Étape {step} sur 2</span>
                   <div className='flex gap-1'>
-                    <span className={`h-1.5 w-8 rounded-full ${step >= 1 ? 'bg-cyan-400' : 'bg-white/10'}`} />
-                    <span className={`h-1.5 w-8 rounded-full ${step >= 2 ? 'bg-cyan-400' : 'bg-white/10'}`} />
+                    <span
+                      className={`h-1.5 w-8 rounded-full ${step >= 1 ? 'bg-cyan-400' : 'bg-white/10'}`}
+                    />
+                    <span
+                      className={`h-1.5 w-8 rounded-full ${step >= 2 ? 'bg-cyan-400' : 'bg-white/10'}`}
+                    />
                   </div>
                 </div>
 
@@ -157,8 +153,7 @@ Demande de Projet 360° :
                   <motion.div
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className='space-y-5'
-                  >
+                    className='space-y-5'>
                     <div>
                       <label className='text-xs font-bold uppercase tracking-wider text-gray-300'>
                         Quel est le type de votre projet ?
@@ -179,8 +174,7 @@ Demande de Projet 360° :
                               projectType === t
                                 ? 'border-cyan-400 bg-cyan-500/10 text-cyan-300'
                                 : 'border-white/10 bg-white/5 text-gray-400 hover:border-white/20'
-                            }`}
-                          >
+                            }`}>
                             {t}
                           </button>
                         ))}
@@ -201,8 +195,7 @@ Demande de Projet 360° :
                               budget === b
                                 ? 'border-purple-400 bg-purple-500/10 text-purple-300'
                                 : 'border-white/10 bg-white/5 text-gray-400 hover:border-white/20'
-                            }`}
-                          >
+                            }`}>
                             {b}
                           </button>
                         ))}
@@ -212,8 +205,7 @@ Demande de Projet 360° :
                     <button
                       type='button'
                       onClick={() => setStep(2)}
-                      className='mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-500 px-6 py-4 text-xs font-extrabold text-black hover:bg-cyan-400 transition-all'
-                    >
+                      className='mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-500 px-6 py-4 text-xs font-extrabold text-black hover:bg-cyan-400 transition-all'>
                       <span>Continuer vers les coordonnées</span>
                       <ArrowRight className='h-4 w-4' />
                     </button>
@@ -224,10 +216,11 @@ Demande de Projet 360° :
                   <motion.div
                     initial={{ opacity: 0, x: 10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className='space-y-4'
-                  >
+                    className='space-y-4'>
                     <div>
-                      <label className='text-xs text-gray-300 font-medium'>Votre Nom Complet *</label>
+                      <label className='text-xs text-gray-300 font-medium'>
+                        Votre Nom Complet *
+                      </label>
                       <input
                         type='text'
                         required
@@ -239,7 +232,9 @@ Demande de Projet 360° :
                     </div>
 
                     <div>
-                      <label className='text-xs text-gray-300 font-medium'>Votre Adresse Email *</label>
+                      <label className='text-xs text-gray-300 font-medium'>
+                        Votre Adresse Email *
+                      </label>
                       <input
                         type='email'
                         required
@@ -251,7 +246,9 @@ Demande de Projet 360° :
                     </div>
 
                     <div>
-                      <label className='text-xs text-gray-300 font-medium'>Téléphone (optionnel)</label>
+                      <label className='text-xs text-gray-300 font-medium'>
+                        Téléphone (optionnel)
+                      </label>
                       <input
                         type='tel'
                         placeholder='+33 6 12 34 56 78'
@@ -262,7 +259,9 @@ Demande de Projet 360° :
                     </div>
 
                     <div>
-                      <label className='text-xs text-gray-300 font-medium'>Détails de votre projet</label>
+                      <label className='text-xs text-gray-300 font-medium'>
+                        Détails de votre projet
+                      </label>
                       <textarea
                         rows={3}
                         placeholder='Objectifs, fonctionnalités souhaitées, contraintes...'
@@ -276,24 +275,27 @@ Demande de Projet 360° :
                       <button
                         type='button'
                         onClick={() => setStep(1)}
-                        className='rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-xs font-bold text-gray-400 hover:text-white'
-                      >
+                        className='rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-xs font-bold text-gray-400 hover:text-white'>
                         Retour
                       </button>
 
                       <button
                         type='submit'
                         disabled={status === 'submitting'}
-                        className='flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 px-6 py-3 text-xs font-extrabold text-white shadow-[0_0_25px_rgba(0,240,255,0.4)] hover:scale-105 transition-all disabled:opacity-50'
-                      >
+                        className='flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 px-6 py-3 text-xs font-extrabold text-white shadow-[0_0_25px_rgba(0,240,255,0.4)] hover:scale-105 transition-all disabled:opacity-50'>
                         <Send className='h-4 w-4' />
-                        <span>{status === 'submitting' ? 'Envoi en cours...' : 'Envoyer ma Demande 360°'}</span>
+                        <span>
+                          {status === 'submitting'
+                            ? 'Envoi en cours...'
+                            : 'Envoyer ma Demande 360°'}
+                        </span>
                       </button>
                     </div>
 
                     {status === 'error' && (
                       <p className='text-center text-xs text-red-400'>
-                        Une erreur est survenue lors de l'envoi. Veuillez réessayer ou envoyer un email à contact@sidikoff.com.
+                        Une erreur est survenue lors de l'envoi. Veuillez réessayer ou envoyer un
+                        email à contact@sidikoff.com.
                       </p>
                     )}
                   </motion.div>

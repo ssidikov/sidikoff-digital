@@ -2,7 +2,6 @@
 
 import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {
   TrendingUp,
@@ -120,18 +119,19 @@ export default function SiteVitrineVilleurbanneLandingContent() {
     <div className="min-h-screen bg-slate-50">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden bg-slate-900">
-        <div className="absolute inset-0 z-0 opacity-20">
-          <Image
-            src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=2000&auto=format&fit=crop"
-            alt="Création Site Vitrine Villeurbanne"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-emerald-900/40"></div>
+        {/* Hero Background Grid & Ambient Glows */}
+        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(16,185,129,0.18),rgba(15,23,42,0))]"></div>
+          <div
+            className="absolute inset-0 opacity-[0.12]"
+            style={{
+              backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px)`,
+              backgroundSize: '28px 28px',
+            }}
+          ></div>
+          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-emerald-500/20 blur-[120px]"></div>
+          <div className="absolute top-1/2 left-0 -ml-20 w-80 h-80 rounded-full bg-teal-500/15 blur-[100px]"></div>
         </div>
-
-        <div className="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-emerald-500/20 blur-[100px] pointer-events-none"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -207,7 +207,11 @@ export default function SiteVitrineVilleurbanneLandingContent() {
                         </div>
                         <h3 className="text-2xl font-bold text-slate-800 mb-4">Le partenaire de votre croissance</h3>
                         <p className="text-slate-500 mb-8 max-w-sm">Découvrez nos services d'accompagnement sur-mesure pour les entreprises villeurbannaises.</p>
-                        <div className="px-6 py-2 bg-emerald-600 text-white rounded-full text-sm font-bold">Contactez-nous</div>
+                        <Link href="/contact">
+                          <button className="px-6 py-2 bg-emerald-600 hover:bg-emerald-500 transition-colors text-white rounded-full text-sm font-bold cursor-pointer">
+                            Contactez-nous
+                          </button>
+                        </Link>
                      </div>
                   </div>
                 </div>

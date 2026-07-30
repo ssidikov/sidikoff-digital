@@ -12,7 +12,6 @@ import dynamic from 'next/dynamic'
 import { EcosystemCanvas } from '@/components/Yandex360/EcosystemCanvas'
 import { Yandex360Hero } from '@/sections/Yandex360Hero'
 import { Yandex360Ecosystem } from '@/sections/Yandex360Ecosystem'
-import { Yandex360Bento } from '@/sections/Yandex360Bento'
 import { Yandex360Calculator } from '@/sections/Yandex360Calculator'
 import { LyonVilleurbanneSeoHub } from '@/components/seo/LyonVilleurbanneSeoHub'
 
@@ -98,7 +97,6 @@ export default function AgenceWebVilleurbannePage() {
       <main className='relative z-10 m-0 p-0 overflow-x-hidden'>
         <Yandex360Hero />
         <Yandex360Ecosystem />
-        <Yandex360Bento />
         <Yandex360Calculator />
         <Yandex360Portfolio />
         <Yandex360Testimonials />
@@ -109,3 +107,4 @@ export default function AgenceWebVilleurbannePage() {
     </div>
   )
 }
+
