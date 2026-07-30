@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { calculateDeterministicAudit } from '@/lib/seo-audit-utils'
 import {
   Globe,
   Cpu,
@@ -56,26 +57,26 @@ export function Yandex360Hero() {
     setIsAuditing(true)
     setAuditResults(null)
 
-    // Simulated audit with realistic random results
     setTimeout(() => {
-      const score = Math.floor(Math.random() * 30) + 65 // 65-94
-      const metrics = [
-        { label: 'Balises Title & Meta', value: score > 80 ? 'Optimisé' : 'À améliorer', status: (score > 80 ? 'good' : 'warn') as 'good' | 'warn' | 'bad', icon: <Search className='h-3.5 w-3.5' /> },
-        { label: 'Google My Business', value: score > 75 ? 'Détecté' : 'Non trouvé', status: (score > 75 ? 'good' : 'bad') as 'good' | 'warn' | 'bad', icon: <MapPin className='h-3.5 w-3.5' /> },
-        { label: 'Vitesse de chargement', value: `${(Math.random() * 2 + 0.8).toFixed(1)}s`, status: (score > 85 ? 'good' : 'warn') as 'good' | 'warn' | 'bad', icon: <Clock className='h-3.5 w-3.5' /> },
-        { label: 'HTTPS & Sécurité', value: url.startsWith('https') ? 'Sécurisé' : 'Non HTTPS', status: (url.startsWith('https') ? 'good' : 'bad') as 'good' | 'warn' | 'bad', icon: <Shield className='h-3.5 w-3.5' /> },
-        { label: 'Mots-clés locaux (69)', value: score > 78 ? 'Présents' : 'Absents', status: (score > 78 ? 'good' : 'warn') as 'good' | 'warn' | 'bad', icon: <TrendingUp className='h-3.5 w-3.5' /> },
-        { label: 'Mobile-friendly', value: score > 70 ? 'Responsive' : 'Non adapté', status: (score > 70 ? 'good' : 'bad') as 'good' | 'warn' | 'bad', icon: <Smartphone className='h-3.5 w-3.5' /> },
-      ]
-      const tips = [
-        score < 85 ? 'Ajoutez "Lyon" et "Villeurbanne" dans vos balises title et H1.' : '',
-        score < 80 ? 'Créez ou optimisez votre fiche Google My Business.' : '',
-        !url.startsWith('https') ? 'Migrez votre site en HTTPS pour améliorer la confiance.' : '',
-        score < 90 ? 'Ajoutez un schéma LocalBusiness JSON-LD.' : '',
-      ].filter(Boolean)
+      const data = calculateDeterministicAudit(url)
+      const iconMap: Record<string, React.ReactNode> = {
+        'Balises Title & Meta': <Search className='h-3.5 w-3.5' />,
+        'Google My Business': <MapPin className='h-3.5 w-3.5' />,
+        'Vitesse de chargement': <Clock className='h-3.5 w-3.5' />,
+        'HTTPS & Sécurité': <Shield className='h-3.5 w-3.5' />,
+        'Mots-clés locaux (69)': <TrendingUp className='h-3.5 w-3.5' />,
+        'Mobile-friendly': <Smartphone className='h-3.5 w-3.5' />,
+      }
+
+      const metrics = data.metrics.map((m) => ({
+        label: m.label,
+        value: m.value,
+        status: m.status,
+        icon: iconMap[m.label] || <Search className='h-3.5 w-3.5' />,
+      }))
 
       setIsAuditing(false)
-      setAuditResults({ score, metrics, tips })
+      setAuditResults({ score: data.score, metrics, tips: data.issues })
     }, 2200)
   }
 

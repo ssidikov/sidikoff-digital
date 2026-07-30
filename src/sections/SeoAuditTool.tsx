@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { calculateDeterministicAudit } from '@/lib/seo-audit-utils'
 import {
   Globe,
   Gauge,
@@ -50,74 +51,32 @@ const AUDIT_STEPS = [
   'Calcul du score SEO local…',
 ]
 
-function computeGrade(score: number): AuditResults['grade'] {
-  if (score >= 90) return 'A'
-  if (score >= 75) return 'B'
-  if (score >= 60) return 'C'
-  if (score >= 50) return 'D'
-  return 'F'
-}
-
 function runSimulatedAudit(url: string): AuditResults {
-  const isHttps = url.startsWith('https')
-  const seed = url.length % 25
-  const score = Math.min(88, 52 + seed + Math.floor(Math.random() * 12))
+  const auditData = calculateDeterministicAudit(url)
+  const iconMap: Record<string, React.ReactNode> = {
+    'Balises Title & Meta': <Search className='h-4 w-4' />,
+    'Google My Business': <MapPin className='h-4 w-4' />,
+    'Vitesse de chargement': <Clock className='h-4 w-4' />,
+    'HTTPS & Sécurité': <Shield className='h-4 w-4' />,
+    'Mots-clés locaux (69)': <TrendingUp className='h-4 w-4' />,
+    'Mobile-friendly': <Smartphone className='h-4 w-4' />,
+  }
 
-  const metrics: Metric[] = [
-    {
-      label: 'Balises Title & Meta',
-      value: score > 78 ? 'Optimisé' : 'À améliorer',
-      status: score > 78 ? 'good' : 'warn',
-      icon: <Search className='h-4 w-4' />,
-      detail: score > 78 ? 'Balises présentes et bien rédigées.' : 'Title trop court ou mot-clé local absent.',
-    },
-    {
-      label: 'Google My Business',
-      value: score > 72 ? 'Fiche détectée' : 'Non trouvé',
-      status: score > 72 ? 'good' : 'bad',
-      icon: <MapPin className='h-4 w-4' />,
-      detail: score > 72 ? 'Fiche GMB active et vérifiée.' : 'Aucune fiche GMB détectée pour ce domaine.',
-    },
-    {
-      label: 'Vitesse de chargement',
-      value: score > 82 ? '< 1.5 s' : score > 68 ? '2.4 s' : '4.1 s',
-      status: score > 82 ? 'good' : score > 68 ? 'warn' : 'bad',
-      icon: <Clock className='h-4 w-4' />,
-      detail: score > 82 ? 'LCP excellent.' : 'LCP trop lent — pénalise le classement Google.',
-    },
-    {
-      label: 'HTTPS & Sécurité',
-      value: isHttps ? 'Sécurisé' : 'Non HTTPS',
-      status: isHttps ? 'good' : 'bad',
-      icon: <Shield className='h-4 w-4' />,
-      detail: isHttps ? 'Certificat SSL valide.' : 'Google pénalise les sites HTTP.',
-    },
-    {
-      label: 'Mots-clés locaux (69)',
-      value: score > 75 ? 'Présents' : 'Insuffisants',
-      status: score > 75 ? 'good' : 'warn',
-      icon: <TrendingUp className='h-4 w-4' />,
-      detail: score > 75 ? '"Lyon" et "Villeurbanne" bien intégrés.' : 'Termes locaux absents des balises H1.',
-    },
-    {
-      label: 'Mobile-friendly',
-      value: score > 70 ? 'Responsive' : 'Non adapté',
-      status: score > 70 ? 'good' : 'bad',
-      icon: <Smartphone className='h-4 w-4' />,
-      detail: score > 70 ? 'Expérience mobile optimale.' : '70 % du trafic local est mobile.',
-    },
-  ]
+  const metrics: Metric[] = auditData.metrics.map((m) => ({
+    label: m.label,
+    value: m.value,
+    status: m.status,
+    icon: iconMap[m.label] || <Search className='h-4 w-4' />,
+    detail: m.detail,
+  }))
 
-  const wins = metrics.filter((m) => m.status === 'good').map((m) => m.label)
-  const issues = [
-    score < 85 ? 'Ajoutez "Lyon" et "Villeurbanne" dans vos balises Title & H1.' : '',
-    score < 73 ? 'Créez ou réclamez votre fiche Google My Business.' : '',
-    !isHttps ? "Migrez votre site en HTTPS (gratuit avec Let's Encrypt)." : '',
-    score < 83 ? 'Optimisez vos images et activez la mise en cache navigateur.' : '',
-    score < 91 ? 'Ajoutez un schéma JSON-LD LocalBusiness pour le rich-snippet Google.' : '',
-  ].filter(Boolean) as string[]
-
-  return { score, grade: computeGrade(score), metrics, wins, issues }
+  return {
+    score: auditData.score,
+    grade: auditData.grade,
+    metrics,
+    wins: auditData.wins,
+    issues: auditData.issues,
+  }
 }
 
 function StatusIcon({ status }: { status: MetricStatus }) {
