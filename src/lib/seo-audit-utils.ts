@@ -168,3 +168,54 @@ export function calculateDeterministicAudit(url: string): AuditResultsData {
 
   return { score, grade, metrics, wins, issues, speed }
 }
+
+export function getScoreCtaContent(score: number): {
+  highlight: string
+  description: string
+  scoreSummary: string
+} {
+  if (score === 100) {
+    return {
+      highlight: 'Score parfait ! Conservez votre position n°1.',
+      description:
+        'Même au sommet, le référencement évolue. Nos experts vous aident à maintenir votre leadership face à la concurrence.',
+      scoreSummary:
+        'Votre site est au sommet — toutes les meilleures pratiques SEO locales sont parfaitement appliquées.',
+    }
+  }
+  if (score >= 90) {
+    return {
+      highlight: 'Nos experts peuvent vous amener au 100/100.',
+      description:
+        'Excellente base ! Quelques ajustements de précision vous sépareront de la perfection absolue.',
+      scoreSummary:
+        'Excellente performance — quelques réglages fins suffisent pour viser le score parfait de 100/100.',
+    }
+  }
+  if (score >= 70) {
+    return {
+      highlight: 'Nos experts peuvent le porter à 95+.',
+      description:
+        "Audit SEO complet, refonte technique, contenu local — on prend en charge tout ce que l'outil a détecté.",
+      scoreSummary:
+        'Votre site est bien positionné — des optimisations ciblées peuvent encore doubler votre visibilité locale.',
+    }
+  }
+  if (score >= 50) {
+    return {
+      highlight: 'Nos experts peuvent le porter à 90+.',
+      description:
+        "Des lacunes techniques et sémantiques freinent votre croissance. Confiez-nous l'optimisation de votre site.",
+      scoreSummary:
+        'Des lacunes importantes limitent votre visibilité sur Google. Des corrections ciblées changeront la donne.',
+    }
+  }
+  return {
+    highlight: 'Nos experts peuvent booster rapidement votre score.',
+    description:
+      'Votre site souffre d’un manque de visibilité. Une refonte SEO ciblée est recommandée pour capter vos premiers clients.',
+    scoreSummary:
+      'Score critique — votre site est très peu visible sur Google local. Une refonte SEO urgente est recommandée.',
+  }
+}
+

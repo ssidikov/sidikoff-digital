@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { calculateDeterministicAudit } from '@/lib/seo-audit-utils'
+import { calculateDeterministicAudit, getScoreCtaContent } from '@/lib/seo-audit-utils'
 import {
   Globe,
   Gauge,
@@ -186,6 +186,8 @@ export function SeoAuditTool() {
     setTimeout(() => inputRef.current?.focus(), 100)
   }
 
+  const ctaContent = results ? getScoreCtaContent(results.score) : null
+
   return (
     <section
       id='audit-seo'
@@ -331,11 +333,7 @@ export function SeoAuditTool() {
                       <span className='text-cyan-700 break-all font-mono text-base'>{url}</span>
                     </p>
                     <p className='mt-1.5 text-sm text-slate-600 leading-relaxed'>
-                      {results.score >= 75
-                        ? 'Votre site est bien positionné — quelques optimisations peuvent encore doubler votre visibilité locale.'
-                        : results.score >= 55
-                        ? 'Des lacunes importantes limitent votre visibilité sur Google Lyon. Des corrections ciblées peuvent rapidement changer la donne.'
-                        : 'Score critique — votre site est quasi-invisible sur Google local. Une refonte SEO est urgente.'}
+                      {ctaContent?.scoreSummary}
                     </p>
                     <div className='mt-3 flex items-center gap-1 justify-center sm:justify-start'>
                       {[1, 2, 3, 4, 5].map((star) => (
@@ -404,8 +402,8 @@ export function SeoAuditTool() {
                   </div>
                 </div>
 
-                {/* Issues */}
-                {results.issues.length > 0 && (
+                {/* Issues or Success Callout */}
+                {results.issues.length > 0 ? (
                   <div className='rounded-2xl border border-amber-300/70 bg-amber-50/80 p-5 backdrop-blur-2xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)]'>
                     <p className='mb-3 flex items-center gap-2 text-sm font-bold text-slate-900'>
                       <Zap className='h-4 w-4 text-amber-600' />
@@ -419,6 +417,16 @@ export function SeoAuditTool() {
                         </li>
                       ))}
                     </ul>
+                  </div>
+                ) : (
+                  <div className='rounded-2xl border border-emerald-300/70 bg-emerald-50/80 p-5 backdrop-blur-2xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)]'>
+                    <p className='flex items-center gap-2 text-sm font-bold text-emerald-950'>
+                      <CheckCircle2 className='h-4 w-4 text-emerald-600' />
+                      Aucun problème critique détecté — SEO au sommet !
+                    </p>
+                    <p className='mt-1 text-xs text-emerald-800/90 font-medium'>
+                      Toutes les vérifications automatiques sont au vert. Un accompagnement continu vous garantit de garder votre avance.
+                    </p>
                   </div>
                 )}
 
@@ -469,10 +477,10 @@ export function SeoAuditTool() {
                   </p>
                   <h3 className='text-xl font-extrabold text-white md:text-2xl'>
                     Votre score est {results.score}/100.{' '}
-                    <span className='text-cyan-200 underline decoration-cyan-300/50 underline-offset-4'>Nos experts peuvent le porter à 95+.</span>
+                    <span className='text-cyan-200 underline decoration-cyan-300/50 underline-offset-4'>{ctaContent?.highlight}</span>
                   </h3>
                   <p className='mx-auto mt-2.5 max-w-md text-xs text-cyan-100/90 leading-relaxed font-normal'>
-                    Audit SEO complet, refonte technique, contenu local — on prend en charge tout ce que l&apos;outil a détecté.
+                    {ctaContent?.description}
                   </p>
                   <div className='mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center'>
                     <a
