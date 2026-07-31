@@ -125,6 +125,50 @@ interface ChatMessage {
   parts: Array<{ text: string }>
 }
 
+// ── OpenRouter fallback ────────────────────────────────────────────────────────
+async function callOpenRouter(messages: ChatMessage[]): Promise<string> {
+  const key = process.env.OPENROUTER_API_KEY
+  if (!key) throw new Error('No OpenRouter key')
+
+  // Convert Gemini format → OpenAI format
+  const openAiMessages = [
+    { role: 'system', content: SYSTEM_PROMPT },
+    ...messages.map((m) => ({
+      role: m.role === 'model' ? 'assistant' : 'user',
+      content: m.parts.map((p) => p.text).join(''),
+    })),
+  ]
+
+  const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${key}`,
+      'HTTP-Referer': 'https://sidikoff.com',
+      'X-Title': 'Sidikoff Digital Chatbot',
+    },
+    body: JSON.stringify({
+      models: [
+        'openrouter/free',
+        'google/gemma-4-31b-it:free',
+        'inclusionai/ling-3.0-flash:free',
+      ],
+      messages: openAiMessages,
+      max_tokens: 1024,
+      temperature: 0.7,
+    }),
+  })
+
+  if (!res.ok) {
+    const err = await res.text()
+    console.error('OpenRouter error:', res.status, err)
+    throw new Error(`OpenRouter ${res.status}`)
+  }
+
+  const data = await res.json()
+  return data?.choices?.[0]?.message?.content ?? ''
+}
+
 // ── Route handler ──────────────────────────────────────────────────────────────
 export async function POST(request: Request) {
   try {
@@ -158,7 +202,7 @@ export async function POST(request: Request) {
       contents: messages,
       generationConfig: {
         temperature: 0.7,
-        maxOutputTokens: 2048,
+        maxOutputTokens: 1024,
         topP: 0.9,
       },
     }
@@ -173,9 +217,21 @@ export async function POST(request: Request) {
       const err = await res.text()
       console.error('Gemini error status:', res.status)
       console.error('Gemini error body:', err)
+
+      // ── Fallback to OpenRouter ──────────────────────────────────────────────
+      console.log('Gemini unavailable, falling back to OpenRouter...')
+      try {
+        const fallbackText = await callOpenRouter(messages)
+        if (fallbackText) {
+          return NextResponse.json({ reply: fallbackText, fallback: true })
+        }
+      } catch (fbErr) {
+        console.error('OpenRouter fallback failed:', fbErr)
+      }
+
       if (res.status === 429) {
         return NextResponse.json(
-          { error: 'Quota IA temporairement atteint. Réessayez dans 30 secondes.' },
+          { error: 'Service IA temporairement indisponible. Réessayez dans quelques instants.' },
           { status: 429 },
         )
       }
