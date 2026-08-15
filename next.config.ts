@@ -164,45 +164,106 @@ const nextConfig: NextConfig = {
       },
 
 
-      // ── 3. Old project slugs → numeric IDs
-      {
-        source: '/projects/booki',
-        destination: '/projects/11',
-        permanent: true,
-      },
-      {
-        source: '/projects/euclid',
-        destination: '/projects/14',
-        permanent: true,
-      },
+      // ── 3. Old project slugs and deleted projects
       {
         source: '/projects/cookies',
         destination: '/projects/6',
         permanent: true,
       },
+      // Redirect deleted project slugs & IDs to portfolio
+      {
+        source: '/projects/booki',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/projects/euclid',
+        destination: '/projects',
+        permanent: true,
+      },
       {
         source: '/projects/billed',
-        destination: '/projects/10',
+        destination: '/projects',
         permanent: true,
       },
       {
         source: '/projects/fisheye',
-        destination: '/projects/7',
+        destination: '/projects',
         permanent: true,
       },
       {
         source: '/projects/ohmyfood',
-        destination: '/projects/9',
+        destination: '/projects',
         permanent: true,
       },
       {
         source: '/projects/learn-home',
-        destination: '/projects/13',
+        destination: '/projects',
         permanent: true,
       },
       {
         source: '/projects/kasa',
-        destination: '/projects/1',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/projects/1',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/projects/2',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/projects/3',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/projects/4',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/projects/5',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/projects/7',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/projects/8',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/projects/9',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/projects/10',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/projects/11',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/projects/13',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/projects/14',
+        destination: '/projects',
         permanent: true,
       },
 

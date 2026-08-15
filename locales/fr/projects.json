@@ -1,325 +1,143 @@
 [
   {
-    "id": "1",
-    "title": "Kasa",
-    "description": "Plateforme de location avec design responsive.",
-    "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "Kasa est une plateforme moderne de location avec une interface intuitive et un design entièrement responsive. Les utilisateurs peuvent facilement rechercher et réserver des appartements grâce à une navigation pratique et des menus déroulants dynamiques. Réalisé avec React et SASS, Kasa offre des performances élevées et un look élégant sur tous les appareils. C'est le choix idéal pour les entreprises souhaitant offrir à leurs clients une expérience de location en ligne fluide.",
-    "technologies": [
-      "React",
-      "SASS"
-    ],
-    "link": "https://ssidikov.github.io/kasa/",
-    "category": "Web"
-  },
-  {
-    "id": "2",
-    "title": "SportSee",
-    "description": "Tableau de bord pour l'analyse des données de fitness.",
-    "image": "/images/projects/sportsee.webp",
-    "longDescription": "SportSee est un tableau de bord interactif pour l'analyse des données de fitness, conçu pour les entreprises et coachs sportifs. Le système visualise les indicateurs clés d'activité, intègre des API et crée des graphiques avec Recharts. Grâce à une stack moderne (React, SASS, Axios) et une architecture réfléchie, SportSee aide les utilisateurs à suivre leur progression et à prendre des décisions basées sur les données. Un excellent exemple pour ceux qui souhaitent créer une plateforme d'analyse pour le sport et le bien-être.",
-    "technologies": [
-      "React",
-      "React Router",
-      "Recharts",
-      "SASS",
-      "Axios"
-    ],
-    "link": "https://ssidikov.github.io/SportSee/",
-    "category": "Dashboard"
-  },
-  {
-    "id": "3",
-    "title": "ArgentBank",
-    "description": "Interface bancaire pour la gestion de comptes.",
-    "image": "https://images.unsplash.com/photo-1556742111-a301076d9d18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "ArgentBank est une plateforme bancaire sécurisée et pratique pour la gestion des comptes en ligne. Le système intègre l'authentification, la gestion d'état via Redux et l'intégration REST API. L'interface, développée avec React, offre rapidité et excellente UX. ArgentBank est la solution idéale pour les entreprises financières souhaitant proposer à leurs clients une banque en ligne moderne.",
-    "technologies": [
-      "React",
-      "Redux",
-      "React Router",
-      "REST API",
-      "Swagger"
-    ],
-    "link": "https://argent-bank-alpha.vercel.app/",
-    "category": "Finance"
-  },
-  {
-    "id": "4",
-    "title": "HRnet",
-    "description": "Application moderne pour la gestion des employés.",
-    "image": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "HRnet est une application RH moderne pour la gestion des employés, permettant d'ajouter, consulter et éditer les données facilement. Réalisée avec React, Redux Toolkit et Material-UI, elle propose une interface responsive, stockage local et validation des formulaires. HRnet est un excellent outil pour les départements RH souhaitant automatiser les processus et améliorer l'efficacité.",
-    "technologies": [
-      "React",
-      "Redux Toolkit",
-      "Material-UI",
-      "SASS",
-      "Vite",
-      "date-fns"
-    ],
-    "link": "https://ssidikov.github.io/HRnet/",
-    "category": "HR"
-  },
-  {
-    "id": "5",
-    "title": "Les petits plats",
-    "description": "Développement d'un algorithme de recherche pour une plateforme de recettes avec optimisation des performances.",
-    "image": "/images/projects/les-petit-plats.jpg",
-    "longDescription": "Les petits plats est une plateforme de recherche de recettes avec des algorithmes optimisés et une interface intuitive. Le projet implémente deux algorithmes de recherche, compare leurs performances et suit les principes Green Code. Grâce à JavaScript, Bootstrap et la programmation fonctionnelle, le site est rapide et convivial pour tous ceux qui recherchent les meilleures recettes en ligne.",
-    "technologies": [
-      "JavaScript",
-      "Bootstrap",
-      "HTML",
-      "SASS",
-      "Functional Programming",
-      "Performance Analysis"
-    ],
-    "link": "https://ssidikov.github.io/PetitsPlats2.0/",
-    "category": "Recipe"
-  },
-  {
     "id": "6",
     "title": "Trendy Cookies",
-    "description": "Site web pour commander des cookies tendance.",
+    "description": "Boutique en ligne moderne pour commander des cookies et pâtisseries artisanales.",
     "image": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "Trendy Cookies est un site élégant pour commander des douceurs tendance, développé avec Angular. La plateforme est simple, responsive et bien conçue, rendant le processus de commande rapide et agréable. Parfait pour les pâtisseries souhaitant augmenter leurs ventes en ligne.",
+    "longDescription": "Trendy Cookies est un site e-commerce élégant dédié à la commande de douceurs artisanales, développé avec Angular. La plateforme propose une interface responsive, épurée et pensée pour la conversion, rendant le parcours d'achat rapide et intuitif.",
     "technologies": [
       "Angular",
-      "CSS",
-      "HTML"
+      "TypeScript",
+      "HTML5",
+      "CSS3",
+      "E-commerce"
     ],
     "link": "https://ssidikov.github.io/cookies_angular/",
-    "category": "Ecommerce"
-  },
-  {
-    "id": "7",
-    "title": "Fisheye",
-    "description": "Plateforme accessible pour les photographes afin de présenter leurs portfolios.",
-    "image": "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "Fisheye est une application web permettant aux photographes de présenter leurs portfolios. Rendu dynamique, LightBox, formulaires de contact, gestion des likes. Accent sur l'accessibilité et la modularité.",
-    "technologies": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "JSON",
-      "AChecker"
-    ],
-    "link": "https://ssidikov.github.io/Front-End-Fisheye/",
-    "category": "Portfolio"
-  },
-  {
-    "id": "8",
-    "title": "GameOn Landing Page",
-    "description": "Landing page dynamique pour une société d'organisation de conférences et concours gaming.",
-    "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "GameOn est une landing page pour une société spécialisée dans l'organisation de conférences et concours gaming. Interactions dynamiques, validation de formulaire, design responsive, manipulation du DOM en JavaScript.",
-    "technologies": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Flexbox"
-    ],
-    "link": "https://ssidikov.github.io/GameOn-website-FR/",
-    "category": "Landing"
-  },
-  {
-    "id": "9",
-    "title": "Ohmyfood Paris",
-    "description": "Page dynamique présentant les menus de quatre restaurants parisiens avec réservation en ligne.",
-    "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "Développement d'une page web présentant les menus de quatre restaurants parisiens, réservation en ligne et composition de menu. Animations CSS et approche mobile-first.",
-    "technologies": [
-      "HTML",
-      "SASS",
-      "CSS Animations",
-      "Figma",
-      "Flexbox"
-    ],
-    "link": "https://ssidikov.github.io/OhMyFood/",
-    "category": "Restaurant"
-  },
-  {
-    "id": "10",
-    "title": "Billed Expense Feature",
-    "description": "Débogage et tests de la fonctionnalité de notes de frais pour une solution RH SaaS.",
-    "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "Débogage et rédaction de tests unitaires, d'intégration et end-to-end pour la fonctionnalité de notes de frais. Correction de bugs avec Chrome Debugger, couverture de tests >80%, plan de test manuel structuré.",
-    "technologies": [
-      "JavaScript",
-      "Jest",
-      "Chrome Debugger",
-      "End-to-End Testing"
-    ],
-    "link": "https://github.com/ssidikov/Billed-app-FR-Front/",
-    "category": "Testing"
-  },
-  {
-    "id": "11",
-    "title": "Booki - Page d'accueil",
-    "description": "Développement d'une page d'accueil responsive pour une agence de voyage.",
-    "image": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "Développement de la page d'accueil d'une agence de voyage en HTML et CSS. Accent sur le responsive et la compatibilité multi-écrans à partir de maquettes Figma.",
-    "technologies": [
-      "HTML",
-      "CSS",
-      "Figma",
-      "Flexbox",
-      "Grid"
-    ],
-    "link": "https://ssidikov.github.io/Booki/",
-    "category": "Travel"
+    "category": "E-commerce"
   },
   {
     "id": "12",
     "title": "Burger House - Landing Page",
-    "description": "Création d'une landing page avec formulaire de commande de burgers.",
+    "description": "Landing page promotionnelle avec module interactif de personnalisation de commande.",
     "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "Création d'une landing page pour un restaurant de burgers avec formulaire interactif. L'utilisateur peut choisir et personnaliser sa commande.",
+    "longDescription": "Création d'une landing page percutante pour une enseigne de burgers gourmets avec formulaire interactif permettant aux clients de composer et commander leur menu en ligne.",
     "technologies": [
-      "HTML",
-      "CSS",
       "JavaScript",
-      "Flexbox"
+      "HTML5",
+      "CSS3",
+      "Design Responsive",
+      "UI/UX"
     ],
     "link": "https://ssidikov.github.io/burgers-landing/",
-    "category": "Restaurant"
-  },
-  {
-    "id": "13",
-    "title": "Learn Home - Application de tutorat",
-    "description": "Définition des besoins et conception de la solution pour une application de tutorat.",
-    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "Ce projet a consisté à définir les besoins et à concevoir une solution technique pour une application de tutorat pour l'association Learn@Home. Identification des besoins, user stories, diagrammes de cas d'utilisation, maquettes Figma, Kanban. Méthodologie agile.",
-    "technologies": [
-      "Figma",
-      "Kanban",
-      "User Stories",
-      "Agile Methodology",
-      "UX/UI Design"
-    ],
-    "link": "#",
-    "category": "Education"
-  },
-  {
-    "id": "14",
-    "title": "Landing Page pour Euclid - Project Systems",
-    "description": "Landing page pour la société Euclid - Project Systems.",
-    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "Développement d'une landing page responsive pour la société Euclid - Project Systems, avec un look moderne et professionnel.",
-    "technologies": [
-      "Figma",
-      "HTML",
-      "CSS",
-      "Flexbox"
-    ],
-    "link": "https://ssidikov.github.io/Evklid_website/",
-    "category": "Landing"
+    "category": "Restauration & Fast-Food"
   },
   {
     "id": "15",
     "title": "Restaurant Chez Liqi",
-    "description": "Site web pour le restaurant Chez Liqi, avec un design moderne et une interface utilisateur intuitive.",
+    "description": "Site vitrine gastronomique et système de réservation en ligne sur mesure.",
     "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "Restaurant Chez Liqi est un site web moderne pour un restaurant, offrant une interface utilisateur intuitive et un design responsive. Les utilisateurs peuvent facilement naviguer à travers le menu, faire des réservations et découvrir les spécialités du chef.",
+    "longDescription": "Chez Liqi est un site web moderne pour restaurant gastronomique, offrant une navigation fluide, la consultation du menu en ligne et un module direct de réservation de table.",
     "technologies": [
       "Next.js",
-      "Tailwind CSS",
       "React",
-      "TypeScript"
+      "TypeScript",
+      "Tailwind CSS",
+      "Réservation en ligne"
     ],
     "link": "https://chez-liqi.vercel.app/",
-    "category": "Restaurant",
+    "category": "Restaurant & Réservation",
     "featured": true
   },
   {
     "id": "16",
     "title": "Portfolio de Sardorbek SIDIKOV",
-    "description": "Portfolio personnel de Sardorbek SIDIKOV, développeur web.",
+    "description": "Portfolio professionnel interactif présentant réalisations, expertises et projets web.",
     "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "Mon portfolio personnel, présentant mes projets et compétences en développement web. Conçu pour être responsive et facile à naviguer.",
+    "longDescription": "Portfolio personnel conçu avec Next.js et Tailwind CSS, mettant en avant mes projets, compétences techniques en développement web moderne et performances SEO.",
     "technologies": [
       "Next.js",
-      "Tailwind CSS",
       "React",
-      "TypeScript"
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion"
     ],
     "link": "https://sidikov.vercel.app/",
-    "category": "Portfolio"
+    "category": "Portfolio Développeur"
   },
   {
     "id": "18",
     "title": "Palais d'Agadir",
-    "description": "Création d'un site web moderne pour un restaurant avec WordPress et Elementor.",
+    "description": "Site web moderne pour restaurant marocain traditionnel avec menu immersif.",
     "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "Le site web du restaurant Palais d'Agadir a été entièrement conçu sur WordPress avec Elementor, offrant un design moderne et élégant. L'accent a été mis sur l'expérience utilisateur, avec une navigation fluide, des menus intuitifs et une présentation visuelle des plats attrayante. Le site est entièrement responsive et optimisé pour tous les appareils, permettant aux clients de découvrir le restaurant et de consulter le menu facilement.",
+    "longDescription": "Le site du restaurant Palais d'Agadir a été conçu avec un design élégant valorisant la cuisine marocaine. Il offre une consultation fluide des menus, une mise en page responsive et un référencement local optimisé.",
     "technologies": [
       "WordPress",
       "Elementor",
-      "HTML",
-      "CSS",
-      "JavaScript"
+      "Design UI/UX",
+      "SEO Local",
+      "Design Responsive"
     ],
     "link": "https://palaisdagadir.fr/",
-    "category": "Web"
+    "category": "Restaurant Gastronomique"
   },
   {
     "id": "19",
     "title": "Landing Page Degaus",
-    "description": "Landing page réactive avec animations pour une startup IA.",
+    "description": "Landing page ultra-réactive avec animations fluides pour une startup en intelligence artificielle.",
     "image": "https://images.unsplash.com/photo-1743609500635-9fe6b3ec1c6a?q=80&w=1287&auto=format&fit=crop",
-    "longDescription": "Ce projet consiste à transformer un design Figma finalisé en une landing page moderne, fluide et animée pour une startup spécialisée dans l'automatisation marketing via l'IA. La page est entièrement responsive, intègre des animations dynamiques et un header/hero interactif. Développé avec React, Next.js et Tailwind CSS, le projet inclut également la gestion du cookie consent et l'intégration d'analytics via PostHog. Livraison rapide et possibilité de suivi SEO pour améliorer la visibilité de la startup.",
+    "longDescription": "Intégration d'un design Figma sur mesure vers une landing page Next.js animée pour une startup IA spécialisée dans le marketing automatisé. Intégration d'animations Framer Motion, gestion du consentement et PostHog Analytics.",
     "technologies": [
-      "React",
       "Next.js",
+      "React",
       "Tailwind CSS",
-      "Framer Motion"
+      "Framer Motion",
+      "PostHog Analytics"
     ],
     "link": "https://degaus.vercel.app/",
-    "category": "Web"
+    "category": "Startup IA & Landing Page"
   },
   {
     "id": "20",
     "title": "L'Instant Barbier",
-    "description": "Site Next.js et Optimisation SEO (+428% de trafic) pour un salon de coiffure et barbier parisien.",
+    "description": "Site Next.js haute performance et stratégie SEO (+428% de trafic) pour un salon barbier parisien.",
     "image": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "Réalisation d’un site web moderne et performant pour L’Instant Barbier, un salon de coiffure et barbier homme situé à Paris 3 – Le Marais. L’objectif du projet était de créer un site rapide, élégant et optimisé pour la visibilité sur Google afin d’augmenter les réservations en ligne. Le site a été développé avec React et Next.js, en mettant l’accent sur la performance, le SEO et l’expérience utilisateur sur mobile.\n\nTravail réalisé :\n- Développement du site avec React et Next.js\n- Design moderne et premium adapté à l’image du salon\n- Optimisation SEO pour améliorer la visibilité locale sur Google\n- Optimisation des performances et du temps de chargement\n- Intégration des photos et vidéos du salon\n- Mise en place de la réservation en ligne\n- Configuration de l’email professionnel et du domaine\n\nRésultat : durant la première semaine après la mise en ligne, le trafic SEO du site a augmenté d’environ 428 %, grâce à l’optimisation technique et au référencement local.",
+    "longDescription": "Conception et développement d'un site web sur mesure pour L'Instant Barbier (Paris 3 – Le Marais). Résultat : +428% de trafic SEO dès la première semaine, intégration Planity et expérience mobile instantanée.",
     "technologies": [
-      "React",
       "Next.js",
+      "React",
       "Tailwind CSS",
-      "SEO",
-      "Responsive Design"
+      "SEO Local (+428%)",
+      "Réservation Planity"
     ],
     "link": "https://www.linstantbarbier.fr/",
-    "category": "Web",
+    "category": "Barbier & Salon Parisien",
     "featured": true
   },
   {
     "id": "21",
     "title": "Bahor Voyage",
-    "description": "Plateforme multilingue de réservation de circuits touristiques en Ouzbékistan.",
+    "description": "Plateforme multilingue de réservation de circuits touristiques et voyages solidaires en Ouzbékistan.",
     "image": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "Conception et développement complet d'un site web de réservation de circuits touristiques pour l'agence Bahor Voyage, spécialisée dans les voyages solidaires en Ouzbékistan et sur la Route de la Soie. Le site propose un tunnel de réservation complet (sélection de circuits, dates, voyageurs, paiement), une interface d'administration sécurisée via NextAuth, des notifications e-mail et un design moderne responsive avec accessibilité WCAG.",
+    "longDescription": "Développement complet d'une plateforme de réservation touristique pour l'agence Bahor Voyage. Tunnel complet de sélection de circuits, administration sécurisée via NextAuth, base de données PostgreSQL / Prisma et conformité accessibilité WCAG.",
     "technologies": [
       "Next.js",
       "React",
       "TypeScript",
       "Tailwind CSS",
       "PostgreSQL",
-      "Prisma ORM",
+      "Prisma",
       "NextAuth",
-      "Framer Motion"
+      "Tunnel de réservation"
     ],
     "link": "https://bahorvoyage.com",
-    "category": "Travel"
+    "category": "Agence de Voyage & Tourisme"
   },
   {
     "id": "22",
     "title": "OpenLine",
-    "description": "Application d'appels vidéo et audio P2P chiffrés en temps réel sans compte ni serveur tiers.",
+    "description": "Application d'appels vidéo et audio P2P chiffrés en temps réel, sans compte ni serveur tiers.",
     "image": "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "OpenLine est une application web d'appels vidéo et audio instantanés, sécurisés et respectueux de la vie privée, conçue avec Next.js 16, React 19 et WebRTC (PeerJS). Sans inscription, sans stockage sur serveur ni traceurs, OpenLine établit des flux multimédias et de données chiffrés directement de navigateur à navigateur (Peer-to-Peer). Fonctionnalités : salons instantanés par URL, vidéo Full HD 1080p, mode audio léger, pré-vérification Greenroom avec VU-mètre en direct (Web Audio API), partage d'écran fluide, chat P2P en direct via DataChannel et interface soignée en dark mode.",
+    "longDescription": "OpenLine est une application web d'appels vidéo et audio instantanés et privés via WebRTC (PeerJS). Flux chiffrés Peer-to-Peer, vidéo 1080p, pré-vérification audio en direct avec VU-mètre (Web Audio API) et partage d'écran fluide.",
     "technologies": [
       "Next.js 16",
       "React 19",
@@ -331,27 +149,66 @@
     ],
     "link": "https://openonline.vercel.app/",
     "github": "https://github.com/ssidikov/OpenLine",
-    "category": "Web",
+    "category": "Application Web P2P",
     "featured": true
   },
   {
     "id": "23",
     "title": "OpenSEO",
-    "description": "Outil d'audit et d'analyse SEO technique automatisé propulsé par des agents IA.",
+    "description": "Outil d'audit technique et d'optimisation SEO automatisé propulsé par des agents IA.",
     "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "OpenSEO est une plateforme open-source d'analyse et d'audit SEO technique pour tout site web, propulsée par un moteur d'agent IA. Développée avec Next.js 16 (App Router & Turbopack), React 19 et Vercel AI SDK, elle propose une interface Apple Liquid Glass épurée. Elle audite les balises meta, canonicals, la hiérarchie Hn, les images, OpenGraph, Core Web Vitals, sitemap.xml et robots.txt, attribue un score de santé SEO (0-100) et fournit un assistant IA en streaming pour corriger les anomalies et générer du balisage Schema.org JSON-LD.",
+    "longDescription": "OpenSEO est une plateforme d'audit SEO technique propulsée par l'IA. Elle audite les balises meta, les Core Web Vitals, la sémantique Hn, génère un score de santé (0-100) et fournit un assistant IA en streaming pour corriger les anomalies.",
     "technologies": [
       "Next.js 16",
       "React 19",
       "TypeScript",
       "Vercel AI SDK",
       "Tailwind CSS",
-      "OpenRouter API",
+      "Agents IA",
       "Cheerio"
     ],
     "link": "https://openseo.vercel.app/",
     "github": "https://github.com/ssidikov/OpenSEO",
-    "category": "Web",
+    "category": "Plateforme SaaS & Audit SEO",
+    "featured": true
+  },
+  {
+    "id": "24",
+    "title": "Lyon Barbershop 6ème",
+    "description": "Site web premium pour salon de coiffure et barbier homme à Lyon 6ème avec intégration Planity.",
+    "image": "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "longDescription": "Site vitrine haut de gamme pour le salon 6TH Barbershop situé Cours Lafayette à Lyon. Interface sombre et dorée, grille tarifaire interactive, avis clients Google 5/5 et intégration directe de la prise de rendez-vous Planity.",
+    "technologies": [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "API Planity",
+      "SEO Local"
+    ],
+    "link": "https://barbershop-6-lyon.vercel.app/",
+    "github": "https://github.com/ssidikov/barbershop-6-lyon",
+    "category": "Barbier & Salon Lyon 6",
+    "featured": true
+  },
+  {
+    "id": "25",
+    "title": "Alex Photos — Alexis Kodzaga",
+    "description": "Portfolio immersif et plateforme de réservation pour un directeur artistique, photographe et vidéaste.",
+    "image": "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "longDescription": "Site portfolio cinématique pour Alexis Kodzaga (Alex Photos). Esthétique sombre luxueuse, galerie interactive de portraits et vidéos publicitaires, forfaits transparents et tunnel de réservation.",
+    "technologies": [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "SEO & Réservation"
+    ],
+    "link": "https://www.al3x-photos.fr/",
+    "github": "https://github.com/ssidikov/kodzaga-photo",
+    "category": "Portfolio Photographe & Vidéaste",
     "featured": true
   }
 ]

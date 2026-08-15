@@ -89,11 +89,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <span className='px-4 py-2 bg-accent-alpha-10 text-accent rounded-full text-sm font-medium'>
                 {project.category}
               </span>
-              {project.featured && (
-                <span className='px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium'>
-                  ⭐ {'Projet vedette'}
-                </span>
-              )}
             </div>
             <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight'>
               {project.title}

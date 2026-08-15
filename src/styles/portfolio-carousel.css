@@ -96,11 +96,7 @@
     pointer-events: auto;
   }
 
-  /* Убеждаемся что цифры полностью видны в мобильной версии */
-  .portfolio-carousel-item .absolute.-top-10 {
-    top: -2.5rem !important;
-  }
-
+  /* Убеждаемся что стрелки полностью видны в мобильной версии */
   .portfolio-carousel-item .absolute.-bottom-10 {
     bottom: -2.5rem !important;
   }
