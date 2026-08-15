@@ -244,27 +244,8 @@
       "React",
       "TypeScript"
     ],
-    "link": "https://sidikov.tech/",
+    "link": "https://sidikov.vercel.app/",
     "category": "Portfolio"
-  },
-  {
-    "id": "17",
-    "title": "Restaurant Le Moderne",
-    "description": "Le Moderne - Système de gestion de restaurant",
-    "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "longDescription": "Plateforme web moderne pour restaurant parisien avec système complet de gestion des réservations. Comprend un panel d'administration sécurisé et une interface de réservation en ligne intuitive.",
-    "technologies": [
-      "Next.js",
-      "TypeScript",
-      "PostgreSQL",
-      "NextAuth",
-      "Tailwind CSS",
-      "Neon Database",
-      "Nodemailer"
-    ],
-    "link": "https://resto-parisien.vercel.app/",
-    "category": "Restaurant",
-    "featured": true
   },
   {
     "id": "18",
@@ -332,5 +313,45 @@
     ],
     "link": "https://bahorvoyage.com",
     "category": "Travel"
+  },
+  {
+    "id": "22",
+    "title": "OpenLine",
+    "description": "Application d'appels vidéo et audio P2P chiffrés en temps réel sans compte ni serveur tiers.",
+    "image": "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "longDescription": "OpenLine est une application web d'appels vidéo et audio instantanés, sécurisés et respectueux de la vie privée, conçue avec Next.js 16, React 19 et WebRTC (PeerJS). Sans inscription, sans stockage sur serveur ni traceurs, OpenLine établit des flux multimédias et de données chiffrés directement de navigateur à navigateur (Peer-to-Peer). Fonctionnalités : salons instantanés par URL, vidéo Full HD 1080p, mode audio léger, pré-vérification Greenroom avec VU-mètre en direct (Web Audio API), partage d'écran fluide, chat P2P en direct via DataChannel et interface soignée en dark mode.",
+    "technologies": [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "WebRTC",
+      "PeerJS",
+      "Tailwind CSS",
+      "Web Audio API"
+    ],
+    "link": "https://openonline.vercel.app/",
+    "github": "https://github.com/ssidikov/OpenLine",
+    "category": "Web",
+    "featured": true
+  },
+  {
+    "id": "23",
+    "title": "OpenSEO",
+    "description": "Outil d'audit et d'analyse SEO technique automatisé propulsé par des agents IA.",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "longDescription": "OpenSEO est une plateforme open-source d'analyse et d'audit SEO technique pour tout site web, propulsée par un moteur d'agent IA. Développée avec Next.js 16 (App Router & Turbopack), React 19 et Vercel AI SDK, elle propose une interface Apple Liquid Glass épurée. Elle audite les balises meta, canonicals, la hiérarchie Hn, les images, OpenGraph, Core Web Vitals, sitemap.xml et robots.txt, attribue un score de santé SEO (0-100) et fournit un assistant IA en streaming pour corriger les anomalies et générer du balisage Schema.org JSON-LD.",
+    "technologies": [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Vercel AI SDK",
+      "Tailwind CSS",
+      "OpenRouter API",
+      "Cheerio"
+    ],
+    "link": "https://openseo.vercel.app/",
+    "github": "https://github.com/ssidikov/OpenSEO",
+    "category": "Web",
+    "featured": true
   }
 ]
