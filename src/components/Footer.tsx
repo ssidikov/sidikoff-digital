@@ -69,6 +69,10 @@ const createCoreLinks = (): FooterLink[] => [
     name: common.navigation?.contact || 'Contact',
     href: getLocalizedUrl('/#contact'),
   },
+  {
+    name: 'Sardorbek SIDIKOV - Développeur Web à Lyon',
+    href: 'https://sidikov.vercel.app/',
+  },
 ]
 
 /**
@@ -210,15 +214,28 @@ export function Footer({ isDark: isDarkProp }: { isDark?: boolean }) {
             Menu
           </h3>
           <nav className='space-y-4' aria-label='Navigation principale'>
-            {coreLinks.map((link) => (
-              <div key={`nav-${link.href}`}>
-                <Link
-                  href={link.href}
-                  className={`block text-lg font-medium transition-all hover:-translate-y-0.5 ${isDark ? 'text-stone-200 hover:text-amber-400' : 'text-[#112D4E] hover:text-[#3377FF]'}`}>
-                  {link.name}
-                </Link>
-              </div>
-            ))}
+            {coreLinks.map((link) => {
+              const isExternal = link.href.startsWith('http')
+              return (
+                <div key={`nav-${link.href}`}>
+                  {isExternal ? (
+                    <a
+                      href={link.href}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className={`block text-lg font-medium transition-all hover:-translate-y-0.5 ${isDark ? 'text-stone-200 hover:text-amber-400' : 'text-[#112D4E] hover:text-[#3377FF]'}`}>
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className={`block text-lg font-medium transition-all hover:-translate-y-0.5 ${isDark ? 'text-stone-200 hover:text-amber-400' : 'text-[#112D4E] hover:text-[#3377FF]'}`}>
+                      {link.name}
+                    </Link>
+                  )}
+                </div>
+              )
+            })}
           </nav>
         </div>
 
@@ -278,9 +295,11 @@ export function Footer({ isDark: isDarkProp }: { isDark?: boolean }) {
             suppressHydrationWarning>
             {COMPANY_INFO.copyright} • Site développé par{' '}
             <a
-              href='https://www.sidikoff.com'
+              href='https://sidikov.vercel.app/'
+              target='_blank'
+              rel='noopener noreferrer'
               className={`hover:underline font-semibold ${isDark ? 'text-stone-300' : 'text-[#112D4E]'}`}>
-              SIDIKOFF DIGITAL
+              Sardorbek SIDIKOV
             </a>
           </div>
 
@@ -291,9 +310,11 @@ export function Footer({ isDark: isDarkProp }: { isDark?: boolean }) {
             <div className='mt-2'>
               Site développé par{' '}
               <a
-                href='https://www.sidikoff.com'
+                href='https://sidikov.vercel.app/'
+                target='_blank'
+                rel='noopener noreferrer'
                 className={`hover:underline font-semibold ${isDark ? 'text-stone-300' : 'text-[#112D4E]'}`}>
-                SIDIKOFF DIGITAL
+                Sardorbek SIDIKOV
               </a>
             </div>
           </div>
@@ -317,6 +338,13 @@ export function Footer({ isDark: isDarkProp }: { isDark?: boolean }) {
               className={`text-sm uppercase tracking-wider transition-colors ${isDark ? 'text-stone-400 hover:text-amber-400' : 'text-[#112D4E]/60 hover:text-[#3377FF]'}`}>
               Plan du site
             </Link>
+            <a
+              href='https://sidikov.vercel.app/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className={`text-sm uppercase tracking-wider transition-colors ${isDark ? 'text-stone-400 hover:text-amber-400' : 'text-[#112D4E]/60 hover:text-[#3377FF]'}`}>
+              Portfolio Développeur
+            </a>
           </div>
         </div>
       </div>

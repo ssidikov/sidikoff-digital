@@ -468,9 +468,11 @@ export default function GoneLandingPage({ cityName }: GoneLandingPageProps) {
                 <p>
                   &copy; {new Date().getFullYear()} Sidikoff Digital. {t.footerRights} • Site développé par{' '}
                   <a
-                    href='https://www.sidikoff.com'
+                    href='https://sidikov.vercel.app/'
+                    target='_blank'
+                    rel='noopener noreferrer'
                     className='text-white hover:underline font-semibold'>
-                    SIDIKOFF DIGITAL
+                    Sardorbek SIDIKOV
                   </a>
                 </p>
               </div>
