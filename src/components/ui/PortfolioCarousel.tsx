@@ -152,7 +152,7 @@ export default function PortfolioCarousel({
                 size='md'
                 trackingAction='view_all_projects_click'
                 trackingCategory='portfolio_home'>
-                <span>Voir toutes nos réalisations ({items.length} projets)</span>
+                <span>Voir toutes nos réalisations</span>
                 <ArrowUpRight className='w-4 h-4 ml-2 shrink-0' />
               </CTAButton>
             )}
