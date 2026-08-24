@@ -2,14 +2,7 @@
 
 import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import {
-  MessageSquare,
-  X,
-  Send,
-  Zap,
-  RotateCcw,
-  Sparkles,
-} from 'lucide-react'
+import { MessageSquare, X, Send, Zap, RotateCcw, Sparkles } from 'lucide-react'
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -69,7 +62,7 @@ export function ChatWidget() {
         {
           id: 0,
           role: 'model',
-          text: 'Bonjour ! 👋 Je suis l\'assistant de **Sidikoff Digital**. Je peux vous aider à choisir la bonne prestation, vous donner les tarifs, ou préparer votre demande de devis. Que puis-je faire pour vous ?',
+          text: "Bonjour ! 👋 Je suis l'assistant de **Sidikoff Digital**. Je peux vous aider à choisir la bonne prestation, vous donner les tarifs, ou préparer votre demande de devis. Que puis-je faire pour vous ?",
           timestamp: getTime(),
         },
       ])
@@ -81,7 +74,7 @@ export function ChatWidget() {
       {
         id: 0,
         role: 'model',
-        text: 'Bonjour ! 👋 Comment puis-je vous aider aujourd\'hui ?',
+        text: "Bonjour ! 👋 Comment puis-je vous aider aujourd'hui ?",
         timestamp: getTime(),
       },
     ])
@@ -137,13 +130,13 @@ export function ChatWidget() {
             timestamp: getTime(),
           },
         ])
-      } catch (err) {
+      } catch {
         setMessages((prev) => [
           ...prev,
           {
             id: nextId(),
             role: 'model',
-            text: '❌ Désolé, une erreur s\'est produite. Veuillez réessayer ou nous contacter directement à s.sidikoff@gmail.com',
+            text: "❌ Désolé, une erreur s'est produite. Veuillez réessayer ou nous contacter directement à s.sidikoff@gmail.com",
             timestamp: getTime(),
           },
         ])
@@ -168,9 +161,7 @@ export function ChatWidget() {
       const parts = line.split(/\*\*(.*?)\*\*/g)
       return (
         <span key={i}>
-          {parts.map((part, j) =>
-            j % 2 === 1 ? <strong key={j}>{part}</strong> : part,
-          )}
+          {parts.map((part, j) => (j % 2 === 1 ? <strong key={j}>{part}</strong> : part))}
           {i < text.split('\n').length - 1 && <br />}
         </span>
       )
@@ -187,15 +178,13 @@ export function ChatWidget() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: 'spring', stiffness: 380, damping: 24 }}
-            className='fixed right-4 bottom-4 z-50 sm:right-6 sm:bottom-6'
-          >
+            className='fixed right-4 bottom-4 z-50 sm:right-6 sm:bottom-6'>
             <div className='absolute -inset-2 rounded-full bg-gradient-to-r from-cyan-300/50 via-blue-400/40 to-sky-300/50 opacity-80 blur-xl transition duration-700 animate-pulse' />
 
             <button
               onClick={handleOpen}
               className='group relative flex h-16 w-16 items-center justify-center rounded-full bg-white/80 backdrop-blur-2xl backdrop-saturate-200 border border-white text-cyan-600 shadow-[inset_0_1.5px_2px_rgba(255,255,255,1),inset_0_-1.5px_2px_rgba(0,0,0,0.06),0_12px_32px_rgba(0,0,0,0.12)] transition-all duration-300 hover:scale-105 hover:bg-white hover:text-cyan-700 hover:shadow-[inset_0_1.5px_2px_rgba(255,255,255,1),0_16px_40px_rgba(0,180,216,0.25)] active:scale-95'
-              aria-label='Ouvrir l&apos;assistant Sidikoff'
-            >
+              aria-label="Ouvrir l'assistant Sidikoff">
               <div className='pointer-events-none absolute inset-0 rounded-full bg-gradient-to-b from-white/70 via-white/20 to-transparent' />
               <MessageSquare className='relative z-10 h-6 w-6 transition-transform duration-300 group-hover:scale-110' />
               <span className='absolute top-1 right-1 flex h-4 w-4'>
@@ -219,8 +208,7 @@ export function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.94 }}
             transition={{ type: 'spring', stiffness: 360, damping: 26 }}
-            className='fixed right-3 bottom-3 left-3 z-50 flex max-h-[min(650px,calc(100vh-1.5rem))] flex-col overflow-hidden rounded-[28px] border border-white/80 bg-white/75 backdrop-blur-3xl backdrop-saturate-200 shadow-[inset_0_1.5px_2.5px_rgba(255,255,255,1),inset_0_-1px_2px_rgba(0,0,0,0.05),0_25px_60px_rgba(0,0,0,0.15)] sm:left-auto sm:right-6 sm:bottom-6 sm:w-[420px]'
-          >
+            className='fixed right-3 bottom-3 left-3 z-50 flex max-h-[min(650px,calc(100vh-1.5rem))] flex-col overflow-hidden rounded-[28px] border border-white/80 bg-white/75 backdrop-blur-3xl backdrop-saturate-200 shadow-[inset_0_1.5px_2.5px_rgba(255,255,255,1),inset_0_-1px_2px_rgba(0,0,0,0.05),0_25px_60px_rgba(0,0,0,0.15)] sm:left-auto sm:right-6 sm:bottom-6 sm:w-[420px]'>
             {/* Gloss layers */}
             <div className='pointer-events-none absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-white/60 via-cyan-100/20 to-transparent' />
             <div className='pointer-events-none absolute -top-16 left-1/2 h-44 w-80 -translate-x-1/2 rounded-full bg-cyan-400/15 blur-3xl' />
@@ -249,15 +237,13 @@ export function ChatWidget() {
                   onClick={handleReset}
                   className='flex h-8 w-8 items-center justify-center rounded-full border border-slate-200/80 bg-slate-100/70 text-slate-600 shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.9)] backdrop-blur-xl transition-all hover:border-slate-300 hover:bg-white hover:text-slate-900 active:scale-95'
                   title='Réinitialiser'
-                  aria-label='Réinitialiser la conversation'
-                >
+                  aria-label='Réinitialiser la conversation'>
                   <RotateCcw className='h-3.5 w-3.5' />
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}
                   className='flex h-8 w-8 items-center justify-center rounded-full border border-slate-200/80 bg-slate-100/70 text-slate-600 shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.9)] backdrop-blur-xl transition-all hover:border-slate-300 hover:bg-white hover:text-slate-900 active:scale-95'
-                  aria-label='Fermer'
-                >
+                  aria-label='Fermer'>
                   <X className='h-4 w-4' />
                 </button>
               </div>
@@ -266,8 +252,7 @@ export function ChatWidget() {
             {/* ── Messages ── */}
             <div
               ref={scrollRef}
-              className='relative z-10 flex-1 space-y-3.5 overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-slate-300/60'
-            >
+              className='relative z-10 flex-1 space-y-3.5 overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-slate-300/60'>
               <AnimatePresence initial={false}>
                 {messages.map((msg) => (
                   <motion.div
@@ -276,8 +261,7 @@ export function ChatWidget() {
                     initial={{ opacity: 0, y: 12, scale: 0.97 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 28 }}
-                    className={`flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'}`}
-                  >
+                    className={`flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
                     <div className='flex items-end gap-2 max-w-[88%]'>
                       {msg.role === 'model' && (
                         <div className='flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-cyan-200 bg-cyan-50 text-cyan-700 text-[9px] font-bold shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)]'>
@@ -289,8 +273,7 @@ export function ChatWidget() {
                           msg.role === 'user'
                             ? 'rounded-tr-sm bg-gradient-to-r from-cyan-600 via-blue-600 to-blue-700 font-medium text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_6px_20px_rgba(0,180,216,0.3)]'
                             : 'rounded-tl-sm border border-slate-200/80 bg-slate-100/90 text-slate-800 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_2px_8px_rgba(0,0,0,0.04)]'
-                        }`}
-                      >
+                        }`}>
                         {renderText(msg.text)}
                       </div>
                     </div>
@@ -306,8 +289,7 @@ export function ChatWidget() {
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className='flex items-end gap-2'
-                >
+                  className='flex items-end gap-2'>
                   <div className='flex h-6 w-6 items-center justify-center rounded-full border border-cyan-200 bg-cyan-50 text-[9px] font-bold text-cyan-700'>
                     AI
                   </div>
@@ -325,14 +307,12 @@ export function ChatWidget() {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className='flex flex-wrap gap-2 pt-1'
-                >
+                  className='flex flex-wrap gap-2 pt-1'>
                   {SUGGESTIONS.map((s) => (
                     <button
                       key={s}
                       onClick={() => sendMessage(s)}
-                      className='rounded-full border border-cyan-200/80 bg-cyan-50/80 px-3 py-1.5 text-[11px] font-semibold text-cyan-700 shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.9)] backdrop-blur-md transition-all hover:border-cyan-400 hover:bg-white hover:text-cyan-900 active:scale-95'
-                    >
+                      className='rounded-full border border-cyan-200/80 bg-cyan-50/80 px-3 py-1.5 text-[11px] font-semibold text-cyan-700 shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.9)] backdrop-blur-md transition-all hover:border-cyan-400 hover:bg-white hover:text-cyan-900 active:scale-95'>
                       {s}
                     </button>
                   ))}
@@ -348,8 +328,7 @@ export function ChatWidget() {
                   initial={{ opacity: 0, y: 6 }}
                   animate={{ opacity: 1, y: 0 }}
                   href='/contact'
-                  className='mb-3 flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-blue-700 py-2.5 text-xs font-bold text-white border border-cyan-300/40 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.5),0_6px_20px_rgba(0,180,216,0.3)] transition-all hover:scale-[1.01] active:scale-[0.99]'
-                >
+                  className='mb-3 flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-blue-700 py-2.5 text-xs font-bold text-white border border-cyan-300/40 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.5),0_6px_20px_rgba(0,180,216,0.3)] transition-all hover:scale-[1.01] active:scale-[0.99]'>
                   <Zap className='h-3.5 w-3.5' />
                   Demander un devis gratuit →
                 </motion.a>
@@ -376,8 +355,7 @@ export function ChatWidget() {
                   onClick={() => sendMessage(input)}
                   disabled={!input.trim() || isLoading}
                   className='flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_14px_rgba(0,180,216,0.35)] transition-all hover:scale-105 active:scale-95 disabled:opacity-40 disabled:pointer-events-none'
-                  aria-label='Envoyer'
-                >
+                  aria-label='Envoyer'>
                   <Send className='h-4 w-4' />
                 </button>
               </div>

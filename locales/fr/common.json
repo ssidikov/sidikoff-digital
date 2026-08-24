@@ -21,7 +21,7 @@
   "hero": {
     "badge": "Agence Web & SEO à Lyon & Villeurbanne",
     "title": "Agence Web à Lyon : Votre Site Internet Sur Mesure Livré en 7 Jours",
-    "subtitle": "Agence web spécialisée à Lyon et Métropole. Nous créons des sites internet modernes, ultra-rapides et optimisés Google pour convertir vos prospects lyonnais en clients.",
+    "subtitle": "Nous créons des sites internet modernes, ultra-rapides et optimisés Google pour transformer vos visiteurs lyonnais en clients fidèles.",
     "cta_primary": "Obtenir un Devis Gratuit",
     "cta_secondary": "Voir nos réalisations",
     "trust_indicators": [
@@ -51,34 +51,34 @@
       "title": "Création de sites internet sur mesure à Lyon",
       "subtitle": "Création de Sites Web – De A à Z",
       "features": [
-        "Sur mesure",
-        "Responsive"
+        "Score 95+ PageSpeed",
+        "Livré en 7 jours"
       ],
-      "description": "Transformez votre vision en réalité digitale avec notre expertise complète en développement web. Nous créons des sites web modernes, rapides et optimisés pour le référencement Google. De la conception UX/UI à la mise en ligne, chaque projet est développé sur mesure avec les dernières technologies (React, Next.js, Tailwind CSS). Obtenez un site professionnel qui convertit vos visiteurs en clients et booste votre chiffre d'affaires dès le premier mois."
+      "description": "Développement sur-mesure haute performance (Next.js, React, Tailwind CSS). Nous concevons une interface unique, rapide et optimisée dès le départ pour convertir vos visiteurs en contacts qualifiés."
     },
     "web_redesign": {
       "title": "Refonte & modernisation de sites web à Lyon",
       "features": [
-        "Modernisation",
-        "UX/UI"
+        "Design Moderne",
+        "SEO Préservé"
       ],
-      "description": "Votre site web actuel ne génère pas assez de ventes ? Notre service de refonte transforme votre présence en ligne en machine à convertir. Nous analysons votre taux de conversion, optimisons l'expérience utilisateur et modernisons le design pour doubler vos résultats. Interface mobile-first, vitesse de chargement optimisée, parcours utilisateur fluide - tout est pensé pour maximiser vos revenus et réduire le taux de rebond de 40%."
+      "description": "Votre site actuel manque de clarté ou ne convertit pas ? Nous modernisons son design, accélérons son chargement et optimisons le parcours utilisateur pour multiplier vos demandes de devis."
     },
     "seo_optimization": {
       "title": "Référencement SEO local & visibilité Google Lyon",
       "features": [
-        "Google Ready",
-        "Analytics"
+        "1ère Page Google",
+        "SEO Local 69"
       ],
-      "description": "Dominez la première page Google et multipliez votre trafic organique par 5 en 6 mois. Notre stratégie SEO complète inclut : audit technique approfondi, optimisation on-page, création de contenu optimisé, netlinking de qualité et suivi des performances. Nous ciblons les mots-clés rentables de votre secteur pour attirer des prospects qualifiés."
+      "description": "Gagnez en visibilité là où vos clients vous cherchent. Audit technique, optimisation des contenus, netlinking et fiche Google My Business pour dominer les résultats locaux à Lyon et Villeurbanne."
     },
     "maintenance": {
       "title": "Maintenance et Support",
       "features": [
-        "Support",
-        "Mises à jour"
+        "Disponibilité 99.9%",
+        "Support réactif"
       ],
-      "description": "Protégez votre investissement digital avec notre service de maintenance premium. Sécurité renforcée, sauvegardes automatiques, mises à jour régulières, monitoring 24/7 et support prioritaire. Nous garantissons 99.9% de disponibilité et un temps de réponse inférieur à 2h. Évitez les pannes coûteuses et concentrez-vous sur votre business pendant que nous maintenons votre site en parfait état de fonctionnement."
+      "description": "Sécurité renforcée, sauvegardes automatiques, mises à jour régulières et assistance rapide. Nous veillons sur votre site pour que vous puissiez vous concentrer sur votre activité."
     },
     "restaurant": {
       "title": "Sites Web pour Restaurants",
@@ -3461,7 +3461,7 @@
     "eyebrow": "Votre Agence Web à Lyon",
     "headline": "Agence web & développeur sur-mesure basé à Lyon et Villeurbanne",
     "p1": "Je suis Sardor, développeur web Next.js et fondateur de Sidikoff Digital à Villeurbanne (Lyon). Nous accompagnons les entreprises lyonnaises dans la création et la refonte de leur site internet sur mesure.",
-    "p2": "Nous utilisons les mêmes technologies que Netflix, Uber et Airbnb — mais au service des PME et indépendants de la région lyonnaise. Résultat : des sites ultra-rapides qui se positionnent en première page Google.",
+    "p2": "Architecture Next.js moderne, temps de chargement ultra-rapides et optimisation Google avancée : nous mettons les meilleures technologies web au service des PME, artisans et indépendants de la région lyonnaise.",
     "stats": [
       {
         "value": "20+",
@@ -3472,8 +3472,8 @@
         "label": "délai moyen de livraison"
       },
       {
-        "value": "Next.js",
-        "label": "technologie principale"
+        "value": "100%",
+        "label": "sites autonomes & sécurisés"
       }
     ],
     "trust_badges": [

@@ -91,15 +91,6 @@ async function sendBookingEmail(booking: BookingData): Promise<void> {
     auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_PASS },
   })
 
-  const message = `
-[DEMANDE CHATBOT AI]
-- Nom : ${booking.name}
-- Email : ${booking.email}
-- Téléphone : ${booking.phone || 'Non renseigné'}
-- Projet : ${booking.project || 'Non précisé'}
-- Description : ${booking.description || 'Non précisée'}
-`.trim()
-
   await Promise.all([
     // Admin notification
     transporter.sendMail({
@@ -148,11 +139,7 @@ async function callOpenRouter(messages: ChatMessage[]): Promise<string> {
       'X-Title': 'Sidikoff Digital Chatbot',
     },
     body: JSON.stringify({
-      models: [
-        'openrouter/free',
-        'google/gemma-4-31b-it:free',
-        'inclusionai/ling-3.0-flash:free',
-      ],
+      models: ['openrouter/free', 'google/gemma-4-31b-it:free', 'inclusionai/ling-3.0-flash:free'],
       messages: openAiMessages,
       max_tokens: 1024,
       temperature: 0.7,
